@@ -147,37 +147,6 @@ justify-content: center;
 
 
 
-@media (max-width: 1400px) {
-  .coloeasd {
-    background-color: #ffc;
-  }
-}
-
-
-
-@media (max-width: 1200px) {
-  .coloeasd {
-    background-color: #fcf;
-  }
-}
-
-@media (max-width: 992px) {
-  .coloeasd {
-    background-color: #ccf;
-  }
-}
-
-@media (max-width: 768px) {
-  .coloeasd {
-    background-color: #cfc;
-  }
-}
-
-@media (max-width: 576px) {
-  .coloeasd {
-    background-color: #fcc;
-  }
-}
 
 
 

@@ -49,7 +49,6 @@
 
 
 						<div class="ontent-m-td-2-content">
-						<div class="coloeasd">zxczxc</div>
 						</div>
 
 						<div class="ontent-m-td-2-bottom">
