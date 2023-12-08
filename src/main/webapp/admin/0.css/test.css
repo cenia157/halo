@@ -1,0 +1,103 @@
+@import url(https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular);
+
+@font-face {
+  font-family: "SF Pro JP Regular";
+  src: url("https://db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.eot");
+  src: url("https://db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.eot?#iefix") format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.woff2") format("woff2"),
+    url("https://db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.woff") format("woff"),
+    url("https://db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.ttf") format("truetype"),
+    url("https://db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.svg#SF Pro JP Regular") format("svg");
+}
+
+* {
+  font-family: "SF Pro JP Regular";
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+
+.menu-tr {
+  width: 17vw;
+  height: 100vh;
+  background-color: #4a572e;
+}
+
+.menu-td-1 {
+  width: 17vw;
+  height: 10vh;
+  border-bottom: solid 0.5px #738749;
+}
+
+.menu-td-2 {
+  width: 17vw;
+  height: 12.5vh;
+  border-bottom: solid 0.5px #738749;
+}
+
+.menu-td-3 {
+  width: 17vw;
+  height: 67.5vh;
+}
+
+.menu-td-4 {
+  width: 17vw;
+  height: 10vh;
+  background-color: #2a321a;
+}
+
+.header-tr {
+  width: 83vw;
+  height: 10vh;
+  background-color: #ffffff;
+}
+
+.content-tr {
+  width: 83vw;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0;
+}
+
+.content-main-td {
+  width: 95%;
+  height: 95%;
+  border-radius: var(--border-radius-tremor-small, 3px);
+  border: 0.5px solid var(--boarder-default, #E5E7EB);
+  background: var(--background-default, #FFF);
+  box-shadow: 0px 0.2px 1.5px 0px rgba(0, 0, 0, 0.10), 0px 1px 0px -1px rgba(0, 0, 0, 0.10);
+
+}
+
+.content-m-td-1 {
+  width: 100%;
+  height: 12%;
+  display: flex;
+  align-items: center;
+  border-bottom: solid 0.5px #d9d9d9;
+  padding-left: 5%;
+}
+
+.content-m-td-title {
+  font-size: 0.5rem;
+  font-weight: 700;
+}
+
+/* ************************위로수정금지************************ */
+
+.content-m-td-2 {
+  width: 100%;
+  height: 88%;
+}
