@@ -23,6 +23,7 @@ $(function () {
             });
         } else {
             $(this).find(".header-td-menu-under").css("visibility", "hidden").css("transform", "scaleX(0)");
+            $(this).css("color", "#FFFFFF");
         }
         menuhover = !menuhover;
 
