@@ -15,7 +15,23 @@
 <!-- 아래의 코드는 에ㅔ디터를 활성화 하기 위한 코드 -->
 
 
+
+
+<!-- 
+왜 아래의 코드는 안먹는걸까...?
+-->
+<script src="${pageContext.request.contextPath}/admin/ckeditor/build/ckeditor.js"></script>
+<script src="${pageContext.request.contextPath}/admin/0.js/ckeditor.js"></script>
+
+<!--
+<script src="https://cdn.ckeditor.com/ckeditor5/29.1.0/classic/ckeditor.js"></script> 
+-->
+
+
 <title>Ask</title>
+
+
+
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/admin/0.css/test.css" />
 <link
@@ -23,12 +39,6 @@
 	rel="stylesheet" />
 </head>
 
-<style>
-.container{
-width: 1200px;
-height: 100px;
-}
-</style>
 
 <body>
 	<!-- 최상위 콘테이너 -->
@@ -130,33 +140,9 @@ height: 100px;
 
 
 
-<script src="https://cdn.ckeditor.com/ckeditor5/44.0.0/classic/ckeditor.js"></script>
-
-<script src="admin/boardmanagement/ask/ckeditor/build/ckeditor.js"></script>
-    <script src="ckeditor/build/ckeditor.js"></script>
 
 
-
-
-<script>
-    ClassicEditor
-        .create( document.querySelector( '#editor' ), {
-        })
-        .catch( error => {
-            console.error( error );
-        } );
-</script>
-<div class="container">
-<div id="editor">
-
-</div>
-
-</div>
-
-
-
-
-
+									<div id="classic"></div>
 
 
 
@@ -189,5 +175,14 @@ height: 100px;
 	</div>
 	<!-- 최상위 콘테이너 close-->
 </body>
-
+<script>
+        ClassicEditor
+            .create( document.querySelector( '#classic' ))
+            .then( editor => {
+			window.editor = editor;
+			})
+            .catch( error => {
+                console.error( error );
+            } );
+    </script>
 </html>
