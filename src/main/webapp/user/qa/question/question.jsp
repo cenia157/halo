@@ -85,7 +85,18 @@
 			</div>
 
 			<div class="content-box-td6">
-				<span>문의글 리스트 (foreach 사용)</span>
+				<span class="content-box-td6-1">No</span>
+				<span class="content-box-td6-2">글쓴이</span>
+				<span class="content-box-td6-3">제목</span>
+				<span class="content-box-td6-4">응답여부</span>
+				<span class="content-box-td6-5">작성일</span>
+			</div>
+			<div class="content-box-td7">
+				<span class="content-box-td7-1">No</span>
+				<span class="content-box-td7-2">글쓴이</span>
+				<span class="content-box-td7-3">제목</span>
+				<span class="content-box-td7-4">응답여부</span>
+				<span class="content-box-td7-5">작성일</span>
 			</div>
 
 		</div>
