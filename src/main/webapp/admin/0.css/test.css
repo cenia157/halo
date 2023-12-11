@@ -155,8 +155,8 @@ justify-content: center;
 
 
 .modal-background {
-display:none;
 /*
+display:none;
  position: relative;
 */
   position: fixed;
@@ -170,8 +170,8 @@ display:none;
 
 
 .modal-tbl {
-display:none;
 /*
+display:none;
  position: relative;
 */
 	width: 100%;
