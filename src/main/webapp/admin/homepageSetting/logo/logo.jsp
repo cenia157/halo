@@ -66,7 +66,16 @@
 						</div>
 						<div class="content-m-td-2-mid">
 
-							<div class="content-m-td-2-mid-Play">&#9654;&#9654;</div>
+							<div class="content-m-td-2-mid-Play">
+							
+							<img alt="" src="
+							
+${pageContext.request.contextPath}/admin/0.img/Vector.png
+							
+							
+							">
+							
+							</div>
 
 						</div>
 						<div class="content-m-td-2-side">

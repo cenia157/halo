@@ -48,79 +48,81 @@
 						</div>
 
 
-						<div class="ontent-m-td-2-content"></div>
+						<div class="ontent-m-td-2-content">
 
-						<div class="ontent-m-td-2-bottom">
+							<div class="ontent-m-td-2-content-txt">내용</div>
 
-							<div class="ontent-m-td-2-page-side"></div>
-							<div class="ontent-m-td-2-page-center"></div>
-							<div class="ontent-m-td-2-page-side">
+							<div class="ontent-m-td-2-bottom">
+
+								<div class="ontent-m-td-2-page-side"></div>
+								<div class="ontent-m-td-2-page-center"></div>
+								<div class="ontent-m-td-2-page-side">
 
 
-								<button id="openModalBtn">등록하기</button>
-								<!-- 모달 설정 위치는 여기 -->
+									<button id="openModalBtn">등록하기</button>
+									<!-- 모달 설정 위치는 여기 -->
+
+								</div>
+
+
 
 							</div>
 
-
-
-						</div>
-
-						<!-- 
+							<!-- 
  -->
-						<!-- 
+							<!-- 
 								 -->
-						<div id="myModal" class="modal-background"></div>
-						<div class="modal-tbl">
+							<div id="myModal" class="modal-background"></div>
+							<div class="modal-tbl">
 
-							<div class="modal-title-tr">
-								<div class="modal-title-td-1">
+								<div class="modal-title-tr">
+									<div class="modal-title-td-1">
 
 
-									<div class="modal-title-td-1-title">
-										<div class="modal-title-td-1-title-detile">제목</div>
+										<div class="modal-title-td-1-title">
+											<div class="modal-title-td-1-title-detile">제목</div>
+										</div>
+
+
+										<div class="modal-title-td-1-con">
+											<div class="modal-title-td-1-detile">2023-12-25 大出 昭子</div>
+											<div class="modal-title-td-1-detile">일반</div>
+										</div>
+
+
 									</div>
 
 
-									<div class="modal-title-td-1-con">
-										<div class="modal-title-td-1-detile">2023-12-25 大出 昭子</div>
-										<div class="modal-title-td-1-detile">일반</div>
+									<div class="modal-title-td-2">
+										<span class="close" id="closeModalBtn">&times;</span>
 									</div>
-
 
 								</div>
 
 
-								<div class="modal-title-td-2">
-									<span class="close" id="closeModalBtn">&times;</span>
+								<div class="modal-content">
+									<div class="modal-content-txt">모달 내용이 여기에 들어갑니다.</div>
+									<div class="modal-content-button">
+										<button>수정</button>
+									</div>
+
 								</div>
+
 
 							</div>
 
 
-							<div class="modal-content">
-								<div class="modal-content-txt">모달 내용이 여기에 들어갑니다.</div>
-								<div class="modal-content-button">
-									<button>수정</button>
-								</div>
 
-							</div>
 
 
 						</div>
-
-
-
-
-
 					</div>
+					<!-- *************** 수정 *************** -->
 				</div>
-				<!-- *************** 수정 *************** -->
 			</div>
+			<!-- 오른쪽 테이블 close -->
 		</div>
-		<!-- 오른쪽 테이블 close -->
-	</div>
-	<!-- 최상위 콘테이너 close-->
+		<!-- 최상위 콘테이너 close-->
 </body>
 
 </html>

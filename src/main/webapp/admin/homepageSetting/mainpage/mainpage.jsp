@@ -6,12 +6,12 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>logo</title>
+<title>Mainpage</title>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/admin/0.css/test.css" />
 
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/admin/homepageSetting/logo/0.css/logo.css" />
+	href="${pageContext.request.contextPath}/admin/homepageSetting/mainpage/0.css/mainpage.css" />
 
 
 <link
@@ -41,57 +41,80 @@
 				<div class="content-main-td">
 					<div class="content-m-td-1">
 						<!-- *************** 수정 *************** -->
-						<div class="content-m-td-title">로고변경</div>
+						<div class="content-m-td-title">주요메뉴설정</div>
 					</div>
 					<div class="content-m-td-3">
 
-						<div class="content-m-td-2-side">
-							<div class="content-m-td-2-side-up">
-
-								<div class="content-m-td-2-side-up-title">현재로고</div>
-
-
-
-							</div>
-							<div class="content-m-td-2-side-mid">
-
-								<div class="content-m-td-2-side-mid-logo">
-									<!-- 여기에 이미지 삽입, 식별을 위해 임시로 이미지 대신 스타일삽입하였으므로 나중에 삭제 -->
-									<img alt="" src=""
-										style="background-color: gray; height: 40%; width: 70%;">
-								</div>
-
-							</div>
-							<div class="content-m-td-2-side-down"></div>
+						<div class="content-m-td-3-up">
+							<!-- 여긴 공간채움용 빈공간 -->
 						</div>
-						<div class="content-m-td-2-mid">
+						<div class="content-m-td-3-mid-1">
 
-							<div class="content-m-td-2-mid-Play">&#9654;&#9654;</div>
-
-						</div>
-						<div class="content-m-td-2-side">
-							<div class="content-m-td-2-side-up">
-
-
-								<div class="content-m-td-2-side-up-title">변경로고</div>
-
-							</div>
-							<div class="content-m-td-2-side-mid">
-
-								<div class="content-m-td-2-side-mid-logo">
-									<!-- 여기에 이미지 삽입, 식별을 위해 임시로 이미지 대신 스타일삽입하였으므로 나중에 삭제 -->
-									<img alt="" src=""
-										style="background-color: gray; height: 40%; width: 70%;">
+							<div class="content-m-td-3-mid-1-tr">
+								<div class="content-m-td-3-mid-1-td">
+									<div class="content-m-td-3-mid-1-td-box">채용공고</div>
 								</div>
-
-							</div>
-							<div class="content-m-td-2-side-down">
-
-								<div class="content-m-td-2-side-down-button">
-									<button class="content-button">변경</button>
+								<div class="content-m-td-3-mid-1-td">
+									<div class="content-m-td-3-mid-1-td-box">신청</div>
+								</div>
+								<div class="content-m-td-3-mid-1-td">
+									<div class="content-m-td-3-mid-1-td-box">문의</div>
 								</div>
 							</div>
+
 						</div>
+						<div class="content-m-td-3-mid-2">
+
+							<div class="content-m-td-3-mid-2-tr">
+
+								<div class="content-m-td-3-mid-2-tr-underbar">
+									<select class="mainpageOption">
+										<option value="">채용공고</option>
+										<option value="">공지사항</option>
+										<option value="">앨범</option>
+									</select>
+								</div>
+
+								<div class="content-m-td-3-mid-2-tr-underbar">
+									<select class="mainpageOption">
+
+										<option value="">신청</option>
+										<option value="">안내</option>
+									</select>
+								</div>
+
+								<div class="content-m-td-3-mid-2-tr-underbar">
+									<select class="mainpageOption">
+
+										<option value="">문의</option>
+										<option value="">자주묻는질문</option>
+
+									</select>
+								</div>
+
+
+
+							</div>
+
+						</div>
+						<div class="content-m-td-3-down">
+
+							<button class="content-button">변경</button>
+
+						</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 					</div>

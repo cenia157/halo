@@ -88,6 +88,8 @@ a {
 	background: var(- -background-default, #FFF);
 	box-shadow: 0px 0.2px 1.5px 0px rgba(0, 0, 0, 0.10), 0px 1px 0px -1px
 		rgba(0, 0, 0, 0.10);
+	/* 아래의 속성 추가함*/
+	background-color: white;
 }
 
 .content-m-td-1 {
@@ -106,13 +108,14 @@ a {
 
 /* ************************�쐞濡쒖닔�젙湲덉�************************ */
 .content-m-td-2 {
+
 	width: 100%;
 	height: 88%;
 	position: relative;
+	width: 100%;
 }
 
 .ontent-m-td-2-chackbox {
-	background-color: aqua;
 	width: 100%;
 	height: 8%;
 	font-size: 0.5rem;
@@ -121,23 +124,246 @@ a {
 	padding-left: 8%;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .ontent-m-td-2-content {
-	background-color: red;
+	background-color: aqua;
+	height: 92%;
 	width: 100%;
-	height: 75%;
-	font-size: 0.5rem;
-	padding: 2%;
+	display: block;
 }
 
+.ontent-m-td-2-content-container {
+	display: flex;
+	width: 100%;
+	height: 10%;
+}
+
+.ontent-m-td-2-content-txt {
+	background-color: red;
+	width: 100%;
+	display: flex;
+	height: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.ontent-m-td-2-content-txt-1 {
+	background-color: fuchsia;
+	width: 100%;
+	height: 10%;		
+	display: block;
+}
+
+
+
+
+
+.ontent-m-td-2-content-txt-contain{
+	width: 100%;
+	height: 100%;	
+display: flex;
+}
+
+
+
+
+
+.ontent-m-td-2-content-txt-no {
+	background-color: green;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1rem;
+	font-weight: 600;
+	width: 5%;
+	font-size: 1rem;
+}
+
+.ontent-m-td-2-content-txt-kategorie {
+	background-color: fuchsia;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1rem;
+	font-weight: 600;
+	width: 15%;
+}
+
+.ontent-m-td-2-content-txt-title {
+	background-color: red;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1rem;
+	font-weight: 600;
+	width: 40%;
+}
+
+.ontent-m-td-2-content-txt-writer {
+	background-color: orange;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1rem;
+	font-weight: 600;
+	width: 15%;
+}
+
+.ontent-m-td-2-content-txt-date {
+	background-color: olive;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1rem;
+	font-weight: 600;
+	width: 20%;
+}
+
+.ontent-m-td-2-content-txt-delete {
+	background-color: lime;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1rem;
+	font-weight: 600;
+	width: 10%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.ontent-m-td-2-mid{
+background-color: gray;	
+height: 73%;
+}
+
+
+
+.ontent-m-td-2-mid-txt-no {
+height: 12.5%;
+	background-color: green;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 0.7rem;
+	width: 5%;
+}
+
+.ontent-m-td-2-mid-txt-kategorie {
+height: 12.5%;
+	background-color: fuchsia;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 0.7rem;
+	width: 15%;
+}
+
+.ontent-m-td-2-mid-txt-title {
+height: 12.5%;
+	background-color: red;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 0.7rem;
+	width: 40%;
+}
+
+.ontent-m-td-2-mid-txt-writer {
+height: 12.5%;
+	background-color: orange;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 0.7rem;
+	width: 15%;
+}
+
+.ontent-m-td-2-mid-txt-date {
+height: 12.5%;
+	background-color: olive;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 0.7rem;
+	width: 20%;
+}
+
+.ontent-m-td-2-mid-txt-delete {
+height: 12.5%;
+	background-color: lime;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 0.7rem;
+	width: 10%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .ontent-m-td-2-bottom {
-	background-color: blue;
 	width: 100%;
 	height: 17%;
 	display: flex;
 }
 
 .ontent-m-td-2-page-side {
-	background-color: gray;
 	height: 100%;
 	width: 25%;
 	display: flex;
@@ -146,14 +372,13 @@ a {
 }
 
 .ontent-m-td-2-page-center {
-	background-color: maroon;
 	height: 100%;
 	width: 50%;
 }
 
 .modal-background {
+	display: none;
 	/*
-display:none;
  position: relative;
 */
 	position: fixed;
@@ -165,8 +390,8 @@ display:none;
 }
 
 .modal-tbl {
+	display: none;
 	/*
-display:none;
  position: relative;
 */
 	width: 100%;
@@ -180,25 +405,21 @@ display:none;
 
 .modal-title-tr {
 	display: flex;
-	background-color: red;
 	height: 25%;
 	width: 100%;
 }
 
 .modal-title-td-1 {
-	background: aqua;
 	width: 90%;
 }
 
 .modal-title-td-1-title {
-	background: green;
 	height: 50%
 }
 
 .modal-title-td-1-title-detile {
 	position: relative;
 	left: 5%;
-	background: maroon;
 	height: 100%;
 	width: 40%;
 	font-size: 1em;
@@ -207,7 +428,6 @@ display:none;
 }
 
 .modal-title-td-1-con {
-	background: lime;
 	height: 50%;
 	font-size: 0.5em;
 }
@@ -216,7 +436,6 @@ display:none;
 	position: relative;
 	left: 5%;
 	height: 50%;
-	background: orange;
 	align-items: center;
 	display: flex;
 	/*
@@ -225,12 +444,10 @@ display:none;
 }
 
 .modal-title-td-2 {
-	background: fuchsia;
 	width: 10%;
 }
 
 .modal-content {
-	background-color: blue;
 	height: 75%;
 	width: 100%;
 	padding: 2% 4% 2% 4%;
@@ -238,21 +455,16 @@ display:none;
 
 .modal-content-txt {
 	height: 90%;
-	background-color: aqua;
-	
 }
 
 .modal-content-button {
 	height: 10%;
 	width: 100%;
-	background-color: green;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	margin: auto;
 }
-
-
 
 .ck-editor__editable_inline:not(.ck-comment__input *) {
 	height: 300px;
@@ -264,7 +476,6 @@ display:none;
 	float: right;
 	font-size: 28px;
 	font-weight: bold;
-	background-color: gray;
 }
 
 .close:hover, .close:focus {
