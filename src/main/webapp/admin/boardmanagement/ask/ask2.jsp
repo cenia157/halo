@@ -10,7 +10,7 @@
 <!-- 아래의 코드는 에ㅔ디터를 활성화 하기 위한 코드 -->
 
 
- 
+
 
 <!-- 
 왜 아래의 코드는 안먹는걸까...?
@@ -130,23 +130,8 @@
 							<div class="modal-content">
 								<div class="modal-content-txt">
 
-
-
-
-
-
-
 									<div id="classic"></div>
-
-
-
-
-
-
 								</div>
-
-
-
 
 								<div class="modal-content-button">
 									<button>수정</button>
