@@ -26,14 +26,9 @@ a {
   text-decoration: none;
 }
 
-/* .container {
-  width: 100%;
-  height: 300vh;
-  max-width: 100vw;
-} */
-
 .header-tbl {
   /* border: solid 1px black; */
+  /* max-width: 100vw; */
   width: 100%;
   height: 50vh;
   position: fixed;
