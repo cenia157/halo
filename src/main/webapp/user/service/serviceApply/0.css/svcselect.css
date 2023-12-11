@@ -169,7 +169,7 @@ a {
 }
 .content-title-box-td {
   width: 28%;
-  height: 13%;
+  height: 6vh;
   flex-shrink: 0;
   border-radius: 20px;
   background: #fff;
@@ -178,12 +178,14 @@ a {
   top: 6%;
   margin-left: 36%;
   margin-right: 36%;
-  padding-top: 2.2%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .content-procedure-box-ul-pos {
   position: relative;
-  padding-top: 5%;
+  padding-top: 7vh;
   width: 100%;
   list-style: none;
 }
@@ -197,26 +199,28 @@ a {
   background: #ffdf6c;
   margin-top: 0.5%;
   width: 90%;
-  height: 3vh;
+  height: 5vh;
   flex-shrink: 0;
   display: flex;
   position: relative;
   border: 1px solid red;
-  padding-top: 1%;
-  padding-bottom: 4%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  align-items: center;
 }
 .content-box-li {
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.89);
   margin-top: 0.5%;
   width: 90%;
-  height: 3vh;
+  height: 5vh;
   flex-shrink: 0;
   display: flex;
   position: relative;
   border: 1px solid red;
-  padding-top: 1%;
-  padding-bottom: 4%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  align-items: center;
 }
 
 .content-service-step-box-td {
