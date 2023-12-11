@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Ask</title>
+<title>Notice</title>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/admin/0.css/test.css" />
 <link
@@ -36,18 +36,15 @@
 				<div class="content-main-td">
 					<div class="content-m-td-1">
 						<!-- *************** 수정 *************** -->
-						<div class="content-m-td-title">문의사항</div>
+						<div class="content-m-td-title">자주묻는질문</div>
 					</div>
 					<div class="content-m-td-2">
 
 
 
 						<div class="ontent-m-td-2-chackbox">
-							<input type="checkbox" name="">&nbsp;안내&nbsp;&nbsp;&nbsp;
-							<input type="checkbox" name="">&nbsp;알림&nbsp;&nbsp;&nbsp;
-							<input type="checkbox" name="">&nbsp;일반&nbsp;&nbsp;&nbsp;
-							<input type="checkbox" name="">&nbsp;서비스&nbsp;&nbsp;&nbsp;
-							<input type="checkbox" name="">&nbsp;상품&nbsp;&nbsp;&nbsp;
+							<input type="checkbox" name="">&nbsp;답변&nbsp;&nbsp;&nbsp;
+							<input type="checkbox" name="">&nbsp;미답변&nbsp;&nbsp;&nbsp;
 						</div>
 
 
@@ -103,7 +100,6 @@
 
 							<div class="modal-content">
 								<div class="modal-content-txt">모달 내용이 여기에 들어갑니다.</div>
-
 								<div class="modal-content-button">
 									<button>수정</button>
 								</div>
