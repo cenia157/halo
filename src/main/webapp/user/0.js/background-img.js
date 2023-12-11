@@ -22,12 +22,42 @@
 //     backImg.style.animation = "slide 1s ease-out";
 //   }
 // });
-$(document).ready(function () {
-  $(window).scroll(function () {
-    // 스크롤 위치에 따라 투명도를 조절하여 나타나게 함
-    var scrollTop = $(this).scrollTop();
-    $(".background-image").css("opacity", Math.max(0, 1 - scrollTop / 400));
+//배경이미지 애니메이션 로직
+// $(document).ready(function () {
+//   $(window).scroll(function () {
+//     // 스크롤 위치에 따라 투명도를 조절하여 나타나게 함
+//     var scrollTop = $(this).scrollTop();
+//     $(".background-image").css("opacity", Math.max(0, 1 - scrollTop / 400));
 
-    // 필요에 따라 다른 애니메이션 로직 추가
-  });
+//     // 필요에 따라 다른 애니메이션 로직 추가
+//   });
+// });
+
+var $html = $("html");
+var page = 1;
+var lastPage = $(".content").length;
+
+window.addEventListener(
+  "wheel",
+  function (e) {
+    e.preventDefault();
+  },
+  { passive: false }
+);
+
+$(window).on("wheel", function (e) {
+  if ($html.is(":animated")) return;
+
+  if (e.originalEvent.deltaY > 0) {
+    if (page == lastPage) return;
+
+    page++;
+  } else if (e.originalEvent.deltaY < 0) {
+    if (page == 1) return;
+
+    page--;
+  }
+  var posTop = (page - 1) * $(window).height();
+
+  $html.animate({ scrollTop: posTop });
 });
