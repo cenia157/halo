@@ -56,6 +56,21 @@ a {
 	border-radius: 35px; background : rgba( 248, 242, 191, 0.90);
 	height: 45%;
 	background: rgba(248, 242, 191, 0.90);
+/* 	클로버 기준 */
+	position: relative;
+}
+
+.img1{
+	position: absolute;
+	width: 10%;
+	right: -5%;
+	bottom: 15%;
+}
+.img2{
+	position: absolute;
+	width: 5%;
+	right: 5%;
+	bottom: 10%;
 }
 
 .content-box-td1 {

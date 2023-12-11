@@ -75,6 +75,12 @@
 			<div class="content-box-td4">
 				<button class="content-box-td-content8">확인</button>
 			</div>
+			
+			<div>
+				<img class="img1" alt="" src="${pageContext.request.contextPath}/user/qa/question/0.img/clover3.png">
+				<img class="img2" alt="" src="${pageContext.request.contextPath}/user/qa/question/0.img/clover4.png">
+			</div>
+			
 		</div>
 
 		<!-- 문의글 게시판 -->
