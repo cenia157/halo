@@ -1,0 +1,398 @@
+@charset "UTF-8";
+
+@import
+	url(https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular)
+	;
+
+@font-face {
+	font-family: "SF Pro JP Regular";
+	src:
+		url("https://db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.eot");
+	src:
+		url("https://db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.eot#iefix")
+		format("embedded-opentype"),
+		url("https://db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.woff2")
+		format("woff2"),
+		url("https://db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.woff")
+		format("woff"),
+		url("https://db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.ttf")
+		format("truetype"),
+		url("https://db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.svg#SF Pro JP Regular")
+		format("svg");
+}
+
+* {
+	font-family: "SF Pro JP Regular";
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+a {
+	text-decoration: none;
+}
+
+/* 헤더 */
+.header-tbl {
+	border: solid 1px black;
+	width: 100%;
+	height: 15vh;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+/* 본문 */
+.content-tbl {
+	border: solid 1px blue;
+	width: 100%;
+	/*   height: 265vh;  */
+	height: 230vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.content-box-tr1 {
+	border-radius: 35px;
+	background: rgba(255, 233, 155, 0.80);
+	margin-top: auto;
+	margin-bottom: auto;
+	width: 100%;
+	height: 90%;
+}
+
+.content-box-tr2 {
+	display: inline-block;
+	border-radius: 35px;
+	background: #FFFFFF;
+	margin-top: 5%;
+	margin-bottom: 5%;
+	width: 100%;
+	height: 90%;
+}
+
+.content-box-td1-1 {
+	padding-top: 2%;
+	padding-bottom: 2%;
+	width: 100%;
+	border-bottom: 3px solid #6E6F4E;
+	color: #62733D;
+	text-align: center;
+	font-family: Inter;
+	font-size: 3rem;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+}
+
+.content-box-td1-2 {
+	display: flex;
+	border-bottom : 1px solid #546137;
+	width: 100%;
+	border: 1px solid #546137;
+}
+
+.content-box-td1-2-1 {
+	width: 20%;
+	color: #546137;
+	background: rgba(210, 210, 162, 0.50);
+	text-align: center;
+	font-family: Inter;
+	font-size: 35px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+}
+
+.content-box-td1-2-2 {
+	margin-left: 5%;
+	color : #546137;
+	font-family: Inter;
+	font-size: 35px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+	color: #546137;
+}
+
+.content-box-td1-3 {
+	display: flex; width : 100%;
+	border-bottom: 1px solid #546137;
+	width: 100%;
+}
+
+.content-box-td1-3-1 {
+	width: 20%;
+	color: #546137;
+	background: rgba(210, 210, 162, 0.50);
+	text-align: center;
+	font-family: Inter;
+	font-size: 35px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+}
+
+.content-box-td1-3-2 {
+	color: #546137;
+	margin-left: 5%;
+	font-family: Inter;
+	font-size: 35px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+}
+
+.content-box-td1-4 {
+	border-bottom: 1px solid #546137;
+	display: flex;
+	justify-content: space-between;
+}
+
+.content-box-td1-4-content {
+	width: 80%;
+}
+
+.content-box-td1-4-1 {
+	margin-left: 10%;
+	color: #546137;
+	text-align: center;
+	font-family: Inter;
+	font-size: 2rem;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+}
+
+.content-box-td1-4-2 {
+	color: #9F9F78;
+	font-family: Inter;
+	font-size: 1.5rem;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+	margin-left: 3%;
+}
+
+.content-box-td-button {
+	width: 20%;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	height: 10%;
+	height: 3rem;
+}
+
+.content-box-td-button-1 {
+	border-radius: 5px;
+	border: 1px solid #62733D;
+	background: #FFF;
+	color: #62733D;
+	font-size: 1.5rem;
+	font-weight: 700;
+	padding-left: 2%;
+	padding-right: 2%;
+}
+
+.content-box-td-button-2 {
+	border-radius: 5px;
+	border: 1px solid #62733D;
+	background: #FFF;
+	color: #62733D;
+	font-size: 1.5rem;
+	font-weight: 700;
+	padding-left: 2%;
+	padding-right: 2%;
+}
+
+.content-box-td2-1{
+	width: 100%; 
+	display: flex;
+	padding-left: 10%;
+	padding-right: 10%;
+	border-bottom: 3px solid #9F9F78;
+}
+
+.content-box-td2-1-content{
+	width:80%;
+	padding: 10%;
+	color: #000;
+	font-family: Inter;
+	font-size: 1.5rem;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+	letter-spacing: 0.81px;
+}
+
+.content-box-td2-2-button{
+	width: 15%;
+	height:10%;
+	font-size: 2rem;
+	border-radius: 15px;
+	border: 1px solid #9F9F78;
+	background: #FFF;
+	margin: 2%;
+	
+/* 	txt */
+	color: #546137;
+	text-align: center;
+	font-family: Inter;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+	letter-spacing: 0.81px;
+}
+
+.content-box-td3-1 {
+	display: flex;
+	border: 1px solid #62733D;
+	padding-top: 1%;
+	padding-bottom: 1%;
+	
+}
+.content-box-td3-1-1{
+	color: #546137;
+	font-family: Inter;
+	font-size: 28px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+	margin-left: 2%;
+	margin-right: 2%;
+}
+.content-box-td3-1-2{
+	color: #9F9F78;
+	font-family: Inter;
+	font-size: 26px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+	margin-left: 2%;
+	margin-right: 2%;
+}
+.content-box-td3-2{
+	border: 1px solid #62733D;
+	margin-bottom: 5%;
+	display: flex;
+	padding-top: 2%;
+	padding-bottom: 2%;
+}
+.content-box-td3-2-1{
+	margin-left: 3%;
+	margin-right: 3%;
+}
+.content-box-td3-2-2{
+color: #546137;
+font-family: Inter;
+font-size: 27px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+}
+
+.content-box-td4-1{
+	display: flex;
+	border: 1px solid #62733D;
+}
+.content-box-td4-1-1{
+	border-right: 1px solid #62733D;
+	width: 20%;
+	color: #546137;
+	background: rgba(210, 210, 162, 0.50);
+	text-align: center;
+	font-family: Inter;
+	font-size: 2rem;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+}
+.content-box-td4-1-2{
+	margin-left: 5%;
+	color : #546137;
+	font-family: Inter;
+	font-size: 2rem;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+	color: #546137;
+}
+
+.content-box-td4-2{
+	display: flex;
+	border: 1px solid #62733D;
+}
+.content-box-td4-2-1{
+	border-right: 1px solid #62733D;
+	width: 20%;
+	color: #546137;
+	background: rgba(210, 210, 162, 0.50);
+	text-align: center;
+	font-family: Inter;
+	font-size: 2rem;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+}
+.content-box-td4-2-2{
+	margin-left: 5%;
+	color : #546137;
+	font-family: Inter;
+	font-size: 2rem;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+	color: #546137;
+}
+
+.content-box-td4-3{
+	display: flex;
+	width: 100%;
+	justify-content: flex-end;
+	padding: 3%;
+}
+.content-box-td4-3-1{
+	text-align: right;
+	color: #546137;
+	font-family: Inter;
+	font-size: 1.5rem;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+}
+
+
+/* 하단배너 */
+.content-tbl2 {
+	width: 100%;
+	height: 35vh;
+	/*   border: solid 1px brown; */
+}
+
+.bottom-venner-tr {
+	border: solid 1px rgb(0, 234, 255);
+	width: 100%;
+	height: 35vh;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+.bottom-venner-td {
+	border: solid 1px rgb(0, 234, 255);
+	width: 20%;
+	height: 50%;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	border-radius: 30px;
+}
+
+/* footer */
+.footer-tbl {
+	/*   border: solid 1px rgb(0, 234, 255); */
+	width: 100%;
+	height: 20vh;
+}
