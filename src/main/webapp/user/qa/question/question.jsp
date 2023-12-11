@@ -13,22 +13,32 @@
 
 </head>
 <body>
-
-	<table class="content-tbl">
+	<!-- 헤더 -->
+	<div class="container">
+	      <div class="header-tbl">
+	        <div>소개</div>
+	        <div>소식</div>
+	        <div>서비스</div>
+	        <div>QnA</div>
+	      </div>
+      </div>
+	
+	
 	
 		<!-- 문의작성란 -->
-		<tr class="content-box-tr">
-			<td class="content-box-td">
+	<div class="content-tbl">
+		<div class="content-box-tr">
+			<div class="content-box-td">
 				<span>문의작성란</span>
 				<input type="text">
-			</td>
+			</div>
 			
-			<td class="content-box-td">
+			<div class="content-box-td">
 				<span>작성자명</span>
 				<input type="text">
-			</td>
+			</div>
 			
-			<td class="content-box-td">
+			<div class="content-box-td">
 				<span>휴대폰 번호</span>
 					<select name="fruit" id="fruit">
 			            <option value="apple">Apple</option>
@@ -37,9 +47,9 @@
 			            <option value="grape">Grape</option>
 			        </select>
 				<input type="text">
-			</td>
+			</div>
 			
-			<td class="content-box-td">
+			<div class="content-box-td">
 				<span>문의 카테고리</span>
 					<select name="fruit" id="fruit">
 			            <option value="apple">Apple</option>
@@ -47,44 +57,52 @@
 			            <option value="orange">Orange</option>
 			            <option value="grape">Grape</option>
 			        </select>
-			</td>
+			</div>
 			
-			<td class="content-box-td">
+			<div class="content-box-td">
 				<span>문의 제목</span>
 				<input type="text">
-			</td>
+			</div>
 			
-			<td class="content-box-td">
+			<div class="content-box-td">
 				<span>문의내용</span>
 				<input type="text" value="문의내용">
-			</td>
+			</div>
 			
-			<td class="content-box-td">
+			<div class="content-box-td">
 				<span>*은 필수입력 사항입니다.</span>
-			</td>
+			</div>
 			
-			<td class="content-box-td">
+			<div class="content-box-td">
 				<button>확인</button>
-			</td>
-		</tr>
+			</div>
+		</div>
 
 		<!-- 문의글 게시판 -->
-		<tr class="content-box-tr">
+		<div class="content-box-tr">
 
-			<td class="content-box-td">
+			<div class="content-box-td">
 				<span>문의글 게시판</span>
-			</td>
+			</div>
 
-			<td class="content-box-td">
+			<div class="content-box-td">
 				<span>문의글 리스트 (foreach 사용)</span>
-			</td>
+			</div>
 
-		</tr>
+		</div>
+	</div>
 
 		<!-- 하단배너 -->
-		<tr></tr>
 		
-	</table>
+		 <div class="bottom-venner-tr">
+	          <div class="bottom-venner-td">하단베너</div>
+	          <div class="bottom-venner-td">상품판매링크</div>
+	          <div class="bottom-venner-td">추가기능</div>
+	     </div>
+
+		<!-- footer -->
+		<div class="footer-tbl">footer</div>
+		
 	
 </body>
 </html>

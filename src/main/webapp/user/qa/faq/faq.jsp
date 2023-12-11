@@ -13,29 +13,54 @@
 </head>
 <body>
 
-<table class="content-tbl">
+	
+	<!-- 헤더 -->
+	<div class="container">
+	      <div class="header-tbl">
+	        <div>소개</div>
+	        <div>소식</div>
+	        <div>서비스</div>
+	        <div>QnA</div>
+	      </div>
+      </div>
+      
+	
+	<!-- 본문 -->
+	<div class="content-tbl">
 	
 	<!-- 자주묻는 질문 -->
-	<tr class="content-box-tr">
-		<td class="content-box-td1">자주 묻는 질문</td>
-		<td class="content-box-td2">
-			<span class="content-box-td2-content 1">● 제공되는 서비스를 이용하려면 어떻게 해야하나요?</span>
-			<span class="content-box-td2-content 2">● 서비스 이용 비용은 어느정도인가요?</span>
-			<span class="content-box-td2-content 3">● 서비스 신청을 취소하려면 어떻게 해야하나요?</span>
-			<span class="content-box-td2-content 4">● 여기에 없는 질문은 어디에 해야하나요?</span>
-		</td>
-	</tr>
+	<div class="content-box-tr1">
+		<div class="content-box-td1-1">자주 묻는 질문</div>
+		<div class="content-box-td1-2">
+			<span class="content-box-td1-2-content 1">● 제공되는 서비스를 이용하려면 어떻게 해야하나요?</span>
+			<span class="content-box-td1-2-content 2">● 서비스 이용 비용은 어느정도인가요?</span>
+			<span class="content-box-td1-2-content 3">● 서비스 신청을 취소하려면 어떻게 해야하나요?</span>
+			<span class="content-box-td1-2-content 4">● 여기에 없는 질문은 어디에 해야하나요?</span>
+		</div>
+	</div>
 	
 	<!-- Answer -->
-	<tr class="content-box-tr">
-		<td class="content-box-td1">ANSWER</td>
-		<td class="content-box-td2">
-			<span class="content-box-td2-content 1">Q. (질문 내용)</span>
-			<span class="content-box-td2-content 2">A. (질문 답변)</span>
-		</td>
-	</tr>
+	<div class="content-box-tr2">
+		<div class="content-box-td2-1">-ANSWER-</div>
+		<div class="content-box-td2-2">
+			<span class="content-box-td2-2-content 1">Q. (질문 내용)</span>
+			<span class="content-box-td2-2-content 2">A. (질문 답변)</span>
+		</div>
+	</div>
 
-	</table>
+	</div>
+	
+	<!-- 하단배너 -->
+	
+	 <div class="bottom-venner-tr">
+          <div class="bottom-venner-td">하단베너</div>
+          <div class="bottom-venner-td">상품판매링크</div>
+          <div class="bottom-venner-td">추가기능</div>
+     </div>
+	
+	<!-- footer -->
+	
+	<div class="footer-tbl">footer</div>
 
 </body>
 </html>

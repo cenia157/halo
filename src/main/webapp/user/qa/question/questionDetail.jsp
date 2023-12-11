@@ -14,50 +14,73 @@
 </head>
 <body>
 
-	<table class="content-tbl">
-		<!-- 문의글 게시판 (디테일) -->
-		<tr class="content-box-tr">
+	<!-- 헤더 -->
+	<div class="container">
+	      <div class="header-tbl">
+	        <div>소개</div>
+	        <div>소식</div>
+	        <div>서비스</div>
+	        <div>QnA</div>
+	      </div>
+      </div>
+
 	<!-- 본문 -->
-			<td class="content-box-td">
+	<div class="content-tbl">
+		<!-- 문의글 게시판 (디테일) -->
+		<div class="content-box-tr">
+			<div class="content-box-td">
 				<span>제목</span>
 				<span>제목 내용</span>
-			</td>
+			</div>
 			
-			<td class="content-box-td">
+			<div class="content-box-td">
 				<span>작성자</span>
 				<span>작성자 이름</span>
-			</td>
+			</div>
 			
-			<td class="content-box-td">
+			<div class="content-box-td">
 				<span>작성일: </span>
 				<span>작성일 내용</span>
-			</td>
+			</div>
 			
-			<td class="content-box-td">
+			<div class="content-box-td">
 				<span>본문 내용</span>
-			</td>
+			</div>
 			
-			<td class="content-box-td"> <button>목록</button> </td>
+			<div class="content-box-td"> <button>목록</button> </td>
 	<!-- 댓글 -->
-			<td class="content-box-td">
+			<div class="content-box-td">
 				<span>이름/작성일</span>
 				<span>댓글본문</span>
-			</td>
+			</div>
 	<!-- 이전글/다음글 -->
-			<td class="content-box-td">
+			<div class="content-box-td">
 				<span>이전글</span>
 				<span>글 제목</span>
-			</td>
-			<td class="content-box-td">
+			</div>
+			<div class="content-box-td">
 				<span>다음글</span>
 				<span>글 제목</span>
-			</td>
-			<td class="content-box-td">
+			</div>
+			<div class="content-box-td">
 				<span>그 밖의 문의사항은 Tel.06-6997-6531 로 연락 부탁드립니다.</span>
-			</td>
-		</tr>
+			</div>
+		</div>
 	
-	</table>
+	</div>
+	
+	
+	
+	<!-- 하단배너 -->
+		
+		 <div class="bottom-venner-tr">
+	          <div class="bottom-venner-td">하단베너</div>
+	          <div class="bottom-venner-td">상품판매링크</div>
+	          <div class="bottom-venner-td">추가기능</div>
+	     </div>
+
+	<!-- footer -->
+		<div class="footer-tbl">footer</div>
 
 </body>
 </html>
