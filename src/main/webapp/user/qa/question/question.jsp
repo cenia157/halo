@@ -27,31 +27,30 @@
 	
 		<!-- 문의작성란 -->
 	<div class="content-tbl">
-		<div class="content-box-tr">
-			<div class="content-box-td">
-				<span>문의작성란</span>
-				<input type="text">
+		<div class="content-box-tr1">
+			<div class="content-box-td1">
+				<span class="content-box-td-content1">문의작성란</span>
 			</div>
 			
-			<div class="content-box-td">
-				<span>작성자명</span>
-				<input type="text">
+			<div class="content-box-td2">
+				<span class="content-box-td-content2-1">작성자명* </span>
+				<input class="content-box-td-content2-2" type="text">
 			</div>
 			
-			<div class="content-box-td">
-				<span>휴대폰 번호</span>
-					<select name="fruit" id="fruit">
+			<div class="content-box-td2">
+				<span class="content-box-td-content3-1">휴대폰 번호*</span>
+					<select class="content-box-td-content3-2" name="fruit" id="fruit">
 			            <option value="apple">Apple</option>
 			            <option value="banana">Banana</option>
 			            <option value="orange">Orange</option>
 			            <option value="grape">Grape</option>
 			        </select>
-				<input type="text">
+				<input class="content-box-td-content3-3" type="text">
 			</div>
 			
-			<div class="content-box-td">
-				<span>문의 카테고리</span>
-					<select name="fruit" id="fruit">
+			<div class="content-box-td2">
+				<span class="content-box-td-content4-1">문의 카테고리</span>
+					<select class="content-box-td-content4-2" name="fruit" id="fruit">
 			            <option value="apple">Apple</option>
 			            <option value="banana">Banana</option>
 			            <option value="orange">Orange</option>
@@ -59,37 +58,39 @@
 			        </select>
 			</div>
 			
-			<div class="content-box-td">
-				<span>문의 제목</span>
-				<input type="text">
+			<div class="content-box-td2">
+				<span class="content-box-td-content5-1">문의 제목*</span>
+				<input class="content-box-td-content5-2" type="text">
 			</div>
 			
-			<div class="content-box-td">
-				<span>문의내용</span>
-				<input type="text" value="문의내용">
+			<div class="content-box-td2">
+				<span class="content-box-td-content6-1">문의 내용*</span>
+				<input class="content-box-td-content6-2" type="text" value="문의내용">
+			</div>
+			<div class="content-box-td3">
+				<span class="content-box-td-content7">*은 필수입력 사항입니다.</span>
 			</div>
 			
-			<div class="content-box-td">
-				<span>*은 필수입력 사항입니다.</span>
-			</div>
 			
-			<div class="content-box-td">
-				<button>확인</button>
+			<div class="content-box-td4">
+				<button class="content-box-td-content8">확인</button>
 			</div>
 		</div>
 
 		<!-- 문의글 게시판 -->
-		<div class="content-box-tr">
-
-			<div class="content-box-td">
+		<div class="content-box-tr2-1">
+		<div class="content-box-tr2-2">
+			<div class="content-box-td5">
 				<span>문의글 게시판</span>
 			</div>
 
-			<div class="content-box-td">
+			<div class="content-box-td6">
 				<span>문의글 리스트 (foreach 사용)</span>
 			</div>
 
 		</div>
+		</div>
+		
 	</div>
 
 		<!-- 하단배너 -->
