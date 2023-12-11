@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="kr">
 
@@ -18,9 +18,9 @@
 
 
 <body>
-	<!-- ÃÖ»óÀ§ ÄÜÅ×ÀÌ³Ê -->
+	<!-- ìµœìƒìœ„ ì½˜í…Œì´ë„ˆ -->
 	<div class="container">
-		<!-- ¿ŞÂÊ Å×ÀÌºí -->
+		<!-- ì™¼ìª½ í…Œì´ë¸” -->
 		<div class="left-tbl">
 			<div class="menu-tr">
 				<div class="menu-td-1"></div>
@@ -30,24 +30,24 @@
 			</div>
 		</div>
 		<div class="right-tbl">
-			<!-- ¿À¸¥ÂÊ Å×ÀÌºí open -->
+			<!-- ì˜¤ë¥¸ìª½ í…Œì´ë¸” open -->
 			<div class="header-tr"></div>
 			<div class="content-tr">
 				<div class="content-main-td">
 					<div class="content-m-td-1">
-						<!-- *************** ¼öÁ¤ *************** -->
-						<div class="content-m-td-title">¹®ÀÇ»çÇ×</div>
+						<!-- *************** ìˆ˜ì • *************** -->
+						<div class="content-m-td-title">ë¬¸ì˜ì‚¬í•­</div>
 					</div>
 					<div class="content-m-td-2">
 
 
 
 						<div class="ontent-m-td-2-chackbox">
-							<input type="checkbox" name="">&nbsp;¾È³»&nbsp;&nbsp;&nbsp;
-							<input type="checkbox" name="">&nbsp;¾Ë¸²&nbsp;&nbsp;&nbsp;
-							<input type="checkbox" name="">&nbsp;ÀÏ¹İ&nbsp;&nbsp;&nbsp;
-							<input type="checkbox" name="">&nbsp;¼­ºñ½º&nbsp;&nbsp;&nbsp;
-							<input type="checkbox" name="">&nbsp;»óÇ°&nbsp;&nbsp;&nbsp;
+							<input type="checkbox" name="">&nbsp;ì•ˆë‚´&nbsp;&nbsp;&nbsp;
+							<input type="checkbox" name="">&nbsp;ì•Œë¦¼&nbsp;&nbsp;&nbsp;
+							<input type="checkbox" name="">&nbsp;ì¼ë°˜&nbsp;&nbsp;&nbsp;
+							<input type="checkbox" name="">&nbsp;ì„œë¹„ìŠ¤&nbsp;&nbsp;&nbsp;
+							<input type="checkbox" name="">&nbsp;ìƒí’ˆ&nbsp;&nbsp;&nbsp;
 						</div>
 
 
@@ -60,8 +60,8 @@
 							<div class="ontent-m-td-2-page-side">
 
 
-								<button id="openModalBtn">µî·ÏÇÏ±â</button>
-								<!-- ¸ğ´Ş ¼³Á¤ À§Ä¡´Â ¿©±â -->
+								<button id="openModalBtn">ë“±ë¡í•˜ê¸°</button>
+								<!-- ëª¨ë‹¬ ì„¤ì • ìœ„ì¹˜ëŠ” ì—¬ê¸° -->
 
 							</div>
 
@@ -81,13 +81,13 @@
 
 
 									<div class="modal-title-td-1-title">
-										<div class="modal-title-td-1-title-detile">Á¦¸ñ</div>
+										<div class="modal-title-td-1-title-detile">ì œëª©</div>
 									</div>
 
 
 									<div class="modal-title-td-1-con">
-										<div class="modal-title-td-1-detile">2023-12-25 ÓŞõó á¹í­</div>
-										<div class="modal-title-td-1-detile">ÀÏ¹İ</div>
+										<div class="modal-title-td-1-detile">2023-12-25 å¤§å‡º æ˜­å­</div>
+										<div class="modal-title-td-1-detile">ì¼ë°˜</div>
 									</div>
 
 
@@ -102,10 +102,10 @@
 
 
 							<div class="modal-content">
-								<div class="modal-content-txt">¸ğ´Ş ³»¿ëÀÌ ¿©±â¿¡ µé¾î°©´Ï´Ù.</div>
+								<div class="modal-content-txt">ëª¨ë‹¬ ë‚´ìš©ì´ ì—¬ê¸°ì— ë“¤ì–´ê°‘ë‹ˆë‹¤.</div>
 
 								<div class="modal-content-button">
-									<button>¼öÁ¤</button>
+									<button>ìˆ˜ì •</button>
 								</div>
 
 							</div>
@@ -119,12 +119,12 @@
 
 					</div>
 				</div>
-				<!-- *************** ¼öÁ¤ *************** -->
+				<!-- *************** ìˆ˜ì • *************** -->
 			</div>
 		</div>
-		<!-- ¿À¸¥ÂÊ Å×ÀÌºí close -->
+		<!-- ì˜¤ë¥¸ìª½ í…Œì´ë¸” close -->
 	</div>
-	<!-- ÃÖ»óÀ§ ÄÜÅ×ÀÌ³Ê close-->
+	<!-- ìµœìƒìœ„ ì½˜í…Œì´ë„ˆ close-->
 </body>
 
 </html>
