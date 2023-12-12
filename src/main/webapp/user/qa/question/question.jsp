@@ -63,7 +63,7 @@
 				<input class="content-box-td-content5-2" type="text">
 			</div>
 			
-			<div class="content-box-td2">
+			<div class="content-box-td2 content-box-td-content6">
 				<span class="content-box-td-content6-1">문의 내용*</span>
 				<input class="content-box-td-content6-2" type="text" value="문의내용">
 			</div>
