@@ -219,17 +219,6 @@
 	background-color: white;
 }
 
-.real-title-view {
-	background-color: lime;
-	width: 94.5%;
-	height: 75%;
-	border: 1px solid #D1D1D1;
-	display: flex;
-	align-items: center;
-	font-size: 1.5rem;
-	font-weight: 700;
-}
-
 .modal-title-tr {
 	display: flex;
 	height: 25%;

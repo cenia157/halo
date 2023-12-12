@@ -42,7 +42,6 @@
 
 <body>
 
-<!--   -->
 	<div id="myModal" class="modal-background"></div>
 	<div class="modal-tbl">
 
