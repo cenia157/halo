@@ -13,17 +13,13 @@
 </head>
 <body>
 
-	
-	<!-- 헤더 -->
-	<div class="container">
-	      <div class="header-tbl">
-	        <div>소개</div>
-	        <div>소식</div>
-	        <div>서비스</div>
-	        <div>QnA</div>
-	      </div>
+<!-- 헤더 -->
+      <div class="header-tbl">
+        <div>소개</div>
+        <div>소식</div>
+        <div>서비스</div>
+        <div>QnA</div>
       </div>
-      
 	
 	<!-- 본문 -->
 	<div class="content-tbl">
@@ -50,6 +46,12 @@
 
 	</div>
 	
+	<!-- 리모컨 -->
+      <div class="remote-control-td">
+        <div class="remote-control-tr">리모컨</div>
+        <div class="remote-control-tr">상단으로</div>
+      </div>
+	
 	<!-- 하단배너 -->
 	
 	 <div class="bottom-venner-tr">
@@ -60,7 +62,9 @@
 	
 	<!-- footer -->
 	
-	<div class="footer-tbl">footer</div>
+	<div class="footer-tbl">
+        footer
+      </div>
 
 </body>
 </html>

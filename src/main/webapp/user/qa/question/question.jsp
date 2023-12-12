@@ -10,21 +10,18 @@
       href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular"
     />
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/user/qa/question/0.css/question.css">
-
 </head>
 <body>
-	<!-- 헤더 -->
-	<div class="container">
-	      <div class="header-tbl">
-	        <div>소개</div>
-	        <div>소식</div>
-	        <div>서비스</div>
-	        <div>QnA</div>
-	      </div>
+
+<!-- 헤더 -->
+
+      <div class="header-tbl">
+        <div>소개</div>
+        <div>소식</div>
+        <div>서비스</div>
+        <div>QnA</div>
       </div>
-	
-	
-	
+
 		<!-- 문의작성란 -->
 	<div class="content-tbl">
 		<div class="content-box-tr1">
