@@ -31,15 +31,9 @@
 a {
 	text-decoration: none;
 }
+
 /* 헤더 */
-.header-tbl {
-	border: solid 1px black;
-	width: 100%;
-	height: 15vh;
-	display: flex;
-	justify-content: space-evenly;
-	align-items: center;
-}
+
 
 /* 본문 */
 .content-tbl {
@@ -50,8 +44,7 @@ a {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-/* 	임시배경 */
-	background-color: green;
+	padding-top: 20vh;
 }
 
 .content-box-tr1 {
@@ -162,6 +155,28 @@ a {
 	line-height: normal;
 }
 
+/* 리모컨 */
+.remote-control-td {
+  border: solid 1px rgb(255, 0, 0);
+  position: fixed;
+  top: 85%;
+  left: 92%;
+  width: 6%;
+  height: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.remote-control-tr {
+  border: solid 1px rgb(56, 255, 60);
+  background-color: antiquewhite;
+  width: 70%;
+  height: 30%;
+  margin-bottom: 10%;
+}
+
 /* 하단배너 */
 .content-tbl2 {
 	width: 100%;
@@ -186,11 +201,4 @@ a {
 	justify-content: space-evenly;
 	align-items: center;
 	border-radius: 30px;
-}
-
-/* footer */
-.footer-tbl {
-	/*   border: solid 1px rgb(0, 234, 255); */
-	width: 100%;
-	height: 20vh;
 }

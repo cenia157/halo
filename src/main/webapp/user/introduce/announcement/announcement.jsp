@@ -85,7 +85,7 @@ pageEncoding="UTF-8"%>
                       <span>18</span>
                     </div>
                     <div class="content-box-tr1-td3-1-1-1-2-2 writer-width">
-                       <span>사토*케시</span>
+                      <span>사토*케시</span>
                     </div>
                     <div class="content-box-tr1-td3-1-1-1-2-3 title-width">
                       <span>일정공지</span>
