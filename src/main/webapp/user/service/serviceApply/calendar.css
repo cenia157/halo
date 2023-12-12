@@ -1,0 +1,36 @@
+@charset "UTF-8";
+/* CSS 코드 */
+.calendar {
+  font-family: Arial, sans-serif;
+  border: 1px solid #ccc;
+  width: 250px;
+  padding: 10px;
+}
+
+.month {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.weekdays {
+  display: flex;
+  justify-content: space-between;
+}
+
+.weekdays div {
+  width: calc(100% / 7);
+  text-align: center;
+}
+
+.days {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.days div {
+  width: calc(100% / 7);
+  text-align: center;
+  border: 1px solid #ccc;
+  padding: 5px;
+  margin-bottom: 5px;
+}
