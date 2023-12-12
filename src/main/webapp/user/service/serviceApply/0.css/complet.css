@@ -287,7 +287,11 @@ a {
 .content-step-page-td
   > .content-step-page-td-tr3
   > .content-step-page-td-tr3-1 {
+  padding: 1.5% 3%;
+  font-size: 1.4rem;
   color: #546137;
   background-color: #ffdf6c;
-  padding: 1.2% 2.3%;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
