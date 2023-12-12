@@ -6,13 +6,36 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Notice</title>
+
+
+
+
+
+<script src="${pageContext.request.contextPath}/admin/0.js/ckeditor.js"></script>
+
+
+
+
+
+
+
+
+<title>Frequenthyask</title>
+
+
+
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/admin/0.css/test.css" />
+
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/admin/boardmanagement/frequenthyask/0.css/frequenthyask.css" />
+
 <link
 	href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular"
 	rel="stylesheet" />
 </head>
+
+
 
 
 
@@ -42,36 +65,125 @@
 
 
 
-						<div class="ontent-m-td-2-chackbox">
-							<input type="checkbox" name="">&nbsp;답변&nbsp;&nbsp;&nbsp;
-							<input type="checkbox" name="">&nbsp;미답변&nbsp;&nbsp;&nbsp;
-						</div>
+						<div class="ontent-m-td-2-chackbox"></div>
 
 
+
+
+
+
+
+
+
+						<!-- 아래의 div는 No부터 버튼을 포함함 구조는 (No 카테고리 제목 ...) (8888... 7777.... ) (버튼) 이 세개가 블록으로 쌓여있다 -->
 						<div class="ontent-m-td-2-content">
 
-							<div class="ontent-m-td-2-content-txt">내용</div>
-
-							<div class="ontent-m-td-2-bottom">
-
-								<div class="ontent-m-td-2-page-side"></div>
-								<div class="ontent-m-td-2-page-center"></div>
-								<div class="ontent-m-td-2-page-side">
 
 
-									<button id="openModalBtn">등록하기</button>
-									<!-- 모달 설정 위치는 여기 -->
 
+							<div class="ontent-m-td-2-content-container">
+								<div class="ontent-m-td-2-content-txt">
+									<div class="ontent-m-td-2-content-txt-no">No</div>
+									<div class="ontent-m-td-2-content-txt-kategorie">카테고리</div>
+									<div class="ontent-m-td-2-content-txt-title">제목</div>
+									<div class="ontent-m-td-2-content-txt-writer">작성자</div>
+									<div class="ontent-m-td-2-content-txt-date">수정일자</div>
+									<div class="ontent-m-td-2-content-txt-delete"></div>
 								</div>
+							</div>
+
+
+
+							<div class="ontent-m-td-2-mid">
+
+
+								<div class="ontent-m-td-2-content-txt-in">
+									<div class="ontent-m-td-2-content-txt-no-in">8</div>
+									<div class="ontent-m-td-2-content-txt-kategorie-in">8</div>
+									<div class="ontent-m-td-2-content-txt-title-in">● 8</div>
+									<div class="ontent-m-td-2-content-txt-writer-in">8</div>
+									<div class="ontent-m-td-2-content-txt-date-in">8</div>
+									<div class="ontent-m-td-2-content-txt-delete-in"></div>
+								</div>
+
+								<div class="ontent-m-td-2-content-txt-in">
+									<div class="ontent-m-td-2-content-txt-no-in">7</div>
+									<div class="ontent-m-td-2-content-txt-kategorie-in">7</div>
+									<div class="ontent-m-td-2-content-txt-title-in">● 7</div>
+									<div class="ontent-m-td-2-content-txt-writer-in">7</div>
+									<div class="ontent-m-td-2-content-txt-date-in">7</div>
+									<div class="ontent-m-td-2-content-txt-delete-in"></div>
+								</div>
+								<div class="ontent-m-td-2-content-txt-in">
+									<div class="ontent-m-td-2-content-txt-no-in">7</div>
+									<div class="ontent-m-td-2-content-txt-kategorie-in">7</div>
+									<div class="ontent-m-td-2-content-txt-title-in">● 7</div>
+									<div class="ontent-m-td-2-content-txt-writer-in">7</div>
+									<div class="ontent-m-td-2-content-txt-date-in">7</div>
+									<div class="ontent-m-td-2-content-txt-delete-in"></div>
+								</div>
+								<div class="ontent-m-td-2-content-txt-in">
+									<div class="ontent-m-td-2-content-txt-no-in">7</div>
+									<div class="ontent-m-td-2-content-txt-kategorie-in">7</div>
+									<div class="ontent-m-td-2-content-txt-title-in">● 7</div>
+									<div class="ontent-m-td-2-content-txt-writer-in">7</div>
+									<div class="ontent-m-td-2-content-txt-date-in">7</div>
+									<div class="ontent-m-td-2-content-txt-delete-in"></div>
+								</div>
+								<div class="ontent-m-td-2-content-txt-in">
+									<div class="ontent-m-td-2-content-txt-no-in">7</div>
+									<div class="ontent-m-td-2-content-txt-kategorie-in">7</div>
+									<div class="ontent-m-td-2-content-txt-title-in">● 7</div>
+									<div class="ontent-m-td-2-content-txt-writer-in">7</div>
+									<div class="ontent-m-td-2-content-txt-date-in">7</div>
+									<div class="ontent-m-td-2-content-txt-delete-in"></div>
+								</div>
+								<div class="ontent-m-td-2-content-txt-in">
+									<div class="ontent-m-td-2-content-txt-no-in">7</div>
+									<div class="ontent-m-td-2-content-txt-kategorie-in">7</div>
+									<div class="ontent-m-td-2-content-txt-title-in">● 7</div>
+									<div class="ontent-m-td-2-content-txt-writer-in">7</div>
+									<div class="ontent-m-td-2-content-txt-date-in">7</div>
+									<div class="ontent-m-td-2-content-txt-delete-in"></div>
+								</div>
+								<div class="ontent-m-td-2-content-txt-in">
+									<div class="ontent-m-td-2-content-txt-no-in">7</div>
+									<div class="ontent-m-td-2-content-txt-kategorie-in">7</div>
+									<div class="ontent-m-td-2-content-txt-title-in">● 7</div>
+									<div class="ontent-m-td-2-content-txt-writer-in">7</div>
+									<div class="ontent-m-td-2-content-txt-date-in">7</div>
+									<div class="ontent-m-td-2-content-txt-delete-in"></div>
+								</div>
+								<div class="ontent-m-td-2-content-txt-in">
+									<div class="ontent-m-td-2-content-txt-no-in">7</div>
+									<div class="ontent-m-td-2-content-txt-kategorie-in">7</div>
+									<div class="ontent-m-td-2-content-txt-title-in">● 7</div>
+									<div class="ontent-m-td-2-content-txt-writer-in">7</div>
+									<div class="ontent-m-td-2-content-txt-date-in">7</div>
+									<div class="ontent-m-td-2-content-txt-delete-in"></div>
+								</div>
+
+
+
 
 
 
 							</div>
 
-							<!-- 
- -->
-							<!-- 
-								 -->
+
+
+
+							<div class="ontent-m-td-2-bottom">
+
+								<div class="ontent-m-td-2-page-side"></div>
+								<div class="ontent-m-td-2-page-center"></div>
+								<div class="ontent-m-td-2-page-side"></div>
+
+
+
+							</div>
+
+
 							<div id="myModal" class="modal-background"></div>
 							<div class="modal-tbl">
 
@@ -79,50 +191,74 @@
 									<div class="modal-title-td-1">
 
 
-										<div class="modal-title-td-1-title">
-											<div class="modal-title-td-1-title-detile">제목</div>
+
+										<div class="real-title">
+											● 제공되는 서비스를 이용하려면 어떻게 해야되나요?
+
 										</div>
 
 
-										<div class="modal-title-td-1-con">
-											<div class="modal-title-td-1-detile">2023-12-25 大出 昭子</div>
-											<div class="modal-title-td-1-detile">일반</div>
-										</div>
+
 
 
 									</div>
-
-
-									<div class="modal-title-td-2">
+									<div class="modal-title-td-2" >
 										<span class="close" id="closeModalBtn">&times;</span>
 									</div>
 
 								</div>
+								<div class="modal-content" >
+									<div class="modal-content-txt" >
 
-
-								<div class="modal-content">
-									<div class="modal-content-txt">모달 내용이 여기에 들어갑니다.</div>
-									<div class="modal-content-button">
-										<button>수정</button>
+										<div id="classic"></div>
 									</div>
-
+									<div class="modal-content-button">
+										<button>수정완료</button>
+									</div>
 								</div>
-
-
 							</div>
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 						</div>
+
+
 					</div>
-					<!-- *************** 수정 *************** -->
+
+
 				</div>
+				<!-- *************** 수정 *************** -->
 			</div>
-			<!-- 오른쪽 테이블 close -->
 		</div>
-		<!-- 최상위 콘테이너 close-->
+		<!-- 오른쪽 테이블 close -->
+	</div>
+	<!-- 최상위 콘테이너 close-->
 </body>
 
+<script>
+        ClassicEditor
+            .create( document.querySelector( '#classic' ))
+            .then( editor => {
+			window.editor = editor;
+			})
+            .catch( error => {
+                console.error( error );
+            } );
+    </script>
 </html>
