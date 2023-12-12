@@ -39,7 +39,8 @@ a {
   width: 100%;
   max-width: 100vw;
   height: 250vh;
-  
+/*   임시 배경 */
+	background-color: green;
 }
 
 .header-tbl {
@@ -105,6 +106,43 @@ a {
 .content-tabbox-td {
   display: flex;
 }
+
+/* 단계 */
+.content-box-li{
+	box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.3);
+}
+.content-title-box-td{
+	color: #546137;
+	text-align: center;
+	font-family: Inter;
+	font-size: 1.5rem;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+	letter-spacing: 2.25px;
+}
+.content-service-step-box-td{
+	color: #546137;
+	text-align: center;
+	font-family: Inter;
+	font-size: 1.2rem;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+	letter-spacing: 2px;
+}
+.content-service-txt-box-td{
+	color: #546137;
+	text-align: center;
+	font-family: Inter;
+	font-size: 1.2rem;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+	letter-spacing: 2px;
+}
+
+/* 단계 끝 */
 
 .content-tab-td {
   color: #62733d;
