@@ -15,14 +15,9 @@
 </head>
 <body>
 
-    <!-- 배경이미지 div -->
 
-    <div class="background-img background-img-rightCloud"></div>
-    <div class="background-img background-img-leftCloud"></div>
-    <div class="background-img background-img-rightPink"></div>
-    <div class="background-img background-img-leftPink"></div>
-    <div class="background-img background-img-mountain"></div>
-
+<!-- 메뉴를 include -->
+<%@ include file="index-menu.jsp" %>
   
 
 <!-- 헤더 -->
@@ -178,7 +173,8 @@
 		</div>
 		
 	</div>
-
+		
+		
 		<!-- 하단배너 -->
 		
 		 <div class="bottom-venner-tr">
@@ -206,6 +202,8 @@
       </div>
     </div>
 		
+	<!-- footer include -->
+	<%@ include file="index-footer.jsp" %>
 	
 </body>
 </html>
