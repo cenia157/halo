@@ -91,7 +91,7 @@
 					<input class="content-applyform-tr-2-2" type="text">
 				</div>
 				<div class="content-applyform-tr-2">
-					<span class="content-applyform-tr-2-1">요양받으실 분 성함* :</span>
+					<span class="content-applyform-tr-2-1">서비스 받으실 분 성함* :</span>
 					<input class="content-applyform-tr-2-2" type="text">
 				</div>
 				<div class="content-applyform-tr-2">
