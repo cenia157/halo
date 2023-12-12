@@ -55,7 +55,7 @@ a {
   border: solid 1px red;
   border-radius: 35px;
   width: 95%;
-  height: 90%;
+  height: 70%;
 }
 
 .bottom-venner-tr {
@@ -234,266 +234,60 @@ a {
   padding-right: 20%;
 }
 
-/* .content-imgbox-li {
-    position: relative;
-    display: block;
-}
-.content-imgbox-li > img {
-    width: 1rem;
-    height: 1rem;
-    position: relative;
-    display: block;
-    left: 1.5vh;
-    top: 9vh;
-} */
+/* 오단영 여기서부터 시작 */
 .content-step-page-td {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 10vh;
-  min-height: 75vh;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.8);
+  outline: 1px solid black; /* 나중에 지우세요 */
+  height: 70vh;
 }
 
-.calendar {
-  font-family: Arial, sans-serif;
-  border: 1px solid #ccc;
-  width: 250px;
-  padding: 10px;
-}
-
-.month {
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-.weekdays {
-  display: flex;
-  justify-content: space-between;
-}
-
-.weekdays div {
-  width: calc(100% / 7);
-  text-align: center;
-}
-
-.days {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.days div {
-  width: calc(100% / 7);
-  text-align: center;
-  border: 1px solid #ccc;
-  padding: 5px;
-  margin-bottom: 5px;
-}
 .content-step-page-td {
-  position: relative;
-  display: block;
-  height: 80vh;
-}
-
-.content-calbox-td {
-  margin-top: 10vh;
-  position: relative;
-  height: 80vh;
-  border: 1px solid red;
+  outline: 1px solid red; /* 나중에 지우세요 */
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  height: auto;
-  max-height: 90vh; /* 요소의 최대 높이를 설정합니다 */
-}
-.content-date-select-box-td {
-  margin-top: 30px;
-  font-size: 1.5rem;
-  color: #546137;
-  text-align: center;
-  font-family: Inter;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  letter-spacing: 2px;
-}
-#date {
-  font-size: 1.5rem;
-  width: 30rem;
-  color: #546137;
-  text-align: center;
-  font-family: Inter;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  letter-spacing: 2px;
-}
-/*
-/* 화면 크기가 일정 이하일 때 스타일 변경*/
-@media screen and (max-width: 2000px) {
-  .content-calbox-td {
-    position: relative;
-    height: 1000vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    height: auto;
-  }
+  /* align-items: center; */
+  justify-content: center;
 }
 
-/* 캘린더 */
-.calendar {
-  display: block;
-  width: 90%;
-  height: 70vh;
-  margin: 50px;
-}
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.content-step-page-td > div {
+  outline: 1px solid rebeccapurple;
 }
 
-.year-month {
-  font-size: 1rem;
+.content-step-page-td {
+  overflow: auto; /* 또는 overflow: hidden; */
+  /* 기타 스타일 설정 */
+}
+
+.content-step-page-td > .content-step-page-td-tr1 {
   color: #546137;
-
   text-align: center;
-  font-family: Inter;
+  text-shadow: 10px 10px 10px #e8d48d;
+  font-size: 1.1rem;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
 }
 
-.nav {
-  display: flex;
-  border: 1px solid #333333;
-  border-radius: 5px;
-}
-
-.nav-btn {
-  width: 20%;
-  height: 3vh;
-  border: none;
-  font-size: 1rem;
-  line-height: 34px;
-  background-color: transparent;
-  cursor: pointer;
-}
-.go-prev {
+.content-step-page-td > .content-step-page-td-tr2 {
   color: #546137;
-
   text-align: center;
-  font-family: Inter;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-}
-.go-next {
-  color: #546137;
-
-  text-align: center;
-  font-family: Inter;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-}
-.go-today {
-  width: 6rem;
-  height: 3vh;
-  border-left: 1px solid #333333;
-  border-right: 1px solid #333333;
-  color: #546137;
-
-  text-align: center;
-  font-family: Inter;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-}
-.days {
-  display: flex;
-  margin: 25px 0 10px;
-}
-
-.day {
-  width: calc(100% / 7);
-  text-align: center;
-}
-
-.dates {
-  display: flex;
-  flex-flow: row wrap;
-  height: 100%;
-  border-top: 1px solid #333333;
-  border-right: 1px solid #333333;
-  width: 100%;
-}
-
-.date {
-  width: calc(100% / 7);
-  padding: 15px;
-  text-align: right;
-  border-bottom: 1px solid #333333;
-  border-left: 1px solid #333333;
-}
-
-.day:nth-child(7n + 1),
-.date:nth-child(7n + 1) {
-  color: #d13e3e;
-}
-
-.day:nth-child(7n),
-.date:nth-child(7n) {
-  color: #396ee2;
-}
-.other {
-  opacity: 0.3;
-}
-.today {
-  position: relative;
-  color: #ffffff;
-}
-
-.today::before {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  z-index: -1;
-  display: block;
-  width: 30px;
-  height: 30px;
-  background-color: #ff0000;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  content: "";
-}
-
-.content-cal-btn-td {
-  fill: #ffdf6c;
-  stroke-width: 1px;
-  stroke: #546137;
-  filter: drop-shadow(7px 7px 7px rgba(0, 0, 0, 0.3));
-}
-
-#next-btn {
-  width: 10%;
-  height: 8vh;
-  flex-shrink: 0;
-  border-radius: 20px;
-  background: #ffdf6c;
-  color: #546137;
-
-  text-align: center;
-  font-family: Inter;
   font-size: 1rem;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+  padding-top: 7%;
+  padding-bottom: 5%;
 }
-.content-cal-btn-box-td {
-  display: block;
-  position: relative;
-  margin-top: 10vh;
+
+.content-step-page-td > .content-step-page-td-tr2 > div {
+  padding-bottom: 1%;
+}
+
+.content-step-page-td
+  > .content-step-page-td-tr3
+  > .content-step-page-td-tr3-1 {
+  color: #546137;
+  background-color: #ffdf6c;
+  padding: 1.2% 2.3%;
 }
