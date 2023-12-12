@@ -180,10 +180,8 @@
 
 
 
-
 							<jsp:include page="noticeViewPage.jsp"></jsp:include>
-							
-							
+
 
 
 

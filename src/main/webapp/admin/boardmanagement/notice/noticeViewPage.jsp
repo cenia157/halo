@@ -34,47 +34,37 @@
 
 
 
+							<div id="myModal" class="modal-background"></div>
+							<div class="modal-tbl">
 
-	<div id="myModal" class="modal-background"></div>
-	<div class="modal-tbl">
+								<div class="modal-title-tr">
+									<div class="modal-title-td-1">
+										<div class="modal-title-td-1-title">
+											<div class="real-title-view">민기해적단 팀인원 대거 탈주 계획</div>
+										</div>
+										<div class="modal-title-td-1-con">
+											<div class="modal-title-td-1-detile">2023-12-25 大出 昭子</div>
+											<div class="modal-title-td-1-detile">일반</div>
+										</div>
+									</div>
+									<div class="modal-title-td-2">
+										<span class="close" id="closeModalBtn">&times;</span>
+									</div>
 
-		<div class="modal-title-tr">
-			<div class="modal-title-td-1">
+								</div>
+								<div class="modal-content" >
+									<div class="modal-content-txt" >
+
+<textarea class="noticeViewPageTextarea" rows="" cols="" ></textarea>
 
 
-
-				<div class="real-title">제공되는 서비스를 이용하려면 어떻게 해야되나요?</div>
-
-
-
-
-			</div>
-			<div class="modal-title-td-2">
-				<span class="close" id="closeModalBtn">&times;</span>
-			</div>
-
-		</div>
-		<div class="modal-content">
-			<div class="modal-content-txt">
-
-				<div id="classic"></div>
-			</div>
-			<div class="modal-content-button">
-				<button class="EditCompleted">수정완료</button>
-			</div>
-		</div>
-	</div>
+									</div>
+									<div class="modal-content-button" >
+										<button class="EditCompleted">수정</button>
+									</div>
+								</div>
+							</div>
 
 
 </body>
-<script>
-        ClassicEditor
-            .create( document.querySelector( '#classic' ))
-            .then( editor => {
-			window.editor = editor;
-			})
-            .catch( error => {
-                console.error( error );
-            } );
-    </script>
 </html>
