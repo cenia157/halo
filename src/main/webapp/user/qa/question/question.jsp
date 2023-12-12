@@ -174,34 +174,9 @@
 		
 	</div>
 		
-		
-		<!-- 하단배너 -->
-		
-		 <div class="bottom-venner-tr">
-	          <div class="bottom-venner-td">하단베너</div>
-	          <div class="bottom-venner-td">상품판매링크</div>
-	          <div class="bottom-venner-td">추가기능</div>
-	     </div>
 
-		<!-- footer -->
-	<div class="footer-tbl">
-      <div class="footer-tr">
-        <div class="footer-item-td-1">
-          Tel. 06-6997-6531 <br>
-          FAX : 06-6997-6520 <br>
-          PhoneNumber : 090-8799-3855 <br>
-          email : hello20201110@gmail.com <br>
-          address : 大阪府守口市馬場町3-14-6メゾンエミール701号 <br>
-        </div>
-        <div class="footer-item-td-2">
-          <div>合同会社<img src="0.img/footerlogo.png" alt=""><a>ハロー
-          </a></div>
-          <div>代表社員　：　大出　昭子　<img src="0.img/footerinstaicon.png" alt="">　<img src="0.img/footerlineicon.png" alt=""></div>
-          <div>Copyright 2023. MGKD.All rights reserved</div>
-        </div>
-      </div>
-    </div>
-		
+	<!-- banner include -->
+	<%@ include file="index-banner.jsp" %>
 	<!-- footer include -->
 	<%@ include file="index-footer.jsp" %>
 	
