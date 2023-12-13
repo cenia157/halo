@@ -154,12 +154,16 @@ pageEncoding="UTF-8"%>
       </div>
       <!--include 領域展開1 끝-->
 
+
+	  <!--하단배너-->
       <div class="bottom-venner-tr">
-        <div class="bottom-venner-td">하단베너</div>
-        <div class="bottom-venner-td">상품판매링크</div>
-        <div class="bottom-venner-td">추가기능</div>
+         <div class="bottom-venner-td">하단베너</div>
+         <div class="bottom-venner-td">상품판매링크</div>
+         <div class="bottom-venner-td">추가기능</div>
+        </div>
       </div>
 
+	  <!--푸터-->	
       <div class="footer-tbl">footer</div>
     </div>
   </body>
