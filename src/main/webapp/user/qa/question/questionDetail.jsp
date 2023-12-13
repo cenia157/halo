@@ -18,6 +18,7 @@
 
 <!-- 메뉴를 include -->
 <%-- <%@ include file="index-menu.jsp" %> --%>
+	<div class="content-tbl">
 
 	<!-- 본문 -->
 	<div class="qd-content-tbl">
@@ -93,7 +94,7 @@
 		</div>
 	</div>
 
-
+	</div>
 
 </body>
 </html>

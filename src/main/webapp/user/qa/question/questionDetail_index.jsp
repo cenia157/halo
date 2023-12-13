@@ -36,7 +36,8 @@
 			<div class="header-tr-1">
 				<div class="header-br-logo">
 					<!-- 이미지 경로 확인 -->
-					<img src="${pageContext.request.contextPath}/user/0.img/logo.png" /> <a href="">ハロー</a>
+					<img src="${pageContext.request.contextPath}/user/0.img/logo.png" />
+					<a href="">ハロー</a>
 				</div>
 				<div class="header-br-space"></div>
 				<div class="header-br-call">Tel. 06-6997-6531</div>
@@ -87,7 +88,8 @@
 					<div class="header-td-menu">
 						<div class="header-td-menu-img">
 							<!-- 복붙할때 이미지 경로 확인~~~~ -->
-							<img src="${pageContext.request.contextPath}/user/0.img/icon _menu_.png" />
+							<img
+								src="${pageContext.request.contextPath}/user/0.img/icon _menu_.png" />
 						</div>
 					</div>
 				</div>
@@ -97,11 +99,11 @@
 		<div class="content-tbl">
 			<div class="content-space"></div>
 			<div class="content-sec">
-			
-<!-- 			본문 -->
+
+				<!-- 			본문 -->
 				<jsp:include page="questionDetail.jsp"></jsp:include>
-<!-- 			본문 끝 -->
-			
+				<!-- 			본문 끝 -->
+
 			</div>
 			<div class="bottom-venner-tr">
 				<div class="bottom-venner-td">하단베너</div>
