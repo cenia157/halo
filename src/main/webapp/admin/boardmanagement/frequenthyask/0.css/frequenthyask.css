@@ -1,0 +1,304 @@
+.content-m-td-2 {
+	width: 100%;
+	height: 88%;
+	position: relative;
+	width: 100%;
+}
+
+.ontent-m-td-2-chackbox {
+	width: 100%;
+	height: 8%;
+	font-size: 0.5rem;
+	display: flex;
+	align-items: center;
+	padding-left: 8%;
+}
+
+.ontent-m-td-2-content {
+	height: 92%;
+	width: 100%;
+	display: block;
+	padding: 0% 5%;
+}
+
+.ontent-m-td-2-content-container {
+	display: flex;
+	width: 100%;
+	height: 10%;
+}
+
+.ontent-m-td-2-content-txt {
+	width: 100%;
+	display: flex;
+	height: 100%;
+}
+
+.ontent-m-td-2-content-txt-1 {
+	background-color: fuchsia;
+	width: 100%;
+	height: 10%;
+	display: block;
+}
+
+.ontent-m-td-2-content-txt-contain {
+	width: 100%;
+	height: 100%;
+	display: flex;
+}
+
+.ontent-m-td-2-content-txt-no {
+	color: #576D8F;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1rem;
+	font-weight: 600;
+	width: 5%;
+	font-size: 1rem;
+}
+
+.ontent-m-td-2-content-txt-kategorie {
+	color: #576D8F;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1rem;
+	font-weight: 600;
+	width: 15%;
+}
+
+.ontent-m-td-2-content-txt-title {
+	color: #576D8F;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1rem;
+	font-weight: 600;
+	width: 40%;
+}
+
+.ontent-m-td-2-content-txt-writer {
+	color: #576D8F;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1rem;
+	font-weight: 600;
+	width: 15%;
+}
+
+.ontent-m-td-2-content-txt-date {
+	color: #576D8F;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1rem;
+	font-weight: 600;
+	width: 20%;
+}
+
+.ontent-m-td-2-content-txt-delete {
+	color: #576D8F;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1rem;
+	font-weight: 600;
+	width: 10%;
+}
+
+.ontent-m-td-2-mid {
+	height: 73%;
+	display: block;
+}
+
+.ontent-m-td-2-content-txt-in {
+	height: 12.5%;
+	width: 100%;
+	display: flex;
+}
+
+.ontent-m-td-2-content-txt-no-in {
+	border-bottom: solid 1px #E5E7EB;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 0.7rem;
+	width: 5%;
+}
+
+.ontent-m-td-2-content-txt-kategorie-in {
+	border-bottom: solid 1px #E5E7EB;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 0.7rem;
+	width: 15%;
+}
+
+.ontent-m-td-2-content-txt-title-in {
+	border-bottom: solid 1px #E5E7EB;
+	display: flex;
+	align-items: center;
+	font-size: 0.7rem;
+	width: 40%;
+	padding: 0% 4%;
+}
+
+.ontent-m-td-2-content-txt-writer-in {
+	border-bottom: solid 1px #E5E7EB;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 0.7rem;
+	width: 15%;
+}
+
+.ontent-m-td-2-content-txt-date-in {
+	border-bottom: solid 1px #E5E7EB;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 0.7rem;
+	width: 20%;
+}
+
+.ontent-m-td-2-content-txt-delete-in {
+	border-bottom: solid 1px #E5E7EB;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 0.7rem;
+	width: 10%;
+}
+
+.ontent-m-td-2-bottom {
+	width: 100%;
+	height: 17%;
+	display: flex;
+}
+
+.ontent-m-td-2-page-side {
+	height: 100%;
+	width: 25%;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+}
+
+.ontent-m-td-2-page-center {
+	height: 100%;
+	width: 50%;
+}
+
+/* 여기서부터는  frequenthyaskEditPage.jsp 영역! */
+.modal-background {
+	/*
+	display: none;
+ position: relative;
+*/
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-tbl {
+	/*
+	display: none;
+ position: relative;
+*/
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 45%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: white;
+}
+
+.modal-title-tr {
+	display: flex;
+	height: 25%;
+	width: 100%;
+}
+
+.modal-title-td-1 {
+	width: 90%;
+	display: flex;
+	justify-content: end;
+	align-items: end;
+}
+
+.real-title {
+	padding: 1%;
+	width: 94.5%;
+	height: 75%;
+	border: 1px solid #D1D1D1;
+	display: flex;
+	align-items: center;
+	font-size: 1.2rem;
+}
+
+.modal-title-td-2 {
+	padding: 1% 2%;
+	width: 10%;
+	display: flex;
+	justify-content: end;
+	align-items: end;
+}
+
+.modal-content {
+	height: 75%;
+	width: 100%;
+	padding: 0% 5% 2% 5%;
+}
+
+.modal-content-txt {
+	height: 90%;
+}
+
+.modal-content-button {
+	height: 10%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: auto;
+}
+
+.SubmitButton {
+	border-radius: 2%/15%;
+	border: none;
+	background-color: #3B82F6;
+	color: white;
+	border: none;
+	width: 10%;
+	height: 60%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.ck-editor__editable_inline:not(.ck-comment__input *) {
+	height: 300px;
+	overflow-y: auto;
+}
+
+.close {
+	color: #535353;
+	float: right;
+	font-size: 4rem;
+}
+
+.close:hover, .close:focus {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.ck.ck-editor {
+	width: 100%;
+}
