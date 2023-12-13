@@ -85,7 +85,7 @@ pageEncoding="UTF-8"%>
                       <span>18</span>
                     </div>
                     <div class="content-box-tr1-td3-1-1-1-2-2 writer-width">
-                       <span>사토*케시</span>
+                      <span>사토*케시</span>
                     </div>
                     <div class="content-box-tr1-td3-1-1-1-2-3 title-width">
                       <span>일정공지</span>
@@ -99,18 +99,19 @@ pageEncoding="UTF-8"%>
                   </div>
                 </div>
               </div>
+              <div class="content-box-tr1-td3-1-2">릴레이티브_아이콘삽입</div>
             </div>
           </div>
         </div>
       </div>
       <!--include 領域展開1 끝-->
 
-	
         <div class="bottom-venner-tr">
           <div class="bottom-venner-td">하단베너</div>
           <div class="bottom-venner-td">상품판매링크</div>
           <div class="bottom-venner-td">추가기능</div>
         </div>
+      </div>
 
 
       <div class="footer-tbl">footer</div>
