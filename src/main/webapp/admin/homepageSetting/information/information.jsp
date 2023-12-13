@@ -44,13 +44,23 @@
 						<div class="content-m-td-title">회사정보변경</div>
 					</div>
 					<div class="content-m-td-2-up">
-						<div class="" style="height: 80%; width: 100%; background-color: lime;">
 							<!-- 여기에 회사정보변경 내용을 채워야한다 -->
+						<div class="CompanyInformation">
 
 
 
+	<div style=" width: 100; height: 40%; display: block; background-color: red;">
 
+<div style="widows: 100%; height: 50%; display: flex; align-items: center; background-color: fuchsia;" >
+회사의주소aaa
+</div>
 
+<div style="height: 50%; width: 100%; border: 1px solid black ;">
+<textarea style=" padding:1%; border:none ; border-radius:1%/10% ; width: 100%; height: 100%; background-color: #FFEFEF; resize: none;" rows="" cols="" placeholder=" 이곳에 이전에 입력했던 회사의 정보를 표시해야한다 " ></textarea>
+
+</div>
+
+	</div>
 
 
 

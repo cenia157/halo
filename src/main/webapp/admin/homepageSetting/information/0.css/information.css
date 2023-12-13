@@ -19,7 +19,7 @@
 		format("svg");
 }
 
-.content-m-td-2-up{
+.content-m-td-2-up {
 	margin: auto;
 	width: 80%;
 	height: 88%;
@@ -29,8 +29,17 @@
 
 /*
 여기에 회사정보변경 내용 css를 채워야한다
-
 */
+.CompanyInformation {
+	height: 80%;
+	width: 100%;
+	background-color: lime;
+}
+
+
+
+
+
 
 .content-m-td-2-down {
 	height: 20%;
