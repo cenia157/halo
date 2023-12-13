@@ -101,7 +101,7 @@
 				</div>
 				<div class="ta-content-applyform-tr-2">
 					<span class="ta-content-applyform-tr-2-1">비고란(요청사항)* :</span>
-					<input class="ta-content-applyform-tr-2-2" type="text">
+					<textarea class="ta-content-applyform-tr-2-2" type="text"></textarea>
 				</div>
 			</div>
 	            <div class="ta-content-cal-btn-box-td">

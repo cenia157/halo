@@ -86,8 +86,8 @@
 									class="na-content-applyform-tr-2-2" type="text">
 							</div>
 							<div class="na-content-applyform-tr-2">
-								<span class="na-content-applyform-tr-2-1">비고란(요청사항)* :</span> <input
-									class="na-content-applyform-tr-2-2" type="text">
+								<span class="na-content-applyform-tr-2-1">비고란(요청사항)* :</span> <textarea 
+									class="na-content-applyform-tr-2-2" type="text"></textarea>
 							</div>
 						</div>
 						<div class="na-content-cal-btn-box-td">
