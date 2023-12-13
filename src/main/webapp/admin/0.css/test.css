@@ -19,7 +19,7 @@
 		format("svg");
 }
 
-* {F
+* {
 	font-family: "SF Pro JP Regular";
 	margin: 0;
 	padding: 0;
@@ -303,29 +303,11 @@ a {
 }
 
 /* ************************�쐞濡쒖닔�젙湲덉�************************ */
-.content-m-td-2 {
-	width: 100%;
-	height: 88%;
-	position: relative;
-	width: 100%;
-}
 
-.ontent-m-td-2-chackbox {
-	width: 100%;
-	height: 8%;
-	font-size: 0.5rem;
-	display: flex;
-	align-items: center;
-	padding-left: 8%;
-}
 
-.ontent-m-td-2-content {
-	background-color: aqua;
-	height: 92%;
-	width: 100%;
-	display: block;
-}
 
+<<<<<<< HEAD
+=======
 .ontent-m-td-2-content-container {
 	display: flex;
 	width: 100%;
@@ -559,8 +541,6 @@ a {
 	height: 50%;
 	align-items: center;
 	display: flex;
-	/*
-*/
 	width: 40%;
 }
 
@@ -608,3 +588,4 @@ a {
 .ck.ck-editor {
 	width: 100%;
 }
+>>>>>>> cce87cf8bbb597b36d033533aee73ba529e34401
