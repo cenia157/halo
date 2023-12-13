@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>logo</title>
+<title>Information</title>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/admin/0.css/test.css" />
 
@@ -41,68 +41,27 @@
 				<div class="content-main-td">
 					<div class="content-m-td-1">
 						<!-- *************** 수정 *************** -->
-						<div class="content-m-td-title">로고변경</div>
+						<div class="content-m-td-title">회사정보변경</div>
 					</div>
-					<div class="content-m-td-3">
-
-						<div class="content-m-td-2-side">
-							<div class="content-m-td-2-side-up">
-
-								<div class="content-m-td-2-side-up-title">현재로고</div>
+					<div class="content-m-td-2-up">
+						<div class="" style="height: 80%; width: 100%; background-color: lime;">
+							<!-- 여기에 회사정보변경 내용을 채워야한다 -->
 
 
 
-							</div>
-							<div class="content-m-td-2-side-mid">
 
-								<div class="content-m-td-2-side-mid-logo">
-									<!-- 여기에 이미지 삽입, 식별을 위해 임시로 이미지 대신 스타일삽입하였으므로 나중에 삭제 -->
-									<img alt="" src=""
-										style="background-color: gray; height: 40%; width: 70%;">
-								</div>
 
-							</div>
-							<div class="content-m-td-2-side-down"></div>
-						</div>
-						<div class="content-m-td-2-mid">
 
-							<div class="content-m-td-2-mid-Play">
-							
-							<img alt="" src="
-							
-${pageContext.request.contextPath}/admin/0.img/Vector.png
-							
-							
-							">
-							
-							</div>
+
+
+
 
 						</div>
-						<div class="content-m-td-2-side">
-							<div class="content-m-td-2-side-up">
-
-
-								<div class="content-m-td-2-side-up-title">변경로고</div>
-
-							</div>
-							<div class="content-m-td-2-side-mid">
-
-								<div class="content-m-td-2-side-mid-logo">
-									<!-- 여기에 이미지 삽입, 식별을 위해 임시로 이미지 대신 스타일삽입하였으므로 나중에 삭제 -->
-									<img alt="" src=""
-										style="background-color: gray; height: 40%; width: 70%;">
-								</div>
-
-							</div>
-							<div class="content-m-td-2-side-down">
-
-								<div class="content-m-td-2-side-down-button">
-									<button class="content-button">변경</button>
-								</div>
+						<div class="content-m-td-2-down">
+							<div class="content-m-td-2-side-down-button">
+								<button class="content-button">변경</button>
 							</div>
 						</div>
-
-
 					</div>
 				</div>
 				<!-- *************** 수정 *************** -->
