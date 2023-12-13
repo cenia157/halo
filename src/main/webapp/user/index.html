@@ -24,12 +24,23 @@
   </head>
   <body>
     <!-- 배경이미지 div -->
-
-    <div class="background-img background-img-rightCloud"></div>
-    <div class="background-img background-img-leftCloud"></div>
-    <div class="background-img background-img-rightPink"></div>
-    <div class="background-img background-img-leftPink"></div>
-    <div class="background-img background-img-mountain"></div>
+    <div id="background-img">
+      <div id="background-img-rightCloud" class="slide">
+        <img src="0.img/rightCloud.PNG" alt="" />
+      </div>
+      <div id="background-img-leftCloud" class="slide">
+        <img src="0.img/leftCloud.PNG" alt="">
+      </div>
+      <div id="background-img-rightPink" class="slide">
+        <img src="0.img/rightPinkCloud.PNG" alt="">
+      </div>
+      <div id="background-img-leftPink" class="slide">
+        <img src="0.img/leftPinkCloud.PNG" alt="">
+      </div>
+      <div id="background-img-mountain" class="slide">
+        <img src="0.img/mountain.PNG" alt="">
+      </div>
+    </div>
 
     <div class="container">
       <!-- 헤더 html 시작 -->
@@ -105,10 +116,10 @@
       <!-- 헤더끝 -->
 
       <div class="slogan-tbl">
-        <h1>
+        <div>
           "더 행복한 내일을 함께하는 요양서비스 ハロー<br />가족처럼
           모시겠습니다."
-        </h1>
+        </div>
       </div>
       <div class="quick-menu-tbl">
         <div class="quick-menu-tr">채용공고</div>
@@ -119,24 +130,28 @@
         <div class="main-notice-tr1">공지사항</div>
         <div class="main-notice-tr2">
           <div class="main-notice-td">
-            ●aa
-            <div>asdasd</div>
+            <div class="main-notice-td-title">●공지제목1</div>
+            <div class="main-notice-td-txt">공지내용1 asdasd</div>
           </div>
           <div class="main-notice-td">
-            aa
-            <div>asdasd</div>
+            <div class="main-notice-td-title">●공지제목2</div>
+            <div class="main-notice-td-txt">공지내용2 asdasd</div>
           </div>
           <div class="main-notice-td">
-            aa
-            <div>asdasd</div>
+            <div class="main-notice-td-title">●공지제목3</div>
+            <div class="main-notice-td-txt">공지내용3 asdasd</div>
           </div>
         </div>
       </div>
       <div class="main-map-tbl" id="page2">
-        <div class="main-map-tr1"><div>오시는길 부분</div></div>
+        <div class="main-map-tr1">
+          <div class="main-map-box">구글맵 연동~~</div>
+        </div>
         <div class="main-map-tr2">
           <div class="main-map-td1">오시는길~</div>
-          <div class="main-map-td2">asdasdasdasdasd<br />adsasdasdasdasd</div>
+          <div class="main-map-td2">
+            <div>●주소<br />大阪府守口市馬場町3-14-6メゾンエミール701号</div>
+          </div>
         </div>
       </div>
       <div class="remote-control-td">

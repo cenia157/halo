@@ -3,7 +3,6 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>FAQ</title>
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/user/qa/faq/0.css/faq.css">
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/user/qa/faq/0.css/index-banner.css">
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/user/0.css/index-menu.css">
@@ -41,16 +40,12 @@
 	</div>
 	
 
-	<!-- 하단배너 -->
-	
-	 <div class="bottom-venner-tr">
-          <div class="bottom-venner-td">하단베너</div>
-          <div class="bottom-venner-td">상품판매링크</div>
-          <div class="bottom-venner-td">추가기능</div>
-     </div>
+
+	<!-- banner include -->
+	<%@ include file="index-banner.jsp" %>
 
 	<!-- footer include -->
-<%-- 	<%@ include file="index-footer.jsp" %> --%>
+	<%@ include file="index-footer.jsp" %>
 
 </body>
 </html>
