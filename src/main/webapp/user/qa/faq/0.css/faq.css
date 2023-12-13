@@ -1,3 +1,5 @@
+/* faq 콘텐츠 길이 250vh */
+
 @charset "UTF-8";
 
 @import
@@ -32,22 +34,32 @@ a {
 	text-decoration: none;
 }
 
-/* 헤더 */
+/* 전체 */
+.container-tbl{
+	height: 250vh;
+}
+.content-tbl {
+  background-color: #5b7953;
+  width: 100%;
+  height: 250vh;
+  display: flex;
+  flex-direction: column;
+}
+
 
 
 /* 본문 */
-.content-tbl {
+.faq-content-tbl {
 	width: 100%;
 	/*   height: 265vh;  */
-	height: 230vh;
+	height: 150vh;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	padding-top: 20vh;
 }
 
-.content-box-tr1 {
+.faq-content-box-tr1 {
 	width: 70%;
 	background-color: rgba(255, 255, 255, 0.80);
 	border-radius: 35px;
@@ -55,7 +67,7 @@ a {
 	margin-bottom: 5%;
 }
 
-.content-box-tr2 {
+.faq-content-box-tr2 {
 	width: 80%;
 	height: 50%;
 	border-radius: 35px;
@@ -67,7 +79,7 @@ a {
 	align-items: center;
 }
 
-.content-box-td1-1 {
+.faq-content-box-td1-1 {
 	height: 20%;
 	display: flex;
 	align-items: center;
@@ -83,7 +95,7 @@ a {
 	line-height: normal;
 }
 
-.content-box-td1-2 {
+.faq-content-box-td1-2 {
 	height: 75%;
 	display: flex;
 	justify-content: center;
@@ -98,7 +110,7 @@ a {
 	line-height: normal;
 }
 
-.content-box-td1-2-content {
+.faq-content-box-td1-2-content {
 	border-radius: 30px;
 	background: #FFEDAB;
 	box-shadow: 8px 8px 8px 0px rgba(0, 0, 0, 0.30);
@@ -111,7 +123,7 @@ a {
 	align-items: center;
 }
 
-.content-box-td2-1 {
+.faq-content-box-td2-1 {
 	display: flex;
 	height: 10%; flex-direction : column;
 	justify-content: center;
@@ -127,7 +139,7 @@ a {
 	flex-direction: column;
 }
 
-.content-box-td2-2 {
+.faq-content-box-td2-2 {
 	border-radius: 35px;
 	background: #FFF;
 	width: 100%;
@@ -138,7 +150,7 @@ a {
 	align-items: flex-start;
 }
 
-.content-box-td2-2-content{
+.faq-content-box-td2-2-content{
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -154,26 +166,3 @@ a {
 	font-weight: 700;
 	line-height: normal;
 }
-
-/* 리모컨 */
-.remote-control-td {
-  border: solid 1px rgb(255, 0, 0);
-  position: fixed;
-  top: 85%;
-  left: 92%;
-  width: 6%;
-  height: 10%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.remote-control-tr {
-  border: solid 1px rgb(56, 255, 60);
-  background-color: antiquewhite;
-  width: 70%;
-  height: 30%;
-  margin-bottom: 10%;
-}
-
