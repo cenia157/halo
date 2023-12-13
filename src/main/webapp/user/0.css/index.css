@@ -34,6 +34,7 @@ a {
   max-width: 100vw;
   height: 300vh;
 }
+
 /* 배경이미지*/
 .background {
   position: fixed;
@@ -42,8 +43,6 @@ a {
   z-index: -100;
   transition: transform 2s ease-out;
 }
-
-/* 배경이미지 끝 */
 
 /* 슬로건 */
 .slogan-tbl {
@@ -203,23 +202,48 @@ a {
 }
 
 /* 리모컨 */
-.remote-control-td {
-  border: solid 1px rgb(255, 0, 0);
+.remote-control-tbl {
+  /* border: solid 1px rgb(255, 0, 0); */
   position: fixed;
-  top: 85%;
-  left: 92%;
+  top: 75%;
+  left: 93%;
   width: 6%;
-  height: 10%;
+  height: 20%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-
 .remote-control-tr {
-  border: solid 1px rgb(56, 255, 60);
-  background-color: antiquewhite;
-  width: 70%;
-  height: 30%;
+  border: solid 1px rgb(255, 223, 108);
+  background-color: rgb(255, 244, 229);
+  box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.3);
+  border-radius: 23px;
+  width: 90%;
+  height: 90%;
   margin-bottom: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* 리모콘 텍스트 */
+.remote-control-td {
+  /* border: solid 1px rgb(0, 21, 255); */
+  color: #546137;
+  text-align: center;
+  width: fit-content;
+  height: fit-content;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+/* 리모콘 아이콘 이미지div */
+.remote-control-td2 {
+  /* border: solid 1px rgb(0, 21, 255); */
+  color: #546137;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 700;
+  width: fit-content;
+  height: fit-content;
+  margin-top: 5%;
 }
