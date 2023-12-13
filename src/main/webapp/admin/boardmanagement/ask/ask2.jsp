@@ -6,12 +6,6 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="stylesheet" href="0.css/test.css" />
-<script src="https://code.jquery.com/jquery-3.7.1.js"
-	integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
-	crossorigin="anonymous">
-    </script>
-<script src="0.js/test.js"></script>
 
 <!-- 아래의 코드는 에ㅔ디터를 활성화 하기 위한 코드 -->
 
@@ -34,9 +28,14 @@
 
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/admin/0.css/test.css" />
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/admin/boardmanagement/ask/0.css/ask.css" />
+
+
 <link
 	href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular"
 	rel="stylesheet" />
+
 </head>
 
 
@@ -59,18 +58,15 @@
 				<div class="content-main-td">
 					<div class="content-m-td-1">
 						<!-- *************** 수정 *************** -->
-						<div class="content-m-td-title">가나다라</div>
+						<div class="content-m-td-title">문의사항</div>
 					</div>
 					<div class="content-m-td-2">
 
 
 
 						<div class="ontent-m-td-2-chackbox">
-							<input type="checkbox" name="">&nbsp;안내&nbsp;&nbsp;&nbsp;
-							<input type="checkbox" name="">&nbsp;알림&nbsp;&nbsp;&nbsp;
-							<input type="checkbox" name="">&nbsp;일반&nbsp;&nbsp;&nbsp;
-							<input type="checkbox" name="">&nbsp;서비스&nbsp;&nbsp;&nbsp;
-							<input type="checkbox" name="">&nbsp;상품&nbsp;&nbsp;&nbsp;
+							<input type="checkbox" name="">&nbsp;답변&nbsp;&nbsp;&nbsp;
+							<input type="checkbox" name="">&nbsp;미답변&nbsp;&nbsp;&nbsp;
 						</div>
 
 
@@ -79,137 +75,21 @@
 
 
 
-
-
-						<div class="ontent-m-td-2-content">
-
-							<div class="ontent-m-td-2-content-container">
-								<div class="ontent-m-td-2-content-txt">
-									<div class="ontent-m-td-2-content-txt-no">1a</div>
-									<div class="ontent-m-td-2-content-txt-kategorie">카테고리</div>
-									<div class="ontent-m-td-2-content-txt-title">제목</div>
-									<div class="ontent-m-td-2-content-txt-writer">작성자</div>
-									<div class="ontent-m-td-2-content-txt-date">작성일자</div>
-									<div class="ontent-m-td-2-content-txt-delete">삭제하기</div>
-								</div>
-							</div>
+						<!-- 아래의 include는 for Each를 써서 게시판을 나타내는 용도다  -->
+						<jsp:include page="askBoard.jsp"></jsp:include>
 
 
 
-							<div class="ontent-m-td-2-mid">
-								<div class="ontent-m-td-2-content-txt-1">
-									<div class="ontent-m-td-2-content-txt-contain">
-										<div class="ontent-m-td-2-mid-txt-no">1</div>
-										<div class="ontent-m-td-2-mid-txt-kategorie">카테고리</div>
-										<div class="ontent-m-td-2-mid-txt-title">제목</div>
-										<div class="ontent-m-td-2-mid-txt-writer">작성자</div>
-										<div class="ontent-m-td-2-mid-txt-date">작성일자</div>
-										<div class="ontent-m-td-2-mid-txt-delete">삭제하기</div>
-									</div>
-									<div class="ontent-m-td-2-content-txt-contain">
-										<div class="ontent-m-td-2-mid-txt-no">13</div>
-										<div class="ontent-m-td-2-mid-txt-kategorie">카테고리</div>
-										<div class="ontent-m-td-2-mid-txt-title">제목</div>
-										<div class="ontent-m-td-2-mid-txt-writer">작성자</div>
-										<div class="ontent-m-td-2-mid-txt-date">작성일자</div>
-										<div class="ontent-m-td-2-mid-txt-delete">삭제하기</div>
-									</div>
-								</div>
+						<!-- 여기는 모달을 띄워주는 곳, 
+						고객의 문의에 이미 답변한 내용을 보여주거나(askRespone.jsp)
+						아니면 질문할 공간을 띄우는 곳(askEditPage.jsp) -->
+
+
+						<jsp:include page="askRespone.jsp"></jsp:include>
 
 
 
 
-
-
-
-
-
-
-
-							</div>
-
-
-
-
-							<div class="ontent-m-td-2-bottom"
-								style="background-color: green;">
-
-								<div class="ontent-m-td-2-page-side"
-									style="background-color: green;"></div>
-								<div class="ontent-m-td-2-page-center"
-									style="background-color: green;"></div>
-								<div class="ontent-m-td-2-page-side"
-									style="background-color: green;">
-
-
-									<button id="openModalBtn">등록하기</button>
-									<!-- 모달 설정 위치는 여기 -->
-
-								</div>
-
-
-
-							</div>
-
-							<!-- 
- -->
-							<!-- 
-								 -->
-							<div id="myModal" class="modal-background"></div>
-							<div class="modal-tbl">
-
-								<div class="modal-title-tr">
-									<div class="modal-title-td-1">
-
-
-										<div class="modal-title-td-1-title">
-											<div class="modal-title-td-1-title-detile">제목</div>
-										</div>
-
-
-										<div class="modal-title-td-1-con">
-											<div class="modal-title-td-1-detile">2023-12-25 大出 昭子</div>
-											<div class="modal-title-td-1-detile">일반</div>
-										</div>
-
-
-									</div>
-
-
-									<div class="modal-title-td-2">
-										<span class="close" id="closeModalBtn">&times;</span>
-									</div>
-
-								</div>
-
-								<!-- 
-							<div class="modal-content">
-								<div class="modal-content-txt">모달 내용이 여기에 들어갑니다.</div>
-
-								<div class="modal-content-button">
-									<button>수정</button>
-								</div>
-
-							</div>
- -->
-								<div class="modal-content">
-									<div class="modal-content-txt">
-
-										<div id="classic"></div>
-									</div>
-
-									<div class="modal-content-button">
-										<button>수정</button>
-									</div>
-
-								</div>
-
-							</div>
-
-
-
-
-						</div>
 					</div>
 				</div>
 				<!-- *************** 수정 *************** -->
@@ -219,14 +99,5 @@
 	</div>
 	<!-- 최상위 콘테이너 close-->
 </body>
-<script>
-        ClassicEditor
-            .create( document.querySelector( '#classic' ))
-            .then( editor => {
-			window.editor = editor;
-			})
-            .catch( error => {
-                console.error( error );
-            } );
-    </script>
+
 </html>
