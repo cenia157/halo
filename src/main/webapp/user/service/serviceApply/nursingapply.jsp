@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Nursing Apply</title>
 <link rel="stylesheet"
 	href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular" />
 <link rel="stylesheet" type="text/css"
@@ -15,11 +15,11 @@
 <body>
 
 	<!-- 메뉴를 include -->
-	<%@ include file="index-menu.jsp" %>
+<%-- 	<%@ include file="index-menu.jsp" %> --%>
 	
 	
-		<!-- 본문 -->
 	<div class="container">
+		<!-- 본문 -->
 		<div class="content-tbl">
 			<div class="content-box-tr">
 				<div class="content-box-td">
@@ -102,13 +102,19 @@
 				<!-- 신청폼 끝 -->
 			</div>
 		</div>
+	<!-- 본문 끝 -->
 	</div>
 
-	<!-- banner include -->
-	<%@ include file="index-banner.jsp" %>
+	<!-- 하단배너 -->
+	
+	 <div class="bottom-venner-tr">
+          <div class="bottom-venner-td">하단베너</div>
+          <div class="bottom-venner-td">상품판매링크</div>
+          <div class="bottom-venner-td">추가기능</div>
+     </div>
 
 	<!-- footer include -->
-	<%@ include file="index-footer.jsp" %>
+<%-- 	<%@ include file="index-footer.jsp" %> --%>
 
 </body>
 </html>

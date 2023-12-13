@@ -34,12 +34,9 @@ a {
 
 /* 본문 */
 .container {
-	padding-top: 20vh;
 	width: 100%;
 	max-width: 100vw;
 	height: 250vh;
-	/*   임시배경 */
-	background-color: green;
 }
 
 /* 헤더 */
@@ -279,6 +276,7 @@ a {
 }
 
 .categotyselect {
+	text-align: center;
 	width: 50%;
 	height: 80%;
 	filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.30));
@@ -336,4 +334,28 @@ a {
 	font-style: normal;
 	font-weight: 700;
 	line-height: normal;
+}
+
+/* 하단배너 */
+
+.bottom-venner-tr {
+  width: 100%;
+  height: 40vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.bottom-venner-td {
+  background-color: rgb(255, 255, 255, 0.84);
+  box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.3);
+  color: #546137;
+  font-size: 2.5rem;
+  font-weight: 700;
+  width: 20%;
+  height: 45%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 30px;
 }

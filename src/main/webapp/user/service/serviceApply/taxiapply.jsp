@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Taxi Apply</title>
 <link
       rel="stylesheet"
       href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular"
@@ -16,7 +16,7 @@
 <body>
 
 	<!-- 메뉴를 include -->
-	<%@ include file="index-menu.jsp" %>
+<%-- 	<%@ include file="index-menu.jsp" %> --%>
 
 	<!-- 본문 -->
 	<div class="container">
@@ -116,11 +116,16 @@
         </div>
  </div>
  
-    <!-- banner include -->
-	<%@ include file="index-banner.jsp" %>
+	<!-- 하단배너 -->
+	
+	 <div class="bottom-venner-tr">
+          <div class="bottom-venner-td">하단베너</div>
+          <div class="bottom-venner-td">상품판매링크</div>
+          <div class="bottom-venner-td">추가기능</div>
+     </div>
 
 	<!-- footer include -->
-	<%@ include file="index-footer.jsp" %>
+<%-- 	<%@ include file="index-footer.jsp" %> --%>
 
 </body>
 </html>
