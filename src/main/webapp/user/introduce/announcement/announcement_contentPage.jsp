@@ -19,7 +19,7 @@ pageEncoding="UTF-8"%>
     <div class="a_container">
 
       <div class="a_content-tbl">
-        <!--include 領域展開1 시작-->
+        <!--ody 구분선 1 시작-->
 
         <div class="a_content-box-tr1">
           <div class="a_content-box-tr1-td1">
@@ -99,7 +99,7 @@ pageEncoding="UTF-8"%>
           </div>
         </div>
       </div>
-      <!--include 領域展開1 끝-->
+      <!--ody 구분선 1 끝-->
     </div>
   </body>
 </html>

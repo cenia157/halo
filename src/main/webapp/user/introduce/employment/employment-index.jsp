@@ -97,7 +97,7 @@
 		<div class="content-tbl">
 			<div class="content-space"></div>
 			<div class="content-sec">
-				<%-- <jsp:include page=""></jsp:include> --%>
+				<jsp:include page="/user/introduce/employment/employment_contentPage.jsp" />
 			</div>
 			<div class="bottom-venner-tr">
 				<div class="bottom-venner-td">하단베너</div>
