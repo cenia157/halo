@@ -1,0 +1,205 @@
+
+
+/*
+바꾼사항 23-12-13 18:51
+  *** contentPage.css에서 수정했기떄문에 원본 css파일 걱정안해도됨 ***
+1) .container_tbl -> 280vh -> 220vh
+2) .content_sec -> 160vh -> 180vh
+3) .content-tbl -> 260vh -> 120vh
+4) .bottom-venner-tr -> 색상변경(현 페이지에서 흰색이라서 초록색으로 변경)
+*/
+
+.container-tbl {
+	height: 220vh;
+}
+
+.content-tbl {
+	height: 180vh;
+}
+
+.content-sec {
+	height: 120vh;
+}
+
+.bottom-venner-tr {
+	background: #5B7953;
+}
+
+/* ------------------------------------------------------------------- */
+/* .a_content-box-tr1-td1-3안에 인스타 api 호출하여 div생성 및 페이징 처리 해야함 */
+/* ------------------------------------------------------------------- */
+
+.a_content-box-tr1 {
+  border: solid 1px red;
+  border-radius: 35px;
+  background-color: #fffcf0;
+  width: 95%;
+  height: 100%; /* 92%에서 100%로 변경 */
+  margin: 0 auto;
+}
+
+.a_content-box-tr1 a:link,
+.a_content-box-tr1 a:visited,
+.a_content-box-tr1 a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+
+.a_content-box-tr1-td1 {
+  display: flex;
+  width: 100%;
+}
+
+.a_content-box-tr1-td1-1,
+.a_content-box-tr1-td1-2,
+.a_content-box-tr1-td1-3 {
+  width: 33.33%;
+  text-align: center;
+  padding-top: 1.5%;
+  padding-bottom: 1.5%;
+}
+
+a_content-box-tr1-td3 {
+	width: 100%;
+	height: 83%;
+}
+
+.a_content-box-tr1-td1-1 {
+  background: #ffd66c;
+  border-top-left-radius: 35px;
+}
+
+.a_content-box-tr1-td1-2 {
+  background: #fffcf0;
+}
+
+.a_content-box-tr1-td1-3 {
+  background: #849461;
+  border-top-right-radius: 35px;
+  width: 100%;
+  height: 83%;
+}
+
+.a_content-box-tr1-td1-1 > span,
+.a_content-box-tr1-td1-2 > span,
+.a_content-box-tr1-td1-3 > span {
+  font-size: 1em;
+  font-weight: 700;
+}
+
+.a_content-box-tr1-td1-1 > span {
+  color: #62733d;
+  text-shadow: 6px 6px 6px #ffdf6c;
+}
+
+.a_content-box-tr1-td1-2 > span {
+  color: #62733d;
+  text-shadow: 6px 6px 6px rgba(255, 245, 154, 0.89);
+}
+
+.a_content-box-tr1-td1-3 > span {
+  color: #fff;
+}
+
+.a_content-box-tr1-td2 {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  outline: 1px solid green;
+  height: 4%;
+  padding-top: 2.2%;
+  padding-bottom: 4%;
+}
+
+.a_content-box-tr1-td2 > img {
+  width: 2.5%;
+}
+
+.a_content-box-tr1-td2-2 {
+  display: flex;
+  margin-right: 8%;
+  margin-left: 0.8%;
+  text-align: center;
+}
+
+.a_content-box-tr1-td2-2 > div {
+  margin-right: 3%;
+}
+
+.a_content-box-tr1-td2-2 > div:last-child {
+  margin-right: 0;
+}
+
+.a_content-box-tr1-td2-2-1 > span,
+.a_content-box-tr1-td2-2-2 > span,
+.a_content-box-tr1-td2-2-3 > span,
+.a_content-box-tr1-td2-2-4 > span {
+  font-size: 1.1em;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* .a_content-box-tr1-td3-1 { */
+/*   display: flex; */
+/*   flex-wrap: wrap; */
+/*   justify-content: space-around; */
+/*   margin: 0 -1%; */
+/* } */
+
+.a_content-box-tr1-td3 {
+    height: 83%;
+    width: 100%;
+    outline: 2px solid brown;
+}
+
+/* ********************************** */
+/* 아래는 인스타그램 연동할때 다시 생각 */
+
+/*
+.a_content-box-tr1-td3-1 .grid-item {
+    margin: 1%;
+    width: calc(27% - 2%);
+    box-sizing: border-box;
+    overflow: hidden;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    border-bottom: 2px solid #ddd;
+}
+
+.a_content-box-tr1-td3-1 .api_media {
+    width: 100%;
+    height: 70%;
+    object-fit: cover;
+    display: block;
+    border-radius: 8px;
+}
+
+.a_content-box-tr1-td3-1 .caption {
+    font-size: 1em;
+    font-weight: 700;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    white-space: normal;
+    text-overflow: ellipsis;
+    height: 30%;
+}
+
+.grid-item {
+    margin: 1%;
+    overflow: hidden;
+    display: inline-block;
+    max-width: 100%;
+    height: auto;
+}
+
+.api_media {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+*/
