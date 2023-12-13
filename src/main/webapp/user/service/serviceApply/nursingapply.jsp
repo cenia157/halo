@@ -7,58 +7,51 @@
 <title>Nursing Apply</title>
 <link rel="stylesheet"
 	href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular" />
-<link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/user/service/serviceApply/0.css/nursingapply.css">
-	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/user/0.css/index-menu.css">
-	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/user/0.css/index-footer.css">
+<link rel="stylesheet" href="0.css/nursingapply.css" />
 </head>
 <body>
+	<div class="content-box-tr">
+		<div class="content-box-td">
+			<div class="content-tabbox-td">
+				<div class="content-tab1-td tab1-pos">서비스 안내</div>
+				<div class="content-tab2-td tab2-pos">서비스 신청</div>
+			</div>
+			<div class="content-subtab-td">
+				<img src="0.img/home.png" alt="" /> > 서비스 > 서비스신청
+			</div>
+			<div class="content-procedure-box-td">
+				<!-- 서비스 신청 순서 -->
+				<div class="content-title-box-td">서비스 신청 순서</div>
+<!-- 				<div class="content-procedure-box-ul-pos"> -->
+					<ul class="content-procedure-box-ul">
+						<li class="content-box-li">
+							<div class="content-service-step-box-td">Step1.</div>
+							<div class="content-service-txt-box-td">신청할 서비스 선택하기</div>
+						</li>
+						<li class="content-box-li">
+							<div class="content-service-step-box-td">Step2.</div>
+							<div class="content-service-txt-box-td">이용할 ‘기간’ 캘린더에서 선택하기</div>
+						</li>
+						<li class="content-box-li">
+							<div class="content-service-step-box-td">Step3.</div>
+							<div class="content-service-txt-box-td">이용 ‘시간’ 선택하기</div>
+						</li>
+						<li class="content-box-li-pagepos">
+							<div class="content-service-step-box-td">Step4.</div>
+							<div class="content-service-txt-box-td">정보 입력하기</div>
+						</li>
+						</li>
 
-	<div class="na-container">
-		<!-- 본문 -->
-		<div class="na-content-tbl">
-			<div class="na-content-box-tr">
-				<div class="na-content-box-td">
-					<div class="na-content-tabbox-td">
-						<div class="na-content-tab1-td na-tab1-pos">서비스 안내</div>
-						<div class="na-content-tab2-td na-tab2-pos">서비스 신청</div>
-					</div>
-					<div class="na-content-subtab-td">
-						<img src="0.img/home.png" alt="" /> 서비스 > 서비스신청
-					</div>
-					<div class="na-content-procedure-box-td">
-						<div class="na-content-title-box-td">서비스 신청 순서</div>
-						<div class="na-content-procedure-box-ul-pos">
-							<ul class="na-content-procedure-box-ul">
-								<li class="na-content-box-li">
-									<div class="na-content-service-step-box-td">Step1.</div>
-									<div class="na-content-service-txt-box-td">신청할 서비스 선택하기</div>
-								</li>
-								<li class="na-content-box-li">
-									<div class="na-content-service-step-box-td">Step2.</div>
-									<div class="na-content-service-txt-box-td">이용할 ‘기간’ 캘린더에서
-										선택하기</div>
-								</li>
-								<li class="na-content-box-li">
-									<div class="na-content-service-step-box-td">Step3.</div>
-									<div class="na-content-service-txt-box-td">이용 ‘시간’ 선택하기</div>
-								</li>
-								<li class="na-content-box-li-pagepos">
-									<div class="na-content-service-step-box-td">Step4.</div>
-									<div class="na-content-service-txt-box-td">정보 입력하기</div>
-								</li>
-								<li class="na-content-box-li">
-									<div class="na-content-service-step-box-td">Step5.</div>
-									<div class="na-content-service-txt-box-td">이용약관 동의</div>
-								</li>
-								<li class="na-content-box-li">
-									<div class="na-content-service-step-box-td">Step6.</div>
-									<div class="na-content-service-txt-box-td">신청 완료</div>
-								</li>
-							</ul>
-						</div>
-					</div>
-
+						<li class="content-box-li">
+							<div class="content-service-step-box-td">Step5.</div>
+							<div class="content-service-txt-box-td">이용약관 동의</div>
+						</li>
+						<li class="content-box-li">
+							<div class="content-service-step-box-td">Step6.</div>
+							<div class="content-service-txt-box-td">신청 완료</div>
+					</ul>
+<!-- 				</div> -->
+			</div>
 					<!-- 설명 끝 -->
 
 					<!-- 신청폼 -->
@@ -67,9 +60,6 @@
 							<select class="na-categotyselect" name="category" id="category">
 								<option value="" selected="selected" disabled="disabled">‘방문요양’
 									신청에 필요한 정보를 입력해주세요.</option>
-								<option value=""></option>
-								<option value=""></option>
-								<option value=""></option>
 							</select>
 						</div>
 						<div class="na-content-applyform-td2">
