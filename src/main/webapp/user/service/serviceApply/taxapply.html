@@ -7,7 +7,7 @@
       href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="0.css/calselect.css" />
+    <link rel="stylesheet" href="0.css/taxiapply.css" />
   </head>
   <body>
     <div class="container">
@@ -65,46 +65,49 @@
                 </ul>
               </div>
             </div>
-            <!-- <div class="content-step-page-td"> -->
-            <!-- step별 페이지 -->
-            <div class="content-calbox-td">
-              <div class="content-date-select-box-td">
-                <label for="date">날짜 선택:</label>
-                <input type="date" id="date" name="date" />
-              </div>
-              <div class="calendar">
-                <div class="header">
-                  <div class="year-month"></div>
-                  <div class="nav">
-                    <button class="nav-btn go-prev" onclick="prevMonth()">
-                      &lt;
-                    </button>
-                    <button class="nav-btn go-today" onclick="goToday()">
-                      Today
-                    </button>
-                    <button class="nav-btn go-next" onclick="nextMonth()">
-                      &gt;
-                    </button>
-                  </div>
-                </div>
-                <div class="main">
-                  <div class="days">
-                    <div class="day">일</div>
-                    <div class="day">월</div>
-                    <div class="day">화</div>
-                    <div class="day">수</div>
-                    <div class="day">목</div>
-                    <div class="day">금</div>
-                    <div class="day">토</div>
-                  </div>
-                  <div class="dates"></div>
-                </div>
-              </div>
-              <script src="0.js/cal.js"></script>
-            </div>
-            <div class="content-cal-btn-box-td">
-              <button id="next-btn">다음으로</button>
-              <!-- </div> -->
+            <div class="content-step-page-td">
+              <!-- step별 페이지  시작-->
+		<div class="content-applyform-td">
+			<div class="content-applyform-tr-1">
+				<select class="categotyselect" name="category" id="category">
+			           <option value="" selected="selected" disabled="disabled">‘개호택시’ 신청에 필요한 정보를 입력해주세요.</option>
+			           <option value=""></option>
+			           <option value=""></option>
+			           <option value=""></option>
+			    </select>
+			</div>
+			<div class="content-applyform-td2">
+				<div class="content-applyform-tr-2">
+					<span class="content-applyform-tr-2-1">신청자 이름* :</span>
+					<input class="content-applyform-tr-2-2" type="text">
+				</div>
+				<div class="content-applyform-tr-2">
+					<span class="content-applyform-tr-2-1">서비스 받으실 분 성함* :</span>
+					<input class="content-applyform-tr-2-2" type="text">
+				</div>
+				<div class="content-applyform-tr-2">
+					<span class="content-applyform-tr-2-1">지역* :</span>
+					<input class="content-applyform-tr-2-2" type="text">
+				</div>
+				<div class="content-applyform-tr-2">
+					<span class="content-applyform-tr-2-1">출발지* :</span>
+					<input class="content-applyform-tr-2-2" type="text">
+				</div>
+				<div class="content-applyform-tr-2">
+					<span class="content-applyform-tr-2-1">목적지* :</span>
+					<input class="content-applyform-tr-2-2" type="text">
+				</div>
+				<div class="content-applyform-tr-2">
+					<span class="content-applyform-tr-2-1">비고란(요청사항)* :</span>
+					<input class="content-applyform-tr-2-2" type="text">
+				</div>
+			</div>
+	            <div class="content-cal-btn-box-td">
+	              <button class="content-cal-btn-td">다음으로</button>
+	            </div>
+			</div>
+		</div>
+              <!-- step별 페이지  끝-->
             </div>
           </div>
         </div>

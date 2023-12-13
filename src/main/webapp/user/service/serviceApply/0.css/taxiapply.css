@@ -44,7 +44,7 @@ a {
 .content-tbl {
   border: solid 1px blue;
   width: 100%;
-  height: 210vh;
+  height: 250vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -234,260 +234,70 @@ a {
   padding-right: 20%;
 }
 
-.content-step-page-td {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+/* apply form */
+.content-applyform-td {
+  margin: 5%;
+}
+.content-applyform-tr-1 {
   height: 10vh;
-  min-height: 75vh;
+  margin: 2%;
 }
-
-.calendar {
-  font-family: Arial, sans-serif;
-  border: 1px solid #ccc;
-  width: 250px;
-  padding: 10px;
-}
-
-.month {
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-.weekdays {
-  display: flex;
-  justify-content: space-between;
-}
-
-.weekdays div {
-  width: calc(100% / 7);
-  text-align: center;
-}
-.date {
-  font-size: 1rem;
-}
-
-.days {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.days div {
-  width: calc(100% / 7);
-  text-align: center;
-  border: 1px solid #ccc;
-  padding: 1.2%;
-  margin-bottom: 5px;
-}
-.content-step-page-td {
-  position: relative;
-  display: block;
-  height: 80vh;
-}
-
-.content-calbox-td {
-  margin-top: 10vh;
-  position: relative;
-  height: 80vh;
-  border: 1px solid red;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  height: auto;
-  max-height: 90vh; /* 요소의 최대 높이를 설정합니다 */
-}
-.content-date-select-box-td {
-  margin-top: 30px;
-  font-size: 1.5rem;
-  color: #546137;
-  text-align: center;
-  font-family: Inter;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  letter-spacing: 2px;
-}
-#date {
-  font-size: 1.5rem;
-  width: 30rem;
-  color: #546137;
-  text-align: center;
-  font-family: Inter;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  letter-spacing: 2px;
-}
-/*
-/* 화면 크기가 일정 이하일 때 스타일 변경*/
-@media screen and (max-width: 2000px) {
-  .content-calbox-td {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    height: auto;
-  }
-}
-
-/* 캘린더 */
-.calendar {
-  display: block;
-  width: 90%;
-  height: 100%;
-  margin: 50px;
-}
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.year-month {
-  font-size: 1rem;
-  color: #546137;
-
-  text-align: center;
-  font-family: Inter;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-}
-
-.nav {
-  display: flex;
-  border: 1px solid #333333;
-  border-radius: 5px;
-}
-
-.nav-btn {
-  width: 20%;
-  height: 3vh;
-  border: none;
-  font-size: 1rem;
-  line-height: 34px;
-  background-color: transparent;
-  cursor: pointer;
-}
-.go-prev {
-  color: #546137;
-
-  text-align: center;
-  font-family: Inter;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-}
-.go-next {
-  color: #546137;
-
-  text-align: center;
-  font-family: Inter;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-}
-.go-today {
-  width: 6rem;
-  height: 3vh;
-  border-left: 1px solid #333333;
-  border-right: 1px solid #333333;
-  color: #546137;
-
-  text-align: center;
-  font-family: Inter;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-}
-.main {
-  width: 100%;
+.categotyselect {
+  width: 50%;
   height: 80%;
+  filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.3));
+
+  /* 	txt */
+  color: #546137;
+  font-family: Inter;
+  font-size: 1.3rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
 }
 
-.days {
+.content-applyform-tr-2 {
   display: flex;
-  margin: 25px 0 10px;
+  padding-top: 2%;
+  padding-bottom: 2%;
+
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.day {
-  width: calc(100% / 7);
+.content-applyform-tr-2-1 {
+  color: #546137;
   text-align: center;
+  font-family: Inter;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  width: 30%;
+  height: 50%;
 }
-
-.dates {
-  display: flex;
-  flex-flow: row wrap;
-  height: 100%;
-  border-top: 1px solid #333333;
-  border-right: 1px solid #333333;
-  width: 100%;
+.content-applyform-tr-2-2 {
+  width: 80%;
 }
-
-.date {
-  width: calc(100% / 7);
-  padding: 15px;
-  text-align: right;
-  border-bottom: 1px solid #333333;
-  border-left: 1px solid #333333;
-}
-
-.day:nth-child(7n + 1),
-.date:nth-child(7n + 1) {
-  color: #d13e3e;
-}
-
-.day:nth-child(7n),
-.date:nth-child(7n) {
-  color: #396ee2;
-}
-.other {
-  opacity: 0.3;
-}
-.today {
-  position: relative;
-  color: #ffffff;
-}
-
-.today::before {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  z-index: -1;
-  display: block;
-  width: 30px;
-  height: 30px;
-  background-color: #ff0000;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  content: "";
+.content-applyform-tr-2:nth-child(6) {
+  height: 40vh;
 }
 
 .content-cal-btn-td {
-  fill: #ffdf6c;
-  stroke-width: 1px;
-  stroke: #546137;
+  background-color: #ffdf6c;
+  border-color: #546137;
   filter: drop-shadow(7px 7px 7px rgba(0, 0, 0, 0.3));
-}
+  width: 18%;
+  margin: 3%;
+  padding: 1%;
 
-#next-btn {
-  width: 10%;
-  height: 8vh;
-  flex-shrink: 0;
-  border-radius: 20px;
-  background: #ffdf6c;
+  border-radius: 10px;
   color: #546137;
-
   text-align: center;
   font-family: Inter;
-  font-size: 1rem;
+  font-size: 40px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-}
-.content-cal-btn-box-td {
-  display: block;
-  position: relative;
 }
