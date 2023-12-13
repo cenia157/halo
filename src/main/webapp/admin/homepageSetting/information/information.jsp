@@ -44,23 +44,120 @@
 						<div class="content-m-td-title">회사정보변경</div>
 					</div>
 					<div class="content-m-td-2-up">
-							<!-- 여기에 회사정보변경 내용을 채워야한다 -->
+						<!-- 여기에 회사정보변경 내용을 채워야한다 -->
 						<div class="CompanyInformation">
 
 
 
-	<div style=" width: 100; height: 40%; display: block; background-color: red;">
+							<div class="CompanyInformation-large">
 
-<div style="widows: 100%; height: 50%; display: flex; align-items: center; background-color: fuchsia;" >
-회사의주소aaa
-</div>
+								<div class="CompanyInformation-info">회사의주소</div>
 
-<div style="height: 50%; width: 100%; border: 1px solid black ;">
-<textarea style=" padding:1%; border:none ; border-radius:1%/10% ; width: 100%; height: 100%; background-color: #FFEFEF; resize: none;" rows="" cols="" placeholder=" 이곳에 이전에 입력했던 회사의 정보를 표시해야한다 " ></textarea>
+								<div class="CompanyInformation-txt">
+									<textarea rows="" cols=""
+										placeholder=" 이곳에 이전에 입력했던 회사의 정보를 표시해야한다"></textarea>
 
-</div>
+								</div>
 
-	</div>
+							</div>
+
+
+
+							<div class="CompanyInformation-small">
+
+
+
+								<div class="CompanyInformation-small-tr">
+									<div class="CompanyInformation-small-td">
+
+
+
+										<div class="CompanyInformation-info">회사의 전화번호</div>
+
+										<div class="CompanyInformation-txt">
+											<textarea rows="" cols=""
+												placeholder=" 이곳에 이전에 입력했던 회사의 정보를 표시해야한다"></textarea>
+
+										</div>
+
+
+
+
+
+
+									</div>
+									<div class="CompanyInformation-small-td">
+
+
+
+
+										<div class="CompanyInformation-info">회사의 휴대전화</div>
+
+										<div class="CompanyInformation-txt">
+											<textarea rows="" cols=""
+												placeholder=" 이곳에 이전에 입력했던 회사의 정보를 표시해야한다"></textarea>
+
+										</div>
+
+
+
+
+
+
+
+									</div>
+
+								</div>
+								<div class="CompanyInformation-small-tr">
+									<div class="CompanyInformation-small-td">
+
+
+
+
+										<div class="CompanyInformation-info">회사의 이메일</div>
+
+										<div class="CompanyInformation-txt">
+											<textarea rows="" cols=""
+												placeholder=" 이곳에 이전에 입력했던 회사의 정보를 표시해야한다"></textarea>
+
+										</div>
+
+
+
+
+
+
+
+									</div>
+									<div class="CompanyInformation-small-td">
+
+
+
+
+										<div class="CompanyInformation-info">회사의 FAX</div>
+
+										<div class="CompanyInformation-txt">
+											<textarea rows="" cols=""
+												placeholder=" 이곳에 이전에 입력했던 회사의 정보를 표시해야한다"></textarea>
+
+										</div>
+
+
+
+
+
+
+
+									</div>
+
+								</div>
+
+
+
+							</div>
+
+
+
 
 
 
