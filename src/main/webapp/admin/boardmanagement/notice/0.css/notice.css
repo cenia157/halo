@@ -1,0 +1,500 @@
+.content-m-td-2 {
+	width: 100%;
+	height: 88%;
+	position: relative;
+	width: 100%;
+}
+
+.ontent-m-td-2-chackbox {
+	width: 100%;
+	height: 8%;
+	font-size: 0.5rem;
+	display: flex;
+	align-items: center;
+	padding-left: 8%;
+}
+
+.ontent-m-td-2-content {
+	height: 92%;
+	width: 100%;
+	display: block;
+	padding: 0% 5%;
+}
+
+.ontent-m-td-2-content-container {
+	display: flex;
+	width: 100%;
+	height: 10%;
+}
+
+.ontent-m-td-2-content-txt {
+	width: 100%;
+	display: flex;
+	height: 100%;
+}
+
+.ontent-m-td-2-content-txt-1 {
+	background-color: fuchsia;
+	width: 100%;
+	height: 10%;
+	display: block;
+}
+
+.ontent-m-td-2-content-txt-contain {
+	width: 100%;
+	height: 100%;
+	display: flex;
+}
+
+.ontent-m-td-2-content-txt-no {
+	color: #576D8F;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1rem;
+	font-weight: 600;
+	width: 5%;
+	font-size: 1rem;
+}
+
+.ontent-m-td-2-content-txt-kategorie {
+	color: #576D8F;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1rem;
+	font-weight: 600;
+	width: 15%;
+}
+
+.ontent-m-td-2-content-txt-title {
+	color: #576D8F;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1rem;
+	font-weight: 600;
+	width: 40%;
+}
+
+.ontent-m-td-2-content-txt-writer {
+	color: #576D8F;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1rem;
+	font-weight: 600;
+	width: 15%;
+}
+
+.ontent-m-td-2-content-txt-date {
+	color: #576D8F;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1rem;
+	font-weight: 600;
+	width: 20%;
+}
+
+.ontent-m-td-2-content-txt-delete {
+	color: #576D8F;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1rem;
+	font-weight: 600;
+	width: 10%;
+}
+
+.ontent-m-td-2-mid {
+	height: 73%;
+	display: block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.ontent-m-td-2-content-txt-in {
+	height: 12.5%;
+	width: 100%;
+	display: flex;
+}
+
+
+
+
+
+
+
+.ontent-m-td-2-content-txt-no-in {
+	border-bottom: solid 1px #E5E7EB;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 0.7rem;
+	width: 5%;
+
+}
+
+.ontent-m-td-2-content-txt-kategorie-in {
+	border-bottom: solid 1px #E5E7EB;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 0.7rem;
+	width: 15%;
+}
+
+.ontent-m-td-2-content-txt-title-in {
+	border-bottom: solid 1px #E5E7EB;
+	display: flex;
+	align-items: center;
+	font-size: 0.7rem;
+	width: 40%;
+	padding: 0% 4%;
+}
+
+.ontent-m-td-2-content-txt-writer-in {
+	border-bottom: solid 1px #E5E7EB;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 0.7rem;
+	width: 15%;
+}
+
+.ontent-m-td-2-content-txt-date-in {
+	border-bottom: solid 1px #E5E7EB;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 0.7rem;
+	width: 20%;
+}
+
+.ontent-m-td-2-content-txt-delete-in {
+	border-bottom: solid 1px #E5E7EB;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 0.7rem;
+	width: 10%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.ontent-m-td-2-bottom {
+	width: 100%;
+	height: 17%;
+	display: flex;
+}
+
+.ontent-m-td-2-page-side {
+
+	height: 100%;
+	width: 25%;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+}
+
+.ontent-m-td-2-page-center {
+	height: 100%;
+	width: 50%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.modal-background {
+	/*
+	display: none;
+ position: relative;
+*/
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-tbl {
+	/*
+	display: none;
+ position: relative;
+*/
+padding: 3%;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 45%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: white;
+}
+
+.modal-title-tr {
+	display: flex;
+	height: 25%;
+	width: 100%;
+	border-bottom: 1px solid #D9D9D9; 
+}
+
+.modal-title-td-1 {
+	width: 90%;
+}
+
+.modal-title-td-1-title {
+	height: 50%
+}
+
+.modal-title-td-1-title-detile {
+
+	position : relative;
+	left: 5%;
+	height: 100%;
+	width: 95%;
+	font-size: 1em;
+	align-items: center;
+	display: flex;
+	font-size: 2.5rem;
+	font-weight: 700;
+	position: relative;
+}
+
+.modal-title-td-1-con {
+
+	height: 50%;
+	font-size: 0.5em;
+}
+
+.modal-title-td-1-detile {
+
+	position: relative;
+	left: 5%;
+	height: 50%;
+	align-items: center;
+	display: flex;
+	/*
+*/
+	width: 40%;
+}
+
+.modal-title-td-2 {
+	width: 10%;
+	
+}
+
+.modal-content {
+	height: 75%;
+	width: 100%;
+	padding: 2% 4% 0% 4%;
+}
+
+.modal-content-txt {
+	height: 90%;
+}
+
+.modal-content-button {
+	height: 10%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: auto;
+}
+
+.ck-editor__editable_inline:not(.ck-comment__input *) {
+	height: 300px;
+	overflow-y: auto;
+}
+
+
+.SubmitButton{
+
+	border-radius: 2% / 15%;
+	border: none;
+	background-color: #3B82F6;
+	color: white;
+	border: none;
+	width: 40%;
+	height: 30%;
+	display: flex;
+	justify-content: center;
+	align-items: center;	
+}
+
+
+.EditCompleted {
+
+	border-radius: 2% / 15%;
+	border: none;
+	background-color: #3B82F6;
+	color: white;
+	border: none;
+	width: 10%;
+	height: 70%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.ck-editor__editable_inline:not(.ck-comment__input *) {
+	height: 300px;
+	overflow-y: auto;
+}
+
+.close {
+	color: #535353;
+	float: right;
+	font-size: 4rem;
+
+}
+
+.close:hover,
+.close:focus {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.ck.ck-editor {
+	width: 100%;
+
+}
+
+
+/*
+여기서부터는 noticeEditPage 의 영역
+단 모든 class에는 -edit를 붙여라
+*/
+.real-title-edit{
+		position : relative;
+	left: 5%;
+	height: 100%;
+	width: 95%;
+	font-size: 1em;
+	align-items: center;
+	display: flex;
+	font-size: 1rem;
+
+	position: relative;
+}
+
+
+
+
+
+
+/*
+여기서부터는 noticeViewPage 의 영역
+단 모든 class에는 -view를 붙여라
+*/
+
+
+
+
+.real-title-view{
+
+	position : relative;
+	left: 5%;
+	height: 100%;
+	width: 95%;
+	font-size: 1em;
+	align-items: center;
+	display: flex;
+	font-size: 2.5rem;
+	font-weight: 700;
+	position: relative;
+	
+}
+
+
+
+
+
+
+.noticeViewPageTextarea{
+	width: 100%; height: 100%;
+	border: none;
+	
+}
+
+
+
+
+
+
+
+
