@@ -91,6 +91,9 @@
             <div class="a_content-box-tr1-td3-1">
               <div class="a_content-box-tr1-td3-1-1">
                 <div class="a_content-box-tr1-td3-1-1-1">
+                	<div class="a_content-box-tr1-td3-1-1-1-txt">
+                		<span>문의글 게시판</span>
+                	</div>
                   <!-- 타이블 첫 행 -->
                   <div class="a_content-box-tr1-td3-1-1-1-1">
                     <div class="a_content-box-tr1-td3-1-1-1-1-1 No-width">
@@ -103,7 +106,7 @@
                       <span>제목</span>
                     </div>
                     <div class="a_content-box-tr1-td3-1-1-1-1-4 category-width">
-                      <span>카테고리</span>
+                      <span>응답여부</span>
                     </div>
                     <div class="a_content-box-tr1-td3-1-1-1-1-5 reg-width">
                       <span>작성일</span>
@@ -121,7 +124,7 @@
                       <span>일정공지</span>
                     </div>
                     <div class="a_content-box-tr1-td3-1-1-1-2-4 category-width">
-                      <span>일정</span>
+                      <span>응답여부</span>
                     </div>
                     <div class="a_content-box-tr1-td3-1-1-1-2-5 reg-width">
                       <span>2023-12-06</span>
@@ -129,7 +132,6 @@
                   </div>
                 </div>
               </div>
-              <div class="a_content-box-tr1-td3-1-2">릴레이티브_아이콘삽입</div>
             </div>
           </div>
 			</div>
