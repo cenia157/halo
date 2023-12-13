@@ -15,14 +15,6 @@
       format("svg");
 }
 
-
-.a_container_container {
-  width: 100%;
-  height: 200vh;
-}
- 
-
-
 .a_content-tbl {
   border: solid 1px blue;
   width: 100%;
@@ -43,7 +35,6 @@
   background-color: #fffcf0; /* 추후 투명도 조절 필요 */
   width: 95%;
   height: 100%;
-  z-index: 100;
 }
 
 .a_content-box-tr1 a:link {
@@ -165,7 +156,6 @@
   width: 90%; /* 추후 */
   background: #ffedaf;
   border-radius: 30px;
-  z-index: 200; /* 이거 필요있는지 없는지 몰겠당 나중에 */
 }
 
 .a_content-box-tr1-td3-1-1 {

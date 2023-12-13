@@ -1,0 +1,23 @@
+diff a/src/main/webapp/user/qa/faq/faq.jsp b/src/main/webapp/user/qa/faq/faq.jsp	(rejected hunks)
+@@ -41,12 +41,16 @@
+ 	</div>
+ 	
+ 
+-
+-	<!-- banner include -->
+-	<%@ include file="index-banner.jsp" %>
++	<!-- 하단배너 -->
++	
++	 <div class="bottom-venner-tr">
++          <div class="bottom-venner-td">하단베너</div>
++          <div class="bottom-venner-td">상품판매링크</div>
++          <div class="bottom-venner-td">추가기능</div>
++     </div>
+ 
+ 	<!-- footer include -->
+-	<%@ include file="index-footer.jsp" %>
++<%-- 	<%@ include file="index-footer.jsp" %> --%>
+ 
+ </body>
+ </html>
+\ No newline at end of file
