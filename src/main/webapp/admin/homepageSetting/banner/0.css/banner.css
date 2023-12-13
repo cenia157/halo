@@ -1,0 +1,61 @@
+@import
+	url(https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular)
+	;
+
+@font-face {
+	font-family: "SF Pro JP Regular";
+	src:
+		url("https://db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.eot");
+	src:
+		url("https://db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.eot?#iefix")
+		format("embedded-opentype"),
+		url("https://db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.woff2")
+		format("woff2"),
+		url("https://db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.woff")
+		format("woff"),
+		url("https://db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.ttf")
+		format("truetype"),
+		url("https://db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.svg#SF Pro JP Regular")
+		format("svg");
+}
+
+.content-m-td-3 {
+	width: 100%;
+	height: 88%;
+	position: relative;
+	display: block;
+	padding: 10%;
+}
+
+
+
+.filebox .bannerInput {
+    display: inline-block;
+    height: 40px;
+    padding: 0 10px;
+    vertical-align: middle;
+    border: 1px solid gray;
+    width: 80%;
+    color: black;
+}
+
+.filebox label {
+    display: inline-block;
+    padding: 10px 20px;
+    color: #fff;
+    vertical-align: middle;
+    background-color: #999999;
+    cursor: pointer;
+    height: 40px;
+    margin-left: 10px;
+}
+
+
+.filebox input[type="file"] {
+	position: absolute;
+	width: 0;
+	height: 0;
+	padding: 0;
+	overflow: hidden;
+	border: 0;
+}
