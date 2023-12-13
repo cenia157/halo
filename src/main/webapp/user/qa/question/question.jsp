@@ -84,33 +84,56 @@
 		</div>
 
 		<!-- 문의글 게시판 -->
-		<div class="q-content-box-tr2">
-			<div class="q-content-box-tr2-1">
-			<div class="q-content-box-tr2-2">
-				<div class="q-content-box-td5">
-					<span>문의글 게시판</span>
-				</div>
-	
-				<div class="q-content-box-td6">
-					<span class="q-content-box-td6-1">No</span>
-					<span class="q-content-box-td6-2">글쓴이</span>
-					<span class="q-content-box-td6-3">제목</span>
-					<span class="q-content-box-td6-4">응답여부</span>
-					<span class="q-content-box-td6-5">작성일</span>
-				</div>
-				<div class="q-content-box-td7">
-					<span class="q-content-box-td7-1">No</span>
-					<span class="q-content-box-td7-2">글쓴이</span>
-					<span class="q-content-box-td7-3">제목</span>
-					<span class="q-content-box-td7-4">응답여부</span>
-					<span class="q-content-box-td7-5">작성일</span>
-				</div>
-	
-			</div>
+
+		<!-- content-box-tr1-td3 ::: display: flex wrap용 -->
+          <div class="a_content-box-tr1-td3">
+            <!-- 뒷 배경용 #FFEDAF -->
+            <div class="a_content-box-tr1-td3-1">
+              <div class="a_content-box-tr1-td3-1-1">
+                <div class="a_content-box-tr1-td3-1-1-1">
+                  <!-- 타이블 첫 행 -->
+                  <div class="a_content-box-tr1-td3-1-1-1-1">
+                    <div class="a_content-box-tr1-td3-1-1-1-1-1 No-width">
+                      <span>No</span>
+                    </div>
+                    <div class="a_content-box-tr1-td3-1-1-1-1-2 writer-width">
+                      <span>글쓴이</span>
+                    </div>
+                    <div class="a_content-box-tr1-td3-1-1-1-1-3 title-width">
+                      <span>제목</span>
+                    </div>
+                    <div class="a_content-box-tr1-td3-1-1-1-1-4 category-width">
+                      <span>카테고리</span>
+                    </div>
+                    <div class="a_content-box-tr1-td3-1-1-1-1-5 reg-width">
+                      <span>작성일</span>
+                    </div>
+                  </div>
+                  <!-- 2번째 행 여기는 forEach문이겠죠?-->
+                  <div class="a_content-box-tr1-td3-1-1-1-2">
+                    <div class="a_content-box-tr1-td3-1-1-1-2-1 No-width">
+                      <span>18</span>
+                    </div>
+                    <div class="a_content-box-tr1-td3-1-1-1-2-2 writer-width">
+                      <span>사토*케시</span>
+                    </div>
+                    <div class="a_content-box-tr1-td3-1-1-1-2-3 title-width">
+                      <span>일정공지</span>
+                    </div>
+                    <div class="a_content-box-tr1-td3-1-1-1-2-4 category-width">
+                      <span>일정</span>
+                    </div>
+                    <div class="a_content-box-tr1-td3-1-1-1-2-5 reg-width">
+                      <span>2023-12-06</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="a_content-box-tr1-td3-1-2">릴레이티브_아이콘삽입</div>
+            </div>
+          </div>
 			</div>
 		</div>
-		
-	</div>
 		
 	
 </body>
