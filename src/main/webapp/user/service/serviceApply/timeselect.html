@@ -7,7 +7,7 @@
       href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="0.css/calselect.css" />
+    <link rel="stylesheet" href="0.css/timeselect.css" />
   </head>
   <body>
     <div class="container">
@@ -29,6 +29,7 @@
               <img src="0.img/home.png" alt="" /> 서비스 > 서비스신청
             </div>
             <div class="content-procedure-box-td">
+              <!-- 서비스 신청 순서 -->
               <div class="content-title-box-td">서비스 신청 순서</div>
               <div class="content-procedure-box-ul-pos">
                 <ul class="content-procedure-box-ul">
@@ -38,13 +39,15 @@
                       신청할 서비스 선택하기
                     </div>
                   </li>
-                  <li class="content-box-li-pagepos">
+
+                  <li class="content-box-li">
                     <div class="content-service-step-box-td">Step2.</div>
                     <div class="content-service-txt-box-td">
                       이용할 ‘기간’ 캘린더에서 선택하기
                     </div>
                   </li>
-                  <li class="content-box-li">
+
+                  <li class="content-box-li-pagepos">
                     <div class="content-service-step-box-td">Step3.</div>
                     <div class="content-service-txt-box-td">
                       이용 ‘시간’ 선택하기
@@ -58,6 +61,7 @@
                     <div class="content-service-step-box-td">Step5.</div>
                     <div class="content-service-txt-box-td">이용약관 동의</div>
                   </li>
+
                   <li class="content-box-li">
                     <div class="content-service-step-box-td">Step6.</div>
                     <div class="content-service-txt-box-td">신청 완료</div>
@@ -66,46 +70,18 @@
               </div>
             </div>
             <div class="content-step-page-td">
-              <!-- step별 페이지 -->
-              <div class="content-calbox-td">
-                <div class="content-date-select-box-td">
-                  <label for="date">날짜 선택:</label>
-                  <input type="date" id="date" name="date" />
-                </div>
-                <div class="calendar">
-                  <div class="header">
-                    <div class="year-month"></div>
-                    <div class="nav">
-                      <button class="nav-btn go-prev" onclick="prevMonth()">
-                        &lt;
-                      </button>
-                      <button class="nav-btn go-today" onclick="goToday()">
-                        Today
-                      </button>
-                      <button class="nav-btn go-next" onclick="nextMonth()">
-                        &gt;
-                      </button>
-                    </div>
-                  </div>
-                  <div class="main">
-                    <div class="days">
-                      <div class="day">일</div>
-                      <div class="day">월</div>
-                      <div class="day">화</div>
-                      <div class="day">수</div>
-                      <div class="day">목</div>
-                      <div class="day">금</div>
-                      <div class="day">토</div>
-                    </div>
-                    <div class="dates"></div>
-                  </div>
-                </div>
-                <script src="0.js/cal.js"></script>
-              </div>
+              <!-- step별 페이지  시작-->
+              <select id="time" name="time">
+                <option value="" disabled selected>시간 선택</option>
+                <option value="AM">오전 : 08:00~12:00</option>
+                <option value="PM">오후 : 14:00~18:00</option>
+              </select>
+              <hr />
             </div>
-            <div class="content-cal-btn-box-td">
-              <button id="next-btn">다음으로</button>
+            <div class="content-time-btn-td">
+              <button>다음으로</button>
             </div>
+            <!-- step별 페이지  끝-->
           </div>
         </div>
         <div class="bottom-venner-tr">

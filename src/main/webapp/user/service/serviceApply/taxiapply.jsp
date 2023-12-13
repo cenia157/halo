@@ -10,21 +10,16 @@
       href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular"
     />
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/user/service/serviceApply/0.css/taxiapply.css">
-<%-- 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/user/0.css/index-menu.css"> --%>
-<%-- 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/user/0.css/index-footer.css"> --%>
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/user/0.css/index-menu.css">
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/user/0.css/index-footer.css">
 </head>
 <body>
 
-<!-- 헤더 -->
+	<!-- 메뉴를 include -->
+	<%@ include file="index-menu.jsp" %>
 
-      <div class="header-tbl">
-        <div>소개</div>
-        <div>소식</div>
-        <div>서비스</div>
-        <div>QnA</div>
-      </div>
-	<div class="container">
 	<!-- 본문 -->
+	<div class="container">
       <div class="content-tbl">
         <div class="content-box-tr">
           <div class="content-box-td">
@@ -91,7 +86,7 @@
 					<input class="content-applyform-tr-2-2" type="text">
 				</div>
 				<div class="content-applyform-tr-2">
-					<span class="content-applyform-tr-2-1">요양받으실 분 성함* :</span>
+					<span class="content-applyform-tr-2-1">서비스 받으실 분 성함* :</span>
 					<input class="content-applyform-tr-2-2" type="text">
 				</div>
 				<div class="content-applyform-tr-2">
@@ -121,14 +116,11 @@
         </div>
  </div>
  
-        <div class="bottom-venner-tr">
-          <div class="bottom-venner-td">하단베너</div>
-          <div class="bottom-venner-td">상품판매링크</div>
-          <div class="bottom-venner-td">추가기능</div>
-        </div>
-     
-      <div class="footer-tbl">footer</div>
-    </div>
+    <!-- banner include -->
+	<%@ include file="index-banner.jsp" %>
+
+	<!-- footer include -->
+	<%@ include file="index-footer.jsp" %>
 
 </body>
 </html>
