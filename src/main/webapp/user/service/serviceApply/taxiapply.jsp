@@ -15,54 +15,52 @@
 </head>
 <body>
 
-	<!-- 메뉴를 include -->
-<%-- 	<%@ include file="index-menu.jsp" %> --%>
 
 	<!-- 본문 -->
-	<div class="container">
-      <div class="content-tbl">
-        <div class="content-box-tr">
-          <div class="content-box-td">
-            <div class="content-tabbox-td">
-              <div class="content-tab1-td tab1-pos">서비스 안내</div>
-              <div class="content-tab2-td tab2-pos">서비스 신청</div>
+	<div class="ta-container">
+      <div class="ta-content-tbl">
+        <div class="ta-content-box-tr">
+          <div class="ta-content-box-td">
+            <div class="ta-content-tabbox-td">
+              <div class="ta-content-tab1-td tab1-pos">서비스 안내</div>
+              <div class="ta-content-tab2-td tab2-pos">서비스 신청</div>
             </div>
-            <div class="content-subtab-td">
+            <div class="ta-content-subtab-td">
               <img src="0.img/home.png" alt="" /> 서비스 > 서비스신청
             </div>
-            <div class="content-procedure-box-td">
-              <div class="content-title-box-td">서비스 신청 순서</div>
-              <div class="content-procedure-box-ul-pos">
-                <ul class="content-procedure-box-ul">
-                  <li class="content-box-li">
-                    <div class="content-service-step-box-td">Step1.</div>
-                    <div class="content-service-txt-box-td">
+            <div class="ta-content-procedure-box-td">
+              <div class="ta-content-title-box-td">서비스 신청 순서</div>
+              <div class="ta-content-procedure-box-ul-pos">
+                <ul class="ta-content-procedure-box-ul">
+                  <li class="ta-content-box-li">
+                    <div class="ta-content-service-step-box-td">Step1.</div>
+                    <div class="ta-content-service-txt-box-td">
                       신청할 서비스 선택하기
                     </div>
                   </li>
-                  <li class="content-box-li">
-                    <div class="content-service-step-box-td">Step2.</div>
-                    <div class="content-service-txt-box-td">
+                  <li class="ta-content-box-li">
+                    <div class="ta-content-service-step-box-td">Step2.</div>
+                    <div class="ta-content-service-txt-box-td">
                       이용할 ‘기간’ 캘린더에서 선택하기
                     </div>
                   </li>
-                  <li class="content-box-li">
-                    <div class="content-service-step-box-td">Step3.</div>
-                    <div class="content-service-txt-box-td">
+                  <li class="ta-content-box-li">
+                    <div class="ta-content-service-step-box-td">Step3.</div>
+                    <div class="ta-content-service-txt-box-td">
                       이용 ‘시간’ 선택하기
                     </div>
                   </li>
-                  <li class="content-box-li-pagepos">
-                    <div class="content-service-step-box-td">Step4.</div>
-                    <div class="content-service-txt-box-td">정보 입력하기</div>
+                  <li class="ta-content-box-li-pagepos">
+                    <div class="ta-content-service-step-box-td">Step4.</div>
+                    <div class="ta-content-service-txt-box-td">정보 입력하기</div>
                   </li>
-                  <li class="content-box-li">
-                    <div class="content-service-step-box-td">Step5.</div>
-                    <div class="content-service-txt-box-td">이용약관 동의</div>
+                  <li class="ta-content-box-li">
+                    <div class="ta-content-service-step-box-td">Step5.</div>
+                    <div class="ta-content-service-txt-box-td">이용약관 동의</div>
                   </li>
-                  <li class="content-box-li">
-                    <div class="content-service-step-box-td">Step6.</div>
-                    <div class="content-service-txt-box-td">신청 완료</div>
+                  <li class="ta-content-box-li">
+                    <div class="ta-content-service-step-box-td">Step6.</div>
+                    <div class="ta-content-service-txt-box-td">신청 완료</div>
                   </li>
                 </ul>
               </div>
@@ -71,8 +69,8 @@
 	<!-- 설명 끝 -->
 	
 	<!-- 신청폼 -->
-		<div class="content-applyform-td">
-			<div class="content-applyform-tr-1">
+		<div class="ta-content-applyform-td">
+			<div class="ta-content-applyform-tr-1">
 				<select class="categotyselect" name="category" id="category">
 			           <option value="" selected="selected" disabled="disabled">‘개호택시’ 신청에 필요한 정보를 입력해주세요.</option>
 			           <option value=""></option>
@@ -80,34 +78,34 @@
 			           <option value=""></option>
 			    </select>
 			</div>
-			<div class="content-applyform-td2">
-				<div class="content-applyform-tr-2">
-					<span class="content-applyform-tr-2-1">신청자 이름* :</span>
-					<input class="content-applyform-tr-2-2" type="text">
+			<div class="ta-content-applyform-td2">
+				<div class="ta-content-applyform-tr-2">
+					<span class="ta-content-applyform-tr-2-1">신청자 이름* :</span>
+					<input class="ta-content-applyform-tr-2-2" type="text">
 				</div>
-				<div class="content-applyform-tr-2">
-					<span class="content-applyform-tr-2-1">서비스 받으실 분 성함* :</span>
-					<input class="content-applyform-tr-2-2" type="text">
+				<div class="ta-content-applyform-tr-2">
+					<span class="ta-content-applyform-tr-2-1">서비스 받으실 분 성함* :</span>
+					<input class="ta-content-applyform-tr-2-2" type="text">
 				</div>
-				<div class="content-applyform-tr-2">
-					<span class="content-applyform-tr-2-1">지역* :</span>
-					<input class="content-applyform-tr-2-2" type="text">
+				<div class="ta-content-applyform-tr-2">
+					<span class="ta-content-applyform-tr-2-1">지역* :</span>
+					<input class="ta-content-applyform-tr-2-2" type="text">
 				</div>
-				<div class="content-applyform-tr-2">
-					<span class="content-applyform-tr-2-1">출발지* :</span>
-					<input class="content-applyform-tr-2-2" type="text">
+				<div class="ta-content-applyform-tr-2">
+					<span class="ta-content-applyform-tr-2-1">출발지* :</span>
+					<input class="ta-content-applyform-tr-2-2" type="text">
 				</div>
-				<div class="content-applyform-tr-2">
-					<span class="content-applyform-tr-2-1">목적지* :</span>
-					<input class="content-applyform-tr-2-2" type="text">
+				<div class="ta-content-applyform-tr-2">
+					<span class="ta-content-applyform-tr-2-1">목적지* :</span>
+					<input class="ta-content-applyform-tr-2-2" type="text">
 				</div>
-				<div class="content-applyform-tr-2">
-					<span class="content-applyform-tr-2-1">비고란(요청사항)* :</span>
-					<input class="content-applyform-tr-2-2" type="text">
+				<div class="ta-content-applyform-tr-2">
+					<span class="ta-content-applyform-tr-2-1">비고란(요청사항)* :</span>
+					<input class="ta-content-applyform-tr-2-2" type="text">
 				</div>
 			</div>
-	            <div class="content-cal-btn-box-td">
-	              <button class="content-cal-btn-td">다음으로</button>
+	            <div class="ta-content-cal-btn-box-td">
+	              <button class="ta-content-cal-btn-td">다음으로</button>
 	            </div>
 			</div>
 		</div>
@@ -115,10 +113,7 @@
           </div>
         </div>
  </div>
- 
 
-	<!-- footer include -->
-<%-- 	<%@ include file="index-footer.jsp" %> --%>
 
 </body>
 </html>
