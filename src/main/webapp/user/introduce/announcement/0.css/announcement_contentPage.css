@@ -15,19 +15,40 @@
       format("svg");
 }
 
+/*
+바꾼사항 23-12-13 17:00
+  *** contentPage.css에서 수정했기떄문에 원본 css파일 걱정안해도됨 ***
+1) .container_tbl -> 280vh -> 250vh
+2) .content_sec -> 160vh -> 130ch
+3) .content-tbl -> 260vh -> 230vh
+*/
+
+
+.container-tbl {
+	height: 250vh;
+}
+
+.content-sec {
+	height: 130vh;
+}
+
+.content-tbl {
+	height: 230vh;
+}
+
+
+/*------------------------------------*/
+
 .a_content-tbl {
   border: solid 1px blue;
   width: 100%;
-  height: 130vh;
+  height: 130vh; /* 기존 260vh에서 130vh로 줄임 */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background: rgba(255, 255, 255, 0.80);
 }
-
-
-/*-------------------------------------------------------1---------------------- */
 
 .a_content-box-tr1 {
   border: solid 1px red;

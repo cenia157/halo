@@ -16,7 +16,7 @@
 <!-- 헤더 css -->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/user/0.css/index-menu.css" />
-<!-- 푸터 css -->
+푸터 css
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/user/0.css/index-footer.css" />
 <!-- 제이쿼리 -->
