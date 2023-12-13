@@ -6,6 +6,12 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="0.css/test.css" />
+<script src="https://code.jquery.com/jquery-3.7.1.js"
+	integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+	crossorigin="anonymous">
+    </script>
+<script src="0.js/test.js"></script>
 
 <!-- 아래의 코드는 에ㅔ디터를 활성화 하기 위한 코드 -->
 
@@ -58,7 +64,7 @@
 				<div class="content-main-td">
 					<div class="content-m-td-1">
 						<!-- *************** 수정 *************** -->
-						<div class="content-m-td-title">문의사항</div>
+						<div class="content-m-td-title">가나다라</div>
 					</div>
 					<div class="content-m-td-2">
 
