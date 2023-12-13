@@ -75,120 +75,21 @@
 
 
 
-
-
-						<div class="ontent-m-td-2-content">
-
-
-							<!--  -->
+						<!-- 아래의 include는 for Each를 써서 게시판을 나타내는 용도다  -->
+						<jsp:include page="askBoard.jsp"></jsp:include>
 
 
 
-
-							<div class="ontent-m-td-2-content-container">
-								<div class="ontent-m-td-2-content-txt">
-									<div class="ontent-m-td-2-content-txt-no">No</div>
-									<div class="ontent-m-td-2-content-txt-kategorie">카테고리</div>
-									<div class="ontent-m-td-2-content-txt-title">제목</div>
-									<div class="ontent-m-td-2-content-txt-writer">작성자</div>
-									<div class="ontent-m-td-2-content-txt-date">작성일자</div>
-									<div class="ontent-m-td-2-content-txt-delete"></div>
-								</div>
-							</div>
+						<!-- 여기는 모달을 띄워주는 곳, 
+						고객의 문의에 이미 답변한 내용을 보여주거나(askRespone.jsp)
+						아니면 질문할 공간을 띄우는 곳(askEditPage.jsp) -->
 
 
-
-							<div class="ontent-m-td-2-mid">
-
-
-								<div class="ontent-m-td-2-content-txt-in">
-									<div class="ontent-m-td-2-content-txt-no-in">8</div>
-									<div class="ontent-m-td-2-content-txt-kategorie-in">8</div>
-									<div class="ontent-m-td-2-content-txt-title-in">8</div>
-									<div class="ontent-m-td-2-content-txt-writer-in">8</div>
-									<div class="ontent-m-td-2-content-txt-date-in">8</div>
-									<div class="ontent-m-td-2-content-txt-delete-in">삭제하기</div>
-								</div>
-
-								<div class="ontent-m-td-2-content-txt-in">
-									<div class="ontent-m-td-2-content-txt-no-in">7</div>
-									<div class="ontent-m-td-2-content-txt-kategorie-in">7</div>
-									<div class="ontent-m-td-2-content-txt-title-in">7</div>
-									<div class="ontent-m-td-2-content-txt-writer-in">7</div>
-									<div class="ontent-m-td-2-content-txt-date-in">7</div>
-									<div class="ontent-m-td-2-content-txt-delete-in">삭제하기</div>
-								</div>
-								<div class="ontent-m-td-2-content-txt-in">
-									<div class="ontent-m-td-2-content-txt-no-in">7</div>
-									<div class="ontent-m-td-2-content-txt-kategorie-in">7</div>
-									<div class="ontent-m-td-2-content-txt-title-in">7</div>
-									<div class="ontent-m-td-2-content-txt-writer-in">7</div>
-									<div class="ontent-m-td-2-content-txt-date-in">7</div>
-									<div class="ontent-m-td-2-content-txt-delete-in">삭제하기</div>
-								</div>
-								<div class="ontent-m-td-2-content-txt-in">
-									<div class="ontent-m-td-2-content-txt-no-in">7</div>
-									<div class="ontent-m-td-2-content-txt-kategorie-in">7</div>
-									<div class="ontent-m-td-2-content-txt-title-in">7</div>
-									<div class="ontent-m-td-2-content-txt-writer-in">7</div>
-									<div class="ontent-m-td-2-content-txt-date-in">7</div>
-									<div class="ontent-m-td-2-content-txt-delete-in">삭제하기</div>
-								</div>
-								<div class="ontent-m-td-2-content-txt-in">
-									<div class="ontent-m-td-2-content-txt-no-in">7</div>
-									<div class="ontent-m-td-2-content-txt-kategorie-in">7</div>
-									<div class="ontent-m-td-2-content-txt-title-in">7</div>
-									<div class="ontent-m-td-2-content-txt-writer-in">7</div>
-									<div class="ontent-m-td-2-content-txt-date-in">7</div>
-									<div class="ontent-m-td-2-content-txt-delete-in">삭제하기</div>
-								</div>
-								<div class="ontent-m-td-2-content-txt-in">
-									<div class="ontent-m-td-2-content-txt-no-in">7</div>
-									<div class="ontent-m-td-2-content-txt-kategorie-in">7</div>
-									<div class="ontent-m-td-2-content-txt-title-in">7</div>
-									<div class="ontent-m-td-2-content-txt-writer-in">7</div>
-									<div class="ontent-m-td-2-content-txt-date-in">7</div>
-									<div class="ontent-m-td-2-content-txt-delete-in">삭제하기</div>
-								</div>
-								<div class="ontent-m-td-2-content-txt-in">
-									<div class="ontent-m-td-2-content-txt-no-in">7</div>
-									<div class="ontent-m-td-2-content-txt-kategorie-in">7</div>
-									<div class="ontent-m-td-2-content-txt-title-in">7</div>
-									<div class="ontent-m-td-2-content-txt-writer-in">7</div>
-									<div class="ontent-m-td-2-content-txt-date-in">7</div>
-									<div class="ontent-m-td-2-content-txt-delete-in">삭제하기</div>
-								</div>
-								<div class="ontent-m-td-2-content-txt-in">
-									<div class="ontent-m-td-2-content-txt-no-in">7</div>
-									<div class="ontent-m-td-2-content-txt-kategorie-in">7</div>
-									<div class="ontent-m-td-2-content-txt-title-in">7</div>
-									<div class="ontent-m-td-2-content-txt-writer-in">7</div>
-									<div class="ontent-m-td-2-content-txt-date-in">7</div>
-									<div class="ontent-m-td-2-content-txt-delete-in">삭제하기</div>
-								</div>
+						<jsp:include page="askRespone.jsp"></jsp:include>
 
 
 
 
-
-
-							</div>
-
-
-							<jsp:include page="askEditPage.jsp"></jsp:include>
-
-
-
-
-
-
-
-
-
-
-
-
-						</div>
 					</div>
 				</div>
 				<!-- *************** 수정 *************** -->

@@ -49,46 +49,7 @@
 
 
 
-				<div class="real-title">
-
-					<div class="real-title-up">
-
-						<!-- 이곳에 고객의 문의 제목을 띄워야한다 -->
-						● 제공되는 서비스를 이용하려면 어떻게 해야되나요?aaa
-
-
-					</div>
-
-					<div class="real-title-down">
-
-						<div class="real-title-down-L">
-							<div class="real-title-down-contain">
-
-
-								<!-- 이곳에 고객의 문의 날짜를 띄워야한다 -->
-								2023-12-25
-
-							</div>
-							<div class="real-title-down-contain">
-
-								<!-- 이곳에 고객의 문의에 답변/미답변 여부를 띄워야한다 -->
-								미답변
-
-							</div>
-						</div>
-
-						<div class="real-title-down-R">
-							<div class="real-title-down-contain">
-
-								<!-- 이곳에 고객의 문의 작성자를 띄워야한다 -->
-								大出 昭子
-
-							</div>
-						</div>
-
-					</div>
-
-				</div>
+				<div class="real-title">● 제공되는 서비스를 이용하려면 어떻게 해야되나요?</div>
 
 
 
@@ -103,7 +64,7 @@
 		<div class="modal-content">
 			<div class="modal-content-txt">
 
-				<div class="modal-content-txt-question">
+				<div class="modal-content-txt-question" style="border: 1px solid black ;">
 
 					<!-- 여기에 고객이 질문한 문의사항을 띄우는 곳 -->
 					<jsp:include page="askEditPageCustomerQuestion.jsp"></jsp:include>
@@ -113,20 +74,18 @@
 				<div class="modal-content-txt-response">
 
 
-					<textarea class="modal-content-txt-response-textarea" rows=""
-						cols="" placeholder="이곳에 답변을 넣으세요
-네 그렇습니다 민기해적단은 항상 10시까지남아 모두가 해적왕이 되기위하여 열심히 일을 하고 있습니다. 
-*여기는 아직 대답하지 않은 고객의 질문에 대답하는 공간*"></textarea>
-
-
-
+					<!-- 여기서 '이미 대답한 답변을 보여줄거냐(askEditPageAnsweredResponse)' 아니면 '아직 답변하지 못한 답변을 할 것이냐(askEditPageResponsePending)' -->
+					여기는 고객의 질문에 답변했던 것을 표시하는 곳 <br> 여기는 고객의 질문에 답변했던 것을 표시하는 곳 <br>
+					여기는 고객의 질문에 답변했던 것을 표시하는 곳 <br> 여기는 고객의 질문에 답변했던 것을 표시하는 곳 <br>
+					여기는 고객의 질문에 답변했던 것을 표시하는 곳 <br> 여기는 고객의 질문에 답변했던 것을 표시하는 곳 <br>
+					여기는 고객의 질문에 답변했던 것을 표시하는 곳 <br> 여기는 고객의 질문에 답변했던 것을 표시하는 곳 <br>
 
 
 				</div>
 
 			</div>
 			<div class="modal-content-button">
-				<button class="SubmitButton">답변하기</button>
+				<button class="SubmitButton">수정하기</button>
 			</div>
 		</div>
 	</div>

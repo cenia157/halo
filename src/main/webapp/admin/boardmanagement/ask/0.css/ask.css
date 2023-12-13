@@ -14,6 +14,10 @@
 	padding-left: 8%;
 }
 
+/*
+여기는 askBoard.jsp의 편집공간의 시작
+*/
+
 .ontent-m-td-2-content {
 	height: 92%;
 	width: 100%;
@@ -172,6 +176,12 @@
 	width: 10%;
 }
 
+
+
+/*
+여기는 askBoard.jsp의 편집공간의 끝
+*/
+
 .ontent-m-td-2-bottom {
 	width: 100%;
 	height: 17%;
@@ -236,10 +246,41 @@
 	padding: 1%;
 	width: 94.5%;
 	height: 75%;
-	border: 1px solid #D1D1D1;
+
+	display: block;
+	font-size: 1.2rem;
+}
+
+.real-title-up {
 	display: flex;
 	align-items: center;
-	font-size: 1.2rem;
+	height: 50%;
+	width: 100%;
+}
+
+.real-title-down {
+	height: 50%;
+	width: 100%;
+	display: flex;
+}
+
+.real-title-down-L {
+	height: 100%;
+	width: 10%;
+	height: 100%;
+}
+
+.real-title-down-R {
+	height: 100%;
+	width: 10%;
+}
+
+.real-title-down-contain {
+	height: 50%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	font-size: 0.6rem;
 }
 
 .modal-title-td-2 {
@@ -258,34 +299,36 @@
 
 .modal-content-txt {
 	height: 90%;
+		border-top: 1px solid #D1D1D1;
+
+	padding: 2%;
 }
 
 .modal-content-txt-question {
-	padding: 2%;
+
+	padding: 1%;
 	width: 100%;
 	height: 50%;
-	background-color: lime;
 	font-size: 1rem;
 	font-weight: 700;
-	 overflow: auto; 
-	
+	overflow: auto;
 }
 
 .modal-content-txt-response {
+
 	width: 100%;
 	height: 50%;
-	background-color: aqua;
+	overflow-y: auto;
 }
 
 .modal-content-txt-response-textarea {
-	padding:1%;
+	padding: 1%;
 	width: 100%;
 	height: 80%;
 	border: 1px solid #707070;
-	border-bottom: 1px solid black; 
-	border-radius : 0.5% / 2.5%;
-	  resize: none;
-
+	border-bottom: 1px solid black;
+	border-radius: 0.5%/2.5%;
+	resize: none;
 }
 
 .modal-content-button {
@@ -330,3 +373,13 @@
 .ck.ck-editor {
 	width: 100%;
 }
+
+/*
+이곳은 askEditPageCustomerQuestion.jsp
+여기에 고객의 질문을 띄우는 곳이다 아래의 css 생성목적은 각 맞추기에 있다
+
+*/
+
+
+
+

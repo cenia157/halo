@@ -42,10 +42,6 @@
 <body>
 
 
-	<textarea class="modal-content-txt-response-textarea " rows="" cols="">네 그렇습니다 민기해적단은 항상 10시까지남아 모두가 해적왕이 되기위하여 열심히 일을 하고 있습니다. 
-	*여기는 아직 대답하지 않은 고객의 질문에 대답하는 공간*
-	</textarea>
-
 
 
 
