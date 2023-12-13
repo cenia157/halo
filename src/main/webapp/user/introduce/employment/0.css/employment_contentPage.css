@@ -1,0 +1,317 @@
+@import url(https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular);
+
+@font-face {
+  font-family: "SF Pro JP Regular";
+  src: url("https://db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.eot");
+  src: url("https://db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.eot#iefix")
+      format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.woff2")
+      format("woff2"),
+    url("https://db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.woff")
+      format("woff"),
+    url("https://db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.ttf")
+      format("truetype"),
+    url("https://db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.svg#SF Pro JP Regular")
+      format("svg");
+}
+
+.e_container {
+  width: 100%;
+  height: 200vh;
+}
+.e_content-tbl {
+  border: solid 1px blue;
+  width: 100%;
+  /*   height: 265vh;  */
+  height: 230vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/*----------------------------------------------------------------------------- */
+
+.e_content-box-tr1 {
+  border: solid 1px red;
+  border-radius: 35px;
+  background-color: #fffcf0; /* 추후 투명도 조절 필요 */
+  width: 95%;
+  height: 100%;
+}
+
+.e_content-box-tr1 a:link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.e_content-box-tr1 a:visited {
+  color: inherit;
+  text-decoration: none;
+}
+
+.e_content-box-tr1 a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+
+.e_content-box-tr1-td1 {
+  display: flex;
+  /* outline: solid 2px purple; */
+  width: 100%;
+}
+
+.e_content-box-tr1-td1-1,
+.e_content-box-tr1-td1-2,
+.e_content-box-tr1-td1-3 {
+  width: 33.33%;
+  text-align: center;
+  padding-top: 1.5%; /* 추후 재 조절 */
+  padding-bottom: 1.5%; /* 추후 재 조절 */
+}
+
+.e_content-box-tr1-td1-1 {
+  background: #ffd66c;
+  border-top-left-radius: 35px; /* 추후 재 조절 */
+}
+
+.e_content-box-tr1-td1-2 {
+  background: #849461;
+}
+
+.e_content-box-tr1-td1-3 {
+  background: #fffcf0;
+  border-top-right-radius: 35px; /* 추후 재 조절 */
+}
+
+.e_content-box-tr1-td1-1 > span,
+.e_content-box-tr1-td1-2 > span,
+.e_content-box-tr1-td1-3 > span {
+  font-size: 1em; /* 추후 재 조절 */
+  font-weight: 700;
+}
+
+.e_content-box-tr1-td1-1 > span {
+  color: #62733d;
+  text-align: center;
+  text-shadow: 6px 6px 6px rgba(255, 245, 154, 0.89);
+}
+
+.e_content-box-tr1-td1-2 > span {
+  color: #fff;
+  text-shadow: 6px 6px 6px rgba(255, 245, 154, 0.89);
+}
+
+.e_content-box-tr1-td1-3 > span {
+  color: #62733d;
+  text-shadow: 6px 6px 6px #ffdf6c;
+}
+
+/* 그림 > 소식 > 공지사항 시작 */
+.e_content-box-tr1-td2 {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  outline: 1px solid green;
+  height: 4%;
+  padding-top: 2.2%; /* 추후 */
+  padding-bottom: 4%; /* 추후 */
+}
+
+.e_content-box-tr1-td2 > img {
+  width: 2.5%; /* 추후 이미지크기 조절 필요 */
+}
+
+.e_content-box-tr1-td2-2 {
+  display: flex;
+  margin-right: 8%;
+  margin-left: 0.8%;
+  text-align: center;
+}
+
+.e_content-box-tr1-td2-2 > div {
+  margin-right: 3%; /* > 소식 > 공지사항 각각 box의 오른쪽 마진기준으로 벌림 */ /* key poing */
+}
+
+.e_content-box-tr1-td2-2 > div:last-child {
+  margin-right: 0; /* 마지막 텍스트의 오른쪽 간격 제거 */
+}
+
+.e_content-box-tr1-td2-2-1 > span,
+.e_content-box-tr1-td2-2-2 > span,
+.e_content-box-tr1-td2-2-3 > span,
+.e_content-box-tr1-td2-2-4 > span {
+  font-size: 1.1em; /* 추후 재 조절 */
+  font-weight: 700;
+  white-space: nowrap; /* 텍스트가 다음 줄로 넘어가지 않도록 설정 */
+}
+
+.e_content-box-tr1-td3 {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* 뒷 배경용*/
+.e_content-box-tr1-td3-1 {
+  display: flex;
+  align-items: center;
+  height: 40%; /* 추후 */ /*key point*/
+  width: 100%; /* 추후 */
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 30px;
+  outline: 2px solid purple;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+}
+
+.e_content-box-tr1-td3-1-1 {
+  width: 90%;
+  height: 95%; /* 추후 */
+  /* background: brown; */
+  border-radius: 30px;
+  z-index: 300;
+  outline: 1px solid greenyellow;
+}
+
+.e_content-box-tr1-td3-1-1 {
+  text-align: center;
+  font-weight: 700;
+}
+
+/* 소개부분 및 연락처*/
+.e_content-box-tr1-td3-1-1-1 {
+  outline: 1px solid brown;
+  height: 100%;
+}
+
+.e_content-box-tr1-td3-1-1-1-1 {
+  color: #46512d;
+  font-size: 1rem;
+  white-space: nowrap;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  letter-spacing: 1.25px;
+}
+
+.e_content-box-tr1-td3-1-1-1-2 {
+  color: #46512dcc;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  padding-top: 0.5%;
+  padding-bottom: 1%;
+  letter-spacing: 2px;
+}
+
+.e_content-box-tr1-td3-1-1-1-3 {
+  font-size: 0.8rem;
+  color: rgba(70, 81, 45, 0.8);
+  text-align: center;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1.75px;
+}
+
+.e_content-box-tr1-td3-1-1-1-4 {
+  display: flex;
+  outline: 1px solid red;
+  flex-direction: column;
+  align-items: center;
+}
+
+.e_content-box-tr1-td3-1-1-1-4 ul {
+  list-style: none;
+}
+
+.e_content-box-tr1-td3-1-1-4-1 {
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
+.e_content-box-tr1-td3-1-1-4-1,
+.e_content-box-tr1-td3-1-1-4-2 {
+  font-size: 0.9rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 45%;
+  outline: 1px solid orange;
+  text-align: center;
+  color: #46512dcc;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 2px;
+  white-space: nowrap;
+}
+
+.e_content-box-tr1-td3-1-1-1-5 {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.e_content-box-tr1-td3-1-1-1-5-1 {
+  display: flex;
+  width: 95%;
+  height: 90%;
+  padding-top: 1%;
+  border-top: 3px solid #62733d;
+}
+
+.e_content-box-tr1-td3-1-1-1-5-1-1,
+.e_content-box-tr1-td3-1-1-1-5-1-2 {
+  width: 50%;
+  height: 100%;
+  outline: solid 2px red;
+}
+
+.e_content-box-tr1-td3-1-1-1-5-1-2 span {
+  color: #546137;
+  text-align: right;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1.5px;
+  white-space: nowrap;
+}
+
+.e_content-box-tr1-td3-1-1-1-5-1-2 {
+  text-align: right;
+}
+
+.e_content-box-tr1-td3-1-1-1-5-1-1-1 {
+  display: flex;
+  justify-content: center;
+}
+
+.e_content-box-tr1-td3-1-1-1-5-1-1-1-1 {
+  width: 55%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 10px;
+  border: 1px solid #546137;
+  background: #fff;
+  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.25);
+}
+
+.e_content-box-tr1-td3-1-1-1-5-1-1-1-1-2 {
+  white-space: nowrap;
+  font-size: 1.1rem;
+}
+
+/* 푸터위 연락처,전화번호,FAX,휴대전화,이메일*/
+
+.e_content-box-tr1-td3-1-1-1-5-1-2-1 {
+  padding-bottom: 1%;
+  margin-bottom: 1.2%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.e_content-box-tr1-td3-1-1-1-5-1-2-1 > .content-box-tr1-td3-1-1-1-5-1-2-1-1 {
+  border-bottom: 2px solid #9f9f78;
+}
