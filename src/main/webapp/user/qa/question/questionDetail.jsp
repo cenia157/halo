@@ -7,21 +7,17 @@
 <title>Insert title here</title>
 <link rel="stylesheet"
 	href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular" />
-<link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/user/qa/question/0.css/questionDetail.css">
-
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/user/qa/question/0.css/questionDetail.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/user/0.css/index.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/user/0.css/index-menu.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/user/0.css/index-footer.css">
 </head>
 <body>
 
-	<!-- 헤더 -->
-	<div class="container">
-		<div class="header-tbl">
-			<div>소개</div>
-			<div>소식</div>
-			<div>서비스</div>
-			<div>QnA</div>
-		</div>
-	</div>
+
+
+<!-- 메뉴를 include -->
+<%@ include file="index-menu.jsp" %>
 
 	<!-- 본문 -->
 	<div class="content-tbl">
@@ -98,17 +94,10 @@
 	</div>
 
 
-
-	<!-- 하단배너 -->
-
-	<div class="bottom-venner-tr">
-		<div class="bottom-venner-td">하단베너</div>
-		<div class="bottom-venner-td">상품판매링크</div>
-		<div class="bottom-venner-td">추가기능</div>
-	</div>
-
-	<!-- footer -->
-	<div class="footer-tbl">footer</div>
+	<!-- banner include -->
+	<%@ include file="index-banner.jsp" %>
+	<!-- footer include -->
+	<%@ include file="index-footer.jsp" %>
 
 </body>
 </html>

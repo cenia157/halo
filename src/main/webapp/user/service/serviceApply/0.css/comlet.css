@@ -44,7 +44,7 @@ a {
 .content-tbl {
   border: solid 1px blue;
   width: 100%;
-  height: 265vh;
+  height: 210vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -55,7 +55,7 @@ a {
   border: solid 1px red;
   border-radius: 35px;
   width: 95%;
-  height: 90%;
+  height: 70%;
 }
 
 .bottom-venner-tr {
@@ -85,15 +85,15 @@ a {
   width: 100%;
   height: 100%;
 }
-
-/* 서비스 탭 */
-.content-tabbox-td {
-  display: flex;
-}
 .footer-tbl {
   border: solid 1px rgb(0, 234, 255);
   width: 100%;
   height: 20vh;
+}
+
+/* 서비스 탭 */
+.content-tabbox-td {
+  display: flex;
 }
 
 .content-tab-td {
@@ -107,18 +107,6 @@ a {
   line-height: normal;
 }
 .content-tab1-td {
-  color: #62733d;
-  text-align: center;
-  text-shadow: 6px 6px 6px #ffdf6c;
-  font-family: Inter;
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  border-radius: 30px 0px 0px 0px;
-  background: white;
-}
-.content-tab2-td {
   color: #fff;
   text-align: center;
   font-family: Inter;
@@ -127,7 +115,19 @@ a {
   font-weight: 700;
   line-height: normal;
   background: #849461;
-  border-radius: 0px 30px 0px 0px;
+  border-radius: 30px 0px 0px 0px;
+}
+.content-tab2-td {
+  color: #62733d;
+  text-align: center;
+  text-shadow: 6px 6px 6px #ffdf6c;
+  font-family: Inter;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  border-radius: 00px 30px 0px 0px;
+  background: white;
 }
 .tab1-pos {
   padding: 30px;
@@ -158,101 +158,136 @@ a {
   width: 0.6rem;
 }
 
-/* 안내코멘트 */
-.content-coment-td {
-  color: #46512d;
-  text-align: center;
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: 700;
-  letter-spacing: 2.25px;
+/* 서비스 신청 순서 안내 */
+.content-procedure-box-td {
+  margin-top: 1%;
+  width: 100%;
+  height: 53vh;
+  flex-shrink: 0;
+  border-radius: 30px;
+  background: #e9e6b1;
 }
-.coment-pos {
+.content-title-box-td {
+  width: 28%;
+  height: 6vh;
+  flex-shrink: 0;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.3);
   position: relative;
+  top: 6%;
+  margin-left: 36%;
+  margin-right: 36%;
+  display: flex;
   justify-content: center;
-  padding-left: 20%;
+  align-items: center;
+}
+
+.content-procedure-box-ul-pos {
+  position: relative;
+  padding-top: 7vh;
+  width: 100%;
+  list-style: none;
+}
+.content-procedure-box-ul {
+  width: 100%;
+  display: inline-block;
+  margin-left: 5%;
+}
+.content-box-li-pagepos {
+  border-radius: 20px;
+  background: #ffdf6c;
+  margin-top: 0.5%;
+  width: 90%;
+  height: 5vh;
+  flex-shrink: 0;
+  display: flex;
+  position: relative;
+  border: 1px solid red;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  align-items: center;
+}
+.content-box-li {
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.89);
+  margin-top: 0.5%;
+  width: 90%;
+  height: 5vh;
+  flex-shrink: 0;
+  display: flex;
+  position: relative;
+  border: 1px solid red;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  align-items: center;
+}
+
+.content-service-step-box-td {
+  width: 20%;
+  padding-left: 5%;
+  text-align: left;
+}
+
+.content-service-txt-box-td {
+  width: 80%;
   padding-right: 20%;
 }
 
-.content-title-td {
+/* 오단영 여기서부터 시작 */
+.content-step-page-td {
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.8);
+  outline: 1px solid black; /* 나중에 지우세요 */
+  height: 70vh;
+}
+
+.content-step-page-td {
+  outline: 1px solid red; /* 나중에 지우세요 */
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  justify-content: center;
+}
+
+.content-step-page-td > div {
+  outline: 1px solid rebeccapurple;
+}
+
+.content-step-page-td {
+  overflow: auto; /* 또는 overflow: hidden; */
+  /* 기타 스타일 설정 */
+}
+
+.content-step-page-td > .content-step-page-td-tr1 {
   color: #546137;
   text-align: center;
-  font-family: Inter;
+  text-shadow: 10px 10px 10px #e8d48d;
+  font-size: 1.1rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.content-step-page-td > .content-step-page-td-tr2 {
+  color: #546137;
+  text-align: center;
   font-size: 1rem;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-  letter-spacing: 2.25px;
+  padding-top: 7%;
+  padding-bottom: 5%;
 }
-.content-subtxt-td {
+
+.content-step-page-td > .content-step-page-td-tr2 > div {
+  padding-bottom: 1%;
+}
+
+.content-step-page-td
+  > .content-step-page-td-tr3
+  > .content-step-page-td-tr3-1 {
   color: #546137;
-  text-align: center;
-  font-size: 0.8rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  letter-spacing: 1.75px;
-}
-.tit1-pos {
-  margin-top: 1%;
-  padding: 2%;
-}
-.subtxt1-pos {
-  padding-left: 15%;
-  padding-right: 15%;
-}
-.tit2-pos {
-  margin-top: 1%;
-  padding: 2%;
-}
-.subtxt2-pos {
-  padding-left: 15%;
-  padding-right: 15%;
-}
-.tit3-pos {
-  margin-top: 1%;
-  padding: 2%;
-}
-.subtxt3-pos {
-  padding-left: 15%;
-  padding-right: 15%;
-}
-.tit4-pos {
-  margin-top: 1%;
-  padding: 2%;
-}
-.subtxt4-pos {
-  padding-left: 15%;
-  padding-right: 15%;
-}
-/* 테이블 스타일링 */
-.custom-table {
-  border-collapse: collapse;
-  width: 100%;
-  text-align: center;
-}
-
-.custom-table th,
-.custom-table td {
-  padding: 8px;
-  border: 1px solid #ddd;
-}
-
-.custom-table caption {
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.custom-table th {
-  background-color: #f2f2f2;
-}
-
-.custom-table tfoot td {
-  background-color: #f9f9f9;
-  font-style: italic;
-}
-
-/* 추가 스타일링 */
-.centered-content td[rowspan] {
-  vertical-align: middle;
+  background-color: #ffdf6c;
+  padding: 1.2% 2.3%;
 }
