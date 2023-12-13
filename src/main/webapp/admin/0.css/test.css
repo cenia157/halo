@@ -19,7 +19,7 @@
 		format("svg");
 }
 
-* {F
+* {
 	font-family: "SF Pro JP Regular";
 	margin: 0;
 	padding: 0;
@@ -559,8 +559,6 @@ a {
 	height: 50%;
 	align-items: center;
 	display: flex;
-	/*
-*/
 	width: 40%;
 }
 
