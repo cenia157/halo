@@ -15,7 +15,7 @@
 }
 
 /*
-¿©±â´Â askBoard.jspÀÇ ÆíÁý°ø°£ÀÇ ½ÃÀÛ
+ï¿½ï¿½ï¿½ï¿½ï¿½ askBoard.jspï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 */
 
 .ontent-m-td-2-content {
@@ -179,7 +179,7 @@
 
 
 /*
-¿©±â´Â askBoard.jspÀÇ ÆíÁý°ø°£ÀÇ ³¡
+ï¿½ï¿½ï¿½ï¿½ï¿½ askBoard.jspï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 */
 
 .ontent-m-td-2-bottom {
@@ -201,10 +201,10 @@
 	width: 50%;
 }
 
-/* ¿©±â¼­ºÎÅÍ´Â  askEditPage.jsp ¿µ¿ª! */
+/* ï¿½ï¿½ï¿½â¼­ï¿½ï¿½ï¿½Í´ï¿½  askEditPage.jsp ï¿½ï¿½ï¿½ï¿½! */
 .modal-background {
-	/*
 	display: none;
+	/*
  position: relative;
 */
 	position: fixed;
@@ -216,8 +216,8 @@
 }
 
 .modal-tbl {
-	/*
 	display: none;
+	/*
  position: relative;
 */
 	width: 100%;
@@ -375,8 +375,8 @@
 }
 
 /*
-ÀÌ°÷Àº askEditPageCustomerQuestion.jsp
-¿©±â¿¡ °í°´ÀÇ Áú¹®À» ¶ç¿ì´Â °÷ÀÌ´Ù ¾Æ·¡ÀÇ css »ý¼º¸ñÀûÀº °¢ ¸ÂÃß±â¿¡ ÀÖ´Ù
+ï¿½Ì°ï¿½ï¿½ï¿½ askEditPageCustomerQuestion.jsp
+ï¿½ï¿½ï¿½â¿¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì´ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ css ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ß±â¿¡ ï¿½Ö´ï¿½
 
 */
 
