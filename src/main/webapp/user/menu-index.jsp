@@ -13,6 +13,7 @@
 <!-- include 섹터구성 -->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/user/0.css/sec.css" />
+	
 <!-- 헤더 css -->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/user/0.css/index-menu.css" />
@@ -36,7 +37,8 @@
 			<div class="header-tr-1">
 				<div class="header-br-logo">
 					<!-- 이미지 경로 확인 -->
-					<img src="${pageContext.request.contextPath}/user/0.img/logo.png" /> <a href="">ハロー</a>
+					<img src="${pageContext.request.contextPath}/user/0.img/logo.png" />
+					<a href="">ハロー</a>
 				</div>
 				<div class="header-br-space"></div>
 				<div class="header-br-call">Tel. 06-6997-6531</div>
@@ -49,8 +51,8 @@
 							</a>
 						</div>
 						<div class="header-opmenu-td">
-							<a class="header-opmenu-a" href="">회사소개</a> <a
-								class="header-opmenu-a" href="">오시는길</a>
+							<a class="header-opmenu-a" href="HC?link=1">회사소개</a> <a
+								class="header-opmenu-a" href="HC?link=2">오시는길</a>
 						</div>
 					</div>
 					<div class="header-td-menu">
@@ -59,9 +61,9 @@
 							</a>
 						</div>
 						<div class="header-opmenu-td">
-							<a class="header-opmenu-a" href="">공지사항</a> <a
-								class="header-opmenu-a" href="">앨범</a> <a
-								class="header-opmenu-a" href="">채용공고</a>
+							<a class="header-opmenu-a" href="HC?link=3">공지사항</a> <a
+								class="header-opmenu-a" href="HC?link=4">앨범</a> <a
+								class="header-opmenu-a" href="HC?link=5">채용공고</a>
 						</div>
 					</div>
 					<div class="header-td-menu">
@@ -70,8 +72,8 @@
 							</a>
 						</div>
 						<div class="header-opmenu-td">
-							<a class="header-opmenu-a" href="">서비스안내</a> <a
-								class="header-opmenu-a" href="">서비스신청</a>
+							<a class="header-opmenu-a" href="HC?link=6">서비스안내</a> <a
+								class="header-opmenu-a" href="HC?link=7">서비스신청</a>
 						</div>
 					</div>
 					<div class="header-td-menu">
@@ -80,14 +82,16 @@
 							</a>
 						</div>
 						<div class="header-opmenu-td">
-							<a class="header-opmenu-a" href="">자주묻는질문</a> <a
-								class="header-opmenu-a" href="">문의게시판</a>
+							<a class="header-opmenu-a" href="HC?link=8">자주묻는질문</a>
+							<a class="header-opmenu-a" href="HC?link=9">문의게시판</a>
 						</div>
 					</div>
 					<div class="header-td-menu">
 						<div class="header-td-menu-img">
 							<!-- 복붙할때 이미지 경로 확인~~~~ -->
-							<img src="${pageContext.request.contextPath}/user/0.img/icon _menu_.png" />
+							<img
+								src="${pageContext.request.contextPath}/user/0.img/icon _menu_.png" />
+							
 						</div>
 					</div>
 				</div>
@@ -97,7 +101,7 @@
 		<div class="content-tbl">
 			<div class="content-space"></div>
 			<div class="content-sec">
-				<%-- <jsp:include page=""></jsp:include> --%>
+				<jsp:include page="${contentPage }"></jsp:include> 
 			</div>
 			<div class="bottom-venner-tr">
 				<div class="bottom-venner-td">하단베너</div>
@@ -116,7 +120,7 @@
 				</div>
 				<div class="footer-item-td-2">
 					<div>
-						合同会社<img src="0.img/footerlogo.png" alt=""><a>ハロー </a>
+						合同会社<img src="${pageContext.request.contextPath}/user/0.img/footerlogo.png" alt=""><a>ハロー </a>
 					</div>
 					<div>
 						代表社員 ： 大出 昭子 <img src="0.img/footerinstaicon.png" alt=""> <img
