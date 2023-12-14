@@ -22,8 +22,8 @@
 			</div>
 			<div class="content-subtab-td">
 				<img
-					src="0.img/home.png"
-					alt=""> > 서비스 > 서비스안내>
+					src="${pageContext.request.contextPath}/user/service/serviceInformation/0.img/home.png"
+					alt=""> > 서비스 > 서비스안내
 			</div>
 			<div class="content-coment-td coment-pos">
 				저희 ハロー 는 <br> 방문요양서비스와 개호 콜택시 서비스를 운영하고 있습니다 아래의 내용을 참고해주세요 :)
