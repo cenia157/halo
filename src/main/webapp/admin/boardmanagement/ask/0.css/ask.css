@@ -75,7 +75,8 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: 5%; font-weight : 700;
+	width: 5%;
+	font-weight: 700;
 	font-size: 1.5rem;
 	font-weight: 700;
 }
@@ -85,7 +86,8 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	font-weight: 700; font-size : 1.5rem;
+	font-weight: 700;
+	font-size: 1.5rem;
 	width: 15%;
 	font-size: 1.5rem;
 }
@@ -95,7 +97,8 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	font-weight: 700; font-size : 1.5rem;
+	font-weight: 700;
+	font-size: 1.5rem;
 	width: 40%;
 	font-size: 1.5rem;
 }
@@ -105,7 +108,8 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	font-weight: 700; font-size : 1.5rem;
+	font-weight: 700;
+	font-size: 1.5rem;
 	width: 15%;
 	font-size: 1.5rem;
 }
@@ -115,7 +119,8 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	font-weight: 700; font-size : 1.5rem;
+	font-weight: 700;
+	font-size: 1.5rem;
 	width: 20%;
 	font-size: 1.5rem;
 }
@@ -125,7 +130,8 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	font-weight: 700; font-size : 1.5rem;
+	font-weight: 700;
+	font-size: 1.5rem;
 	width: 10%;
 	font-size: 1.5rem;
 }
@@ -323,7 +329,8 @@
 	padding: 1%;
 	width: 100%;
 	height: 50%;
-	font-size: 2.5rem; font-weight : 700;
+	font-size: 2.5rem;
+	font-weight: 700;
 	overflow: auto;
 	font-weight: 700;
 }
@@ -343,11 +350,13 @@
 .modal-content-txt-response-textarea {
 	padding: 1%;
 	width: 100%;
-	height: 80%;
-	border: 1px solid #707070;
-	border-bottom: 1px solid black;
+	height: 50%;
+	border: 1px solid #D1D1D1; border-bottom : 1px solid #616161;
 	border-radius: 0.5%/2.5%;
 	resize: none;
+	font-size: 2rem;
+	font-weight: 700;
+	border-bottom: 1px solid #616161;
 }
 
 .modal-content-button {
@@ -370,7 +379,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-		font-size: 1rem;
+	font-size: 1rem;
 }
 
 .ck-editor__editable_inline:not(.ck-comment__input *) {

@@ -2,7 +2,6 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="kr">
-
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -36,5 +35,4 @@
 						아니면 질문할 공간을 띄우는 곳(askEditPage.jsp) -->
 		<jsp:include page="askRespone.jsp"></jsp:include>
 </body>
-
 </html>
