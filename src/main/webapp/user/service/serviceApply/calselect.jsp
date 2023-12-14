@@ -9,7 +9,7 @@ pageEncoding="UTF-8"%>
       href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="0.css/calselect.css" />
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/user/service/serviceApply/0.css/calselect.css" />
   </head>
   <body>
     <div class="content-box-tr">
@@ -88,7 +88,7 @@ pageEncoding="UTF-8"%>
               <div class="dates"></div>
             </div>
           </div>
-          <script src="0.js/cal.js"></script>
+          <script src="${pageContext.request.contextPath}/user/service/serviceApply/0.js/cal.js"></script>
         </div>
         <div class="content-cal-btn-box-td">
           <button id="next-btn">다음으로</button>
