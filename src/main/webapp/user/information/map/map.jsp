@@ -59,4 +59,19 @@
 		</div>
 	</div>
 </body>
+<script type="text/javascript">
+function initMap() {
+    var mapOptions = {
+      center: {lat: 37.7749, lng: -122.4194},
+      zoom: 15, // 수정: 적절한 초기 확대 수준으로 변경
+    };
+    var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+    alert('11');
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    initMap();
+    alert('qq');
+  });
+</script>
 </html>
