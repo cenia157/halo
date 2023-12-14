@@ -1,22 +1,22 @@
 /*
 바꾼사항 23-12-13 17:00
   *** contentPage.css에서 수정했기떄문에 원본 css파일 걱정안해도됨 ***
-1) .container_tbl -> 280vh -> 250vh
+1) .container_tbl -> 280vh -> 249vh
 2) .content_sec -> 160vh -> 130ch
 3) .content-tbl -> 260vh -> 230vh
 */
 
 .container-tbl {
-	height: 250vh;
+  height: 249vh;
 }
 
 .content-sec {
-	height: 130vh;
+  height: 130vh;
 }
 
 .content-tbl {
-	height: 230vh;
-} 
+  height: 230vh;
+}
 
 /*------------------------------------*/
 
@@ -28,7 +28,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: rgba(255, 255, 255, 0.80);
+  background: rgba(255, 255, 255, 0.8);
 }
 
 .a_content-box-tr1 {
@@ -70,6 +70,15 @@
   padding-bottom: 1.5%; /* 추후 재 조절 */
 }
 
+/* 23-12-14 변동사항 */
+.a_content-box-tr1-td1-1,
+.a_content-box-tr1-td2-1,
+.a_content-box-tr1-td3-1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .a_content-box-tr1-td1-1 {
   background: #fffcf0;
   border-top-left-radius: 35px; /* 추후 재 조절 */
@@ -87,18 +96,17 @@
 .a_content-box-tr1-td1-1 > span,
 .a_content-box-tr1-td1-2 > span,
 .a_content-box-tr1-td1-3 > span {
-  font-size: 1rem; /* 추후 재 조절 */
+  font-size: 2.5rem; /* 23-12-14 변동사항 */
   font-weight: 700;
 }
 
 .a_content-box-tr1-td1-1 > span {
   color: #62733d;
-  text-shadow: 6px 6px 6px #ffdf6c;
+  text-shadow: 4px 4px 4px #ffdf6c;
 }
 
 .a_content-box-tr1-td1-2 > span {
   color: #62733d;
-  text-shadow: 6px 6px 6px rgba(255, 245, 154, 0.89);
 }
 
 .a_content-box-tr1-td1-3 > span {
@@ -112,18 +120,18 @@
   align-items: center;
   outline: 1px solid green;
   height: 4%;
-  padding-top: 2.2%; /* 추후 */
-  padding-bottom: 4%; /* 추후 */
+  padding-top: 4.2%; /* 23-12-14 변동사항:  2%에서 4.2% */
+  padding-bottom: 2.5%; /* 23-12-14 변동사항:  4%에서 2.5% */
 }
 
 .a_content-box-tr1-td2 > img {
-  width: 2.5%; /* 추후 이미지크기 조절 필요 */
+  width: 1.5%; /* 23-12-14 변동사항 */
 }
 
 .a_content-box-tr1-td2-2 {
   display: flex;
-  margin-right: 8%;
-  margin-left: 0.8%;
+  margin-right: 7%; /* 23-12-14 변동사항 8%에서 7% */
+  margin-left: 0.3%; /* 0.8%에서 0.3%로 */
   text-align: center;
 }
 
@@ -139,8 +147,9 @@
 .a_content-box-tr1-td2-2-2 > span,
 .a_content-box-tr1-td2-2-3 > span,
 .a_content-box-tr1-td2-2-4 > span {
-  font-size: 1.1rem; /* 추후 재 조절 */
+  font-size: 1.5rem; /* 추후 재 조절 */
   font-weight: 700;
+  color: #546137;
   white-space: nowrap; /* 텍스트가 다음 줄로 넘어가지 않도록 설정 */
 }
 
@@ -257,66 +266,55 @@
 }
 
 .a_content-box-tr1-td3-1-2 {
-	position: absolute;
-	right: 50%;
-    bottom: -37%;
+  position: absolute;
+  right: 50%;
+  bottom: -37%;
 }
 
 @media only screen and (max-width: 600px) {
-    .a_content-box-tr1-td3-1-2 {
-        bottom: -31%;
-    }
+  .a_content-box-tr1-td3-1-2 {
+    bottom: -31%;
+  }
 }
 
-@media only screen and (min-width: 600px) and (max-width: 700px){
-    .a_content-box-tr1-td3-1-2 {
-        bottom: -32%;
-    }
+@media only screen and (min-width: 600px) and (max-width: 700px) {
+  .a_content-box-tr1-td3-1-2 {
+    bottom: -32%;
+  }
 }
 
 @media only screen and (min-width: 700px) and (max-width: 800px) {
-    .a_content-box-tr1-td3-1-2 {
-        bottom: -33%;
-    }
+  .a_content-box-tr1-td3-1-2 {
+    bottom: -33%;
+  }
 }
 
 @media only screen and (min-width: 800px) and (max-width: 900px) {
-    .a_content-box-tr1-td3-1-2 {
-        bottom: -34%;
-    }
+  .a_content-box-tr1-td3-1-2 {
+    bottom: -34%;
+  }
 }
 
 @media only screen and (min-width: 900px) and (max-width: 1000px) {
-    .a_content-box-tr1-td3-1-2 {
-        bottom: -35%;
-    }
+  .a_content-box-tr1-td3-1-2 {
+    bottom: -35%;
+  }
 }
 
 @media only screen and (min-width: 1000px) and (max-width: 1400px) {
-    .a_content-box-tr1-td3-1-2 {
-        bottom: -35.5%;
-    }
+  .a_content-box-tr1-td3-1-2 {
+    bottom: -35.5%;
+  }
 }
 
 @media only screen and (min-width: 1400px) and (max-width: 1600px) {
-    .a_content-box-tr1-td3-1-2 {
-        bottom: -36%;
-    }
+  .a_content-box-tr1-td3-1-2 {
+    bottom: -36%;
+  }
 }
 
 @media only screen and (min-width: 1600px) and (max-width: 1750px) {
-    .a_content-box-tr1-td3-1-2 {
-        bottom: -36.5%;
-    }
+  .a_content-box-tr1-td3-1-2 {
+    bottom: -36.5%;
+  }
 }
-
-
-
-
-
-
-
-
-
-
-

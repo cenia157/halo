@@ -35,11 +35,7 @@ pageEncoding="UTF-8"%>
           </div>
 
           <div class="a_content-box-tr1-td2">
-            <img
-              class="a_content-box-tr1-td2-1"
-              src="./0.img/home_icon.svg"
-              alt=""
-            />
+               <img class="a_content-box-tr1-td2-1" src="${pageContext.request.contextPath}/user/introduce/album/0.img/home_icon.svg" alt="" />
 
             <!-- [ > 소식 > 공지사항 ] 상위 box -->
             <div class="a_content-box-tr1-td2-2">
