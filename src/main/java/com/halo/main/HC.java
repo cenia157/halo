@@ -17,11 +17,11 @@ public class HC extends HttpServlet {
 		}  else if (request.getParameter("link").equals("2")) {
 			request.setAttribute("contentPage", "information/map/map.jsp");
 		} else if (request.getParameter("link").equals("3")) {
-			request.setAttribute("contentPage", "user/information/information.jsp");
+			request.setAttribute("contentPage", "introduce/announcement/announcement_contentPage.jsp");
 		} else if (request.getParameter("link").equals("4")) {
-			request.setAttribute("contentPage", "user/information/information.jsp");
+			request.setAttribute("contentPage", "introduce/album/album_contentPage.jsp");
 		} else if (request.getParameter("link").equals("5")) {
-			request.setAttribute("contentPage", "user/information/information.jsp");
+			request.setAttribute("contentPage", "introduce/employment/employment_contentPage.jsp");
 		} else if (request.getParameter("link").equals("6")) {
 			request.setAttribute("contentPage", "user/information/information.jsp");
 		} else if (request.getParameter("link").equals("7")) {
