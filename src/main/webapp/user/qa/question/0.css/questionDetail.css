@@ -35,11 +35,11 @@ a {
 }
 
 /* 전체 */
+.container-tbl{
+	height: 100%;
+}
 .content-sec {
 	height: 180vh;
-}
-.container-tbl{
-	height: 80%;
 }
 
 .content-tbl{

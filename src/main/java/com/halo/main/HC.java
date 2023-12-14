@@ -11,7 +11,37 @@ import javax.servlet.http.HttpServletResponse;
 public class HC extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		if (request.getParameter("link") != null) {
+		if (request.getParameter("link").equals("1")) {
+			request.setAttribute("contentPage", "information/company/inform.jsp");
+		}  else if (request.getParameter("link").equals("2")) {
+			request.setAttribute("contentPage", "information/map/map.jsp");
+		} else if (request.getParameter("link").equals("3")) {
+			request.setAttribute("contentPage", "introduce/announcement/announcement_contentPage.jsp");
+		} else if (request.getParameter("link").equals("4")) {
+			request.setAttribute("contentPage", "introduce/album/album_contentPage.jsp");
+		} else if (request.getParameter("link").equals("5")) {
+			request.setAttribute("contentPage", "introduce/employment/employment_contentPage.jsp");
+		} else if (request.getParameter("link").equals("6")) {
+			request.setAttribute("contentPage", "user/information/information.jsp");
+		} else if (request.getParameter("link").equals("7")) {
+			request.setAttribute("contentPage", "user/information/information.jsp");
+		} else if (request.getParameter("link").equals("8")) {
+			request.setAttribute("contentPage", "user/information/information.jsp");
+		}
+	}
+		
+		
+		String link = request.getParameter("link");
+		System.out.println(link);
+		
+		if (link == null) {
+			request.setAttribute("contentPage","information/company/inform.jsp");
+			System.out.println(1);
+		}
+		
 		request.getRequestDispatcher("user/menu-index.jsp").forward(request, response);
+		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
