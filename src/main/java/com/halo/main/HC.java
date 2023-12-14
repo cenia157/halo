@@ -12,11 +12,6 @@ public class HC extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String contentPage = null;
-		 if (request.getParameter("link").equals("7")) {
-			 contentPage = "service/serviceApply/serviceApply";
-			request.setAttribute("step1Pos", "#ffdf6c");
-			request.setAttribute("serviceStep", "svcselect.jsp");
-		}
 		
 		if (request.getParameter("link") != null) {
 			if (request.getParameter("link").equals("1")) {
@@ -47,7 +42,6 @@ public class HC extends HttpServlet {
 
 		String link = request.getParameter("link");
 		System.out.println(link);
-
 
 		
 
