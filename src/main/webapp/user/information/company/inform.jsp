@@ -14,10 +14,10 @@
 		<div class="content-box-tbl">
 
 			<div class="content-box-tr">
-				<div class="content-box-td2">
+				<div class="content-box-td1">
 					<a href="">회사소개</a>
 				</div>
-				<div class="content-box-td1">
+				<div class="content-box-td2">
 					<a href="">오시는길</a>
 				</div>
 			</div>
@@ -43,7 +43,7 @@
 								“ハロー의 구성원 모두 이용해주시는<br /> 모든 가족분들과 세상이 따뜻함으로 하나가<br /> 되는 그
 								날까지 최선을 다하겠습니다.”
 							</div>
-							<div class="introduce-txt-tr">- 代表社員 ：大出 昭子 -</div>
+							<div class="introduce-txt-tr">- 代表社員 ： 大出 昭子 -</div>
 						</div>
 						<div class="introduce-txt-tr2">
 							<div class="introduce-txt-td">

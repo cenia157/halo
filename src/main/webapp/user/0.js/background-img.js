@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("scroll", function () {
     const scrollValue = window.scrollY;
-    console.log(scrollValue);
 
     let rightImg = document.querySelector(".img-rightCloud");
     let leftImg = document.querySelector(".img-leftCloud");
@@ -10,7 +9,6 @@ document.addEventListener("DOMContentLoaded", function () {
     let sunSet = document.querySelector(".img-sunset");
     let scrollPercentage =
       (scrollValue / (document.body.scrollHeight - window.innerHeight)) * 100;
-    console.log(scrollPercentage);
     if (scrollPercentage >= 60) {
       rightImg.style.transform = "translateX(20%)";
       leftImg.style.transform = "translateX(-20%)";
