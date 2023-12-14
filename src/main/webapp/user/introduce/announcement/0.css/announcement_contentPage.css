@@ -1,21 +1,21 @@
 /*
-바꾼사항 23-12-13 17:00
+바꾼사항 23-12-14 13:00
   *** contentPage.css에서 수정했기떄문에 원본 css파일 걱정안해도됨 ***
-1) .container_tbl -> 280vh -> 249vh
-2) .content_sec -> 160vh -> 130ch
-3) .content-tbl -> 260vh -> 230vh
+1) .container_tbl -> 280vh -> 254vh
+2) .content_sec -> 160vh -> 135ch
+3) .content-tbl -> 260vh -> 235vh
 */
 
 .container-tbl {
-  height: 249vh;
+  height: 254vh;
 }
 
 .content-sec {
-  height: 130vh;
+  height: 135vh;
 }
 
 .content-tbl {
-  height: 230vh;
+  height: 235vh;
 }
 
 /*------------------------------------*/
@@ -23,7 +23,7 @@
 .a_content-tbl {
   border: solid 1px blue;
   width: 100%;
-  height: 130vh; /* 기존 260vh에서 130vh로 줄임 */
+  height: 135vh; /* 기존 260vh에서 130vh로 줄임 */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -54,11 +54,12 @@
   text-decoration: none;
 }
 
+/* 23-12-14 변동사항 */
 .a_content-box-tr1-td1 {
   display: flex;
   /* outline: solid 2px purple; */
   width: 100%;
-  height: 10%;
+  height: 15vh;
 }
 
 /* 23-12-14 변동사항 */
@@ -106,30 +107,37 @@
 }
 
 /* 그림 > 소식 > 공지사항 시작 */
+
+/* 공통 */
 .a_content-box-tr1-td2 {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  outline: 1px solid green;
-  height: 4%;
-  padding-top: 4.2%; /* 23-12-14 변동사항:  2%에서 4.2% */
-  padding-bottom: 2.5%; /* 23-12-14 변동사항:  4%에서 2.5% */
+  width: 95%;
+  height: 15vh;
+  padding-top: 2%;
+  color: #546137;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+/* 공통 */
+.a_content-box-tr1-td2-1 {
+    display: flex;
+    justify-content: end;
 }
 
 .a_content-box-tr1-td2 > img {
   width: 1.5%; /* 23-12-14 변동사항 */
 }
 
-.a_content-box-tr1-td2-2 {
-  display: flex;
-  margin-right: 7%; /* 23-12-14 변동사항 8%에서 7% */
-  margin-left: 0.3%; /* 0.8%에서 0.3%로 */
-  text-align: center;
-}
+/* .a_content-box-tr1-td2-2 { */
+/*   display: flex; */
+/*   margin-right: 8%; 23-12-14 변동사항 8%에서 7% */
+/*   margin-left: 0.35%; */
+/*   text-align: center; */
+/* } */
 
-.a_content-box-tr1-td2-2 > div {
-  margin-right: 3%; /* > 소식 > 공지사항 각각 box의 오른쪽 마진기준으로 벌림 */ /* key poing */
-}
+/* .a_content-box-tr1-td2-2 > div { */
+/*   margin-right: 3%; > 소식 > 공지사항 각각 box의 오른쪽 마진기준으로 벌림 key poing */
+/* } */
 
 .a_content-box-tr1-td2-2 > div:last-child {
   margin-right: 0; /* 마지막 텍스트의 오른쪽 간격 제거 */
@@ -156,8 +164,8 @@
 .a_content-box-tr1-td3-1 {
   display: flex;
   align-items: center;
-  height: 100%; /* 추후 */
-  width: 90%; /* 추후 */
+  height: 96%; /* 23-12-14 변동사항 */
+  width: 90%;
   background: #ffedaf;
   border-radius: 30px;
 }
@@ -196,7 +204,7 @@
 .a_content-box-tr1-td3-1-1-1-1 > div > span {
   color: #546137;
   text-align: center;
-  font-size: 1.1rem;
+  font-size: 1.8rem;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
@@ -244,7 +252,7 @@
 }
 
 .a_content-box-tr1-td3-1-1-1-2 > div > span {
-  font-size: 1em;
+  font-size: 1.5em;
   color: #546137;
   font-style: normal;
   font-weight: 700;
@@ -258,55 +266,68 @@
 }
 
 .a_content-box-tr1-td3-1-2 {
+  outline: 1px solid red;
   position: absolute;
   right: 50%;
-  bottom: -37%;
+  bottom: -93%;
 }
 
+/* 미디어 쿼리는 나중에 */
+
+/*
 @media only screen and (max-width: 600px) {
   .a_content-box-tr1-td3-1-2 {
+    right: 50%;
     bottom: -31%;
   }
 }
 
 @media only screen and (min-width: 600px) and (max-width: 700px) {
   .a_content-box-tr1-td3-1-2 {
+    right: 50%;
     bottom: -32%;
   }
 }
 
 @media only screen and (min-width: 700px) and (max-width: 800px) {
   .a_content-box-tr1-td3-1-2 {
+    right: 50%;
     bottom: -33%;
   }
 }
 
 @media only screen and (min-width: 800px) and (max-width: 900px) {
   .a_content-box-tr1-td3-1-2 {
+    right: 50%;
     bottom: -34%;
   }
 }
 
 @media only screen and (min-width: 900px) and (max-width: 1000px) {
   .a_content-box-tr1-td3-1-2 {
+    right: 50%;
     bottom: -35%;
   }
 }
 
 @media only screen and (min-width: 1000px) and (max-width: 1400px) {
   .a_content-box-tr1-td3-1-2 {
+    right: 50%;
     bottom: -35.5%;
   }
 }
 
 @media only screen and (min-width: 1400px) and (max-width: 1600px) {
   .a_content-box-tr1-td3-1-2 {
-    bottom: -36%;
+    right: 50%;
+    bottom: -92%;
   }
 }
 
 @media only screen and (min-width: 1600px) and (max-width: 1750px) {
   .a_content-box-tr1-td3-1-2 {
-    bottom: -36.5%;
+    right: 50%;
+    bottom: -92.5%;
   }
 }
+*/
