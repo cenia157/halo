@@ -11,6 +11,8 @@
 
 
 
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/admin/boardmanagement/notice/0.css/notice.css" />
 
 <link
 	href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular"
@@ -27,13 +29,18 @@
 
 
 	<div id="myModal" class="modal-background"></div>
-	<div class="modal-tbl">
+	<div id="myModal-tbl" class="modal-tbl">
 		<div class="modal-title-tr">
 			<div class="modal-title-td-1">
-				<div class="real-title">민기해적단 팀인원 대거 탈주 계획</div>
+				<div class="real-title">
+
+					<input class="real-title-editor" placeholder="민기해적단 팀인원 대거 탈주 계획">
+
+
+				</div>
 			</div>
 			<div class="modal-title-td-2">
-				<span class="close" id="closeModalBtn">&times;</span>
+				<span class="close" id="closeModalBtn" onclick="closeModal()">&times;</span>
 			</div>
 
 		</div>
@@ -47,6 +54,44 @@
 			</div>
 		</div>
 	</div>
+	
+	
+	
+	
+	
+	
+	
+	 <script>
+        // 모달 열기
+        function openModal() {
+            document.getElementById('myModal').style.display = 'flex';
+            document.getElementById('myModal-tbl').style.display = 'flex';
+        }
+
+        // 모달 닫기
+        function closeModal() {
+            document.getElementById('myModal').style.display = 'none';
+            document.getElementById('myModal-tbl').style.display = 'none';
+        }
+
+        // 모달 외부 클릭 시 모달 닫기
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('myModal')) {
+                closeModal();
+            }
+        }
+    </script>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 	<script>
         ClassicEditor
             .create( document.querySelector( '#classic' ))
@@ -57,4 +102,5 @@
                 console.error( error );
             } );
     </script>
+</body>
 </html>

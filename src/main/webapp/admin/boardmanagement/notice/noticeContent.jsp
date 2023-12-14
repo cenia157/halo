@@ -39,16 +39,19 @@
 			<div class="ontent-m-td-2-chackbox-contain-txt">상품</div>
 		</div>
 	</div>
-	<div class="ontent-m-td-2-content">
+	<div class="ontent-m-td-2-content" >
 	<!-- 아래의 include는 게시판 보드가 담겨있다 -->
 	<jsp:include page="noticeBoard.jsp"></jsp:include>
 		<div class="ontent-m-td-2-bottom">
 			<div class="ontent-m-td-2-page-side"></div>
 			<div class="ontent-m-td-2-page-center"></div>
 			<div class="ontent-m-td-2-page-side">
-				<button class="SubmitButton-content">등록하기</button>
+				<button class="SubmitButton-content" onclick="openModal()">등록하기</button>
 			</div>
 		</div>
+		
+		<!-- 여기는 모달을 띄워주는 곳, 
+			공지사항을 등록하기 위한 곳(noticeEditPage.jsp)-->
 		<jsp:include page="noticeEditPage.jsp"></jsp:include>
 	</div>
 </body>
