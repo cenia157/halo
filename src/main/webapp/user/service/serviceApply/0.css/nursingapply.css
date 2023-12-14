@@ -234,7 +234,7 @@
 	justify-content: center;
 }
 
-.na-categotyselect {
+.categotyselect {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -245,7 +245,7 @@
 	/* 	txt */
 	color: #546137;
 	font-family: Inter;
-	font-size: 1.3rem;
+	font-size: 2rem;
 	font-style: normal;
 	font-weight: 700;
 	line-height: normal;
