@@ -28,8 +28,8 @@ public class ServiceC extends HttpServlet {
 				request.setAttribute("step4Pos", "#ffdf6c");
 			} else if (step.equals("4")) {
 				request.setAttribute("serviceStep", "taxiapply.jsp");
-				request.setAttribute("step5Pos", "#ffdf6c");
-			} else if (step.equals("5")) {
+				request.setAttribute("step4Pos", "#ffdf6c");
+			} else if (step.equals("6")) {
 				request.setAttribute("serviceStep", "agree.jsp");
 				request.setAttribute("step5Pos", "#ffdf6c");
 			} else if (step.equals("7")) {
