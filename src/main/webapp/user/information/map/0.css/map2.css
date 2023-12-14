@@ -1,6 +1,5 @@
 /* 컨텐트  */
 .map-content-sec {
-	background-color: #5b7953;
 	width: 100%;
 	height: 100%;
 	display: flex;
@@ -10,8 +9,11 @@
 .content-box-tbl {
 	background-color: rgba(255, 255, 255, 0.8);
 	border-radius: 35px;
-	width: 90%;
+	width: 95%;
 	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 /* 회사소개 오시는길 버튼(css바뀌어야함) */
 .content-box-tr {
@@ -58,16 +60,17 @@
 
 /* 회사 소개 내용 */
 .introduce-tbl {
-	width: 100%;
+	width: 96%;
 	height: 100%;
 	display: flex;
 	flex-direction: column;
+	align-items: center;
+	margin: auto;
 }
 
 .introduce-tr {
-	width: 100%;
+	width: 90%;
 	height: 100%;
-	margin-top: 2%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -75,10 +78,12 @@
 
 /* 인사말 title */
 .introduce-tr-box {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 15vh;
+  width: 100%;
 }
 
 .introduce-td1 {
@@ -86,7 +91,7 @@
 	text-shadow: 4px 4px 4px #ffdf6c;
 	font-size: 2.3rem;
 	font-weight: 700;
-	width: 20%;
+	width: 30%;
 	height: 5vh;
 	display: flex;
 	justify-content: center;
@@ -106,13 +111,14 @@
 .map-tbl {
 	display: flex;
 	flex-direction: column;
-	background-color: black;
-	width: 80%;
+	width: 90%;
 	height: 70%;
+	align-items: center;
+
 }
 
 .map-tr {
-	border: solid 4px rgb(255, 255, 255);
+	border: solid 4px rgb(255,223,108);
 	width: 100%;
 	height: 70%;
 }
