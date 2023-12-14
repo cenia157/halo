@@ -59,11 +59,6 @@
   padding-bottom: 1.5%;
 }
 
-a_content-box-tr1-td3 {
-	width: 100%;
-	height: 83%;
-}
-
 .a_content-box-tr1-td1-1 {
   background: #ffd66c;
   border-top-left-radius: 35px;
@@ -76,8 +71,6 @@ a_content-box-tr1-td3 {
 .a_content-box-tr1-td1-3 {
   background: #849461;
   border-top-right-radius: 35px;
-  width: 100%;
-  height: 83%;
 }
 
 .a_content-box-tr1-td1-1 > span,
