@@ -67,7 +67,8 @@
 							<select class="na-categotyselect" name="category" id="category">
 								<option value="" selected="selected" disabled="disabled">‘방문요양’
 									신청에 필요한 정보를 입력해주세요.</option>
-								<option value=""></option>
+								<option value="C1"></option>
+								<option value="C2"></option>
 								<option value=""></option>
 								<option value=""></option>
 							</select>
