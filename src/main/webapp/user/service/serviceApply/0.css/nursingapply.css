@@ -1,129 +1,67 @@
-/* nursing apply 콘텐츠 길이 250vh */
-
-
-@import
-	url(https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular)
-	;
-
-@font-face {
-	font-family: "SF Pro JP Regular";
-	src:
-		url("https://db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.eot");
-	src:
-		url("https://db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.eot#iefix")
-		format("embedded-opentype"),
-		url("https://db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.woff2")
-		format("woff2"),
-		url("https://db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.woff")
-		format("woff"),
-		url("https://db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.ttf")
-		format("truetype"),
-		url("https://db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.svg#SF Pro JP Regular")
-		format("svg");
-}
-
-* {
-	font-family: "SF Pro JP Regular";
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
-
-a {
-	text-decoration: none;
-}
-
-
-/* 전체 */
+/* 컨텐트 H 조정 시작 */
 .container-tbl {
-	height: 250vh;
+	width: 100%;
+	max-width: 100vw;
+	height: 336vh;
 }
 
+/* 컨텐트  */
 .content-tbl {
 	background-color: #5b7953;
 	width: 100%;
-	height: 350vh;
+	height: 376vh;
 	display: flex;
 	flex-direction: column;
 }
-.content-sec{
-	height: 250vh;
-}
 
-/* 본문 */
-.na-container {
+.content-sec {
+	background-color: rgba(255, 255, 255, 0.8);
 	width: 100%;
-	max-width: 100vw;
-	height: 300vh;
+	height: 276vh;
 }
 
-.na-content-tbl {
-	width: 100%;
-	height: 225vh;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-}
-
-.na-content-box-tr {
-	border-radius: 35px;
-	width: 95%;
-	height: 95%;
-}
-
-.na-bottom-venner-tr {
-	width: 100%;
-	height: 35vh;
-	display: flex;
-	justify-content: space-evenly;
-	align-items: center;
-}
-
-.na-bottom-venner-td {
-	width: 20%;
-	height: 50%;
-	display: flex;
-	justify-content: space-evenly;
-	align-items: center;
-	border-radius: 30px;
-}
+/* 컨텐트 H 끝 */
 
 /* Content 전체 박스 */
-.na-content-box-td {
+.content-box-tr {
+	width: 100%;
+	padding: 2.5%;
+	height: 100%;
+}
+
+.content-box-td {
 	text-align: center;
 	border-radius: 30px;
 	background: rgba(255, 255, 255, 0.8);
 	width: 100%;
 	height: 100%;
-}
-
-.na-footer-tbl {
-	width: 100%;
-	height: 20vh;
+	display: inline-block;
 }
 
 /* 서비스 탭 */
-.na-content-tabbox-td {
+.content-tabbox-td {
+	text-align: center;
 	display: flex;
+	width: 100%;
+	height: 12vh;
 }
 
-.na-content-tab-td {
+.content-tab-td {
 	color: #62733d;
 	text-align: center;
 	text-shadow: 6px 6px 6px #ffdf6c;
 	font-family: Inter;
-	font-size: 1rem;
 	font-style: normal;
 	font-weight: 700;
 	line-height: normal;
+	height: 30%;
 }
 
-.na-content-tab1-td {
+.content-tab1-td {
 	color: #fff;
 	text-align: center;
 	font-family: Inter;
-	font-size: 1rem;
+	font-size: 2.5rem;
 	font-style: normal;
 	font-weight: 700;
 	line-height: normal;
@@ -131,12 +69,12 @@ a {
 	border-radius: 30px 0px 0px 0px;
 }
 
-.na-content-tab2-td {
+.content-tab2-td {
 	color: #62733d;
 	text-align: center;
 	text-shadow: 6px 6px 6px #ffdf6c;
 	font-family: Inter;
-	font-size: 1rem;
+	font-size: 2.5rem;
 	font-style: normal;
 	font-weight: 700;
 	line-height: normal;
@@ -144,19 +82,19 @@ a {
 	background: white;
 }
 
-.na-tab1-pos {
+.tab1-pos {
 	padding: 30px;
 	position: relative;
 	width: 50%;
 }
 
-.na-tab2-pos {
+.tab2-pos {
 	padding: 30px;
 	position: relative;
 	width: 50%;
 }
 
-.na-content-subtab-td {
+.content-subtab-td {
 	color: #546137;
 	text-align: center;
 	font-family: Inter;
@@ -165,131 +103,144 @@ a {
 	line-height: normal;
 	letter-spacing: 0.84px;
 	margin-left: 80%;
-	font-size: 0.6rem;
+	font-size: 1.7rem;
 	position: relative;
 	margin-top: 5%;
 }
 
-.na-content-subtab-td>img {
+.content-subtab-td>img {
 	padding-top: 5px;
-	width: 0.6rem;
+	width: 1.7rem;
 }
 
 /* 서비스 신청 순서 안내 */
-.na-content-procedure-box-td {
+.content-procedure-box-td {
 	margin-top: 1%;
 	width: 100%;
-	height: 53vh;
+	height: 47%;
 	flex-shrink: 0;
 	border-radius: 30px;
 	background: #e9e6b1;
 }
 
-.na-content-title-box-td {
-	width: 28%;
-	height: 6vh;
+.content-title-box-td {
+	width: 26%;
+	height: 12%;
 	flex-shrink: 0;
 	border-radius: 20px;
 	background: #fff;
 	box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.3);
 	position: relative;
 	top: 6%;
-	margin-left: 36%;
-	margin-right: 36%;
+	margin-left: 38%;
+	margin-right: 38%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	
-/* 	txt */
+	font-size: 2.5rem;
 	color: #546137;
 	text-align: center;
 	font-family: Inter;
-	font-size: 1.8rem;
 	font-style: normal;
 	font-weight: 700;
 	line-height: normal;
 	letter-spacing: 2.25px;
-
 }
 
-.na-content-procedure-box-ul-pos {
-	position: relative;
-	padding-top: 7vh;
+.content-procedure-box-ul-pos {
 	width: 100%;
 	list-style: none;
+	height: 30%;
 }
 
-.na-content-procedure-box-ul {
+.content-procedure-box-ul {
+	padding-top: 5%;
+	position: relative;
 	width: 100%;
-	display: inline-block;
-	margin-left: 5%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: 100%;
 }
 
-.na-content-box-li-pagepos {
+.content-box-li-pagepos {
+	box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.3);
 	border-radius: 20px;
 	background: #ffdf6c;
 	margin-top: 0.5%;
 	width: 90%;
-	height: 5vh;
+	height: 12%;
 	flex-shrink: 0;
 	display: flex;
 	position: relative;
 	padding-top: 5px;
 	padding-bottom: 5px;
 	align-items: center;
-	box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.3);
-}
-
-.na-content-box-li {
-	border-radius: 20px;
-	background: rgba(255, 255, 255, 0.89);
-	box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.3);
-	margin-top: 0.5%;
-	width: 90%;
-	height: 5vh;
-	flex-shrink: 0;
-	display: flex;
-	position: relative;
-	padding-top: 5px;
-	padding-bottom: 5px;
-	align-items: center;
-}
-
-.na-content-service-step-box-td {
-	width: 20%;
-	padding-left: 5%;
-	text-align: left;
-}
-
-.na-content-service-txt-box-td {
-	width: 80%;
-	padding-right: 20%;
-	
-/* 	txt */
+	font-size: 2rem;
 	color: #546137;
 	text-align: center;
 	font-family: Inter;
-	font-size: 1.5rem;
 	font-style: normal;
 	font-weight: 700;
 	line-height: normal;
 	letter-spacing: 2px;
 }
 
+.content-box-li {
+	box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.3);
+	border-radius: 20px;
+	background: rgba(255, 255, 255, 0.89);
+	margin-top: 0.5%;
+	width: 90%;
+	height: 12%;
+	flex-shrink: 0;
+	display: flex;
+	position: relative;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	align-items: center;
+	font-size: 2rem;
+	color: #546137;
+	text-align: center;
+	font-family: Inter;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+	letter-spacing: 2px;
+}
+
+.content-service-step-box-td {
+	width: 20%;
+	padding-left: 5%;
+	text-align: left;
+}
+
+.content-service-txt-box-td {
+	width: 80%;
+	padding-right: 20%;
+}
+
 /* apply form */
 .na-content-applyform-td {
 	margin: 5%;
+	height: 37.14%;
 }
 
 .na-content-applyform-tr-1 {
-	height: 10vh;
+	height: 6rem;
 	margin: 2%;
+	align-items: center;
+	display: flex;
+	justify-content: center;
 }
 
 .na-categotyselect {
-	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: white;
 	width: 50%;
-	height: 80%;
+	height: 100%;
 	filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.3));
 	/* 	txt */
 	color: #546137;

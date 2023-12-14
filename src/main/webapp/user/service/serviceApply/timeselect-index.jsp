@@ -97,7 +97,9 @@
 		<div class="content-tbl">
 			<div class="content-space"></div>
 			<div class="content-sec">
-				<jsp:include page="serviceInformation.jsp"></jsp:include>
+
+				<jsp:include page="timeselect.jsp"></jsp:include>
+
 			</div>
 			<div class="bottom-venner-tr">
 				<div class="bottom-venner-td">하단베너</div>

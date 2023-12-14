@@ -97,7 +97,18 @@
 		<div class="content-tbl">
 			<div class="content-space"></div>
 			<div class="content-sec">
-				<jsp:include page="serviceInformation.jsp"></jsp:include>
+<!-- 서비스선택 -->
+<%-- 				<jsp:include page="svcselect.jsp"></jsp:include> --%>
+<!-- 캘린더 선택 -->
+				<jsp:include page="calselect.jsp"></jsp:include>
+<!-- 시간 선택 -->
+<%-- 				<jsp:include page="timeselect.jsp"></jsp:include> --%>
+<!-- 정보 입력 -->
+<%-- 				<jsp:include page="calselect.jsp"></jsp:include> --%>
+<!-- 동의 입력 -->
+<%-- 				<jsp:include page="calselect.jsp"></jsp:include> --%>
+<!-- 신청 완료 -->
+<%-- 				<jsp:include page="calselect.jsp"></jsp:include> --%>
 			</div>
 			<div class="bottom-venner-tr">
 				<div class="bottom-venner-td">하단베너</div>

@@ -113,7 +113,7 @@ pageEncoding="UTF-8"%>
                           <!-- 다운로드 아이콘 -->
                           <div class="e_content-box-tr1-td3-1-1-1-5-1-1-1-3">
                             <a href=""
-                              ><img src="./0.img/download_icon.png" alt=""
+                              ><img src="${pageContext.request.contextPath}/user/introduce/employment/0.img/download_icon.png" alt=""
                             /></a>
                           </div>
                         </div>

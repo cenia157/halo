@@ -24,7 +24,7 @@
 			<div class="content-procedure-box-td">
 				<!-- 서비스 신청 순서 -->
 				<div class="content-title-box-td">서비스 신청 순서</div>
-				<div class="content-procedure-box-ul-pos">
+<!-- 				<div class="content-procedure-box-ul-pos"> -->
 					<ul class="content-procedure-box-ul">
 						<li class="content-box-li-pagepos">
 							<div class="content-service-step-box-td">Step1.</div>
@@ -52,7 +52,7 @@
 							<div class="content-service-step-box-td">Step6.</div>
 							<div class="content-service-txt-box-td">신청 완료</div>
 					</ul>
-				</div>
+<!-- 				</div> -->
 			</div>
 			<div class="content-serviceselectbox-td">
 				<div class="content-serviceoption-td">방문요양</div>
