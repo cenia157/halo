@@ -16,8 +16,7 @@ pageEncoding="UTF-8"%>
     />
   </head>
   <body>
-    <div class="a_container">
-
+<!--     <div class="a_container"> -->
       <div class="a_content-tbl">
         <!--ody 구분선 1 시작-->
 
@@ -35,18 +34,8 @@ pageEncoding="UTF-8"%>
           </div>
 
           <div class="a_content-box-tr1-td2">
-            <img
-              class="a_content-box-tr1-td2-1"
-              src="./0.img/home_icon.svg"
-              alt=""
-            />
-
-            <!-- [ > 소식 > 공지사항 ] 상위 box -->
-            <div class="a_content-box-tr1-td2-2">
-              <div class="a_content-box-tr1-td2-2-1"><span>></span></div>
-              <div class="a_content-box-tr1-td2-2-2"><span>소식</span></div>
-              <div class="a_content-box-tr1-td2-2-3"><span>></span></div>
-              <div class="a_content-box-tr1-td2-2-4"><span>공지사항</span></div>
+            <div class="a_content-box-tr1-td2-1">
+            <img src="${pageContext.request.contextPath}/user/0.img/home.png" width="1.7%" alt="" /> > 소개 > 회사소개
             </div>
           </div>
 
@@ -94,12 +83,12 @@ pageEncoding="UTF-8"%>
                   </div>
                 </div>
               </div>
-              <div class="a_content-box-tr1-td3-1-2">릴레이티브_아이콘삽입</div>
+              <div class="a_content-box-tr1-td3-1-2">페이징 아이콘</div>
             </div>
           </div>
         </div>
       </div>
       <!--ody 구분선 1 끝-->
-    </div>
+<!--     </div> -->
   </body>
 </html>

@@ -65,7 +65,7 @@
 			
 			<div class="q-content-box-td2 content-box-td-content6">
 				<span class="q-content-box-td-content6-1">문의 내용*</span>
-				<input class="q-content-box-td-content6-2" type="text">
+				<textarea class="q-content-box-td-content6-2" type="text"></textarea>
 			</div>
 			<div class="q-content-box-td3">
 				<span class="q-content-box-td-content7">*은 필수입력 사항입니다.</span>
