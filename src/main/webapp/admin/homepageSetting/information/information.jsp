@@ -18,6 +18,11 @@
 <script src="${pageContext.request.contextPath}/admin/0.js/test.js"></script>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/admin/0.css/test copy.css" />
 <body>
+<!--
+본 파일은 임시로 만든 파일이며 /admin/index.jsp 의 인클루드를 테스트하기 위해 임시로 만든 페이지다
+따라서 나중에 본 파일은 삭제해도 무방하며 인클루드를 통해 해당폴더의 /admin/XXXXX/XXXXXContent.jsp를 연결하면 된다
+ -->
+
 	<!-- 최상위 콘테이너 -->
 	<div class="container">
 		<!-- 왼쪽 테이블 -->
