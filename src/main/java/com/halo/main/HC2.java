@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/HC")
-public class HC extends HttpServlet {
+@WebServlet("/HC2")
+public class HC2 extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String contentPage = null;
@@ -38,7 +38,7 @@ public class HC extends HttpServlet {
 			request.getRequestDispatcher("user/menu-index.jsp").forward(request, response);
 		} else {
 			request.setAttribute("contentPage", "home.jsp");
-			request.getRequestDispatcher("index.jsp").forward(request, response);
+			request.getRequestDispatcher("index2.jsp").forward(request, response);
 		}
 
 		String link = request.getParameter("link");
