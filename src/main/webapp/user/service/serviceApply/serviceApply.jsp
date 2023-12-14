@@ -29,45 +29,54 @@
 				<div class="content-title-box-td">서비스 신청 순서</div>
 				<ul class="content-procedure-box-ul">
 					<li class="content-box-li" style="background-color: ${step1Pos}">
-						
-						<div class="content-service-step-box-td"><a href="ServiceC?step=6">Step1.</a></div>
+
+						<div class="content-service-step-box-td">
+							<a href="ServiceC?link=7&step=1">Step1.</a>
+						</div>
 						<div class="content-service-txt-box-td">신청할 서비스 선택하기</div>
 					</li>
 					<li class="content-box-li" style="background-color: ${step2Pos}">
-						
-						<div class="content-service-step-box-td"><a href="ServiceC?step=6">Step2.</a></div>
+
+						<div class="content-service-step-box-td">
+							<a href="ServiceC?link=7&step=2">Step2.</a>
+						</div>
 						<div class="content-service-txt-box-td">이용할 ‘기간’ 캘린더에서 선택하기</div>
-					
+
 					</li>
 					<li class="content-box-li" style="background-color: ${step3Pos}">
-						
-						<div class="content-service-step-box-td"><a href="ServiceC?step=3">Step3.</a></div>
+
+						<div class="content-service-step-box-td">
+							<a href="ServiceC?link=7&step=3">Step3.</a>
+						</div>
 						<div class="content-service-txt-box-td">이용 ‘시간’ 선택하기</div>
-					
+
 					</li>
 					<li class="content-box-li" style="background-color: ${step4Pos}">
-						
-						<div class="content-service-step-box-td"><a href="ServiceC?step=4">Step4.</a></div>
+
+						<div class="content-service-step-box-td">
+							<a href="ServiceC?link=7&step=4">Step4.</a>
+						</div>
 						<div class="content-service-txt-box-td">정보 입력하기</div>
-					
+
 					</li>
 					</li>
 
 					<li class="content-box-li" style="background-color: ${step5Pos}">
-						
-							<div class="content-service-step-box-td"><a href="ServiceC?step=6">Step5.</a></div>
-							<div class="content-service-txt-box-td">이용약관 동의</div>
-					
+
+						<div class="content-service-step-box-td">
+							<a href="ServiceC?link=7&step=6">Step5.</a>
+						</div>
+						<div class="content-service-txt-box-td">이용약관 동의</div>
+
 					</li>
-					<li class="content-box-li" location.
-						style="background-color: ${step6Pos}">
-							<div class="content-service-step-box-td"> <a
-						href="ServiceC?step=7">Step6.</a></div>
-							<div class="content-service-txt-box-td">신청 완료</div>
-					
+					<li class="content-box-li" style="background-color: ${step6Pos}">
+						<div class="content-service-step-box-td">
+							<a href="ServiceC?link=7&step=7">Step6.</a>
+						</div>
+						<div class="content-service-txt-box-td">신청 완료</div>
 				</ul>
 			</div>
-			<jsp:include page="${seviceStep }"></jsp:include>
+			<jsp:include page="complet.jsp"></jsp:include>
 		</div>
 	</div>
 
