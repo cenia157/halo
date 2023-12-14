@@ -54,7 +54,7 @@
 			<!-- 신청폼 -->
 			<div class="na-content-applyform-td">
 				<div class="na-content-applyform-tr-1">
-					<div class="na-categotyselect" name="category" id="category">
+					<div class="categotyselect" name="category" id="category">
 					신청에 필요한 정보를 입력해주세요.
 					</div>
 				</div>

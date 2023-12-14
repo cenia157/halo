@@ -18,7 +18,7 @@
 
 <!-- 메뉴를 include -->
 <%-- <%@ include file="index-menu.jsp" %> --%>
-	<div class="content-tbl">
+	<div class="qd-content-tbl">
 
 	<!-- 본문 -->
 	<div class="qd-content-tbl">
@@ -64,22 +64,24 @@
 					<button class="qd-content-box-td2-2-button">목록</button>
 				</div>
 				<!-- 댓글 -->
+				<div class="qd-content-box-td3">
 				<div class="qd-content-box-td3-1">
-					<div class="qd-content-box-td3-1-1">이름</div>
-					<div class="qd-content-box-td3-1-2">작성일</div>
-				</div>
-				<div class="qd-content-box-td3-2">
-					<div class="qd-content-box-td3-2-1">
-						<img alt=""
-							src="${pageContext.request.contextPath}/user/qa/question/0.img/lock.png">
+						<div class="qd-content-box-td3-1-1">이름</div>
+						<div class="qd-content-box-td3-1-2">작성일</div>
 					</div>
-					<div class="qd-content-box-td3-2-2">댓글본문</div>
+					<div class="qd-content-box-td3-2">
+						<div class="qd-content-box-td3-2-1">
+							<img alt=""
+								src="${pageContext.request.contextPath}/user/qa/question/0.img/lock.png">
+						</div>
+						<div class="qd-content-box-td3-2-2">댓글본문</div>
+					</div>
 				</div>
 				<!-- 이전글/다음글 -->
 				<div class="qd-content-box-td4-1">
 					<div class="qd-content-box-td4-1-1">이전글</div>
-					<div class="qd-content-box-td4-1-2">글 제목</div>
-				</div>
+						<div class="qd-content-box-td4-1-2">글 제목</div>
+					</div>
 				<div class="qd-content-box-td4-2">
 					<div class="qd-content-box-td4-2-1">다음글</div>
 					<div class="qd-content-box-td4-2-2">글 제목</div>
