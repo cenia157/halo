@@ -79,14 +79,19 @@
   background: white;
 }
 .tab1-pos {
-  padding: 30px;
-  position: relative;
-  width: 50%;
+	display: flex;
+	justify-content:center;
+	align-items:center;
+	position: relative;
+	width: 50%;
 }
+
 .tab2-pos {
-  padding: 30px;
-  position: relative;
-  width: 50%;
+	display: flex;
+	justify-content:center;
+	align-items:center;
+	position: relative;
+	width: 50%;
 }
 .content-subtab-td {
   color: #546137;
@@ -98,13 +103,13 @@
   line-height: normal;
   letter-spacing: 0.84px;
   margin-left: 80%;
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   position: relative;
   margin-top: 5%;
 }
 .content-subtab-td > img {
   padding-top: 5px;
-  width: 1.7rem;
+  width: 1.5rem;
 }
 
 /* 서비스 신청 순서 안내 */
@@ -232,7 +237,7 @@
 	/* 	txt */
 	color: #546137;
 	font-family: Inter;
-	font-size: 1.3rem;
+	font-size: 2rem;
 	font-style: normal;
 	font-weight: 700;
 	line-height: normal;

@@ -1,9 +1,9 @@
 /*
-바꾼사항 23-12-13 18:51
+바꾼사항 23-12-14 17:00
   *** contentPage.css에서 수정했기떄문에 원본 css파일 걱정안해도됨 ***
 1) .container_tbl -> 280vh -> 220vh
 2) .content_sec -> 160vh -> 180vh
-3) .content-tbl -> 260vh -> 120vh
+3) .content-tbl -> 260vh -> 220vh
 4) .bottom-venner-tr -> 색상변경(현 페이지에서 흰색이라서 초록색으로 변경)
 */
 
@@ -12,7 +12,7 @@
 }
 
 .content-tbl {
-  height: 180vh;
+  height: 220vh;
 }
 
 .content-sec {
@@ -94,42 +94,21 @@
 }
 
 .a_content-box-tr1-td2 {
+  width: 95%;
+  height: 15vh;
+  padding-top: 2%;
+  color: #546137;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.a_content-box-tr1-td2-1 {
   display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  outline: 1px solid green;
-  height: 4%;
-  padding-top: 5.1%;
-  padding-bottom: 2.3%;
+  justify-content: end;
 }
 
 .a_content-box-tr1-td2 > img {
-  width: 1.5%;
-}
-
-.a_content-box-tr1-td2-2 {
-  display: flex;
-  margin-right: 8%;
-  margin-left: 0.35%;
-  text-align: center;
-}
-
-.a_content-box-tr1-td2-2 > div {
-  margin-right: 3%;
-}
-
-.a_content-box-tr1-td2-2 > div:last-child {
-  margin-right: 0;
-}
-
-.a_content-box-tr1-td2-2-1 > span,
-.a_content-box-tr1-td2-2-2 > span,
-.a_content-box-tr1-td2-2-3 > span,
-.a_content-box-tr1-td2-2-4 > span {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #546137;
-  white-space: nowrap;
+  width: 1.5%; /* 23-12-14 변동사항 */
 }
 
 /* .a_content-box-tr1-td3-1 { */
@@ -139,14 +118,69 @@
 /*   margin: 0 -1%; */
 /* } */
 
+/*
 .a_content-box-tr1-td3 {
-  height: 75.3%; /* key point */
+  height: 75.3%; 
   width: 100%;
   outline: 2px solid brown;
 }
+*/
 
 /* ********************************** */
 /* 아래는 인스타그램 연동할때 다시 생각 */
+
+.a_content-box-tr1-td3 {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  outline: 2px solid greenyellow;
+  width: 100%;
+  height: 75%;
+}
+
+.a_content-box-tr1-td3-1 {
+  display: flex;
+  flex-direction: column;
+  outline: 1px solid pink;
+  width: 95%;
+  height: 95%;
+  padding-left: 1.5%;
+}
+
+.a_content-box-tr1-td3-1 > div {
+  outline: 1px solid #ffd66c;
+  width: 100%;
+  height: 33.3%;
+}
+
+.a_content-box-tr1-td3-1 > div:nth-child(odd) {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.a_content-box-tr1-td3-1 > div:nth-child(even) {
+  display: flex;
+  justify-content: space-around;
+}
+
+/* 각 이미지 tag상위 div박스임 9개 */
+.a_content-box-tr1-td3-1 > div > div {
+  width: 20%;
+  height: 100%;
+  outline: 1px solid pink;
+  padding-right: 1.5%;
+  padding-bottom: 1.5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* 이미지가 div 밖으로 나가지 않도록 설정 */
+}
+
+.a_content-box-tr1-td3-1 > div > div > img {
+  width: 100%; /* 이미지 너비를 div의 너비에 맞춤 */
+  height: 100%; /* 이미지 높이를 자동으로 조절하여 비율 유지 */
+  object-fit: cover; /* 이미지가 div를 꽉 채우도록 조절 */
+}
 
 /*
 .a_content-box-tr1-td3-1 .grid-item {
