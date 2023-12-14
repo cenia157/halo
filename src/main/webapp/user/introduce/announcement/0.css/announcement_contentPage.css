@@ -61,19 +61,11 @@
   height: 10%;
 }
 
+/* 23-12-14 변동사항 */
 .a_content-box-tr1-td1-1,
 .a_content-box-tr1-td1-2,
 .a_content-box-tr1-td1-3 {
   width: 33.33%;
-  text-align: center;
-  padding-top: 1.5%; /* 추후 재 조절 */
-  padding-bottom: 1.5%; /* 추후 재 조절 */
-}
-
-/* 23-12-14 변동사항 */
-.a_content-box-tr1-td1-1,
-.a_content-box-tr1-td2-1,
-.a_content-box-tr1-td3-1 {
   display: flex;
   justify-content: center;
   align-items: center;
