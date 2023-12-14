@@ -23,9 +23,9 @@ public class HC extends HttpServlet {
 		} else if (request.getParameter("link").equals("5")) {
 			request.setAttribute("contentPage", "introduce/employment/employment_contentPage.jsp");
 		} else if (request.getParameter("link").equals("6")) {
-			request.setAttribute("contentPage", "user/information/information.jsp");
+			request.setAttribute("contentPage", "service/serviceInformation/serviceInformation.jsp");
 		} else if (request.getParameter("link").equals("7")) {
-			request.setAttribute("contentPage", "user/information/information.jsp");
+			request.setAttribute("contentPage", "service/serviceApply/complet.jsp");
 		} else if (request.getParameter("link").equals("8")) {
 			request.setAttribute("contentPage", "qa/faq/faq.jsp");
 		} else if (request.getParameter("link").equals("9")) {
