@@ -23,6 +23,7 @@
 
 
 <body>
+	<!-- 해당 페이지는 ask.jsp(임시)에서 askContent.jsp로 인클루드 한 내부의 모달(2차 인클루드) 한 장소다 -->
 
 	<div id="myModal" class="modal-background"></div>
 	<div class="modal-tbl">
@@ -33,56 +34,45 @@
 
 
 				<div class="real-title">
-
-					<div class="real-title-up">
-
-						<!-- 이곳에 고객의 문의 제목을 띄워야한다 -->
-						● 제공되는 서비스를 이용하려면 어떻게 해야되나요?aaa
-
-
-					</div>
+					<div class="real-title-up">민기해적단은 언제 귀가를하나요?</div>
 
 					<div class="real-title-down">
 
 						<div class="real-title-down-L">
-							<div class="real-title-down-contain">
+							<div class="real-title-down-contain">2023-12-25</div>
 
 
-								<!-- 이곳에 고객의 문의 날짜를 띄워야한다 -->
-								2023-12-25
+							<div class="real-title-down-contain">답변완료</div>
 
-							</div>
-							<div class="real-title-down-contain">
-
-								<!-- 이곳에 고객의 문의에 답변/미답변 여부를 띄워야한다 -->
-								미답변
-
-							</div>
 						</div>
 
 						<div class="real-title-down-R">
 							<div class="real-title-down-contain">
-
-								<!-- 이곳에 고객의 문의 작성자를 띄워야한다 -->
+								<!-- 질문한 사람 (임시) -->
 								大出 昭子
-
+							</div>
+							<div class="real-title-down-contain">
+								<!-- 답변한 사람 (임시) -->
+								大出 昭子
 							</div>
 						</div>
 
-					</div>
 
+					</div>
 				</div>
 
-
-
-
-
 			</div>
+
+
+
+
+
 			<div class="modal-title-td-2">
 				<span class="close" id="closeModalBtn">&times;</span>
 			</div>
-
 		</div>
+
+
 		<div class="modal-content">
 			<div class="modal-content-txt">
 
@@ -96,24 +86,22 @@
 				<div class="modal-content-txt-response">
 
 
-					<textarea class="modal-content-txt-response-textarea" rows=""
-						cols="" placeholder="이곳에 답변을 넣으세요
-네 그렇습니다 민기해적단은 항상 10시까지남아 모두가 해적왕이 되기위하여 열심히 일을 하고 있습니다. 
-*여기는 아직 대답하지 않은 고객의 질문에 대답하는 공간*"></textarea>
-
-
-
+					<!-- 여기서 '이미 대답한 답변을 보여줄거냐(askEditPageAnsweredResponse)' 아니면 '아직 답변하지 못한 답변을 할 것이냐(askEditPageResponsePending)' -->
+					여기는 고객의 질문에 답변했던 것을 표시하는 곳 <br> 여기는 고객의 질문에 답변했던 것을 표시하는 곳 <br>
+					여기는 고객의 질문에 답변했던 것을 표시하는 곳 <br> 여기는 고객의 질문에 답변했던 것을 표시하는 곳 <br>
+					여기는 고객의 질문에 답변했던 것을 표시하는 곳 <br> 여기는 고객의 질문에 답변했던 것을 표시하는 곳 <br>
+					여기는 고객의 질문에 답변했던 것을 표시하는 곳 <br> 여기는 고객의 질문에 답변했던 것을 표시하는 곳 <br>
 
 
 				</div>
 
 			</div>
 			<div class="modal-content-button">
-				<button class="SubmitButton">답변하기</button>
+				<button class="SubmitButton">수정하기</button>
 			</div>
 		</div>
-	</div>
 
+	</div>
 
 
 

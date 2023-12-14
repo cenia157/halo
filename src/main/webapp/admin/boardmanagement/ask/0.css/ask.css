@@ -219,8 +219,8 @@
 
 /* ���⼭���ʹ�  askEditPage.jsp ����! */
 .modal-background {
-	display: none;
 	/*
+	display: none;
  position: relative;
 */
 	position: fixed;
@@ -232,8 +232,8 @@
 }
 
 .modal-tbl {
-	display: none;
 	/*
+	display: none;
  position: relative;
 */
 	width: 100%;

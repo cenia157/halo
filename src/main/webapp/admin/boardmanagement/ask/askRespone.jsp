@@ -90,19 +90,16 @@
 			</div>
 			<div class="modal-content-txt-response">
 
+<textarea rows="" cols="">
 
-				<!-- 여기서 '이미 대답한 답변을 보여줄거냐(askEditPageAnsweredResponse)' 아니면 '아직 답변하지 못한 답변을 할 것이냐(askEditPageResponsePending)' -->
-				여기는 고객의 질문에 답변했던 것을 표시하는 곳 <br> 여기는 고객의 질문에 답변했던 것을 표시하는 곳 <br>
-				여기는 고객의 질문에 답변했던 것을 표시하는 곳 <br> 여기는 고객의 질문에 답변했던 것을 표시하는 곳 <br>
-				여기는 고객의 질문에 답변했던 것을 표시하는 곳 <br> 여기는 고객의 질문에 답변했던 것을 표시하는 곳 <br>
-				여기는 고객의 질문에 답변했던 것을 표시하는 곳 <br> 여기는 고객의 질문에 답변했던 것을 표시하는 곳 <br>
+</textarea>
 
 
 			</div>
 
 		</div>
 		<div class="modal-content-button">
-			<button class="SubmitButton">수정하기</button>
+			<button class="SubmitButton">답변하기</button>
 		</div>
 	</div>
 
