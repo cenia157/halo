@@ -75,6 +75,14 @@
 	flex-direction: column;
 	align-items: center;
 }
+/* 페이지로드>소개>오시는길 */
+.page-road {
+	color: #546137;
+	font-size: 1.5rem;
+	font-weight: 700;
+	width: 100%;
+	text-align: right;
+}
 
 /* 인사말 title */
 .introduce-tr-box {
@@ -107,39 +115,38 @@
 	text-align: right;
 }
 
-/* 구글맵 박스 */
+/* 구글맵 컨텐트 박스 */
 .map-tbl {
 	display: flex;
 	flex-direction: column;
 	width: 90%;
-	height: 70%;
+	height: 100%;
 	align-items: center;
-
 }
 
+/* 구글맵 자리 */
 .map-tr {
 	border: solid 4px rgb(255,223,108);
 	width: 100%;
 	height: 70%;
 }
 
-/* 페이지로드>소개>오시는길 */
-.page-road {
-	color: #546137;
-	font-size: 1.5rem;
-	font-weight: 700;
+/* 하단 텍스트박스 자리 */
+.map-tr1{
 	width: 100%;
-	text-align: right;
+	height: 45%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	
 }
-
 /* 맵 텍스트 */
 .map-tr2 {
 	background-color: rgb(255, 255, 255);
 	box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.3);
 	border-radius: 30px;
 	width: 80%;
-	height: 25%;
-	margin-top: 5%;
+	height: 50%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;

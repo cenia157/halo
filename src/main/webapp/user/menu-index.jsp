@@ -15,6 +15,8 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/user/0.css/sec.css" />
 	
+	<!-- 배경,index css -->
+	 <link rel="stylesheet" href="${pageContext.request.contextPath}/user/0.css/index.css" />
 <!-- 헤더 css -->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/user/0.css/index-menu.css" />
@@ -27,6 +29,8 @@
 	crossorigin="anonymous"></script>
 <!-- 헤더 js -->
 <script src="${pageContext.request.contextPath}/user/0.js/index-menu.js"></script>
+ <!-- 배경이미지 js -->
+    <script src="${pageContext.request.contextPath}/user/0.js/background-img.js"></script>
 
 </head>
 
@@ -98,6 +102,31 @@
 				</div>
 			</div>
 		</div>
+<!-- 헤더 끝 -->
+
+<!-- - 배경이미지 - div -->
+      <div id="background-img">
+        <div class="background img-rightCloud">
+          <img src="user/0.img/rightCloud.PNG" alt="" />
+        </div>
+        <div class="background img-leftCloud">
+          <img src="user/0.img/leftCloud.PNG" alt="" />
+        </div>
+        <div class="background img-rightPink">
+          <img src="user/0.img/rightPinkCloud.PNG" alt="" />
+        </div>
+        <div class="background img-leftPink">
+          <img src="user/0.img/leftPinkCloud.PNG" alt="" />
+        </div>
+        <div class="background img-sunset">
+          <img src="user/0.img/sunset.PNG" alt="" />
+        </div>
+        <div class="background img-mountain">
+          <img src="user/0.img/mountain.PNG" alt="" />
+        </div>
+      </div>
+      <!-- 배경이미지 끝 -->
+
 
 		<div class="content-tbl">
 			<div class="content-space"></div>
