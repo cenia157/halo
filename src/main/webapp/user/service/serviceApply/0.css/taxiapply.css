@@ -212,24 +212,30 @@
 /* apply form */
 .content-applyform-td {
   margin: 5%;
+  	height: 37.14%;
 }
 .content-applyform-tr-1 {
-  height: 10vh;
+	height: 6rem;
   margin: 2%;
+  	align-items: center;
+	display: flex;
+	justify-content: center;
 }
 .categotyselect {
-  text-align: center;
-  width: 50%;
-  height: 80%;
-  filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.3));
-
-  /* 	txt */
-  color: #546137;
-  font-family: Inter;
-  font-size: 1.3rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: white;
+	width: 50%;
+	height: 100%;
+	filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.3));
+	/* 	txt */
+	color: #546137;
+	font-family: Inter;
+	font-size: 1.3rem;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
 }
 
 .content-applyform-tr-2 {

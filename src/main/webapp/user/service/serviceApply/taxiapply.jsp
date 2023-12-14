@@ -56,10 +56,8 @@
 			<!-- 신청폼 -->
 			<div class="content-applyform-td">
 				<div class="content-applyform-tr-1">
-					<select class="categotyselect" name="category" id="category">
-						<option value="" selected="selected" disabled="disabled">‘개호택시’
-							신청에 필요한 정보를 입력해주세요.</option>
-					</select>
+					<div class="categotyselect" name="category" id="category">
+						‘개호택시’ 신청에 필요한 정보를 입력해주세요.</div>
 				</div>
 				<div class="content-applyform-td2">
 					<div class="content-applyform-tr-2">
