@@ -26,10 +26,6 @@
 
 
 
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/admin/0.css/test.css" />
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/admin/boardmanagement/ask/0.css/ask.css" />
 
 
 <link
@@ -49,48 +45,68 @@
 
 
 
-				<div class="real-title">● 제공되는 서비스를 이용하려면 어떻게 해야되나요?</div>
+				<div class="real-title">
+					<div class="real-title-up">
+						민기해적단은 언제 귀가를하나요?</div>
+
+					<div class="real-title-down">
+
+						<div class="real-title-down-L">
+							<div class="real-title-down-contain">2023-12-25</div>
+
+
+							<div class="real-title-down-contain">미답변</div>
+
+						</div>
+
+						<div class="real-title-down-R">
+						</div>
+
+
+					</div>
+				</div>
+
+			</div>
 
 
 
+
+
+			<div class="modal-title-td-2" >
+				<span class="close" id="closeModalBtn">&times;</span>
+			</div>
+		</div>
+
+
+	<div class="modal-content">
+		<div class="modal-content-txt">
+
+			<div class="modal-content-txt-question">
+
+				<!-- 여기에 고객이 질문한 문의사항을 띄우는 곳 -->
+				<jsp:include page="askEditPageCustomerQuestion.jsp"></jsp:include>
 
 
 			</div>
-			<div class="modal-title-td-2">
-				<span class="close" id="closeModalBtn">&times;</span>
+			<div class="modal-content-txt-response">
+
+
+				<!-- 여기서 '이미 대답한 답변을 보여줄거냐(askEditPageAnsweredResponse)' 아니면 '아직 답변하지 못한 답변을 할 것이냐(askEditPageResponsePending)' -->
+				여기는 고객의 질문에 답변했던 것을 표시하는 곳 <br> 여기는 고객의 질문에 답변했던 것을 표시하는 곳 <br>
+				여기는 고객의 질문에 답변했던 것을 표시하는 곳 <br> 여기는 고객의 질문에 답변했던 것을 표시하는 곳 <br>
+				여기는 고객의 질문에 답변했던 것을 표시하는 곳 <br> 여기는 고객의 질문에 답변했던 것을 표시하는 곳 <br>
+				여기는 고객의 질문에 답변했던 것을 표시하는 곳 <br> 여기는 고객의 질문에 답변했던 것을 표시하는 곳 <br>
+
+
 			</div>
 
 		</div>
-		<div class="modal-content">
-			<div class="modal-content-txt">
-
-				<div class="modal-content-txt-question" style="border: 1px solid black ;">
-
-					<!-- 여기에 고객이 질문한 문의사항을 띄우는 곳 -->
-					<jsp:include page="askEditPageCustomerQuestion.jsp"></jsp:include>
-
-
-				</div>
-				<div class="modal-content-txt-response">
-
-
-					<!-- 여기서 '이미 대답한 답변을 보여줄거냐(askEditPageAnsweredResponse)' 아니면 '아직 답변하지 못한 답변을 할 것이냐(askEditPageResponsePending)' -->
-					여기는 고객의 질문에 답변했던 것을 표시하는 곳 <br> 여기는 고객의 질문에 답변했던 것을 표시하는 곳 <br>
-					여기는 고객의 질문에 답변했던 것을 표시하는 곳 <br> 여기는 고객의 질문에 답변했던 것을 표시하는 곳 <br>
-					여기는 고객의 질문에 답변했던 것을 표시하는 곳 <br> 여기는 고객의 질문에 답변했던 것을 표시하는 곳 <br>
-					여기는 고객의 질문에 답변했던 것을 표시하는 곳 <br> 여기는 고객의 질문에 답변했던 것을 표시하는 곳 <br>
-
-
-				</div>
-
-			</div>
-			<div class="modal-content-button">
-				<button class="SubmitButton">수정하기</button>
-			</div>
+		<div class="modal-content-button">
+			<button class="SubmitButton">수정하기</button>
 		</div>
 	</div>
 
-
+	</div>
 
 
 

@@ -7,11 +7,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<!-- 아래의 코드는 CKEDITOR를 활성화 하기 위한 코드 -->
-<script src="${pageContext.request.contextPath}/admin/0.js/ckeditor.js"></script>
 <title>Ask</title>
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/admin/0.css/test.css" />
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/admin/boardmanagement/ask/0.css/ask.css" />
 <link
@@ -21,28 +17,18 @@
 
 
 <body>
-
-	<div class="content-m-td-2">
-
-
-
 		<div class="ontent-m-td-2-chackbox">
 			<div class="ontent-m-td-2-chackbox-contain">
-				<div class="ontent-m-td-2-chackbox-contain-input">
-					<input type="checkbox" name="">답변
-				</div>
-				<div class="ontent-m-td-2-chackbox-contain-input">
-					<input type="checkbox" name="">미답변
-				</div>
-				<div class="ontent-m-td-2-chackbox-contain-input">
-					<input type="checkbox" name="">일반
-				</div>
-								<div class="ontent-m-td-2-chackbox-contain-input">
-					<input type="checkbox" name="">서비스
-				</div>
-								<div class="ontent-m-td-2-chackbox-contain-input">
-					<input type="checkbox" name="">답변
-				</div>
+				<div class="ontent-m-td-2-chackbox-contain-input"><input type="checkbox" name=""></div>
+				<div class="ontent-m-td-2-chackbox-contain-txt">답변</div>
+				<div class="ontent-m-td-2-chackbox-contain-input"><input type="checkbox" name=""></div>
+				<div class="ontent-m-td-2-chackbox-contain-txt">미답변</div>
+				<div class="ontent-m-td-2-chackbox-contain-input"></div>
+				<div class="ontent-m-td-2-chackbox-contain-txt"></div>
+				<div class="ontent-m-td-2-chackbox-contain-input"></div>
+				<div class="ontent-m-td-2-chackbox-contain-txt"></div>
+				<div class="ontent-m-td-2-chackbox-contain-input"></div>
+				<div class="ontent-m-td-2-chackbox-contain-txt"></div>
 			</div>
 		</div>
 
@@ -67,7 +53,6 @@
 
 
 
-	</div>
 
 </body>
 
