@@ -16,7 +16,7 @@
 
 .content-tbl {
 	height: 230vh;
-}
+} 
 
 /*------------------------------------*/
 
@@ -58,6 +58,7 @@
   display: flex;
   /* outline: solid 2px purple; */
   width: 100%;
+  height: 10%;
 }
 
 .a_content-box-tr1-td1-1,
@@ -144,7 +145,7 @@
 }
 
 .a_content-box-tr1-td3 {
-  height: 77%;
+  height: 75%;
   width: 100%;
   display: flex;
   justify-content: center;
