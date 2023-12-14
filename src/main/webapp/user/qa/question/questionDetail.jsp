@@ -7,7 +7,7 @@
 <title>Question Detail</title>
 <link rel="stylesheet"
 	href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular" />
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/user/qa/question/0.css/questionDetail.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/user/0.css/questionDetail.css">	
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/user/0.css/index.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/user/0.css/index-menu.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/user/0.css/index-footer.css">
@@ -16,8 +16,6 @@
 
 
 
-<!-- 메뉴를 include -->
-<%-- <%@ include file="index-menu.jsp" %> --%>
 	<div class="qd-content-tbl">
 
 	<!-- 본문 -->
@@ -25,6 +23,7 @@
 		<!-- 문의글 게시판 (디테일) -->
 		<div class="qd-content-box-tr1">
 			<div class="qd-content-box-tr2">
+				<div class="qd-content-box-tr2-1">
 				<div class="qd-content-box-td1-1">
 					<span> 문의글 게시판</span>
 				</div>
@@ -92,7 +91,7 @@
 					</div>
 				</div>
 			</div>
-
+			</div>
 		</div>
 	</div>
 
