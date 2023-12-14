@@ -97,11 +97,7 @@
 		<div class="content-tbl">
 			<div class="content-space"></div>
 			<div class="content-sec">
-			
-<!-- 			본문 -->
-				<jsp:include page="nursingapply.jsp"></jsp:include>
-<!-- 			본문 끝 -->
-			
+				<jsp:include page="complet.jsp"></jsp:include>
 			</div>
 			<div class="bottom-venner-tr">
 				<div class="bottom-venner-td">하단베너</div>
