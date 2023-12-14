@@ -2,7 +2,7 @@ $(function () {
     let menuhover = true;
     let submenuhover = true;
 
-    $(".header-td a, img").hover(function () {
+    $(".header-td-menu-title > a, .header-td-menu-img > img").hover(function () {
         if (menuhover) {
             $(".header-br-logo > a").css("color", "#ffffff");
             $(".header-td-menu-title > a").css("font-size", "350%").css("color", "#ffffff");

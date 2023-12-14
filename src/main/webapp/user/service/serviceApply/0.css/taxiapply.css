@@ -23,9 +23,9 @@
 
 /* Content 전체 박스 */
 .content-box-tr {
-	  width: 100%;
-padding: 2.5%;
-	height: 100%;
+  width: 100%;
+  padding: 2.5%;
+  height: 100%;
 }
 
 .content-box-td {
@@ -35,12 +35,11 @@ padding: 2.5%;
   width: 100%;
   height: 100%;
   display: inline-block;
-	
 }
 
 /* 서비스 탭 */
 .content-tabbox-td {
-	text-align:center;
+  text-align: center;
   display: flex;
   width: 100%;
   height: 12vh;
@@ -133,30 +132,30 @@ padding: 2.5%;
   align-items: center;
   font-size: 2.5rem;
   color: #546137;
-text-align: center;
-font-family: Inter;
-font-style: normal;
-font-weight: 700;
-line-height: normal;
-letter-spacing: 2.25px;
+  text-align: center;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 2.25px;
 }
 
 .content-procedure-box-ul-pos {
   width: 100%;
   list-style: none;
-  height: 30%
+  height: 30%;
 }
 .content-procedure-box-ul {
   padding-top: 5%;
   position: relative;
   width: 100%;
   display: flex;
-  flex-direction:column;
-  align-items:center;
+  flex-direction: column;
+  align-items: center;
   height: 100%;
 }
 .content-box-li-pagepos {
-	box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.3);
   border-radius: 20px;
   background: #ffdf6c;
   margin-top: 0.5%;
@@ -168,18 +167,17 @@ letter-spacing: 2.25px;
   padding-top: 5px;
   padding-bottom: 5px;
   align-items: center;
-    font-size: 2rem;
+  font-size: 2rem;
   color: #546137;
-text-align: center;
-font-family: Inter;
-font-style: normal;
-font-weight: 700;
-line-height: normal;
-letter-spacing: 2px;
-
+  text-align: center;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 2px;
 }
 .content-box-li {
-	box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.3);
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.89);
   margin-top: 0.5%;
@@ -193,12 +191,12 @@ letter-spacing: 2px;
   align-items: center;
   font-size: 2rem;
   color: #546137;
-text-align: center;
-font-family: Inter;
-font-style: normal;
-font-weight: 700;
-line-height: normal;
-letter-spacing: 2px;
+  text-align: center;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 2px;
 }
 
 .content-service-step-box-td {

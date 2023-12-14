@@ -52,6 +52,7 @@
 			</div>
 			<!-- 설명 끝 -->
 
+<<<<<<< HEAD
 			<!-- 신청폼 -->
 			<div class="na-content-applyform-td">
 				<div class="na-content-applyform-tr-1">
@@ -76,6 +77,43 @@
 					<div class="na-content-applyform-tr-2">
 						<span class="na-content-applyform-tr-2-1">비고란(요청사항)* :</span>
 						<textarea class="na-content-applyform-tr-2-2" type="text"></textarea>
+=======
+					<!-- 설명 끝 -->
+
+					<!-- 신청폼 -->
+					<div class="na-content-applyform-td">
+						<div class="na-content-applyform-tr-1">
+							<select class="na-categotyselect" name="category" id="category">
+								<option value="" selected="selected" disabled="disabled">‘방문요양’
+									신청에 필요한 정보를 입력해주세요.</option>
+								<option value="C1"></option>
+								<option value="C2"></option>
+								<option value=""></option>
+								<option value=""></option>
+							</select>
+						</div>
+						<div class="na-content-applyform-td2">
+							<div class="na-content-applyform-tr-2">
+								<span class="na-content-applyform-tr-2-1">신청자 이름* :</span> <input
+									class="na-content-applyform-tr-2-2" type="text">
+							</div>
+							<div class="na-content-applyform-tr-2">
+								<span class="na-content-applyform-tr-2-1">요양받으실 분 성함* :</span> <input
+									class="na-content-applyform-tr-2-2" type="text">
+							</div>
+							<div class="na-content-applyform-tr-2">
+								<span class="na-content-applyform-tr-2-1">지역 (방문할 주소)* :</span> <input
+									class="na-content-applyform-tr-2-2" type="text">
+							</div>
+							<div class="na-content-applyform-tr-2">
+								<span class="na-content-applyform-tr-2-1">비고란(요청사항)* :</span> <textarea 
+									class="na-content-applyform-tr-2-2" type="text"></textarea>
+							</div>
+						</div>
+						<div class="na-content-cal-btn-box-td">
+							<button class="na-content-cal-btn-td">다음으로</button>
+						</div>
+>>>>>>> 71ac9df65c249d2ae9d58180adfb73b4eeb0e62f
 					</div>
 				</div>
 				<div class="na-content-cal-btn-box-td">

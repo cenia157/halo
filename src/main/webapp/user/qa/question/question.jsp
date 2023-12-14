@@ -94,6 +94,7 @@
                 	<div class="a_content-box-tr1-td3-1-1-1-txt">
                 		<span>문의글 게시판</span>
                 	</div>
+                	
                   <!-- 타이블 첫 행 -->
                   <div class="a_content-box-tr1-td3-1-1-1-1">
                     <div class="a_content-box-tr1-td3-1-1-1-1-1 No-width">
@@ -130,6 +131,8 @@
                       <span>2023-12-06</span>
                     </div>
                   </div>
+                  
+                  
                 </div>
               </div>
             </div>
