@@ -33,18 +33,13 @@ pageEncoding="UTF-8"%>
         </div>
 
         <div class="e_content-box-tr1-td2">
-          <img
-            class="e_content-box-tr1-td2-1"
-            src="./0.img/home_icon.svg"
-            alt=""
-          />
-
-          <!-- [ > 소식 > 공지사항 ] 상위 box -->
-          <div class="e_content-box-tr1-td2-2">
-            <div class="e_content-box-tr1-td2-2-1"><span>></span></div>
-            <div class="e_content-box-tr1-td2-2-2"><span>소식</span></div>
-            <div class="e_content-box-tr1-td2-2-3"><span>></span></div>
-            <div class="e_content-box-tr1-td2-2-4"><span>채용공고</span></div>
+          <div class="e_content-box-tr1-td2-1">
+            <img
+              src="${pageContext.request.contextPath}/user/0.img/home.png"
+              width="1.7%"
+              alt=""
+            />
+            > 소개 > 직원모집
           </div>
         </div>
 
@@ -104,7 +99,10 @@ pageEncoding="UTF-8"%>
                           <!-- 여기안에 아이콘2개 문구하나 -->
                           <!-- 클립 -->
                           <div class="e_content-box-tr1-td3-1-1-1-5-1-1-1-1-1">
-                            <img src="./0.img/clip_icon.png" alt="" />
+                            <img
+                              src="${pageContext.request.contextPath}/user/introduce/employment/0.img/clip_icon.png"
+                              alt=""
+                            />
                           </div>
                           <!-- 문구 -->
                           <div class="e_content-box-tr1-td3-1-1-1-5-1-1-1-1-2">
@@ -113,7 +111,9 @@ pageEncoding="UTF-8"%>
                           <!-- 다운로드 아이콘 -->
                           <div class="e_content-box-tr1-td3-1-1-1-5-1-1-1-3">
                             <a href=""
-                              ><img src="${pageContext.request.contextPath}/user/introduce/employment/0.img/download_icon.png" alt=""
+                              ><img
+                                src="${pageContext.request.contextPath}/user/introduce/employment/0.img/download_icon.png"
+                                alt=""
                             /></a>
                           </div>
                         </div>
