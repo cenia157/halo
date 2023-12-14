@@ -36,22 +36,22 @@ a {
 
 /* 전체 */
 .container-tbl{
-	height: 100%;
+	height: 320vh;
+}
+.content-tbl{
+	height: 300vh;
 }
 .content-sec {
-	height: 180vh;
+	height: 200vh;
 }
 
-.content-tbl{
-	height: 100%;
-}
 
 /* 본문 */
 .qd-content-tbl {
 /* 	max-width:100vw; */
 /* 	width: 100%; */
 	/*   height: 265vh;  */
-	height: 180vh;
+	height: 100%;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -63,7 +63,7 @@ a {
 	background: rgba(255, 233, 155, 0.80);
 	margin-top: auto;
 	margin-bottom: auto;
-	width: 100%;
+	width: 95%;
 	height: 100%;
 }
 
@@ -74,7 +74,11 @@ a {
 	margin-top: 5%;
 	margin-bottom: 5%;
 	width: 100%;
-	height: 90%;
+	height: 95%;
+}
+
+.qd-content-box-tr2-1{
+	height: 95%;
 }
 
 .qd-content-box-td1-1 {
@@ -108,6 +112,8 @@ a {
 	font-style: normal;
 	font-weight: 700;
 	line-height: normal;
+	padding-top: 1%;
+	padding-bottom: 1%;
 }
 
 .qd-content-box-td1-2-2 {
@@ -119,6 +125,8 @@ a {
 	font-weight: 700;
 	line-height: normal;
 	color: #546137;
+	padding-top: 1%;
+	padding-bottom: 1%;
 }
 
 .qd-content-box-td1-3 {
@@ -138,6 +146,8 @@ a {
 	font-style: normal;
 	font-weight: 700;
 	line-height: normal;
+	padding-top: 1%;
+	padding-bottom: 1%;
 }
 
 .qd-content-box-td1-3-2 {
@@ -148,6 +158,8 @@ a {
 	font-style: normal;
 	font-weight: 700;
 	line-height: normal;
+	padding-top: 1%;
+	padding-bottom: 1%;
 }
 
 .qd-content-box-td1-4 {
@@ -158,6 +170,8 @@ a {
 
 .qd-content-box-td1-4-content {
 	width: 80%;
+	padding-top: 1%;
+	padding-bottom: 1%;
 }
 
 .qd-content-box-td1-4-1 {
@@ -184,10 +198,11 @@ a {
 .qd-content-box-td-button {
 	width: 20%;
 	display: flex;
-	justify-content: space-around;
+	justify-content: center;
 	align-items: center;
 	height: 10%;
 	height: 3rem;
+	margin: 1%;
 }
 
 .qd-content-box-td-button-1 {
@@ -199,6 +214,7 @@ a {
 	font-weight: 700;
 	padding-left: 2%;
 	padding-right: 2%;
+	margin: 10%;
 }
 
 .qd-content-box-td-button-2 {
@@ -215,44 +231,58 @@ a {
 .qd-content-box-td2-1 {
 	width: 100%;
 	display: flex;
-	padding-left: 10%;
-	padding-right: 10%;
+	padding-left: 5%;
+	padding-right: 5%;
 	border-bottom: 3px solid #9F9F78;
 }
 
 .qd-content-box-td2-1-content {
 	width: 100%;
-	padding: 10%;
+	padding: 5%;
 	color: #000;
 	font-family: Inter;
-	font-size: 1.5rem;
+	font-size: 1.8rem;
 	font-style: normal;
 	font-weight: 700;
 	line-height: normal;
 	letter-spacing: 0.81px;
 }
 
+.qd-content-box-td2-2{
+	
+	padding: 1%;
+	border-top: 1px solid #9F9F78;
+}
+
 .qd-content-box-td2-2-button {
 	width: 15%;
-	height: 10%;
+	height: 20%;
 	font-size: 2rem;
 	border-radius: 15px;
-	border: 1px solid #9F9F78;
 	background: #FFF;
-	margin: 1%;
+	margin: 2%;
+	margin-left: 4%;
+	padding: 1%;
 	/* 	txt */
 	color: #546137;
 	text-align: center;
 	font-family: Inter;
 	font-style: normal;
-	font-weight: 700;
+	font-weight: 1000;
 	line-height: normal;
 	letter-spacing: 0.81px;
+}
+
+.qd-content-box-td3{
+	padding-left: 1%;
+	padding-right: 1%;
+	
 }
 
 .qd-content-box-td3-1 {
 	display: flex;
 	border: 1px solid #62733D;
+	border-bottom: 0px;
 	padding-top: 1%;
 	padding-bottom: 1%;
 }
@@ -264,7 +294,7 @@ a {
 	font-style: normal;
 	font-weight: 700;
 	line-height: normal;
-	margin-left: 2%;
+	margin-left: 5%;
 	margin-right: 2%;
 }
 
@@ -283,8 +313,8 @@ a {
 	border: 1px solid #62733D;
 	margin-bottom: 1%;
 	display: flex;
-	padding-top: 2%;
-	padding-bottom: 2%;
+	padding-top: 3%;
+	padding-bottom: 3%;
 }
 
 .qd-content-box-td3-2-1 {
@@ -303,7 +333,7 @@ a {
 
 .qd-content-box-td4-1 {
 	display: flex;
-	border: 1px solid #62733D;
+	border-top: 1px solid #62733D;
 }
 
 .qd-content-box-td4-1-1 {
@@ -317,6 +347,8 @@ a {
 	font-style: normal;
 	font-weight: 700;
 	line-height: normal;
+	padding-top: 1%;
+	padding-bottom: 1%;
 }
 
 .qd-content-box-td4-1-2 {
@@ -328,6 +360,8 @@ a {
 	font-weight: 700;
 	line-height: normal;
 	color: #546137;
+	padding-top: 1%;
+	padding-bottom: 1%;
 }
 
 .qd-content-box-td4-2 {
@@ -346,6 +380,8 @@ a {
 	font-style: normal;
 	font-weight: 700;
 	line-height: normal;
+	padding-top: 1%;
+	padding-bottom: 1%;
 }
 
 .qd-content-box-td4-2-2 {
@@ -357,6 +393,8 @@ a {
 	font-weight: 700;
 	line-height: normal;
 	color: #546137;
+	padding-top: 1%;
+	padding-bottom: 1%;
 }
 
 .qd-content-box-td4-3 {
