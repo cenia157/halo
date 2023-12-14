@@ -28,7 +28,7 @@
 						<div class="content-service-step-box-td">Step1.</div>
 						<div class="content-service-txt-box-td">신청할 서비스 선택하기</div>
 					</li>
-					<li class="content-box-li-pagepos">
+					<li class="content-box-li">
 						<div class="content-service-step-box-td">Step2.</div>
 						<div class="content-service-txt-box-td">이용할 ‘기간’ 캘린더에서 선택하기
 						</div>
@@ -45,7 +45,7 @@
 						<div class="content-service-step-box-td">Step5.</div>
 						<div class="content-service-txt-box-td">이용약관 동의</div>
 					</li>
-					<li class="content-box-li">
+					<li class="content-box-li-pagepos">
 						<div class="content-service-step-box-td">Step6.</div>
 						<div class="content-service-txt-box-td">신청 완료</div>
 					</li>
