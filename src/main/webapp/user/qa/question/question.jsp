@@ -73,7 +73,7 @@
 			
 			
 			<div class="q-content-box-td4">
-				<button class="q-content-box-td-content8">확인</button>
+				<button onclick="location.href='HC?link=10'" class="q-content-box-td-content8">확인</button>
 			</div>
 			
 			<div>
