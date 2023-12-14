@@ -49,7 +49,7 @@ pageEncoding="UTF-8"%>
 
 <script type="text/javascript">
     $.ajax({
-        url: 'https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url,permalink,thumbnail_url,is_shared_to_feed&access_token=IGQWRPUWp5R1JlSTh0T1Y4aUNOLWNHOFFHMnZApSUVfUzlzMUVFSldOWGFNc3hsWTBsY2xHVmg1MkpKN240RFJ4N21tVjc2UVM1YUtaRUk1RWVpUkFfblZAPczhONmlwTGdxYXFlbkhoQUVuOWRaMzN1c2xmenhkZAWMZD',
+        url: 'https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url,permalink,thumbnail_url,is_shared_to_feed&access_token=IGQWRQZAWR4ZA2Q5QVk3bVlMQnhmZADFLaUZANQ3RsZAlRoWWJQbWV1RGp6c3F3VUNXM0VFWlllOWx3V3d5aGF5N28zMDJWTU02djJmdTVzdGJYT3hTaGhyQllHNUticWZAMVkdkb2xyQnlOelVsTF82anJrMk9oSExHQ3cZD',
         method: 'GET',
         dataType: 'jsonp',
         success: function (response) {
