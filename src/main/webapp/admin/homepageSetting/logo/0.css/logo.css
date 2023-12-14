@@ -54,10 +54,10 @@ background-color:black;
 
 .content-m-td-2-side-up-title {
 	height: 100%;
-	width: 70%;
+	width: 90%;
 	display: flex;
 	align-items: center;
-	font-size: 2rem;
+	font-size: 2.5rem;
 	font-weight: 700;
 }
 
@@ -73,11 +73,11 @@ background-color:black;
 	/*
 
 */
-border-radius: var(--Medium, 4px);
-border: 1px solid var(--neutral-stroke-transparent-rest, rgba(255, 255, 255, 0.00));
-background: var(--neutral-background-1-rest, #FFF);
-box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.50);
-
+	border-radius: var(- -Medium, 4px);
+	border: 1px solid
+		var(- -neutral-stroke-transparent-rest, rgba(255, 255, 255, 0.00));
+	background: var(- -neutral-background-1-rest, #FFF);
+	box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.50);
 	height: 100%;
 	width: 90%;
 	display: flex;
@@ -113,4 +113,5 @@ box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.50);
 	height: 30%;
 	width: 30%;
 	border: none;
+	  font-size: 1.5rem;
 }

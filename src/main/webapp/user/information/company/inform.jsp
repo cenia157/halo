@@ -26,12 +26,12 @@
 				<div class="introduce-tr">
 
 					<div class="introduce-tr-box">
-						<div class="introduce-td1">인사말</div>
 						<div class="introduce-td2">
 							<img
 								src="${pageContext.request.contextPath}/user/0.img//home.png"
 								width="1.7%" alt="" /> > 소개 > 회사소개
 						</div>
+						<div class="introduce-td1">인사말</div>
 					</div>
 
 					<div class="introduce-td-img">
