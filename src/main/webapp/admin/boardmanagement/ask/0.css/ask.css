@@ -9,15 +9,35 @@
 	width: 100%;
 	height: 8%;
 	font-size: 0.5rem;
+	padding-left: 6%;
+}
+
+.ontent-m-td-2-chackbox-contain {
+	width: 35%;
+	height: 100%;
+	display: flex;
+}
+
+.ontent-m-td-2-chackbox-contain-input {
+	width: 15%;
+	height: 100%;
 	display: flex;
 	align-items: center;
-	padding-left: 8%;
+	justify-content: center;
+	font-size: 1rem;
+}
+
+.ontent-m-td-2-chackbox-contain-txt {
+	width: 15%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	font-size: 1rem;
 }
 
 /*
 ����� askBoard.jsp�� ���������� ����
 */
-
 .ontent-m-td-2-content {
 	height: 92%;
 	width: 100%;
@@ -55,10 +75,10 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	font-size: 1rem;
-	font-weight: 600;
 	width: 5%;
-	font-size: 1rem;
+	font-weight: 700;
+	font-size: 1.5rem;
+	font-weight: 700;
 }
 
 .ontent-m-td-2-content-txt-kategorie {
@@ -66,9 +86,10 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	font-size: 1rem;
-	font-weight: 600;
+	font-weight: 700;
+	font-size: 1.5rem;
 	width: 15%;
+	font-size: 1.5rem;
 }
 
 .ontent-m-td-2-content-txt-title {
@@ -76,9 +97,10 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	font-size: 1rem;
-	font-weight: 600;
+	font-weight: 700;
+	font-size: 1.5rem;
 	width: 40%;
+	font-size: 1.5rem;
 }
 
 .ontent-m-td-2-content-txt-writer {
@@ -86,9 +108,10 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	font-size: 1rem;
-	font-weight: 600;
+	font-weight: 700;
+	font-size: 1.5rem;
 	width: 15%;
+	font-size: 1.5rem;
 }
 
 .ontent-m-td-2-content-txt-date {
@@ -96,9 +119,10 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	font-size: 1rem;
-	font-weight: 600;
+	font-weight: 700;
+	font-size: 1.5rem;
 	width: 20%;
+	font-size: 1.5rem;
 }
 
 .ontent-m-td-2-content-txt-delete {
@@ -106,9 +130,10 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	font-size: 1rem;
-	font-weight: 600;
+	font-weight: 700;
+	font-size: 1.5rem;
 	width: 10%;
+	font-size: 1.5rem;
 }
 
 .ontent-m-td-2-mid {
@@ -127,7 +152,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	font-size: 0.7rem;
+	font-size: 1rem;
 	width: 5%;
 }
 
@@ -136,7 +161,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	font-size: 0.7rem;
+	font-size: 1rem;
 	width: 15%;
 }
 
@@ -144,7 +169,7 @@
 	border-bottom: solid 1px #E5E7EB;
 	display: flex;
 	align-items: center;
-	font-size: 0.7rem;
+	font-size: 1rem;
 	width: 40%;
 	padding: 0% 4%;
 }
@@ -154,7 +179,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	font-size: 0.7rem;
+	font-size: 1rem;
 	width: 15%;
 }
 
@@ -163,7 +188,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	font-size: 0.7rem;
+	font-size: 1rem;
 	width: 20%;
 }
 
@@ -172,16 +197,13 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	font-size: 0.7rem;
+	font-size: 1rem;
 	width: 10%;
 }
-
-
 
 /*
 ����� askBoard.jsp�� ���������� ��
 */
-
 .ontent-m-td-2-bottom {
 	width: 100%;
 	height: 17%;
@@ -203,8 +225,8 @@
 
 /* ���⼭���ʹ�  askEditPage.jsp ����! */
 .modal-background {
-	display: none;
 	/*
+	display: none;
  position: relative;
 */
 	position: fixed;
@@ -216,8 +238,8 @@
 }
 
 .modal-tbl {
-	display: none;
 	/*
+	display: none;
  position: relative;
 */
 	width: 100%;
@@ -243,12 +265,10 @@
 }
 
 .real-title {
-	padding: 1%;
+	padding: 0% 0% 1% 1%;
 	width: 94.5%;
 	height: 75%;
-
 	display: block;
-	font-size: 1.2rem;
 }
 
 .real-title-up {
@@ -256,6 +276,8 @@
 	align-items: center;
 	height: 50%;
 	width: 100%;
+	font-size: 2.5rem;
+	font-weight: 700;
 }
 
 .real-title-down {
@@ -280,15 +302,15 @@
 	width: 100%;
 	display: flex;
 	align-items: center;
-	font-size: 0.6rem;
+	font-size: 1rem;
+	color: #37496E;
 }
 
 .modal-title-td-2 {
-	padding: 1% 2%;
 	width: 10%;
 	display: flex;
-	justify-content: end;
-	align-items: end;
+	justify-content: center;
+	align-items: center;
 }
 
 .modal-content {
@@ -299,36 +321,42 @@
 
 .modal-content-txt {
 	height: 90%;
-		border-top: 1px solid #D1D1D1;
-
+	border-top: 1px solid #D1D1D1;
 	padding: 2%;
 }
 
 .modal-content-txt-question {
-
 	padding: 1%;
 	width: 100%;
 	height: 50%;
-	font-size: 1rem;
+	font-size: 2.5rem;
 	font-weight: 700;
 	overflow: auto;
+	font-weight: 700;
 }
 
 .modal-content-txt-response {
-
 	width: 100%;
 	height: 50%;
 	overflow-y: auto;
+	font-size: 2rem;
+	font-weight: 700;
+	color: #707070;
+	border: 1px solid #D1D1D1;
+	border-bottom: 1px solid #616161;
+	border-radius: 0.5%/3%;
 }
 
 .modal-content-txt-response-textarea {
 	padding: 1%;
 	width: 100%;
-	height: 80%;
-	border: 1px solid #707070;
-	border-bottom: 1px solid black;
+	height: 50%;
+	border: 1px solid #D1D1D1; border-bottom : 1px solid #616161;
 	border-radius: 0.5%/2.5%;
 	resize: none;
+	font-size: 2rem;
+	font-weight: 700;
+	border-bottom: 1px solid #616161;
 }
 
 .modal-content-button {
@@ -351,6 +379,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	font-size: 1rem;
 }
 
 .ck-editor__editable_inline:not(.ck-comment__input *) {
@@ -379,7 +408,3 @@
 ���⿡ ���� ������ ���� ���̴� �Ʒ��� css ���������� �� ���߱⿡ �ִ�
 
 */
-
-
-
-

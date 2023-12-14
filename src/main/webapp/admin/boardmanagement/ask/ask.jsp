@@ -3,7 +3,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="kr">
-
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -15,14 +14,12 @@
 	integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
 	crossorigin="anonymous">
 </script>
-<script src="${pageContext.request.contextPath}/admin/0.js/test.js"></script>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/admin/0.css/test copy.css" />
 <body>
 <!--
 본 파일은 임시로 만든 파일이며 /admin/index.jsp 의 인클루드를 테스트하기 위해 임시로 만든 페이지다
 따라서 나중에 본 파일은 삭제해도 무방하며 인클루드를 통해 해당폴더의 /admin/XXXXX/XXXXXContent.jsp를 연결하면 된다
  -->
-
 	<!-- 최상위 콘테이너 -->
 	<div class="container">
 		<!-- 왼쪽 테이블 -->
@@ -176,10 +173,10 @@
 				<div class="content-main-td">
 					<div class="content-m-td-1">
 						<!-- *************** 수정 *************** -->
-						<div class="content-m-td-title">공지사항</div>
+						<div class="content-m-td-title">문의사항</div>
 					</div>
 					<div class="content-m-td-2">
-						<jsp:include page="/admin/homepageSetting/information/informationContent.jsp"></jsp:include>
+						<jsp:include page="/admin/boardmanagement/ask/askContent.jsp"></jsp:include>
 					</div>
 				</div>
 				<!-- *************** 수정 *************** -->
