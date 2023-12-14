@@ -35,11 +35,12 @@ a {
 
 /* 전체 */
 
-.container-tbl {
+ .container-tbl {
 	height: 300vh;
 }
+
 .content-sec {
-	height: 220vh;
+	height: 200vh;
 }
 
 .content-tbl {
@@ -62,7 +63,7 @@ a {
 }
 
 .faq-content-box-tr1 {
-	width: 70%;
+	width: 80%;
 	background-color: rgba(255, 255, 255, 0.80);
 	border-radius: 35px;
 	height: 80%;
@@ -70,7 +71,7 @@ a {
 }
 
 .faq-content-box-tr2 {
-	width: 80%;
+	width: 90%;
 	height: 100%;
 	border-radius: 35px;
 	background: rgba(255, 233, 155, 0.90);
