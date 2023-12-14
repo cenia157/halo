@@ -9,7 +9,8 @@
 <link
 	href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular"
 	rel="stylesheet" />
-<link rel="stylesheet" href="0.css/svcselect.css" />
+<script type="text/javascript" src="${pageContext.request.contextPath}/user/service/serviceApply/0.js/cal.js"></script>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/user/service/serviceApply/0.css/svcselect.css" />
 </head>
 <body>
 	<div class="content-box-tr">
