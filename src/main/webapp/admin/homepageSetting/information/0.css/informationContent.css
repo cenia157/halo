@@ -19,82 +19,79 @@
 		format("svg");
 }
 
-.content-m-td-3 {
-	margin: auto;
-	width: 80%;
-	height: 88%;
-	position: relative;
-	display: flex;
+/*
+여기에 회사정보변경 내용 css를 채워야한다
+*/
+textarea {
+	padding: 1%;
+	border: none;
+	border-radius: 1%/10%;
+	width: 100%;
+	height: 100%;
+	background-color: #FFEFEF;
+	border: none;
+	resize: none;
 }
 
-.content-m-td-2-side {
-	/*
-background-color:black;
-*/
-	width: 45%;
+.content-m-td-2-wrap {
+	width: 100%;
 	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.content-m-td-2-wrap-contain {
+	width: 80%;
+	height: 100%;
+}
+
+.CompanyInformation {
+	height: 80%;
+	width: 100%;
+}
+
+.CompanyInformation-large {
+	width: 100;
+	height: 40%;
 	display: block;
 }
 
-.content-m-td-2-mid {
-	width: 10%;
-	height: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-.content-m-td-2-side-up {
-	height: 20%;
-	width: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-.content-m-td-2-side-up-title {
-	height: 100%;
-	width: 70%;
+.CompanyInformation-info {
+	widows: 100%;
+	height: 50%;
 	display: flex;
 	align-items: center;
-	font-size: 2rem;
+	font-size: 1.5rem;
 	font-weight: 700;
 }
 
-.content-m-td-2-side-mid {
-	height: 60%;
+.CompanyInformation-txt {
+	height: 50%;
 	width: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
 }
 
-.content-m-td-2-side-mid-logo {
-	/*
+.CompanyInformation-small {
+	width: 100%;
+	height: 60%;
+}
 
-*/
-border-radius: var(--Medium, 4px);
-border: 1px solid var(--neutral-stroke-transparent-rest, rgba(255, 255, 255, 0.00));
-background: var(--neutral-background-1-rest, #FFF);
-box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.50);
+.CompanyInformation-small-tr {
+	width: 100%;
+	height: 50%;
+	display: flex;
+	justify-content: space-between;
+}
 
+.CompanyInformation-small-td {
+	width: 49%;
 	height: 100%;
-	width: 90%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
 }
 
-.content-m-td-2-side-down {
+/* 여기는 회사정보변경의 끝 */
+.content-m-td-2-down {
 	height: 20%;
 	width: 100%;
-}
-
-.content-m-td-2-mid-Play {
-	text-align: center;
-	width: 100%;
-	font-size: 40pt;
-	letter-spacing: -20px;
 }
 
 .content-m-td-2-side-down-button {
@@ -102,7 +99,7 @@ box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.50);
 	width: 100%;
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	justify-content: flex-end;
 }
 
 .content-button {
@@ -111,6 +108,6 @@ box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.50);
 	background-color: #3B82F6;
 	color: white;
 	height: 30%;
-	width: 30%;
+	width: 15%;
 	border: none;
 }

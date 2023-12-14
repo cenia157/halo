@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>FAQ</title>
+<title>Document</title>
 <link
 	href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular"
 	rel="stylesheet" />
@@ -97,11 +97,18 @@
 		<div class="content-tbl">
 			<div class="content-space"></div>
 			<div class="content-sec">
-			
-<!-- 			본문 -->
-				<jsp:include page="faq.jsp"></jsp:include>
-<!-- 			본문 끝 -->
-			
+<!-- 서비스선택 -->
+<%-- 				<jsp:include page="svcselect.jsp"></jsp:include> --%>
+<!-- 캘린더 선택 -->
+				<jsp:include page="calselect.jsp"></jsp:include>
+<!-- 시간 선택 -->
+<%-- 				<jsp:include page="timeselect.jsp"></jsp:include> --%>
+<!-- 정보 입력 -->
+<%-- 				<jsp:include page="calselect.jsp"></jsp:include> --%>
+<!-- 동의 입력 -->
+<%-- 				<jsp:include page="calselect.jsp"></jsp:include> --%>
+<!-- 신청 완료 -->
+<%-- 				<jsp:include page="calselect.jsp"></jsp:include> --%>
 			</div>
 			<div class="bottom-venner-tr">
 				<div class="bottom-venner-td">하단베너</div>

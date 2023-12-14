@@ -1,4 +1,5 @@
 
+/* 컨텐트 H 조정 시작 */
 .container-tbl {
   width: 100%;
   max-width: 100vw;
@@ -16,8 +17,11 @@
 .content-sec {
   background-color: rgba(255, 255, 255, 0.8);
   width: 100%;
-  height: 250vh;
+  height: 210vh;
 }
+
+/* 컨텐트 H 끝 */
+
 /* Content 전체 박스 */
 .content-box-tr {
 	  width: 100%;
@@ -139,44 +143,63 @@ letter-spacing: 2.25px;
 }
 
 .content-procedure-box-ul-pos {
-  position: relative;
-  padding-top: 5%;
   width: 100%;
   list-style: none;
   height: 30%
 }
 .content-procedure-box-ul {
+  padding-top: 5%;
+  position: relative;
   width: 100%;
-  display: inline-block;
-  margin-left: 5%;
+  display: flex;
+  flex-direction:column;
+  align-items:center;
+  height: 100%;
 }
 .content-box-li-pagepos {
+	box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.3);
   border-radius: 20px;
   background: #ffdf6c;
   margin-top: 0.5%;
   width: 90%;
-  height: 10%;
+  height: 12%;
   flex-shrink: 0;
   display: flex;
   position: relative;
-  border: 1px solid red;
   padding-top: 5px;
   padding-bottom: 5px;
   align-items: center;
+    font-size: 2rem;
+  color: #546137;
+text-align: center;
+font-family: Inter;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+letter-spacing: 2px;
+
 }
 .content-box-li {
+	box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.3);
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.89);
   margin-top: 0.5%;
   width: 90%;
-  height: 4rem;
+  height: 12%;
   flex-shrink: 0;
   display: flex;
   position: relative;
-  border: 1px solid red;
   padding-top: 5px;
   padding-bottom: 5px;
   align-items: center;
+  font-size: 2rem;
+  color: #546137;
+text-align: center;
+font-family: Inter;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+letter-spacing: 2px;
 }
 
 .content-service-step-box-td {
@@ -190,31 +213,20 @@ letter-spacing: 2.25px;
   padding-right: 20%;
 }
 
-/* .content-imgbox-li {
-    position: relative;
-    display: block;
-}
-.content-imgbox-li > img {
-    width: 1rem;
-    height: 1rem;
-    position: relative;
-    display: block;
-    left: 1.5vh;
-    top: 9vh;
-} */
+/* 서비스 선택 */
+
 .content-serviceselectbox-td {
   width: 100%;
-  margin-top: 5vh;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  height: 18%;
 }
 
 .content-serviceoption-td {
   border: solid 1px rgb(122, 174, 63);
-
-  width: 20%;
-  height: 12vh;
+  width: 23%;
+  height: 50%;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -225,34 +237,48 @@ letter-spacing: 2.25px;
 
   text-align: center;
   font-family: Inter;
-  font-size: 1rem;
+  font-size: 2.5rem;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+  box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.3);
 }
 .content-servicebtn-box-td {
-  margin-top: 5vh;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 8%;
+  
 }
 .content-servicebtn-td {
   width: 25%;
-  height: 10vh;
+  height: 100%;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   border-radius: 20px;
   background: #ffdf6c;
+  font-size: 2rem;
+  color: #546137;
+
+text-align: center;
+font-family: Inter;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+letter-spacing: 2.25px;
+box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.3);
 }
 .content-reference-txt-td {
   text-align: right;
   color: #81291d;
 
   font-family: Inter;
-  font-size: 0.8rem;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+	padding-right: 10%;
+	
 }
