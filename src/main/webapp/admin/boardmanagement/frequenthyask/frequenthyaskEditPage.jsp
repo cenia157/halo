@@ -12,7 +12,7 @@
 </head>
 <body>
 	<div id="myModal" class="modal-background"></div>
-	<div class="modal-tbl">
+	<div id="modal-tbl" class="modal-tbl">
 		<div class="modal-title-tr">
 			<div class="modal-title-td-1">
 				<div class="real-title">
