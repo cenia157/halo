@@ -14,6 +14,7 @@
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/user/qa/faq/0.css/index-banner.css">
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/user/0.css/index-menu.css">
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/user/0.css/index-footer.css">
+
 </head>
 <body>
 
@@ -90,6 +91,7 @@
 
 		<!-- 문의글 게시판 -->
 
+
 		<!-- content-box-tr1-td3 ::: display: flex wrap용 -->
           <div class="q_content-box-tr1-td3">
             <!-- 뒷 배경용 #FFEDAF -->
@@ -120,6 +122,9 @@
                     </div>
                   </div>
                   <!-- 2번째 행 여기는 forEach문이겠죠?-->
+                  
+			
+
 <%--                   <c:forEach  var="question_tbl" items="${question_tbl}"> --%>
 					<c:forEach var="i" begin="1" end="5">
 	                  <div class="q_content-box-tr1-td3-1-1-1-2">
@@ -140,11 +145,8 @@
 	                    </div>
 	                  </div>
                   </c:forEach>
-                  
-                  <div class="q-content-box-td6">
-                  	페이징 처리 자리
                   </div>
-                  
+
                 </div>
               </div>
             </div>
