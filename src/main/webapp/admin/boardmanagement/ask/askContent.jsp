@@ -14,25 +14,29 @@
 	rel="stylesheet" />
 </head>
 <body>
-		<div class="ontent-m-td-2-chackbox">
-			<div class="ontent-m-td-2-chackbox-contain">
-				<div class="ontent-m-td-2-chackbox-contain-input"><input type="checkbox" name=""></div>
-				<div class="ontent-m-td-2-chackbox-contain-txt">답변</div>
-				<div class="ontent-m-td-2-chackbox-contain-input"><input type="checkbox" name=""></div>
-				<div class="ontent-m-td-2-chackbox-contain-txt">미답변</div>
-				<div class="ontent-m-td-2-chackbox-contain-input"></div>
-				<div class="ontent-m-td-2-chackbox-contain-txt"></div>
-				<div class="ontent-m-td-2-chackbox-contain-input"></div>
-				<div class="ontent-m-td-2-chackbox-contain-txt"></div>
-				<div class="ontent-m-td-2-chackbox-contain-input"></div>
-				<div class="ontent-m-td-2-chackbox-contain-txt"></div>
+	<div class="ontent-m-td-2-chackbox">
+		<div class="ontent-m-td-2-chackbox-contain">
+			<div class="ontent-m-td-2-chackbox-contain-input">
+				<input type="checkbox" name="">
 			</div>
+			<div class="ontent-m-td-2-chackbox-contain-txt">답변</div>
+			<div class="ontent-m-td-2-chackbox-contain-input">
+				<input type="checkbox" name="">
+			</div>
+			<div class="ontent-m-td-2-chackbox-contain-txt">미답변</div>
+			<div class="ontent-m-td-2-chackbox-contain-input"></div>
+			<div class="ontent-m-td-2-chackbox-contain-txt"></div>
+			<div class="ontent-m-td-2-chackbox-contain-input"></div>
+			<div class="ontent-m-td-2-chackbox-contain-txt"></div>
+			<div class="ontent-m-td-2-chackbox-contain-input"></div>
+			<div class="ontent-m-td-2-chackbox-contain-txt"></div>
 		</div>
-		<!-- 아래의 include는 for Each를 써서 게시판을 나타내는 용도다  -->
-		<jsp:include page="askBoard.jsp"></jsp:include>
-		<!-- 여기는 모달을 띄워주는 곳, 
-						고객의 문의에 이미 답변한 내용을 보여주거나(askRespone.jsp)
-						아니면 질문할 공간을 띄우는 곳(askEditPage.jsp) -->
-		<jsp:include page="askRespone.jsp"></jsp:include>
+	</div>
+	<!-- 아래의 include는 for Each를 써서 게시판을 나타내는 용도다  -->
+	<jsp:include page="askBoard.jsp"></jsp:include>
+	<!-- 고객의 문의에 미답변 내용을 보여주는 곳 -->
+	<jsp:include page="askRespone.jsp"></jsp:include>
+	<!-- 고객의 문의에 답변 내용을 편집하는 곳 -->
+	<jsp:include page="askEditPage.jsp"></jsp:include>
 </body>
 </html>

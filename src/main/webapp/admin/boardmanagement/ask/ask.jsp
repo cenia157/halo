@@ -14,6 +14,7 @@
 	integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
 	crossorigin="anonymous">
 </script>
+<script src="${pageContext.request.contextPath}/admin/0.js/test2.js"></script>
 <script src="${pageContext.request.contextPath}/admin/0.js/test.js"></script>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/admin/0.css/test copy.css" />
 <body>
@@ -177,6 +178,7 @@
 						<div class="content-m-td-title">문의사항</div>
 					</div>
 					<div class="content-m-td-2">
+					<!-- 이 아래의 include는 모달이다  -->
 						<jsp:include page="/admin/boardmanagement/ask/askContent.jsp"></jsp:include>
 					</div>
 				</div>

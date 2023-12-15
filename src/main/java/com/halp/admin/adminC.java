@@ -1,4 +1,4 @@
-package com.halo.main;
+package com.halp.admin;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,55 +7,44 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/HC")
-public class HC extends HttpServlet {
+@WebServlet("/adminC")
+public class adminC extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String contentPage = null;
-		String subMenu = null;
+		String menu = null;
 		if (request.getParameter("link") != null) {
 			if (request.getParameter("link").equals("1")) {
-				subMenu = "information/company/inform";
+				menu = "/admin/homepageSetting/logo/logoContent";
 			} else if (request.getParameter("link").equals("2")) {
-				subMenu = "information/map/map";
+				menu = "/admin/homepageSetting/mainpage/mainpageContent";
 			} else if (request.getParameter("link").equals("3")) {
-				subMenu = "introduce/announcement/announcement_contentPage";
+				menu = "/admin/homepageSetting/banner/bannerContent";
 			} else if (request.getParameter("link").equals("4")) {
-				subMenu = "introduce/album/album_contentPage";
+				menu = "/admin/homepageSetting/information/informationContent";
 			} else if (request.getParameter("link").equals("5")) {
-				subMenu = "introduce/employment/employment_contentPage";
+				menu = "/admin/boardmanagement/notice/noticeContent";
 			} else if (request.getParameter("link").equals("6")) {
-				subMenu = "service/serviceInformation/serviceInformation";
+				menu = "/admin/boardmanagement/ask/askContent";
 			} else if (request.getParameter("link").equals("7")) {
-				subMenu = "service/serviceApply/complet";
+				menu = "/admin/boardmanagement/frequenthyask/frequenthyaskContent";
 			} else if (request.getParameter("link").equals("8")) {
-				subMenu = "qa/faq/faq";
+				menu = "/admin/calender/company/companyContent";
 			} else if (request.getParameter("link").equals("9")) {
-				subMenu = "qa/question/question";
+				menu = "qa/question/question";
 			} else if (request.getParameter("link").equals("10")) {
-				subMenu = "qa/question/questionDetail";
+				menu = "qa/question/questionDetail";
 			} 
-			request.setAttribute("menu", "user/menu-index.jsp");
-			request.setAttribute("subMenu", subMenu + ".jsp");
-			request.getRequestDispatcher("index.jsp").forward(request, response);
+			request.setAttribute("menu", menu + ".jsp");
+			request.getRequestDispatcher("admin/index.jsp").forward(request, response);
 			
 		} else {
-			request.setAttribute("menu", "home.jsp");
-			request.getRequestDispatcher("index.jsp").forward(request, response);
-		}
-		
-		 if (request.getParameter("link").equals("7")) {
-			 contentPage = "service/serviceApply/serviceApply";
-			request.setAttribute("step1Pos", "#ffdf6c");
-			request.setAttribute("serviceStep", "svcselect.jsp");
+			request.setAttribute("menu", "/admin/dashboard/dashboard.jsp");
+			request.getRequestDispatcher("admin/index.jsp").forward(request, response);
 		}
 
 
 		String link = request.getParameter("link");
 		System.out.println(link);
-
-		
-
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
