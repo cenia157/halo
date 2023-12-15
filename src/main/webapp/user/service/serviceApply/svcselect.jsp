@@ -17,9 +17,12 @@
 <body>
 
 	<div class="content-serviceselectbox-td">
-		<div class="content-serviceoption-td">방문요양</div>
-		<div class="content-serviceoption-td">개호택시</div>
-		<div class="content-serviceoption-td">방문요양 & 개호택시</div>
+		<a href="ServiceC?step=2&svc=nursing" id="nursing"
+			class="content-serviceoption-td">방문요양</a> <a
+			href="ServiceC?step=2&svc=texi" id="texi"
+			class="content-serviceoption-td">개호택시</a> <a
+			href="ServiceC?step=2&svc=nursingTexi" id="nursingTexi"
+			class="content-serviceoption-td">방문요양 & 개호택시</a>
 	</div>
 	<div class="content-servicebtn-box-td">
 		<div class="content-servicebtn-td">신청 페이지로 가기</div>
