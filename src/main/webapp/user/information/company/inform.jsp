@@ -7,12 +7,12 @@
 <title>Insert title here</title>
 <!-- 해당페이지 css -->
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/user/information/company/0.css/information2.css" />
+	href="${pageContext.request.contextPath}/user/information/company/0.css/information.css" />
 </head>
 <body>
 	<div class="com-content-tbl">
+	
 		<div class="content-box-tbl">
-
 			<div class="content-box-tr">
 				<div class="content-box-td1">
 					<a href="">회사소개</a>
@@ -22,18 +22,16 @@
 				</div>
 			</div>
 
+			<div class="introduce-tr-box">
+				<div class="introduce-td1">
+					<img src="${pageContext.request.contextPath}/user/0.img//home.png"
+						width="1.7%" alt="" /> > 소개 > 회사소개
+				</div>
+				<div class="introduce-td2">인사말</div>
+			</div>
+
 			<div class="introduce-tbl">
 				<div class="introduce-tr">
-
-					<div class="introduce-tr-box">
-						<div class="introduce-td2">
-							<img
-								src="${pageContext.request.contextPath}/user/0.img//home.png"
-								width="1.7%" alt="" /> > 소개 > 회사소개
-						</div>
-						<div class="introduce-td1">인사말</div>
-					</div>
-
 					<div class="introduce-td-img">
 						<img src="${pageContext.request.contextPath}/user/0.img/hands.jpg"
 							alt="" />
