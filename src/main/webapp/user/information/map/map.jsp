@@ -8,6 +8,10 @@
 <!-- 해당페이지 css -->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/user/information/map/0.css/map2.css" />
+<!-- Google Map API-->
+    <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCoJHgg3IE796b40XaiM6M7cTjkbPWbYDo&callback=console.debug&libraries=maps,marker&v=beta">
+    </script>
+
 </head>
 <body>
 
@@ -33,9 +37,13 @@
 						</div>
 						<div class="introduce-td1">오시는길</div>
 					</div>
-					<!-- 구글맵 들어올 자리 -->
+					<!-- 구글맵 박스 -->
 					<div class="map-tbl">
-						<div class="map-tr">지도자리</div>
+						<!-- (지도API) 들어올 자리  -->
+						<div id="map" class="map-tr">    <gmp-map center="34.725521087646484,135.56072998046875" zoom="14" map-id="DEMO_MAP_ID">
+      <gmp-advanced-marker position="34.725521087646484,135.56072998046875" title="My location">
+      </gmp-advanced-marker>
+    </gmp-map></div>
 						<div class="map-tr1">
 							<div class="map-tr2">
 								<div class="map-td">우편번호 : 570-0062</div>
@@ -44,6 +52,7 @@
 							</div>
 						</div>
 					</div>
+					<!-- 구글맵 박스 끝 -->
 
 				</div>
 			</div>
