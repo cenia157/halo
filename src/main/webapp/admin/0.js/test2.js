@@ -20,7 +20,7 @@ window.onclick = function(event) {
 }
 
 
-// 이건 실험용
+
 
 
 
