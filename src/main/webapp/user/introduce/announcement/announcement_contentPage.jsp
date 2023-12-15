@@ -98,78 +98,97 @@ pageEncoding="UTF-8"%>
     <!-- 모달시작 -->
     <div id="myModal" class="modal">
       <div class="modal-content">
-        <input
-          type="text"
-          name="m_title"
-          class="modal-input"
-          placeholder="제목"
-        />
-        <input
-          type="text"
-          name="m_actor"
-          class="modal-input"
-          placeholder="배우"
-        />
-        <input
-          type="text"
-          name="m_img"
-          class="modal-input"
-          placeholder="이미지 URL"
-        />
-        <input
-          type="text"
-          name="m_story"
-          class="modal-input"
-          placeholder="줄거리"
-        />
-        <button type="submit" class="modal-button">전송</button>
+        <!-- 여기서 소스 활용 시작 -->
+        <!-- 문의글 게시판 (디테일) -->
+        <div class="qd-content-box-td1-1">
+          <span> お知らせ</span>
+        </div>
+        <div class="qd-content-box-td1-2">
+          <div class="qd-content-box-td1-2-1">제목</div>
+          <div class="qd-content-box-td1-2-2">일정공지</div>
+        </div>
+
+        <div class="qd-content-box-td1-3">
+          <div class="qd-content-box-td1-3-1">작성자</div>
+          <div class="qd-content-box-td1-3-2">오오데아키코</div>
+        </div>
+
+        <div class="qd-content-box-td1-4">
+          <div class="qd-content-box-td1-4-content">
+            <span class="qd-content-box-td1-4-1">작성일: </span>
+            <span class="qd-content-box-td1-4-2">23-12-15</span>
+          </div>
+        </div>
+
+        <!-- 본문 -->
+        <div class="qd-content-box-td2-1">
+          <div class="qd-content-box-td2-1-content">
+            안녕하세요, 운영자입니다. <br />
+            일정관리를 다음과 같이 알려드립니다. 시세확장때문에 하는데요. <br />
+            평일 중 2일과 주말 1일을 정기적으로 한 달 동안 이용하는 것이
+            가능한지 궁금합니다. <br />
+            부모님의 편의를 생각해서 가능한 빠른 답변 부탁드립니다. 다음 주에도
+            가능하다면 좋겠어요. <br />
+            <br />
+            부모님을 위한 편리한 이동이라는 목적으로 서비스를 검토 중이니,
+            <br />
+            어떤 혜택이나 특별한 안내사항이 있는지도 함께 알려주시면
+            감사하겠습니다 오버플로우 오토로 줬어요. <br />
+          </div>
+        </div>
+
+        <div class="qd-content-box-td2-2">
+          <button class="qd-content-box-td2-2-button">닫기</button>
+        </div>
       </div>
     </div>
     <!-- 모달끝 -->
 
     <script>
-      //   window.onload = function () {
-      //     let modal = document.getElementById("myModal");
+      window.onload = function () {
+        let modal = document.querySelector("#myModal");
+        let modalContent = document.querySelector(".modal-content"); // 모달 내용 요소
+        let triggerElement = document.querySelector(
+          ".a_content-box-tr1-td3-1-1-1-2-3"
+        );
+        let headerTbl = document.querySelector(".header-tbl");
+        let closeModalButtons = document.querySelectorAll(
+          ".qd-content-box-td2-2-button"
+        );
+        let contentBox = document.querySelector(
+          ".qd-content-box-td2-1-content"
+        ); // 스크롤 위치 조정을 위한 요소
 
-      //     // 모든 modalBtn 클래스를 가진 버튼에 대해 이벤트 등록
-      //     let modalBtns = document.querySelectorAll(".modalBtn");
+        // 모달 표시 이벤트 리스너
+        triggerElement.addEventListener("click", function () {
+          modal.style.display = "flex";
+          contentBox.scrollTop = 0; // 스크롤 위치를 맨 위로 설정
+          if (headerTbl) {
+            headerTbl.style.display = "none";
+          }
+        });
 
-      //     modalBtns.forEach(function (modalBtn) {
-      //       modalBtn.addEventListener("click", function () {
-      //         console.log("모달 버튼이 클릭되었습니다."); // 디버깅용 로그
-      //         modal.style.display = "flex";
-      //       });
-      //     });
+        // 모달 닫기 버튼 이벤트 리스너
+        closeModalButtons.forEach(function (button) {
+          button.addEventListener("click", function () {
+            modal.style.display = "none";
+            if (headerTbl) {
+              headerTbl.style.display = "block";
+            }
+          });
+        });
 
-      //     // 모달 닫기
-      //     window.addEventListener("click", function (e) {
-      //       if (e.target === modal) {
-      //         console.log("모달 외부를 클릭하여 모달을 닫았습니다."); // 디버깅용 로그
-      //         modal.style.display = "none";
-      //       }
-      //     });
-      //   };
-
-      // window.onload = function () {
-      //   let modal = document.getElementById("myModal");
-      //   let triggerElement = document.querySelector(
-      //     ".a_content-box-tr1-td3-1-1-1-2-3"
-      //   );
-
-      //   // 특정 요소에 클릭 이벤트 리스너 추가
-      //   triggerElement.addEventListener("click", function () {
-      //     console.log("모달을 표시합니다."); // 디버깅용 로그
-      //     modal.style.display = "flex";
-      //   });
-
-      //   // 모달 외부 클릭 시 모달 닫기
-      //   window.addEventListener("click", function (e) {
-      //     if (e.target === modal) {
-      //       console.log("모달 외부를 클릭하여 모달을 닫았습니다."); // 디버깅용 로그
-      //       modal.style.display = "none";
-      //     }
-      //   });
-      // };
+        // 모달 외부 클릭 시 모달 닫기 이벤트 리스너
+        window.addEventListener("click", function (e) {
+          // 모달 내용이 아닌 부분을 클릭했는지 확인
+          if (e.target === modal && !modalContent.contains(e.target)) {
+            modal.style.display = "none";
+            if (headerTbl) {
+              headerTbl.style.display = "block";
+            }
+          }
+        });
+      };
     </script>
   </body>
 </html>
