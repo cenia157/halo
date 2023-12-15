@@ -33,7 +33,7 @@ public class HC extends HttpServlet {
 				subMenu = "qa/question/question";
 			} else if (request.getParameter("link").equals("10")) {
 				subMenu = "qa/question/questionDetail";
-			}
+			} 
 			request.setAttribute("menu", "user/menu-index.jsp");
 			request.setAttribute("subMenu", subMenu + ".jsp");
 			request.getRequestDispatcher("index.jsp").forward(request, response);
@@ -42,6 +42,7 @@ public class HC extends HttpServlet {
 			request.setAttribute("menu", "home.jsp");
 			request.getRequestDispatcher("index.jsp").forward(request, response);
 		}
+
 
 		String link = request.getParameter("link");
 		System.out.println(link);
