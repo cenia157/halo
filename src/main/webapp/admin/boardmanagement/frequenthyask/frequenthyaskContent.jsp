@@ -8,8 +8,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <script src="${pageContext.request.contextPath}/admin/0.js/ckeditor.js"></script>
 <title>Frequenthyask</title>
+
+
+
+
+
+<link rel="stylesheet" href="admin/0.css/test copy.css" />
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/admin/boardmanagement/frequenthyask/0.css/frequenthyask.css" />
+	href="admin/boardmanagement/frequenthyask/0.css/frequenthyask.css" />
+
+<script src="admin/0.js/test2.js"></script>
+<script src="admin/0.js/test.js"></script>
+
+
+
+
+
 <link
 	href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular"
 	rel="stylesheet" />
@@ -32,7 +46,7 @@
 			<div class="ontent-m-td-2-content-txt-in">
 				<div class="ontent-m-td-2-content-txt-no-in">8</div>
 				<div class="ontent-m-td-2-content-txt-kategorie-in">8</div>
-				<div class="ontent-m-td-2-content-txt-title-in"> <a onclick="openModal()">● 이곳을 누르면 모달이 뜬다</a> </div>
+				<div class="ontent-m-td-2-content-txt-title-in"> <a onclick="openModalF()">● 이곳을 누르면 모달이 뜬다</a> </div>
 				<div class="ontent-m-td-2-content-txt-writer-in">8</div>
 				<div class="ontent-m-td-2-content-txt-date-in">8</div>
 				<div class="ontent-m-td-2-content-txt-delete-in"></div>

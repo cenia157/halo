@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>noticeEditPage</title>
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/admin/boardmanagement/notice/0.css/notice.css" />
+	href="admin/boardmanagement/notice/0.css/notice.css" />
 <link
 	href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular"
 	rel="stylesheet" />
