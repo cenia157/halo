@@ -60,16 +60,16 @@
 							<div class="menu-td-3-td-open-td-2-con">
 								<div class="menu-td-3-td-open-td-2-con-td-2">
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
-										<img src="admin/0.img/admintble-select.png" alt=""><a href="adminC?link=1">로고변경</a>
+										<img src="admin/0.img/admintble-select.png" alt=""><a href="AdminC?link=1">로고변경</a>
 									</div>
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
-										<img src="admin/0.img/admintble-select.png" alt=""><a href="adminC?link=2">주요메뉴설정</a>
+										<img src="admin/0.img/admintble-select.png" alt=""><a href="AdminC?link=2">주요메뉴설정</a>
 									</div>
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
-										<img src="admin/0.img/admintble-select.png" alt=""><a href="adminC?link=3">하단배너설정</a>
+										<img src="admin/0.img/admintble-select.png" alt=""><a href="AdminC?link=3">하단배너설정</a>
 									</div>
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
-										<img src="admin/0.img/admintble-select.png" alt=""><a href="adminC?link=4">회사정보변경</a>
+										<img src="admin/0.img/admintble-select.png" alt=""><a href="AdminC?link=4">회사정보변경</a>
 									</div>
 								</div>
 							</div>
@@ -81,13 +81,13 @@
 							<div class="menu-td-3-td-open-td-2-con">
 								<div class="menu-td-3-td-open-td-2-con-td-2">
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
-										<img src="admin/0.img/admintble-select.png" alt=""><a href="adminC?link=5">공지사항</a>
+										<img src="admin/0.img/admintble-select.png" alt=""><a href="AdminC?link=5">공지사항</a>
 									</div>
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
-										<img src="admin/0.img/admintble-select.png" alt=""><a href="adminC?link=6">문의사항</a>
+										<img src="admin/0.img/admintble-select.png" alt=""><a href="AdminC?link=6">문의사항</a>
 									</div>
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
-										<img src="admin/0.img/admintble-select.png" alt=""><a href="adminC?link=7">자주묻는질문</a>
+										<img src="admin/0.img/admintble-select.png" alt=""><a href="AdminC?link=7">자주묻는질문</a>
 									</div>
 								</div>
 							</div>
@@ -99,13 +99,13 @@
 							<div class="menu-td-3-td-open-td-2-con">
 								<div class="menu-td-3-td-open-td-2-con-td-2">
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
-										<img src="admin/0.img/admintble-select.png" alt=""><a href="adminC?link=8">회사의일정</a>
+										<img src="admin/0.img/admintble-select.png" alt=""><a href="CompanyC">회사의일정</a>
 									</div>
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
-										<img src="admin/0.img/admintble-select.png" alt=""><a href="adminC?link=9">고객의예약</a>
+										<img src="admin/0.img/admintble-select.png" alt=""><a href="AdminC?link=9">고객의예약</a>
 									</div>
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
-										<img src="admin/0.img/admintble-select.png" alt=""><a href="adminC?link=10">직원근무일정</a>
+										<img src="admin/0.img/admintble-select.png" alt=""><a href="AdminC?link=10">직원근무일정</a>
 									</div>
 								</div>
 							</div>
@@ -117,10 +117,10 @@
 							<div class="menu-td-3-td-open-td-2-con">
 								<div class="menu-td-3-td-open-td-2-con-td-2">
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
-										<img src="admin/0.img/admintble-select.png" alt=""><a href="adminC?link=11">통계</a>
+										<img src="admin/0.img/admintble-select.png" alt=""><a href="AdminC?link=11">통계</a>
 									</div>
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
-										<img src="admin/0.img/admintble-select.png" alt=""><a href="adminC?link=12">고객정보관리</a>
+										<img src="admin/0.img/admintble-select.png" alt=""><a href="AdminC?link=12">고객정보관리</a>
 									</div>
 								</div>
 							</div>
@@ -132,7 +132,7 @@
 							<div class="menu-td-3-td-open-td-2-con">
 								<div class="menu-td-3-td-open-td-2-con-td-2">
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
-										<img src="admin/0.img/admintble-select.png" alt=""><a href="adminC?link=13">직원등록</a>
+										<img src="admin/0.img/admintble-select.png" alt=""><a href="AdminC?link=13">직원등록</a>
 									</div>
 								</div>
 							</div>
@@ -144,7 +144,7 @@
 							<div class="menu-td-3-td-open-td-2-con">
 								<div class="menu-td-3-td-open-td-2-con-td-2">
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
-										<img src="admin/0.img/admintble-select.png" alt=""><a href="adminC?link=14">팝업설정</a>
+										<img src="admin/0.img/admintble-select.png" alt=""><a href="AdminC?link=14">팝업설정</a>
 									</div>
 								</div>
 							</div>
