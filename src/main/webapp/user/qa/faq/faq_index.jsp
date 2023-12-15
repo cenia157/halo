@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,6 +26,7 @@
 	crossorigin="anonymous"></script>
 <!-- 헤더 js -->
 <script src="${pageContext.request.contextPath}/user/0.js/index-menu.js"></script>
+
 
 </head>
 
