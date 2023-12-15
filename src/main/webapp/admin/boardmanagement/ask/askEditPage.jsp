@@ -11,51 +11,56 @@
 	rel="stylesheet" />
 </head>
 <body>
-	<!-- 해당 페이지는 ask.jsp(임시)에서 askContent.jsp로 인클루드 한 내부의 모달(2차 인클루드) 한 장소다 -->
-	<div id="myModal" class="modal-background"></div>
-	<div class="modal-tbl">
-		<div class="modal-title-tr">
-			<div class="modal-title-td-1">
-				<div class="real-title">
-					<div class="real-title-up">민기해적단은 언제 귀가를하나요?</div>
-					<div class="real-title-down">
-						<div class="real-title-down-L">
-							<div class="real-title-down-contain">2023-12-25</div>
-							<div class="real-title-down-contain">답변완료</div>
-						</div>
-						<div class="real-title-down-R">
-							<div class="real-title-down-contain">
-								<!-- 질문한 사람 (임시) -->
-								大出 昭子
+	<div onclick="closeModalA()" id="myModalA" class="modal-background"></div>
+	<div id="myModal-tblA" class="modal-tbl">
+
+
+
+
+
+
+
+		<div class="modal-title-set">
+			<div class="modal-title-tr">
+				<div class="modal-title-td-1">
+					<div class="real-title">
+						<div class="real-title-up">민기해적단은 언제 귀가를하나요?</div>
+						<div class="real-title-down">
+							<div class="real-title-down-L">
+								<div class="real-title-down-contain">2023-12-25</div>
+								<div class="real-title-down-contain">답변완료</div>
 							</div>
-							<div class="real-title-down-contain">
-								<!-- 답변한 사람 (임시) -->
-								大出 昭子
+							<div class="real-title-down-R">
+								<div class="real-title-down-contain">
+									<!-- 질문한 사람 (임시) -->
+									大出 昭子
+								</div>
+								<div class="real-title-down-contain">
+									<!-- 답변한 사람 (임시) -->
+									大出 昭子
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-			<div class="modal-title-td-2">
-				<span class="close" id="closeModalBtn">&times;</span>
-			</div>
-		</div>
-		<div class="modal-content">
-			<div class="modal-content-txt">
-				<div class="modal-content-txt-question">
-					<!-- 여기에 고객이 질문한 문의사항을 띄우는 곳 -->
-					<jsp:include page="askEditPageCustomerQuestion.jsp"></jsp:include>
-				</div>
-				<div class="modal-content-txt-response">
-					<!-- 여기서 '이미 대답한 답변을 보여줄거냐(askEditPageAnsweredResponse)' 아니면 '아직 답변하지 못한 답변을 할 것이냐(askEditPageResponsePending)' -->
-					여기는 고객의 질문에 답변했던 것을 표시하는 곳 <br> 여기는 고객의 질문에 답변했던 것을 표시하는 곳 <br>
-					여기는 고객의 질문에 답변했던 것을 표시하는 곳 <br> 여기는 고객의 질문에 답변했던 것을 표시하는 곳 <br>
-					여기는 고객의 질문에 답변했던 것을 표시하는 곳 <br> 여기는 고객의 질문에 답변했던 것을 표시하는 곳 <br>
-					여기는 고객의 질문에 답변했던 것을 표시하는 곳 <br> 여기는 고객의 질문에 답변했던 것을 표시하는 곳 <br>
+				<div class="modal-title-td-2">
+					<span onclick="closeModalA()" class="close" id="closeModalBtn">&times;</span>
 				</div>
 			</div>
-			<div class="modal-content-button">
-				<button class="SubmitButton">수정하기</button>
+			<div class="modal-content">
+				<div class="modal-content-txt">
+					<div class="modal-content-txt-question">
+						<!-- 여기에 고객이 질문한 문의사항을 띄우는 곳 -->
+						<jsp:include page="askEditPageCustomerQuestion.jsp"></jsp:include>
+					</div>
+					<div class="modal-content-txt-response">
+						<textarea class="Edit-textarea" rows="" cols=""
+							placeholder="여기에 과거에 관리자가 고객에게 답변했던 내용을 표시"></textarea>
+					</div>
+				</div>
+				<div class="modal-content-button">
+					<button class="SubmitButton" onclick="closeModalA()">수정하기</button>
+				</div>
 			</div>
 		</div>
 	</div>
