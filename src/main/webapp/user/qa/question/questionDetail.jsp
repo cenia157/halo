@@ -7,7 +7,7 @@
 <title>Question Detail</title>
 <link rel="stylesheet"
 	href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular" />
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/user/0.css/questionDetail.css">	
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/user/qa/question/0.css/questionDetail.css">	
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/user/0.css/index.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/user/0.css/index-menu.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/user/0.css/index-footer.css">
@@ -77,13 +77,15 @@
 					</div>
 				</div>
 				<!-- 이전글/다음글 -->
-				<div class="qd-content-box-td4-1">
-					<div class="qd-content-box-td4-1-1">이전글</div>
-						<div class="qd-content-box-td4-1-2">글 제목</div>
+				<div class="qd-content-box-td4" >
+					<div class="qd-content-box-td4-1">
+						<div class="qd-content-box-td4-1-1">이전글</div>
+							<div class="qd-content-box-td4-1-2">글 제목</div>
+						</div>
+					<div class="qd-content-box-td4-2">
+						<div class="qd-content-box-td4-2-1">다음글</div>
+						<div class="qd-content-box-td4-2-2">글 제목</div>
 					</div>
-				<div class="qd-content-box-td4-2">
-					<div class="qd-content-box-td4-2-1">다음글</div>
-					<div class="qd-content-box-td4-2-2">글 제목</div>
 				</div>
 				<div class="qd-content-box-td4-3">
 					<div class="qd-content-box-td4-3-1">
