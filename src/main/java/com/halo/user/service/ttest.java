@@ -1,4 +1,4 @@
-package com.halo.service;
+package com.halo.user.service;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
