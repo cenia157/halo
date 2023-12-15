@@ -13,10 +13,10 @@
 	rel="stylesheet" />
 	
 <!--css -->
-<link rel="stylesheet" href="user/0.css/index2.css" />
-<link rel="stylesheet" href="user/0.css/index-menu2.css" />
-<link rel="stylesheet" href="user/0.css/index-footer2.css" />
-<link rel="stylesheet" href="user/0.css/sec2.css" />
+<link rel="stylesheet" href="user/0.css/index.css" />
+<link rel="stylesheet" href="user/0.css/index-menu.css" />
+<link rel="stylesheet" href="user/0.css/index-footer.css" />
+<link rel="stylesheet" href="user/0.css/sec.css" />
 
 <!-- 제이쿼리 -->
 <script src="https://code.jquery.com/jquery-3.7.1.js"
@@ -51,8 +51,8 @@
 							</a>
 						</div>
 						<div class="header-opmenu-td">
-							<a class="header-opmenu-a" href="HC2?link=1">회사소개</a> <a
-								class="header-opmenu-a" href="HC2?link=2">오시는길</a>
+							<a class="header-opmenu-a" href="HC?link=1">회사소개</a> <a
+								class="header-opmenu-a" href="HC?link=2">오시는길</a>
 						</div>
 					</div>
 					<div class="header-td-menu">
@@ -61,9 +61,9 @@
 							</a>
 						</div>
 						<div class="header-opmenu-td">
-							<a class="header-opmenu-a" href="HC2?link=3">공지사항</a> <a
-								class="header-opmenu-a" href="HC2?link=4">앨범</a> <a
-								class="header-opmenu-a" href="HC2?link=5">채용공고</a>
+							<a class="header-opmenu-a" href="HC?link=3">공지사항</a> <a
+								class="header-opmenu-a" href="HC?link=4">앨범</a> <a
+								class="header-opmenu-a" href="HC?link=5">채용공고</a>
 						</div>
 					</div>
 					<div class="header-td-menu">
@@ -72,8 +72,8 @@
 							</a>
 						</div>
 						<div class="header-opmenu-td">
-							<a class="header-opmenu-a" href="HC2?link=6">서비스안내</a> <a
-								class="header-opmenu-a" href="HC2?link=7">서비스신청</a>
+							<a class="header-opmenu-a" href="HC?link=6">서비스안내</a> <a
+								class="header-opmenu-a" href="HC?link=7">서비스신청</a>
 						</div>
 					</div>
 					<div class="header-td-menu">
@@ -82,8 +82,8 @@
 							</a>
 						</div>
 						<div class="header-opmenu-td">
-							<a class="header-opmenu-a" href="HC2?link=8">자주묻는질문</a> <a
-								class="header-opmenu-a" href="HC2?link=9">문의게시판</a>
+							<a class="header-opmenu-a" href="HC?link=8">자주묻는질문</a> <a
+								class="header-opmenu-a" href="HC?link=9">문의게시판</a>
 						</div>
 					</div>
 					<div class="header-td-menu">
