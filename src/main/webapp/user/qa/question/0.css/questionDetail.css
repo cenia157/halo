@@ -41,13 +41,13 @@ a {
 }
 
 .container-tbl{
-	height: 360vh;
+	height: auto;
 }
 .content-tbl{
-	height: 340vh;
+	height: auto;
 }
 .content-sec {
-	height: 240vh;
+	height: auto;
 }
 
 
@@ -234,6 +234,7 @@ a {
 
 .qd-content-box-td2-1 {
 	width: 100%;
+	height: auto;
 	display: flex;
 	padding-left: 5%;
 	padding-right: 5%;
@@ -314,6 +315,7 @@ a {
 }
 
 .qd-content-box-td3-2 {
+	height: auto;
 	border: 1px solid #62733D;
 	margin-bottom: 1%;
 	display: flex;

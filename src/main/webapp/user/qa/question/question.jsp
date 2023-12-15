@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,6 +15,29 @@
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/user/qa/faq/0.css/index-banner.css">
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/user/0.css/index-menu.css">
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/user/0.css/index-footer.css">
+
+
+<script>
+    // 페이지 로드가 완료된 후 실행
+    document.addEventListener('DOMContentLoaded', function() {
+        // 페이징 버튼에 대한 클릭 이벤트 리스너 등록
+        document.querySelectorAll('.page-link').forEach(function(button) {
+            button.addEventListener('click', function(event) {
+                // 기본 동작인 페이지 이동을 막음
+                event.preventDefault();
+                
+                // 여기에 페이징 버튼을 클릭했을 때 수행할 동작을 추가
+                // 예: 페이지 내용 로드, 페이지 이동 등
+                // 클릭된 버튼의 href 속성에서 페이지 URL을 가져옴
+                var targetPage = this.getAttribute('href');
+            });
+        });
+    });
+    
+    
+    
+</script>
+
 </head>
 <body>
 
@@ -90,55 +114,86 @@
 
 		<!-- 문의글 게시판 -->
 
+
 		<!-- content-box-tr1-td3 ::: display: flex wrap용 -->
-          <div class="a_content-box-tr1-td3">
+          <div class="q_content-box-tr1-td3">
             <!-- 뒷 배경용 #FFEDAF -->
-            <div class="a_content-box-tr1-td3-1">
-              <div class="a_content-box-tr1-td3-1-1">
-                <div class="a_content-box-tr1-td3-1-1-1">
+            <div class="q_content-box-tr1-td3-1">
+              <div class="q_content-box-tr1-td3-1-1">
+                <div class="q_content-box-tr1-td3-1-1-1">
                 	
-                	<div class="a_content-box-tr1-td3-1-1-1-txt">
+                	<div class="q_content-box-tr1-td3-1-1-1-txt">
                 		<span>문의글 게시판</span>
                 	</div>
                 	
                   <!-- 타이블 첫 행 -->
-                  <div class="a_content-box-tr1-td3-1-1-1-1">
-                    <div class="a_content-box-tr1-td3-1-1-1-1-1 No-width">
+                  <div class="q_content-box-tr1-td3-1-1-1-1">
+                    <div class="q_content-box-tr1-td3-1-1-1-1-1 No-width">
                       <span>No</span>
                     </div>
-                    <div class="a_content-box-tr1-td3-1-1-1-1-2 writer-width">
+                    <div class="q_content-box-tr1-td3-1-1-1-1-2 writer-width">
                       <span>글쓴이</span>
                     </div>
-                    <div class="a_content-box-tr1-td3-1-1-1-1-3 title-width">
+                    <div class="q_content-box-tr1-td3-1-1-1-1-3 title-width">
                       <span>제목</span>
                     </div>
-                    <div class="a_content-box-tr1-td3-1-1-1-1-4 category-width">
+                    <div class="q_content-box-tr1-td3-1-1-1-1-4 answer-width">
                       <span>응답여부</span>
                     </div>
-                    <div class="a_content-box-tr1-td3-1-1-1-1-5 reg-width">
+                    <div class="q_content-box-tr1-td3-1-1-1-1-5 reg-width">
                       <span>작성일</span>
                     </div>
                   </div>
+                  
+                  
+                  
                   <!-- 2번째 행 여기는 forEach문이겠죠?-->
-                  <c:forEach  var="question_tbl" items="${question_tbl}">
-	                  <div class="a_content-box-tr1-td3-1-1-1-2">
-	                    <div class="a_content-box-tr1-td3-1-1-1-2-1 No-width">
-	                      <span>${q_seq}</span>
-	                    </div>
-	                    <div class="a_content-box-tr1-td3-1-1-1-2-2 writer-width">
-	                      <span>${q_name}</span>
-	                    </div>
-	                    <div class="a_content-box-tr1-td3-1-1-1-2-3 title-width">
-	                      <span>${q_title}</span>
-	                    </div>
-	                    <div class="a_content-box-tr1-td3-1-1-1-2-4 category-width">
-	                      <span>${q_answer}</span>
-	                    </div>
-	                    <div class="a_content-box-tr1-td3-1-1-1-2-5 reg-width">
-	                      <span>${q_reg_date}</span>
-	                    </div>
-	                  </div>
-                  </c:forEach>
+					<c:forEach var="i" begin="1" end="7">
+					    <div class="q_content-box-tr1-td3-1-1-1-2">
+					        <!-- your content here -->
+					        <%--                   <c:forEach  var="question_tbl" items="${question_tbl}"> --%>
+<%-- 							<c:forEach var="i" begin="1" end="20"> --%>
+<!-- 			                  <div class="q_content-box-tr1-td3-1-1-1-2"> -->
+			                    <div class="q_content-box-tr1-td3-1-1-1-2-1 No-width">
+			                      <span>No ${q_seq}</span>
+			                    </div>
+			                    <div class="q_content-box-tr1-td3-1-1-1-2-2 writer-width">
+			                      <span>Name ${q_name}</span>
+			                    </div>
+			                    <div class="q_content-box-tr1-td3-1-1-1-2-3 title-width">
+			                      <a href="HC?link=10">Title ${q_title}</a>
+			                    </div>
+			                    <div class="q_content-box-tr1-td3-1-1-1-2-4 answer-width">
+			                      <span>Answer ${q_answer}</span>
+			                    </div>
+			                    <div class="q_content-box-tr1-td3-1-1-1-2-5 reg-width">
+			                      <span>date ${q_reg_date}</span>
+			                    </div>
+<!-- 			                  </div> -->
+<%-- 		                  </c:forEach> --%>
+					        
+					    </div>
+					</c:forEach>
+					
+					<!-- Pagination -->
+					<nav aria-label="Page navigation example">
+					    <ul class="pagination">
+					        <c:forEach var="page" begin="1" end="5">
+					            <li class="page-item ${page == currentPage ? 'active' : ''}">
+					                <a class="page-link" href="?currentPage=${page}">●</a>
+					            </li>
+					        </c:forEach>
+					    </ul>
+					</nav>
+
+<!-- Bootstrap JS (required for pagination) -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+
+                  
+                  </div>
+
                 </div>
               </div>
             </div>
