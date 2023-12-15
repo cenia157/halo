@@ -20,7 +20,9 @@
 		        // 데이터 속성을 이용하여 타겟 파일을 동적으로 설정
 		        var target = $(this).data("target");
 		        // faqDetail.jsp 파일을 로드하여 #faqDetailContainer에 추가
-		        $(".faqDetailContainer").load("${pageContext.request.contextPath}/user/qa/faq/" + target + ".jsp");
+		        $(".faqDetailContainer").hide().load("${pageContext.request.contextPath}/user/qa/faq/" + target + ".jsp", function () {
+		        	$(this).fadeIn("slow");
+				});
 		    });
 		});
     </script>
