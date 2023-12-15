@@ -49,11 +49,20 @@
 
 
 
-					<div class="real-title">
+					<div class="real-title" >
 						<input class="real-title-editor" placeholder="이곳에 제목을 입력하세요">
+
+						<div class="real-title-select">
+							<select>
+								<option>안내</option>
+								<option>일정</option>
+								<option>일반</option>
+								<option>서비스</option>
+								<option>상품</option>
+							</select>
+
+						</div>
 					</div>
-
-
 
 
 

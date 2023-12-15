@@ -53,6 +53,18 @@
 
 					<div class="real-title">
 						<input class="real-title-editor" placeholder="민기해적단 팀인원 대거 탈주 계획">
+
+
+						<div class="real-title-select">
+							<select>
+								<option value="">안내</option>
+								<option value="">일정</option>
+								<option value="">일반</option>
+								<option value="">서비스</option>
+								<option value="">상품</option>
+							</select>
+
+						</div>
 					</div>
 
 
