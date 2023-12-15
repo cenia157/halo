@@ -154,7 +154,7 @@
 				<div class="menu-td-4">
 					<div class="menu-td-4-td">
 						<div>
-							<img src="0.img/adminfootericon.png" alt="">日本語
+							<img src="admin/0.img/adminfootericon.png" alt="">日本語
 						</div>
 					</div>
 				</div>
