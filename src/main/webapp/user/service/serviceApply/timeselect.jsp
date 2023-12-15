@@ -23,7 +23,7 @@
 		<hr />
 	</div>
 	<div class="content-time-btn-td">
-		<button>다음으로</button>
+		<a href="ServiceC?step=4">다음으로</a>
 	</div>
 	<!-- step별 페이지  끝-->
 
