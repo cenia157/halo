@@ -1,31 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
-<%
-    // 실제 데이터의 총 갯수를 대체하기 위한 임시 데이터 생성 (실제로는 데이터베이스에서 가져와야 함)
-    List<String> dataList = new ArrayList<>();
-    for (int i = 1; i <= 97; i++) {
-        dataList.add("Data " + i);
-    }
 
-    // 데이터의 총 갯수 계산
-    int totalItems = dataList.size();
-
-    // 총 페이지 수 계산
-    int totalPages = (int) Math.ceil((double) totalItems / 7);
-
-    // 현재 페이지 파라미터 가져오기
-    String currentPageParam = request.getParameter("currentPage");
-    int currentPage = (currentPageParam != null) ? Integer.parseInt(currentPageParam) : 1;
-
-    // 마지막 페이지 동적 계산
-    int lastPage = (totalPages > 0) ? totalPages : 1;
-
-    // 현재 페이지가 마지막 페이지를 초과하는 경우 마지막 페이지로 설정
-    if (currentPage > lastPage) {
-        currentPage = lastPage;
-    }
-%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,6 +15,25 @@
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/user/qa/faq/0.css/index-banner.css">
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/user/0.css/index-menu.css">
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/user/0.css/index-footer.css">
+
+
+<script>
+    // 페이지 로드가 완료된 후 실행
+    document.addEventListener('DOMContentLoaded', function() {
+        // 페이징 버튼에 대한 클릭 이벤트 리스너 등록
+        document.querySelectorAll('.page-link').forEach(function(button) {
+            button.addEventListener('click', function(event) {
+                // 기본 동작인 페이지 이동을 막음
+                event.preventDefault();
+                
+                // 여기에 페이징 버튼을 클릭했을 때 수행할 동작을 추가
+                // 예: 페이지 내용 로드, 페이지 이동 등
+                // 클릭된 버튼의 href 속성에서 페이지 URL을 가져옴
+                var targetPage = this.getAttribute('href');
+            });
+        });
+    });
+</script>
 
 </head>
 <body>
@@ -146,10 +141,10 @@
                       <span>작성일</span>
                     </div>
                   </div>
+                  
+                  
+                  
                   <!-- 2번째 행 여기는 forEach문이겠죠?-->
-                  
-                  
-                  
 					<c:forEach var="i" begin="1" end="7">
 					    <div class="q_content-box-tr1-td3-1-1-1-2">
 					        <!-- your content here -->
@@ -163,7 +158,7 @@
 			                      <span>Name ${q_name}</span>
 			                    </div>
 			                    <div class="q_content-box-tr1-td3-1-1-1-2-3 title-width">
-			                      <span>Title ${q_title}</span>
+			                      <a href="HC?link=10">Title ${q_title}</a>
 			                    </div>
 			                    <div class="q_content-box-tr1-td3-1-1-1-2-4 answer-width">
 			                      <span>Answer ${q_answer}</span>
@@ -180,9 +175,9 @@
 					<!-- Pagination -->
 					<nav aria-label="Page navigation example">
 					    <ul class="pagination">
-					        <c:forEach var="page" begin="1" end="${lastPage}">
+					        <c:forEach var="page" begin="1" end="3">
 					            <li class="page-item ${page == currentPage ? 'active' : ''}">
-					                <a class="page-link" href="?currentPage=${page}">${page}</a>
+					                <a class="page-link" href="?currentPage=${page}">●</a>
 					            </li>
 					        </c:forEach>
 					    </ul>

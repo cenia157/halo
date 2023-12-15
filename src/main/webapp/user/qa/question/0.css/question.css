@@ -267,7 +267,7 @@ a {
 /* 	txt */
 	color: #546137;
 	font-family: Inter;
-	font-size: 1rem;
+	font-size: 1.5rem;
 	font-style: normal;
 	font-weight: 700;
 	line-height: normal;
@@ -519,6 +519,13 @@ a {
   font-weight: 700;
   line-height: normal;
 }
+.q_content-box-tr1-td3-1-1-1-2 > div > a {
+  font-size: 1.3rem;
+  color: #546137;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
 
 .q_content-box-tr1-td3-1-1-1-2-3 {
   display: flex;
@@ -547,16 +554,17 @@ a {
         }
 
         .pagination .page-link {
-            color: #007bff;
+            color: #6e6f4e;
             border-radius: 50%; /* 원형 모양으로 만들기 위한 속성 */
-            width: 30px; /* 원형 버튼의 크기 조절 */
-            height: 30px;
+            font-size: 2rem; /* 원형 버튼의 크기 조절 */
             text-align: center;
             line-height: 30px;
+            letter-spacing: 1rem;
         }
+        
 
         .pagination .page-item.active .page-link {
-            background-color: #007bff;
+            background-color: #ffedaf;
             border-color: #007bff;
             color: #fff;
         }
