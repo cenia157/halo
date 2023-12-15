@@ -1,163 +1,164 @@
-@import url(https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular);
-
-@font-face {
-  font-family: "SF Pro JP Regular";
-  src: url("https://db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.eot");
-  src: url("https://db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.eot#iefix")
-      format("embedded-opentype"),
-    url("https://db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.woff2")
-      format("woff2"),
-    url("https://db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.woff")
-      format("woff"),
-    url("https://db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.ttf")
-      format("truetype"),
-    url("https://db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.svg#SF Pro JP Regular")
-      format("svg");
-}
-
-* {
-  font-family: "SF Pro JP Regular";
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-a {
-  text-decoration: none;
-}
-
-.container-tbl {
-  width: 100%;
-  max-width: 100vw;
-  height: 280vh;
-}
-
 /* 컨텐트  */
-.content-tbl {
-  background-color: #5b7953;
-  width: 100%;
-  height: 260vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.content-space {
-  width: 100%;
-  height: 60vh;
+.map-content-sec {
+	width: 100%;
+	height: auto;
+	display: flex;
+	justify-content: center;
 }
 
 /* 컨텐트 박스 */
-.content-sec {
-  background-color: rgba(255, 255, 255, 0.8);
-  width: 100%;
-  height: 160vh;
+.content-box-tbl {
+	background-color: rgba(255, 255, 255, 0.8);
+	border-radius: 35px;
+	width: 95%;
+	height: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 /* 회사소개 오시는길 버튼(css바뀌어야함) */
 .content-box-tr {
-  width: 100%;
-  display: flex;
-  height: 10%;
-  margin-top: 0;
+	width: 100%;
+	display: flex;
+	height: 15vh;
 }
+
 .content-box-td1 {
-  color: rgb(132, 148, 97);
-  font-size: 2.5rem;
-  width: 50%;
-  font-style: normal;
-  font-weight: 700;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-top-right-radius: 30px;
-  text-shadow: 4px 4px 4px #ffdf6c;
+	color: rgb(132, 148, 97);
+	height: 100%;
+	font-size: 2.5rem;
+	width: 50%;
+	font-style: normal;
+	font-weight: 700;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-top-right-radius: 30px;
+	text-shadow: 4px 4px 4px #ffdf6c;
 }
-.content-box-td1 > a {
-  color: #546137;
-  cursor: hand;
+
+.content-box-td1>a {
+	color: #546137;
+	cursor: hand;
 }
+
 .content-box-td2 {
-  background-color: rgb(132, 148, 97);
-  color: white;
-  font-size: 2.5rem;
-  font-style: normal;
-  font-weight: 700;
-  width: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-top-left-radius: 30px;
-}
-.content-box-td2 > a {
-  color: white;
-  cursor: hand;
+	background-color: rgb(132, 148, 97);
+	height: 100%;
+	color: white;
+	font-size: 2.5rem;
+	font-style: normal;
+	font-weight: 700;
+	width: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-top-right-radius: 30px;
 }
 
-/* 구글맵 박스 */
-.map-tbl {
-  width: 90%;
-  height: 95%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 5% 5%;
-}
-.map-tr {
-  border: solid 4px rgb(255, 255, 255);
-  width: 100%;
-  height: 70%;
-  margin-top: 3%;
+.content-box-td2>a {
+	color: white;
+	cursor: hand;
 }
 
+/* 회사 소개 내용 */
+.introduce-tbl {
+	height: auto;
+	width: 96%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.introduce-tr {
+	width: 90%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
 /* 페이지로드>소개>오시는길 */
 .page-road {
+	color: #546137;
+	font-size: 1.5rem;
+	font-weight: 700;
+	width: 100%;
+	text-align: right;
+}
+
+/* 인사말 title */
+.introduce-tr-box {
+  width: 100%;
+  height: 15vh;
+  padding-top: 2%;
   color: #546137;
   font-size: 1.5rem;
   font-weight: 700;
-  width: 100%;
-  text-align: right;
 }
 
+.introduce-td1 {
+	color: #546137;
+	font-size: 1.5rem;
+	font-weight: 700;
+	width: 100%;
+	text-align: right;
+	padding-right: 5%;
+}
+
+.introduce-td2 {
+	color: #546137;
+	text-shadow: 4px 4px 4px #ffdf6c;
+	font-size: 2.3rem;
+	font-weight: 700;
+	display: flex;
+	justify-content: center;
+}
+
+/* 구글맵 컨텐트 박스 */
+/* 여기 높이 수정*/
+.map-tbl {
+	display: flex;
+	flex-direction: column;
+	width: 90%;
+	height: 150vh;
+	align-items: center;
+}
+
+/* 구글맵 자리 */
+.map-tr {
+	border: solid 4px rgb(255,223,108);
+	width: 100%;
+	height: 70%;
+}
+
+/* 하단 텍스트박스 자리 */
+.map-tr1{
+	width: 100%;
+	height: 45%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	
+}
 /* 맵 텍스트 */
 .map-tr2 {
-  background-color: rgb(255, 255, 255);
-  box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.3);
-  border-radius: 30px;
-  width: 80%;
-  height: 25%;
-  margin-top: 5%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+	background-color: rgb(255, 255, 255);
+	box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.3);
+	border-radius: 30px;
+	width: 80%;
+	height: 50%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 }
+
 .map-td {
-  color: #546137;
-  text-shadow: 4px 4px 4px #ffdf6c;
-  font-size: 2.3rem;
-  font-weight: 700;
-  text-align: center;
-}
-
-/* 하단베너ㅓ */
-.bottom-venner-tr {
-  width: 100%;
-  height: 40vh;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-}
-
-.bottom-venner-td {
-  background-color: rgb(255, 255, 255, 0.84);
-  box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.3);
-  color: #546137;
-  font-size: 2.5rem;
-  font-weight: 700;
-  width: 20%;
-  height: 45%;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  border-radius: 30px;
+	color: #546137;
+	text-shadow: 4px 4px 4px #ffdf6c;
+	font-size: 2.3rem;
+	font-weight: 700;
+	text-align: center;
+	height: 5vh;
 }
