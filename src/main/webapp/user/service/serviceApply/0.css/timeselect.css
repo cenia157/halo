@@ -253,7 +253,7 @@ letter-spacing: 2px;
   position: relative;
   display: inline;
 }
-.content-time-btn-td > button {
+.content-time-btn {
   color: #fff;
 
   text-align: center;
