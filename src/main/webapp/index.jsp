@@ -23,6 +23,7 @@
     <script src="user/0.js/index-menu.js"></script>
     <!-- 배경이미지 js -->
     <script src="user/0.js/background-img.js"></script>
+
 </head>
 <body>
 <div class="container">
