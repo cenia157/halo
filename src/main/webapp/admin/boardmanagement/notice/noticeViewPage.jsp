@@ -19,7 +19,7 @@
 		<div class="modal-title-set">
 			<div class="modal-title-tr">
 				<div class="modal-title-td-1">
-					<div class="real-title">민기해적단 팀인원 대거 탈주 계획</div>
+					<div class="real-title-V">민기해적단 팀인원 대거 탈주 계획</div>
 				</div>
 				<div class="modal-title-td-2">
 					<span class="close" id="closeModalBtn" onclick="closeModalV()">&times;</span>
