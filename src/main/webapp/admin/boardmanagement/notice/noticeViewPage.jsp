@@ -7,10 +7,9 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>noticeEditPage</title>
+
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/admin/0.css/test.css" />
-
-
+	href="${pageContext.request.contextPath}/admin/boardmanagement/notice/0.css/notice.css" />
 
 
 <link
@@ -54,7 +53,7 @@
 
 			</div>
 			<div class="modal-content-button">
-				<button class="EditCompleted">수정</button>
+				<button class="EditCompleted">수a정</button>
 			</div>
 		</div>
 	</div>
