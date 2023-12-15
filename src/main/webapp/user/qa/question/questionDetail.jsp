@@ -64,19 +64,15 @@
 				<!-- 댓글 -->
 				<div class="qd-content-box-td3">
 				<div class="qd-content-box-td3-1">
-						<div class="qd-content-box-td3-1-1">이름</div>
-						<div class="qd-content-box-td3-1-2">작성일</div>
+						<div class="qd-content-box-td3-1-1">이름 ${c_comemter_name}</div>
+						<div class="qd-content-box-td3-1-2">작성일 </div>
 					</div>
 					<div class="qd-content-box-td3-2">
 						<div class="qd-content-box-td3-2-1">
 							<img alt=""
 								src="${pageContext.request.contextPath}/user/qa/question/0.img/lock.png">
 						</div>
-						<div class="qd-content-box-td3-2-2">
-							<a>
-								댓글본문
-							</a>
-						</div>
+						<div class="qd-content-box-td3-2-2">댓글 ${ c_comment_content}</div>
 					</div>
 				</div>
 				<!-- 이전글/다음글 -->

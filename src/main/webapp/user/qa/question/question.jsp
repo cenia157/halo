@@ -120,7 +120,7 @@
                     </div>
                   </div>
                   <!-- 2번째 행 여기는 forEach문이겠죠?-->
-                  <c:forEach  var="item" items="${yourList}">
+                  <c:forEach  var="question_tbl" items="${question_tbl}">
 	                  <div class="a_content-box-tr1-td3-1-1-1-2">
 	                    <div class="a_content-box-tr1-td3-1-1-1-2-1 No-width">
 	                      <span>${q_seq}</span>
