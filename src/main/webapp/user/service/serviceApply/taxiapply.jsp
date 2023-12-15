@@ -47,7 +47,7 @@
 			</div>
 		</div>
 		<div class="content-cal-btn-box-td">
-			<button class="content-cal-btn-td">다음으로</button>
+		<a href="ServiceC?step=6" class="content-cal-btn-td">다음으로</a>
 		</div>
 	</div>
 

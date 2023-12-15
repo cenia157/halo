@@ -36,8 +36,8 @@
 					</div>
 				</div>
 				<div class="na-content-cal-btn-box-td">
-					<button class="na-content-cal-btn-td">다음으로</button>
-				</div>
+			<a href="ServiceC?step=${nextBtn }" class="na-content-cal-btn-td">다음으로</a>
+		</div>
 			</div>
 
 
