@@ -223,8 +223,8 @@
 
 /* ���⼭���ʹ�  askEditPage.jsp ����! */
 .modal-background {
-	/*
 	display: none;
+	/*
  position: relative;
 */
 	position: fixed;
@@ -236,8 +236,8 @@
 }
 
 .modal-tbl {
-	/*
 	display: none;
+	/*
  position: relative;
 */
 	width: 100%;
@@ -248,6 +248,21 @@
 	transform: translate(-50%, -50%);
 	background-color: white;
 }
+
+
+
+
+.modal-title-set {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+
+
+
+
+
 
 .modal-title-tr {
 	display: flex;
@@ -336,7 +351,6 @@
 .modal-content-txt-response {
 	width: 100%;
 	height: 50%;
-	overflow-y: auto;
 	font-size: 2rem;
 	font-weight: 700;
 	color: #707070;
@@ -406,3 +420,20 @@
 ���⿡ ���� ������ ���� ���̴� �Ʒ��� css ���������� �� ���߱⿡ �ִ�
 
 */
+
+
+
+
+
+
+
+
+
+
+.Edit-textarea {
+	width: 100%;
+	height: 100%;
+	border: none;
+	font-size: 2.5rem;
+	resize: none
+}

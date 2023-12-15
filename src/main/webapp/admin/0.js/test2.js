@@ -1,23 +1,77 @@
 // 이곳은 Modal의 스크립트를 모아둔 곳이다
 
-// 일반적인 모달 열기
+
+// 미답변 모달 열기
 function openModal() {
 	document.getElementById('myModal').style.display = 'flex';
 	document.getElementById('myModal-tbl').style.display = 'flex';
 }
 
-// 일반적인 모달 닫기
+// 미답변 모달 닫기
 function closeModal() {
 	document.getElementById('myModal').style.display = 'none';
 	document.getElementById('myModal-tbl').style.display = 'none';
 }
 
-// noticeViewPage  모달 외부 클릭 시 모달 닫기
+// 미답변 모달 외부 클릭 시 모달 닫기
 window.onclick = function(event) {
 	if (event.target == document.getElementById('myModal')) {
 		closeModal();
 	}
 }
+
+
+
+
+
+
+
+
+
+// 미답변 모달 열기
+function openModalN() {
+	document.getElementById('myModalN').style.display = 'flex';
+	document.getElementById('myModal-tblN').style.display = 'flex';
+}
+
+// 미답변 모달 닫기
+function closeModalN() {
+	document.getElementById('myModalN').style.display = 'none';
+	document.getElementById('myModal-tblN').style.display = 'none';
+}
+
+// 미답변 모달 외부 클릭 시 모달 닫기
+window.onclick = function(event) {
+	if (event.target == document.getElementById('myModalN')) {
+		closeModalN();
+	}
+}
+
+
+
+// 미답변 모달 열기
+function openModalA() {
+	document.getElementById('myModalA').style.display = 'flex';
+	document.getElementById('myModal-tblA').style.display = 'flex';
+}
+
+// 미답변 모달 닫기
+function closeModalA() {
+	document.getElementById('myModalA').style.display = 'none';
+	document.getElementById('myModal-tblA').style.display = 'none';
+}
+
+// 미답변 모달 외부 클릭 시 모달 닫기
+window.onclick = function(event) {
+	if (event.target == document.getElementById('myModalA')) {
+		closeModalA();
+	}
+}
+
+
+
+
+
 
 
 
