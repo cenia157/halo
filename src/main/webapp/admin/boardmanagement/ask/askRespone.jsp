@@ -15,6 +15,17 @@
 	<div class="modal-tbl">
 		<div class="modal-title-tr">
 			<div class="modal-title-td-1">
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
 				<div class="real-title">
 					<div class="real-title-up">민기해적단은 언제 귀가를하나요?</div>
 					<div class="real-title-down">
@@ -25,6 +36,17 @@
 						<div class="real-title-down-R"></div>
 					</div>
 				</div>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
 			</div>
 			<div class="modal-title-td-2">
 				<span class="close" id="closeModalBtn">&times;</span>
