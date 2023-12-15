@@ -13,7 +13,7 @@
 	href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular"
 	rel="stylesheet" />
 </head>
-<script src="admin/0.js/ckeditor.js"></script>
+
 <body>
 	<div onclick="closeModalE()" id="myModalR"></div>
 	<div id="myModal-tblR" class="modal-tbl">

@@ -1,23 +1,37 @@
-// 이곳은 Modal의 스크립트를 모아둔 곳이다
-
-
-// 미답변 모달 열기
-function openModal() {
-	document.getElementById('myModal').style.display = 'flex';
-	document.getElementById('myModal-tbl').style.display = 'flex';
+// 공통 함수: 모달 열기
+function openModal(modalId, tblId) {
+	document.getElementById(modalId).style.display = 'flex';
+	document.getElementById(tblId).style.display = 'flex';
 }
 
-// 미답변 모달 닫기
-function closeModal() {
-	document.getElementById('myModal').style.display = 'none';
-	document.getElementById('myModal-tbl').style.display = 'none';
+// 공통 함수: 모달 닫기
+function closeModal(modalId, tblId) {
+	document.getElementById(modalId).style.display = 'none';
+	document.getElementById(tblId).style.display = 'none';
 }
 
-// 미답변 모달 외부 클릭 시 모달 닫기
-window.onclick = function(event) {
-	if (event.target == document.getElementById('myModal')) {
-		closeModal();
-	}
+// 공통 함수: 모달 외부 클릭 시 닫기
+function closeModalOnOutsideClick(modalId) {
+	window.onclick = function(event) {
+		if (event.target == document.getElementById(modalId)) {
+			closeModal(modalId, getTblId(modalId));
+		}
+	};
+}
+
+// 공통 함수: 모달의 tbl 아이디 가져오기
+function getTblId(modalId) {
+	return modalId.replace('myModal', 'myModal-tbl');
+}
+
+// 자주묻는질문(frequenthyask) 모달
+function openModalF() {
+	openModal('myModalF', 'myModal-tblF');
+	closeModalOnOutsideClick('myModalF');
+}
+
+function closeModalF() {
+	closeModal('myModalF', 'myModal-tblF');
 }
 
 
@@ -28,44 +42,32 @@ window.onclick = function(event) {
 
 
 
-// 미답변 모달 열기
+
+
+
+
+
+
+
+// 문의사항(ask) 모달
+// 미답변 모달
 function openModalN() {
-	document.getElementById('myModalN').style.display = 'flex';
-	document.getElementById('myModal-tblN').style.display = 'flex';
+	openModal('myModalN', 'myModal-tblN');
+	closeModalOnOutsideClick('myModalN');
 }
 
-// 미답변 모달 닫기
 function closeModalN() {
-	document.getElementById('myModalN').style.display = 'none';
-	document.getElementById('myModal-tblN').style.display = 'none';
+	closeModal('myModalN', 'myModal-tblN');
 }
 
-// 미답변 모달 외부 클릭 시 모달 닫기
-window.onclick = function(event) {
-	if (event.target == document.getElementById('myModalN')) {
-		closeModalN();
-	}
-}
-
-
-
-// 미답변 모달 열기
+// 답변 모달
 function openModalA() {
-	document.getElementById('myModalA').style.display = 'flex';
-	document.getElementById('myModal-tblA').style.display = 'flex';
+	openModal('myModalA', 'myModal-tblA');
+	closeModalOnOutsideClick('myModalA');
 }
 
-// 미답변 모달 닫기
 function closeModalA() {
-	document.getElementById('myModalA').style.display = 'none';
-	document.getElementById('myModal-tblA').style.display = 'none';
-}
-
-// 미답변 모달 외부 클릭 시 모달 닫기
-window.onclick = function(event) {
-	if (event.target == document.getElementById('myModalA')) {
-		closeModalA();
-	}
+	closeModal('myModalA', 'myModal-tblA');
 }
 
 
@@ -75,70 +77,33 @@ window.onclick = function(event) {
 
 
 
-
-
-
-
-
-
-
-
-
-// noticeViewPage 모달 열기
+// 공지사항(notice) 모달
+// ViewPage를 띄우기 위한 모달
 function openModalV() {
-	document.getElementById('myModalV').style.display = 'flex';
-	document.getElementById('myModal-tblV').style.display = 'flex';
+	openModal('myModalV', 'myModal-tblV');
+	closeModalOnOutsideClick('myModalV');
 }
 
-// noticeViewPage 모달 닫기
 function closeModalV() {
-	document.getElementById('myModalV').style.display = 'none';
-	document.getElementById('myModal-tblV').style.display = 'none';
-	// 아래의 2줄은 noticeRegPage가 열린 상태에서 외부클릭 시 View와 Reg 동시에 닫히도록 하기 위해 작성됨
-	document.getElementById('myModalR').style.display = 'none';
-	document.getElementById('myModal-tblR').style.display = 'none';
+	closeModal('myModalV', 'myModal-tblV');
+	closeModal('myModalR', 'myModal-tblR');
 }
 
-// noticeViewPage  모달 외부 클릭 시 모달 닫기
-window.onclick = function(event) {
-	if (event.target == document.getElementById('myModalV')) {
-		closeModalE();
-	}
-}
-
-// noticeRegPage 모달 열기
+// RegPage를 띄우기 위한 모달
 function openModalR() {
-	document.getElementById('myModal-tblR').style.display = 'flex';
+	openModal('myModalR', 'myModal-tblR');
 }
 
-// noticeRegPage 모달 닫기
 function closeModalR() {
-	document.getElementById('myModalR').style.display = 'none';
-	document.getElementById('myModal-tblR').style.display = 'none';
+	closeModal('myModalR', 'myModal-tblR');
 }
 
-// noticeRegPage 모달 외부 클릭 시 모달 닫기
-window.onclick = function(event) {
-	if (event.target == document.getElementById('myModalE')) {
-		closeModalV();
-	}
-}
-
-// noticeNEWRegPage 모달 열기
+// NEWRegPage를 띄우기 위한 모달
 function openModalNR() {
-	document.getElementById('myModalNR').style.display = 'flex';
-	document.getElementById('myModal-tblNR').style.display = 'flex';
+	openModal('myModalNR', 'myModal-tblNR');
+	closeModalOnOutsideClick('myModalNR');
 }
 
-// noticeNEWRegPage 모달 닫기
 function closeModalNR() {
-	document.getElementById('myModalNR').style.display = 'none';
-	document.getElementById('myModal-tblNR').style.display = 'none';
-}
-
-// noticeNEWRegPage 모달 외부 클릭 시 모달 닫기
-window.onclick = function(event) {
-	if (event.target == document.getElementById('myModalNR')) {
-		closeModalV();
-	}
+	closeModal('myModalNR', 'myModal-tblNR');
 }

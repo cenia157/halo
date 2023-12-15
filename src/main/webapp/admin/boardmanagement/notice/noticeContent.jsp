@@ -8,6 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>notice</title>
 <script src="admin/0.js/ckeditor.js"></script>
+<script src="admin/0.js/test2.js"></script>
 <link rel="stylesheet"
 	href="admin/boardmanagement/notice/0.css/notice.css" />
 <link
