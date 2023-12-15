@@ -14,20 +14,10 @@
 	integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
 	crossorigin="anonymous">
 </script>
-
-
-
-
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/admin/boardmanagement/notice/0.css/notice.css" />
-
-
-
-
-
 <script src="${pageContext.request.contextPath}/admin/0.js/test.js"></script>
 <script src="${pageContext.request.contextPath}/admin/0.js/test2.js"></script>
-
 <link rel="stylesheet" href="${pageContext.request.contextPath}/admin/0.css/test copy.css" />
 <body>
 <!--
