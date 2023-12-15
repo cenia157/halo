@@ -11,32 +11,35 @@ import javax.servlet.http.HttpServletResponse;
 public class HC extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String contentPage = null;
-		
+		String subMenu = null;
 		if (request.getParameter("link") != null) {
 			if (request.getParameter("link").equals("1")) {
-				contentPage = "information/company/inform";
+				subMenu = "information/company/inform";
 			} else if (request.getParameter("link").equals("2")) {
-				contentPage = "information/map/map";
+				subMenu = "information/map/map";
 			} else if (request.getParameter("link").equals("3")) {
-				contentPage = "introduce/announcement/announcement_contentPage";
+				subMenu = "introduce/announcement/announcement_contentPage2";
 			} else if (request.getParameter("link").equals("4")) {
-				contentPage = "introduce/album/album_contentPage";
+				subMenu = "introduce/album/album_contentPage";
 			} else if (request.getParameter("link").equals("5")) {
-				contentPage = "introduce/employment/employment_contentPage";
+				subMenu = "introduce/employment/employment_contentPage";
 			} else if (request.getParameter("link").equals("6")) {
-				contentPage = "service/serviceInformation/serviceInformation";
+				subMenu = "service/serviceInformation/serviceInformation";
+			} else if (request.getParameter("link").equals("7")) {
+				subMenu = "service/serviceApply/complet";
 			} else if (request.getParameter("link").equals("8")) {
-				contentPage = "qa/faq/faq";
+				subMenu = "qa/faq/faq";
 			} else if (request.getParameter("link").equals("9")) {
-				contentPage = "qa/question/question";
+				subMenu = "qa/question/question";
 			} else if (request.getParameter("link").equals("10")) {
-				contentPage = "qa/question/questionDetail";
+				subMenu = "qa/question/questionDetail";
 			}
-			request.setAttribute("contentPage", contentPage + ".jsp");
-			request.getRequestDispatcher("user/menu-index.jsp").forward(request, response);
+			request.setAttribute("menu", "user/menu-index.jsp");
+			request.setAttribute("subMenu", subMenu + ".jsp");
+			request.getRequestDispatcher("index.jsp").forward(request, response);
+			
 		} else {
-			request.setAttribute("contentPage", "home.jsp");
+			request.setAttribute("menu", "home.jsp");
 			request.getRequestDispatcher("index.jsp").forward(request, response);
 		}
 

@@ -14,7 +14,7 @@ public class HC2 extends HttpServlet {
 		String subMenu = null;
 		if (request.getParameter("link") != null) {
 			if (request.getParameter("link").equals("1")) {
-				subMenu = "information/company/inform2";
+				subMenu = "information/company/inform";
 			} else if (request.getParameter("link").equals("2")) {
 				subMenu = "information/map/map";
 			} else if (request.getParameter("link").equals("3")) {
