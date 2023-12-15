@@ -532,4 +532,31 @@ a {
     bottom: -37%;
 }
 
+/* 페이징 */
 
+       .pagination {
+       		margin-top:2%;
+       		margin-bottom:2%;
+      		display: flex;
+      		justify-content: center;
+        }
+
+        .pagination .page-item {
+            display: flex;
+            justify-content: center;
+        }
+
+        .pagination .page-link {
+            color: #007bff;
+            border-radius: 50%; /* 원형 모양으로 만들기 위한 속성 */
+            width: 30px; /* 원형 버튼의 크기 조절 */
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+        }
+
+        .pagination .page-item.active .page-link {
+            background-color: #007bff;
+            border-color: #007bff;
+            color: #fff;
+        }

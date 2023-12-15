@@ -1,6 +1,31 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
+<%
+    // 실제 데이터의 총 갯수를 대체하기 위한 임시 데이터 생성 (실제로는 데이터베이스에서 가져와야 함)
+    List<String> dataList = new ArrayList<>();
+    for (int i = 1; i <= 97; i++) {
+        dataList.add("Data " + i);
+    }
+
+    // 데이터의 총 갯수 계산
+    int totalItems = dataList.size();
+
+    // 총 페이지 수 계산
+    int totalPages = (int) Math.ceil((double) totalItems / 7);
+
+    // 현재 페이지 파라미터 가져오기
+    String currentPageParam = request.getParameter("currentPage");
+    int currentPage = (currentPageParam != null) ? Integer.parseInt(currentPageParam) : 1;
+
+    // 마지막 페이지 동적 계산
+    int lastPage = (totalPages > 0) ? totalPages : 1;
+
+    // 현재 페이지가 마지막 페이지를 초과하는 경우 마지막 페이지로 설정
+    if (currentPage > lastPage) {
+        currentPage = lastPage;
+    }
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -123,28 +148,52 @@
                   </div>
                   <!-- 2번째 행 여기는 forEach문이겠죠?-->
                   
-			
+                  
+                  
+					<c:forEach var="i" begin="1" end="7">
+					    <div class="q_content-box-tr1-td3-1-1-1-2">
+					        <!-- your content here -->
+					        <%--                   <c:forEach  var="question_tbl" items="${question_tbl}"> --%>
+<%-- 							<c:forEach var="i" begin="1" end="20"> --%>
+<!-- 			                  <div class="q_content-box-tr1-td3-1-1-1-2"> -->
+			                    <div class="q_content-box-tr1-td3-1-1-1-2-1 No-width">
+			                      <span>No ${q_seq}</span>
+			                    </div>
+			                    <div class="q_content-box-tr1-td3-1-1-1-2-2 writer-width">
+			                      <span>Name ${q_name}</span>
+			                    </div>
+			                    <div class="q_content-box-tr1-td3-1-1-1-2-3 title-width">
+			                      <span>Title ${q_title}</span>
+			                    </div>
+			                    <div class="q_content-box-tr1-td3-1-1-1-2-4 answer-width">
+			                      <span>Answer ${q_answer}</span>
+			                    </div>
+			                    <div class="q_content-box-tr1-td3-1-1-1-2-5 reg-width">
+			                      <span>date ${q_reg_date}</span>
+			                    </div>
+<!-- 			                  </div> -->
+<%-- 		                  </c:forEach> --%>
+					        
+					    </div>
+					</c:forEach>
+					
+					<!-- Pagination -->
+					<nav aria-label="Page navigation example">
+					    <ul class="pagination">
+					        <c:forEach var="page" begin="1" end="${lastPage}">
+					            <li class="page-item ${page == currentPage ? 'active' : ''}">
+					                <a class="page-link" href="?currentPage=${page}">${page}</a>
+					            </li>
+					        </c:forEach>
+					    </ul>
+					</nav>
 
-<%--                   <c:forEach  var="question_tbl" items="${question_tbl}"> --%>
-					<c:forEach var="i" begin="1" end="5">
-	                  <div class="q_content-box-tr1-td3-1-1-1-2">
-	                    <div class="q_content-box-tr1-td3-1-1-1-2-1 No-width">
-	                      <span>No ${q_seq}</span>
-	                    </div>
-	                    <div class="q_content-box-tr1-td3-1-1-1-2-2 writer-width">
-	                      <span>Name ${q_name}</span>
-	                    </div>
-	                    <div class="q_content-box-tr1-td3-1-1-1-2-3 title-width">
-	                      <span>Title ${q_title}</span>
-	                    </div>
-	                    <div class="q_content-box-tr1-td3-1-1-1-2-4 answer-width">
-	                      <span>Answer ${q_answer}</span>
-	                    </div>
-	                    <div class="q_content-box-tr1-td3-1-1-1-2-5 reg-width">
-	                      <span>date ${q_reg_date}</span>
-	                    </div>
-	                  </div>
-                  </c:forEach>
+<!-- Bootstrap JS (required for pagination) -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+
+                  
                   </div>
 
                 </div>
