@@ -26,16 +26,10 @@ a {
   text-decoration: none;
 }
 
-.container-tbl {
-  width: 100%;
-  max-width: 100vw;
-  height: 280vh;
-}
-
 /* 컨텐트  */
 .content-tbl {
   width: 100%;
-  height: 260vh;
+  height: auto;
   display: flex;
   flex-direction: column;
 }
@@ -48,7 +42,7 @@ a {
 /* 컨텐트 박스 */
 .content-sec {
   width: 100%;
-  height: 160vh;
+  height: auto;
 }
 
 /* 하단베너ㅓ */
