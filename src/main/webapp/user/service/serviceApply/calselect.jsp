@@ -51,7 +51,7 @@ pageEncoding="UTF-8"%>
           </script>
         </div>
         <div class="content-cal-btn-box-td">
-          <button id="next-btn">다음으로</button>
+        <a href="ServiceC?step=3" class="next-btn">다음으로</a>
         </div>
   </body>
 </html>
