@@ -7,18 +7,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/HC2")
+@WebServlet("/HC")
 public class HC2 extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String subMenu = null;
 		if (request.getParameter("link") != null) {
 			if (request.getParameter("link").equals("1")) {
-				subMenu = "information/company/inform2";
+				subMenu = "information/company/inform";
 			} else if (request.getParameter("link").equals("2")) {
 				subMenu = "information/map/map";
 			} else if (request.getParameter("link").equals("3")) {
-				subMenu = "introduce/announcement/announcement_contentPage";
+				subMenu = "introduce/announcement/announcement_contentPage2";
 			} else if (request.getParameter("link").equals("4")) {
 				subMenu = "introduce/album/album_contentPage";
 			} else if (request.getParameter("link").equals("5")) {
@@ -34,18 +34,17 @@ public class HC2 extends HttpServlet {
 			} else if (request.getParameter("link").equals("10")) {
 				subMenu = "qa/question/questionDetail";
 			}
-			request.setAttribute("menu", "user/menu-index2.jsp");
+			request.setAttribute("menu", "user/menu-index.jsp");
 			request.setAttribute("subMenu", subMenu + ".jsp");
-			request.getRequestDispatcher("index2.jsp").forward(request, response);
+			request.getRequestDispatcher("index.jsp").forward(request, response);
 			
 		} else {
 			request.setAttribute("menu", "home.jsp");
-			request.getRequestDispatcher("index2.jsp").forward(request, response);
+			request.getRequestDispatcher("index.jsp").forward(request, response);
 		}
 
 		String link = request.getParameter("link");
 		System.out.println(link);
-
 
 		
 
