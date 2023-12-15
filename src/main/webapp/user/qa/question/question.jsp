@@ -91,54 +91,60 @@
 		<!-- 문의글 게시판 -->
 
 		<!-- content-box-tr1-td3 ::: display: flex wrap용 -->
-          <div class="a_content-box-tr1-td3">
+          <div class="q_content-box-tr1-td3">
             <!-- 뒷 배경용 #FFEDAF -->
-            <div class="a_content-box-tr1-td3-1">
-              <div class="a_content-box-tr1-td3-1-1">
-                <div class="a_content-box-tr1-td3-1-1-1">
+            <div class="q_content-box-tr1-td3-1">
+              <div class="q_content-box-tr1-td3-1-1">
+                <div class="q_content-box-tr1-td3-1-1-1">
                 	
-                	<div class="a_content-box-tr1-td3-1-1-1-txt">
+                	<div class="q_content-box-tr1-td3-1-1-1-txt">
                 		<span>문의글 게시판</span>
                 	</div>
                 	
                   <!-- 타이블 첫 행 -->
-                  <div class="a_content-box-tr1-td3-1-1-1-1">
-                    <div class="a_content-box-tr1-td3-1-1-1-1-1 No-width">
+                  <div class="q_content-box-tr1-td3-1-1-1-1">
+                    <div class="q_content-box-tr1-td3-1-1-1-1-1 No-width">
                       <span>No</span>
                     </div>
-                    <div class="a_content-box-tr1-td3-1-1-1-1-2 writer-width">
+                    <div class="q_content-box-tr1-td3-1-1-1-1-2 writer-width">
                       <span>글쓴이</span>
                     </div>
-                    <div class="a_content-box-tr1-td3-1-1-1-1-3 title-width">
+                    <div class="q_content-box-tr1-td3-1-1-1-1-3 title-width">
                       <span>제목</span>
                     </div>
-                    <div class="a_content-box-tr1-td3-1-1-1-1-4 category-width">
+                    <div class="q_content-box-tr1-td3-1-1-1-1-4 answer-width">
                       <span>응답여부</span>
                     </div>
-                    <div class="a_content-box-tr1-td3-1-1-1-1-5 reg-width">
+                    <div class="q_content-box-tr1-td3-1-1-1-1-5 reg-width">
                       <span>작성일</span>
                     </div>
                   </div>
                   <!-- 2번째 행 여기는 forEach문이겠죠?-->
-                  <c:forEach  var="question_tbl" items="${question_tbl}">
-	                  <div class="a_content-box-tr1-td3-1-1-1-2">
-	                    <div class="a_content-box-tr1-td3-1-1-1-2-1 No-width">
-	                      <span>${q_seq}</span>
+<%--                   <c:forEach  var="question_tbl" items="${question_tbl}"> --%>
+					<c:forEach var="i" begin="1" end="5">
+	                  <div class="q_content-box-tr1-td3-1-1-1-2">
+	                    <div class="q_content-box-tr1-td3-1-1-1-2-1 No-width">
+	                      <span>No ${q_seq}</span>
 	                    </div>
-	                    <div class="a_content-box-tr1-td3-1-1-1-2-2 writer-width">
-	                      <span>${q_name}</span>
+	                    <div class="q_content-box-tr1-td3-1-1-1-2-2 writer-width">
+	                      <span>Name ${q_name}</span>
 	                    </div>
-	                    <div class="a_content-box-tr1-td3-1-1-1-2-3 title-width">
-	                      <span>${q_title}</span>
+	                    <div class="q_content-box-tr1-td3-1-1-1-2-3 title-width">
+	                      <span>Title ${q_title}</span>
 	                    </div>
-	                    <div class="a_content-box-tr1-td3-1-1-1-2-4 category-width">
-	                      <span>${q_answer}</span>
+	                    <div class="q_content-box-tr1-td3-1-1-1-2-4 answer-width">
+	                      <span>Answer ${q_answer}</span>
 	                    </div>
-	                    <div class="a_content-box-tr1-td3-1-1-1-2-5 reg-width">
-	                      <span>${q_reg_date}</span>
+	                    <div class="q_content-box-tr1-td3-1-1-1-2-5 reg-width">
+	                      <span>date ${q_reg_date}</span>
 	                    </div>
 	                  </div>
                   </c:forEach>
+                  
+                  <div class="q-content-box-td6">
+                  	페이징 처리 자리
+                  </div>
+                  
                 </div>
               </div>
             </div>

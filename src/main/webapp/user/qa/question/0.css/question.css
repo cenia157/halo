@@ -403,7 +403,7 @@ a {
 
 /* 단영씨한테서 받은 css (게시판) */
 
-.a_content-box-tr1-td3 {
+.q_content-box-tr1-td3 {
   height: 90%;
   width: 100%;
   display: flex;
@@ -411,7 +411,7 @@ a {
 }
 
 /* 뒷 배경용 */
-.a_content-box-tr1-td3-1 {
+.q_content-box-tr1-td3-1 {
   display: flex;
   align-items: center;
   height: 100%; /* 추후 */
@@ -420,7 +420,7 @@ a {
   border-radius: 30px;
 }
 
-.a_content-box-tr1-td3-1-1 {
+.q_content-box-tr1-td3-1-1 {
   width: 100%;
   height: 95%; /* 추후 */
   background: #ffffff;
@@ -429,7 +429,7 @@ a {
   align-items: center;
 }
 
-.a_content-box-tr1-td3-1-1-1-txt{
+.q_content-box-tr1-td3-1-1-1-txt{
 	color: #62733D;
 	text-align: center;
 	font-family: Inter;
@@ -441,31 +441,31 @@ a {
 	padding-bottom: 1%;
 }
 
-.a_content-box-tr1-td3-1-1-1 {
+.q_content-box-tr1-td3-1-1-1 {
   width: 100%;
   height: 90%;
   /* outline: 1px solid blue; */
   background: #ffffff;
 }
 
-.a_content-box-tr1-td3-1-1-1-1 {
+.q_content-box-tr1-td3-1-1-1-1 {
   display: flex;
   height: 10%; /* 조절 */
   padding-top: 2%;
   padding-bottom:2%;
   border-top: 4px solid #6e6f4e;
-  border-bottom: 2px solid #6e6f4e;
+  border-bottom: 3px solid #6e6f4e;
 }
 
 /* 첫행 한줄밖에없으니까 이거는 수동조절하면될거같음 */
-.a_content-box-tr1-td3-1-1-1-1 > div {
+.q_content-box-tr1-td3-1-1-1-1 > div {
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.a_content-box-tr1-td3-1-1-1-1 > div > span {
+.q_content-box-tr1-td3-1-1-1-1 > div > span {
   color: #546137;
   text-align: center;
   font-size: 1.8rem;
@@ -489,7 +489,7 @@ a {
   flex: 3.4;
 }
 
-.category-width {
+.answer-width {
   flex: 1;
   white-space: nowrap; /* 글자가 한 줄로 표시되도록 함 */
 }
@@ -499,21 +499,20 @@ a {
   white-space: nowrap; /* 글자가 한 줄로 표시되도록 함 */
 }
 
-.a_content-box-tr1-td3-1-1-1-2 {
+.q_content-box-tr1-td3-1-1-1-2 {
   display: flex;
-  height: 12%; /* 조절 */
-  margin-top: 2%;
-  border-bottom: 2px solid #6e6f4e;
+  height: 10%; /* 조절 */
+  border-bottom: 1px solid #6e6f4e;
 }
 
-.a_content-box-tr1-td3-1-1-1-2 > div {
+.q_content-box-tr1-td3-1-1-1-2 > div {
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
 }
 
-.a_content-box-tr1-td3-1-1-1-2 > div > span {
+.q_content-box-tr1-td3-1-1-1-2 > div > span {
   font-size: 1.3rem;
   color: #546137;
   font-style: normal;
@@ -521,15 +520,21 @@ a {
   line-height: normal;
 }
 
-.a_content-box-tr1-td3-1-1-1-2-3 {
+.q_content-box-tr1-td3-1-1-1-2-3 {
   display: flex;
   align-items: center;
   justify-content: flex-start !important;
 }
 
-.a_content-box-tr1-td3-1-2 {
+.q_content-box-tr1-td3-1-2 {
    position: absolute;
    right: 50%;
     bottom: -37%;
+}
+
+/* 페이징처리 시작 */
+
+.q-content-box-td6{
+	background-color: aqua;
 }
 
