@@ -126,6 +126,18 @@ pageEncoding="UTF-8"%>
             안녕하세요, 운영자입니다. <br />
             일정관리를 다음과 같이 알려드립니다. 시세확장때문에 하는데요. <br />
             평일 중 2일과 주말 1일을 정기적으로 한 달 동안 이용하는 것이
+            가능한지 궁금합니다. <br />   안녕하세요, 운영자입니다. <br />
+            일정관리를 다음과 같이 알려드립니다. 시세확장때문에 하는데요. <br />
+            평일 중 2일과 주말 1일을 정기적으로 한 달 동안 이용하는 것이
+            가능한지 궁금합니다. <br />   안녕하세요, 운영자입니다. <br />
+            일정관리를 다음과 같이 알려드립니다. 시세확장때문에 하는데요. <br />
+            평일 중 2일과 주말 1일을 정기적으로 한 달 동안 이용하는 것이
+            가능한지 궁금합니다. <br />   안녕하세요, 운영자입니다. <br />
+            일정관리를 다음과 같이 알려드립니다. 시세확장때문에 하는데요. <br />
+            평일 중 2일과 주말 1일을 정기적으로 한 달 동안 이용하는 것이
+            가능한지 궁금합니다. <br />   안녕하세요, 운영자입니다. <br />
+            일정관리를 다음과 같이 알려드립니다. 시세확장때문에 하는데요. <br />
+            평일 중 2일과 주말 1일을 정기적으로 한 달 동안 이용하는 것이
             가능한지 궁금합니다. <br />
             부모님의 편의를 생각해서 가능한 빠른 답변 부탁드립니다. 다음 주에도
             가능하다면 좋겠어요. <br />
@@ -167,7 +179,7 @@ pageEncoding="UTF-8"%>
             headerTbl.style.display = "none";
           }
         });
-
+		
         // 모달 닫기 버튼 이벤트 리스너
         closeModalButtons.forEach(function (button) {
           button.addEventListener("click", function () {
@@ -177,7 +189,14 @@ pageEncoding="UTF-8"%>
             }
           });
         });
-
+        $(document).keydown(function(e) {
+            if (e.key === "Escape") { // 'Escape'는 ESC 키를 나타냄
+            	// 'click' 이벤트 생성
+            	var event = new Event('click');
+            	closeModalButtons[0].dispatchEvent(event);
+            	
+            }
+        });
         // 모달 외부 클릭 시 모달 닫기 이벤트 리스너
         window.addEventListener("click", function (e) {
           // 모달 내용이 아닌 부분을 클릭했는지 확인

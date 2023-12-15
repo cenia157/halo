@@ -514,7 +514,7 @@
   line-height: normal;
   letter-spacing: 0.81px;
   outline: 2px solid pink; /* 나중에 지워야함 */
-  height: 100vh; /* 나중에 지워야함 */
+  height: 50vh; /* 나중에 지워야함 */
 }
 
 .qd-content-box-td2-2 {
@@ -523,7 +523,6 @@
   align-items: flex-start;
   padding: 0.6%;
   border-top: 1px solid #9f9f78;
-  height: 40%;
   flex-wrap: nowrap;
 }
 
