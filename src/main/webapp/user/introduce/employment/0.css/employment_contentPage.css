@@ -1,32 +1,32 @@
 /*
-바꾼사항 23-12-13 17:37
+바꾼사항 23-12-14 22:46
   *** contentPage.css에서 수정했기떄문에 원본 css파일 걱정안해도됨 ***
-1) .container_tbl -> 280vh -> 220vh
-2) .content_sec -> 160vh -> 100vh
-3) .content-tbl -> 260vh -> 200vh
+1) .container_tbl -> 280vh -> 230vh
+2) .content_sec -> 160vh -> 131vh
+3) .content-tbl -> 260vh -> 231vh
 */
 
 .container-tbl {
-  height: 220vh;
+  height: 230vh;
 }
 
 .content-sec {
-  height: 100vh;
+  height: 131vh;
 }
 
 .content-tbl {
-  height: 200vh;
+  height: 231vh;
 }
 /*----------------------------------------------------------------------------- */
 
 .e_container {
   width: 100%;
-  height: 200vh;
+  height: 231vh;
 }
 .e_content-tbl {
   border: solid 1px blue;
   width: 100%;
-  height: 100vh; /* 수정 23-12-13 */
+  height: 131vh; /* 수정 23-12-14 */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -163,11 +163,11 @@
   margin-top: 1%;
   display: flex;
   align-items: center;
-  height: 72vh; /* 23-12-13 부득이하게 vh*/
+  height: 95vh; /* 23-12-13 부득이하게 vh*/
   width: 100%; /* 추후 */
   background: rgba(255, 255, 255, 0.8);
   border-radius: 30px;
-  outline: 2px solid purple;
+/*   outline: 2px solid purple; */
   display: flex;
   justify-content: center;
   align-items: baseline;
@@ -187,7 +187,7 @@
 
 /* 소개부분 및 연락처*/
 .e_content-box-tr1-td3-1-1-1 {
-  outline: 1px solid brown;
+/*   outline: 1px solid brown; */
   height: 100%;
 }
 
@@ -220,7 +220,7 @@
 
 .e_content-box-tr1-td3-1-1-1-4 {
   display: flex;
-  outline: 1px solid red;
+/*   outline: 1px solid red; */
   flex-direction: column;
   align-items: center;
 }
@@ -241,7 +241,7 @@
   justify-content: center;
   flex-direction: column;
   width: 45%;
-  outline: 1px solid orange;
+/*   outline: 1px solid orange; */
   text-align: center;
   color: #46512dcc;
   font-weight: 700;
@@ -260,7 +260,7 @@
 .e_content-box-tr1-td3-1-1-1-5-1 {
   display: flex;
   width: 95%;
-  height: 90%;
+  height: 70%;
   padding-top: 1%;
   border-top: 3px solid #62733d;
 }
@@ -269,7 +269,7 @@
 .e_content-box-tr1-td3-1-1-1-5-1-2 {
   width: 50%;
   height: 100%;
-  outline: solid 2px red;
+/*   outline: solid 2px red; */
 }
 
 .e_content-box-tr1-td3-1-1-1-5-1-2 span {

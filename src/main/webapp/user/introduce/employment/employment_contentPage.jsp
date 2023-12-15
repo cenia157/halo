@@ -73,20 +73,20 @@ pageEncoding="UTF-8"%>
                     <ul>
                       <li>
                         •연중
-                        가능&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        가능&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                       </li>
                       <li>•주중 및 주말 탄력근무제(シフト制)</li>
                     </ul>
                   </div>
                   <!-- 구분 -->
                   <div class="e_content-box-tr1-td3-1-1-4-2">
-                    ●근무내용&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    ●근무내용&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                     <ul>
                       <li>
-                        •방문요향&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        •방문요향&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                       </li>
                       <li>
-                        •개호콜택시&nbsp운임&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        •개호콜택시&nbsp&nbsp운임&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                       </li>
                     </ul>
                   </div>
@@ -99,10 +99,7 @@ pageEncoding="UTF-8"%>
                           <!-- 여기안에 아이콘2개 문구하나 -->
                           <!-- 클립 -->
                           <div class="e_content-box-tr1-td3-1-1-1-5-1-1-1-1-1">
-                            <img
-                              src="${pageContext.request.contextPath}/user/introduce/employment/0.img/clip_icon.png"
-                              alt=""
-                            />
+                            <img src="${pageContext.request.contextPath}/user/introduce/employment/0.img/clip_icon.png" alt="" />
                           </div>
                           <!-- 문구 -->
                           <div class="e_content-box-tr1-td3-1-1-1-5-1-1-1-1-2">
