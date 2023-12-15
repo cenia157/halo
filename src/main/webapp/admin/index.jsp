@@ -99,7 +99,7 @@
 							<div class="menu-td-3-td-open-td-2-con">
 								<div class="menu-td-3-td-open-td-2-con-td-2">
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
-										<img src="admin/0.img/admintble-select.png" alt=""><a href="adminC?link=8">회사의일정</a>
+										<img src="admin/0.img/admintble-select.png" alt=""><a href="CompanyC">회사의일정</a>
 									</div>
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
 										<img src="admin/0.img/admintble-select.png" alt=""><a href="adminC?link=9">고객의예약</a>
