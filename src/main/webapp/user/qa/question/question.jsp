@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,10 +41,14 @@
 			<div class="q-content-box-td2">
 				<span class="q-content-box-td-content3-1">휴대폰 번호*</span>
 					<select class="q-content-box-td-content3-2" name="tel" id="tel">
-			            <option value="1">1</option>
-			            <option value="2">2</option>
-			            <option value="3">3</option>
-			            <option value="4">4</option>
+			            <option value="080">080</option>
+			            <option value="090">090</option>
+			            <option value="03">03</option>
+			            <option value="045">045</option>
+			            <option value="06">06</option>
+			            <option value="052">052</option>
+			            <option value="082">082</option>
+			            <option value="092">092</option>
 			        </select>
 				<input class="q-content-box-td-content3-3" type="text">
 			</div>
@@ -115,23 +120,25 @@
                     </div>
                   </div>
                   <!-- 2번째 행 여기는 forEach문이겠죠?-->
-                  <div class="a_content-box-tr1-td3-1-1-1-2">
-                    <div class="a_content-box-tr1-td3-1-1-1-2-1 No-width">
-                      <span>18</span>
-                    </div>
-                    <div class="a_content-box-tr1-td3-1-1-1-2-2 writer-width">
-                      <span>사토*케시</span>
-                    </div>
-                    <div class="a_content-box-tr1-td3-1-1-1-2-3 title-width">
-                      <span>일정공지</span>
-                    </div>
-                    <div class="a_content-box-tr1-td3-1-1-1-2-4 category-width">
-                      <span>응답여부</span>
-                    </div>
-                    <div class="a_content-box-tr1-td3-1-1-1-2-5 reg-width">
-                      <span>2023-12-06</span>
-                    </div>
-                  </div>
+                  <c:forEach  var="item" items="${yourList}">
+	                  <div class="a_content-box-tr1-td3-1-1-1-2">
+	                    <div class="a_content-box-tr1-td3-1-1-1-2-1 No-width">
+	                      <span>${q_seq}</span>
+	                    </div>
+	                    <div class="a_content-box-tr1-td3-1-1-1-2-2 writer-width">
+	                      <span>${q_name}</span>
+	                    </div>
+	                    <div class="a_content-box-tr1-td3-1-1-1-2-3 title-width">
+	                      <span>${q_title}</span>
+	                    </div>
+	                    <div class="a_content-box-tr1-td3-1-1-1-2-4 category-width">
+	                      <span>${q_answer}</span>
+	                    </div>
+	                    <div class="a_content-box-tr1-td3-1-1-1-2-5 reg-width">
+	                      <span>${q_reg_date}</span>
+	                    </div>
+	                  </div>
+                  </c:forEach>
                 </div>
               </div>
             </div>

@@ -42,7 +42,7 @@ a {
 }
 
  .container-tbl {
-	height: 350vh;
+	height: 100%;
 }
 
 .content-tbl {
@@ -53,7 +53,7 @@ a {
 }
 
 .content-sec {
-	height: 225vh;
+	height: 300vh;
 }
 
 
@@ -64,7 +64,7 @@ a {
 .q-content-tbl {
 	width: 100%;
 	/*   height: 265vh;  */
-	height: 200vh;
+	height: 100%;
 	display: flex;
 	flex-direction: column;
 }
@@ -76,7 +76,7 @@ a {
 	margin-right:auto;
 	margin-bottom:5%;
 	border-radius: 35px; background : rgba( 248, 242, 191, 0.90);
-	height: 70%;
+	height: 110%;
 	background: rgba(248, 242, 191, 0.90);
 /* 	클로버 기준 */
 	position: relative;
@@ -110,7 +110,7 @@ a {
 	margin-right: auto;
 }
 .q-content-box-td2:nth-child(6) {
-	height: 20vh;
+	height: 30%;
 	border-bottom: 3px solid #9F9F78;
 	width: 90%;
 }
@@ -169,6 +169,9 @@ a {
 	border: 1px solid #9F9F78;
 	width: 70%;
 	flex-shrink: 0;
+	font-size: 1.5rem;
+	padding-left: 1%;
+	padding-right: 1%;
 }
 
 .q-content-box-td-content3-1{
@@ -186,11 +189,16 @@ a {
 	border: 1px solid #9F9F78;
 	width: 20%;
 	flex-shrink: 0;
+	text-align: center;
+	font-size: 1.5rem;
 }
 .q-content-box-td-content3-3{
 	border: 1px solid #9F9F78;
 	width: 50%;
 	flex-shrink: 0;
+	font-size: 1.5rem;
+	padding-left: 1%;
+	padding-right: 1%;
 }
 .q-content-box-td-content4-1{
 	width: 20%;
@@ -206,6 +214,9 @@ a {
 	border: 1px solid #9F9F78;
 	width: 70%;
 	flex-shrink: 0;
+	font-size: 1.5rem;
+	padding-left: 2%;
+	padding-right: 2%;
 }
 
 .q-content-box-td-content5-1{
@@ -222,6 +233,9 @@ a {
 	border: 1px solid #9F9F78;
 	width: 70%;
 	flex-shrink: 0;
+	font-size: 1.5rem;
+	padding-left: 1%;
+	padding-right: 1%;
 }
 .q-content-box-td-content6{
 	height: 30%;
@@ -245,6 +259,9 @@ a {
 	width: 70%;
 	flex-shrink: 0;
 	height: 100%;
+	font-size: 1.5rem;
+	padding-left: 1%;
+	padding-right: 1%;
 }
 .q-content-box-td-content7{
 /* 	txt */
@@ -397,7 +414,7 @@ a {
 .a_content-box-tr1-td3-1 {
   display: flex;
   align-items: center;
-  height: 127%; /* 추후 */
+  height: 100%; /* 추후 */
   width: 90%; /* 추후 */
   background: #ffedaf;
   border-radius: 30px;
@@ -420,6 +437,8 @@ a {
 	font-style: normal;
 	font-weight: 1000;
 	line-height: normal;
+	padding-top: 1%;
+	padding-bottom: 1%;
 }
 
 .a_content-box-tr1-td3-1-1-1 {
@@ -433,7 +452,9 @@ a {
   display: flex;
   height: 10%; /* 조절 */
   padding-top: 2%;
+  padding-bottom:2%;
   border-top: 4px solid #6e6f4e;
+  border-bottom: 2px solid #6e6f4e;
 }
 
 /* 첫행 한줄밖에없으니까 이거는 수동조절하면될거같음 */
@@ -482,7 +503,6 @@ a {
   display: flex;
   height: 12%; /* 조절 */
   margin-top: 2%;
-  border-top: 2px solid #6e6f4e;
   border-bottom: 2px solid #6e6f4e;
 }
 
