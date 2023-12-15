@@ -1,4 +1,4 @@
-package com.halo.service;
+package com.halo.user.service;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -37,9 +37,9 @@ public class ServiceC extends HttpServlet {
 				System.out.println("간택세션생성");
 				session.setAttribute("svcSession", "nursingTexi");
 		}
-			svcSession = (String) request.getSession().getAttribute("svcSession");
-			System.out.println(svcSession);
 		}
+		svcSession = (String) request.getSession().getAttribute("svcSession");
+		System.out.println(svcSession);
 		if (step != null) {
 			if (step.equals("1")) {
 				session.setAttribute("step", "svcselect.jsp");
@@ -53,9 +53,15 @@ public class ServiceC extends HttpServlet {
 				request.setAttribute("step3Pos", "#ffdf6c");
 			} else if (step.equals("4") ) {
 				request.setAttribute("step4Pos", "#ffdf6c");
-				if (svcSession.equals("nursingTexi") && svcSession.equals("nursing")) {
+				if (svcSession.equals("nursing")) {
+					System.out.println(svcSession+"nur");
 					request.setAttribute("serviceStep", "nursingapply.jsp");
-				}else if (svcSession.equals("nursingTexi") && svcSession.equals("texi")) {
+					request.setAttribute("nextBtn", "6");
+					if (svcSession.equals("nursingTexi")) {
+					request.setAttribute("nextBtn", "4");
+					}
+				} else if (svcSession.equals("texi") || svcSession.equals("nursingTexi")) {
+					System.out.println(svcSession+"taxi");
 					request.setAttribute("serviceStep", "taxiapply.jsp");
 				}
 			} else if (step.equals("6")) {

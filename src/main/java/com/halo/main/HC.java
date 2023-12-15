@@ -27,7 +27,7 @@ public class HC extends HttpServlet {
 			} else if (request.getParameter("link").equals("6")) {
 				subMenu = "service/serviceInformation/serviceInformation";
 			} else if (request.getParameter("link").equals("7")) {
-				subMenu = "service/serviceApply/complet";
+				subMenu = "service/serviceApply/serviceApply";
 			} else if (request.getParameter("link").equals("8")) {
 				subMenu = "qa/faq/faq";
 			} else if (request.getParameter("link").equals("9")) {

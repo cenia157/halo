@@ -73,7 +73,7 @@
 						</div>
 						<div class="header-opmenu-td">
 							<a class="header-opmenu-a" href="HC?link=6">서비스안내</a> <a
-								class="header-opmenu-a" href="HC?link=7">서비스신청</a>
+								class="header-opmenu-a" href="ServiceC">서비스신청</a>
 						</div>
 					</div>
 					<div class="header-td-menu">
@@ -158,7 +158,7 @@
 				</div>
 				<div class="footer-item-td-2">
 					<div>
-						合同会社 <img src="user/0.img/footerlogo.png" alt="" /><a href="adminC">ハロー </a>
+						合同会社 <img src="user/0.img/footerlogo.png" alt="" /><a href="AdminC">ハロー </a>
 					</div>
 					<div>
 						代表社員 ： 大出 昭子 <img src="user/0.img/footerinstaicon.png" alt="" />
