@@ -12,8 +12,8 @@
 </head>
 <body>
 
-	<div onclick="closeModal()" id="myModal" class="modal-background"></div>
-	<div id="myModal-tbl" class="modal-tbl">
+	<div onclick="closeModalF()" id="myModalF" class="modal-background"></div>
+	<div id="myModal-tblF" class="modal-tbl">
 		<div class="modal-title-set">
 			<div class="modal-title-tr">
 				<div class="modal-title-td-1">
@@ -25,7 +25,7 @@
 					</div>
 				</div>
 				<div class="modal-title-td-2">
-					<span class="close" id="closeModalBtn" onclick="closeModal()">&times;</span>
+					<span class="close" id="closeModalBtn" onclick="closeModalF()">&times;</span>
 				</div>
 
 			</div>
@@ -46,7 +46,7 @@
 				</script>
 				</div>
 				<div class="modal-content-button">
-					<button class="SubmitButton" onclick="closeModal()">수정완료</button>
+					<button class="SubmitButton" onclick="closeModalF()">수정완료</button>
 				</div>
 			</div>
 		</div>

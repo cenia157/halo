@@ -7,9 +7,10 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>notice</title>
-<script src="${pageContext.request.contextPath}/admin/0.js/ckeditor.js"></script>
+<script src="admin/0.js/ckeditor.js"></script>
+<script src="admin/0.js/test2.js"></script>
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/admin/boardmanagement/notice/0.css/notice.css" />
+	href="admin/boardmanagement/notice/0.css/notice.css" />
 <link
 	href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular"
 	rel="stylesheet" />
