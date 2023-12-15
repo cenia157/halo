@@ -26,6 +26,8 @@
 
 
 <script src="${pageContext.request.contextPath}/admin/0.js/test.js"></script>
+<script src="${pageContext.request.contextPath}/admin/0.js/test2.js"></script>
+
 <link rel="stylesheet" href="${pageContext.request.contextPath}/admin/0.css/test copy.css" />
 <body>
 <!--

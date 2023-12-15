@@ -8,6 +8,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/admin/boardmanagement/notice/0.css/notice.css" />
+
+
+
+
+
 <title>notice</title>
 </head>
 <body>
@@ -25,7 +30,7 @@
 		<div class="ontent-m-td-2-content-txt-in">
 			<div class="ontent-m-td-2-content-txt-no-in">8</div>
 			<div class="ontent-m-td-2-content-txt-kategorie-in">8</div>
-			<div class="ontent-m-td-2-content-txt-title-in">8</div>
+			<div class="ontent-m-td-2-content-txt-title-in" onclick="openModalV()">여기를 누르면 공지사항 수정하기 모달이 뜬다</div>
 			<div class="ontent-m-td-2-content-txt-writer-in">8</div>
 			<div class="ontent-m-td-2-content-txt-date-in">8</div>
 			<div class="ontent-m-td-2-content-txt-delete-in">삭제하기</div>
