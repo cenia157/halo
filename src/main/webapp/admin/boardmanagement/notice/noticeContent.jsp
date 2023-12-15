@@ -8,13 +8,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>notice</title>
 <script src="${pageContext.request.contextPath}/admin/0.js/ckeditor.js"></script>
-
-
-
-
-
-
-
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/admin/boardmanagement/notice/0.css/notice.css" />
 <link
@@ -56,10 +49,11 @@
 				<button class="SubmitButton-content" onclick="openModalNR()">등록하기</button>
 			</div>
 		</div>
-
 		<!-- 
 			여기는 모달을 띄워주는 곳, 
-			공지사항을 등록하기 위한 곳(noticeEditPage.jsp)
+			새로운 공지사항을 등록하기 위한 모달(noticeNEWRegPage.jsp)			
+			기존의 공지사항을 보기 위한 모달(noticeViewPage.jsp)
+			기존의 공지사항을 수정 위한 모달(이 모달은 noticeViewPage에서 include됨)(noticeRegPage.jsp)
 		-->
 		<jsp:include page="noticeViewPage.jsp"></jsp:include>
 		<jsp:include page="noticeRegPage.jsp"></jsp:include>
@@ -67,22 +61,3 @@
 	</div>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

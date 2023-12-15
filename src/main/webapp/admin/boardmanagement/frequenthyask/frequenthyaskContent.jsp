@@ -32,7 +32,7 @@
 			<div class="ontent-m-td-2-content-txt-in">
 				<div class="ontent-m-td-2-content-txt-no-in">8</div>
 				<div class="ontent-m-td-2-content-txt-kategorie-in">8</div>
-				<div class="ontent-m-td-2-content-txt-title-in">● 8</div>
+				<div class="ontent-m-td-2-content-txt-title-in"> <a onclick="openModal()">● 이곳을 누르면 모달이 뜬다</a> </div>
 				<div class="ontent-m-td-2-content-txt-writer-in">8</div>
 				<div class="ontent-m-td-2-content-txt-date-in">8</div>
 				<div class="ontent-m-td-2-content-txt-delete-in"></div>
