@@ -18,7 +18,7 @@ public class HC extends HttpServlet {
 			} else if (request.getParameter("link").equals("2")) {
 				subMenu = "information/map/map";
 			} else if (request.getParameter("link").equals("3")) {
-				subMenu = "introduce/announcement/announcement_contentPage2";
+				subMenu = "introduce/announcement/announcement_contentPage";
 			} else if (request.getParameter("link").equals("4")) {
 				subMenu = "introduce/album/album_contentPage";
 			} else if (request.getParameter("link").equals("5")) {
