@@ -11,6 +11,8 @@
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/user/0.css/index.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/user/0.css/index-menu.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/user/0.css/index-footer.css">
+
+
 </head>
 <body>
 
@@ -59,7 +61,7 @@
 				</div>
 
 				<div class="qd-content-box-td2-2">
-					<button class="qd-content-box-td2-2-button">목록</button>
+					<button class="qd-content-box-td2-2-button" id="listButton">リスト</button>
 				</div>
 				<!-- 댓글 -->
 				<div class="qd-content-box-td3">
@@ -78,7 +80,7 @@
 				<!-- 이전글/다음글 -->
 				<div class="qd-content-box-td4" >
 					<div class="qd-content-box-td4-1">
-						<div class="qd-content-box-td4-1-1">이전글</div>
+						<div class="qd-content-box-td4-1-1">前のページ</div>
 							<div class="qd-content-box-td4-1-2">
 							<a>
 								글 제목
@@ -86,7 +88,7 @@
 							</div>
 						</div>
 					<div class="qd-content-box-td4-2">
-						<div class="qd-content-box-td4-2-1">다음글</div>
+						<div class="qd-content-box-td4-2-1">後のページ</div>
 						<div class="qd-content-box-td4-2-2">
 							<a>
 								글 제목
@@ -96,7 +98,7 @@
 				</div>
 				<div class="qd-content-box-td4-3">
 					<div class="qd-content-box-td4-3-1">
-						그 밖의 문의사항은 <br> Tel.06-6997-6531 로 연락 부탁드립니다.
+						他のお問い合わせは <br> Tel.06-6997-6531 にご連絡お願い致します。
 					</div>
 				</div>
 			</div>
@@ -107,4 +109,10 @@
 	</div>
 
 </body>
+
+<script type="text/javascript">
+	document.getElementById("listButton").onclick = function() {
+    window.location.href = "HC?link=9";
+  };	
+</script>
 </html>
