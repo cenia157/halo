@@ -7,8 +7,6 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Mainpage</title>
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/admin/0.css/test.css" />
 
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/admin/homepageSetting/mainpage/0.css/mainpage.css" />

@@ -15,7 +15,12 @@
 	<div class="modal-tbl">
 		<div class="modal-title-tr">
 			<div class="modal-title-td-1">
-				<div class="real-title">● 제공되는 서비스를 이용하려면 어떻게 해야되나요?</div>
+				<div class="real-title">
+
+					<input class="real-title-editor"
+						placeholder="● 제공되는 서비스를 이용하려면 어떻게 해야되나요?">
+
+				</div>
 			</div>
 			<div class="modal-title-td-2">
 				<span class="close" id="closeModalBtn">&times;</span>
