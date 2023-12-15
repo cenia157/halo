@@ -15,10 +15,10 @@
 	crossorigin="anonymous">
 </script>
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/admin/boardmanagement/notice/0.css/notice.css" />
-<script src="${pageContext.request.contextPath}/admin/0.js/test.js"></script>
-<script src="${pageContext.request.contextPath}/admin/0.js/test2.js"></script>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/admin/0.css/test copy.css" />
+	href="admin/boardmanagement/notice/0.css/notice.css" />
+<script src="/admin/0.js/test.js"></script>
+<script src="/admin/0.js/test2.js"></script>
+<link rel="stylesheet" href="admin/0.css/test copy.css" />
 <body>
 <!--
 본 파일은 임시로 만든 파일이며 /admin/index.jsp 의 인클루드를 테스트하기 위해 임시로 만든 페이지다
@@ -35,10 +35,10 @@
 				<div class="menu-td-2">
 					<div class="menu-td-2-td">
 						<div>
-							<img src="${pageContext.request.contextPath}/admin/0.img/admintble2-1.png" alt="">大出 昭子
+							<img src="/admin/0.img/admintble2-1.png" alt="">大出 昭子
 						</div>
 						<div>
-							<img src="${pageContext.request.contextPath}/admin/0.img/admintble2-2.png" alt=""><a href="">사이트
+							<img src="/admin/0.img/admintble2-2.png" alt=""><a href="">사이트
 								바로가기</a>
 						</div>
 					</div>
@@ -47,100 +47,100 @@
 					<div class="menu-td-3-td-1">사이트관리</div>
 					<div class="menu-td-3-td-2">
 						<div class="menu-td-3-td-open-td-1">
-							<img src="${pageContext.request.contextPath}/admin/0.img/admintble3-1.png" alt=""><a href="">대시보드</a>
+							<img src="/admin/0.img/admintble3-1.png" alt=""><a href="">대시보드</a>
 						</div>
 						<div class="menu-td-3-td-open-td-2">
 							<div class="menu-td-3-td-open-td-2-td-1">
-								<img src="${pageContext.request.contextPath}/admin/0.img/admintble3-2.png" alt=""><span>홈페이지수정</span>
+								<img src="/admin/0.img/admintble3-2.png" alt=""><span>홈페이지수정</span>
 							</div>
 							<div class="menu-td-3-td-open-td-2-con">
 								<div class="menu-td-3-td-open-td-2-con-td-2">
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
-										<img src="${pageContext.request.contextPath}/admin/0.img/admintble-select.png" alt=""><a href="">로고변경</a>
+										<img src="/admin/0.img/admintble-select.png" alt=""><a href="">로고변경</a>
 									</div>
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
-										<img src="${pageContext.request.contextPath}/admin/0.img/admintble-select.png" alt=""><a href="">주요메뉴설정</a>
+										<img src="/admin/0.img/admintble-select.png" alt=""><a href="">주요메뉴설정</a>
 									</div>
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
-										<img src="${pageContext.request.contextPath}/admin/0.img/admintble-select.png" alt=""><a href="">하단배너설정</a>
+										<img src="/admin/0.img/admintble-select.png" alt=""><a href="">하단배너설정</a>
 									</div>
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
-										<img src="${pageContext.request.contextPath}/admin/0.img/admintble-select.png" alt=""><a href="">회사정보변경</a>
+										<img src="/admin/0.img/admintble-select.png" alt=""><a href="">회사정보변경</a>
 									</div>
 								</div>
 							</div>
 						</div>
 						<div class="menu-td-3-td-open-td-2">
 							<div class="menu-td-3-td-open-td-2-td-1">
-								<img src="${pageContext.request.contextPath}/admin/0.img/admintble3-3.png" alt=""><span>게시판관리</span>
+								<img src="/admin/0.img/admintble3-3.png" alt=""><span>게시판관리</span>
 							</div>
 							<div class="menu-td-3-td-open-td-2-con">
 								<div class="menu-td-3-td-open-td-2-con-td-2">
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
-										<img src="${pageContext.request.contextPath}/admin/0.img/admintble-select.png" alt=""><a href="">공지사항</a>
+										<img src="/admin/0.img/admintble-select.png" alt=""><a href="">공지사항</a>
 									</div>
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
-										<img src="${pageContext.request.contextPath}/admin/0.img/admintble-select.png" alt=""><a href="">문의사항</a>
+										<img src="/admin/0.img/admintble-select.png" alt=""><a href="">문의사항</a>
 									</div>
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
-										<img src="${pageContext.request.contextPath}/admin/0.img/admintble-select.png" alt=""><a href="">자주묻는질문</a>
+										<img src="/admin/0.img/admintble-select.png" alt=""><a href="">자주묻는질문</a>
 									</div>
 								</div>
 							</div>
 						</div>
 						<div class="menu-td-3-td-open-td-2">
 							<div class="menu-td-3-td-open-td-2-td-1">
-								<img src="${pageContext.request.contextPath}/admin/0.img/admintble3-4.png" alt=""><span>일정</span>
+								<img src="/admin/0.img/admintble3-4.png" alt=""><span>일정</span>
 							</div>
 							<div class="menu-td-3-td-open-td-2-con">
 								<div class="menu-td-3-td-open-td-2-con-td-2">
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
-										<img src="${pageContext.request.contextPath}/admin/0.img/admintble-select.png" alt=""><a href="">회사의일정</a>
+										<img src="/admin/0.img/admintble-select.png" alt=""><a href="">회사의일정</a>
 									</div>
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
-										<img src="${pageContext.request.contextPath}/admin/0.img/admintble-select.png" alt=""><a href="">고객의예약</a>
+										<img src="/admin/0.img/admintble-select.png" alt=""><a href="">고객의예약</a>
 									</div>
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
-										<img src="${pageContext.request.contextPath}/admin/0.img/admintble-select.png" alt=""><a href="">직원근무일정</a>
+										<img src="/admin/0.img/admintble-select.png" alt=""><a href="">직원근무일정</a>
 									</div>
 								</div>
 							</div>
 						</div>
 						<div class="menu-td-3-td-open-td-2">
 							<div class="menu-td-3-td-open-td-2-td-1">
-								<img src="${pageContext.request.contextPath}/admin/0.img/admintble3-5.png" alt=""><span>고객관리</span>
+								<img src="/admin/0.img/admintble3-5.png" alt=""><span>고객관리</span>
 							</div>
 							<div class="menu-td-3-td-open-td-2-con">
 								<div class="menu-td-3-td-open-td-2-con-td-2">
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
-										<img src="${pageContext.request.contextPath}/admin/0.img/admintble-select.png" alt=""><a href="">통계</a>
+										<img src="/admin/0.img/admintble-select.png" alt=""><a href="">통계</a>
 									</div>
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
-										<img src="${pageContext.request.contextPath}/admin/0.img/admintble-select.png" alt=""><a href="">고객정보관리</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="menu-td-3-td-open-td-2">
-							<div class="menu-td-3-td-open-td-2-td-1">
-								<img src="${pageContext.request.contextPath}/admin/0.img/admintble3-6.png" alt=""><span>관리자전용</span>
-							</div>
-							<div class="menu-td-3-td-open-td-2-con">
-								<div class="menu-td-3-td-open-td-2-con-td-2">
-									<div class="menu-td-3-td-open-td-2-con-td-2-select">
-										<img src="${pageContext.request.contextPath}/admin/0.img/admintble-select.png" alt=""><a href="">직원등록</a>
+										<img src="/admin/0.img/admintble-select.png" alt=""><a href="">고객정보관리</a>
 									</div>
 								</div>
 							</div>
 						</div>
 						<div class="menu-td-3-td-open-td-2">
 							<div class="menu-td-3-td-open-td-2-td-1">
-								<img src="${pageContext.request.contextPath}/admin/0.img/admintble3-7.png" alt=""><span>팝업관리</span>
+								<img src="/admin/0.img/admintble3-6.png" alt=""><span>관리자전용</span>
 							</div>
 							<div class="menu-td-3-td-open-td-2-con">
 								<div class="menu-td-3-td-open-td-2-con-td-2">
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
-										<img src="${pageContext.request.contextPath}/admin/0.img/admintble-select.png" alt=""><a href="">팝업설정</a>
+										<img src="/admin/0.img/admintble-select.png" alt=""><a href="">직원등록</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="menu-td-3-td-open-td-2">
+							<div class="menu-td-3-td-open-td-2-td-1">
+								<img src="/admin/0.img/admintble3-7.png" alt=""><span>팝업관리</span>
+							</div>
+							<div class="menu-td-3-td-open-td-2-con">
+								<div class="menu-td-3-td-open-td-2-con-td-2">
+									<div class="menu-td-3-td-open-td-2-con-td-2-select">
+										<img src="/admin/0.img/admintble-select.png" alt=""><a href="">팝업설정</a>
 									</div>
 								</div>
 							</div>
@@ -150,7 +150,7 @@
 				<div class="menu-td-4">
 					<div class="menu-td-4-td">
 						<div>
-							<img src="${pageContext.request.contextPath}/admin/0.img/adminfootericon.png" alt="">日本語
+							<img src="/admin/0.img/adminfootericon.png" alt="">日本語
 						</div>
 					</div>
 				</div>

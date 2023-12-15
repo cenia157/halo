@@ -8,12 +8,12 @@
 <title>noticeEditPage</title>
 
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/admin/boardmanagement/notice/0.css/notice.css" />
+	href="admin/boardmanagement/notice/0.css/notice.css" />
 <link
 	href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular"
 	rel="stylesheet" />
 </head>
-<script src="${pageContext.request.contextPath}/admin/0.js/ckeditor.js"></script>
+
 <body>
 	<div onclick="closeModalE()" id="myModalR"></div>
 	<div id="myModal-tblR" class="modal-tbl">
