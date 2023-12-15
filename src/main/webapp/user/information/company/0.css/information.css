@@ -1,206 +1,153 @@
-@import url(https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular);
-
-@font-face {
-  font-family: "SF Pro JP Regular";
-  src: url("https://db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.eot");
-  src: url("https://db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.eot#iefix")
-      format("embedded-opentype"),
-    url("https://db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.woff2")
-      format("woff2"),
-    url("https://db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.woff")
-      format("woff"),
-    url("https://db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.ttf")
-      format("truetype"),
-    url("https://db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.svg#SF Pro JP Regular")
-      format("svg");
-}
-
-* {
-  font-family: "SF Pro JP Regular";
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-a {
-  text-decoration: none;
-}
-
-.container-tbl {
-  width: 100%;
-  max-width: 100vw;
-  height: 250vh;
-}
-
-/* 풋터 */
-.footer-tbl {
-  border: solid 1px rgb(0, 234, 255);
-  width: 100%;
-  height: 20vh;
-}
 /* 컨텐트  */
-.content-tbl {
-  background-color: #5b7953;
-  width: 100%;
-  height: 260vh;
-  display: flex;
-  flex-direction: column;
+.com-content-tbl {
+	width: 100%;
+	height: auto;
+	display: flex;
+	justify-content: center;
 }
+
 /* 컨텐트 박스 */
 .content-box-tbl {
-  background-color: rgba(255, 255, 255, 0.8);
-  border-radius: 35px;
-  width: 90%;
-  height: 100%;
-  margin: 30% 5% 0%;
+	background-color: rgba(255, 255, 255, 0.8);
+	border-radius: 35px;
+	width: 95%;
+	height: auto;
 }
+
 /* 회사소개 오시는길 버튼(css바뀌어야함) */
 .content-box-tr {
-  width: 100%;
-  display: flex;
-  height: 10%;
-  margin-top: 0;
+	width: 100%;
+	display: flex;
+	height: 15vh;
 }
+
 .content-box-td1 {
-  color: rgb(132, 148, 97);
-  font-size: 2.5rem;
-  width: 50%;
-  font-style: normal;
-  font-weight: 700;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-top-left-radius: 30px;
-  text-shadow: 4px 4px 4px #ffdf6c;
+	color: rgb(132, 148, 97);
+	height: 100%;
+	font-size: 2.5rem;
+	width: 50%;
+	font-style: normal;
+	font-weight: 700;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-top-left-radius: 30px;
+	text-shadow: 4px 4px 4px #ffdf6c;
 }
-.content-box-td1 > a {
-  color: #546137;
-  cursor: hand;
+
+.content-box-td1>a {
+	color: #546137;
+	cursor: hand;
 }
+
 .content-box-td2 {
-  background-color: rgb(132, 148, 97);
-  color: white;
-  font-size: 2.5rem;
-  font-style: normal;
-  font-weight: 700;
-  width: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-top-right-radius: 30px;
+	background-color: rgb(132, 148, 97);
+	height: 100%;
+	color: white;
+	font-size: 2.5rem;
+	font-style: normal;
+	font-weight: 700;
+	width: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-top-right-radius: 30px;
 }
-.content-box-td2 > a {
-  color: white;
-  cursor: hand;
+
+.content-box-td2>a {
+	color: white;
+	cursor: hand;
 }
 
 /* 회사 소개 내용 */
+/* 여기높이 수정 */
 .introduce-tbl {
-  width: 96%;
-  height: 90%;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+	height: 130vh;
+	width: 96%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
+
 .introduce-tr {
-  width: 90%;
-  height: auto;
-  margin-top: 2%;
+	width: 90%;
+	height: 100%;
 }
 
 /* 인사말 title */
 .introduce-tr-box {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.introduce-td1 {
-  color: #546137;
-  text-shadow: 4px 4px 4px #ffdf6c;
-  font-size: 2.3rem;
-  font-weight: 700;
-  width: 10%;
-  height: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.introduce-td2 {
+  width: 100%;
+  height: 15vh;
+  padding-top: 2%;
   color: #546137;
   font-size: 1.5rem;
   font-weight: 700;
-  width: 100%;
-  text-align: right;
+}
+
+.introduce-td1 {
+	color: #546137;
+	font-size: 1.5rem;
+	font-weight: 700;
+	width: 100%;
+	text-align: right;
+	padding-right: 5%;
+}
+
+.introduce-td2 {
+	color: #546137;
+	text-shadow: 4px 4px 4px #ffdf6c;
+	font-size: 2.3rem;
+	font-weight: 700;
+	display: flex;
+	justify-content: center;
 }
 
 /* 인사말 밑 이미지 */
-.introduce-td-img {
-  margin-top: 2%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
+.introduce-td-img  {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: relative;
 }
-.introduce-td-img > img {
-  width: 90%;
+
+.introduce-td-img>img {
+	width: 90%;
 }
 
 /* 인사말 텍스트 */
 .introduce-txt-tbl {
-  position: absolute;
-  width: auto;
-  height: auto;
-  margin-top: 13%;
-  filter: drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.7));
+	position: absolute;
+	width: auto;
+	height: auto;
+	margin-top: 13%;
+	filter: drop-shadow(10px 10px 10px rgba(0, 0, 0, 0.7));
 }
+
 .introduce-txt-tr {
-  color: #ffffff;
-  text-align: center;
-  font-family: Inter;
-  font-size: 2.5rem;
-  font-style: normal;
-  font-weight: 700;
-  margin-bottom: 5%;
+	color: #ffffff;
+	text-align: center;
+	font-family: Inter;
+	font-size: 2.5rem;
+	font-style: normal;
+	font-weight: 700;
+	margin-bottom: 5%;
 }
 /* 사진 하단 텍스트 */
 .introduce-txt-tr2 {
-  background-color: white;
-  filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.3));
-  border-radius: 30px;
-  display: flex;
-  justify-content: center;
-  width: 80%;
-  height: auto;
-  margin-top: 2%;
-  padding: 4%;
+	background-color: white;
+	filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.3));
+	border-radius: 30px;
+	display: flex;
+	justify-content: center;
+	width: 80%;
+	height: auto;
+	margin-top: 2%;
+	padding: 2%;
 }
+
 .introduce-txt-td {
-  color: #546137;
-  font-size: 2rem;
-  font-weight: 700;
-  text-align: center;
-}
-
-/* 하단베너ㅓ */
-.bottom-venner-tr {
-  width: 100%;
-  height: 40vh;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-}
-
-.bottom-venner-td {
-  background-color: rgb(255, 255, 255, 0.84);
-  box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.3);
-  color: #546137;
-  font-size: 2.3rem;
-  font-weight: 700;
-  width: 20%;
-  height: 45%;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  border-radius: 30px;
+	color: #546137;
+	font-size: 2rem;
+	font-weight: 700;
+	text-align: center;
 }
