@@ -14,6 +14,7 @@
 	integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
 	crossorigin="anonymous">
 </script>
+<script src="${pageContext.request.contextPath}/admin/0.js/test.js"></script>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/admin/0.css/test copy.css" />
 <body>
 <!--
