@@ -114,72 +114,72 @@ pageEncoding="UTF-8"%>
       </div>
     </div>
 
-    <!-- <script type="text/javascript">
-      $.ajax({
-        url: "https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url,permalink,thumbnail_url,is_shared_to_feed&access_token=IGQWRQZAWR4ZA2Q5QVk3bVlMQnhmZADFLaUZANQ3RsZAlRoWWJQbWV1RGp6c3F3VUNXM0VFWlllOWx3V3d5aGF5N28zMDJWTU02djJmdTVzdGJYT3hTaGhyQllHNUticWZAMVkdkb2xyQnlOelVsTF82anJrMk9oSExHQ3cZD",
-        method: "GET",
-        dataType: "jsonp",
-        success: function (response) {
-          console.log(response);
-          makeView(response);
-        },
-        error: function (xhr, status, error) {
-          console.log(xhr.responseText);
-        },
-      });
+<!--     <script type="text/javascript">
+<!--       $.ajax({ -->
+<!--         url: "https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url,permalink,thumbnail_url,is_shared_to_feed&access_token=IGQWRQZAWR4ZA2Q5QVk3bVlMQnhmZADFLaUZANQ3RsZAlRoWWJQbWV1RGp6c3F3VUNXM0VFWlllOWx3V3d5aGF5N28zMDJWTU02djJmdTVzdGJYT3hTaGhyQllHNUticWZAMVkdkb2xyQnlOelVsTF82anJrMk9oSExHQ3cZD", -->
+<!--         method: "GET", -->
+<!--         dataType: "jsonp", -->
+<!--         success: function (response) { -->
+<!--           console.log(response); -->
+<!--           makeView(response); -->
+<!--         }, -->
+<!--         error: function (xhr, status, error) { -->
+<!--           console.log(xhr.responseText); -->
+<!--         }, -->
+<!--       }); -->
 
-      function makeView(res) {
-        let items = res.data;
+<!--       function makeView(res) { -->
+<!--         let items = res.data; -->
 
-        $(".a_content-box-tr1-td3-1").empty();
+<!--         $(".a_content-box-tr1-td3-1").empty(); -->
 
-        $.each(items, function (i, obj) {
-          let mediaType = obj.media_type;
-          let mediaTag, mediaUrl;
+<!--         $.each(items, function (i, obj) { -->
+<!--           let mediaType = obj.media_type; -->
+<!--           let mediaTag, mediaUrl; -->
 
-          if (mediaType === "VIDEO") {
-            mediaTag = $("<video class='api_media' controls></video>");
-            mediaUrl = obj.media_url;
-          } else if (mediaType === "IMAGE") {
-            mediaTag = $("<img class='api_media'>");
-            mediaUrl = obj.media_url; // 이미지일 경우 media_url 사용
-          }
+<!--           if (mediaType === "VIDEO") { -->
+<!--             mediaTag = $("<video class='api_media' controls></video>"); -->
+<!--             mediaUrl = obj.media_url; -->
+<!--           } else if (mediaType === "IMAGE") { -->
+<!--             mediaTag = $("<img class='api_media'>"); -->
+<!--             mediaUrl = obj.media_url; // 이미지일 경우 media_url 사용 -->
+<!--           } -->
 
-          let captionDiv = $("<div class='caption'></div>");
+<!--           let captionDiv = $("<div class='caption'></div>"); -->
 
-          let aTag;
-          if (mediaType === "VIDEO" || mediaType === "IMAGE") {
-            aTag = $("<a href='" + obj.permalink + "' target='_blank'></a>");
-            mediaTag.attr("src", mediaUrl); // 이미지일 경우 src 속성 지정
-          }
+<!--           let aTag; -->
+<!--           if (mediaType === "VIDEO" || mediaType === "IMAGE") { -->
+<!--             aTag = $("<a href='" + obj.permalink + "' target='_blank'></a>"); -->
+<!--             mediaTag.attr("src", mediaUrl); // 이미지일 경우 src 속성 지정 -->
+<!--           } -->
 
-          $(aTag).append(mediaTag);
-          $(captionDiv).text(obj.caption);
+<!--           $(aTag).append(mediaTag); -->
+<!--           $(captionDiv).text(obj.caption); -->
 
-          let gridItem = $("<div class='grid-item'></div>")
-            .append(aTag)
-            .append(captionDiv);
+<!--           let gridItem = $("<div class='grid-item'></div>") -->
+<!--             .append(aTag) -->
+<!--             .append(captionDiv); -->
 
-          $(".content-box-tr1-td3-1").append(gridItem);
+<!--           $(".content-box-tr1-td3-1").append(gridItem); -->
 
-          // 이미지 로딩 후에 로딩 횟수 증가
-          loadImage(mediaTag, function () {
-            // 이미지가 로딩되면 페이지 버튼을 생성
-          });
-        });
-      }
+<!--           // 이미지 로딩 후에 로딩 횟수 증가 -->
+<!--           loadImage(mediaTag, function () { -->
+<!--             // 이미지가 로딩되면 페이지 버튼을 생성 -->
+<!--           }); -->
+<!--         }); -->
+<!--       } -->
 
-      function loadImage(imgTag, callback) {
-        imgTag
-          .on("load", function () {
-            callback();
-          })
-          .on("error", function () {
-            callback();
-          });
+<!--       function loadImage(imgTag, callback) { -->
+<!--         imgTag -->
+<!--           .on("load", function () { -->
+<!--             callback(); -->
+<!--           }) -->
+<!--           .on("error", function () { -->
+<!--             callback(); -->
+<!--           }); -->
 
-        imgTag.attr("src", imgTag.attr("src"));
-      }
-    </script> -->
+<!--         imgTag.attr("src", imgTag.attr("src")); -->
+<!--       } -->
+<!--     </script> --> 
   </body>
 </html>
