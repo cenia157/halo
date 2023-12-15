@@ -54,16 +54,16 @@
 	<div class="q-content-tbl">
 		<div class="q-content-box-tr1">
 			<div class="q-content-box-td1">
-				<span class="q-content-box-td-content1">문의작성란</span>
+				<span class="q-content-box-td-content1">お問い合わせフォーム</span>
 			</div>
 			
 			<div class="q-content-box-td2">
-				<span class="q-content-box-td-content2-1">작성자명* </span>
+				<span class="q-content-box-td-content2-1">作成者* </span>
 				<input class="q-content-box-td-content2-2" type="text">
 			</div>
 			
 			<div class="q-content-box-td2">
-				<span class="q-content-box-td-content3-1">휴대폰 번호*</span>
+				<span class="q-content-box-td-content3-1">電話番号*</span>
 					<select class="q-content-box-td-content3-2" name="tel" id="tel">
 			            <option value="080">080</option>
 			            <option value="090">090</option>
@@ -78,7 +78,7 @@
 			</div>
 			
 			<div class="q-content-box-td2">
-				<span class="q-content-box-td-content4-1">문의 카테고리</span>
+				<span class="q-content-box-td-content4-1">カテゴリー</span>
 					<select class="q-content-box-td-content4-2" name="question" id="questioncategory">
 			            <option value="Q1">Q1</option>
 			            <option value="Q2">Q2</option>
@@ -88,16 +88,16 @@
 			</div>
 			
 			<div class="q-content-box-td2">
-				<span class="q-content-box-td-content5-1">문의 제목*</span>
+				<span class="q-content-box-td-content5-1">タイトル*</span>
 				<input class="q-content-box-td-content5-2" type="text">
 			</div>
 			
 			<div class="q-content-box-td2 content-box-td-content6">
-				<span class="q-content-box-td-content6-1">문의 내용*</span>
+				<span class="q-content-box-td-content6-1">お問い合わせ内容*</span>
 				<textarea class="q-content-box-td-content6-2" type="text"></textarea>
 			</div>
 			<div class="q-content-box-td3">
-				<span class="q-content-box-td-content7">*은 필수입력 사항입니다.</span>
+				<span class="q-content-box-td-content7">*は必ずお書きください。</span>
 			</div>
 			
 			
@@ -123,7 +123,7 @@
                 <div class="q_content-box-tr1-td3-1-1-1">
                 	
                 	<div class="q_content-box-tr1-td3-1-1-1-txt">
-                		<span>문의글 게시판</span>
+                		<span>掲示板</span>
                 	</div>
                 	
                   <!-- 타이블 첫 행 -->
@@ -132,16 +132,16 @@
                       <span>No</span>
                     </div>
                     <div class="q_content-box-tr1-td3-1-1-1-1-2 writer-width">
-                      <span>글쓴이</span>
+                      <span>作成者</span>
                     </div>
                     <div class="q_content-box-tr1-td3-1-1-1-1-3 title-width">
-                      <span>제목</span>
+                      <span>タイトル</span>
                     </div>
                     <div class="q_content-box-tr1-td3-1-1-1-1-4 answer-width">
-                      <span>응답여부</span>
+                      <span>応答</span>
                     </div>
                     <div class="q_content-box-tr1-td3-1-1-1-1-5 reg-width">
-                      <span>작성일</span>
+                      <span>作成日時</span>
                     </div>
                   </div>
                   

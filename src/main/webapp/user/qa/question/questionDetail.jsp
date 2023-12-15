@@ -25,25 +25,25 @@
 			<div class="qd-content-box-tr2">
 				<div class="qd-content-box-tr2-1">
 				<div class="qd-content-box-td1-1">
-					<span> 문의글 게시판</span>
+					<span>お問い合わせ</span>
 				</div>
 				<div class="qd-content-box-td1-2">
-					<div class="qd-content-box-td1-2-1">제목</div>
+					<div class="qd-content-box-td1-2-1">タイトル</div>
 					<div class="qd-content-box-td1-2-2">제목 내용</div>
 				</div>
 
 				<div class="qd-content-box-td1-3">
-					<div class="qd-content-box-td1-3-1">작성자</div>
+					<div class="qd-content-box-td1-3-1">作成者</div>
 					<div class="qd-content-box-td1-3-2">작성자 이름</div>
 				</div>
 
 				<div class="qd-content-box-td1-4">
 					<div class="qd-content-box-td1-4-content">
-						<span class="qd-content-box-td1-4-1">작성일: </span> <span
+						<span class="qd-content-box-td1-4-1">作成日時</span> <span
 							class="qd-content-box-td1-4-2">작성일 내용</span>
 					</div>
 					<div class="qd-content-box-td-button">
-						<button class="qd-content-box-td-button-2">삭제 X</button>
+						<button class="qd-content-box-td-button-2">削除 X</button>
 					</div>
 				</div>
 
