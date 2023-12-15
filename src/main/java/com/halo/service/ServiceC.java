@@ -37,7 +37,7 @@ public class ServiceC extends HttpServlet {
 				System.out.println("간택세션생성");
 				session.setAttribute("svcSession", "nursingTexi");
 		}
-			svcSession = (String) request.getAttribute("svcSession");
+			svcSession = (String) request.getSession().getAttribute("svcSession");
 			System.out.println(svcSession);
 		}
 		if (step != null) {
