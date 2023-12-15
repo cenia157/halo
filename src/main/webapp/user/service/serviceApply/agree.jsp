@@ -66,7 +66,7 @@
 
 				<!-- 추가사항 2: 신청 버튼 -->
 				<div class="button-container">
-					<button id="apply" name="apply">申請</button>
+							<a href="ServiceC?step=7" id="apply" name="apply">申請</a>
 				</div>
 
 				<!-- step별 페이지  끝-->
