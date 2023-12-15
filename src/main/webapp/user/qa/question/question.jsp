@@ -33,6 +33,9 @@
             });
         });
     });
+    
+    
+    
 </script>
 
 </head>
@@ -175,7 +178,7 @@
 					<!-- Pagination -->
 					<nav aria-label="Page navigation example">
 					    <ul class="pagination">
-					        <c:forEach var="page" begin="1" end="3">
+					        <c:forEach var="page" begin="1" end="5">
 					            <li class="page-item ${page == currentPage ? 'active' : ''}">
 					                <a class="page-link" href="?currentPage=${page}">●</a>
 					            </li>
