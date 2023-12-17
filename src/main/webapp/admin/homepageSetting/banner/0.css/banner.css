@@ -27,35 +27,73 @@
 	padding: 10%;
 }
 
+/* .filebox .bannerInput { */
+/*     display: inline-block; */
+/*     height: 40px; */
+/*     padding: 0 10px; */
+/*     vertical-align: middle; */
+/*     border: 1px solid gray; */
+/*     width: 80%; */
+/*     color: black; */
+/* } */
+
+/* .filebox label { */
+/*     display: inline-block; */
+/*     padding: 10px 20px; */
+/*     color: #fff; */
+/*     vertical-align: middle; */
+/*     background-color: #999999; */
+/*     cursor: pointer; */
+/*     height: 40px; */
+/*     margin-left: 10px; */
+/* } */
 
 
-.filebox .bannerInput {
-    display: inline-block;
-    height: 40px;
-    padding: 0 10px;
-    vertical-align: middle;
-    border: 1px solid gray;
-    width: 80%;
-    color: black;
+/* .filebox input[type="file"] { */
+/* 	position: absolute; */
+/* 	width: 0; */
+/* 	height: 0; */
+/* 	padding: 0; */
+/* 	overflow: hidden; */
+/* 	border: 0; */
+/* } */
+.banner-tbl{
+	width: 100%;
+	height: 70%;
+	display: flex;
+}
+.banner-tr{
+	border: solid 1px red;
+	width: 25%;
+	height: 50%;
 }
 
-.filebox label {
-    display: inline-block;
-    padding: 10px 20px;
-    color: #fff;
-    vertical-align: middle;
-    background-color: #999999;
-    cursor: pointer;
-    height: 40px;
-    margin-left: 10px;
+.banner-td-img-box{
+	border: solid 1px blue;
+	width: 100%;
+	height: 40%;
+}
+.banner-td-1{
+	border: solid 1px blue;
+	width: 100%;
+	height: 10%;
+}
+.banner-td-2{
+	border: solid 1px blue;
+	width: 100%;
+	height: 10%;
+}
+.banner-td-3{
+	border: solid 1px blue;
+	width: 100%;
+	height: 10%;
 }
 
 
-.filebox input[type="file"] {
-	position: absolute;
-	width: 0;
-	height: 0;
-	padding: 0;
-	overflow: hidden;
-	border: 0;
-}
+
+
+
+
+
+
+

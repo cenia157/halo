@@ -19,9 +19,29 @@
 <body>
 	<!-- 아직 배너 설정에 뭐 넣을지 정해지지 않음 -->
 	<div class="content-m-td-3">
-		<div class="filebox">
-			<input class="bannerInput" value="" placeholder="첨부파일"> <label
-				for="file">파일찾기</label> <input type="file" id="file">
+		<!-- 		<div class="filebox"> -->
+		<!-- 			<input class="bannerInput" value="" placeholder="첨부파일"> <label -->
+		<!-- 				for="file">파일찾기</label> <input type="file" id="file"> -->
+		<!-- 		</div> -->
+		<div class="banner-tbl">
+			<div class="banner-tr">
+				<div class="banner-td-img-box">배너 미리보기</div>
+				<div class="banner-td-1">셀렉</div>
+				<div class="banner-td-2">url</div>
+				<div class="banner-td-3">썸네일파일</div>
+			</div>
+			<div class="banner-tr">
+				<div class="banner-td-img-box">배너 미리보기</div>
+				<div class="banner-td-1">셀렉</div>
+				<div class="banner-td-2">url</div>
+				<div class="banner-td-3">썸네일파일</div>
+			</div>
+			<div class="banner-tr">
+				<div class="banner-td-img-box">배너 미리보기</div>
+				<div class="banner-td-1">셀렉</div>
+				<div class="banner-td-2">url</div>
+				<div class="banner-td-3">썸네일파일</div>
+			</div>
 		</div>
 	</div>
 </body>
