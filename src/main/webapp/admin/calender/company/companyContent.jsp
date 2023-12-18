@@ -42,9 +42,50 @@
 				<div class="dates"></div>
 			</div>
 			<div class="sec-ins">
-				<div class="ins-space"></div>
-				<div class="check-con"></div>
-				<div class="ins-con"></div>
+				<div class="ins-tr-1">
+					<div class="ins-tr-td">
+						<div class="ins-tr-td-btn">
+							회사 <input type="checkbox" class="toggle" hidden> <label
+								for="toggle" class="toggleSwitch"> <span
+								class="toggleButton"></span>
+							</label>
+						</div>
+					</div>
+					<div class="ins-tr-td">
+						<div class="ins-tr-td-btn">
+							예약 <input type="checkbox" class="toggle" hidden> <label
+								for="toggle" class="toggleSwitch"> <span
+								class="toggleButton"></span>
+							</label>
+						</div>
+					</div>
+					<div class="ins-tr-td">
+						<div class="ins-tr-td-btn">
+							직원 <input type="checkbox" class="toggle" hidden> <label
+								for="toggle" class="toggleSwitch"> <span
+								class="toggleButton"></span>
+							</label>
+						</div>
+					</div>
+				</div>
+				<div class="ins-tr-2">
+					<div class="ins-tr-2-td">
+						<div>일정추가</div>
+					</div>
+					<div class="ins-tr-2-td">
+						<div>타이틀</div>
+						<div></div>
+					</div>
+					<div class="ins-tr-2-td">
+						<div>날짜</div>
+						<div></div>
+					</div>
+					<div class="ins-tr-2-td">
+						<div>내용</div>
+						<div></div>
+					</div>
+					<div class="ins-tr-2-td"></div>
+				</div>
 			</div>
 		</div>
 	</div>
