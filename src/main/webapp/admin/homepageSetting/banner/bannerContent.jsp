@@ -28,7 +28,7 @@
 			<div class="banner-tr">
 				<div class="banner-td-img-box">배너img 미리보기</div>
 				<!-- 빠른메뉴 설정(셀렉) -->
-				<div class="banner-td-1"> <img src="" alt="" > 빠른메뉴 선택 :&nbsp;
+				<div class="banner-td-1"> 빠른메뉴 선택 :&nbsp;
 				<select name="banner_menu">
 				<option value="info_com">회사소개</option>
 				<option value="info_map">오시는길</option>
@@ -42,9 +42,19 @@
 				</select>
 				 </div>
 				 <!-- url 링크 -->
-				<div class="banner-td-2">url :&nbsp; <input type="text"></div>
+				<div class="banner-td-2">
+				<img src="${pageContext.request.contextPath}/admin/0.img/url.png" alt="이미지준비중">
+				url :&nbsp; <input name="banner_url" type="text">
+				</div>
 				 <!-- 썸네일 이미지 설정 -->
-				<div class="banner-td-3">썸네일이미지 :&nbsp;<input type="file"></div>
+				<div class="banner-td-3">
+				<img src="${pageContext.request.contextPath}/admin/0.img/fileDown.png" alt="이미지준비중">
+				썸네일 :&nbsp;
+				<label for="file">
+				<div class="btn-upload">파일업로드</div>
+				</label>
+				<input type="file" name="banner_thumbnail" id="thumbnail">
+				</div>
 			</div>
 			<div class="banner-tr">
 				<div class="banner-td-img-box">배너img 미리보기</div>
@@ -61,8 +71,20 @@
 				<option value="question">문의게시판</option>
 				</select>
 				</div>
-				<div class="banner-td-2">url :&nbsp;<input type="text" ></div>
-				<div class="banner-td-3">썸네일이미지 :&nbsp;<input type="file"></div>
+				<!-- url 링크 -->
+				<div class="banner-td-2">
+				<img src="${pageContext.request.contextPath}/admin/0.img/url.png" alt="이미지준비중">
+				url :&nbsp;<input name="banner_url" type="text">
+				</div>
+				<!-- 썸네일 이미지 설정 -->
+				<div class="banner-td-3">
+				<img src="${pageContext.request.contextPath}/admin/0.img/fileDown.png" alt="이미지준비중">
+				썸네일 :&nbsp;
+				<label for="file">
+				 <div class="btn-upload">파일업로드</div>
+				</label>
+				<input type="file" name="banner_thumbnail" id="thumbnail">
+				</div>
 			</div>
 			<div class="banner-tr">
 				<div class="banner-td-img-box">배너img 미리보기</div>
@@ -79,8 +101,20 @@
 				<option value="question">문의게시판</option>
 				</select>
 				</div>
-				<div class="banner-td-2">url :&nbsp;<input type="text"></div>
-				<div class="banner-td-3">썸네일이미지 :&nbsp;<input type="file"></div>
+				<!-- url 링크 -->
+				<div class="banner-td-2">
+				<img src="${pageContext.request.contextPath}/admin/0.img/url.png" alt="이미지준비중">
+				url :&nbsp;<input name="banner_url" type="text">
+				</div>
+				<!-- 썸네일 이미지 설정 -->
+				<div class="banner-td-3">
+				<img src="${pageContext.request.contextPath}/admin/0.img/fileDown.png" alt="이미지준비중">
+				썸네일 :&nbsp;
+				<label for="file">
+				<div class="btn-upload">파일업로드</div>
+				</label>
+				<input type="file" name="banner_thumbnail" id="thumbnail">
+				</div>
 			</div>
 		</div>
 	</div>
