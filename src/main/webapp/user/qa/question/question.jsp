@@ -52,7 +52,7 @@
 
 		<!-- 문의작성란 -->
 	<div class="q-content-tbl">
-		<form action="QuestionC" method="get">
+		<form action="QuestionC" method="post">
 		<div class="q-content-box-tr1">
 			<div class="q-content-box-td1">
 				<span class="q-content-box-td-content1">お問い合わせフォーム</span>
@@ -155,19 +155,19 @@
 					<c:forEach items="${questions}" var="questions">
 					    <div class="q_content-box-tr1-td3-1-1-1-2">
 			                    <div class="q_content-box-tr1-td3-1-1-1-2-1 No-width">
-			                      <span>No ${q_seq}</span>
+			                      <span>${questions.q_seq}</span>
 			                    </div>
 			                    <div class="q_content-box-tr1-td3-1-1-1-2-2 writer-width">
-			                      <span>Name ${q_name}</span>
+			                      <span>${questions.q_name}</span>
 			                    </div>
 			                    <div class="q_content-box-tr1-td3-1-1-1-2-3 title-width">
-			                      <a href="HC?link=10">Title ${q_title}</a>
+			                      <a href="HC?link=10">${questions.q_title}</a>
 			                    </div>
 			                    <div class="q_content-box-tr1-td3-1-1-1-2-4 answer-width">
-			                      <span>Answer ${q_answer}</span>
+			                      <span>${questions.q_answer}</span>
 			                    </div>
 			                    <div class="q_content-box-tr1-td3-1-1-1-2-5 reg-width">
-			                      <span>date ${q_reg_date}</span>
+			                      <span>${questions.q_reg_date}</span>
 			                    </div>
 					    </div>
 					</c:forEach>
