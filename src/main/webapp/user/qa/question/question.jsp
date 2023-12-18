@@ -65,7 +65,7 @@
 <!-- tel -->
 			<div class="q-content-box-td2">
 				<span class="q-content-box-td-content3-1">電話番号*</span>
-					<select class="q-content-box-td-content3-2" name="tel" id="tel" name="q_contact_number1">
+					<select class="q-content-box-td-content3-2" id="tel" name="q_contact_number1">
 			            <option value="080">080</option>
 			            <option value="090">090</option>
 			            <option value="045">045</option>

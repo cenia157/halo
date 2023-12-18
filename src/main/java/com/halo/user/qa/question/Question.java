@@ -1,4 +1,4 @@
-package com.halo.user.qa.faq;
+package com.halo.user.qa.question;
 
 import java.sql.Date;
 
