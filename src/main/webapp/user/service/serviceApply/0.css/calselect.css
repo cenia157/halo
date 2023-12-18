@@ -438,3 +438,23 @@
     justify-content: center;
     align-items: center;
 }
+.between {
+  background-color: lightgrey;
+}
+/* 선택된 시작 날짜의 스타일 */
+.start-date {
+    background-color: red;
+    color: white;
+}
+
+/* 선택된 끝 날짜의 스타일 */
+.end-date {
+    background-color: blue;
+    color: white;
+}
+
+/* 시작과 끝 사이의 날짜의 스타일 */
+.between-dates {
+    background-color: lightgray;
+    cursor: not-allowed;
+}
