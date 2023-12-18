@@ -45,25 +45,24 @@ const renderCalendar = () => {
 	// Dates 정리
 	const firstDateIndex = dates.indexOf(1);
 	const lastDateIndex = dates.lastIndexOf(TLDate);
-
 	dates.forEach((date, i) => {
-		const condition =
-			i >= firstDateIndex && i < lastDateIndex + 1 ? "this" : "other";
+		const condition = i >= firstDateIndex && i < lastDateIndex + 1
+			? 'this'
+			: 'other';
 
-		dates[
-			i
-		] = `<div class="date"><span class="${condition}">${date}</span></div>`;
+		dates[i] = `<div class="date"><span class="${condition}">${date}</span></div>`;
 	});
 
 	// Dates 그리기
 	document.querySelector(".dates").innerHTML = dates.join("");
 };
 
+// 오늘 날짜 그리기
 const today = new Date();
 if (viewMonth === today.getMonth() && viewYear === today.getFullYear()) {
-	for (let date of document.querySelectorAll(".this")) {
+	for (let date of document.querySelectorAll('.this')) {
 		if (+date.innerText === today.getDate()) {
-			date.classList.add("today");
+			date.classList.add('today');
 			break;
 		}
 	}
@@ -84,3 +83,10 @@ const nextMonth = () => {
 const goToday = () => {
 	renderCalendar();
 };
+const dateInput = document.getElementById('date-sel');
+
+// 초기에 기본 힌트를 설정
+dateInput.value = ''; // 빈 값으로 초기화
+dateInput.addEventListener('focus', function() {
+	this.setAttribute('placeholder', '날짜를 선택해주세요');
+});

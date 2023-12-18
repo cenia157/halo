@@ -16,19 +16,20 @@ pageEncoding="UTF-8"%>
         <!-- step별 페이지 -->
         <div class="content-calbox-td">
           <div class="content-date-select-box-td">
-            <label for="date">날짜 선택:</label>
-            <input type="date" id="date" name="date" />
+            <input type="date" id="date-sel" name="date-sel" placeholder="날짜를 선택해주세요" />
           </div>
           <div class="calendar">
             <div class="header">
-              <div class="year-month"></div>
+<!--               <div class="year-month"></div> -->
               <div class="nav">
                 <button class="nav-btn go-prev" onclick="prevMonth()">
                   &lt;
                 </button>
-                <button class="nav-btn go-today" onclick="goToday()">
-                  Today
+                <button class="year-month" onclick="goToday()">
                 </button>
+<!--                 <button class="nav-btn go-today" onclick="goToday()"> -->
+<!--                   Today -->
+<!--                 </button> -->
                 <button class="nav-btn go-next" onclick="nextMonth()">
                   &gt;
                 </button>
@@ -36,13 +37,13 @@ pageEncoding="UTF-8"%>
             </div>
             <div class="main">
               <div class="days">
-                <div class="day">일</div>
-                <div class="day">월</div>
-                <div class="day">화</div>
-                <div class="day">수</div>
-                <div class="day">목</div>
-                <div class="day">금</div>
-                <div class="day">토</div>
+                <div class="day">日</div>
+                <div class="day">月</div>
+                <div class="day">火</div>
+                <div class="day">水</div>
+                <div class="day">木</div>
+                <div class="day">金</div>
+                <div class="day">土</div>
               </div>
               <div class="dates"></div>
             </div>
