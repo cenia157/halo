@@ -7,12 +7,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/QuestionC")
-public class QuestionC extends HttpServlet {
-	
+@WebServlet("/QuestionDeleteC")
+public class QuestionDeleteC extends HttpServlet {
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		QuestionDAO.getAllQuestions(request);
-		QuestionDAO.questionSubmit(request);
+		QuestionDAO.deleteQuestion(request);
 		String subMenu = "qa/question/question";
 		request.setAttribute("menu", "user/menu-index.jsp");
 		request.setAttribute("subMenu", subMenu + ".jsp");
@@ -21,12 +21,11 @@ public class QuestionC extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		QuestionDAO.getAllQuestions(request);
-		QuestionDAO.questionSubmit(request);
-		String subMenu = "qa/question/questionDetail";
+		QuestionDAO.deleteQuestion(request);
+		String subMenu = "qa/question/question";
 		request.setAttribute("menu", "user/menu-index.jsp");
 		request.setAttribute("subMenu", subMenu + ".jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
-
 	}
 
 }

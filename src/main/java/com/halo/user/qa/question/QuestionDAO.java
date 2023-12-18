@@ -69,7 +69,6 @@ public class QuestionDAO {
 		
 	}
 	
-	
 	public static void getAllQuestions(HttpServletRequest request) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -97,6 +96,9 @@ public class QuestionDAO {
 				
 				q = new Question(q_seq, q_title, q_content, q_reg_date, q_contact_number, q_email, q_name, q_password, q_category);
 				questions.add(q);
+//				확인용
+				System.out.println(questions);
+				System.out.println("데이터 가져오기 시도");
 			}
 			
 			request.setAttribute("questions", questions);
@@ -109,6 +111,60 @@ public class QuestionDAO {
 	}
 
 	public static void getQuestion(HttpServletRequest request) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "select * from question_tbl where q_seq=?";
+		
+		String q_seq = request.getParameter("q_seq");
+		
+		try {
+			con = DBManager.connect();
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, q_seq);
+			rs = pstmt.executeQuery();
+			
+				if(rs.next()) {
+					Question q = new Question();
+					q.setQ_seq(rs.getInt("q_seq"));
+					q.setQ_title(rs.getString("q_title"));
+					q.setQ_content(rs.getString("q_content"));
+					q.setQ_reg_date(rs.getDate("q_reg_date"));
+					q.setQ_contact_number(rs.getInt("q_contact_number"));
+					q.setQ_email(rs.getString("q_email"));
+					q.setQ_name(rs.getString("q_name"));
+					q.setQ_password(rs.getString("q_password"));
+					q.setQ_category(rs.getString("q_category"));
+					
+					request.setAttribute("question", q);
+					
+				}
+				
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+	}
+
+	public static void deleteQuestion(HttpServletRequest request) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		String sql = "delete from question_tbl where q_seq=?";
+		
+		try {
+			con = DBManager.connect();
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, request.getParameter("q_seq"));
+			
+			if (pstmt.executeUpdate()==1) {
+				System.out.println("Delete success");
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("Delete Failed");
+		}
 		
 	}
 	
