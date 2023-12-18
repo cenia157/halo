@@ -24,7 +24,6 @@
 	height: 88%;
 	position: relative;
 	display: block;
-	padding: 10%;
 }
 
 /* .filebox .bannerInput { */
@@ -48,7 +47,6 @@
 /*     margin-left: 10px; */
 /* } */
 
-
 /* .filebox input[type="file"] { */
 /* 	position: absolute; */
 /* 	width: 0; */
@@ -57,43 +55,98 @@
 /* 	overflow: hidden; */
 /* 	border: 0; */
 /* } */
-.banner-tbl{
+
+/* 하단 배너  */
+.banner-tbl {
+	border: dotted 1px orange;
 	width: 100%;
-	height: 70%;
+	height: 100%;
 	display: flex;
-}
-.banner-tr{
-	border: solid 1px red;
-	width: 25%;
-	height: 50%;
+	justify-content: center;
+	align-items: center;
 }
 
-.banner-td-img-box{
+.banner-tr {
+	border: solid 1px orange;
+	width: 30%;
+	height: 80%;
+	margin: 1.3%;
+	width: 30%;
+}
+/* 하단 배너 미리보기 이미지 박스  */
+.banner-td-img-box {
+	border: solid 10px rgb(221, 226, 229);
+	border-radius: 20px;
+	width: 100%;
+	height: 55%;
+	margin-bottom: 1.5%;
+}
+
+/* (빠른메뉴)주요메뉴 설정 셀렉  */
+.banner-td-1 {
+	border: solid 1px green;
+	width: 100%;
+	height: 13%;
+	margin-bottom: 1.5%;
+	font-size: 1.2rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-weight: 700;
+}
+
+.banner-td-1>select {
+/* 	size: 4; */
+	width: 45%;
+	height: 70%;
+	border-radius: 5px;
+	border-top: solid 1px rgb(209,209,209);
+	border-left: solid 1px rgb(209,209,209);
+	border-right: solid 1px rgb(209,209,209);
+	border-bottom: solid 2px rgb(130, 130, 130);
+	font-size: 1.2rem;
+	text-align: center;
+	
+}
+
+/* 상품판매 등 url 첨부 인풋  */
+.banner-td-2 {
 	border: solid 1px blue;
 	width: 100%;
-	height: 40%;
+	height: 13%;
+	margin-bottom: 1.5%;
+	font-size: 1.2rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-weight: 700;
 }
-.banner-td-1{
-	border: solid 1px blue;
+
+.banner-td-2>input {
+	width: 60%;
+	height: 70%;
+	border-radius: 5px;
+	border-top: solid 1px rgb(209,209,209);
+	border-left: solid 1px rgb(209,209,209);
+	border-right: solid 1px rgb(209,209,209);
+	border-bottom: solid 2px rgb(130, 130, 130);
+}
+
+/* 베너 썸네일 이미지(파일업로드)인풋  */
+.banner-td-3 {
+	border: solid 1px yellowgreen;
 	width: 100%;
-	height: 10%;
-}
-.banner-td-2{
-	border: solid 1px blue;
-	width: 100%;
-	height: 10%;
-}
-.banner-td-3{
-	border: solid 1px blue;
-	width: 100%;
-	height: 10%;
+	height: 13%;
+	margin-bottom: 1.5%;
+	font-size: 1.2rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-weight: 700;
 }
 
-
-
-
-
-
-
-
-
+.banner-td-3>input {
+	width: 60%;
+	height: 70%;
+	font-size: 1.2rem;
+}
