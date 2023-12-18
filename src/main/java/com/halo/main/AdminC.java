@@ -34,7 +34,9 @@ public class AdminC extends HttpServlet {
 				menu = "qa/question/question";
 			} else if (request.getParameter("link").equals("10")) {
 				menu = "qa/question/questionDetail";
-			} 
+			} else if (request.getParameter("link").equals("11")) {
+					menu = "/admin/customerCare/stats/stats";
+			}
 			request.setAttribute("menu", menu + ".jsp");
 			request.getRequestDispatcher("admin/index.jsp").forward(request, response);
 			
