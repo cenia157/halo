@@ -34,21 +34,6 @@ function closeModalF() {
 	closeModal('myModalF', 'myModal-tblF');
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // 문의사항(ask) 모달
 // 미답변 모달
 function openModalN() {
@@ -69,13 +54,6 @@ function openModalA() {
 function closeModalA() {
 	closeModal('myModalA', 'myModal-tblA');
 }
-
-
-
-
-
-
-
 
 // 공지사항(notice) 모달
 // ViewPage를 띄우기 위한 모달
