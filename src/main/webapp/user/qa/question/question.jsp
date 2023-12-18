@@ -53,13 +53,14 @@
 		<!-- 문의작성란 -->
 	<div class="q-content-tbl">
 		<div class="q-content-box-tr1">
+		<form action="QuestionC" method="post">
 			<div class="q-content-box-td1">
 				<span class="q-content-box-td-content1">お問い合わせフォーム</span>
 			</div>
 			
 			<div class="q-content-box-td2">
 				<span class="q-content-box-td-content2-1">作成者* </span>
-				<input class="q-content-box-td-content2-2" type="text" name="q_name">
+				<input class="q-content-box-td-content2-2" type="text" name="q_name"/>
 			</div>
 
 <!-- tel -->
@@ -75,7 +76,7 @@
 			            <option value="03">03</option>
 			            <option value="06">06</option>
 			        </select>
-				<input class="q-content-box-td-content3-3" type="text" name="q_contact_number2">
+				<input class="q-content-box-td-content3-3" type="text" name="q_contact_number2"/>
 			</div>
 <!-- category -->
 			<div class="q-content-box-td2">
@@ -90,17 +91,17 @@
 <!-- title -->
 			<div class="q-content-box-td2">
 				<span class="q-content-box-td-content5-1">タイトル*</span>
-				<input class="q-content-box-td-content5-2" type="text" name="q_title">
+				<input class="q-content-box-td-content5-2" type="text" name="q_title"/>
 			</div>
 <!-- e-mail -->
 			<div class="q-content-box-td2">
 				<span class="q-content-box-td-content6-1">E-mail </span>
-				<input class="q-content-box-td-content6-2" type="text" name="q_email">
+				<input class="q-content-box-td-content6-2" type="text" name="q_email"/>
 			</div>
 <!-- pw -->
 			<div class="q-content-box-td2">
 				<span class="q-content-box-td-content7-1">　パスワード </span>
-				<input class="q-content-box-td-content7-2" type="text" name="q_password">
+				<input class="q-content-box-td-content7-2" type="text" name="q_password"/>
 			</div>
 <!-- txt -->
 			<div class="q-content-box-td2 content-box-td-content8">
@@ -112,15 +113,17 @@
 			</div>
 			
 <!-- submit -->
-			<div class="q-content-box-td4">
-				<button onclick="location.href='HC?link=10'" class="q-content-box-td-content10">확인</button>
-			</div>
 			
+				<div class="q-content-box-td4">
+					<button class="q-content-box-td-content10">확인</button>
+				</div>
+			
+<!-- img -->
 			<div>
 				<img class="img1" alt="" src="${pageContext.request.contextPath}/user/qa/question/0.img/clover3.png">
 				<img class="img2" alt="" src="${pageContext.request.contextPath}/user/qa/question/0.img/clover4.png">
 			</div>
-			
+			</form>
 		</div>
 
 		<!-- 문의글 게시판 -->
