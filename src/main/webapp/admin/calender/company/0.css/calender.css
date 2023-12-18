@@ -74,13 +74,22 @@ EDIT ON */
 	width: calc(100%/ 7);
 	/* text-align: left; */
 	color: #999;
-	font-size: 2rem;
+	font-size: 1.2rem;
+	padding: 0.2%;
 	/* text-align: center; */
 	/* border-radius:5px */
 }
 
 .current.today {
-	background: rgb(242, 242, 242);
+	position: relative;
+}
+
+.current.today img {
+	width: 40px;
+	height: 40px;
+	position: absolute;
+	top: -17.5%;
+	left: 0;
 }
 
 .sec_cal .dates {
@@ -102,9 +111,12 @@ EDIT ON */
 }
 
 .sec_cal .dates div {
-	/* 	border: 1px solid black; */
+/* 		border: 1px solid black; */
+/* 		margin: 0.1%; */
 	
 }
+
+
 
 .nav-btn {
 	width: 8%;

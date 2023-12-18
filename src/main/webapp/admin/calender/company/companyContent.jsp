@@ -77,13 +77,13 @@
 					<div class="ins-tr-3-title">
 						<div class="ins-tr-title-tr">
 							<div class="ins-tr-title-title">타이틀</div>
-							<input type="text" class="ins-tr-3-td-input">
+							<input type="text" class="ins-tr-3-td-input input-title">
 						</div>
 					</div>
 					<div class="ins-tr-3-date">
 						<div class="ins-tr-3-date-tr">
 							<div class="ins-tr-title-title">날짜</div>
-							<input type="text" class="ins-tr-3-td-input">
+							<input type="text" class="ins-tr-3-td-input input-date" readonly="readonly">
 						</div>
 						<div></div>
 					</div>
