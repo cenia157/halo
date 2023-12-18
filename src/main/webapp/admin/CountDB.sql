@@ -7,7 +7,7 @@ CREATE TABLE visitors (
 );
 
 
-INSERT INTO visitors (ip, user_agent) VALUES ('가현', 'User Agent 정보');
+INSERT INTO visitors (ip, user_agent) VALUES ('asd', 'User 정보');
 
 
 
