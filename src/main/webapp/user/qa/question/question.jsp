@@ -59,50 +59,61 @@
 			
 			<div class="q-content-box-td2">
 				<span class="q-content-box-td-content2-1">作成者* </span>
-				<input class="q-content-box-td-content2-2" type="text">
+				<input class="q-content-box-td-content2-2" type="text" name="q_name">
 			</div>
-			
+
+<!-- tel -->
 			<div class="q-content-box-td2">
 				<span class="q-content-box-td-content3-1">電話番号*</span>
-					<select class="q-content-box-td-content3-2" name="tel" id="tel">
+					<select class="q-content-box-td-content3-2" name="tel" id="tel" name="q_contact_number1">
 			            <option value="080">080</option>
 			            <option value="090">090</option>
-			            <option value="03">03</option>
 			            <option value="045">045</option>
-			            <option value="06">06</option>
 			            <option value="052">052</option>
 			            <option value="082">082</option>
 			            <option value="092">092</option>
+			            <option value="03">03</option>
+			            <option value="06">06</option>
 			        </select>
-				<input class="q-content-box-td-content3-3" type="text">
+				<input class="q-content-box-td-content3-3" type="text" name="q_contact_number2">
 			</div>
-			
+<!-- category -->
 			<div class="q-content-box-td2">
-				<span class="q-content-box-td-content4-1">カテゴリー</span>
-					<select class="q-content-box-td-content4-2" name="question" id="questioncategory">
+				<span class="q-content-box-td-content4-1">カテゴリー*</span>
+					<select class="q-content-box-td-content4-2" name="question" id="questioncategory" name="q_category">
 			            <option value="Q1">Q1</option>
 			            <option value="Q2">Q2</option>
 			            <option value="Q3">Q3</option>
 			            <option value="Q4">Q4</option>
 			        </select>
 			</div>
-			
+<!-- title -->
 			<div class="q-content-box-td2">
 				<span class="q-content-box-td-content5-1">タイトル*</span>
-				<input class="q-content-box-td-content5-2" type="text">
+				<input class="q-content-box-td-content5-2" type="text" name="q_title">
 			</div>
-			
-			<div class="q-content-box-td2 content-box-td-content6">
-				<span class="q-content-box-td-content6-1">お問い合わせ内容*</span>
-				<textarea class="q-content-box-td-content6-2" type="text"></textarea>
+<!-- e-mail -->
+			<div class="q-content-box-td2">
+				<span class="q-content-box-td-content6-1">E-mail </span>
+				<input class="q-content-box-td-content6-2" type="text" name="q_email">
+			</div>
+<!-- pw -->
+			<div class="q-content-box-td2">
+				<span class="q-content-box-td-content7-1">　パスワード </span>
+				<input class="q-content-box-td-content7-2" type="text" name="q_password">
+			</div>
+<!-- txt -->
+			<div class="q-content-box-td2 content-box-td-content8">
+				<span class="q-content-box-td-content8-1">お問い合わせ内容*</span>
+				<textarea class="q-content-box-td-content8-2" type="text" name="q_content"></textarea>
 			</div>
 			<div class="q-content-box-td3">
-				<span class="q-content-box-td-content7">*は必ずお書きください。</span>
+				<span class="q-content-box-td-content9">*は必ずお書きください。</span>
 			</div>
 			
-			
+<!-- submit -->
 			<div class="q-content-box-td4">
-				<button onclick="location.href='HC?link=10'" class="q-content-box-td-content8">확인</button>
+				<button onclick="location.href='HC?link=10'" class="q-content-box-td-content10">확인</button>
 			</div>
 			
 			<div>
