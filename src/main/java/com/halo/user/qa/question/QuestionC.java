@@ -19,7 +19,6 @@ public class QuestionC extends HttpServlet {
 		
 		String q_title = request.getParameter("q_title");
 		System.out.println("q_title: " + q_title);
-		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

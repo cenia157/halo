@@ -58,7 +58,7 @@ a {
 .q-content-tbl {
 	width: 100%;
 	/*   height: 265vh;  */
-	height: 100%;
+	height: 80%;
 	display: flex;
 	flex-direction: column;
 }
@@ -70,7 +70,6 @@ a {
 	margin-bottom: 5%;
 	border-radius: 35px;
 	background: rgba(248, 242, 191, 0.90);
-	height: 120%;
 	background: rgba(248, 242, 191, 0.90);
 	/* 	클로버 기준 */
 	position: relative;
@@ -180,15 +179,7 @@ a {
 
 .q-content-box-td-content3-2 {
 	border: 1px solid #9F9F78;
-	width: 20%;
-	flex-shrink: 0;
-	text-align: center;
-	font-size: 1.5rem;
-}
-
-.q-content-box-td-content3-3 {
-	border: 1px solid #9F9F78;
-	width: 50%;
+	width: 70%;
 	flex-shrink: 0;
 	font-size: 1.5rem;
 	padding-left: 1%;
@@ -460,7 +451,7 @@ a {
 .q_content-box-tr1-td3-1 {
 	display: flex;
 	align-items: center;
-	height: 100%; /* 추후 */
+	height: 110vh; /* 추후 */
 	width: 90%; /* 추후 */
 	background: #ffedaf;
 	border-radius: 30px;

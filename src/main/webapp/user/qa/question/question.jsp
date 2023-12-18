@@ -52,8 +52,8 @@
 
 		<!-- 문의작성란 -->
 	<div class="q-content-tbl">
+		<form action="QuestionC" method="get">
 		<div class="q-content-box-tr1">
-		<form action="QuestionC" method="post">
 			<div class="q-content-box-td1">
 				<span class="q-content-box-td-content1">お問い合わせフォーム</span>
 			</div>
@@ -66,22 +66,12 @@
 <!-- tel -->
 			<div class="q-content-box-td2">
 				<span class="q-content-box-td-content3-1">電話番号*</span>
-					<select class="q-content-box-td-content3-2" id="tel" name="q_contact_number1">
-			            <option value="080">080</option>
-			            <option value="090">090</option>
-			            <option value="045">045</option>
-			            <option value="052">052</option>
-			            <option value="082">082</option>
-			            <option value="092">092</option>
-			            <option value="03">03</option>
-			            <option value="06">06</option>
-			        </select>
-				<input class="q-content-box-td-content3-3" type="text" name="q_contact_number2"/>
+				<input class="q-content-box-td-content3-2" type="text" name="q_contact_number"/>
 			</div>
 <!-- category -->
 			<div class="q-content-box-td2">
 				<span class="q-content-box-td-content4-1">カテゴリー*</span>
-					<select class="q-content-box-td-content4-2" name="question" id="questioncategory" name="q_category">
+					<select class="q-content-box-td-content4-2" id="questioncategory" name="q_category">
 			            <option value="Q1">Q1</option>
 			            <option value="Q2">Q2</option>
 			            <option value="Q3">Q3</option>
@@ -123,8 +113,8 @@
 				<img class="img1" alt="" src="${pageContext.request.contextPath}/user/qa/question/0.img/clover3.png">
 				<img class="img2" alt="" src="${pageContext.request.contextPath}/user/qa/question/0.img/clover4.png">
 			</div>
-			</form>
 		</div>
+			</form>
 
 		<!-- 문의글 게시판 -->
 
@@ -162,12 +152,8 @@
                   
                   
                   <!-- 2번째 행 여기는 forEach문이겠죠?-->
-					<c:forEach var="i" begin="1" end="7">
+					<c:forEach items="${questions}" var="questions">
 					    <div class="q_content-box-tr1-td3-1-1-1-2">
-					        <!-- your content here -->
-					        <%--                   <c:forEach  var="question_tbl" items="${question_tbl}"> --%>
-<%-- 							<c:forEach var="i" begin="1" end="20"> --%>
-<!-- 			                  <div class="q_content-box-tr1-td3-1-1-1-2"> -->
 			                    <div class="q_content-box-tr1-td3-1-1-1-2-1 No-width">
 			                      <span>No ${q_seq}</span>
 			                    </div>
@@ -183,9 +169,6 @@
 			                    <div class="q_content-box-tr1-td3-1-1-1-2-5 reg-width">
 			                      <span>date ${q_reg_date}</span>
 			                    </div>
-<!-- 			                  </div> -->
-<%-- 		                  </c:forEach> --%>
-					        
 					    </div>
 					</c:forEach>
 					
