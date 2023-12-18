@@ -36,7 +36,7 @@
 	
 	<!-- 자주묻는 질문 -->
 	<div class="faq-content-box-tr1">
-	    <div class="faq-content-box-td1-1">자주 묻는 질문</div>
+	    <div class="faq-content-box-td1-1">よくある質問</div>
 	    <div class="faq-content-box-td1-2">
 	        <button class="faq-content-box-td1-2-content loadButton" data-target="faqDetail1">● 제공되는 서비스를 이용하려면 어떻게 해야하나요?</button>
 	        <button class="faq-content-box-td1-2-content loadButton" data-target="faqDetail2">● 서비스 이용 비용은 어느정도인가요?</button>
