@@ -14,6 +14,8 @@ public class AskContentC extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		QuestionDAO.getAllQuestions(request);
+		AskDAO.AnswerOrNot(request);
+
 		request.setAttribute("menu", "/admin/boardmanagement/ask/askContent.jsp");
 		request.getRequestDispatcher("admin/index.jsp").forward(request, response);
 		System.out.println(request.getParameter("q_title"));
@@ -21,6 +23,8 @@ public class AskContentC extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		QuestionDAO.getAllQuestions(request);
+		AskDAO.AnswerOrNot(request);
+
 		request.setAttribute("menu", "/admin/boardmanagement/ask/askContent.jsp");
 		request.getRequestDispatcher("admin/index.jsp").forward(request, response);
 		System.out.println(request.getParameter("q_title"));

@@ -2,6 +2,7 @@ package com.halo.admin.boardmanagement.ask;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.servlet.http.HttpServletRequest;
@@ -45,6 +46,41 @@ public class AskDAO {
 		}
 		
 		
+	}
+	
+	public static String AnswerOrNot(HttpServletRequest request) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "select c_answer from comment_tbl where c_seq=?";
+		String c_answer = null;
+		
+		try {
+			try {
+				con = DBManagerhalo.connect();
+				pstmt = con.prepareStatement(sql);
+				rs = pstmt.executeQuery();
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}
+
+			c_answer = request.getParameter("c_answer");
+			pstmt.setString(1, c_answer);
+		
+			
+				if (c_answer != null) {
+					c_answer = "未";
+				}else {
+					c_answer = "完";
+				}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		System.out.println(c_answer);
+		return c_answer;
+		
+
 	}
 	
 }
