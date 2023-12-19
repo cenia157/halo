@@ -1,5 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page import="com.halo.user.qa.question.Question" %>
+<%@ page import="com.halo.user.qa.question.QuestionDAO" %>
+
+<%
+// 유효한 currentSeq 매개변수가 있다고 가정합니다
+int currentSeq = Integer.parseInt(request.getParameter("q_seq"));
+
+// QuestionDAO의 인스턴스 생성
+QuestionDAO questionDAO = new QuestionDAO();
+
+// 이전 및 다음 질문 가져오기
+Question previousQuestion = questionDAO.getPreviousQuestion(currentSeq);
+Question nextQuestion = questionDAO.getNextQuestion(currentSeq);
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +29,7 @@
 
 <script type="text/javascript">
 function deleteQuestion(n) {
-	let ok = confirm("삭제하시겠습니까?");
+	let ok = confirm("削除しますか?");
 	if (ok) {
 		location.href= "QuestionDeleteC?q_seq=" + n;
 	}
@@ -70,8 +85,8 @@ function deleteQuestion(n) {
 				<!-- 댓글 -->
 				<div class="qd-content-box-td3">
 				<div class="qd-content-box-td3-1">
-						<div class="qd-content-box-td3-1-1">이름 ${c_comemter_name}</div>
-						<div class="qd-content-box-td3-1-2">작성일 </div>
+						<div class="qd-content-box-td3-1-1">이름 ${c_commenter_name}</div>
+						<div class="qd-content-box-td3-1-2">작성일 ${c_reg_date }</div>
 					</div>
 					<div class="qd-content-box-td3-2">
 						<div class="qd-content-box-td3-2-1">
@@ -86,16 +101,12 @@ function deleteQuestion(n) {
 					<div class="qd-content-box-td4-1">
 						<div class="qd-content-box-td4-1-1">前のページ</div>
 							<div class="qd-content-box-td4-1-2">
-							<a>
-								글 제목
-							</a>
+							<!-- 이전 질문 표시 -->
 							</div>
 						</div>
 					<div class="qd-content-box-td4-2">
 						<div class="qd-content-box-td4-2-1">後のページ</div>
-						<div class="qd-content-box-td4-2-2">
-							<a>
-								글 제목
+						<!-- 다음 질문 표시 -->
 							</a>
 						</div>
 					</div>

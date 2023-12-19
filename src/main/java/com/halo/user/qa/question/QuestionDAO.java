@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Comparator;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -73,7 +74,7 @@ public class QuestionDAO {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "select * from question_tbl";
+		String sql = "select * from question_tbl order by q_seq desc";
 		
 		ArrayList<Question> questions = new ArrayList<Question>();
 		Question q = null;
@@ -168,5 +169,16 @@ public class QuestionDAO {
 		
 	}
 	
+	public class QuestionComparator implements Comparator<Question> {
+	    @Override
+	    public int compare(Question q1, Question q2) {
+	        // 시퀀스를 기준으로 오름차순 정렬
+	        return Integer.compare(q1.getQ_seq(), q2.getQ_seq());
+	    }
+	}
+
+	
+    
 }
+
 

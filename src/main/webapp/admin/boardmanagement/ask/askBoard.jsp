@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 <html lang="kr">
 <head>
@@ -9,6 +11,16 @@
 <link
 	href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular"
 	rel="stylesheet" />
+	
+<script type="text/javascript">
+function deleteQuestion(n) {
+	let ok = confirm("削除しますか?");
+	if (ok) {
+		location.href= "AskDeleteC?q_seq=" + n;
+	}
+}
+</script>
+
 </head>
 <body>
 	<div class="ontent-m-td-2-content">
@@ -40,53 +52,18 @@
 				<div class="ontent-m-td-2-content-txt-date-in">7</div>
 				<div class="ontent-m-td-2-content-txt-delete-in">삭제하기</div>
 			</div>
-<!-- 			<div class="ontent-m-td-2-content-txt-in"> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-no-in">6</div> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-kategorie-in">7</div> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-title-in">7</div> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-writer-in">7</div> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-date-in">7</div> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-delete-in">삭제하기</div> -->
-<!-- 			</div> -->
-<!-- 			<div class="ontent-m-td-2-content-txt-in"> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-no-in">5</div> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-kategorie-in">7</div> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-title-in">7</div> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-writer-in">7</div> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-date-in">7</div> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-delete-in">삭제하기</div> -->
-<!-- 			</div> -->
-<!-- 			<div class="ontent-m-td-2-content-txt-in"> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-no-in">4</div> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-kategorie-in">7</div> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-title-in">7</div> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-writer-in">7</div> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-date-in">7</div> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-delete-in">삭제하기</div> -->
-<!-- 			</div> -->
-<!-- 			<div class="ontent-m-td-2-content-txt-in"> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-no-in">3</div> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-kategorie-in">7</div> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-title-in">7</div> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-writer-in">7</div> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-date-in">7</div> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-delete-in">삭제하기</div> -->
-<!-- 			</div> -->
-<!-- 			<div class="ontent-m-td-2-content-txt-in"> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-no-in">2</div> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-kategorie-in">7</div> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-title-in">7</div> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-writer-in">7</div> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-date-in">7</div> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-delete-in">삭제하기</div> -->
-<!-- 			</div> -->
-<!-- 			<div class="ontent-m-td-2-content-txt-in"> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-no-in">1</div> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-kategorie-in">7</div> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-title-in">7</div> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-writer-in">7</div> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-date-in">7</div> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-delete-in">삭제하기</div> -->
+			<c:forEach items="${questions}" var="question">
+			<div class="ontent-m-td-2-content-txt-in">
+				<div class="ontent-m-td-2-content-txt-no-in">${question.q_seq}</div>
+				<div class="ontent-m-td-2-content-txt-kategorie-in">${question.q_category}</div>
+				<div class="ontent-m-td-2-content-txt-title-in"><a onclick="openModalA()">${question.q_title}</a></div>
+				<div class="ontent-m-td-2-content-txt-writer-in">${question.q_name}</div>
+				<div class="ontent-m-td-2-content-txt-date-in">${question.q_reg_date}</div>
+				<div class="ontent-m-td-2-content-txt-delete-in"> <a onclick="deleteQuestion(${question.q_seq})">삭제하기</a> </div>
+			</div>
+			</c:forEach>
+			
+
 			</div>
 		</div>
 	</div>
