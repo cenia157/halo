@@ -14,6 +14,7 @@
 <link
 	href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular"
 	rel="stylesheet" />
+
 </head>
 <body>
 	<div class="ontent-m-td-2-chackbox">
@@ -61,4 +62,5 @@
 		<jsp:include page="noticeNEWRegPage.jsp"></jsp:include>
 	</div>
 </body>
+
 </html>
