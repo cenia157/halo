@@ -54,11 +54,11 @@ function deleteQuestion(n) {
 			</div>
 			<c:forEach items="${questions}" var="question">
 			<div class="ontent-m-td-2-content-txt-in">
-				<div class="ontent-m-td-2-content-txt-no-in">${question.q_seq}</div>
-				<div class="ontent-m-td-2-content-txt-kategorie-in">${question.q_category}</div>
-				<div class="ontent-m-td-2-content-txt-title-in"><a onclick="openModalA()">${question.q_title}</a></div>
-				<div class="ontent-m-td-2-content-txt-writer-in">${question.q_name}</div>
-				<div class="ontent-m-td-2-content-txt-date-in">${question.q_reg_date}</div>
+				<div class="ontent-m-td-2-content-txt-no-in">${requestScope.question.q_seq}</div>
+				<div class="ontent-m-td-2-content-txt-kategorie-in">${requestScope.question.q_category}</div>
+				<div class="ontent-m-td-2-content-txt-title-in"><a onclick="openModalA()">${requestScope.question.q_title}</a></div>
+				<div class="ontent-m-td-2-content-txt-writer-in">${requestScope.question.q_name}</div>
+				<div class="ontent-m-td-2-content-txt-date-in">${requestScope.question.q_reg_date}</div>
 				<div class="ontent-m-td-2-content-txt-delete-in"> <a onclick="deleteQuestion(${question.q_seq})">삭제하기</a> </div>
 			</div>
 			</c:forEach>

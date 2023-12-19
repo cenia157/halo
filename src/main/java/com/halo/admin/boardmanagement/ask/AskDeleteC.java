@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.halo.user.qa.question.QuestionDAO;
 
-@WebServlet("/AskContentC")
+@WebServlet("/AskDeleteC")
 public class AskDeleteC extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
