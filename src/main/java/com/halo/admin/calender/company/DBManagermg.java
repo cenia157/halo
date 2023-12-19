@@ -11,8 +11,9 @@ import java.sql.SQLException;
 
 // 그걸 AOP로 하자
 public class DBManagermg {
-	
-	public static Connection connect() throws SQLException {
+
+	public static Connection connect() throws SQLException, ClassNotFoundException {
+		Class.forName("oracle.jdbc.OracleDriver");
 		String url = "jdbc:oracle:thin:@anxucl0a8nyvimp0_high?TNS_ADMIN=/Users/admin/mg/Wallet_ANXUCL0A8NYVIMP0";
 		return DriverManager.getConnection(url, "ADMIN", "Soldesk802!!");
 	}
@@ -27,6 +28,6 @@ public class DBManagermg {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
+
 	}
 }
