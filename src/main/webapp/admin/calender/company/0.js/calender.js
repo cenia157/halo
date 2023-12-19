@@ -185,9 +185,6 @@ days.forEach((day) => {
 
 };
 
-<<<<<<< HEAD
 function insertCompanyC() {
 	document.querySelector('.company-form').submit();
 }
-=======
->>>>>>> 811fc91caf1138d26afbf11b981023746576f172
