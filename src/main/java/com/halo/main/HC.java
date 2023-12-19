@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 public class HC extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		String contentPage = null;
 		String subMenu = null;
 		if (request.getParameter("link") != null) {
 			if (request.getParameter("link").equals("1")) {
@@ -41,6 +42,12 @@ public class HC extends HttpServlet {
 		} else {
 			request.setAttribute("menu", "home.jsp");
 			request.getRequestDispatcher("index.jsp").forward(request, response);
+		}
+		
+		 if (request.getParameter("link").equals("7")) {
+			 contentPage = "service/serviceApply/serviceApply";
+			request.setAttribute("step1Pos", "#ffdf6c");
+			request.setAttribute("serviceStep", "svcselect.jsp");
 		}
 
 

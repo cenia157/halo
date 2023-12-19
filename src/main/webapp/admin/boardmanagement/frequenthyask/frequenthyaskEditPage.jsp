@@ -20,7 +20,8 @@
 					<div class="real-title">
 
 						<input class="real-title-editor"
-							placeholder="● 제공되는 서비스를 이용하려면 어떻게 해야되나요?">
+							placeholder="● 제공되는 서비스를 이용하려면 어떻게 해야되나요?"
+							name="qa_title">
 
 					</div>
 				</div>
@@ -30,24 +31,51 @@
 
 			</div>
 			<div class="modal-content">
+				<form style="height: 100%" id="textbox" action="" method="post">
 				<div class="modal-content-txt">
 					<!-- 아래의 코드는 CK Editor를 넣는 부분이다-->
-					<div id="classicNR"></div>
+					<div id="classicNR" name="qa_content" contenteditable="true"></div>
 					<!-- 아래의 스크립트 코드는 CK Editor를 불러오는 부분이다-->
-					<script>
-						ClassicEditor
-						.create(document.querySelector('#classicNR'))
-						.then(editor => {
-								window.editor = editor;
-								})
-						.catch(error => {
-								console.error(error);
-								});
-				</script>
+
+
+
+
+
+				
+				
+				
+				<script>
+        ClassicEditor
+            .create(document.querySelector('#classicNR'), {
+                ckfinder: {
+                    uploadUrl: '/upload.php'
+                }
+            })
+            .then(editor => {
+                console.log('이미지 업로드 성공', editor);
+            })
+            .catch(error => {
+                console.error('이미지 업로드 실패', error);
+            });
+    </script>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
 				</div>
 				<div class="modal-content-button">
 					<button class="SubmitButton" onclick="closeModalF()">수정완료</button>
 				</div>
+				</form>
 			</div>
 		</div>
 	</div>

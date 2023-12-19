@@ -179,7 +179,7 @@
 					</div>
 					<div class="content-m-td-2">
 					<!-- 이 아래의 include는 모달이다  -->
-						<jsp:include page="/admin/boardmanagement/ask/askContent.jsp"></jsp:include>
+						<jsp:include page="${pageContext.request.contextPath}/admin/boardmanagement/ask/askContent.jsp"></jsp:include>
 					</div>
 				</div>
 				<!-- *************** 수정 *************** -->

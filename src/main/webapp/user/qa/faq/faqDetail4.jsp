@@ -14,8 +14,8 @@
 	<div class="faq-content-box-tr2">
 		<div class="faq-content-box-td2-1">-ANSWER-</div>
 		<div class="faq-content-box-td2-2">
-			<span class="faq-content-box-td2-2-content-1">Q. 여기에 없는 질문은 어디에 해야하나요?</span>
-			<span class="faq-content-box-td2-2-content-2">A. (Q4 질문 답변)</span>
+			<span class="faq-content-box-td2-2-content-1">Q. ${qa_title}</span>
+			<span class="faq-content-box-td2-2-content-2">A. ${qa_content}</span>
 		</div>
 	</div>
 

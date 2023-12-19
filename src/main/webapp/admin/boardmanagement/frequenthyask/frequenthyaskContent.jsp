@@ -115,7 +115,7 @@
 		</div>
 		<!-- 여기는 모달을 띄워주는 곳, 
 			자주묻는 질문의 내용을 변경하기 위한 곳(frequenthyaskEditPage.jsp)-->
-		<jsp:include page="frequenthyaskEditPage.jsp"></jsp:include>
+		<jsp:include page="frequenthyaskEditPage2.jsp"></jsp:include>
 	</div>
 </body>
 </html>
