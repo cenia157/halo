@@ -204,8 +204,14 @@ EDIT ON */
 }
 
 /* ********************************************************* */
-.sec-ins {
+
+.company-form {
+	height: auto;
 	width: 29%;
+}
+
+.sec-ins {
+	width: 100%;
 	height: 100%;
 }
 
