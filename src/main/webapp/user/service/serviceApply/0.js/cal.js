@@ -96,72 +96,57 @@ const setDate = (day) => {
     const startDateInput = document.getElementById('start-date-sel');
     const endDateInput = document.getElementById('end-date-sel');
 
-    const selectedStartDate = startDateInput.value;
-    const selectedEndDate = endDateInput.value;
+    const startDate = startDateInput.value;
+    const endDate = endDateInput.value;
 
     if (!isStartDateSelected) {
         startDateInput.value = selectedDate;
         endDateInput.value = '';
         isStartDateSelected = true;
 
-        removeSelectedDateStyle(selectedEndDate);
+        resetSelectedDates(startDate, endDate);
     } else {
-        const endDate = new Date(selectedDate);
-        const startDate = new Date(selectedStartDate);
+        const newEndDate = new Date(selectedDate);
+        const newStartDate = new Date(startDate);
 
-        if (endDate >= startDate) {
+        if (newEndDate >= newStartDate) {
             endDateInput.value = selectedDate;
             isStartDateSelected = false;
 
-            removeSelectedDateStyle(selectedStartDate);
+            resetSelectedDates(startDate, endDate);
         } else {
             alert('종료 날짜는 시작 날짜 이후여야 합니다.');
             // 선택된 날짜가 시작 날짜보다 이전인 경우 처리
         }
     }
 
-    const dates = document.querySelectorAll('.date');
-    dates.forEach(dateElement => {
-        const dateContent = dateElement.textContent.trim();
-        if (dateContent === String(day)) {
-            dateElement.classList.remove('start-date', 'end-date');
-            if (dateContent === startDateInput.value.split('-')[2]) {
-                dateElement.classList.add('start-date');
-                dateElement.style.backgroundColor = 'red';
-            } else if (dateContent === endDateInput.value.split('-')[2]) {
-                dateElement.classList.add('end-date');
-                dateElement.style.backgroundColor = 'blue';
-            } else {
-                dateElement.style.backgroundColor = '';
-            }
-        }
-    });
-
-    const startDate = new Date(startDateInput.value);
-    const endDate = new Date(endDateInput.value);
-
-    if (startDate && endDate) {
-        const allDates = document.querySelectorAll('.date');
-        allDates.forEach(date => {
-            const dateValue = parseInt(date.textContent);
-            const currentDate = new Date(viewYear, viewMonth, dateValue);
-
-            if (currentDate > startDate && currentDate < endDate) {
-                date.parentNode.classList.add('between-dates');
-            } else {
-                date.parentNode.classList.remove('between-dates');
-            }
-        });
-    }
+    applyDateStyles(startDateInput.value, endDateInput.value);
 };
 
-const removeSelectedDateStyle = (date) => {
+const resetSelectedDates = (start, end) => {
     const dates = document.querySelectorAll('.date');
     dates.forEach(dateElement => {
         const dateContent = dateElement.textContent.trim();
-        if (dateContent === date.split('-')[2]) {
-            dateElement.classList.remove('start-date', 'end-date');
+        if (dateContent === start.split('-')[2]) {
+            dateElement.classList.remove('start-date');
             dateElement.style.backgroundColor = '';
+        } else if (dateContent === end.split('-')[2]) {
+            dateElement.classList.remove('end-date');
+            dateElement.style.backgroundColor = '';
+        }
+    });
+};
+
+const applyDateStyles = (start, end) => {
+    const dates = document.querySelectorAll('.date');
+    dates.forEach(dateElement => {
+        const dateContent = dateElement.textContent.trim();
+        if (dateContent === start.split('-')[2]) {
+            dateElement.classList.add('start-date');
+            dateElement.style.backgroundColor = 'red';
+        } else if (dateContent === end.split('-')[2]) {
+            dateElement.classList.add('end-date');
+            dateElement.style.backgroundColor = 'blue';
         }
     });
 };
