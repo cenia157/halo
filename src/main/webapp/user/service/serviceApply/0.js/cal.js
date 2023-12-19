@@ -90,55 +90,82 @@ renderCalendar();
 let isStartDateSelected = false;
 
 const setDate = (day) => {
-	const formattedDay = day < 10 ? `0${day}` : day;
-	const selectedDate = `${viewYear}-${viewMonth + 1}-${formattedDay}`;
+    const formattedDay = day < 10 ? `0${day}` : day;
+    const selectedDate = `${viewYear}-${viewMonth + 1}-${formattedDay}`;
 
-	const startDateInput = document.getElementById('start-date-sel');
-	const endDateInput = document.getElementById('end-date-sel');
+    const startDateInput = document.getElementById('start-date-sel');
+    const endDateInput = document.getElementById('end-date-sel');
 
-	if (!isStartDateSelected) {
-		if (startDateInput !== null) {
-			startDateInput.value = selectedDate;
-			isStartDateSelected = true;
-		}
-	} else {
-		if (endDateInput !== null) {
-			const endDate = new Date(selectedDate);
-			const startDate = new Date(startDateInput.value);
-			if (endDate >= startDate) {
-				endDateInput.value = selectedDate;
-				isStartDateSelected = false; // Reset to allow selecting start date again
-			} else {
-				alert('종료 날짜는 시작 날짜 이후여야 합니다.');
-				// 선택된 날짜가 시작 날짜보다 이전인 경우 경고창 또는 다른 처리를 할 수 있습니다.
-			}
-		}
-	}
+    const selectedStartDate = startDateInput.value;
+    const selectedEndDate = endDateInput.value;
+
+    if (!isStartDateSelected) {
+        startDateInput.value = selectedDate;
+        endDateInput.value = '';
+        isStartDateSelected = true;
+
+        removeSelectedDateStyle(selectedEndDate);
+    } else {
+        const endDate = new Date(selectedDate);
+        const startDate = new Date(selectedStartDate);
+
+        if (endDate >= startDate) {
+            endDateInput.value = selectedDate;
+            isStartDateSelected = false;
+
+            removeSelectedDateStyle(selectedStartDate);
+        } else {
+            alert('종료 날짜는 시작 날짜 이후여야 합니다.');
+            // 선택된 날짜가 시작 날짜보다 이전인 경우 처리
+        }
+    }
+
     const dates = document.querySelectorAll('.date');
     dates.forEach(dateElement => {
         const dateContent = dateElement.textContent.trim();
         if (dateContent === String(day)) {
-            dateElement.classList.add(isStartDateSelected ? 'start-date' : 'end-date');
-            dateElement.style.backgroundColor = isStartDateSelected ? 'red' : 'blue';
+            dateElement.classList.remove('start-date', 'end-date');
+            if (dateContent === startDateInput.value.split('-')[2]) {
+                dateElement.classList.add('start-date');
+                dateElement.style.backgroundColor = 'red';
+            } else if (dateContent === endDateInput.value.split('-')[2]) {
+                dateElement.classList.add('end-date');
+                dateElement.style.backgroundColor = 'blue';
+            } else {
+                dateElement.style.backgroundColor = '';
+            }
         }
     });
 
-	// 시작 날짜와 끝 날짜 사이의 날짜에 회색 스타일 추가
-	const startDate = new Date(startDateInput.value);
-	const endDate = new Date(endDateInput.value);
+    const startDate = new Date(startDateInput.value);
+    const endDate = new Date(endDateInput.value);
 
-	if (startDate && endDate) {
-		const allDates = document.querySelectorAll('.date');
-		allDates.forEach(date => {
-			const dateValue = parseInt(date.textContent);
-			const currentDate = new Date(viewYear, viewMonth, dateValue);
+    if (startDate && endDate) {
+        const allDates = document.querySelectorAll('.date');
+        allDates.forEach(date => {
+            const dateValue = parseInt(date.textContent);
+            const currentDate = new Date(viewYear, viewMonth, dateValue);
 
-			if (currentDate > startDate && currentDate < endDate) {
-				date.parentNode.classList.add('between-dates');
-			}
-		});
-	}
+            if (currentDate > startDate && currentDate < endDate) {
+                date.parentNode.classList.add('between-dates');
+            } else {
+                date.parentNode.classList.remove('between-dates');
+            }
+        });
+    }
 };
+
+const removeSelectedDateStyle = (date) => {
+    const dates = document.querySelectorAll('.date');
+    dates.forEach(dateElement => {
+        const dateContent = dateElement.textContent.trim();
+        if (dateContent === date.split('-')[2]) {
+            dateElement.classList.remove('start-date', 'end-date');
+            dateElement.style.backgroundColor = '';
+        }
+    });
+};
+
 const prevMonth = () => {
 	date.setMonth(date.getMonth() - 1);
 	renderCalendar();
