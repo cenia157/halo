@@ -58,22 +58,26 @@
 	<input type="text" name="" id="">
 
 
+
 	<script type="text/javascript">
+		const visitCount = localStorage.getItem('visitCount');
 
-const visitCount = localStorage.getItem('visitCount');
-if (visitCount) {
-  localStorage.setItem('visitCount', Number(visitCount) + 1);
-} else {
-  localStorage.setItem('visitCount', 1);
-}
+		const asd = new Date();
+		const qqq = asd.toLocaleString();
 
+		const visitTime = localStorage.getItem('visitTime');
 
+		if (visitCount) {
+			localStorage.setItem('visitCount', Number(visitCount) + 1);
+		} else {
+			localStorage.setItem('visitCount', 1);
+		}
 
+		localStorage.setItem('visitTime', qqq);
 
-
-		
+		console.log(visitCount);
+		console.log(visitTime);
 	</script>
-
 
 
 
