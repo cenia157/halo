@@ -87,7 +87,7 @@
 <!-- 				<div class="ontent-m-td-2-content-txt-writer-in">7</div> -->
 <!-- 				<div class="ontent-m-td-2-content-txt-date-in">7</div> -->
 <!-- 				<div class="ontent-m-td-2-content-txt-delete-in">삭제하기</div> -->
-			</div>
+<!-- 			</div> -->
 		</div>
 	</div>
 </body>
