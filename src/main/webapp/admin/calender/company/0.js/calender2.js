@@ -8,6 +8,7 @@ function fixedDate() {
 }
 
 
+
 window.onload = function() {
 	let dateArr = new Array(32).fill(0);
 
@@ -92,45 +93,38 @@ window.onload = function() {
 	document.querySelector('.go-year-prev').addEventListener('click', function() {
 		thisMonth = new Date(currentYear, currentMonth - 12, 12);
 		renderCalender(thisMonth);
-		document.querySelector('.input-date').value = thisMonth.getFullYear() + '年 ' +thisMonth.getMonth() + 1 + '月 ';
-		dateArr = new Array(32).fill(0);
 	});
 
 	// 이전달로 이동
 	document.querySelector('.go-prev').addEventListener('click', function() {
 		thisMonth = new Date(currentYear, currentMonth - 1, 1);
 		renderCalender(thisMonth);
-		document.querySelector('.input-date').value = thisMonth.getFullYear() + '年 ' + (thisMonth.getMonth() + 1) + '月 ';
-		dateArr = new Array(32).fill(0);
 	});
 
 	// 다음달로 이동
 	document.querySelector('.go-next').addEventListener('click', function() {
 		thisMonth = new Date(currentYear, currentMonth + 1, 1);
 		renderCalender(thisMonth);
-		document.querySelector('.input-date').value = thisMonth.getFullYear() + '年 ' + (thisMonth.getMonth() + 1) + '月 ';
-		dateArr = new Array(32).fill(0);
 	});
 
 	// 다음해로 이동
 	document.querySelector('.go-year-next').addEventListener('click', function() {
 		thisMonth = new Date(currentYear, currentMonth + 12, 12);
 		renderCalender(thisMonth);
-		document.querySelector('.input-date').value = thisMonth.getFullYear() + '年 ' + (thisMonth.getMonth() + 1) + '月 ';
-		dateArr = new Array(32).fill(0);
 	});
 
 
-
-	document.querySelector('.input-date').value = thisMonth.getFullYear() + '年 ' + (thisMonth.getMonth() + 1) + '月 ';
-	
 	//클릭
 	calendar.addEventListener("click", function(e) {
 		if (e.target.className.includes("current")) {
 			if (!e.target.style.backgroundColor) {
 				e.target.style.backgroundColor = '#ACF6B3';
 
+
+				//document.querySelector('.input-date').value += e.target.textContent;
+
 				dateArr[e.target.textContent] = 1;
+
 			} else {
 				e.target.style.backgroundColor = '';
 
@@ -138,7 +132,7 @@ window.onload = function() {
 			}
 
 		}
-		document.querySelector('.input-date').value = thisMonth.getFullYear() + '年 ' + (thisMonth.getMonth() + 1) + '月 ';
+		document.querySelector('.input-date').value = "";
 		for (let i = 1; i <= dateArr.length; i++) {
 			if (dateArr[i] == 1) {
 				document.querySelector('.input-date').value += i + ',';
@@ -165,7 +159,3 @@ window.onload = function() {
 
 
 };
-
-function insertCompanyC() {
-	document.querySelector('.company-form').submit();
-}
