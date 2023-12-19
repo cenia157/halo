@@ -50,21 +50,37 @@ const renderCalendar = () => {
 		}
 		dates[i] = condition;
 	});
-	//		dates[i] = `<div class="date" onclick="setDate(${day})" style="cursor:pointer"><span class="${condition}">${day}</span></div>`;
-	//
-	//		dates[i] = `<div class="date" style="cursor:pointer"><span class="${condition}">${day}</span></div>`;
 
-	// Dates 그리기
-//	document.querySelector(".dates").innerHTML = dates.join("");
-//	dates.addEventListener("click", function(e) {
-//		 console.log(e.target)
-//	});
-const datesElement = document.querySelector(".dates");
-datesElement.innerHTML = dates.join("");
+	const datesElement = document.querySelector(".dates");
+	datesElement.innerHTML = dates.join("");
 
-datesElement.addEventListener("click", function(e) {
-  console.log(e.target); // 클릭한 요소(e.target) 출력
-});
+datesElement.addEventListener("click", function (e) {
+        const clickedElement = e.target;
+        const selectedDate = clickedElement.dataset.date;
+
+        const startDateInput = document.getElementById('start-date-sel');
+        const endDateInput = document.getElementById('end-date-sel');
+
+        // 색상 초기화 함수
+        const resetColor = () => {
+            clickedElement.style.backgroundColor = "";
+            startDateInput.style.backgroundColor = "";
+            endDateInput.style.backgroundColor = "";
+        };
+
+        // 시작일과 종료일을 선택했을 때의 동작
+        if (startDateInput !== null && startDateInput.value === selectedDate) {
+            resetColor(); // 색상 초기화
+            clickedElement.style.backgroundColor = "red"; // 시작일을 빨간색으로 변경
+            startDateInput.style.backgroundColor = "red"; // 선택된 시작일 input도 빨간색으로 변경
+        } else if (endDateInput !== null && endDateInput.value === selectedDate) {
+            resetColor(); // 색상 초기화
+            clickedElement.style.backgroundColor = "blue"; // 종료일을 파란색으로 변경
+            endDateInput.style.backgroundColor = "blue"; // 선택된 종료일 input도 파란색으로 변경
+        } else {
+            resetColor(); // 선택 해제 시 색상 초기화
+        }
+    });
 };
 
 
@@ -84,52 +100,11 @@ const setDate = (day) => {
 		if (startDateInput !== null) {
 			startDateInput.value = selectedDate;
 			isStartDateSelected = true;
-
-//			// 선택된 시작 날짜에 클래스 추가
-//			const selectedDayElement = document.querySelector(`.date span:contains(${day})`);
-//			if (selectedDayElement !== null) {
-//				selectedDayElement.parentNode.classList.add('start-date');
-//			}
-//		}
-//	} else {
-//		if (endDateInput !== null) {
-//			const endDate = new Date(selectedDate);
-//			const startDate = new Date(startDateInput.value);
-//
-//			if (endDate >= startDate) {
-//				endDateInput.value = selectedDate;
-//				isStartDateSelected = false;
-//
-//				// 선택된 종료 날짜에 클래스 추가
-//				const selectedDayElement = document.querySelector(`.date span:contains(${day})`);
-//				if (selectedDayElement !== null) {
-//					selectedDayElement.parentNode.classList.add('end-date');
-//				}
-//
-//				// 시작일과 종료일 사이의 날짜들에 클래스 추가
-//				const allDates = document.querySelectorAll('.date span');
-//				allDates.forEach(date => {
-//					const dateValue = parseInt(date.textContent);
-//					const currentDate = new Date(viewYear, viewMonth, dateValue);
-//
-//					if (currentDate > startDate && currentDate < endDate) {
-//						date.parentNode.classList.add('between-dates');
-//					}
-//				});
-//			} else {
-//				alert('종료 날짜는 시작 날짜 이후여야 합니다.');
-//			}
-//		}
-//	}
-//};
-
-
 		}
 	} else {
 		if (endDateInput !== null) {
 			const endDate = new Date(selectedDate);
 			const startDate = new Date(startDateInput.value);
-
 			if (endDate >= startDate) {
 				endDateInput.value = selectedDate;
 				isStartDateSelected = false; // Reset to allow selecting start date again
@@ -139,26 +114,30 @@ const setDate = (day) => {
 			}
 		}
 	}
-const selectedDayElement = document.querySelector(`.date:contains(${day})`);
-if (selectedDayElement !== null) {
-	selectedDayElement.parentNode.classList.add(isStartDateSelected ? 'start-date' : 'end-date');
-}
+    const dates = document.querySelectorAll('.date');
+    dates.forEach(dateElement => {
+        const dateContent = dateElement.textContent.trim();
+        if (dateContent === String(day)) {
+            dateElement.classList.add(isStartDateSelected ? 'start-date' : 'end-date');
+            dateElement.style.backgroundColor = isStartDateSelected ? 'red' : 'blue';
+        }
+    });
 
-// 시작 날짜와 끝 날짜 사이의 날짜에 회색 스타일 추가
-const startDate = new Date(startDateInput.value);
-const endDate = new Date(endDateInput.value);
+	// 시작 날짜와 끝 날짜 사이의 날짜에 회색 스타일 추가
+	const startDate = new Date(startDateInput.value);
+	const endDate = new Date(endDateInput.value);
 
-if (startDate && endDate) {
-	const allDates = document.querySelectorAll('.date');
-	allDates.forEach(date => {
-		const dateValue = parseInt(date.textContent);
-		const currentDate = new Date(viewYear, viewMonth, dateValue);
+	if (startDate && endDate) {
+		const allDates = document.querySelectorAll('.date');
+		allDates.forEach(date => {
+			const dateValue = parseInt(date.textContent);
+			const currentDate = new Date(viewYear, viewMonth, dateValue);
 
-		if (currentDate > startDate && currentDate < endDate) {
-			date.parentNode.classList.add('between-dates');
-		}
-	});
-}
+			if (currentDate > startDate && currentDate < endDate) {
+				date.parentNode.classList.add('between-dates');
+			}
+		});
+	}
 };
 const prevMonth = () => {
 	date.setMonth(date.getMonth() - 1);
