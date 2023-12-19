@@ -36,11 +36,11 @@
 
 
 					<div class="real-title">
-						<div class="real-title-up">민기해적단은 언제 귀가를하나요?</div>
+						<div class="real-title-up">${question.q_title}</div>
 						<div class="real-title-down">
 							<div class="real-title-down-L">
 
-								<div class="real-title-down-contain">2023-12-25</div>
+								<div class="real-title-down-contain">${question.q_reg_date}</div>
 								<div class="real-title-down-contain">미답변</div>
 							</div>
 							<div class="real-title-down-R"></div>
@@ -69,7 +69,7 @@
 						<jsp:include page="askEditPageCustomerQuestion.jsp"></jsp:include>
 					</div>
 					<textarea class="modal-content-txt-response-textarea" rows=""
-						cols="" placeholder="여기는 고객의 질문에 대답하는 곳"></textarea>
+						cols="" placeholder="여기는 고객의 질문에 대답하는 곳" name="c_comment_content"></textarea>
 				</div>
 				<div class="modal-content-button">
 					<button class="SubmitButton" onclick="closeModalN()">답변하기</button>

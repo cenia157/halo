@@ -1,6 +1,15 @@
+<%@ page import="java.util.List" %>
+<%@ page import="com.halo.user.qa.question.Question" %>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
+
+<%@ page import="java.util.Collections" %>
+<%@ page import="com.halo.user.qa.question.QuestionDAO.QuestionComparator" %>
+
+
+
 
 <!DOCTYPE html>
 <html>
@@ -40,15 +49,6 @@
 
 </head>
 <body>
-
-
-<!-- 메뉴를 include -->
-<%-- <%@ include file="index-menu.jsp" %> --%>
-  
-
-<!-- 메뉴를 include -->
-<%-- <%@ include file="index-menu.jsp" %> --%>
-
 
 		<!-- 문의작성란 -->
 	<div class="q-content-tbl">
@@ -152,22 +152,23 @@
                   
                   
                   <!-- 2번째 행 여기는 forEach문이겠죠?-->
-					<c:forEach items="${questions}" var="questions">
+					<c:forEach items="${questions}" var="question">
 					    <div class="q_content-box-tr1-td3-1-1-1-2">
 			                    <div class="q_content-box-tr1-td3-1-1-1-2-1 No-width">
-			                      <span>${questions.q_seq}</span>
+			                      <span>${question.q_seq}</span>
 			                    </div>
 			                    <div class="q_content-box-tr1-td3-1-1-1-2-2 writer-width">
-			                      <span>${questions.q_name}</span>
+			                      <span>${question.q_name}</span>
 			                    </div>
 			                    <div class="q_content-box-tr1-td3-1-1-1-2-3 title-width">
-			                      <a href="HC?link=10">${questions.q_title}</a>
+			                      <a href="QuestionDetailC?q_seq=${question.q_seq}">${question.q_title}</a>
 			                    </div>
 			                    <div class="q_content-box-tr1-td3-1-1-1-2-4 answer-width">
-			                      <span>${questions.q_answer}</span>
+<!-- 추후 추가할 것 / c_seq!=null 이면 답변된 것? -->
+<%-- 			                      <span>${question.q_answer}</span> --%>
 			                    </div>
 			                    <div class="q_content-box-tr1-td3-1-1-1-2-5 reg-width">
-			                      <span>${questions.q_reg_date}</span>
+			                      <span>${question.q_reg_date}</span>
 			                    </div>
 					    </div>
 					</c:forEach>

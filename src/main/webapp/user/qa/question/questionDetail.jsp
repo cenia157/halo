@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page import="com.halo.user.qa.question.Question" %>
+<%@ page import="com.halo.user.qa.question.QuestionDAO" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,6 +15,14 @@
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/user/0.css/index-menu.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/user/0.css/index-footer.css">
 
+<script type="text/javascript">
+function deleteQuestion(n) {
+	let ok = confirm("削除しますか?");
+	if (ok) {
+		location.href= "QuestionDeleteC?q_seq=" + n;
+	}
+}
+</script>
 
 </head>
 <body>
@@ -31,28 +42,28 @@
 				</div>
 				<div class="qd-content-box-td1-2">
 					<div class="qd-content-box-td1-2-1">タイトル</div>
-					<div class="qd-content-box-td1-2-2"> ${q_title} </div>
+					<div class="qd-content-box-td1-2-2"> ${question.q_title} </div>
 				</div>
 
 				<div class="qd-content-box-td1-3">
 					<div class="qd-content-box-td1-3-1">作成者</div>
-					<div class="qd-content-box-td1-3-2"> ${q_name} </div>
+					<div class="qd-content-box-td1-3-2"> ${question.q_name} </div>
 				</div>
 
 				<div class="qd-content-box-td1-4">
 					<div class="qd-content-box-td1-4-content">
 						<span class="qd-content-box-td1-4-1">作成日時</span> <span
-							class="qd-content-box-td1-4-2"> ${q_reg_date} </span>
+							class="qd-content-box-td1-4-2"> ${question.q_reg_date} </span>
 					</div>
 					<div class="qd-content-box-td-button">
-						<button class="qd-content-box-td-button-2">削除 X</button>
+						<button class="qd-content-box-td-button-2" onclick="deleteQuestion(${question.q_seq})">削除 X</button>
 					</div>
 				</div>
 
 				<!-- 본문 -->
 				<div class="qd-content-box-td2-1">
 					<div class="qd-content-box-td2-1-content">
-						${q_content}
+						${question.q_content}
 					</div>
 				</div>
 
@@ -62,8 +73,8 @@
 				<!-- 댓글 -->
 				<div class="qd-content-box-td3">
 				<div class="qd-content-box-td3-1">
-						<div class="qd-content-box-td3-1-1">이름 ${c_comemter_name}</div>
-						<div class="qd-content-box-td3-1-2">작성일 </div>
+						<div class="qd-content-box-td3-1-1">이름 ${c_commenter_name}</div>
+						<div class="qd-content-box-td3-1-2">작성일 ${c_reg_date }</div>
 					</div>
 					<div class="qd-content-box-td3-2">
 						<div class="qd-content-box-td3-2-1">
@@ -78,16 +89,12 @@
 					<div class="qd-content-box-td4-1">
 						<div class="qd-content-box-td4-1-1">前のページ</div>
 							<div class="qd-content-box-td4-1-2">
-							<a>
-								글 제목
-							</a>
+							<!-- 이전 질문 표시 -->
 							</div>
 						</div>
 					<div class="qd-content-box-td4-2">
 						<div class="qd-content-box-td4-2-1">後のページ</div>
-						<div class="qd-content-box-td4-2-2">
-							<a>
-								글 제목
+						<!-- 다음 질문 표시 -->
 							</a>
 						</div>
 					</div>
@@ -109,7 +116,7 @@
 
 <script type="text/javascript">
 	document.getElementById("listButton").onclick = function() {
-    window.location.href = "HC?link=9";
+    window.location.href = "QuestionC";
   };	
 </script>
 </html>
