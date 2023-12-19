@@ -26,12 +26,12 @@
 							<input class="real-title-editor" name="title"
 								placeholder="이곳에 제목을 입력하세요">
 							<div class="real-title-select">
-								<select>
-									<option value="">안내</option>
-									<option value="">일정</option>
-									<option value="">일반</option>
-									<option value="">서비스</option>
-									<option value="">상품</option>
+								<select name="select">
+									<option value="announcement">안내</option>
+									<option value="schedule">일정</option>
+									<option value="general">일반</option>
+									<option value="service">서비스</option>
+									<option value="product">상품</option>
 								</select>
 							</div>
 						</div>
@@ -74,17 +74,20 @@
 		ckForm.addEventListener("submit", function(event){
 	     event.preventDefault(); // 기본 submit 동작 방지
 		
+	     
 	 	 const titleValue = document.querySelector('input[name="title"]').value;
+	 	 const selectValue = document.querySelector('select[name="select"]').value;
 			    // URL 생성
-		 const url = `CkeditorC?title=${titleValue}&txt=${textareaValue}`;
+		 const url = `CkeditorC?title=${titleValue}&select=${selectValue}&txt=${textareaValue}`;
 		 const content = window.editor.getData();
 
 		 console.log(titleValue);
+		 console.log(selectValue);
 		 console.log(content);
 		 const formData = new FormData(event.target);
 		 const payload = new URLSearchParams(formData);
 		 for (var pair of formData.entries()) {
-		        console.log(pair[0] + ': ' + pair[1]);
+		        console.log(pair[0] + ': ' + pair[1] + ': ' + pair[2]);
 		    }
 		 
 		 fetch('CkeditorC',  {
