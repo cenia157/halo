@@ -50,15 +50,6 @@
 </head>
 <body>
 
-
-<!-- 메뉴를 include -->
-<%-- <%@ include file="index-menu.jsp" %> --%>
-  
-
-<!-- 메뉴를 include -->
-<%-- <%@ include file="index-menu.jsp" %> --%>
-
-
 		<!-- 문의작성란 -->
 	<div class="q-content-tbl">
 		<form action="QuestionC" method="post">

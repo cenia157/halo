@@ -3,18 +3,6 @@
 <%@ page import="com.halo.user.qa.question.Question" %>
 <%@ page import="com.halo.user.qa.question.QuestionDAO" %>
 
-<%
-// 유효한 currentSeq 매개변수가 있다고 가정합니다
-int currentSeq = Integer.parseInt(request.getParameter("q_seq"));
-
-// QuestionDAO의 인스턴스 생성
-QuestionDAO questionDAO = new QuestionDAO();
-
-// 이전 및 다음 질문 가져오기
-Question previousQuestion = questionDAO.getPreviousQuestion(currentSeq);
-Question nextQuestion = questionDAO.getNextQuestion(currentSeq);
-%>
-
 <!DOCTYPE html>
 <html>
 <head>

@@ -14,6 +14,9 @@ create sequence question_tbl_seq
   start with 1
   increment by 1;
   
+drop table question_tbl;
+drop sequence question_tbl_seq;
+  
 insert into question_tbl values (question_tbl_seq.nextval, 'q_title', 'q_content', sysdate, 'q_contact_number','q_email', 'q_name', 'q_password', 'q_category');
 
-select * from question_tbl order by desc;
+select * from question_tbl order by q_seq dec;

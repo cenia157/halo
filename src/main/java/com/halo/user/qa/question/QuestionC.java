@@ -20,7 +20,7 @@ public class QuestionC extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		QuestionDAO.getAllQuestions(request);
+		QuestionDAO.getQuestion(request);
 		QuestionDAO.questionSubmit(request);
 		String subMenu = "qa/question/questionDetail";
 		request.setAttribute("menu", "user/menu-index.jsp");
