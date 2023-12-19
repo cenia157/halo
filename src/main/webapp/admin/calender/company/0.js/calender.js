@@ -163,9 +163,31 @@ window.onload = function() {
 		}
 	});
 
+// 'day' 클래스를 가진 모든 요소 가져오기
+const days = document.querySelectorAll('.day');
+
+// 날짜 입력 값을 업데이트하는 함수
+const updateDateInput = (event) => {
+  // 클릭된 'day'의 텍스트 내용 가져오기
+  const selectedDay = event.target.textContent.trim();
+
+  // 날짜 입력 요소 가져오기
+  const dateInput = document.getElementById('date-sel');
+  
+  // 날짜 입력의 값을 선택된 'day'로 설정하기
+  dateInput.value = `${viewYear}-${viewMonth + 1}-${selectedDay}`;
+};
+
+// 각 'day' 요소에 클릭 이벤트 리스너 추가하기
+days.forEach((day) => {
+  day.addEventListener('click', updateDateInput);
+});
 
 };
 
+<<<<<<< HEAD
 function insertCompanyC() {
 	document.querySelector('.company-form').submit();
 }
+=======
+>>>>>>> 811fc91caf1138d26afbf11b981023746576f172

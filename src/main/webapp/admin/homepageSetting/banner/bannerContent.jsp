@@ -50,7 +50,7 @@
 				<div class="banner-td-3">
 				<img src="${pageContext.request.contextPath}/admin/0.img/fileDown.png" alt="이미지준비중">
 				썸네일 :&nbsp;
-				<label for="file">
+				<label for="thumbnail">
 				<div class="btn-upload">파일업로드</div>
 				</label>
 				<input type="file" name="banner_thumbnail" id="thumbnail">
@@ -80,7 +80,7 @@
 				<div class="banner-td-3">
 				<img src="${pageContext.request.contextPath}/admin/0.img/fileDown.png" alt="이미지준비중">
 				썸네일 :&nbsp;
-				<label for="file">
+				<label for="thumbnail">
 				 <div class="btn-upload">파일업로드</div>
 				</label>
 				<input type="file" name="banner_thumbnail" id="thumbnail">
@@ -110,13 +110,14 @@
 				<div class="banner-td-3">
 				<img src="${pageContext.request.contextPath}/admin/0.img/fileDown.png" alt="이미지준비중">
 				썸네일 :&nbsp;
-				<label for="file">
+				<label for="thumbnail">
 				<div class="btn-upload">파일업로드</div>
 				</label>
 				<input type="file" name="banner_thumbnail" id="thumbnail">
 				</div>
 			</div>
 		</div>
+		<div class="content-button"><button>변경</button></div>
 	</div>
 </body>
 
