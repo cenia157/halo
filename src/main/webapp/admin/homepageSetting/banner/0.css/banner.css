@@ -26,41 +26,12 @@
 	display: block;
 }
 
-/* .filebox .bannerInput { */
-/*     display: inline-block; */
-/*     height: 40px; */
-/*     padding: 0 10px; */
-/*     vertical-align: middle; */
-/*     border: 1px solid gray; */
-/*     width: 80%; */
-/*     color: black; */
-/* } */
-
-/* .filebox label { */
-/*     display: inline-block; */
-/*     padding: 10px 20px; */
-/*     color: #fff; */
-/*     vertical-align: middle; */
-/*     background-color: #999999; */
-/*     cursor: pointer; */
-/*     height: 40px; */
-/*     margin-left: 10px; */
-/* } */
-
-/* .filebox input[type="file"] { */
-/* 	position: absolute; */
-/* 	width: 0; */
-/* 	height: 0; */
-/* 	padding: 0; */
-/* 	overflow: hidden; */
-/* 	border: 0; */
-/* } */
 
 /* 하단 배너  */
 .banner-tbl {
 	border: dotted 1px orange;
 	width: 100%;
-	height: 100%;
+	height: 90%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -170,6 +141,8 @@
 #thumbnail{
 	display: none;
 }
+
+/* 파일업로드 인풋 라벨 & 호버 */
 .btn-upload {
   width: 280px;
   height: 40px;
@@ -196,16 +169,33 @@
 	border-bottom: solid 2px rgb(130, 130, 130);
   }
   
-/*  file-selector-button 선택자 */
-/* input[type=file]::file-selector-button { */
-/*   width: 150px; */
-/*   height: 30px; */
-/*   background: #fff; */
-/*   border: 1px solid rgb(77,77,77); */
-/*   border-radius: 10px; */
-/*   cursor: pointer; */
-/* } */
-/* .custom-file-input-container:hover::before { */
-/*   background: rgb(77, 77, 77); */
-/*   color: #fff; */
-/* } */
+/* 버튼 */
+.content-button{
+	width: 100%;
+	height: 30%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.content-button > button{
+	border-radius: 5%/15%;
+    border: none;
+    background-color: #3B82F6;
+    color: white;
+    border: none;
+    width: 15%;
+    height: 30%;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+.content-button > button:focus {
+    outline-color: transparent;
+    outline-style:solid;
+    box-shadow: 0 0 0 4px #000000;
+}
+.content-button > button:hover {
+	    background-color: #2f4d26;
+	    color: white;
+	    font-size: 1.5rem;
+	    cursor: pointer;
+}
