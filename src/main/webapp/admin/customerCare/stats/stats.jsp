@@ -44,6 +44,7 @@
             const currentTime = new Date().toLocaleString();
             localStorage.setItem('lastVisitTime', currentTime);
 
+            
             // AJAX를 사용하여 서블릿에 데이터 전송
             const xhr = new XMLHttpRequest();
             xhr.open('GET', 'Localstorage', true);
@@ -55,6 +56,11 @@
         }
 
         function getUserIpAddress() {
+        	
+        	
+        	
+        	
+        	
             // 사용자의 IP 주소를 추출하는 코드
             // 실제로는 정확한 IP 주소를 추출하기 어렵기 때문에 예시로 단순히 "unknown"을 반환합니다.
             return "unknown";
@@ -78,7 +84,7 @@
 	<h1>쿠키 생성</h1>
 
 	<p></p>
-	<button>지우기</button>
+	<button onclick="onPageLoad()">지우기</button>
 	<input type="text" name="" id="">
 
 
