@@ -26,8 +26,9 @@ select * from visitors;
 
 
 
-
-
+CREATE TABLE notice (
+	update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+);
 
 
 
@@ -39,7 +40,7 @@ CREATE TABLE notice (
 	title VARCHAR2(30) NOT NULL,
 	txt VARCHAR2(500) NOT NULL,    
 	writer VARCHAR2(500),    
-	update_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    update_date DATE DEFAULT SYSDATE,
 	category VARCHAR2(30),
 	img VARCHAR2(500)
 );
@@ -47,7 +48,6 @@ CREATE TABLE notice (
 create sequence notice_seq;
 
 INSERT INTO notice (id, title, txt, writer, category, img) VALUES (notice_seq.nextval, '타이틀', '텍스트', '김진욱', '일반', '이미지');
-
 
 select * from notice;
 

@@ -32,7 +32,7 @@ public class Ck_DAO {
 // 참고용 notice_seq.nextval, '타이틀', '텍스트', '김진욱', '일반', '이미지'
 
 		try {
-			con = DBManager.connect();
+			con = DBManagerJW.connect();
 			pstmt = con.prepareStatement(sql);
 
 			pstmt.setString(1, title);

@@ -80,23 +80,29 @@
 			    // URL 생성
 		 const url = `CkeditorC?title=${titleValue}&select=${selectValue}&txt=${textareaValue}`;
 		 const content = window.editor.getData();
-
+		 console.log(event);
 		 console.log(titleValue);
 		 console.log(selectValue);
 		 console.log(content);
 		 const formData = new FormData(event.target);
+		 
 		 const payload = new URLSearchParams(formData);
+		 
 		 for (var pair of formData.entries()) {
 		        console.log(pair[0] + ': ' + pair[1] + ': ' + pair[2]);
 		    }
 		 
-		 fetch('CkeditorC',  {
+		let CkeditorC123 = fetch('CkeditorC',  {
 		        method: 'POST',
 		        body: payload,
 		        headers: {
 		            'Content-Type': 'application/x-www-form-urlencoded', // 헤더 설정
 		        }
 		    })
+		    
+
+
+		    
 	        .then(response => {
 	            if (!response.ok) {
 	                throw new Error('Network response was not ok');
@@ -105,7 +111,10 @@
 	        })
 	        .then(data => {
 	            console.log('POST 요청 성공:', data);
+	            console.log(CkeditorC123);
+	            
 	        })
+	        
 	        .catch(error => {
 	            console.error('POST 요청 실패:', error);
 	        });

@@ -49,10 +49,10 @@ public class Localstorage extends HttpServlet {
 			String sql = "INSERT INTO visitors (ip, user_agent) VALUES (?, ?)";
 
 			try {
-				con = DBManager.connect();
+				con = DBManagerJW.connect();
 				pstmt = con.prepareStatement(sql);
 
-				pstmt.setString(1, "임시데이터");
+				pstmt.setString(1, userIpAddress);
 				pstmt.setString(2, currentTime);
 				if (pstmt.executeUpdate() == 1) {
 					System.out.println("등록성공");
