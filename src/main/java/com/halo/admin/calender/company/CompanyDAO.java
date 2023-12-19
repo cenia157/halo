@@ -23,28 +23,26 @@ public class CompanyDAO {
 		
 			LocalDateTime now = LocalDateTime.now();
 			
-			String selectDate = request.getParameter("input-date");
-			int monthPlace = selectDate.indexOf("月") + 1;
-			System.out.println(selectDate.substring(monthPlace, selectDate.length()));
+			String selectDate = request.getParameter("selectDate");
+			String selectYearMonth = request.getParameter("selectYearMonth");
 			
+			System.out.println(selectYearMonth);
+			System.out.println(selectDate);
+					
+			pstmt = con.prepareStatement(sql);
+
+			pstmt.setString(1, request.getParameter("input-title"));
+			pstmt.setString(2, request.getParameter("input-date"));
+			pstmt.setString(3, request.getParameter("input-txt"));
+			pstmt.setString(4, now.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
 			
-					
-					
-					
-//			pstmt = con.prepareStatement(sql);
-//
-//			pstmt.setString(1, request.getParameter("input-title"));
-//			pstmt.setString(2, request.getParameter("input-date"));
-//			pstmt.setString(3, request.getParameter("input-txt"));
-//			pstmt.setString(4, now.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
-//			
-//			if (pstmt.executeUpdate() == 1) {
-//				System.out.println("일정추가 성공");
-//			}
+			if (pstmt.executeUpdate() == 1) {
+				System.out.println("일정추가 성공");
+			}
 			
 		} catch (Exception e) {
 			e.printStackTrace();
-//			System.out.println("일정추가 실패");
+			System.out.println("일정추가 실패");
 		} finally {
 			DBManagerhalo.close(con, null, null);
 		}

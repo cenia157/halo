@@ -92,7 +92,7 @@ window.onload = function() {
 	document.querySelector('.go-year-prev').addEventListener('click', function() {
 		thisMonth = new Date(currentYear, currentMonth - 12, 12);
 		renderCalender(thisMonth);
-		document.querySelector('.input-date').value = thisMonth.getFullYear() + '年 ' +thisMonth.getMonth() + 1 + '月 ';
+		document.querySelector('.input-date').value = thisMonth.getFullYear() + '年 ' + thisMonth.getMonth() + 1 + '月 ';
 		dateArr = new Array(32).fill(0);
 	});
 
@@ -121,9 +121,14 @@ window.onload = function() {
 	});
 
 
-
+	// 사용자가 보기 위한 초기값
 	document.querySelector('.input-date').value = thisMonth.getFullYear() + '年 ' + (thisMonth.getMonth() + 1) + '月 ';
-	
+
+	// 선택한 값 보내기 위한 월과 날짜
+	let selectYearMonth = "";
+	let selectDate = "";
+
+
 	//클릭
 	calendar.addEventListener("click", function(e) {
 		if (e.target.className.includes("current")) {
@@ -139,16 +144,28 @@ window.onload = function() {
 
 		}
 		document.querySelector('.input-date').value = thisMonth.getFullYear() + '年 ' + (thisMonth.getMonth() + 1) + '月 ';
+		selectDate = "";
 		for (let i = 1; i <= dateArr.length; i++) {
 			if (dateArr[i] == 1) {
 				document.querySelector('.input-date').value += i + ',';
+
+				//선택한 값 보내기 위한 날짜
+				selectDate += '!' + i;
 			}
 		}
-		
-		document.querySelector('.input-date').value = document.querySelector('.input-date').value.slice(0,-1);
-		
-	});
 
+		// 사용자가 보기위한 출력
+		document.querySelector('.input-date').value = document.querySelector('.input-date').value.slice(0, -1);
+
+		//선택한 값 보내기 위한 월
+		selectYearMonth = thisMonth.getFullYear() + '年 ' + (thisMonth.getMonth() + 1) + '月 ';
+	
+		document.querySelector(".selectYearMonth").value = selectYearMonth;
+		document.querySelector(".selectDate").value = selectDate;
+		
+		console.log(document.querySelector(".selectYearMonth").value);
+		console.log(document.querySelector(".selectDate").value);
+	});
 
 
 
@@ -163,27 +180,9 @@ window.onload = function() {
 		}
 	});
 
-// 'day' 클래스를 가진 모든 요소 가져오기
-const days = document.querySelectorAll('.day');
-
-// 날짜 입력 값을 업데이트하는 함수
-const updateDateInput = (event) => {
-  // 클릭된 'day'의 텍스트 내용 가져오기
-  const selectedDay = event.target.textContent.trim();
-
-  // 날짜 입력 요소 가져오기
-  const dateInput = document.getElementById('date-sel');
-  
-  // 날짜 입력의 값을 선택된 'day'로 설정하기
-  dateInput.value = `${viewYear}-${viewMonth + 1}-${selectedDay}`;
-};
-
-// 각 'day' 요소에 클릭 이벤트 리스너 추가하기
-days.forEach((day) => {
-  day.addEventListener('click', updateDateInput);
-});
 
 };
+
 
 function insertCompanyC() {
 	document.querySelector('.company-form').submit();
