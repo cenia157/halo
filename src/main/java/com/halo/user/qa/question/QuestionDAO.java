@@ -10,6 +10,8 @@ import java.util.Comparator;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.halo.main.DBManagerhalo;
+
 public class QuestionDAO {
 	
 	public static void questionSubmit(HttpServletRequest request) {
@@ -18,9 +20,13 @@ public class QuestionDAO {
 		String sql = "insert into question_tbl values (question_tbl_seq.nextval, ?, ?, sysdate, ?, ?, ?, ?, ?)";
 		
 		try {
-			System.out.println("DAO");
-			con = DBManager.connect();
-			pstmt = con.prepareStatement(sql);
+			System.out.println("QuestionDAO");
+			try {
+				con = DBManagerhalo.connect();
+				pstmt = con.prepareStatement(sql);
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}
 			
 			String q_title = request.getParameter("q_title");
 			String q_content = request.getParameter("q_content");
@@ -80,9 +86,13 @@ public class QuestionDAO {
 		Question q = null;
 		
 		try {
-				con = DBManager.connect();
-				pstmt = con.prepareStatement(sql);
-				rs = pstmt.executeQuery();
+				try {
+					con = DBManagerhalo.connect();
+					pstmt = con.prepareStatement(sql);
+					rs = pstmt.executeQuery();
+				} catch (ClassNotFoundException e) {
+					e.printStackTrace();
+				}
 			
 			while (rs.next()) {
 				int q_seq = rs.getInt("q_seq");
@@ -120,10 +130,14 @@ public class QuestionDAO {
 		String q_seq = request.getParameter("q_seq");
 		
 		try {
-			con = DBManager.connect();
-			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, q_seq);
-			rs = pstmt.executeQuery();
+			try {
+				con = DBManagerhalo.connect();
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, q_seq);
+				rs = pstmt.executeQuery();
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}
 			
 				if(rs.next()) {
 					Question q = new Question();
@@ -154,9 +168,13 @@ public class QuestionDAO {
 		String sql = "delete from question_tbl where q_seq=?";
 		
 		try {
-			con = DBManager.connect();
-			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, request.getParameter("q_seq"));
+			try {
+				con = DBManagerhalo.connect();
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, request.getParameter("q_seq"));
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}
 			
 			if (pstmt.executeUpdate()==1) {
 				System.out.println("Delete success");

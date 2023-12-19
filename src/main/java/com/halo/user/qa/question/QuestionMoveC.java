@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.halo.main.DBManagerhalo;
+
 
 @WebServlet("/QuestionMoveC")
 public class QuestionMoveC extends HttpServlet {
@@ -29,7 +31,7 @@ public class QuestionMoveC extends HttpServlet {
 	        
 	        try {
 	            Class.forName("question_tbl"); // 데이터베이스 드라이버 클래스를 적절히 수정
-	            Connection connection = DBManager.connect(); // 데이터베이스 연결 정보를 적절히 수정
+	            Connection connection = DBManagerhalo.connect(); // 데이터베이스 연결 정보를 적절히 수정
 
 	            // 이전 글과 다음 글의 제목을 가져오는 SQL 쿼리
 	            String sql = "SELECT q_title FROM question_tbl WHERE q_seq = ?";
