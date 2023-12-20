@@ -71,8 +71,8 @@ prefix="c" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
                   </div>
                 </div>
                 <!-- 2번째 행 여기는 forEach문이겠죠?-->
-                <div class="a_content-box-tr1-td3-1-1-1-2">
-                  <c:forEach var="announcement" items="${announcements}">
+                <c:forEach var="announcement" items="${announcements}">
+              	  <div class="a_content-box-tr1-td3-1-1-1-2-3">
                     <div class="a_content-box-tr1-td3-1-1-1-2-1 No-width">
                       <span>${announcement.an_seq}</span>
                     </div>
@@ -92,8 +92,8 @@ prefix="c" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
                           pattern="yyyy-MM-dd"
                       /></span>
                     </div>
+                   </div>
                   </c:forEach>
-                </div>
               </div>
             </div>
             <div class="a_content-box-tr1-td3-1-2">페이징 아이콘</div>
@@ -201,6 +201,7 @@ prefix="c" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
             }
           });
         });
+        
         $(document).keydown(function (e) {
           if (e.key === "Escape") {
             // 'Escape'는 ESC 키를 나타냄

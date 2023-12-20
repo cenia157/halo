@@ -8,7 +8,10 @@ import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 
-import com.halo.test.DBManager_ody;
+import com.halo.test.DBManagerhalo_ody;
+
+
+
 
 public class AnnouncedDAO {
     
@@ -21,7 +24,7 @@ public class AnnouncedDAO {
         System.out.println("DB 연결 확인1");
 
         try {
-            con = DBManager_ody.connect();
+            con = DBManagerhalo_ody.connect();;
             pstmt = con.prepareStatement(sql);
             rs = pstmt.executeQuery();
             System.out.println("DB 연결 확인2");
@@ -43,6 +46,7 @@ public class AnnouncedDAO {
             }
 
             request.setAttribute("announcements", announcements);
+            System.out.println("announcements size: " + announcements.size());
             System.out.println("request.setAttribute 실행");
 
             String result = "조회 성공(표시해야 할 경우 조회 결과 메시지)";
@@ -52,7 +56,9 @@ public class AnnouncedDAO {
             System.out.println("에러 발생");
             e.printStackTrace();
         } finally {
-            DBManager_ody.close(con, pstmt, rs);
+        	DBManagerhalo_ody.close(con, pstmt, rs);
         }
     }
+    
+    
 }

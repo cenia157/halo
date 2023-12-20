@@ -189,8 +189,10 @@
 .a_content-box-tr1-td3-1-1-1-1 {
   display: flex;
   height: 10%; /* 조절 */
-  padding-top: 2%;
+  padding-top: 3%;
+  padding-bottom: 3%;
   border-top: 4px solid #6e6f4e;
+  border-bottom: 2px solid #6e6f4e;
 }
 
 /* 첫행 한줄밖에없으니까 이거는 수동조절하면될거같음 */
@@ -239,7 +241,6 @@
 .a_content-box-tr1-td3-1-1-1-2 {
   display: flex;
   height: 16%; /* 조절 */
-  margin-top: 2%;
   border-top: 2px solid #6e6f4e;
   border-bottom: 2px solid #6e6f4e;
 }
