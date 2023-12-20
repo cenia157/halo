@@ -24,10 +24,10 @@
 			<div class="modal-title-tr">
 				<div class="modal-title-td-1">
 					<div class="real-title">
-						<div class="real-title-up">민기해적단은 언제 귀가를하나요?</div>
+						<div class="real-title-up">${question.q_title}</div>
 						<div class="real-title-down">
 							<div class="real-title-down-L">
-								<div class="real-title-down-contain">2023-12-25</div>
+								<div class="real-title-down-contain">${question.q_reg_date}</div>
 								<div class="real-title-down-contain">답변완료</div>
 							</div>
 							<div class="real-title-down-R">

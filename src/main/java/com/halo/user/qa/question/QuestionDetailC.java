@@ -1,4 +1,4 @@
-package com.halo.user.qa.faq;
+package com.halo.user.qa.question;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,12 +7,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/FaqC")
-public class FaqC extends HttpServlet {
+@WebServlet("/QuestionDetailC")
+public class QuestionDetailC extends HttpServlet {
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		String subMenu = "qa/faq/faq";
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		QuestionDAO.getQuestion(request);
+		String subMenu = "qa/question/questionDetail";
 		request.setAttribute("menu", "user/menu-index.jsp");
 		request.setAttribute("subMenu", subMenu + ".jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
