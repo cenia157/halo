@@ -1,12 +1,14 @@
 package com.halo.admin.calender.company;
 
+import com.google.gson.Gson;
+
 public class CompanyScheduleDTO {
 	private String yearmonth;
 	private String title;
 	private String txt;
 	private String date;
 	private String update;
-	
+
 	public CompanyScheduleDTO() {
 		// TODO Auto-generated constructor stub
 	}
@@ -59,6 +61,16 @@ public class CompanyScheduleDTO {
 	public void setUpdate(String update) {
 		this.update = update;
 	}
-	
-	
+
+	@Override
+	public String toString() {
+		return "CompanyScheduleDTO [yearmonth=" + yearmonth + ", title=" + title + ", txt=" + txt + ", date=" + date
+				+ ", update=" + update + "]";
+	}
+
+	public String toJson() {
+		Gson gson = new Gson();
+		return gson.toJson(this);
+	}
+
 }
