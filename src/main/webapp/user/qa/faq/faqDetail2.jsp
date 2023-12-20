@@ -14,8 +14,8 @@
 	<div class="faq-content-box-tr2">
 		<div class="faq-content-box-td2-1">-ANSWER-</div>
 		<div class="faq-content-box-td2-2">
-			<span class="faq-content-box-td2-2-content-1">Q. 서비스 이용 비용은 어느정도인가요?</span>
-			<span class="faq-content-box-td2-2-content-2">A. (Q2 질문 답변)</span>
+			<span class="faq-content-box-td2-2-content-1">Q. ${qa_title}</span>
+			<span class="faq-content-box-td2-2-content-2">A. ${qa_content}</span>
 		</div>
 	</div>
 
