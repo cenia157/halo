@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%>
+pageEncoding="UTF-8"%> <%@ taglib uri="http://java.sun.com/jsp/jstl/core"
+prefix="c" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -51,6 +52,7 @@ pageEncoding="UTF-8"%>
             <div class="a_content-box-tr1-td3-1-1">
               <div class="a_content-box-tr1-td3-1-1-1">
                 <!-- 타이블 첫 행 -->
+
                 <div class="a_content-box-tr1-td3-1-1-1-1">
                   <div class="a_content-box-tr1-td3-1-1-1-1-1 No-width">
                     <span>No</span>
@@ -69,23 +71,29 @@ pageEncoding="UTF-8"%>
                   </div>
                 </div>
                 <!-- 2번째 행 여기는 forEach문이겠죠?-->
-                <div class="a_content-box-tr1-td3-1-1-1-2">
-                  <div class="a_content-box-tr1-td3-1-1-1-2-1 No-width">
-                    <span>18</span>
-                  </div>
-                  <div class="a_content-box-tr1-td3-1-1-1-2-2 writer-width">
-                    <span>사토*케시</span>
-                  </div>
-                  <div class="a_content-box-tr1-td3-1-1-1-2-3 title-width">
-                    <span>일정공지</span>
-                  </div>
-                  <div class="a_content-box-tr1-td3-1-1-1-2-4 category-width">
-                    <span>일정</span>
-                  </div>
-                  <div class="a_content-box-tr1-td3-1-1-1-2-5 reg-width">
-                    <span>2023-12-06</span>
-                  </div>
-                </div>
+                <c:forEach var="announcement" items="${announcements}">
+              	  <div class="a_content-box-tr1-td3-1-1-1-2-3">
+                    <div class="a_content-box-tr1-td3-1-1-1-2-1 No-width">
+                      <span>${announcement.an_seq}</span>
+                    </div>
+                    <div class="a_content-box-tr1-td3-1-1-1-2-2 writer-width">
+                      <span>${announcement.an_writer}</span>
+                    </div>
+                    <div class="a_content-box-tr1-td3-1-1-1-2-3 title-width">
+                      <span>${announcement.an_title}</span>
+                    </div>
+                    <div class="a_content-box-tr1-td3-1-1-1-2-4 category-width">
+                      <span>${announcement.an_category}</span>
+                    </div>
+                    <div class="a_content-box-tr1-td3-1-1-1-2-5 reg-width">
+                      <span
+                        ><fmt:formatDate
+                          value="${announcement.an_reg_date}"
+                          pattern="yyyy-MM-dd"
+                      /></span>
+                    </div>
+                   </div>
+                  </c:forEach>
               </div>
             </div>
             <div class="a_content-box-tr1-td3-1-2">페이징 아이콘</div>
@@ -126,16 +134,20 @@ pageEncoding="UTF-8"%>
             안녕하세요, 운영자입니다. <br />
             일정관리를 다음과 같이 알려드립니다. 시세확장때문에 하는데요. <br />
             평일 중 2일과 주말 1일을 정기적으로 한 달 동안 이용하는 것이
-            가능한지 궁금합니다. <br />   안녕하세요, 운영자입니다. <br />
+            가능한지 궁금합니다. <br />
+            안녕하세요, 운영자입니다. <br />
             일정관리를 다음과 같이 알려드립니다. 시세확장때문에 하는데요. <br />
             평일 중 2일과 주말 1일을 정기적으로 한 달 동안 이용하는 것이
-            가능한지 궁금합니다. <br />   안녕하세요, 운영자입니다. <br />
+            가능한지 궁금합니다. <br />
+            안녕하세요, 운영자입니다. <br />
             일정관리를 다음과 같이 알려드립니다. 시세확장때문에 하는데요. <br />
             평일 중 2일과 주말 1일을 정기적으로 한 달 동안 이용하는 것이
-            가능한지 궁금합니다. <br />   안녕하세요, 운영자입니다. <br />
+            가능한지 궁금합니다. <br />
+            안녕하세요, 운영자입니다. <br />
             일정관리를 다음과 같이 알려드립니다. 시세확장때문에 하는데요. <br />
             평일 중 2일과 주말 1일을 정기적으로 한 달 동안 이용하는 것이
-            가능한지 궁금합니다. <br />   안녕하세요, 운영자입니다. <br />
+            가능한지 궁금합니다. <br />
+            안녕하세요, 운영자입니다. <br />
             일정관리를 다음과 같이 알려드립니다. 시세확장때문에 하는데요. <br />
             평일 중 2일과 주말 1일을 정기적으로 한 달 동안 이용하는 것이
             가능한지 궁금합니다. <br />
@@ -179,7 +191,7 @@ pageEncoding="UTF-8"%>
             headerTbl.style.display = "none";
           }
         });
-		
+
         // 모달 닫기 버튼 이벤트 리스너
         closeModalButtons.forEach(function (button) {
           button.addEventListener("click", function () {
@@ -189,13 +201,14 @@ pageEncoding="UTF-8"%>
             }
           });
         });
-        $(document).keydown(function(e) {
-            if (e.key === "Escape") { // 'Escape'는 ESC 키를 나타냄
-            	// 'click' 이벤트 생성
-            	var event = new Event('click');
-            	closeModalButtons[0].dispatchEvent(event);
-            	
-            }
+        
+        $(document).keydown(function (e) {
+          if (e.key === "Escape") {
+            // 'Escape'는 ESC 키를 나타냄
+            // 'click' 이벤트 생성
+            var event = new Event("click");
+            closeModalButtons[0].dispatchEvent(event);
+          }
         });
         // 모달 외부 클릭 시 모달 닫기 이벤트 리스너
         window.addEventListener("click", function (e) {

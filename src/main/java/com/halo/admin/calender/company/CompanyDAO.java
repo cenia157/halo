@@ -23,8 +23,6 @@ public class CompanyDAO {
 			con = DBManagermg.connect();
 			pstmt = con.prepareStatement(sql);
 			
-			
-		
 			pstmt.setString(1, request.getParameter("input-title"));
 			pstmt.setString(2, request.getParameter("input-date"));
 			pstmt.setString(3, request.getParameter("input-txt"));
