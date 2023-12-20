@@ -20,7 +20,7 @@ public class QuestionDAO {
 		String sql = "insert into question_tbl values (question_tbl_seq.nextval, ?, ?, sysdate, ?, ?, ?, ?, ?)";
 		
 		try {
-			System.out.println("QuestionDAO");
+
 			try {
 				con = DBManagerhalo.connect();
 				pstmt = con.prepareStatement(sql);
@@ -28,50 +28,25 @@ public class QuestionDAO {
 				e.printStackTrace();
 			}
 			
-			String q_title = request.getParameter("q_title");
-			String q_content = request.getParameter("q_content");
-			String q_contact_number = request.getParameter("q_contact_number");
-			String q_email = request.getParameter("q_email");
-			String q_name = request.getParameter("q_name");
-			String q_password = request.getParameter("q_password");
-			String q_category = request.getParameter("q_category");
-			
-//			개발자 확인용
-			System.out.println(q_title);
-			System.out.println(q_content);
-			System.out.println(q_contact_number);
-			System.out.println(q_email);
-			System.out.println(q_name);
-			System.out.println(q_password);
-			System.out.println(q_category);
-//			개발자 확인용 끝
-			
-			pstmt.setString(1, q_title);
-			pstmt.setString(2, q_content);
-			pstmt.setString(3, q_contact_number);
-			pstmt.setString(4, q_email);
-			pstmt.setString(5, q_name);
-			pstmt.setString(6, q_password);
-			pstmt.setString(7, q_category);
+			pstmt.setString(1, request.getParameter("q_title"));
+			pstmt.setString(2, request.getParameter("q_content"));
+			pstmt.setString(3, request.getParameter("q_contact_number"));
+			pstmt.setString(4, request.getParameter("q_email"));
+			pstmt.setString(5, request.getParameter("q_name"));
+			pstmt.setString(6, request.getParameter("q_password"));
+			pstmt.setString(7, request.getParameter("q_category"));
+
 			
 			if (pstmt.executeUpdate() ==1) {
-				System.out.println("Submit Success");
+				System.out.println("제출성공");
 			}
 			
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
-			System.out.println("Submit Failed");
-		}finally {	try {
-		            if (pstmt != null) {
-		                pstmt.close();
-		            }
-		            if (con != null) {
-		                con.close();
-		            }
-		        } catch (SQLException e) {
-		            e.printStackTrace();
-		        }
+			System.out.println("제출실패");
+		}finally {	
+			DBManagerhalo.close(con, pstmt, null);
 		}
 		
 	}
@@ -82,7 +57,7 @@ public class QuestionDAO {
 		ResultSet rs = null;
 		String sql = "select * from question_tbl order by q_seq desc";
 		
-		ArrayList<Question> questions = new ArrayList<Question>();
+		ArrayList<Question> questions = new ArrayList<>();
 		Question q = null;
 		
 		try {
@@ -99,7 +74,7 @@ public class QuestionDAO {
 				String q_title = rs.getString("q_title");
 				String q_content = rs.getString("q_content");
 				Date q_reg_date = rs.getDate("q_reg_date");
-				int q_contact_number = rs.getInt("q_contact_number");
+				String q_contact_number = rs.getString("q_contact_number");
 				String q_email = rs.getString("q_email");
 				String q_name = rs.getString("q_name");
 				String q_password = rs.getString("q_password");
@@ -145,7 +120,7 @@ public class QuestionDAO {
 					q.setQ_title(rs.getString("q_title"));
 					q.setQ_content(rs.getString("q_content"));
 					q.setQ_reg_date(rs.getDate("q_reg_date"));
-					q.setQ_contact_number(rs.getInt("q_contact_number"));
+					q.setQ_contact_number(rs.getString("q_contact_number"));
 					q.setQ_email(rs.getString("q_email"));
 					q.setQ_name(rs.getString("q_name"));
 					q.setQ_password(rs.getString("q_password"));
