@@ -9,19 +9,16 @@ function fixedDate() {
 
 
 window.onload = function() {
+	// 날짜 담을 배열 생성
 	let dateArr = new Array(32).fill(0);
-
-	// console.log(new Date()); // 현재 날짜(로컬 기준) 객체 만들기
-	// console.log(new Date(2021, 11, 6)); // 지정한 날짜 객체 만들기
-	// console.log(new Date('2021-12-06T03:24:00')); // 지정한 날짜 객체 만들기
 
 	let date = new Date(); // 현재 날짜(로컬 기준) 가져오기
 	let utc = date.getTime() + (date.getTimezoneOffset() * 60 * 1000); // uct 표준시 도출
 	let kstGap = 9 * 60 * 60 * 1000; // 한국 kst 기준시간 더하기
 	let today = new Date(utc + kstGap); // 한국 시간으로 date 객체 만들기(오늘)
 
-	let thisMonth = new Date(today.getFullYear(), today.getMonth(), today.getDate());
 	// 달력에서 표기하는 날짜 객체
+	let thisMonth = new Date(today.getFullYear(), today.getMonth(), today.getDate());
 
 
 	let currentYear = thisMonth.getFullYear(); // 달력에서 표기하는 연
@@ -71,11 +68,13 @@ window.onload = function() {
 		for (let i = 1; i <= nextDate; i++) {
 
 			if (today.getMonth() == currentMonth && today.getFullYear() == currentYear && fixedDate() == i) {
+				// 오늘 날짜 표기
 				calendar.innerHTML = calendar.innerHTML + '<div class="day current">' + i + '<img src="user/0.img/logo.png">' + '</div>'
 				todayDate = today.getDate();
 				let currentMonthDate = document.querySelectorAll('.dates .current');
 				currentMonthDate[todayDate - 1].classList.add('today');
 			} else {
+				// 오늘 외 날짜
 				calendar.innerHTML = calendar.innerHTML + '<div class="day current">' + i + '</div>'
 			}
 		}
@@ -124,10 +123,6 @@ window.onload = function() {
 	// 사용자가 보기 위한 초기값
 	document.querySelector('.input-date').value = thisMonth.getFullYear() + '年 ' + (thisMonth.getMonth() + 1) + '月 ';
 
-	// 선택한 값 보내기 위한 월과 날짜
-	let selectYearMonth = "";
-	let selectDate = "";
-
 
 	//클릭
 	calendar.addEventListener("click", function(e) {
@@ -149,26 +144,13 @@ window.onload = function() {
 			if (dateArr[i] == 1) {
 				document.querySelector('.input-date').value += i + ',';
 
-				//선택한 값 보내기 위한 날짜
-				selectDate += '!' + i;
 			}
 		}
 
 		// 사용자가 보기위한 출력
 		document.querySelector('.input-date').value = document.querySelector('.input-date').value.slice(0, -1);
 
-		//선택한 값 보내기 위한 월
-		selectYearMonth = thisMonth.getFullYear() + '年 ' + (thisMonth.getMonth() + 1) + '月 ';
-	
-		document.querySelector(".selectYearMonth").value = selectYearMonth;
-		document.querySelector(".selectDate").value = selectDate;
-		
-		console.log(document.querySelector(".selectYearMonth").value);
-		console.log(document.querySelector(".selectDate").value);
 	});
-
-
-
 
 
 	//스위치 토글

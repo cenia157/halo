@@ -101,8 +101,6 @@
 							<div></div>
 						</div>
 						<div class="ins-tr-3-btn">
-						<input name="selectYearMonth" class="selectYearMonth" value="" hidden>
-						<input name="selectDate" class="selectDate" value="" hidden>
 							<button type="button" class="company-button"
 								onclick="insertCompanyC()">등록하기</button>
 						</div>
