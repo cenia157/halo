@@ -24,10 +24,10 @@
 			<div class="modal-title-tr">
 				<div class="modal-title-td-1">
 					<div class="real-title">
-						<div class="real-title-up">${question.q_title}</div>
+						<div class="real-title-up">${questions.q_title}</div>
 						<div class="real-title-down">
 							<div class="real-title-down-L">
-								<div class="real-title-down-contain">${question.q_reg_date}</div>
+								<div class="real-title-down-contain">${questions.q_reg_date}</div>
 								<div class="real-title-down-contain">답변완료</div>
 							</div>
 							<div class="real-title-down-R">

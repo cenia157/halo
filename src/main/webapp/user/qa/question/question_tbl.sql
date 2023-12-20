@@ -10,9 +10,9 @@ create table question_tbl(
     q_category varchar2(20 char) null
 );
 
-create sequence question_tbl_seq
-  start with 1
-  increment by 1;
+CREATE SEQUENCE question_tbl_seq
+  START WITH 1
+  INCREMENT BY 1;
   
 drop table question_tbl;
 drop sequence question_tbl_seq;

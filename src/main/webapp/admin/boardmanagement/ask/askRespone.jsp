@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="kr">
 <head>
@@ -36,11 +38,11 @@
 
 
 					<div class="real-title">
-						<div class="real-title-up">${question.q_title}</div>
+						<div class="real-title-up">제목</div>
 						<div class="real-title-down">
 							<div class="real-title-down-L">
 
-								<div class="real-title-down-contain">${question.q_reg_date}</div>
+								<div class="real-title-down-contain">날짜</div>
 								<div class="real-title-down-contain">미답변</div>
 							</div>
 							<div class="real-title-down-R"></div>

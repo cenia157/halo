@@ -10,7 +10,7 @@ public class DBManagerhalo {
 
 	public static Connection connect() throws SQLException, ClassNotFoundException {
 		Class.forName("oracle.jdbc.OracleDriver");
-		String url = "jdbc:oracle:thin:@anxucl0a8nyvimp0_high?TNS_ADMIN=C:\\Wallet_ANXUCL0A8NYVIMP0";
+		String url = "jdbc:oracle:thin:@anxucl0a8nyvimp0_high?TNS_ADMIN=C:/Wallet_ANXUCL0A8NYVIMP0";
 		return DriverManager.getConnection(url, "ADMIN", "Soldesk802!!");
 	}
 

@@ -35,7 +35,9 @@ public class QuestionDAO {
 			pstmt.setString(5, request.getParameter("q_name"));
 			pstmt.setString(6, request.getParameter("q_password"));
 			pstmt.setString(7, request.getParameter("q_category"));
-
+			
+			System.out.println(request.getParameter("q_title"));
+			
 			
 			if (pstmt.executeUpdate() ==1) {
 				System.out.println("제출성공");
@@ -82,9 +84,6 @@ public class QuestionDAO {
 				
 				q = new Question(q_seq, q_title, q_content, q_reg_date, q_contact_number, q_email, q_name, q_password, q_category);
 				questions.add(q);
-//				확인용
-				System.out.println(questions);
-				System.out.println("데이터 가져오기 시도");
 			}
 			
 			request.setAttribute("questions", questions);
@@ -146,18 +145,19 @@ public class QuestionDAO {
 			try {
 				con = DBManagerhalo.connect();
 				pstmt = con.prepareStatement(sql);
-				pstmt.setString(1, request.getParameter("q_seq"));
 			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
 			}
+
+			pstmt.setString(1, request.getParameter("q_seq"));
 			
 			if (pstmt.executeUpdate()==1) {
-				System.out.println("Delete success");
+				System.out.println("삭제성공");
 			}
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
-			System.out.println("Delete Failed");
+			System.out.println("삭제실패");
 		}
 		
 	}

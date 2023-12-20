@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.halo.user.qa.question.QuestionDAO;
+
 
 @WebServlet("/AdminC")
 public class AdminC extends HttpServlet {
