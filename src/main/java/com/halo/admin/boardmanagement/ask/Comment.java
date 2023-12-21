@@ -8,12 +8,12 @@ public class Comment {
 	private String c_commenter_name;
 	private String c_comment_content;
 	private Date c_reg_date;
-	private boolean c_answer;
+	private String c_answer;
 	
 	public Comment() {
 	}
-
-	public Comment(int c_seq, String c_commenter_name, String c_comment_content, Date c_reg_date, boolean c_answer) {
+	
+	public Comment(int c_seq, String c_commenter_name, String c_comment_content, Date c_reg_date, String c_answer) {
 		super();
 		this.c_seq = c_seq;
 		this.c_commenter_name = c_commenter_name;
@@ -54,11 +54,11 @@ public class Comment {
 		this.c_reg_date = c_reg_date;
 	}
 
-	public boolean isC_answer() {
+	public String getC_answer() {
 		return c_answer;
 	}
 
-	public void setC_answer(boolean c_answer) {
+	public void setC_answer(String c_answer) {
 		this.c_answer = c_answer;
 	}
 
@@ -67,6 +67,7 @@ public class Comment {
 		return "Comment [c_seq=" + c_seq + ", c_commenter_name=" + c_commenter_name + ", c_comment_content="
 				+ c_comment_content + ", c_reg_date=" + c_reg_date + ", c_answer=" + c_answer + "]";
 	}
+
 	
 	
 	

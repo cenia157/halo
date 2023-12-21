@@ -7,8 +7,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import com.halo.main.DBManagerhalo;
 
@@ -59,36 +61,32 @@ public class QuestionDAO {
 		ResultSet rs = null;
 		String sql = "select * from question_tbl order by q_seq desc";
 		
-		ArrayList<Question> questions = new ArrayList<>();
-		Question q = null;
 		
 		try {
-				try {
-					con = DBManagerhalo.connect();
-					pstmt = con.prepareStatement(sql);
-					rs = pstmt.executeQuery();
-				} catch (ClassNotFoundException e) {
-					e.printStackTrace();
-				}
-			
-			while (rs.next()) {
-				int q_seq = rs.getInt("q_seq");
-				String q_title = rs.getString("q_title");
-				String q_content = rs.getString("q_content");
-				Date q_reg_date = rs.getDate("q_reg_date");
-				String q_contact_number = rs.getString("q_contact_number");
-				String q_email = rs.getString("q_email");
-				String q_name = rs.getString("q_name");
-				String q_password = rs.getString("q_password");
-				String q_category = rs.getString("q_category");
+				con = DBManagerhalo.connect();
+				pstmt = con.prepareStatement(sql);
+				rs = pstmt.executeQuery();
 				
-				q = new Question(q_seq, q_title, q_content, q_reg_date, q_contact_number, q_email, q_name, q_password, q_category);
-				questions.add(q);
-			}
-			
-			request.setAttribute("questions", questions);
-			
-		} catch (SQLException e) {
+				List<Question> questions = new ArrayList<>();
+
+				while (rs.next()) {
+					Question question = new Question();
+					question.setQ_seq(Integer.parseInt(rs.getString("q_seq")));
+					question.setQ_title(rs.getString("q_title"));
+					question.setQ_content(rs.getString("q_content"));
+					question.setQ_reg_date(rs.getDate("q_reg_date"));
+					question.setQ_contact_number(rs.getString("q_contact_number"));
+					question.setQ_email(rs.getString("q_email"));
+					question.setQ_name(rs.getString("q_name"));
+					question.setQ_password(rs.getString("q_password"));
+					question.setQ_category(rs.getString("q_category"));
+					
+					questions.add(question);
+				}
+				
+				request.setAttribute("questions", questions);
+				System.out.println(questions);
+		} catch (SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
 		}
 		
@@ -113,20 +111,20 @@ public class QuestionDAO {
 				e.printStackTrace();
 			}
 			
-				if(rs.next()) {
-					Question q = new Question();
-					q.setQ_seq(rs.getInt("q_seq"));
-					q.setQ_title(rs.getString("q_title"));
-					q.setQ_content(rs.getString("q_content"));
-					q.setQ_reg_date(rs.getDate("q_reg_date"));
-					q.setQ_contact_number(rs.getString("q_contact_number"));
-					q.setQ_email(rs.getString("q_email"));
-					q.setQ_name(rs.getString("q_name"));
-					q.setQ_password(rs.getString("q_password"));
-					q.setQ_category(rs.getString("q_category"));
+
+			if(rs.next()) {
+					Question question = new Question();
+					question.setQ_seq(rs.getInt("q_seq"));
+					question.setQ_title(rs.getString("q_title"));
+					question.setQ_content(rs.getString("q_content"));
+					question.setQ_reg_date(rs.getDate("q_reg_date"));
+					question.setQ_contact_number(rs.getString("q_contact_number"));
+					question.setQ_email(rs.getString("q_email"));
+					question.setQ_name(rs.getString("q_name"));
+					question.setQ_password(rs.getString("q_password"));
+					question.setQ_category(rs.getString("q_category"));
 					
-					request.setAttribute("question", q);
-					
+					request.setAttribute("question", question);
 				}
 				
 		} catch (SQLException e) {

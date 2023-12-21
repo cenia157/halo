@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<% request.getAttribute("questions"); %>
 <!DOCTYPE html>
 <html lang="kr">
 <head>
@@ -24,10 +25,10 @@
 			<div class="modal-title-tr">
 				<div class="modal-title-td-1">
 					<div class="real-title">
-						<div class="real-title-up">${questions.q_title}</div>
+						<div class="real-title-up">${question.q_title}</div>
 						<div class="real-title-down">
 							<div class="real-title-down-L">
-								<div class="real-title-down-contain">${questions.q_reg_date}</div>
+								<div class="real-title-down-contain">${question.q_reg_date}</div>
 								<div class="real-title-down-contain">답변완료</div>
 							</div>
 							<div class="real-title-down-R">
@@ -55,7 +56,7 @@
 					</div>
 					<div class="modal-content-txt-response">
 						<textarea class="Edit-textarea" rows="" cols=""
-							placeholder="여기에 과거에 관리자가 고객에게 답변했던 내용을 표시"></textarea>
+							placeholder="${c_comment_content }"></textarea>
 					</div>
 				</div>
 				<div class="modal-content-button">

@@ -53,13 +53,14 @@ function deleteQuestion(n) {
 				<div class="ontent-m-td-2-content-txt-delete-in">삭제하기</div>
 			</div>
 <!-- 			foreach문 추가 -->
-			<c:forEach items="${questions}" var="question">
+
+			<c:forEach items="${questions}" var="questions">
             <div class="ontent-m-td-2-content-txt-in">
-                <div class="ontent-m-td-2-content-txt-no-in">${question.q_seq}</div>
+                <div class="ontent-m-td-2-content-txt-no-in">${questions.q_seq}</div>
                 <div class="ontent-m-td-2-content-txt-kategorie-in"></div>
-                <div class="ontent-m-td-2-content-txt-title-in"><a>${question.q_title}</a></div>
-                <div class="ontent-m-td-2-content-txt-writer-in">${question.q_name}</div>
-                <div class="ontent-m-td-2-content-txt-date-in">${question.q_reg_date}</div>
+                <div class="ontent-m-td-2-content-txt-title-in"><a onclick="openModalA()">${questions.q_title}</a></div>
+                <div class="ontent-m-td-2-content-txt-writer-in">${questions.q_name}</div>
+                <div class="ontent-m-td-2-content-txt-date-in">${questions.q_reg_date}</div>
                 <div class="ontent-m-td-2-content-txt-delete-in"> <a onclick="deleteQuestion(${question.q_seq})">삭제하기</a> </div>
             </div>
             </c:forEach>

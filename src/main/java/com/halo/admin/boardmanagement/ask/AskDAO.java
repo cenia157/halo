@@ -17,18 +17,15 @@ public class AskDAO {
 		String sql = "insert into comment_tbl values (comment_tbl_seq.nextval, ?, ?, sysdate, ?)";
 		
 		try {
-			try {
-				con = DBManagerhalo.connect();
-				pstmt = con.prepareStatement(sql);
-			} catch (ClassNotFoundException e) {
-				e.printStackTrace();
-			}
+			con = DBManagerhalo.connect();
+			pstmt = con.prepareStatement(sql);
+
 			
 			pstmt.setString(1, request.getParameter("c_commenter_name"));
 			pstmt.setString(2, request.getParameter("c_comment_content"));
 			pstmt.setString(3, request.getParameter("c_answer"));
 		
-		} catch (SQLException e) {
+		} catch (SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
 		}
 	}
@@ -42,12 +39,8 @@ public class AskDAO {
 		String c_answer = null;
 		
 		try {
-			try {
-				con = DBManagerhalo.connect();
-				pstmt = con.prepareStatement(sql);
-			} catch (ClassNotFoundException e) {
-				e.printStackTrace();
-			}
+			con = DBManagerhalo.connect();
+			pstmt = con.prepareStatement(sql);
 
 			c_answer = request.getParameter("c_answer");
 			pstmt.setString(1, request.getParameter("c_answer"));
@@ -59,7 +52,7 @@ public class AskDAO {
 					c_answer = "未";
 				}
 
-		} catch (SQLException e) {
+		} catch (SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
 		}
 		return c_answer;

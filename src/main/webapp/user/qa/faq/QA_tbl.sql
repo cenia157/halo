@@ -9,6 +9,9 @@ create sequence QA_tbl_seq
   start with 1
   increment by 1;
   
-insert into QA_tbl values (qa_seq.nextval, 'qa_title', 'qa_content', 'qa_reg_date');
+drop table QA_tbl;
+drop sequence QA_tbl_seq;
+  
+insert into QA_tbl values (QA_tbl_seq.nextval, 'qa_title', 'qa_content', sysdate);
 
 select * from QA_tbl;

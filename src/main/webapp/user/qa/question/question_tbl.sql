@@ -18,7 +18,7 @@ drop table question_tbl;
 drop sequence question_tbl_seq;
   
 
-insert into question_tbl values (question_tbl_seq.nextval, 'q_title', 'q_content', sysdate, '00000000000', 'q_email', 'q_name', 'q_password', 'q_category'); 
+insert into question_tbl values (question_tbl_seq.nextval, 'q_title', 'q_content', sysdate, '00000000000', 'q_email', 'q_name', 'q_password', 'Q1'); 
 
 
 
