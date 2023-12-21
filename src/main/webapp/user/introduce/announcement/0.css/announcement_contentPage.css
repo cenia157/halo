@@ -189,8 +189,10 @@
 .a_content-box-tr1-td3-1-1-1-1 {
   display: flex;
   height: 10%; /* 조절 */
-  padding-top: 2%;
+  padding-top: 3%;
+  padding-bottom: 3%;
   border-top: 4px solid #6e6f4e;
+  border-bottom: 2px solid #6e6f4e;
 }
 
 /* 첫행 한줄밖에없으니까 이거는 수동조절하면될거같음 */
@@ -239,7 +241,6 @@
 .a_content-box-tr1-td3-1-1-1-2 {
   display: flex;
   height: 16%; /* 조절 */
-  margin-top: 2%;
   border-top: 2px solid #6e6f4e;
   border-bottom: 2px solid #6e6f4e;
 }
@@ -514,7 +515,7 @@
   line-height: normal;
   letter-spacing: 0.81px;
   outline: 2px solid pink; /* 나중에 지워야함 */
-  height: 100vh; /* 나중에 지워야함 */
+  height: 50vh; /* 나중에 지워야함 */
 }
 
 .qd-content-box-td2-2 {
@@ -523,7 +524,6 @@
   align-items: flex-start;
   padding: 0.6%;
   border-top: 1px solid #9f9f78;
-  height: 40%;
   flex-wrap: nowrap;
 }
 

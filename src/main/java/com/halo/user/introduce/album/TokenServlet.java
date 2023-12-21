@@ -20,7 +20,7 @@ public class TokenServlet extends HttpServlet {
 		request.setAttribute("token", token);
 
 		// JSP 페이지로 포워드
-		request.getRequestDispatcher("/WEB-INF/myPage.jsp").forward(request, response);
+		request.getRequestDispatcher("${pageContext.request.contextPath}/user/introduce/album/").forward(request, response);
 
 	}
 
