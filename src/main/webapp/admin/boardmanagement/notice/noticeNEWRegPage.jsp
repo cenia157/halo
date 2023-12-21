@@ -45,6 +45,9 @@
 									<div class="toggle-down" id="toggle-down">
 										<div class="toggle-down-block">
 											<div class="toggle-item" id="aaaa">
+
+
+
 												<input name="ttt" type="hidden" id="myInput" value="aasdnn">
 												안내
 											</div>
@@ -114,9 +117,9 @@
 	 	 const textFromDiv = document.getElementById('aaaa').innerText;
 	 	 const textFromDiv2  = document.querySelector('#aaaa').innerHTML;
 	 	 const textFromDiv3  = document.querySelector('#aaaa').textContent;
- 	 	 const textFromDiv4  = document.querySelector('input[name="ttt"]'); 
+ 	 	 const textFromDiv4  = document.querySelector('input[name="ttt"]').value; 
 
-	 	
+ 	 	 console.log('~~~~~~~~~')
  	 	 console.log('~~~~~~~~~')
 	 	 console.log(titleValue)
  	 	 console.log(selectValueE)
@@ -131,10 +134,73 @@
    	 	 console.log('~~~~~~~~~')
 
 	 	 
-	 	 
-	 	 
-			    // URL 생성
-		 const url = `CkeditorC?title=${titleValue}&ttt=${textFromDiv4}&txt=${textareaValue}`;
+   	 	 
+/* document.querySelector('input[name="ttt"]') */
+   	 	 
+   	 	 
+   	 	 
+   	 	 
+
+
+
+
+
+
+
+
+   	 	 
+   	 	 
+   	 	 
+   	 	 
+   	 	 
+   	 	 
+   	 	 
+   	 	 
+/*    	 	 
+   	 	 let test = null;
+   	 	 
+   	 	 if (document.querySelector('input[name="ttt"]').value == 'ttt' ) {
+		}
+*//* 
+   	 	 
+		// input 요소의 name 속성에 접근
+		let tttInput = document.querySelector('input[name="ttt"]');
+  	 	let test = null;
+		test = `ttt=${pppp}`
+
+		// 만약 해당 요소가 존재한다면
+		if (tttInput) {
+		  // input 요소의 value 값을 가져옴
+		  let tttValue = tttInput.value;
+		    console.log(tttValue)
+		    console.log('555555555')		    
+		  // if 문에서 활용
+		  if (tttValue === 'aasdnn') {
+		    // 원하는 동작 수행
+		    console.log(tttValue)
+		    console.log('성공의 조짐')
+		   	 	    console.log(test);
+		  } 
+		
+		}
+		
+ let test = `ttt=${pppp}` */
+		
+		
+		
+		
+		
+		
+   	 	 console.log('00000000000')   	 	 
+   	 	 
+/* 		 const url = `CkeditorC?title=${titleValue}&ttt=${pppp}&txt=${textareaValue}`; */
+
+   	 	 
+const test = `ttt=${pppp}`;
+
+// URL 생성
+const url = `CkeditorC?title=${titleValue}&${test}&txt=${textareaValue}`;
+
 		 const content = window.editor.getData();
 		 console.log(event);
 		 console.log(titleValue);
@@ -145,7 +211,9 @@
 		 const formData = new FormData(event.target);
 		 
 		 const payload = new URLSearchParams(formData);
-		 
+		 console.log('888888888888');
+		 console.log(payload);
+		 console.log('888888888888');
 		 for (var pair of formData.entries()) {
 		        console.log(pair[0] + ': ' + pair[1] + ': ' + pair[2]);
 		    }

@@ -18,7 +18,7 @@ public class Ck_DAO {
 		// date
 		// img
 		String title = request.getParameter("title");
-		String select = request.getParameter("ttt");
+		String select = request.getParameter("select");
 		String txt = request.getParameter("txt");
 //		이곳에 이미지 가져와야한다
 		System.out.println(title);
