@@ -7,15 +7,38 @@ function fixedDate() {
 	return today.getDate();
 }
 
+/////////////////////////////////////////날짜/////////////////////////////////////////////
+			// 날짜 담을 배열 생성
+			let dateArr = new Array(32).fill(0);
+
+			let date = new Date(); // 현재 날짜(로컬 기준) 가져오기
+			let utc = date.getTime() + (date.getTimezoneOffset() * 60 * 1000); // uct 표준시 도출
+			let kstGap = 9 * 60 * 60 * 1000; // 한국 kst 기준시간 더하기
+			let today = new Date(utc + kstGap); // 한국 시간으로 date 객체 만들기(오늘)
+
+			// 달력에서 표기하는 날짜 객체
+			let thisMonth = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+
+
+			let currentYear = thisMonth.getFullYear(); // 달력에서 표기하는 연
+			let currentMonth = thisMonth.getMonth(); // 달력에서 표기하는 월
+			let currentDate = thisMonth.getDate(); // 달력에서 표기하는 일
+
+			// kst 기준 현재시간
+			// console.log(thisMonth);
+
 
 window.onload = function() {
 	let CompanyScheduleList = new Array;
+	
+	// 캘린더 렌더링
+			renderCalender(thisMonth);
 
 	// 전체 회사 일정
 	fetch('CompanyScheduleList')
 		.then(response => response.json())
 		.then(data => {
-			/////////////////////////////////////////일정조회/////////////////////////////////////////////
+/////////////////////////////////////////일정조회/////////////////////////////////////////////
 			// 여기서 데이터 처리
 			console.log(data);
 			// javascript배열에 ajax로 가져온 배열 입력
@@ -33,43 +56,114 @@ window.onload = function() {
 			//			})
 
 			//			console.log(CompanyScheduleList.filter(schedule => schedule.yearmonth.includes('2023年 12月')));
+			// '2023년 12월' 이 포함된 배열의 개수
+			//			let filteredArray = CompanyScheduleList.filter(schedule => schedule.yearmonth.includes('2023年 12月'));
 
 
 
+			// 전년도로 이동
+			document.querySelector('.go-year-prev').addEventListener('click', function() {
+				thisMonth = new Date(currentYear, currentMonth - 12, 12);
+				renderCalender(thisMonth);
+				document.querySelector('.input-date').value = thisMonth.getFullYear() + '年 ' + thisMonth.getMonth() + 1 + '月 ';
+				dateArr = new Array(32).fill(0);
+				let arrayThisMonth = document.querySelector('.input-date').value.slice(0, -1);
+				console.log(arrayThisMonth);
+				console.log(CompanyScheduleList.filter(schedule => schedule.yearmonth.includes(arrayThisMonth)));
+			});
+
+			// 이전달로 이동
+			document.querySelector('.go-prev').addEventListener('click', function() {
+				thisMonth = new Date(currentYear, currentMonth - 1, 1);
+				renderCalender(thisMonth);
+				document.querySelector('.input-date').value = thisMonth.getFullYear() + '年 ' + (thisMonth.getMonth() + 1) + '月 ';
+				dateArr = new Array(32).fill(0);
+				let arrayThisMonth = document.querySelector('.input-date').value.slice(0, -1);
+				console.log(arrayThisMonth);
+				console.log(CompanyScheduleList.filter(schedule => schedule.yearmonth.includes(arrayThisMonth)));
+			});
+
+			// 다음달로 이동
+			document.querySelector('.go-next').addEventListener('click', function() {
+				thisMonth = new Date(currentYear, currentMonth + 1, 1);
+				renderCalender(thisMonth);
+				document.querySelector('.input-date').value = thisMonth.getFullYear() + '年 ' + (thisMonth.getMonth() + 1) + '月 ';
+				dateArr = new Array(32).fill(0);
+				let arrayThisMonth = document.querySelector('.input-date').value.slice(0, -1);
+				console.log(arrayThisMonth);
+				console.log(CompanyScheduleList.filter(schedule => schedule.yearmonth.includes(arrayThisMonth)));
+			});
+
+			// 다음해로 이동
+			document.querySelector('.go-year-next').addEventListener('click', function() {
+				thisMonth = new Date(currentYear, currentMonth + 12, 12);
+				renderCalender(thisMonth);
+				document.querySelector('.input-date').value = thisMonth.getFullYear() + '年 ' + (thisMonth.getMonth() + 1) + '月 ';
+				dateArr = new Array(32).fill(0);
+				let arrayThisMonth = document.querySelector('.input-date').value.slice(0, -1);
+				console.log(arrayThisMonth);
+				console.log(CompanyScheduleList.filter(schedule => schedule.yearmonth.includes(arrayThisMonth)));
+			});
+
+
+			// 사용자가 보기 위한 초기값
+			document.querySelector('.input-date').value = thisMonth.getFullYear() + '年 ' + (thisMonth.getMonth() + 1) + '月 ';
+
+			// 해당 월의 배열 출력 초기값
+			let arrayThisMonth = document.querySelector('.input-date').value.slice(0, -1);
+			console.log(arrayThisMonth);
+			console.log(CompanyScheduleList.filter(schedule => schedule.yearmonth.includes(arrayThisMonth)));
 
 
 
+			//클릭
+			calendar.addEventListener("click", function(e) {
+				if (e.target.className.includes("current")) {
+					if (!e.target.style.backgroundColor) {
+						e.target.style.backgroundColor = '#ACF6B3';
+
+						dateArr[e.target.textContent] = 1;
+					} else {
+						e.target.style.backgroundColor = '';
+
+						dateArr[e.target.textContent] = 0;
+					}
+
+				}
+				document.querySelector('.input-date').value = thisMonth.getFullYear() + '年 ' + (thisMonth.getMonth() + 1) + '月 ';
+				selectDate = "";
+				for (let i = 1; i <= dateArr.length; i++) {
+					if (dateArr[i] == 1) {
+						document.querySelector('.input-date').value += i + ',';
+
+					}
+				}
+
+				// 사용자가 보기위한 출력
+				document.querySelector('.input-date').value = document.querySelector('.input-date').value.slice(0, -1);
+
+			});
+
+
+			//스위치 토글
+			let toggleList = document.querySelectorAll(".toggleSwitch");
+
+			toggleList.forEach(function($toggle) {
+				$toggle.onclick = function() {
+					$toggle.classList.toggle('active');
+				}
+			});
 
 
 
+		})
+		.catch(error => {
+			console.error('데이터를 가져오는 중 오류 발생:', error);
+		});
 
+};
 
-			/////////////////////////////////////////달력/////////////////////////////////////////////
-			// 날짜 담을 배열 생성
-			let dateArr = new Array(32).fill(0);
-
-			let date = new Date(); // 현재 날짜(로컬 기준) 가져오기
-			let utc = date.getTime() + (date.getTimezoneOffset() * 60 * 1000); // uct 표준시 도출
-			let kstGap = 9 * 60 * 60 * 1000; // 한국 kst 기준시간 더하기
-			let today = new Date(utc + kstGap); // 한국 시간으로 date 객체 만들기(오늘)
-
-			// 달력에서 표기하는 날짜 객체
-			let thisMonth = new Date(today.getFullYear(), today.getMonth(), today.getDate());
-
-
-			let currentYear = thisMonth.getFullYear(); // 달력에서 표기하는 연
-			let currentMonth = thisMonth.getMonth(); // 달력에서 표기하는 월
-			let currentDate = thisMonth.getDate(); // 달력에서 표기하는 일
-
-
-
-			// kst 기준 현재시간
-			// console.log(thisMonth);
-
-			// 캘린더 렌더링
-			renderCalender(thisMonth);
-
-			function renderCalender(thisMonth) {
+function renderCalender(thisMonth) {
 
 				// 렌더링을 위한 데이터 정리
 				currentYear = thisMonth.getFullYear();
@@ -121,131 +215,6 @@ window.onload = function() {
 				}
 
 			}
-
-
-			// 전년도로 이동
-			document.querySelector('.go-year-prev').addEventListener('click', function() {
-				thisMonth = new Date(currentYear, currentMonth - 12, 12);
-				renderCalender(thisMonth);
-				document.querySelector('.input-date').value = thisMonth.getFullYear() + '年 ' + thisMonth.getMonth() + 1 + '月 ';
-				dateArr = new Array(32).fill(0);
-				let arrayThisMonth = document.querySelector('.input-date').value.slice(0, -1);
-				console.log(arrayThisMonth);
-				console.log(CompanyScheduleList.filter(schedule => schedule.yearmonth.includes(arrayThisMonth)));
-			});
-
-			// 이전달로 이동
-			document.querySelector('.go-prev').addEventListener('click', function() {
-				thisMonth = new Date(currentYear, currentMonth - 1, 1);
-				renderCalender(thisMonth);
-				document.querySelector('.input-date').value = thisMonth.getFullYear() + '年 ' + (thisMonth.getMonth() + 1) + '月 ';
-				dateArr = new Array(32).fill(0);
-				let arrayThisMonth = document.querySelector('.input-date').value.slice(0, -1);
-				console.log(arrayThisMonth);
-				console.log(CompanyScheduleList.filter(schedule => schedule.yearmonth.includes(arrayThisMonth)));
-			});
-
-			// 다음달로 이동
-			document.querySelector('.go-next').addEventListener('click', function() {
-				thisMonth = new Date(currentYear, currentMonth + 1, 1);
-				renderCalender(thisMonth);
-				document.querySelector('.input-date').value = thisMonth.getFullYear() + '年 ' + (thisMonth.getMonth() + 1) + '月 ';
-				dateArr = new Array(32).fill(0);
-				let arrayThisMonth = document.querySelector('.input-date').value.slice(0, -1);
-				console.log(arrayThisMonth);
-				console.log(CompanyScheduleList.filter(schedule => schedule.yearmonth.includes(arrayThisMonth)));
-			});
-
-			// 다음해로 이동
-			document.querySelector('.go-year-next').addEventListener('click', function() {
-				thisMonth = new Date(currentYear, currentMonth + 12, 12);
-				renderCalender(thisMonth);
-				document.querySelector('.input-date').value = thisMonth.getFullYear() + '年 ' + (thisMonth.getMonth() + 1) + '月 ';
-				dateArr = new Array(32).fill(0);
-				let arrayThisMonth = document.querySelector('.input-date').value.slice(0, -1);
-				console.log(arrayThisMonth);
-				console.log(CompanyScheduleList.filter(schedule => schedule.yearmonth.includes(arrayThisMonth)));
-			});
-
-
-			// 사용자가 보기 위한 초기값
-			document.querySelector('.input-date').value = thisMonth.getFullYear() + '年 ' + (thisMonth.getMonth() + 1) + '月 ';
-			
-			// 해당 월의 배열 출력 초기값
-			let arrayThisMonth = document.querySelector('.input-date').value.slice(0, -1);
-			console.log(arrayThisMonth);
-			console.log(CompanyScheduleList.filter(schedule => schedule.yearmonth.includes(arrayThisMonth)));
-
-
-			// '2023년 12월' 이 포함된 배열의 개수
-			let filteredArray = CompanyScheduleList.filter(schedule => schedule.yearmonth.includes('2023年 12月'));
-
-
-
-
-			//클릭
-			calendar.addEventListener("click", function(e) {
-				if (e.target.className.includes("current")) {
-					if (!e.target.style.backgroundColor) {
-						e.target.style.backgroundColor = '#ACF6B3';
-
-						dateArr[e.target.textContent] = 1;
-					} else {
-						e.target.style.backgroundColor = '';
-
-						dateArr[e.target.textContent] = 0;
-					}
-
-				}
-				document.querySelector('.input-date').value = thisMonth.getFullYear() + '年 ' + (thisMonth.getMonth() + 1) + '月 ';
-				selectDate = "";
-				for (let i = 1; i <= dateArr.length; i++) {
-					if (dateArr[i] == 1) {
-						document.querySelector('.input-date').value += i + ',';
-
-					}
-				}
-
-				// 사용자가 보기위한 출력
-				document.querySelector('.input-date').value = document.querySelector('.input-date').value.slice(0, -1);
-
-			});
-
-			
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-			//스위치 토글
-			let toggleList = document.querySelectorAll(".toggleSwitch");
-
-			toggleList.forEach(function($toggle) {
-				$toggle.onclick = function() {
-					$toggle.classList.toggle('active');
-				}
-			});
-
-
-
-		})
-		.catch(error => {
-			console.error('데이터를 가져오는 중 오류 발생:', error);
-		});
-
-};
 
 
 function insertCompanyC() {
