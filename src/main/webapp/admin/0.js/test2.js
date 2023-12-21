@@ -106,18 +106,19 @@ function getData(q_seq) {
     });
 }
 
-function updateModalContent (questionJson){
-	$('#myModal-tblA #q_seq').html(<div> ${questionJson.q_seq} </div>);
-	$('#myModal-tblA #q_title').html(<div>${questionJson.q_title}</div>);
-	$('#myModal-tblA #q_content').html(<div>${questionJson.q_content}</div>);
-	$('#myModal-tblA #q_reg_date').html(<div>${questionJson.q_reg_date}</div>);
-	$('#myModal-tblA #q_contact_number').html(<div>${questionJson.q_contact_number}</div>);
-	$('#myModal-tblA #q_email').html(<div>${questionJson.q_email}</div>);
-	$('#myModal-tblA #q_name').html(<div>${questionJson.q_name}</div>);
-	$('#myModal-tblA #q_password').html(<div>${questionJson.q_password}</div>);
-	$('#myModal-tblA #q_category').html(<div>${questionJson.q_category}</div>);
 
-}
+function updateModalContent(questionJson) {
+    $('#myModal-tblA #q_seq').html(<div>${questionJson.q_seq}</div>);
+    $('#myModal-tblA #q_title').html(<div>${questionJson.q_title}</div>);
+    $('#myModal-tblA #q_content').html(<div>${questionJson.q_content}</div>);
+    $('#myModal-tblA #q_reg_date').html(<div>${questionJson.q_reg_date}</div>);
+    $('#myModal-tblA #q_contact_number').html(<div>${questionJson.q_contact_number}</div>);
+    $('#myModal-tblA #q_email').html(<div>${questionJson.q_email}</div>);
+    $('#myModal-tblA #q_name').html(<div>${questionJson.q_name}</div>);
+    $('#myModal-tblA #q_password').html(<div>${questionJson.q_password}</div>);
+    $('#myModal-tblA #q_category').html(<div>${questionJson.q_category}</div>);
+};
+
 
 
 

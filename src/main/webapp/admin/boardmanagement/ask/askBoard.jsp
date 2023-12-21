@@ -12,6 +12,9 @@
 	href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular"
 	rel="stylesheet" />
 
+<script src="admin/0.js/test2.js"></script>
+<script src="admin/0.js/test.js"></script>
+
 <script type="text/javascript">
 function deleteQuestion(n) {
     let ok = confirm("削除しますか?");
