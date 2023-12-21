@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<% session.getAttribute("questions"); %>
 
 <!DOCTYPE html>
 <html lang="kr">
@@ -23,7 +22,6 @@
 	
 	
 	
-	<c:if test="${questions}">
 		<div class="modal-title-set">
 			<div class="modal-title-tr">
 				<div class="modal-title-td-1">
@@ -79,7 +77,6 @@
 				</div>
 			</div>
 		</div>
-		</c:if>
 	</div>
 </body>
 </html>

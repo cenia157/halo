@@ -42,11 +42,11 @@
 		</div>
 	</div>
 	<!-- 아래의 include는 for Each를 써서 게시판을 나타내는 용도다  -->
-	<jsp:include page="askBoard.jsp"></jsp:include>
+	<jsp:include page="/admin/boardmanagement/ask/askBoard.jsp"></jsp:include>
 	<!-- 고객의 문의에 미답변 내용을 보여주는 곳 -->
-	<jsp:include page="askRespone.jsp"></jsp:include>
+	<jsp:include page="/admin/boardmanagement/ask/askRespone.jsp"></jsp:include>
 	<!-- 고객의 문의에 답변 내용을 편집하는 곳 -->
-	<jsp:include page="askEditPage.jsp"></jsp:include>
+	<jsp:include page="/admin/boardmanagement/ask/askEditPage.jsp"></jsp:include>
 	
 </body>
 </html>
