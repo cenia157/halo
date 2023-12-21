@@ -251,7 +251,7 @@
 	flex-shrink: 0;
 }
 
-#date-sel {
+.date-sel {
 	height: 45%;
 	width: 95%;
 	font-size: 1rem;
@@ -378,7 +378,7 @@
 }
 
 .other {
-	opacity: 0.3;
+	  pointer-events: none;
 }
 
 .today {
