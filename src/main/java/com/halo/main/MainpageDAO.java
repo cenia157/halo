@@ -7,7 +7,22 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.oreilly.servlet.MultipartRequest;import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+
 public class MainpageDAO {
+	
+
+	private HomepageDTO hdto = new HomepageDTO();	//인스턴스 생성자
+	private static final MainpageDAO MDAO = new MainpageDAO(); //상수(불변)
+	
+	private MainpageDAO(){
+		//외부에서 인스턴스 생성 막기 위해, private으로 기본생성자 잠금
+	}
+	
+	public static MainpageDAO getMdao() {
+		return MDAO;
+	}
+		
 
 	public static void getAllHompage_common(HttpServletRequest request) {
 		Connection con = null;
@@ -19,7 +34,6 @@ public class MainpageDAO {
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			HomepageDTO hdto = null;
-//			ArrayList<HomepageDTO> hdtos = new ArrayList<HomepageDTO>();
 			while (rs.next()) {
 				hdto = new HomepageDTO();
 				hdto.setH_seq(rs.getInt("h_seq"));
@@ -47,5 +61,37 @@ public class MainpageDAO {
 		}
 		
 	}
+
+	public static void regLogo(HttpServletRequest request) {
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		String sql = "insert into homepage_common(homepage_common_seq, h_logo_img) values(homepage_common_seq.nextval, ?)";
+		String savepath = request.getRealPath("user/upload_imgs");
+		try {
+			con = DBManagerhalo.connect();
+			pstmt = con.prepareStatement(sql);
+			MultipartRequest mr = new MultipartRequest(request, savepath, 1024*1024*20, "utf-8", new DefaultFileRenamePolicy());
+
+			String h_logo_img = mr.getParameter("h_logo_img");
+			pstmt.setString(1, h_logo_img);
+			
+			if (pstmt.executeUpdate() == 1) {
+				System.out.println("img 등록성공!");
+			}
+			request.setAttribute("imgPath", "/user/upload_imgs/" + h_logo_img);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("db server error...");
+		}finally {
+			DBManagerhalo.close(con, pstmt, null);
+		}
+		
+		
+	}
+	
+	
+	
 	
 }
