@@ -243,8 +243,6 @@ const setDate = (day, clickedElement) => {
     const resetColorAndValue = (e) => {
 		
 
-			console.log('e :'+ e);
-			console.log('clickedElement :'+ clickedElement);
 		if(e.style.backgroundColor == 'red' && !endDateInput.value && e == clickedElement){
 			
 			e.querySelector('.this').innerHTML = e.querySelector('.this').innerHTML.replace('<br>시작일', '');
@@ -430,5 +428,3 @@ dateInput.addEventListener('focus', function() {
 document.getElementById('prev-button').addEventListener('click', () => changeMonth(-1));
 document.getElementById('next-button').addEventListener('click', () => changeMonth(1));
 
-// 초기 렌더링
-//renderCalendar();
