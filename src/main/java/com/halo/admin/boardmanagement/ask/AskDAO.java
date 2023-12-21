@@ -25,7 +25,7 @@ public class AskDAO {
 			pstmt.setString(2, request.getParameter("c_comment_content"));
 			pstmt.setString(3, request.getParameter("c_answer"));
 		
-		} catch (SQLException | ClassNotFoundException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
@@ -52,7 +52,7 @@ public class AskDAO {
 					c_answer = "未";
 				}
 
-		} catch (SQLException | ClassNotFoundException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return c_answer;
