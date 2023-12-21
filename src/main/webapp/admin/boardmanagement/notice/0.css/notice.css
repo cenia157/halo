@@ -323,8 +323,7 @@
 
 .real-title-select {
 	height: 20%;
-	display: flex;
-	align-items: center;
+	display: block ;
 }
 
 .real-title-view {
@@ -377,13 +376,14 @@
 }
 
 .modal-content {
-	height: 90%;
+	height: 75%;
 	width: 100%;
 	padding: 0% 5% 2% 5%;
 }
 
 .ck-form{
-   height: 88%;
+   height: 100%;
+   width: 100%;
 }
 
 .modal-content-txt {
