@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="kr">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
 <title>Ask</title>
 <link rel="stylesheet"
 	href="admin/boardmanagement/ask/0.css/ask.css" />
@@ -17,10 +17,11 @@
 
 <script src="admin/0.js/test2.js"></script>
 <script src="admin/0.js/test.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.7.1.js" 
+integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" 
+crossorigin="anonymous"></script>
 <link rel="stylesheet" href="admin/0.css/test copy.css" />
-
-
-
 
 
 
@@ -45,10 +46,11 @@
 		</div>
 	</div>
 	<!-- 아래의 include는 for Each를 써서 게시판을 나타내는 용도다  -->
-	<jsp:include page="askBoard.jsp"></jsp:include>
+	<jsp:include page="/admin/boardmanagement/ask/askBoard.jsp"></jsp:include>
 	<!-- 고객의 문의에 미답변 내용을 보여주는 곳 -->
-	<jsp:include page="askRespone.jsp"></jsp:include>
+	<jsp:include page="/admin/boardmanagement/ask/askRespone.jsp"></jsp:include>
 	<!-- 고객의 문의에 답변 내용을 편집하는 곳 -->
-	<jsp:include page="askEditPage.jsp"></jsp:include>
+	<jsp:include page="/admin/boardmanagement/ask/askEditPage.jsp"></jsp:include>
+	
 </body>
 </html>

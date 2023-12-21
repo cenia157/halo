@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<%
+
+%>
+
 <!DOCTYPE html>
 <html lang="kr">
 <head>
@@ -13,7 +19,6 @@
 <body>
 	<div onclick="closeModalN()" id="myModalN" class="modal-background"></div>
 	<div id="myModal-tblN" class="modal-tbl">
-	
 	
 	
 	
@@ -36,11 +41,11 @@
 
 
 					<div class="real-title">
-						<div class="real-title-up">${question.q_title}</div>
+						<div class="real-title-up"> <span id="q_title"></span> </div>
 						<div class="real-title-down">
 							<div class="real-title-down-L">
 
-								<div class="real-title-down-contain">${question.q_reg_date}</div>
+								<div class="real-title-down-contain" id="q_reg_date"></div>
 								<div class="real-title-down-contain">미답변</div>
 							</div>
 							<div class="real-title-down-R"></div>
@@ -68,7 +73,7 @@
 						<!-- 여기에 고객이 질문한 문의사항을 띄우는 곳 -->
 						<jsp:include page="askEditPageCustomerQuestion.jsp"></jsp:include>
 					</div>
-					<textarea class="modal-content-txt-response-textarea" rows=""
+					<textarea name="c_comment_content" class="modal-content-txt-response-textarea" rows=""
 						cols="" placeholder="여기는 고객의 질문에 대답하는 곳" name="c_comment_content"></textarea>
 				</div>
 				<div class="modal-content-button">
