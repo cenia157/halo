@@ -8,6 +8,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>noticeEditPage</title>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <link rel="stylesheet"
 	href="admin/boardmanagement/notice/0.css/notice.css" />
 <link
@@ -15,7 +31,11 @@
 	rel="stylesheet" />
 </head>
 
+
+
+
 <body>
+
 	<div onclick="closeModalNR()" id="myModalNR" class="modal-background"></div>
 	<div id="myModal-tblNR" class="modal-tbl">
 		<form class="ck-form" method="post">
@@ -34,38 +54,23 @@
 
 
 
-
-
-								<div class="AAAA" style="background-color: aqua; width: 10%;">카테고리 설정</div>
-								<div class="BBBB" style="background-color:fuchsia ; width: 10%; display: none ;">
-									<div class="CCCC" >안내</div>
-									<div>일aaa정</div>
-									<div>일반</div>
-									<div>서비스</div>
-									<div>상품</div>
+								<div class="toggle" id="toggle" onclick="asd()">
+									<div class="kategorie" id="kategorie">카테고리</div>
+									<div class="toggle-down" id="toggle-down">
+										<div class="toggle-down-block">
+											<div class="toggle-item" id="aaaa">안내</div>
+											<div class="toggle-item" id="일정">일정</div>
+											<div class="toggle-item" id="일반">일반</div>
+											<div class="toggle-item" id="서비스">서비스</div>
+											<div class="toggle-item" id="상품">상품</div>
+										</div>
+									</div>
 								</div>
 
 
 
 
-
-
-
-
-
-<script type="text/javascript">
-let menuTi = $('.AAAA')
-
-menuTi.click(function() {
-	$('.BBBB').css("display", "flex")
-})
-
-	
-	
-</script>
-
-
-
+								<script src="admin/boardmanagement/notice/0.js/notice.js"></script>
 
 
 
@@ -81,7 +86,7 @@ menuTi.click(function() {
 				<div class="modal-content">
 					<div class="modal-content-txt">
 						<!-- 아래의 코드는 CK Editor를 넣는 부분이다-->
-<!-- 						<textarea name="txt" id="classicNR"></textarea> -->
+						<textarea name="txt" id="classicNR"></textarea>
 						<!-- 아래의 스크립트 코드는 CK Editor를 불러오는 부분이다-->
 						<script>
 						ClassicEditor
