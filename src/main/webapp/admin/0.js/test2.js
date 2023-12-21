@@ -39,8 +39,7 @@ function closeModalF() {
 
 // 문의사항(ask) 모달
 // 미답변 모달
-function openModalN(q_seq) {
-	getData(q_seq);
+function openModalN() {
 	openModal('myModalN', 'myModal-tblN');
 	closeModalOnOutsideClick('myModalN');
 }
@@ -50,10 +49,11 @@ function closeModalN() {
 }
 
 //	답변 모달
-	function openModalA() {
-	openModal('myModalA', 'myModal-tblA');
-	closeModalOnOutsideClick('myModalA');
-	}
+function openModalA(q_seq) {
+    getData(q_seq);
+    openModal('myModalA', 'myModal-tblA');
+    closeModalOnOutsideClick('myModalA');
+}
 
 function closeModalA() {
 	closeModal('myModalA', 'myModal-tblA');
@@ -93,12 +93,12 @@ function closeModalNR() {
 
 function getData(q_seq) {
     $.ajax({
-        url: 'AskContentC?q_seq='+ encodeURIComponent(q_seq),
+        url: `AskContentC?q_seq=${encodeURIComponent(q_seq)}`,
         type: 'get',
-        dataType: 'json',
+        dataType: 'text',
         success: function (question) {
-			console.log(question);
-			updateModalContent(question);
+            updateModalContent(question);
+            console.log(question);
         },
         error: function (error) {
             console.error('Error fetching data:', error);
@@ -106,18 +106,17 @@ function getData(q_seq) {
     });
 }
 
-
-function updateModalContent(questionJson) {
-    $('#myModal-tblA #q_seq').html(<div>${questionJson.q_seq}</div>);
-    $('#myModal-tblA #q_title').html(<div>${questionJson.q_title}</div>);
-    $('#myModal-tblA #q_content').html(<div>${questionJson.q_content}</div>);
-    $('#myModal-tblA #q_reg_date').html(<div>${questionJson.q_reg_date}</div>);
-    $('#myModal-tblA #q_contact_number').html(<div>${questionJson.q_contact_number}</div>);
-    $('#myModal-tblA #q_email').html(<div>${questionJson.q_email}</div>);
-    $('#myModal-tblA #q_name').html(<div>${questionJson.q_name}</div>);
-    $('#myModal-tblA #q_password').html(<div>${questionJson.q_password}</div>);
-    $('#myModal-tblA #q_category').html(<div>${questionJson.q_category}</div>);
-};
+function updateModalContent(question) {
+    $('#myModal-tblA #q_seq').text(`${question.q_seq}`);
+    $('#myModal-tblA #q_title').text(`${question.q_title}`);
+    $('#myModal-tblA #q_content').text(`${question.q_content}`);
+    $('#myModal-tblA #q_reg_date').text(`${question.q_reg_date}`);
+    $('#myModal-tblA #q_contact_number').text(`${question.q_contact_number}`);
+    $('#myModal-tblA #q_email').text(`${question.q_email}`);
+    $('#myModal-tblA #q_name').text(`${question.q_name}`);
+    $('#myModal-tblA #q_password').text(`${question.q_password}`);
+    $('#myModal-tblA #q_category').text(`${question.q_category}`);
+}
 
 
 

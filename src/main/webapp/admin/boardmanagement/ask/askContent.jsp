@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="kr">
+
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -18,11 +19,11 @@
 <script src="admin/0.js/test2.js"></script>
 <script src="admin/0.js/test.js"></script>
 
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.7.1.js" 
 integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" 
 crossorigin="anonymous"></script>
 <link rel="stylesheet" href="admin/0.css/test copy.css" />
-
 
 
 </head>

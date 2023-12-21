@@ -14,6 +14,7 @@
 
 <script src="admin/0.js/test2.js"></script>
 <script src="admin/0.js/test.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
 <script type="text/javascript">
 function deleteQuestion(n) {
@@ -61,7 +62,7 @@ function deleteQuestion(n) {
             <div class="ontent-m-td-2-content-txt-in">
                 <div class="ontent-m-td-2-content-txt-no-in">${questions.q_seq}</div>
                 <div class="ontent-m-td-2-content-txt-kategorie-in"></div>
-                <div class="ontent-m-td-2-content-txt-title-in"><a onclick="openModalA()">${questions.q_title}</a></div>
+                <div class="ontent-m-td-2-content-txt-title-in"><a onclick="openModalA(${questions.q_seq})">${questions.q_title}</a></div>
                 <div class="ontent-m-td-2-content-txt-writer-in">${questions.q_name}</div>
                 <div class="ontent-m-td-2-content-txt-date-in">${questions.q_reg_date}</div>
                 <div class="ontent-m-td-2-content-txt-delete-in"> <a onclick="deleteQuestion(${questions.q_seq})">삭제하기</a> </div>
