@@ -16,8 +16,8 @@ pageEncoding="UTF-8"%>
         <!-- step별 페이지 -->
         <div class="content-calbox-td">
           <div class="content-date-select-box-td">
-            <input type="date" id="start-date-sel" name="date-sel" /> <br>
-            <input type="date" id="end-date-sel" name="date-sel" />
+            <input type="date" id="start-date-sel" class="date-sel" /> <br>
+            <input type="date" id="end-date-sel" class="date-sel" />
           </div>
           <div class="calendar">
             <div class="header">

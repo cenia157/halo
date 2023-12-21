@@ -323,8 +323,7 @@
 
 .real-title-select {
 	height: 20%;
-	display: flex;
-	align-items: center;
+	display: block;
 }
 
 .real-title-view {
@@ -377,13 +376,14 @@
 }
 
 .modal-content {
-	height: 90%;
+	height: 75%;
 	width: 100%;
 	padding: 0% 5% 2% 5%;
 }
 
-.ck-form{
-   height: 88%;
+.ck-form {
+	height: 100%;
+	width: 100%;
 }
 
 .modal-content-txt {
@@ -475,4 +475,60 @@
 	height: 100%;
 	border: none;
 	font-size: 2.5rem;
+}
+
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+
+
+
+
+
+
+
+.toggle {
+	width: 10%;
+	position :relative;
+	z-index: 5;
+}
+
+/*  .toggle:hover {
+	border: solid 1px black;
+	width: 10%;
+	height:500%;
+}  */
+.kategorie {
+	background-color: aqua;
+}
+
+.toggle-down {
+	background-color: lime;
+	display: none;
+}
+
+.toggle-down:hover {
+	background-color: lime;
+	display: flex;
+}
+
+.toggle-down-block {
+	display: block;
+	width: 100%;
+}
+
+
+
+
+
+.toggle-item:hover {
+	border: solid 1px black;
 }

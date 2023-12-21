@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.halo.user.qa.question.QuestionDAO;
+
 
 @WebServlet("/AdminC")
 public class AdminC extends HttpServlet {
@@ -35,7 +37,7 @@ public class AdminC extends HttpServlet {
 			} else if (request.getParameter("link").equals("10")) {
 				menu = "qa/question/questionDetail";
 			} else if (request.getParameter("link").equals("11")) {
-					menu = "/admin/customerCare/stats/stats";
+					menu = "/admin/customerCare/stats/stats2";
 			}
 			request.setAttribute("menu", menu + ".jsp");
 			request.getRequestDispatcher("admin/index.jsp").forward(request, response);

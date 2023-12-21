@@ -19,7 +19,7 @@ public class InsertCompanyC extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		CompanyDAO.insertCalender(request);
+		CompanyDAO.insertCompanySchedule(request);
 		
 		
 

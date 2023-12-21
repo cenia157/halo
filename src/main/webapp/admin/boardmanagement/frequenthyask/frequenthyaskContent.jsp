@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="kr">
 
@@ -51,61 +52,15 @@
 				<div class="ontent-m-td-2-content-txt-date-in">8</div>
 				<div class="ontent-m-td-2-content-txt-delete-in"></div>
 			</div>
-			<div class="ontent-m-td-2-content-txt-in">
-				<div class="ontent-m-td-2-content-txt-no-in">7</div>
-				<div class="ontent-m-td-2-content-txt-kategorie-in">7</div>
-				<div class="ontent-m-td-2-content-txt-title-in">● 7</div>
-				<div class="ontent-m-td-2-content-txt-writer-in">7</div>
-				<div class="ontent-m-td-2-content-txt-date-in">7</div>
-				<div class="ontent-m-td-2-content-txt-delete-in"></div>
-			</div>
-			<div class="ontent-m-td-2-content-txt-in">
-				<div class="ontent-m-td-2-content-txt-no-in">7</div>
-				<div class="ontent-m-td-2-content-txt-kategorie-in">7</div>
-				<div class="ontent-m-td-2-content-txt-title-in">● 7</div>
-				<div class="ontent-m-td-2-content-txt-writer-in">7</div>
-				<div class="ontent-m-td-2-content-txt-date-in">7</div>
-				<div class="ontent-m-td-2-content-txt-delete-in"></div>
-			</div>
-			<div class="ontent-m-td-2-content-txt-in">
-				<div class="ontent-m-td-2-content-txt-no-in">7</div>
-				<div class="ontent-m-td-2-content-txt-kategorie-in">7</div>
-				<div class="ontent-m-td-2-content-txt-title-in">● 7</div>
-				<div class="ontent-m-td-2-content-txt-writer-in">7</div>
-				<div class="ontent-m-td-2-content-txt-date-in">7</div>
-				<div class="ontent-m-td-2-content-txt-delete-in"></div>
-			</div>
-			<div class="ontent-m-td-2-content-txt-in">
-				<div class="ontent-m-td-2-content-txt-no-in">7</div>
-				<div class="ontent-m-td-2-content-txt-kategorie-in">7</div>
-				<div class="ontent-m-td-2-content-txt-title-in">● 7</div>
-				<div class="ontent-m-td-2-content-txt-writer-in">7</div>
-				<div class="ontent-m-td-2-content-txt-date-in">7</div>
-				<div class="ontent-m-td-2-content-txt-delete-in"></div>
-			</div>
-			<div class="ontent-m-td-2-content-txt-in">
-				<div class="ontent-m-td-2-content-txt-no-in">7</div>
-				<div class="ontent-m-td-2-content-txt-kategorie-in">7</div>
-				<div class="ontent-m-td-2-content-txt-title-in">● 7</div>
-				<div class="ontent-m-td-2-content-txt-writer-in">7</div>
-				<div class="ontent-m-td-2-content-txt-date-in">7</div>
-				<div class="ontent-m-td-2-content-txt-delete-in"></div>
-			</div>
-			<div class="ontent-m-td-2-content-txt-in">
-				<div class="ontent-m-td-2-content-txt-no-in">7</div>
-				<div class="ontent-m-td-2-content-txt-kategorie-in">7</div>
-				<div class="ontent-m-td-2-content-txt-title-in">● 7</div>
-				<div class="ontent-m-td-2-content-txt-writer-in">7</div>
-				<div class="ontent-m-td-2-content-txt-date-in">7</div>
-				<div class="ontent-m-td-2-content-txt-delete-in"></div>
-			</div>
-			<div class="ontent-m-td-2-content-txt-in">
-				<div class="ontent-m-td-2-content-txt-no-in">7</div>
-				<div class="ontent-m-td-2-content-txt-kategorie-in">7</div>
-				<div class="ontent-m-td-2-content-txt-title-in">● 7</div>
-				<div class="ontent-m-td-2-content-txt-writer-in">7</div>
-				<div class="ontent-m-td-2-content-txt-date-in">7</div>
-				<div class="ontent-m-td-2-content-txt-delete-in"></div>
+			<div class="ontent-m-td-2-mid">
+			<c:forEach items="${QA_tbl }" var="qa">
+				<div class="ontent-m-td-2-content-txt-in">
+					<div class="ontent-m-td-2-content-txt-no-in"> ${qa.qa_seq } </div>
+					<div class="ontent-m-td-2-content-txt-title-in"> ${qa.qa_title } <a onclick="openModalF()">● 이곳을 누르면 모달이 뜬다</a> </div>
+					<div class="ontent-m-td-2-content-txt-date-in">${qa.qa_reg_date}</div>
+					<div class="ontent-m-td-2-content-txt-delete-in"> <button>삭제하기</button> </div>
+				</div>
+			</c:forEach>
 			</div>
 		</div>
 		<div class="ontent-m-td-2-bottom">
