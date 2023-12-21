@@ -1,4 +1,7 @@
 // 공통 함수: 모달 열기
+
+
+
 function openModal(modalId, tblId) {
 	document.getElementById(modalId).style.display = 'flex';
 	document.getElementById(tblId).style.display = 'flex';
@@ -36,7 +39,8 @@ function closeModalF() {
 
 // 문의사항(ask) 모달
 // 미답변 모달
-function openModalN() {
+function openModalN(q_seq) {
+	getData(q_seq);
 	openModal('myModalN', 'myModal-tblN');
 	closeModalOnOutsideClick('myModalN');
 }
@@ -87,12 +91,33 @@ function closeModalNR() {
 }
 
 
+function getData(q_seq) {
+    $.ajax({
+        url: 'AskContentC?q_seq='+ encodeURIComponent(q_seq),
+        type: 'get',
+        dataType: 'json',
+        success: function (question) {
+			console.log(question);
+			updateModalContent(question);
+        },
+        error: function (error) {
+            console.error('Error fetching data:', error);
+        }
+    });
+}
 
+function updateModalContent (questionJson){
+	$('#myModal-tblA #q_seq').html(<div> ${questionJson.q_seq} </div>);
+	$('#myModal-tblA #q_title').html(<div>${questionJson.q_title}</div>);
+	$('#myModal-tblA #q_content').html(<div>${questionJson.q_content}</div>);
+	$('#myModal-tblA #q_reg_date').html(<div>${questionJson.q_reg_date}</div>);
+	$('#myModal-tblA #q_contact_number').html(<div>${questionJson.q_contact_number}</div>);
+	$('#myModal-tblA #q_email').html(<div>${questionJson.q_email}</div>);
+	$('#myModal-tblA #q_name').html(<div>${questionJson.q_name}</div>);
+	$('#myModal-tblA #q_password').html(<div>${questionJson.q_password}</div>);
+	$('#myModal-tblA #q_category').html(<div>${questionJson.q_category}</div>);
 
-
-
-
-
+}
 
 
 

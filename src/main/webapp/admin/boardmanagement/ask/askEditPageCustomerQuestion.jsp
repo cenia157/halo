@@ -35,7 +35,7 @@
 
 
 <!-- 여기는 고객의 문의를 띄우는 곳 -->
-		${questions.q_content}
+		<div id="q_content"></div>
 
 <!-- 	민기해적단은 항상 학원 10시까지 남아서 잔업을 하는것으로 알고있습니다aasdasd.asdasdasdasdasdasdasdasdadas -->
 <!-- 	<br> 사실인가요? -->
