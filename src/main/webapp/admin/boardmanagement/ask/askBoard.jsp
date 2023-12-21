@@ -42,7 +42,7 @@ function deleteQuestion(n) {
 				<div class="ontent-m-td-2-content-txt-title-in"><a onclick="openModalN()">이곳을 클릭하면 미답변 모달이 열릴 것이다</a></div>
 				<div class="ontent-m-td-2-content-txt-writer-in">8</div>
 				<div class="ontent-m-td-2-content-txt-date-in">8</div>
-				<div class="ontent-m-td-2-content-txt-delete-in"> <a onclick="deleteQuestion(${question.q_seq})">삭제하기</a></div>
+				<div class="ontent-m-td-2-content-txt-delete-in"> <a onclick="deleteQuestion()">삭제하기</a></div>
 			</div>
 			<div class="ontent-m-td-2-content-txt-in">
 				<div class="ontent-m-td-2-content-txt-no-in">7</div>
@@ -61,7 +61,7 @@ function deleteQuestion(n) {
                 <div class="ontent-m-td-2-content-txt-title-in"><a onclick="openModalA()">${questions.q_title}</a></div>
                 <div class="ontent-m-td-2-content-txt-writer-in">${questions.q_name}</div>
                 <div class="ontent-m-td-2-content-txt-date-in">${questions.q_reg_date}</div>
-                <div class="ontent-m-td-2-content-txt-delete-in"> <a onclick="deleteQuestion(${question.q_seq})">삭제하기</a> </div>
+                <div class="ontent-m-td-2-content-txt-delete-in"> <a onclick="deleteQuestion(${questions.q_seq})">삭제하기</a> </div>
             </div>
             </c:forEach>
 

@@ -9,23 +9,20 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.halo.user.qa.question.QuestionDAO;
 
-@WebServlet("/AskContentC")
-public class AskContentC extends HttpServlet {
+@WebServlet("/AnswerModalOn")
+public class AnswerModalOn extends HttpServlet {
+	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		QuestionDAO.getAllQuestions(request);
-		QuestionDAO.getQuestionJson(request);
-		request.setAttribute("menu", "/admin/boardmanagement/ask/askContent.jsp");
-		System.out.println(request.getAttribute("questions"));
+		QuestionDAO.getQuestion(request);
+		request.setAttribute("menu", "/admin/boardmanagement/ask/.jsp");
 		
 		request.getRequestDispatcher("admin/index.jsp").forward(request, response);
+		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		QuestionDAO.getAllQuestions(request);
-		QuestionDAO.getQuestionJson(request);
-		request.setAttribute("menu", "/admin/boardmanagement/ask/askContent.jsp");
-		request.getRequestDispatcher("admin/index.jsp").forward(request, response);
+
 	}
 
 }
