@@ -1,8 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="com.halo.user.qa.question.Question" %>
-<%@ page import="com.halo.user.qa.question.QuestionDAO" %>
-
 <!DOCTYPE html>
 <html>
 <head>

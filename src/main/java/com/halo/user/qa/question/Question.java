@@ -8,7 +8,7 @@ public class Question {
 	private String q_title;
 	private String q_content;
 	private Date q_reg_date;
-	private int q_contact_number;
+	private String q_contact_number;
 	private String q_email;
 	private String q_name;
 	private String q_password;
@@ -17,7 +17,7 @@ public class Question {
 	public Question() {
 	}
 
-	public Question(int q_seq, String q_title, String q_content, Date q_reg_date, int q_contact_number, String q_email,
+	public Question(int q_seq, String q_title, String q_content, Date q_reg_date, String q_contact_number, String q_email,
 			String q_name, String q_password, String q_category) {
 		super();
 		this.q_seq = q_seq;
@@ -63,11 +63,11 @@ public class Question {
 		this.q_reg_date = q_reg_date;
 	}
 
-	public int getQ_contact_number() {
+	public String getQ_contact_number() {
 		return q_contact_number;
 	}
 
-	public void setQ_contact_number(int q_contact_number) {
+	public void setQ_contact_number(String q_contact_number) {
 		this.q_contact_number = q_contact_number;
 	}
 

@@ -53,16 +53,19 @@ function deleteQuestion(n) {
 				<div class="ontent-m-td-2-content-txt-delete-in">삭제하기</div>
 			</div>
 <!-- 			foreach문 추가 -->
-			<c:forEach items="${questions}" var="question">
+
+			<c:forEach items="${questions}" var="questions">
             <div class="ontent-m-td-2-content-txt-in">
-                <div class="ontent-m-td-2-content-txt-no-in">${requestScope.question.q_seq}</div>
-                <div class="ontent-m-td-2-content-txt-kategorie-in">${comments.c_answer}</div>
-                <div class="ontent-m-td-2-content-txt-title-in"><a onclick="openModalA()">${requestScope.question.q_title}</a></div>
-                <div class="ontent-m-td-2-content-txt-writer-in">${requestScope.question.q_name}</div>
-                <div class="ontent-m-td-2-content-txt-date-in">${requestScope.question.q_reg_date}</div>
+                <div class="ontent-m-td-2-content-txt-no-in">${questions.q_seq}</div>
+                <div class="ontent-m-td-2-content-txt-kategorie-in"></div>
+                <div class="ontent-m-td-2-content-txt-title-in"><a onclick="openModalA()">${questions.q_title}</a></div>
+                <div class="ontent-m-td-2-content-txt-writer-in">${questions.q_name}</div>
+                <div class="ontent-m-td-2-content-txt-date-in">${questions.q_reg_date}</div>
                 <div class="ontent-m-td-2-content-txt-delete-in"> <a onclick="deleteQuestion(${question.q_seq})">삭제하기</a> </div>
             </div>
             </c:forEach>
+
+
 <!--             foreach문 끝 -->
 <!-- 			<div class="ontent-m-td-2-content-txt-in"> -->
 <!-- 				<div class="ontent-m-td-2-content-txt-no-in">6</div> -->
@@ -114,5 +117,7 @@ function deleteQuestion(n) {
 <!-- 			</div> -->
 		</div>
 	</div>
+	
+	
 </body>
 </html>

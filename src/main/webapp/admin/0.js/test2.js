@@ -45,11 +45,11 @@ function closeModalN() {
 	closeModal('myModalN', 'myModal-tblN');
 }
 
-// 답변 모달
-function openModalA() {
+//	답변 모달
+	function openModalA() {
 	openModal('myModalA', 'myModal-tblA');
 	closeModalOnOutsideClick('myModalA');
-}
+	}
 
 function closeModalA() {
 	closeModal('myModalA', 'myModal-tblA');

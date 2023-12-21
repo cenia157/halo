@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="com.halo.user.qa.question.Question" %>
+<%@ page import="com.halo.user.qa.question.QuestionDAO" %>
+<% request.getAttribute("questions"); %>
 <!DOCTYPE html>
 <html lang="kr">
 
@@ -31,8 +35,7 @@
 
 
 <!-- 여기는 고객의 문의를 띄우는 곳 -->
-
-		${question.q_content}
+		${questions.q_content}
 
 <!-- 	민기해적단은 항상 학원 10시까지 남아서 잔업을 하는것으로 알고있습니다aasdasd.asdasdasdasdasdasdasdasdadas -->
 <!-- 	<br> 사실인가요? -->
@@ -49,7 +52,6 @@
 <!-- 	민기해적단은 항상 학원 10시까지 남아서 잔업을 하는것으로 알고있습니다aasdasd. -->
 <!-- 	<br> 사실인가요? -->
 <!-- 	<br> *여기에 고객의 질문을 불러와야한다* -->
-
 
 
 
