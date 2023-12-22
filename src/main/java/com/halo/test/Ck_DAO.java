@@ -19,8 +19,6 @@ public class Ck_DAO {
 		// date
 		// img
 
-		
-		
 //		String select = null;
 //
 //		if (request.getParameter("select") == "announcement") {
@@ -38,17 +36,18 @@ public class Ck_DAO {
 //		}
 
 		String title = request.getParameter("title");
-		String select = request.getParameter("productA");
+		String select = request.getParameter("select");
 		String txt = request.getParameter("txt");
-//		이곳에 이미지 가져와야한다
+
+
+		// 이곳에 이미지 가져와야한다
 		System.out.println(title);
 		System.out.println(select);
 		System.out.println(txt);
 
 		Connection con = null;
 		PreparedStatement pstmt = null;
-		String sql = "INSERT INTO announced_tbl "
-				+ "(an_seq, an_title, an_content, an_writer, an_category, an_img) "
+		String sql = "INSERT INTO announced_tbl " + "(an_seq, an_title, an_content, an_writer, an_category, an_img) "
 				+ "VALUES (announced_tbl_seq.nextval, ?, ?, '임시데이터', ?, ?)";
 
 // 참고용 notice_seq.nextval, '타이틀', '텍스트', '김진욱', '일반', '이미지'

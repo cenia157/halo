@@ -23,7 +23,7 @@
 				<div class="modal-title-tr">
 					<div class="modal-title-td-1">
 						<div class="real-title">
-							<input class="real-title-editor" name="title"
+							<input class="real-title-editor" name="title" id="real-title-editor"
 								placeholder="이곳에 제목을 입력하세요">
 							<div class="real-title-select">
 								<!--  -->
@@ -41,11 +41,23 @@
  -->
 
 								<div class="toggle" id="toggle" onclick="toggle()">
-									<div class="kategorie" id="kategorie">카테고리</div>
+									<div class="kategorie" id="kategorie">카테고리
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									</div>
 									<div class="toggle-down" id="toggle-down">
 										<div class="toggle-down-block">
 											<div class="toggle-item" id="aaaa">
-												<input name="announcementA" id="myInput"
+												<input name="announcementA" type="hidden" id="myInput"
 													value="announcement"> 안내
 											</div>
 											<div class="toggle-item" id="일정">
@@ -103,7 +115,7 @@
 				</script>
 					</div>
 					<div class="modal-content-button">
-						<button class="SubmitButton" type="submit" id="reg-btn">등록완료</button>
+						<button class="SubmitButton" type="submit" id="reg-btn" onclick="noValue()" >등록완료</button>
 					</div>
 				</div>
 			</div>
@@ -112,72 +124,31 @@
 
 
 	<script type="text/javascript">
-		let ckForm = document.querySelector('.ck-form');
-		console.log(ckForm);
+		 let ckForm = document.querySelector('.ck-form');
+		 console.log(ckForm);
 		
-		
-		ckForm.addEventListener("submit", function(event){
+		 ckForm.addEventListener("submit", function(event){
 	     event.preventDefault(); // 기본 submit 동작 방지
 		
 	     
-
-/* 	     const selectValue = document.querySelector('input[name="announcement"]').value; */
-
-/* const titleValue = document.querySelector('input[name="title"]').value; */
-/* const selectValue = document.querySelector('input[name="announcement"]').value; */
-
-		 console.log('111111111111111');
-/* 		 console.log(titleValue); */
-/*  	 	 console.log(selectValue); */
- 	 	 console.log('111111111111111'); 	 	 
- 	 	 
- 	 	 
-/* 	 	 const selectValue = document.querySelector('select[name="select"]').value; */
-			    // URL 생성
-
-			    
-			    
-			    
-			    
-			    
-/* if (document.querySelector('input[name="announcement"]') == 'announcement') {
-	
-}			     */
-			    
-let select = document.querySelector('input[name="announcementA"]').value;
-/* let selectValue = document.querySelector('input[name="announcementA"]').value; */
-console.log('9999999999')	    			    
-console.log(select)			    
-console.log('9999999999')	    
-let test = document.querySelector('input[name="announcementA"]');
-console.log(test)
-			    
-const testParam = "schedule";
-
-
 		 const content = window.editor.getData();
 
-		 console.log(event);
-		 console.log(content);
+		 
 		 const formData = new FormData(event.target);
 		 
 		 const payload = new URLSearchParams(formData);
-		 
+		 console.log('3333333333333333333333333331111111111111111')
 		 for (var pair of formData.entries()) {
-		        console.log(pair[0] + ': ' + pair[1] + ': ' + pair[2]);
+		        console.log(pair[0] + ': ' + pair[1]);
 		    }
-		 
-		let CkeditorC123 = fetch('CkeditorC',  {
+		 console.log('3333333333333333333333333331111111111111111')		 
+		 let CkeditorC123 = fetch('CkeditorC',  {
 		        method: 'POST',
 		        body: payload,
 		        headers: {
 		            'Content-Type': 'application/x-www-form-urlencoded', // 헤더 설정
 		        }
 		    })
-		    
-
-
-		    
 	        .then(response => {
 	            if (!response.ok) {
 	                throw new Error('Network response was not ok');
