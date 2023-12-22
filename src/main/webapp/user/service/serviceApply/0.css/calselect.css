@@ -251,7 +251,7 @@
 	flex-shrink: 0;
 }
 
-#date-sel {
+.date-sel {
 	height: 45%;
 	width: 95%;
 	font-size: 1rem;
@@ -266,7 +266,7 @@
 	font-family: Arial, sans-serif;
 	border: 1px solid #ccc;
 	width: 90%;
-	padding: 1%;
+/* 	padding: 1%; */
 }
 
 .header {
@@ -377,8 +377,11 @@
 	color: #396ee2;
 }
 
+.this {
+	  font-size: 2rem
+}
 .other {
-	opacity: 0.3;
+	  pointer-events: none;
 }
 
 .today {

@@ -21,10 +21,8 @@ public class InsertCompanyC extends HttpServlet {
 		
 		CompanyDAO.insertCompanySchedule(request);
 		
-		
-
-		
-		
+		request.setAttribute("menu", "/admin/calender/company/companyContent.jsp");
+		request.getRequestDispatcher("admin/index.jsp").forward(request, response);
 	}
 
 }
