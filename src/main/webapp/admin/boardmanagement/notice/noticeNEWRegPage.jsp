@@ -45,23 +45,23 @@
 									<div class="toggle-down" id="toggle-down">
 										<div class="toggle-down-block">
 											<div class="toggle-item" id="aaaa">
-												<input name="announcement" type="hidden" id="myInput"
-													value=announcement> 안내
+												<input name="announcementA" id="myInput"
+													value="announcement"> 안내
 											</div>
 											<div class="toggle-item" id="일정">
-												<input name="schedule" type="hidden" id="myInput"
+												<input name="scheduleA" type="hidden" id="myInput"
 													value="schedule"> 일정
 											</div>
 											<div class="toggle-item" id="일반">
-												<input name="general" type="hidden" id="myInput"
+												<input name="generalA" type="hidden" id="myInput"
 													value="general"> 일반
 											</div>
 											<div class="toggle-item" id="서비스">
-												<input name="service" type="hidden" id="myInput"
+												<input name="serviceA" type="hidden" id="myInput"
 													value="service"> 서비스
 											</div>
 											<div class="toggle-item" id="상품">
-												<input name="product" type="hidden" id="myInput"
+												<input name="productA" type="hidden" id="myInput"
 													value="product"> 상품
 											</div>
 										</div>
@@ -109,6 +109,8 @@
 			</div>
 		</div>
 	</form>
+
+
 	<script type="text/javascript">
 		let ckForm = document.querySelector('.ck-form');
 		console.log(ckForm);
@@ -118,166 +120,49 @@
 	     event.preventDefault(); // 기본 submit 동작 방지
 		
 	     
-	 	 const titleValue = document.querySelector('input[name="title"]').value;
-	     const selectValueE = document.querySelector('.toggle-item').value;
-	 	 const selectValueR = document.querySelector('.toggle-down-block[class="toggle-item"].value');
 
-	 	 const selectValueI = document.querySelector('.toggle-item');
-	 	 const textFromDiv = document.getElementById('aaaa').innerText;
-	 	 const textFromDiv2  = document.querySelector('#aaaa').innerHTML;
-	 	 const textFromDiv3  = document.querySelector('#aaaa').textContent;
-/*  	 	 const textFromDiv4  = document.querySelector('input[name="ttt"]').value;  */
+/* 	     const selectValue = document.querySelector('input[name="announcement"]').value; */
 
- 	 	 console.log('~~~~~~~~~')
- 	 	 console.log('~~~~~~~~~')
-	 	 console.log(titleValue)
- 	 	 console.log(selectValueE)
- 	 	 console.log(selectValueR)
-/*   	 	 console.log(selectValue) */
-  	 	 console.log(selectValueI)  	 	 
-  	 	 console.log(textFromDiv)  	 	 
-  	 	 console.log(textFromDiv2)  	 	   	 	 
-   	 	 console.log(textFromDiv3)  	 	   	 	 
-   	 	 console.log('~~~~~~~~~1')
-/*    	 	 console.log(textFromDiv4)  	 	   	 	  */
-   	 	 console.log('~~~~~~~~~')
+/* const titleValue = document.querySelector('input[name="title"]').value; */
+/* const selectValue = document.querySelector('input[name="announcement"]').value; */
 
-	 	 
-   	 	 
-/* document.querySelector('input[name="ttt"]') */
-   	 	 
-   	 	 
-   	 	 
-   	 	 
+		 console.log('111111111111111');
+/* 		 console.log(titleValue); */
+/*  	 	 console.log(selectValue); */
+ 	 	 console.log('111111111111111'); 	 	 
+ 	 	 
+ 	 	 
+/* 	 	 const selectValue = document.querySelector('select[name="select"]').value; */
+			    // URL 생성
 
+			    
+			    
+			    
+			    
+			    
+/* if (document.querySelector('input[name="announcement"]') == 'announcement') {
+	
+}			     */
+			    
+let select = document.querySelector('input[name="announcementA"]').value;
+/* let selectValue = document.querySelector('input[name="announcementA"]').value; */
+console.log('9999999999')	    			    
+console.log(select)			    
+console.log('9999999999')	    
+let test = document.querySelector('input[name="announcementA"]');
+console.log(test)
+			    
+const testParam = "schedule";
 
-
-
-
-
-
-
-   	 	 
-   	 	 
-   	 	 
-   	 	 
-   	 	 
-   	 	 
-   	 	 
-   	 	 
-/*    	 	 
-   	 	 let test = null;
-   	 	 
-   	 	 if (document.querySelector('input[name="ttt"]').value == 'ttt' ) {
-		}
-*//* 
-   	 	 
-		// input 요소의 name 속성에 접근
-		let tttInput = document.querySelector('input[name="ttt"]');
-  	 	let test = null;
-		test = `ttt=${pppp}`
-
-		// 만약 해당 요소가 존재한다면
-		if (tttInput) {
-		  // input 요소의 value 값을 가져옴
-		  let tttValue = tttInput.value;
-		    console.log(tttValue)
-		    console.log('555555555')		    
-		  // if 문에서 활용
-		  if (tttValue === 'aasdnn') {
-		    // 원하는 동작 수행
-		    console.log(tttValue)
-		    console.log('성공의 조짐')
-		   	 	    console.log(test);
-		  } 
-		
-		}
-		
- let test = `ttt=${pppp}` */
-		
-		
-		
-
-   	 	 console.log('00000000000')   	 	 
-   	 	 
-/* 		 const url = `CkeditorC?title=${titleValue}&ttt=${pppp}&txt=${textareaValue}`; */
-
-
-
-/* let announcement = document.querySelector('input[name="announcement"]').value;
-let schedule = document.querySelector('input[name="schedule"]').value;
-let test = null;
-
-console.log(announcement)   	 	  */
-
-
-
-
-
-
-
- const kategorie = document.querySelector('.kategorie');
-/*  const inputValue = kategorie.querySelector('input').value; */
-
-/* console.log(inputValue)   	 	 */ 		
-
-/* let test = `ttt=${pppp}` 
-
-if (inputValue == 'announcement') {
-	test = `ttt=${announcement}`
-} else if (inputValue == 'schedule') {
-	test = `ttt=${schedule}`
-} */
-
-console.log('5555555555555555555')
-/* console.log(test) */
-console.log('5555555555555555555')
-
-
-
-
-
-
-
-
-
-
-const selectValue = document.querySelector('select[name="select"]');
-
-
-
-
-const textFromDiv4  = document.querySelector('input[name="announcement"]').value;
-
-
-
-
-
-
-console.log('++++++++++++++++')
-console.log(textFromDiv4)
-console.log(textareaValue)
-
-
-
-
-// URL 생성
-const url = `CkeditorC?title=${titleValue}&select${textFromDiv4}&txt=${textareaValue}`;
 
 		 const content = window.editor.getData();
+
 		 console.log(event);
-		 console.log(titleValue);
-		 console.log(url);
-		 console.log(url.value);
-		 console.log('////////////');
-		 console.log(textFromDiv);
 		 console.log(content);
 		 const formData = new FormData(event.target);
 		 
 		 const payload = new URLSearchParams(formData);
-		 console.log('888888888888');
-		 console.log(payload);
-		 console.log('888888888888');
+		 
 		 for (var pair of formData.entries()) {
 		        console.log(pair[0] + ': ' + pair[1] + ': ' + pair[2]);
 		    }
@@ -315,5 +200,12 @@ const url = `CkeditorC?title=${titleValue}&select${textFromDiv4}&txt=${textareaV
 		
 		
 </script>
+
+
+
+
+
+
+
 </body>
 </html>
