@@ -48,9 +48,9 @@ public class CompanyDAO {
 				schedule = new CompanyScheduleDTO(yearmonth, title, txt, date, update);
 				companySchedule.add(schedule.toJson());
 
-				System.out.println("회사 달력 조회 성공");
 			}
 
+			System.out.println("회사 달력 조회 성공");
 			response.getWriter().print(companySchedule);
 
 		} catch (Exception e) {
