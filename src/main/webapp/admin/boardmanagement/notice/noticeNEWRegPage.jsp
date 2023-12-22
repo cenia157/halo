@@ -37,24 +37,33 @@
 									<option value="service">서비스</option>
 									<option value="product">상품</option>
 								</select>
+
  -->
 
-
-								<div class="toggle" id="toggle" onclick="asd()">
+								<div class="toggle" id="toggle" onclick="toggle()">
 									<div class="kategorie" id="kategorie">카테고리</div>
 									<div class="toggle-down" id="toggle-down">
 										<div class="toggle-down-block">
 											<div class="toggle-item" id="aaaa">
-
-
-
-												<input name="ttt" type="hidden" id="myInput" value="aasdnn">
-												안내
+												<input name="announcement" type="hidden" id="myInput"
+													value=announcement> 안내
 											</div>
-											<div class="toggle-item" id="일정">일정</div>
-											<div class="toggle-item" id="일반">일반</div>
-											<div class="toggle-item" id="서비스">서비스</div>
-											<div class="toggle-item" id="상품">상품</div>
+											<div class="toggle-item" id="일정">
+												<input name="schedule" type="hidden" id="myInput"
+													value="schedule"> 일정
+											</div>
+											<div class="toggle-item" id="일반">
+												<input name="general" type="hidden" id="myInput"
+													value="general"> 일반
+											</div>
+											<div class="toggle-item" id="서비스">
+												<input name="service" type="hidden" id="myInput"
+													value="service"> 서비스
+											</div>
+											<div class="toggle-item" id="상품">
+												<input name="product" type="hidden" id="myInput"
+													value="product"> 상품
+											</div>
 										</div>
 									</div>
 								</div>
@@ -112,12 +121,12 @@
 	 	 const titleValue = document.querySelector('input[name="title"]').value;
 	     const selectValueE = document.querySelector('.toggle-item').value;
 	 	 const selectValueR = document.querySelector('.toggle-down-block[class="toggle-item"].value');
-/* 	 	 const selectValue = document.querySelector('select[name="select"]').value; */
+
 	 	 const selectValueI = document.querySelector('.toggle-item');
 	 	 const textFromDiv = document.getElementById('aaaa').innerText;
 	 	 const textFromDiv2  = document.querySelector('#aaaa').innerHTML;
 	 	 const textFromDiv3  = document.querySelector('#aaaa').textContent;
- 	 	 const textFromDiv4  = document.querySelector('input[name="ttt"]').value; 
+/*  	 	 const textFromDiv4  = document.querySelector('input[name="ttt"]').value;  */
 
  	 	 console.log('~~~~~~~~~')
  	 	 console.log('~~~~~~~~~')
@@ -130,7 +139,7 @@
   	 	 console.log(textFromDiv2)  	 	   	 	 
    	 	 console.log(textFromDiv3)  	 	   	 	 
    	 	 console.log('~~~~~~~~~1')
-   	 	 console.log(textFromDiv4)  	 	   	 	 
+/*    	 	 console.log(textFromDiv4)  	 	   	 	  */
    	 	 console.log('~~~~~~~~~')
 
 	 	 
@@ -188,23 +197,78 @@
 		
 		
 		
-		
-		
-		
+
    	 	 console.log('00000000000')   	 	 
    	 	 
 /* 		 const url = `CkeditorC?title=${titleValue}&ttt=${pppp}&txt=${textareaValue}`; */
 
-   	 	 
-const test = `ttt=${pppp}`;
+
+
+/* let announcement = document.querySelector('input[name="announcement"]').value;
+let schedule = document.querySelector('input[name="schedule"]').value;
+let test = null;
+
+console.log(announcement)   	 	  */
+
+
+
+
+
+
+
+ const kategorie = document.querySelector('.kategorie');
+/*  const inputValue = kategorie.querySelector('input').value; */
+
+/* console.log(inputValue)   	 	 */ 		
+
+/* let test = `ttt=${pppp}` 
+
+if (inputValue == 'announcement') {
+	test = `ttt=${announcement}`
+} else if (inputValue == 'schedule') {
+	test = `ttt=${schedule}`
+} */
+
+console.log('5555555555555555555')
+/* console.log(test) */
+console.log('5555555555555555555')
+
+
+
+
+
+
+
+
+
+
+const selectValue = document.querySelector('select[name="select"]');
+
+
+
+
+const textFromDiv4  = document.querySelector('input[name="announcement"]').value;
+
+
+
+
+
+
+console.log('++++++++++++++++')
+console.log(textFromDiv4)
+console.log(textareaValue)
+
+
+
 
 // URL 생성
-const url = `CkeditorC?title=${titleValue}&${test}&txt=${textareaValue}`;
+const url = `CkeditorC?title=${titleValue}&select${textFromDiv4}&txt=${textareaValue}`;
 
 		 const content = window.editor.getData();
 		 console.log(event);
 		 console.log(titleValue);
 		 console.log(url);
+		 console.log(url.value);
 		 console.log('////////////');
 		 console.log(textFromDiv);
 		 console.log(content);
