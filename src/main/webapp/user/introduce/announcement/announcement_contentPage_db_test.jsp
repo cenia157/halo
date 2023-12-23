@@ -72,7 +72,7 @@ prefix="c" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
                 </div>
                 <!-- 2번째 행 여기는 forEach문이겠죠?-->
                 <c:forEach var="announcement" items="${announcements}">
-              	  <div class="a_content-box-tr1-td3-1-1-1-2-3">
+              	  <div class="a_content-box-tr1-td3-1-1-1-2">
                     <div class="a_content-box-tr1-td3-1-1-1-2-1 No-width">
                       <span>${announcement.an_seq}</span>
                     </div>
@@ -201,7 +201,6 @@ prefix="c" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
             }
           });
         });
-        
         $(document).keydown(function (e) {
           if (e.key === "Escape") {
             // 'Escape'는 ESC 키를 나타냄
