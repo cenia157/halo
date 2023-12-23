@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.google.gson.Gson;
 import com.halo.main.DBManagerhalo;
 
-public class CompanyDAO {
+public class CompanyDAO2 {
 	private static Connection con = null;
 
 	public static void getAllCompanySchedule(HttpServletRequest request, HttpServletResponse response) {
@@ -29,6 +29,7 @@ public class CompanyDAO {
 			String sql = "select * from company_schedule";
 			con = DBManagerhalo.connect();
 			pstmt = con.prepareStatement(sql);
+<<<<<<< HEAD
 			rs = pstmt.executeQuery();
 
 			// 일정 배열 생성
@@ -48,9 +49,9 @@ public class CompanyDAO {
 				schedule = new CompanyScheduleDTO(yearmonth, title, txt, date, update);
 				companySchedule.add(schedule.toJson());
 
+				System.out.println("회사 달력 조회 성공");
 			}
 
-			System.out.println("회사 달력 조회 성공");
 			response.getWriter().print(companySchedule);
 
 		} catch (Exception e) {
@@ -90,6 +91,11 @@ public class CompanyDAO {
 
 			pstmt.setString(1, selectYearMonth);
 			pstmt.setString(2, request.getParameter("input-title"));
+=======
+			
+			pstmt.setString(1, request.getParameter("input-title"));
+			pstmt.setString(2, request.getParameter("input-date"));
+>>>>>>> 0b8323d233270248db478ea3261be34d74339c7a
 			pstmt.setString(3, request.getParameter("input-txt"));
 			pstmt.setString(4, selectDates);
 			pstmt.setString(5, now.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));

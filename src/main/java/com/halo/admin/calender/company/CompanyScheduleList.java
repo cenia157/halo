@@ -7,22 +7,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/InsertCompanyC")
-public class InsertCompanyC extends HttpServlet {
+@WebServlet("/CompanyScheduleList")
+public class CompanyScheduleList extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		
-		
+		CompanyDAO.getAllCompanySchedule(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
-		CompanyDAO.insertCompanySchedule(request);
-		
-		request.setAttribute("menu", "/admin/calender/company/companyContent.jsp");
-		request.getRequestDispatcher("admin/index.jsp").forward(request, response);
 	}
 
 }
