@@ -16,6 +16,7 @@ public class LogoRegC extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//로고img 등록하는 일
 //		MainpageDAO.regLogo(request);
+		
 		//싱글톤 수정
 		MainpageDAO.getMdao().regLogo(request);
 		

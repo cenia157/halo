@@ -7,17 +7,19 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>logo</title>
-
+<!-- 해당 컨텐트 css -->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/admin/homepageSetting/logo/0.css/logo.css" />
-
-
+<!-- 폰트 css -->
 <link
 	href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular"
 	rel="stylesheet" />
+<!-- js연결 -->
+<script type="text/javascript" src="${pageContext.request.contextPath}/admin/homepageSetting/logo/0.js/logo.js"></script>
 </head>
 <body>
 	<div class="content-m-td-3">
+	<!-- 		왼쪽 (현재로고) 큰 div -->
 		<div class="content-m-td-2-side">
 			<div class="content-m-td-2-side-up">
 				<div class="content-m-td-2-side-up-title">현재로고</div>
@@ -26,7 +28,7 @@
 
 				<div class="content-m-td-2-side-mid-logo">
 					<!-- 여기에 이미지 삽입, 식별을 위해 임시로 이미지 대신 스타일삽입하였으므로 나중에 삭제 -->
-<!-- 					현재 이미지 보여주기 -->
+<!-- 현재 이미지 보여주기 (바꾸기 이전 이미지 경로 EL태그 ㄱㄱ) -->
 					<img alt="" src=""
 						style="background-color: gray; height: 40%; width: 70%;">
 				</div>
@@ -39,28 +41,38 @@
 					src="${pageContext.request.contextPath}/admin/0.img/Vector.png">
 			</div>
 		</div>
+<!-- 		오른쪽(변경로고) 큰 div   form태그 감싸기, logoUpdateC, post로 img경로값 보내기 -->
+
 		<div class="content-m-td-2-side">
 			<div class="content-m-td-2-side-up">
 				<div class="content-m-td-2-side-up-title">변경로고</div>
 			</div>
+			
 			<div class="content-m-td-2-side-mid">
-					<!-- 변경할 로고 파일 업로드 인풋 & 이미지미리보기 -->
+					<!-- 변경할 로고 파일 업로드 인풋 & 이미지미리보기 ajax -->
 				<div class="content-m-td-2-side-mid-logo">
 					<div class="logo_upload">
+				<!-- 파일업로드 안내 이미지, 로고 아님... -->
 					<label for="logo_img">
-					<img src="${pageContext.request.contextPath}/admin/0.img/logo_upload.png">
+					<img id="logo_preview" src="${pageContext.request.contextPath}/admin/0.img/logo_upload.png">
 					</label>
+				<!-- 변경할 로고이미지 인풋 -->
 					<input type="file" id="logo_img" name="logo_img">
 					</div>
+					<div>asd</div>
 				</div>
 			</div>
 			<div class="content-m-td-2-side-down">
-					<!-- 로고변경 버튼 -->
+					<!-- 로고변경 버튼  -->
 				<div class="content-m-td-2-side-down-button">
+				
 					<button class="content-button" id="logo_btn_submit" onclick="">변경</button>
+					
 				</div>
+				
 			</div>
 		</div>
+		
 	</div>
 </body>
 </html>
