@@ -61,7 +61,8 @@ public class MainpageDAO {
 		}
 		
 	}
-
+	
+	//로고 등록 메소드(처음에만 쓸거임 test용)
 	public static void regLogo(HttpServletRequest request) {
 		
 		Connection con = null;
@@ -91,6 +92,35 @@ public class MainpageDAO {
 		
 	}
 	
+	//로고 수정 메소드
+	private static void updateLogo(HttpServletRequest request) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		String sql = "update hompage_common set h_logo_img=? where h_seq=?";
+		try {
+			con = DBManagerhalo.connect();
+			pstmt = con.prepareStatement(sql);
+			String savepath = request.getRealPath("user/upload_imgs");
+			MultipartRequest mr = new MultipartRequest(request, savepath, 1024*1024*20, "utf-8", new DefaultFileRenamePolicy());
+			//바꿀 이미지, 바꾸기 전 이미지
+			String newImg = mr.getFilesystemName("newImg");
+			String oldImg = mr.getFilesystemName("oldImg");
+			//업뎃 위치용 시퀀스 넘버
+			String h_seq = mr.getParameter("h_seq");
+			
+			if (pstmt.executeUpdate() == 1) {
+				System.out.println("등록 성공!");
+			}else {
+				System.out.println("등록 실패");
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("db server error...");
+		}finally {
+			DBManagerhalo.close(con, pstmt, null);
+		}
+	}
 	
 	
 	
