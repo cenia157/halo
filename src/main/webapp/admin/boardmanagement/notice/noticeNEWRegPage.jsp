@@ -23,12 +23,10 @@
 				<div class="modal-title-tr">
 					<div class="modal-title-td-1">
 						<div class="real-title">
-							<input class="real-title-editor" name="title" id="real-title-editor"
-								placeholder="이곳에 제목을 입력하세요">
+							<input class="real-title-editor" name="title"
+								id="real-title-editor" placeholder="이곳에 제목을 입력하세요">
 							<div class="real-title-select">
 								<!--  -->
-
-
 								<!-- 
 								<select name="select">
 									<option value="announcement">안내</option>
@@ -37,23 +35,9 @@
 									<option value="service">서비스</option>
 									<option value="product">상품</option>
 								</select>
-
  -->
-
 								<div class="toggle" id="toggle" onclick="toggle()">
-									<div class="kategorie" id="kategorie">카테고리
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									
-									</div>
+									<div class="kategorie" id="kategorie">카테고리</div>
 									<div class="toggle-down" id="toggle-down">
 										<div class="toggle-down-block">
 											<div class="toggle-item" id="aaaa">
@@ -79,14 +63,7 @@
 										</div>
 									</div>
 								</div>
-
-
-
-
 								<script src="admin/boardmanagement/notice/0.js/notice.js"></script>
-
-
-
 								<!--  -->
 							</div>
 						</div>
@@ -95,7 +72,6 @@
 						<span class="close" id="closeModalBtn" onclick="closeModalNR()">&times;</span>
 					</div>
 				</div>
-
 				<div class="modal-content">
 					<div class="modal-content-txt">
 						<!-- 아래의 코드는 CK Editor를 넣는 부분이다-->
@@ -111,31 +87,25 @@
 								console.error(error);
 								});
 						
-						
 				</script>
 					</div>
 					<div class="modal-content-button">
-						<button class="SubmitButton" type="submit" id="reg-btn" onclick="noValue()" >등록완료</button>
+						<button class="SubmitButton" type="submit" id="reg-btn"
+							onclick="noValue()">등록완료</button>
 					</div>
 				</div>
 			</div>
 		</div>
 	</form>
-
-
 	<script type="text/javascript">
 		 let ckForm = document.querySelector('.ck-form');
 		 console.log(ckForm);
 		
 		 ckForm.addEventListener("submit", function(event){
 	     event.preventDefault(); // 기본 submit 동작 방지
-		
 	     
 		 const content = window.editor.getData();
-
-		 
 		 const formData = new FormData(event.target);
-		 
 		 const payload = new URLSearchParams(formData);
 		 console.log('3333333333333333333333333331111111111111111')
 		 for (var pair of formData.entries()) {
@@ -158,19 +128,16 @@
 	        .then(data => {
 	            console.log('POST 요청 성공:', data);
 	            console.log(CkeditorC123);
-	            
 	        })
-	        
 	        .catch(error => {
 	            console.error('POST 요청 실패:', error);
 	        });
-		
-			
 		});
-		
-		
-		
 </script>
+
+
+
+
 
 
 
