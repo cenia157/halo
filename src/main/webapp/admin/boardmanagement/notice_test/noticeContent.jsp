@@ -9,8 +9,11 @@
 <title>notice</title>
 <script src="admin/0.js/ckeditor.js"></script>
 <script src="admin/0.js/test2.js"></script>
+
+
+
 <link rel="stylesheet"
-	href="admin/boardmanagement/notice/0.css/notice.css" />
+	href="admin/boardmanagement/notice_test/0.css/notice.css" />
 <link
 	href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular"
 	rel="stylesheet" />
@@ -57,9 +60,7 @@
 			기존의 공지사항을 보기 위한 모달(noticeViewPage.jsp)
 			기존의 공지사항을 수정 위한 모달(이 모달은 noticeViewPage에서 include됨)(noticeRegPage.jsp)
 		-->
-		<jsp:include page="noticeViewPage.jsp"></jsp:include>
-		<jsp:include page="noticeRegPage.jsp"></jsp:include>
-		<jsp:include page="noticeNEWRegPage.jsp"></jsp:include>
+		<jsp:include page="test.jsp"></jsp:include>
 	</div>
 </body>
 
