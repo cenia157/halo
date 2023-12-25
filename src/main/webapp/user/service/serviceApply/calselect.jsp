@@ -51,7 +51,6 @@ pageEncoding="UTF-8"%>
         <div class="content-cal-btn-box-td">
         <a href="ServiceC?step=3" class="next-btn">다음으로</a>
         </div>
-          <script src="${pageContext.request.contextPath}/user/service/serviceApply/0.js/cal.js">
-          </script>
   </body>
+        
 </html>
