@@ -61,13 +61,16 @@
 								<label for="logo_img"> 
 									<img id="logoUpload" width="20%"
 									src="${pageContext.request.contextPath}user/upload_imgs/${logo_img}">
+									</label>
 									</c:when>
 									<c:otherwise>
+									<label for="logo_img"> 
 								<img id="logo_preview"
 									src="${pageContext.request.contextPath}/admin/0.img/logo_upload.png">
+									</label>
 									</c:otherwise>
 							</c:choose>
-							</label>
+							
 							<!-- 변경할 로고이미지 인풋 -->
 							<input type="file" id="logo_img" name="logo_img">
 						</div>
