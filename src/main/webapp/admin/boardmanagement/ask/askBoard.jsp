@@ -12,10 +12,6 @@
 	href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular"
 	rel="stylesheet" />
 
-<script src="admin/0.js/test2.js"></script>
-<script src="admin/0.js/test.js"></script>
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-
 <script type="text/javascript">
 function deleteQuestion(n) {
     let ok = confirm("削除しますか?");
@@ -43,7 +39,7 @@ function deleteQuestion(n) {
 			<div class="ontent-m-td-2-content-txt-in">
 				<div class="ontent-m-td-2-content-txt-no-in">8</div>
 				<div class="ontent-m-td-2-content-txt-kategorie-in">미답변</div>
-				<div class="ontent-m-td-2-content-txt-title-in"><a onclick="openModalN()">이곳을 클릭하면 미답변 모달이 열릴 것이다</a></div>
+				<div class="ontent-m-td-2-content-txt-title-in"><a onclick="getDataN()">이곳을 클릭하면 미답변 모달이 열릴 것이다</a></div>
 				<div class="ontent-m-td-2-content-txt-writer-in">8</div>
 				<div class="ontent-m-td-2-content-txt-date-in">8</div>
 				<div class="ontent-m-td-2-content-txt-delete-in"> <a onclick="deleteQuestion()">삭제하기</a></div>
@@ -58,70 +54,28 @@ function deleteQuestion(n) {
 			</div>
 <!-- 			foreach문 추가 -->
 
-			<c:forEach items="${questions}" var="questions">
-            <div class="ontent-m-td-2-content-txt-in">
-                <div class="ontent-m-td-2-content-txt-no-in">${questions.q_seq}</div>
-                <div class="ontent-m-td-2-content-txt-kategorie-in"></div>
-                <div class="ontent-m-td-2-content-txt-title-in"><a onclick="openModalA(${questions.q_seq})">${questions.q_title}</a></div>
-                <div class="ontent-m-td-2-content-txt-writer-in">${questions.q_name}</div>
-                <div class="ontent-m-td-2-content-txt-date-in">${questions.q_reg_date}</div>
-                <div class="ontent-m-td-2-content-txt-delete-in"> <a onclick="deleteQuestion(${questions.q_seq})">삭제하기</a> </div>
-            </div>
-            </c:forEach>
+		<form action="GetDataC" method="post" style="height: 100%; width: 100%;">
+			<c:forEach items="${questions}" var="question">
+			    <div class="ontent-m-td-2-content-txt-in">
+			        <div class="ontent-m-td-2-content-txt-no-in">${question.q_seq}</div>
+			        <div class="ontent-m-td-2-content-txt-kategorie-in"></div>
+				        <div class="ontent-m-td-2-content-txt-title-in">
+			            <!-- JavaScript를 사용하여 form을 동적으로 생성 -->
+			            <a onclick="getDataA('${question.q_seq}')">${question.q_title}</a>
+				        </div>
+			        <div class="ontent-m-td-2-content-txt-writer-in">${question.q_name}</div>
+			        <div class="ontent-m-td-2-content-txt-date-in">${question.q_reg_date}</div>
+			        <div class="ontent-m-td-2-content-txt-delete-in">
+			            <a onclick="deleteQuestion(${question.q_seq})">삭제하기</a>
+			        </div>
+			    </div>
+			</c:forEach>
+			        </form>
 
-
-<!--             foreach문 끝 -->
-<!-- 			<div class="ontent-m-td-2-content-txt-in"> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-no-in">6</div> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-kategorie-in">7</div> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-title-in">7</div> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-writer-in">7</div> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-date-in">7</div> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-delete-in">삭제하기</div> -->
-<!-- 			</div> -->
-<!-- 			<div class="ontent-m-td-2-content-txt-in"> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-no-in">5</div> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-kategorie-in">7</div> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-title-in">7</div> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-writer-in">7</div> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-date-in">7</div> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-delete-in">삭제하기</div> -->
-<!-- 			</div> -->
-<!-- 			<div class="ontent-m-td-2-content-txt-in"> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-no-in">4</div> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-kategorie-in">7</div> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-title-in">7</div> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-writer-in">7</div> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-date-in">7</div> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-delete-in">삭제하기</div> -->
-<!-- 			</div> -->
-<!-- 			<div class="ontent-m-td-2-content-txt-in"> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-no-in">3</div> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-kategorie-in">7</div> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-title-in">7</div> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-writer-in">7</div> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-date-in">7</div> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-delete-in">삭제하기</div> -->
-<!-- 			</div> -->
-<!-- 			<div class="ontent-m-td-2-content-txt-in"> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-no-in">2</div> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-kategorie-in">7</div> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-title-in">7</div> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-writer-in">7</div> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-date-in">7</div> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-delete-in">삭제하기</div> -->
-<!-- 			</div> -->
-<!-- 			<div class="ontent-m-td-2-content-txt-in"> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-no-in">1</div> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-kategorie-in">7</div> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-title-in">7</div> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-writer-in">7</div> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-date-in">7</div> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-delete-in">삭제하기</div> -->
-<!-- 			</div> -->
 		</div>
 	</div>
-	
-	
 </body>
+
+<script src="admin/0.js/test2.js"></script>
+<script src="admin/0.js/test.js"></script>
 </html>

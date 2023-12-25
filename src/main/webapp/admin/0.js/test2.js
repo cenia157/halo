@@ -1,7 +1,4 @@
 // 공통 함수: 모달 열기
-
-
-
 function openModal(modalId, tblId) {
 	document.getElementById(modalId).style.display = 'flex';
 	document.getElementById(tblId).style.display = 'flex';
@@ -49,8 +46,7 @@ function closeModalN() {
 }
 
 //	답변 모달
-function openModalA(q_seq) {
-    getData(q_seq);
+function openModalA() {
     openModal('myModalA', 'myModal-tblA');
     closeModalOnOutsideClick('myModalA');
 }
@@ -90,41 +86,77 @@ function closeModalNR() {
 	closeModal('myModalNR', 'myModal-tblNR');
 }
 
+//답변완료
+function getDataA(q_seq, q_title, q_content, q_reg_date, q_contact_number, q_email, q_name, q_password, q_category) {
+    console.log(q_seq);
 
-function getData(q_seq) {
+    // Ajax 요청
     $.ajax({
-        url: `AskContentC?q_seq=${encodeURIComponent(q_seq)}`,
-        type: 'get',
-        dataType: 'text',
-        success: function (question) {
-            updateModalContent(question);
-            console.log(question);
+        url: "GetDataC",
+        dataType: "json",
+        data: {
+            q_seq: q_seq,
+            q_title: q_title,
+            q_content: q_content,
+            q_reg_date: q_reg_date,
+            q_contact_number: q_contact_number,
+            q_email: q_email,
+            q_name: q_name,
+            q_password: q_password,
+            q_category: q_category
         },
-        error: function (error) {
-            console.error('Error fetching data:', error);
+        success: function (data) {
+            try {
+                console.log("Data:", data);
+					
+					if (Array.isArray(data) && data.length > 0) {
+					    let qSeq = data[0].q_seq;
+					    let qTitle = data[0].q_title;
+					    let qContent = data[0].q_content;
+					    let qRegDate = new Date(data[0].q_reg_date);
+					    let formattedDate = formatDate(qRegDate);
+					    let qCN = data[0].q_contact_number;
+					    let qEmail = data[0].q_q_email;
+					    let qName = data[0].q_name;
+					    let qPW = data[0].q_password;
+					    let qCategory = data[0].q_category;
+					    
+					    console.log("firstTitle: ", qSeq);
+					    $('#QUESTION_TITLE').html(qTitle);
+					    $('#QUESTION_DATE').html(formattedDate);
+					    $('#QUESTION_NAME').html(qName);
+					    $('#QUESTION_CONTENT').html(qContent);
+//					    확인용
+					    $('#QUESTION_SEQ').html(qSeq);
+					} else {
+					    console.error("데이터가 비어있거나 배열이 아닙니다.");
+					}
+	
+
+                openModalA();
+                
+            } catch (error) {
+                console.error("데이터 처리 오류:", error);
+            }
+        },
+        error: function (xhr, status, error) {
+            console.log("에러:", xhr, status, error);
         }
     });
 }
 
-function updateModalContent(question) {
-    $('#myModal-tblA #q_seq').text(`${question.q_seq}`);
-    $('#myModal-tblA #q_title').text(`${question.q_title}`);
-    $('#myModal-tblA #q_content').text(`${question.q_content}`);
-    $('#myModal-tblA #q_reg_date').text(`${question.q_reg_date}`);
-    $('#myModal-tblA #q_contact_number').text(`${question.q_contact_number}`);
-    $('#myModal-tblA #q_email').text(`${question.q_email}`);
-    $('#myModal-tblA #q_name').text(`${question.q_name}`);
-    $('#myModal-tblA #q_password').text(`${question.q_password}`);
-    $('#myModal-tblA #q_category').text(`${question.q_category}`);
+
+
+//날짜 바꾸기
+function formatDate(date) {
+    const pad = (num) => (num < 10 ? '0' + num : num);
+
+    const year = date.getFullYear();
+    const month = pad(date.getMonth() + 1);
+    const day = pad(date.getDate());
+
+    return `${year}-${month}-${day}`;
 }
-
-
-
-
-
-
-
-
 
 
 

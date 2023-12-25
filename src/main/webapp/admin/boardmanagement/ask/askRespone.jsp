@@ -31,15 +31,6 @@
 				<div class="modal-title-td-1">
 
 
-
-
-
-
-
-
-
-
-
 					<div class="real-title">
 						<div class="real-title-up"> <span id="q_title"></span> </div>
 						<div class="real-title-down">
@@ -51,15 +42,6 @@
 							<div class="real-title-down-R"></div>
 						</div>
 					</div>
-
-
-
-
-
-
-
-
-
 
 
 				</div>

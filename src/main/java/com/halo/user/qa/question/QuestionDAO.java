@@ -1,5 +1,7 @@
 package com.halo.user.qa.question;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -10,11 +12,14 @@ import java.util.Comparator;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.halo.main.DBManagerhalo;
 import com.halo.test.DBManagerhalo_YJ;
 
@@ -89,7 +94,6 @@ public class QuestionDAO {
 				}
 				
 				request.setAttribute("questions", questions);
-				System.out.println(questions);
 		} catch (SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
 		}
@@ -98,79 +102,140 @@ public class QuestionDAO {
 	}
 
 	public static void getQuestion(HttpServletRequest request) {
+		
+		Connection con = null;
+	    PreparedStatement pstmt = null;
+	    ResultSet rs = null;
+	    String sql = "select * from question_tbl where q_seq=?";
+
+	    String q_seq = request.getParameter("q_seq"); // 수정된 부분
+
+	    try {
+	        con = DBManagerhalo_YJ.connect();
+	        pstmt = con.prepareStatement(sql);
+	        pstmt.setString(1, q_seq);
+	        rs = pstmt.executeQuery();
+	        
+	        if (rs.next()) {
+	            Question q = new Question();
+	            q.setQ_seq(rs.getInt("q_seq"));
+	            q.setQ_title(rs.getString("q_title"));
+	            q.setQ_content(rs.getString("q_content"));
+	            q.setQ_reg_date(rs.getDate("q_reg_date"));
+	            q.setQ_contact_number(rs.getString("q_contact_number"));
+	            q.setQ_email(rs.getString("q_email"));
+	            q.setQ_name(rs.getString("q_name"));
+	            q.setQ_password(rs.getString("q_password"));
+	            q.setQ_category(rs.getString("q_category"));
+
+	            request.setAttribute("question", q);
+	            System.out.println("question: " + request.getAttribute("question"));
+	        }
+
+	    } catch (SQLException | ClassNotFoundException e) {
+	        e.printStackTrace();
+	    } finally {
+	        DBManagerhalo_YJ.close(con, pstmt, rs);
+	    }
+	}
+
+	public static String questionList(HttpServletRequest request, HttpServletResponse response) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
+		ArrayList<Question> questionList = new ArrayList<>();
+		String jsonResult = null;
+		
+		int q_seq = 0;
+		String q_title = null;
+		String q_content = null;
+		Date q_reg_date = null;
+		String q_contact_number = null;
+		String q_email = null;
+		String q_name = null;
+		String q_password = null;
+		String q_category = null;
+		
 		String sql = "select * from question_tbl where q_seq=?";
-		
-		String q_seq = request.getParameter("q_seq");
-		
+		response.setContentType("application/json");
+
 		try {
 			con = DBManagerhalo_YJ.connect();
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, q_seq);
+			pstmt.setString(1, request.getParameter("q_seq"));
 			rs = pstmt.executeQuery();
 			
-
 			if(rs.next()) {
-					Question q = new Question();
-					q.setQ_seq(rs.getInt("q_seq"));
-					q.setQ_title(rs.getString("q_title"));
-					q.setQ_content(rs.getString("q_content"));
-					q.setQ_reg_date(rs.getDate("q_reg_date"));
-					q.setQ_contact_number(rs.getString("q_contact_number"));
-					q.setQ_email(rs.getString("q_email"));
-					q.setQ_name(rs.getString("q_name"));
-					q.setQ_password(rs.getString("q_password"));
-					q.setQ_category("q_category");
-					
-					request.setAttribute("question", q);
+				q_seq = rs.getInt(1);
+				q_title = rs.getString(2);
+				q_content = rs.getString(3);
+				q_reg_date = rs.getDate(4);
+				q_contact_number = rs.getString(5);
+				q_email = rs.getString(6);
+				q_name = rs.getString(7);
+				q_password = rs.getString(8);
+				q_category = rs.getString(9);
+				
+				Question question = new Question(q_seq, q_title, q_content, q_reg_date, q_contact_number, q_email, q_name, q_password, q_category);
+                questionList.add(question);
+				
+	            try {
+	            	ObjectMapper objectMapper = new ObjectMapper();
+					jsonResult = objectMapper.writeValueAsString(questionList);
+					System.out.println("JSON: "+jsonResult);
+				} catch (JsonProcessingException e) {
+					e.printStackTrace();
 				}
 				
-		} catch (SQLException | ClassNotFoundException e) {
+			}
+			
+		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
+		} finally {
+			DBManagerhalo_YJ.close(con, pstmt, rs);
 		}
-		
+		return jsonResult;
 	}
-	public static String getQuestionJson(HttpServletRequest request) {
+	
+	
+	public ArrayList<Question> questions() {
+		String sql = "select from question_tbl";
+		ArrayList<Question> questionsArray = new ArrayList<Question>();
+		
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "select * from question_tbl where q_seq=?";
-		
-		String q_seq = request.getParameter("q_seq");
-		
 		try {
+			
 			con = DBManagerhalo_YJ.connect();
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, q_seq);
 			rs = pstmt.executeQuery();
 			
-			
-			if(rs.next()) {
-				JSONObject questionJson = new JSONObject();
-				questionJson.put("q_seq", rs.getInt("q_seq"));
-				questionJson.put("q_title", rs.getString("q_title"));
-				questionJson.put("q_content", rs.getString("q_content"));
-				questionJson.put("q_reg_date", rs.getDate("q_reg_date"));
-				questionJson.put("q_contact_number", rs.getString("q_contact_number"));
-				questionJson.put("q_email", rs.getString("q_email"));
-				questionJson.put("q_name", rs.getString("q_name"));
-				questionJson.put("q_password", rs.getString("q_password"));
-				questionJson.put("q_category", rs.getString("q_category"));
-				
-				JSONArray jsonArray = new JSONArray();
-				jsonArray.add(questionJson);
-				System.out.println(jsonArray);
-				return jsonArray.toString();
+			while (rs.next()) {
+				Question question = new Question();
+	            question.setQ_seq(rs.getInt(1));
+	            question.setQ_title(rs.getString(2));
+	            question.setQ_content(rs.getString(3));
+	            question.setQ_reg_date(rs.getDate(4));
+	            question.setQ_contact_number(rs.getString(5));
+	            question.setQ_email(rs.getString(6));
+	            question.setQ_name(rs.getString(7));
+	            question.setQ_password(rs.getString(8));
+	            question.setQ_category(rs.getString(9));
+	            
+	            questionsArray.add(question);
 			}
 			
 		} catch (SQLException | ClassNotFoundException e) {
 			e.printStackTrace();
 		}
-		return "failed";
+		return questionsArray;
 		
 	}
+	
+
+
+
 
 	public static void deleteQuestion(HttpServletRequest request) {
 		Connection con = null;
