@@ -366,7 +366,15 @@
 	text-align: right;
 	border-bottom: 1px solid #333333;
 	border-left: 1px solid #333333;
-	font-size: 2rem;
+	position: relative; /* 내부의 span에 대한 상대 위치 설정 */
+}
+
+.date .this {
+  display: block;
+  position: absolute;
+  bottom: 5px; /* 적절한 위치 조정 */
+  right: 5px; /* 적절한 위치 조정 */
+  /* 다른 스타일링 속성들 */
 }
 
 .day:nth-child(7n+1), .date:nth-child(7n+1) {
