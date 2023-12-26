@@ -19,12 +19,12 @@ public class AnnouncedDAO {
 	
 	private static ArrayList<Announced_tbl_DTO> announcements; // 추가
     
+	private static Connection con = null;
+	
 	/**
 	 * 목록을 가져온다.
 	 */
     public static void getAllAnnouncements(HttpServletRequest request) {
-
-        Connection con = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
 //        String sql = "SELECT * FROM announced_tbl ORDER BY an_seq DESC";
@@ -32,7 +32,7 @@ public class AnnouncedDAO {
         System.out.println("DB 연결 확인1");
 
         try {
-            con = DBManagerhalo_ody.connect();;
+            con = DBManagerhalo_ody.connect();
             pstmt = con.prepareStatement(sql);
             rs = pstmt.executeQuery();
             System.out.println("DB 연결 확인2");
@@ -57,7 +57,7 @@ public class AnnouncedDAO {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-        	DBManagerhalo_ody.close(con, pstmt, rs);
+        	DBManagerhalo_ody.close(con,pstmt, rs);
         }
     }
     
