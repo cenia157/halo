@@ -12,7 +12,7 @@ const renderCalendar = () => {
 	console.log('그리기 실행 ~~~~~~~~~~~~~~~~~~~~~~')
 	viewYear = date.getFullYear();
 	viewMonth = date.getMonth();
-	const formattedMonth = viewMonth < 10 ? `${viewMonth}` : viewMonth;
+	const formattedMonth = viewMonth + 1 < 10 ? `0${viewMonth + 1}` : `${viewMonth + 1}`;
 	// year-month 채우기
 
 	document.querySelector(".year-month").textContent = `${viewYear}年 ${viewMonth + 1}月`;
@@ -56,7 +56,8 @@ const renderCalendar = () => {
 		if (i >= firstDateIndex && i < lastDateIndex + 1) {
 
 			
-			condition = `<div class="date" id="${viewYear}-${formattedMonth + 1}-${formattedDay}" style="cursor:pointer">
+	console.log('formattedMonth 아이디 : ' + formattedMonth + 1);
+			condition = `<div class="date" id="${viewYear}-${formattedMonth}-${formattedDay}" style="cursor:pointer">
   <span class="this">${formattedDay}</span>
 </div>`;
 		}else {
@@ -298,6 +299,7 @@ const changeMonth = (change) => {
 	viewYear = date.getFullYear();
 	viewMonth = date.getMonth() + 1;
 	const formattedMonth = viewMonth < 10 ? `0${viewMonth}` : viewMonth;
+	console.log('챈지의 formattedMonth : ' + formattedMonth);
 	isStartDateSelected = false; // 달 변경 시 선택 상태 초기화
 	console.log('~~~~~~~~~~')
 	renderCalendar();
@@ -312,7 +314,7 @@ const setDate = (day, clickedElement) => {
 	const formattedMonth = `${viewMonth + 1}`.padStart(2, '0');
 	const formattedDay = `${day}`.padStart(2, '0');
 	const selectedDate = `${viewYear}-${formattedMonth}-${formattedDay}`;
-
+	console.log('setDate의 formattedMonth : ' + formattedMonth);
 	const startDateInput = document.getElementById('start-date-sel');
 	const endDateInput = document.getElementById('end-date-sel');
 
@@ -343,12 +345,13 @@ const setDate = (day, clickedElement) => {
 		startDateInput.value = selectedDate;
 		startOldDate = selectedDate;
 		styleInput = 1;
-	}else if(startDateInput.value && endDateInput.value && !startOld && selectedDate < endDateInput.value){
+	}else if(!startDateInput.value && endDateInput.value && !startOld && selectedDate < endDateInput.value){
 		startDateInput.value = selectedDate;
 		startOldDate = selectedDate;
 		styleInput = 1;
 	}else if (selectedDate < startDateInput.value) {
-		if(startOldDate && !endOldDate){
+
+		if(startOldDate || !endOldDate){
 		resetColorAndValue(oldStartDate, clickedElement);
 		}
 		startDateInput.value = selectedDate;
@@ -416,13 +419,13 @@ console.log('startDateInput.value' + startDateInput.value);
 			if(endDateInput && endInputCal){
 			endInputCal.style.backgroundColor = '';
 			endInputCal.style.color = '';
-			endInputCal.querySelector('.this').innerHTML = e.querySelector('.this').innerHTML.replace('<br>종료일', '');
+			endInputCal.querySelector('.this').innerHTML = endInputCal.querySelector('.this').innerHTML.replace('<br>종료일', '');
 			endOldDate = '';
 			console.log('잘되겠지??????????00');
 			}
 
 			endDateInput.value = clickedElement.id;
-			clickedElement.querySelector('.this').innerHTML = e.querySelector('.this').innerHTML.replace('<br>시작일', '');
+			clickedElement.querySelector('.this').innerHTML = clickedElement.querySelector('.this').innerHTML.replace('<br>시작일', '');
 			endDateInput.style.backgroundColor = 'gray';
 			endDateInput.style.color = 'white';
 			clickedElement.style.backgroundColor = 'purple';
