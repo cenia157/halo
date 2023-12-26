@@ -214,36 +214,47 @@ function renderCalender(thisMonth, arrayThisMonth) {
 		calendar.innerHTML = calendar.innerHTML + '<div class="day next disable">' + i + '</div>'
 	}
 
-	// 배열데이터의 해당 날짜
-	let arrayDate = new Array(32);
+
 
 	// 렌더링전 월 배열 데이터 있는지 확인
 	if (arrayThisMonth.length != 0) {
+		// 배열데이터의 해당 날짜
+		let arrayDate = new Array(32);
+
 		console.log('월 배열 데이터값 있음')
 		arrayThisMonth.forEach(schedule => {
 			arrayDate = schedule.date.split(',');
 			dateTitle = schedule.title.length >= 5 ? schedule.title.slice(0, 5) + '...' : schedule.title;
 
 
-			// 스케쥴당 날짜에 따른 div 생성
 			for (let i = 0; i < arrayDate.length; i++) {
+				arrayDates = document.querySelector('.dates .date' + arrayDate[i]);
 				document.querySelectorAll('.dates .date' + arrayDate[i]).forEach(dateElement => {
-					// 날짜 요소의 내용을 변경
-					if (document.querySelector('.dates .date' + arrayDate[i]).children.length < 4) {
-						dateElement.innerHTML += '<div class="schedule">' + dateTitle + '</div>';
-					}
-					if (document.querySelector('.dates .date' + arrayDate[i]).children[3] != null) {
-						console.log(document.querySelector('.dates .date' + arrayDate[i]).children[3]);
-					}
+					
+					// 스케쥴당 날짜에 따른 div 생성
+					dateElement.innerHTML += '<div class="schedule">' + dateTitle + '</div>';
 				});
 			}
 		})
 
-		//		for (let i = 1; i <= nextDate; i++) {
-		//		console.log(document.querySelector('.dates .date' + i).children.length);
-		//		}
 
+		arrayThisMonth.forEach(schedule => {
+			arrayDate = schedule.date.split(',');
+			// 스케줄 날짜별 스케줄 담을 변수
+			let arrayDates = "";
+			for (let i = 0; i < arrayDate.length; i++) {
+				// 3번째 스케쥴부터 폴딩
+//				if (arrayDates.children[3] != null) {
+//					arrayDates.children[3].textContent = arrayDates.children.length - 3 + '件';
+//				}
+			}
+		})
 
+		//			for (let i = 0; i < arrayDate.length; i++) {
+		//				arrayDates = document.querySelector('.dates .date' + arrayDate[i]);
+		//				if (arrayDates.children.length > 3) {
+		//				}
+		//			}
 
 	} else {
 		console.log('월 배열 데이터값 없음')
