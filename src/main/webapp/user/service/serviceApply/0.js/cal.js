@@ -1,6 +1,8 @@
 let date = new Date();
 let viewYear, viewMonth;
 let isStartDateSelected = false;
+let startOldDate = null;
+let endOldDate = null;
 const startDateInput = document.getElementById('start-date-sel');
 const endDateInput = document.getElementById('end-date-sel');
 
@@ -121,8 +123,7 @@ const renderCalendar = () => {
 
 
 
-let startOldDate = null;
-let endOldDate = null;
+
 
 // 시작일 input에서 날짜 선택
 startDateInput.addEventListener('change', function(select) {
@@ -322,10 +323,15 @@ const setDate = (day, clickedElement) => {
 	console.log('clickedElement :' + clickedElement.style.backgroundColor);
 	if (clickedElement.style.backgroundColor) {
 		if (endOld) {
+			console.log('엔드 데이터 없음')
 			resetColorAndValue(endOld, clickedElement);
-		} else {
-			console.log('@#!@#!@#!@#@!#!@ : ' + startOld.value);
+		} else if(startOld){
+			console.log('스타트데이터')
 			resetColorAndValue(startOld, clickedElement);
+		} else {
+			console.log('이전 데이터 없음')
+			resetColorAndValue(clickedElement, clickedElement);
+			
 		}
 		styleInput = 0;
 	} else if (!startDateInput.value && !endDateInput.value) {
@@ -343,7 +349,6 @@ const setDate = (day, clickedElement) => {
 		startOldDate = selectedDate;
 		styleInput = 1;
 	}else if (selectedDate < startDateInput.value) {
-
 		if(startOldDate || !endOldDate){
 		resetColorAndValue(oldStartDate, clickedElement);
 		}
@@ -353,6 +358,7 @@ const setDate = (day, clickedElement) => {
 	} else if (startDateInput.value && startDateInput.value != endDateInput.value) {
 		// 시작값이 있고 종료값이 없고 선택일에 색이 없으면 종료값 넣어준다
 		if (endDateInput.value && endOld ) {
+		console.log('endOld'+endOld.value);
 			resetColorAndValue(oldEndDate, clickedElement);
 		}
 		endDateInput.value = selectedDate;
