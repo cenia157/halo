@@ -117,57 +117,17 @@ window.onload = function() {
 			renderCalender(thisMonth, arrayThisMonth);
 
 			//클릭
-			//			calendar.addEventListener("click", function(e) {
-			//				if (e.target.className.includes("current")) {
-			//					if (!e.target.style.backgroundColor) {
-			//						e.target.style.backgroundColor = '#ACF6B3';
-			//
-			//						dateArr[e.target.textContent] = 1;
-			//					} else {
-			//						e.target.style.backgroundColor = '';
-			//
-			//						dateArr[e.target.textContent] = 0;
-			//					}
-			//
-			//				}
-			//				console.log(e.target); 
-			//				document.querySelector('.input-date').value = thisMonth.getFullYear() + '年 ' + (thisMonth.getMonth() + 1) + '月 ';
-			//				selectDate = "";
-			////				for (let i = 1; i <= dateArr.length; i++) {
-			////					if (dateArr[i] == 1) {
-			////						document.querySelector('.input-date').value += i + ',';
-			////					}
-			////				}
-			//
-			//
-			//
-			//
-			//				// 사용자가 보기위한 출력
-			//				document.querySelector('.input-date').value = document.querySelector('.input-date').value.slice(0, -1);
-			//
-			//			});
-
-			calendar.addEventListener("click", function(e) {
-
-
-			})
-
 			calendar.addEventListener("click", function(e) {
 				if (e.target.className.includes("current")) {
 					if (!e.target.style.backgroundColor) {
 						e.target.style.backgroundColor = '#ACF6B3';
-
-
-
 						dateArr[e.target.closest('.day.current').children[0].textContent] = 1;
 					} else {
 						e.target.style.backgroundColor = '';
 
 						dateArr[e.target.closest('.day.current').children[0].textContent] = 0;
 					}
-
 				}
-				console.log(dateArr);
 				document.querySelector('.input-date').value = thisMonth.getFullYear() + '年 ' + (thisMonth.getMonth() + 1) + '月 ';
 				selectDate = "";
 
@@ -177,12 +137,8 @@ window.onload = function() {
 					}
 				}
 
-
-
-
 				// 사용자가 보기위한 출력
 				document.querySelector('.input-date').value = document.querySelector('.input-date').value.slice(0, -1);
-
 			});
 
 			//스위치 토글
@@ -242,7 +198,7 @@ function renderCalender(thisMonth, arrayThisMonth) {
 		if (today.getMonth() == currentMonth && today.getFullYear() == currentYear && fixedDate() == i) {
 
 			// 오늘 날짜 표기
-			calendar.innerHTML = calendar.innerHTML + '<div class="day current date' + i + '">' + i + '<img src="user/0.img/logo.png">' + '</div>'
+			calendar.innerHTML = calendar.innerHTML + '<div class="day current date' + i + '"><div>' + i + '</div><img src="user/0.img/logo.png">' + '</div>'
 			todayDate = today.getDate();
 			let currentMonthDate = document.querySelectorAll('.dates .current');
 			currentMonthDate[todayDate - 1].classList.add('today');
@@ -258,29 +214,48 @@ function renderCalender(thisMonth, arrayThisMonth) {
 		calendar.innerHTML = calendar.innerHTML + '<div class="day next disable">' + i + '</div>'
 	}
 
-	// 배열데이터의 해당 날짜
-	let arrayDate = new Array(32);
+
 
 	// 렌더링전 월 배열 데이터 있는지 확인
 	if (arrayThisMonth.length != 0) {
+		// 배열데이터의 해당 날짜
+		let arrayDate = new Array(32);
+
 		console.log('월 배열 데이터값 있음')
 		arrayThisMonth.forEach(schedule => {
 			arrayDate = schedule.date.split(',');
-			dateTitle = schedule.title;
-			//			console.log(dateTitle);
+			dateTitle = schedule.title.length >= 5 ? schedule.title.slice(0, 5) + '...' : schedule.title;
+
 
 			for (let i = 0; i < arrayDate.length; i++) {
-
-				//				document.querySelectorAll('.dates').forEach(date => {
-				//					date.querySelector('.date' + arrayDate[i]);
-				//				})
-
+				arrayDates = document.querySelector('.dates .date' + arrayDate[i]);
 				document.querySelectorAll('.dates .date' + arrayDate[i]).forEach(dateElement => {
-					// 날짜 요소의 내용을 변경
+					
+					// 스케쥴당 날짜에 따른 div 생성
 					dateElement.innerHTML += '<div class="schedule">' + dateTitle + '</div>';
 				});
 			}
 		})
+
+
+		arrayThisMonth.forEach(schedule => {
+			arrayDate = schedule.date.split(',');
+			// 스케줄 날짜별 스케줄 담을 변수
+			let arrayDates = "";
+			for (let i = 0; i < arrayDate.length; i++) {
+				// 3번째 스케쥴부터 폴딩
+//				if (arrayDates.children[3] != null) {
+//					arrayDates.children[3].textContent = arrayDates.children.length - 3 + '件';
+//				}
+			}
+		})
+
+		//			for (let i = 0; i < arrayDate.length; i++) {
+		//				arrayDates = document.querySelector('.dates .date' + arrayDate[i]);
+		//				if (arrayDates.children.length > 3) {
+		//				}
+		//			}
+
 	} else {
 		console.log('월 배열 데이터값 없음')
 	}

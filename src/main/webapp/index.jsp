@@ -38,6 +38,7 @@
 				<div class="header-br-logo">
 					<!-- 이미지 경로 확인 -->
 					<img src="${pageContext.request.contextPath}/user/0.img/logo.png" />
+<%-- 						<img src="${어트리뷰트.ㅁㅁㅁ}"> --%>
 					<a href="">ハロー</a>
 				</div>
 				<div class="header-br-space"></div>
