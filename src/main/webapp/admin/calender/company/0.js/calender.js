@@ -208,7 +208,6 @@ function renderCalender(thisMonth, arrayThisMonth) {
 
 		}
 	}
-
 	// 다음달
 	for (let i = 1; i <= (7 - nextDay == 7 ? 0 : 7 - nextDay); i++) {
 		calendar.innerHTML = calendar.innerHTML + '<div class="day next disable">' + i + '</div>'
@@ -226,39 +225,30 @@ function renderCalender(thisMonth, arrayThisMonth) {
 			arrayDate = schedule.date.split(',');
 			dateTitle = schedule.title.length >= 5 ? schedule.title.slice(0, 5) + '...' : schedule.title;
 
-
 			for (let i = 0; i < arrayDate.length; i++) {
 				arrayDates = document.querySelector('.dates .date' + arrayDate[i]);
 				document.querySelectorAll('.dates .date' + arrayDate[i]).forEach(dateElement => {
-					
 					// 스케쥴당 날짜에 따른 div 생성
-					dateElement.innerHTML += '<div class="schedule">' + dateTitle + '</div>';
+					dateElement.innerHTML += '<div class="schedule">' + dateTitle + 'asd</div>';
 				});
 			}
 		})
 
-
-		arrayThisMonth.forEach(schedule => {
-			arrayDate = schedule.date.split(',');
-			// 스케줄 날짜별 스케줄 담을 변수
-			let arrayDates = "";
-			for (let i = 0; i < arrayDate.length; i++) {
-				// 3번째 스케쥴부터 폴딩
-//				if (arrayDates.children[3] != null) {
-//					arrayDates.children[3].textContent = arrayDates.children.length - 3 + '件';
-//				}
+		// 3개부터 폴딩
+		for (let i = 1; i < nextDate; i++) {
+			if (document.querySelector('.dates .date' + i) && document.querySelector('.dates .date' + i).children.length > 3) {
+				document.querySelector('.dates .date' + i).children[3].textContent = '++' + (document.querySelector('.dates .date' + i).children.length - 3) + '건';
 			}
-		})
+			if (document.querySelector('.dates .date' + i) && document.querySelector('.dates .date' + i).children.length > 4) {
+				document.querySelector('.dates .date' + i).children[5].remove();
+			}
+		}
 
-		//			for (let i = 0; i < arrayDate.length; i++) {
-		//				arrayDates = document.querySelector('.dates .date' + arrayDate[i]);
-		//				if (arrayDates.children.length > 3) {
-		//				}
-		//			}
 
-	} else {
-		console.log('월 배열 데이터값 없음')
-	}
+
+} else {
+	console.log('월 배열 데이터값 없음')
+}
 
 }
 
