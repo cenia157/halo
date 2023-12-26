@@ -19,7 +19,7 @@ public class GetDataC extends HttpServlet {
 	    response.setContentType("application/json");
 	    // 생성한 JSON 데이터를 클라이언트로 전송
 	    response.getWriter().write(jsonData);
-	    System.out.println("확인용: "+ QuestionDAO.questionList(request, response));
+	    
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

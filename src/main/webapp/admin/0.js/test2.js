@@ -86,11 +86,13 @@ function closeModalNR() {
 	closeModal('myModalNR', 'myModal-tblNR');
 }
 
-//답변완료
-function getDataA(q_seq, q_title, q_content, q_reg_date, q_contact_number, q_email, q_name, q_password, q_category) {
-    console.log(q_seq);
+//모달창 데이터
+function getData(q_seq, q_title, q_content, q_reg_date, q_contact_number, q_email, q_name, q_password, q_category) {
+    console.log("q_seq: "+ q_seq);
 
-    // Ajax 요청
+    let c_comment_content = null;
+    
+    // 첫 번째 Ajax 요청
     $.ajax({
         url: "GetDataC",
         dataType: "json",
@@ -108,33 +110,38 @@ function getDataA(q_seq, q_title, q_content, q_reg_date, q_contact_number, q_ema
         success: function (data) {
             try {
                 console.log("Data:", data);
-					
-					if (Array.isArray(data) && data.length > 0) {
-					    let qSeq = data[0].q_seq;
-					    let qTitle = data[0].q_title;
-					    let qContent = data[0].q_content;
-					    let qRegDate = new Date(data[0].q_reg_date);
-					    let formattedDate = formatDate(qRegDate);
-					    let qCN = data[0].q_contact_number;
-					    let qEmail = data[0].q_q_email;
-					    let qName = data[0].q_name;
-					    let qPW = data[0].q_password;
-					    let qCategory = data[0].q_category;
-					    
-					    console.log("firstTitle: ", qSeq);
-					    $('#QUESTION_TITLE').html(qTitle);
-					    $('#QUESTION_DATE').html(formattedDate);
-					    $('#QUESTION_NAME').html(qName);
-					    $('#QUESTION_CONTENT').html(qContent);
-//					    확인용
-					    $('#QUESTION_SEQ').html(qSeq);
-					} else {
-					    console.error("데이터가 비어있거나 배열이 아닙니다.");
-					}
-	
 
-                openModalA();
-                
+                if (Array.isArray(data) && data.length > 0) {
+                    let qSeq = data[0].q_seq;
+                    let qTitle = data[0].q_title;
+                    let qContent = data[0].q_content;
+                    let qRegDate = new Date(data[0].q_reg_date);
+                    let formattedDate = formatDate(qRegDate);
+                    let qCN = data[0].q_contact_number;
+                    let qEmail = data[0].q_q_email;
+                    let qName = data[0].q_name;
+                    let qPW = data[0].q_password;
+                    let qCategory = data[0].q_category;
+
+                    $('#QUESTION_TITLE').html(qTitle);
+                    $('#QUESTION_DATE').html(formattedDate);
+                    $('#QUESTION_NAME').html(qName);
+                    $('#QUESTION_CONTENT').html(qContent);
+                    $('#q_seq').val(qSeq);
+                    //확인
+                    $('#QUESTION_SEQ').html(qSeq);
+                    
+                    
+                } else {
+                    console.error("데이터가 비어있거나 배열이 아닙니다.");
+                }
+
+                if (c_comment_content != null) {
+                    openModalA();
+                } else {
+                    openModalN();
+                }
+
             } catch (error) {
                 console.error("데이터 처리 오류:", error);
             }
@@ -143,7 +150,10 @@ function getDataA(q_seq, q_title, q_content, q_reg_date, q_contact_number, q_ema
             console.log("에러:", xhr, status, error);
         }
     });
+
 }
+
+
 
 
 
@@ -157,9 +167,6 @@ function formatDate(date) {
 
     return `${year}-${month}-${day}`;
 }
-
-
-
 
 
 
