@@ -11,7 +11,7 @@
 
 </head>
 <body>
-
+adsasd
 
 	<script src="admin/0.js/ckeditor.js"></script>
 
@@ -30,30 +30,12 @@
 
 			.create(document.querySelector('#ckeditor'), {
 
-				//툴바 옵션
-
-				toolbar: {
-
-					items: ['fontFamily', 'fontSize', 'fontColor', 'fontBackgroundColor', 'highlight', 'bold', 'italic', 'link', 'insertTable', 'imageUpload', 'undo', 'sourceediting'],
-
-					shouldNotGroupWhenFull: true,
-
-				},
-
-				table: {
-
-					contentToolbar: [
-
-						'tableColumn',
-
-						'tableRow',
-
-						'mergeTableCells'
-
-					]
-
+				ckfinder: {
+					uploadUrl : 'Img_upload'
 				}
-
+				
+				
+				
 
 
 			}).then(function (editor) {

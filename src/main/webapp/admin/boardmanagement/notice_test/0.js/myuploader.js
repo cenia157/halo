@@ -49,8 +49,10 @@ class MyUploadAdapter {
 
 		//POST 요청으로 파일을 업로드하는 페이지 지정 - json 으로 결과값 수신
 
-		xhr.open('POST', '/admin/src/main/webapp/admin/boardmanagement/notice_test/0.img/upload', true);
+		xhr.open('POST', 'http://localhost/halo/admin/src/main/webapp/admin/boardmanagement/notice_test/noticeCatch.jsp', true);
+/*http://localhost/halo/admin/0.js/ckeditor.js
 
+http://localhost/halo/admin/0.js/ckeditor.js*/
 
 
 /*C:/KJW/halo/src/main/webapp/admin/boardmanagement/notice_test/0.img_upload*/
