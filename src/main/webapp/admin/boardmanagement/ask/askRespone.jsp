@@ -26,40 +26,23 @@
 	
 	
 	
+	<form action="CommentSubmitC" method="get" style="width: 100%; height: 100%">
 		<div class="modal-title-set">
 			<div class="modal-title-tr">
 				<div class="modal-title-td-1">
 
 
-
-
-
-
-
-
-
-
-
 					<div class="real-title">
-						<div class="real-title-up"> <span id="q_title"></span> </div>
+						<div class="real-title-up"> <span id="QUESTION_TITLE"></span> </div>
 						<div class="real-title-down">
 							<div class="real-title-down-L">
 
-								<div class="real-title-down-contain" id="q_reg_date"></div>
+								<div class="real-title-down-contain" id="QUESTION_DATE"></div>
 								<div class="real-title-down-contain">미답변</div>
 							</div>
 							<div class="real-title-down-R"></div>
 						</div>
 					</div>
-
-
-
-
-
-
-
-
-
 
 
 				</div>
@@ -73,14 +56,20 @@
 						<!-- 여기에 고객이 질문한 문의사항을 띄우는 곳 -->
 						<jsp:include page="askEditPageCustomerQuestion.jsp"></jsp:include>
 					</div>
-					<textarea name="c_comment_content" class="modal-content-txt-response-textarea" rows=""
-						cols="" placeholder="여기는 고객의 질문에 대답하는 곳" name="c_comment_content"></textarea>
+<!-- 					확인용 -->
+					<span id="QUESTION_SEQ"></span>
+					<textarea id="c_comment_content" name="c_comment_content" class="modal-content-txt-response-textarea" rows=""
+						cols="" placeholder="여기는 고객의 질문에 대답하는 곳"></textarea>
 				</div>
 				<div class="modal-content-button">
-					<button class="SubmitButton" onclick="closeModalN()">답변하기</button>
+					<input hidden="1"; id="q_seq" name="q_seq"/>
+					<button class="SubmitButton" onclick="closeModalN();">답변하기</button>
 				</div>
+				
 			</div>
 		</div>
+	</form>
+		
 	</div>
 </body>
 </html>

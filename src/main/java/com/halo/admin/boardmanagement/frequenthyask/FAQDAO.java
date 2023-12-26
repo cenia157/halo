@@ -34,7 +34,11 @@ public class FAQDAO {
 			hs.setAttribute("faq", faq);
 			
 			
-		} catch (ClassNotFoundException | SQLException e) {
+<<<<<<< HEAD
+		} catch (SQLException e) {
+=======
+		} catch (Exception e) {
+>>>>>>> 54e387abcef4051786c42d40ad111b03f57d4b6f
 			e.printStackTrace();
 		}
 		
