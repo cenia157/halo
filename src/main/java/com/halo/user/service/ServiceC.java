@@ -51,19 +51,22 @@ public class ServiceC extends HttpServlet {
 			} else if (step.equals("3")) {
 				request.setAttribute("serviceStep", "timeselect.jsp");
 				request.setAttribute("step3Pos", "#ffdf6c");
-			} else if (step.equals("4") ) {
-				request.setAttribute("step4Pos", "#ffdf6c");
-				if (svcSession.equals("nursing")) {
-					System.out.println(svcSession+"nur");
-					request.setAttribute("serviceStep", "nursingapply.jsp");
-					request.setAttribute("nextBtn", "6");
-					if (svcSession.equals("nursingTexi")) {
+				if (svcSession.equals("nursing") || svcSession.equals("nursingTexi")) {
 					request.setAttribute("nextBtn", "4");
-					}
-				} else if (svcSession.equals("texi") || svcSession.equals("nursingTexi")) {
-					System.out.println(svcSession+"taxi");
-					request.setAttribute("serviceStep", "taxiapply.jsp");
+				} else {
+					request.setAttribute("nextBtn", "5");
 				}
+			} else if (step.equals("4") ) {
+				request.setAttribute("serviceStep", "nursingapply.jsp");
+				request.setAttribute("step4Pos", "#ffdf6c");
+				if (svcSession.equals("nursingTexi")) {
+					request.setAttribute("nextBtn", "5");
+				} else {
+					request.setAttribute("nextBtn", "6");
+				}
+			} else if (step.equals("5") ) {
+				request.setAttribute("serviceStep", "taxiapply.jsp");
+				request.setAttribute("step4Pos", "#ffdf6c");
 			} else if (step.equals("6")) {
 				request.setAttribute("serviceStep", "agree.jsp");
 				request.setAttribute("step5Pos", "#ffdf6c");
