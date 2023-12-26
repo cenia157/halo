@@ -118,7 +118,7 @@ function getData(q_seq, q_title, q_content, q_reg_date, q_contact_number, q_emai
                     let qRegDate = new Date(data[0].q_reg_date);
                     let formattedDate = formatDate(qRegDate);
                     let qCN = data[0].q_contact_number;
-                    let qEmail = data[0].q_q_email;
+                    let qEmail = data[0].q_email;
                     let qName = data[0].q_name;
                     let qPW = data[0].q_password;
                     let qCategory = data[0].q_category;
@@ -150,11 +150,12 @@ function getData(q_seq, q_title, q_content, q_reg_date, q_contact_number, q_emai
             console.log("에러:", xhr, status, error);
         }
     });
-
 }
 
 
 
+
+//<<<<<<< HEAD
 
 
 //날짜 바꾸기
@@ -167,6 +168,22 @@ function formatDate(date) {
 
     return `${year}-${month}-${day}`;
 }
+//=======
+//};
+
+function updateModalContent(questionJson) {
+    $('#myModal-tblA #q_seq').html(`<div>${questionJson.q_seq}</div>`);
+    $('#myModal-tblA #q_title').html(`<div>${questionJson.q_title}</div>`);
+    $('#myModal-tblA #q_content').html(`<div>${questionJson.q_content}</div>`);
+    $('#myModal-tblA #q_reg_date').html(`<div>${questionJson.q_reg_date}</div>`);
+    $('#myModal-tblA #q_contact_number').html(`<div>${questionJson.q_contact_number}</div>`);
+    $('#myModal-tblA #q_email').html(`<div>${questionJson.q_email}</div>`);
+    $('#myModal-tblA #q_name').html(`<div>${questionJson.q_name}</div>`);
+    $('#myModal-tblA #q_password').html(`<div>${questionJson.q_password}</div>`);
+    $('#myModal-tblA #q_category').html(`<div>${questionJson.q_category}</div>`);
+};
+
+//>>>>>>> 36e0fd5048773fd508dc36122a0cc5d8316894cf
 
 
 
