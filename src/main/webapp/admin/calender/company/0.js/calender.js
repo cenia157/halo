@@ -7,7 +7,6 @@ function fixedDate() {
 	return today.getDate();
 }
 
-
 /////////////////////////////////////////날짜/////////////////////////////////////////////
 
 let date = new Date(); // 현재 날짜(로컬 기준) 가져오기
@@ -44,74 +43,39 @@ window.onload = function() {
 			// 전체데이터 출력
 			console.log(CompanyScheduleList);
 
+			// 클릭버튼 초기값
+			let clickButton = "";
+
+			// 페이지 입장 시 출력
+			renderMonth(CompanyScheduleList, clickButton);
+
 			// 전년도로 이동
 			document.querySelector('.go-year-prev').addEventListener('click', function() {
-				thisMonth = new Date(currentYear, currentMonth - 12, 12);
+				let clickButton = 'yearPrev';
 
-				document.querySelector('.input-date').value = thisMonth.getFullYear() + '年 ' + thisMonth.getMonth() + 1 + '月 ';
-				dateArr = new Array(32).fill(0);
-				let thisMonthValue = document.querySelector('.input-date').value.slice(0, -1);
-				console.log(thisMonthValue);
-				console.log(CompanyScheduleList.filter(schedule => schedule.yearmonth.includes(thisMonthValue)));
-
-				renderCalender(thisMonth);
+				renderMonth(CompanyScheduleList, clickButton);
 			});
 
 			// 이전달로 이동
 			document.querySelector('.go-prev').addEventListener('click', function() {
-				thisMonth = new Date(currentYear, currentMonth - 1, 1);
+				let clickButton = 'monthPrev';
 
-				document.querySelector('.input-date').value = thisMonth.getFullYear() + '年 ' + (thisMonth.getMonth() + 1) + '月 ';
-				dateArr = new Array(32).fill(0);
-				let thisMonthValue = document.querySelector('.input-date').value.slice(0, -1);
-				console.log(thisMonthValue);
-				console.log(CompanyScheduleList.filter(schedule => schedule.yearmonth.includes(thisMonthValue)));
-
-				renderCalender(thisMonth);
+				renderMonth(CompanyScheduleList, clickButton);
 			});
 
 			// 다음달로 이동
 			document.querySelector('.go-next').addEventListener('click', function() {
-				thisMonth = new Date(currentYear, currentMonth + 1, 1);
+				let clickButton = 'monthNext';
 
-				document.querySelector('.input-date').value = thisMonth.getFullYear() + '年 ' + (thisMonth.getMonth() + 1) + '月 ';
-				dateArr = new Array(32).fill(0);
-				let thisMonthValue = document.querySelector('.input-date').value.slice(0, -1);
-				console.log(thisMonthValue);
-				console.log(CompanyScheduleList.filter(schedule => schedule.yearmonth.includes(thisMonthValue)));
-
-				let arrayThisMonth = CompanyScheduleList.filter(schedule => schedule.yearmonth.includes(thisMonthValue));
-				console.log(arrayThisMonth.length);
-
-				renderCalender(thisMonth, arrayThisMonth);
+				renderMonth(CompanyScheduleList, clickButton);
 			});
 
 			// 다음해로 이동
 			document.querySelector('.go-year-next').addEventListener('click', function() {
-				thisMonth = new Date(currentYear, currentMonth + 12, 12);
+				let clickButton = 'yearNext';
 
-				document.querySelector('.input-date').value = thisMonth.getFullYear() + '年 ' + (thisMonth.getMonth() + 1) + '月 ';
-				dateArr = new Array(32).fill(0);
-				let thisMonthValue = document.querySelector('.input-date').value.slice(0, -1);
-				console.log(thisMonthValue);
-				console.log(CompanyScheduleList.filter(schedule => schedule.yearmonth.includes(thisMonthValue)));
-
-				renderCalender(thisMonth);
+				renderMonth(CompanyScheduleList, clickButton);
 			});
-
-			// 사용자가 보기 위한 초기값
-			document.querySelector('.input-date').value = thisMonth.getFullYear() + '年 ' + (thisMonth.getMonth() + 1) + '月 ';
-
-			// 해당 월의 배열 출력 초기값
-			let thisMonthValue = document.querySelector('.input-date').value.slice(0, -1);
-			console.log(thisMonthValue);
-			console.log(CompanyScheduleList.filter(schedule => schedule.yearmonth.includes(thisMonthValue)));
-
-			let arrayThisMonth = CompanyScheduleList.filter(schedule => schedule.yearmonth.includes(thisMonthValue));
-			console.log(arrayThisMonth.length);
-
-			// 캘린더 렌더링
-			renderCalender(thisMonth, arrayThisMonth);
 
 			//클릭
 			calendar.addEventListener("click", function(e) {
@@ -147,13 +111,24 @@ window.onload = function() {
 				}
 			});
 		})
+
 		.catch(error => {
 			console.error('데이터를 가져오는 중 오류 발생:', error);
 		});
 };
 
-function moveToMonth(CompanyScheduleList) {
-	thisMonth = new Date(currentYear, currentMonth + 1, 1);
+// 초기 및 클릭 렌더링
+function renderMonth(CompanyScheduleList, clickButton) {
+
+	if (clickButton == 'monthNext') {
+		thisMonth = new Date(currentYear, currentMonth + 1, 1);
+	} else if (clickButton == 'yearNext') {
+		thisMonth = new Date(currentYear, currentMonth + 12, 1);
+	} else if (clickButton == 'monthPrev') {
+		thisMonth = new Date(currentYear, currentMonth - 1, 1);
+	} else if (clickButton == 'yearPrev') {
+		thisMonth = new Date(currentYear, currentMonth - 12, 1);
+	}
 
 	document.querySelector('.input-date').value = thisMonth.getFullYear() + '年 ' + (thisMonth.getMonth() + 1) + '月 ';
 	dateArr = new Array(32).fill(0);
@@ -235,7 +210,7 @@ function renderCalender(thisMonth, arrayThisMonth) {
 				arrayDates = document.querySelector('.dates .date' + arrayDate[i]);
 				document.querySelectorAll('.dates .date' + arrayDate[i]).forEach(dateElement => {
 					// 스케쥴당 날짜에 따른 div 생성
-					dateElement.innerHTML += '<div class="schedule">' + dateTitle + 'asd</div>';
+					dateElement.innerHTML += '<div class="schedule">' + dateTitle + '</div>';
 				});
 			}
 		})
