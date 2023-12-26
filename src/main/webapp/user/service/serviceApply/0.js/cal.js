@@ -1,6 +1,8 @@
 let date = new Date();
 let viewYear, viewMonth;
 let isStartDateSelected = false;
+let startOldDate = null;
+let endOldDate = null;
 const startDateInput = document.getElementById('start-date-sel');
 const endDateInput = document.getElementById('end-date-sel');
 
@@ -56,10 +58,8 @@ const renderCalendar = () => {
 		if (i >= firstDateIndex && i < lastDateIndex + 1) {
 
 			
-	console.log('formattedMonth 아이디 : ' + formattedMonth + 1);
-			condition = `<div class="date" id="${viewYear}-${formattedMonth}-${formattedDay}" style="cursor:pointer">
-  <span class="this">${formattedDay}</span>
-</div>`;
+	condition = `<div class="date" id="${viewYear}-${formattedMonth}-${formattedDay}" style="cursor:pointer">
+  <span class="this">${formattedDay}</span> </div>`;
 		}else {
 			condition = `<div class="date other"><span class="other"></span></div>`;
 		}
@@ -123,8 +123,7 @@ const renderCalendar = () => {
 
 
 
-let startOldDate = null;
-let endOldDate = null;
+
 
 // 시작일 input에서 날짜 선택
 startDateInput.addEventListener('change', function(select) {
@@ -140,6 +139,7 @@ startDateInput.addEventListener('change', function(select) {
 		if (old) {
 			startDateInput.style.backgroundColor = 'gray';
 			startDateInput.style.color = 'white';
+			startOldDate = selectedDate;
 		}
 		return;
 	}
@@ -160,7 +160,6 @@ startDateInput.addEventListener('change', function(select) {
 		startDateCal.style.color = 'white';
 		startDateCal.querySelector('.this').innerHTML = startDateCal.querySelector('.this').innerHTML.replace('<br>종료일', '');
 		startDateCal.querySelector('.this').insertAdjacentHTML('beforeend', '<br>당일');
-		startOldDate = selectedDate;
 		return;
 	}
 
@@ -173,7 +172,7 @@ startDateInput.addEventListener('change', function(select) {
 	// 시작일
 	if (startOldDate && endOldDate && startOldDate == endOldDate) {
 
-		// 종료일에 스타일 넣기
+		// 시작일에 스타일 넣기
 		console.log('스타트과거 값 : ' + startOldDate);
 		console.log('과거 값 : ' + old);
 		old.querySelector('.this').innerHTML = old.querySelector('.this').innerHTML.replace('<br>당일', '');
@@ -182,16 +181,12 @@ startDateInput.addEventListener('change', function(select) {
 		old.style.backgroundColor = 'blue';
 		old.style.color = 'white';
 		old.querySelector('.this').insertAdjacentHTML('beforeend', '<br>종료일');
-		startOldDate = selectedDate;
 
 	} else if (startOldDate) {
 		old.style.backgroundColor = '';
 		old.style.color = '';
 		old.querySelector('.this').innerHTML = old.querySelector('.this').innerHTML.replace('<br>시작일', '');
-		startOldDate = selectedDate;
-	} else {
-		startOldDate = selectedDate;
-	}
+	} 
 });
 
 // 종료일 input에서 날짜 선택
@@ -207,10 +202,10 @@ endDateInput.addEventListener('change', function(event) {
 
 	if (startDateInput.value && startDateInput.value > selectedDate) {
 		alert('시작일 이전 날짜는 선택할 수 없습니다.')
-		endDateInput.value = endOldDate;
 		if (old) {
 			endDateInput.style.backgroundColor = 'gray';
 			endDateInput.style.color = 'white';
+			endOldDate = selectedDate;
 		}
 		return;
 	}
@@ -229,7 +224,6 @@ endDateInput.addEventListener('change', function(event) {
 		endDateCal.style.color = 'white';
 		endDateCal.querySelector('.this').innerHTML = endDateCal.querySelector('.this').innerHTML.replace('<br>시작일', '');
 		endDateCal.querySelector('.this').insertAdjacentHTML('beforeend', '<br>당일');
-		endOldDate = selectedDate;
 		return;
 	}
 
@@ -243,7 +237,7 @@ endDateInput.addEventListener('change', function(event) {
 	//	종료일
 	if (startOldDate && endOldDate && startOldDate == endOldDate) {
 
-		// 시작일에 스타일 넣기
+		// 종료일에 스타일 넣기
 		old.querySelector('.this').innerHTML = old.querySelector('.this').innerHTML.replace('<br>당일', '');
 		startDateInput.style.backgroundColor = 'gray';
 		startDateInput.style.color = 'white';
@@ -329,10 +323,15 @@ const setDate = (day, clickedElement) => {
 	console.log('clickedElement :' + clickedElement.style.backgroundColor);
 	if (clickedElement.style.backgroundColor) {
 		if (endOld) {
+			console.log('엔드 데이터 없음')
 			resetColorAndValue(endOld, clickedElement);
-		} else {
-			console.log('@#!@#!@#!@#@!#!@ : ' + startOld.value);
+		} else if(startOld){
+			console.log('스타트데이터')
 			resetColorAndValue(startOld, clickedElement);
+		} else {
+			console.log('이전 데이터 없음')
+			resetColorAndValue(clickedElement, clickedElement);
+			
 		}
 		styleInput = 0;
 	} else if (!startDateInput.value && !endDateInput.value) {
@@ -350,7 +349,6 @@ const setDate = (day, clickedElement) => {
 		startOldDate = selectedDate;
 		styleInput = 1;
 	}else if (selectedDate < startDateInput.value) {
-
 		if(startOldDate || !endOldDate){
 		resetColorAndValue(oldStartDate, clickedElement);
 		}
@@ -360,6 +358,7 @@ const setDate = (day, clickedElement) => {
 	} else if (startDateInput.value && startDateInput.value != endDateInput.value) {
 		// 시작값이 있고 종료값이 없고 선택일에 색이 없으면 종료값 넣어준다
 		if (endDateInput.value && endOld ) {
+		console.log('endOld'+endOld.value);
 			resetColorAndValue(oldEndDate, clickedElement);
 		}
 		endDateInput.value = selectedDate;
