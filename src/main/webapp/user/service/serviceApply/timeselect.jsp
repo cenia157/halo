@@ -10,6 +10,8 @@
 	rel="stylesheet" />
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/user/service/serviceApply/0.css/timeselect.css" />
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/user/service/serviceApply/0.css/seviceapply.css" />
 </head>
 <body>
 
@@ -23,7 +25,7 @@
 		<hr />
 	</div>
 	<div class="content-time-btn-td">
-		<a href="ServiceC?step=4" class="content-time-btn">다음으로</a>
+		<a href="ServiceC?step=${nextBtn }" class="content-time-btn">다음으로</a>
 	</div>
 	<!-- step별 페이지  끝-->
 

@@ -56,10 +56,8 @@ const renderCalendar = () => {
 		if (i >= firstDateIndex && i < lastDateIndex + 1) {
 
 			
-	console.log('formattedMonth 아이디 : ' + formattedMonth + 1);
-			condition = `<div class="date" id="${viewYear}-${formattedMonth}-${formattedDay}" style="cursor:pointer">
-  <span class="this">${formattedDay}</span>
-</div>`;
+	condition = `<div class="date" id="${viewYear}-${formattedMonth}-${formattedDay}" style="cursor:pointer">
+  <span class="this">${formattedDay}</span> </div>`;
 		}else {
 			condition = `<div class="date other"><span class="other"></span></div>`;
 		}
