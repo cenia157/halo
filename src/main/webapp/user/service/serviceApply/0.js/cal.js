@@ -138,6 +138,7 @@ startDateInput.addEventListener('change', function(select) {
 		if (old) {
 			startDateInput.style.backgroundColor = 'gray';
 			startDateInput.style.color = 'white';
+			startOldDate = selectedDate;
 		}
 		return;
 	}
@@ -158,7 +159,6 @@ startDateInput.addEventListener('change', function(select) {
 		startDateCal.style.color = 'white';
 		startDateCal.querySelector('.this').innerHTML = startDateCal.querySelector('.this').innerHTML.replace('<br>종료일', '');
 		startDateCal.querySelector('.this').insertAdjacentHTML('beforeend', '<br>당일');
-		startOldDate = selectedDate;
 		return;
 	}
 
@@ -171,7 +171,7 @@ startDateInput.addEventListener('change', function(select) {
 	// 시작일
 	if (startOldDate && endOldDate && startOldDate == endOldDate) {
 
-		// 종료일에 스타일 넣기
+		// 시작일에 스타일 넣기
 		console.log('스타트과거 값 : ' + startOldDate);
 		console.log('과거 값 : ' + old);
 		old.querySelector('.this').innerHTML = old.querySelector('.this').innerHTML.replace('<br>당일', '');
@@ -180,16 +180,12 @@ startDateInput.addEventListener('change', function(select) {
 		old.style.backgroundColor = 'blue';
 		old.style.color = 'white';
 		old.querySelector('.this').insertAdjacentHTML('beforeend', '<br>종료일');
-		startOldDate = selectedDate;
 
 	} else if (startOldDate) {
 		old.style.backgroundColor = '';
 		old.style.color = '';
 		old.querySelector('.this').innerHTML = old.querySelector('.this').innerHTML.replace('<br>시작일', '');
-		startOldDate = selectedDate;
-	} else {
-		startOldDate = selectedDate;
-	}
+	} 
 });
 
 // 종료일 input에서 날짜 선택
@@ -205,10 +201,10 @@ endDateInput.addEventListener('change', function(event) {
 
 	if (startDateInput.value && startDateInput.value > selectedDate) {
 		alert('시작일 이전 날짜는 선택할 수 없습니다.')
-		endDateInput.value = endOldDate;
 		if (old) {
 			endDateInput.style.backgroundColor = 'gray';
 			endDateInput.style.color = 'white';
+			endOldDate = selectedDate;
 		}
 		return;
 	}
@@ -227,7 +223,6 @@ endDateInput.addEventListener('change', function(event) {
 		endDateCal.style.color = 'white';
 		endDateCal.querySelector('.this').innerHTML = endDateCal.querySelector('.this').innerHTML.replace('<br>시작일', '');
 		endDateCal.querySelector('.this').insertAdjacentHTML('beforeend', '<br>당일');
-		endOldDate = selectedDate;
 		return;
 	}
 
@@ -241,7 +236,7 @@ endDateInput.addEventListener('change', function(event) {
 	//	종료일
 	if (startOldDate && endOldDate && startOldDate == endOldDate) {
 
-		// 시작일에 스타일 넣기
+		// 종료일에 스타일 넣기
 		old.querySelector('.this').innerHTML = old.querySelector('.this').innerHTML.replace('<br>당일', '');
 		startDateInput.style.backgroundColor = 'gray';
 		startDateInput.style.color = 'white';

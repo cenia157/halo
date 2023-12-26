@@ -9,7 +9,7 @@
 .content-tbl {
 	background-color: #5b7953;
 	width: 100%;
-	height: 410vh;
+	height: 420vh;
 	display: flex;
 	flex-direction: column;
 }
@@ -17,7 +17,7 @@
 .content-sec {
 	background-color: rgba(255, 255, 255, 0.8);
 	width: 100%;
-	height: 310vh;
+	height: 320vh;
 }
 
 /* 컨텐트 H 끝 */
