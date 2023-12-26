@@ -60,7 +60,7 @@
 								<c:when test="${not empty param.logo_img}">
 								<label for="logo_img"> 
 									<img id="logoUpload" width="20%"
-									src="${pageContext.request.contextPath}user/upload_imgs/${logo_img}">
+									src="${pageContext.request.contextPath}/user/upload_imgs/${logo_img}">
 									</label>
 									</c:when>
 									<c:otherwise>

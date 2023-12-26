@@ -19,8 +19,9 @@ public class LogoUploadC extends HttpServlet {
 		MainpageDAO.getMdao().uploadLogo(request);
 		System.out.println("fgh");
 		//이미지 받고 어디로?
-//		request.setAttribute("menu", "admin/homepageSetting/logo/logoContent");
-		request.getRequestDispatcher("${pageContext.request.contextPath}/admin").forward(request, response);
+//		request.setAttribute("menu", "admin/homepageSetting/logo/logoContent.jsp");
+		request.getRequestDispatcher( request.getContextPath() + "/admin/homepageSetting/logo/logoContent.jsp").forward(request, response);
+		System.out.println("mmm");
 	}
 
 }

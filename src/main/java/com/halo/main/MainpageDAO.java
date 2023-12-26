@@ -64,12 +64,13 @@ public class MainpageDAO {
 	
 	//로고 미리보기 (멀티파트로 까서 어트리뷰트 넘겨주기만 하는 용도 DB는 변경버튼 누를때 업뎃메서드 사용예정)
 	public static void uploadLogo(HttpServletRequest request) {
-		String savepath = request.getRealPath("user/upload_imgs");
+		String savepath = request.getServletContext().getRealPath("user/upload_imgs");
 		try {
 			MultipartRequest mr = new MultipartRequest(request, savepath, 1024*1024*20, "utf-8", new DefaultFileRenamePolicy());
 			
 			String h_logo_img = mr.getFilesystemName("logo_img");
 			request.setAttribute("logo_img", h_logo_img);
+			System.out.println(h_logo_img);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
