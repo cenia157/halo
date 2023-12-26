@@ -74,50 +74,48 @@ public class AskDAO {
 	}
 	
 	public static String commentList(HttpServletRequest request, HttpServletResponse response) {
-		Connection con = null;
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		ArrayList<Comment> commentList = new ArrayList<Comment>();
-		String jsonResult = null;
-		
-		int c_seq = 0;
-		String c_commenter_name = null;
-		String c_comment_content = null;
-		Date c_reg_date = null;
-		String c_answer = null;
-		int q_seq = 0;
-		
-		String sql = "select * from comment_tbl where c_seq=? and q_seq=?";
-		response.setContentType("application/json");
-		
-		try {
-			con = DBManagerhalo_YJ.connect();
-			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, request.getParameter("c_seq"));
-			pstmt.setString(2, request.getParameter("q_seq"));
-			rs = pstmt.executeQuery();
-			
-			if (rs.next()) {
-				c_seq = rs.getInt(1);
-				c_commenter_name = rs.getString(2);
-				c_comment_content = rs.getString(3);
-				c_reg_date = rs.getDate(4);
-				c_answer = rs.getString(5);
-				q_seq = rs.getInt(6);
-				
-				Comment comment = new Comment(c_seq, c_commenter_name, c_comment_content, c_reg_date, c_answer);
-				commentList.add(comment);
-				
-				ObjectMapper objectmapper = new ObjectMapper();
-				jsonResult = objectmapper.writeValueAsString(commentList);
-				System.out.println("CommentList: "+ jsonResult);
-			}
+		 Connection con = null;
+	        PreparedStatement pstmt = null;
+	        ResultSet rs = null;
+	        ArrayList<Comment> commentList = new ArrayList<>();
+	        String jsonResult = null;
 
-		} catch (ClassNotFoundException | SQLException | JsonProcessingException e) {
-			e.printStackTrace();
-		}
+	        // TODO: 데이터베이스 연결 및 예외 처리 등 필요한 부분은 여기에 추가
+
+	        try {
+	            con = DBManagerhalo_YJ.connect();
+
+	            // 댓글 조회 SQL
+	            String sql = "SELECT * FROM comment_tbl WHERE q_seq = ?";
+	            pstmt = con.prepareStatement(sql);
+	            pstmt.setString(1, qSeq);
+
+	            rs = pstmt.executeQuery();
+
+	            while (rs.next()) {
+	                int cSeq = rs.getInt("c_seq");
+	                String cCommenterName = rs.getString("c_commenter_name");
+	                String cCommentContent = rs.getString("c_comment_content");
+	                Date cRegDate = rs.getDate("c_reg_date");
+	                String cAnswer = rs.getString("c_answer");
+
+	                Comment comment = new Comment(cSeq, cCommenterName, cCommentContent, cRegDate, cAnswer);
+	                commentList.add(comment);
+	            }
+
+	            // 댓글 리스트를 JSON 형태로 변환
+	            ObjectMapper objectMapper = new ObjectMapper();
+	            jsonResult = objectMapper.writeValueAsString(commentList);
+
+	        } catch (ClassNotFoundException | SQLException | JsonProcessingException e) {
+	            e.printStackTrace();
+	        } finally {
+	            DBManagerhalo_YJ.close(con, pstmt, rs);
+	        }
+
+	        return jsonResult;
+	    }
 		
-		return jsonResult;
 	}
 	
 }

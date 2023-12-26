@@ -131,7 +131,9 @@ function getData(q_seq, q_title, q_content, q_reg_date, q_contact_number, q_emai
                     //확인
                     $('#QUESTION_SEQ').html(qSeq);
                     
-                    
+                    // comments 데이터를 가져와서 표시
+            		getComments(q_seq);
+            		
                 } else {
                     console.error("데이터가 비어있거나 배열이 아닙니다.");
                 }
@@ -151,6 +153,47 @@ function getData(q_seq, q_title, q_content, q_reg_date, q_contact_number, q_emai
         }
     });
 }
+
+// 댓글 불러오기
+function getComments(c_seq, c_commenter_name, c_comment_content, c_reg_date, c_answer, q_seq) {
+    $.ajax({
+        url: "GetCommentsC",
+        dataType: "json",
+        data: {
+            q_seq: q_seq,
+        	c_seq: c_seq,
+        	c_commenter_name: c_commenter_name,
+        	c_comment_content: c_comment_content,
+        	c_reg_date: c_reg_date,
+        	c_answer: c_answer
+        },
+        success: function (commentData) {
+            try {
+                console.log("CommentData:", commentData);
+
+                if (Array.isArray(commentData) && commentData.length > 0) {
+                    let c_seq = commentData[0].c_seq;
+                    let c_commenter_name = commentData[0].c_commenter_name;
+                    let CRegDate = new Date(commentData[0].c_reg_date);
+                    let formattedDate = formatDate(CRegDate);
+                    let c_comment_content = commentData[0].c_comment_content;
+                    let c_answer = commentData[0].c_answer;
+                    let qSeq = commentData[0].q_seq;
+
+                    $('#COMMENT_CONTENT').val(c_comment_content);
+                } else {
+                    console.log("댓글이 없습니다.");
+                }
+            } catch (error) {
+                console.error("댓글 처리 오류:", error);
+            }
+        },
+        error: function (xhr, status, error) {
+            console.log("댓글 불러오기 에러:", xhr, status, error);
+        }
+    });
+}
+
 
 
 

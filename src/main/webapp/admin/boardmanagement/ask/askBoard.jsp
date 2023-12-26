@@ -61,7 +61,7 @@ function deleteQuestion(n) {
 			        <div class="ontent-m-td-2-content-txt-kategorie-in"></div>
 				        <div class="ontent-m-td-2-content-txt-title-in">
 			            <!-- JavaScript를 사용하여 form을 동적으로 생성 -->
-			            <a onclick="getData('${question.q_seq}')">${question.q_title}</a>
+			            <a onclick="getData('${question.q_seq}');">${question.q_title}</a>
 				        </div>
 			        <div class="ontent-m-td-2-content-txt-writer-in">${question.q_name}</div>
 			        <div class="ontent-m-td-2-content-txt-date-in">${question.q_reg_date}</div>
