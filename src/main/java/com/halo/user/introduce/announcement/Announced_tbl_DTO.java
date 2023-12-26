@@ -82,5 +82,13 @@ public class Announced_tbl_DTO {
 	public void setAn_img(String an_img) {
 		this.an_img = an_img;
 	}
+
+	@Override
+	public String toString() {
+		return "Announced_tbl_DTO [an_seq=" + an_seq + ", an_title=" + an_title + ", an_content=" + an_content
+				+ ", an_writer=" + an_writer + ", an_reg_date=" + an_reg_date + ", an_category=" + an_category
+				+ ", an_img=" + an_img + "]";
+	}
     
+	
 }
