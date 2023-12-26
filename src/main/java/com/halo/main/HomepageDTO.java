@@ -18,7 +18,7 @@ public class HomepageDTO {
 	String h_resume_file;		//이력서 파일 양식
 	
 	
-	//기본 생성자, 필드오버로딩, 게터세터 까지함
+	//필수3가지 까지만함
 	public HomepageDTO() {
 
 	}
