@@ -77,11 +77,11 @@
 				</ul>
 			</div>
 			<jsp:include page="${serviceStep }"></jsp:include>
-			<script src="${pageContext.request.contextPath}/user/service/serviceApply/0.js/cal.js">
-          </script>
+			
 <%-- 			<jsp:include page="calselect.jsp"></jsp:include> --%>
 		</div>
 	</div>
-
 </body>
+<script src="${pageContext.request.contextPath}/user/service/serviceApply/0.js/cal.js">
+          </script>
 </html>
