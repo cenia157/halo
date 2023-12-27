@@ -96,7 +96,7 @@ pageEncoding="UTF-8"%>
       let totalHeight;
 
       $(document).ready(function () {
-        // JSTL을 사용하여 서블릿에서 전달받은 토큰 사용
+        // JSTL을 사용하여 서블릿에서 전달받은 토큰 사용~~~~
         let token = "${token}";
 
         $.ajax({
