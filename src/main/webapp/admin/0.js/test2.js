@@ -86,6 +86,9 @@ function closeModalNR() {
 	closeModal('myModalNR', 'myModal-tblNR');
 }
 
+
+
+
 //모달창 데이터
 function getData(q_seq, q_title, q_content, q_reg_date, q_contact_number, q_email, q_name, q_password, q_category) {
     console.log("q_seq: "+ q_seq);
@@ -93,6 +96,7 @@ function getData(q_seq, q_title, q_content, q_reg_date, q_contact_number, q_emai
     // 첫 번째 Ajax 요청
     $.ajax({
         url: "GetDataC",
+        type: "post",
         dataType: "json",
         data: {
             q_seq: q_seq,
@@ -122,19 +126,20 @@ function getData(q_seq, q_title, q_content, q_reg_date, q_contact_number, q_emai
                     let qCategory = data[0].q_category;
 
             		
-            		// questions 데이터 표시
-                    $('#QUESTION_TITLE').html(qTitle);
-                    $('#QUESTION_DATE').html(formattedDate);
-                    $('#QUESTION_NAME').html(qName);
-                    $('#QUESTION_CONTENT').html(qContent);
+            		// A questions 데이터 표시
+                    $('#A_QUESTION_TITLE').html(qTitle);
+                    $('#A_QUESTION_DATE').html(formattedDate);
+                    $('#A_QUESTION_NAME').html(qName);
+                    $('#A_QUESTION_CONTENT').html(qContent);
+
+            		// N questions 데이터 표시
+                    $('#N_QUESTION_TITLE').html(qTitle);
+                    $('#N_QUESTION_DATE').html(formattedDate);
+                    $('#N_QUESTION_NAME').html(qName);
+                    $('#N_QUESTION_CONTENT').html(qContent);
                     $('#q_seq').val(qSeq);
                     //확인
                     $('#QUESTION_SEQ').html(qSeq);
-                    console.log(qTitle);
-                    console.log(formattedDate);
-                    console.log(qName);
-                    console.log(qContent);
-                    console.log("=======확인용");
             		
             		
                     // comments 데이터를 가져와서 표시
@@ -158,7 +163,7 @@ function getData(q_seq, q_title, q_content, q_reg_date, q_contact_number, q_emai
 function getComments(q_seq, c_commenter_name, c_comment_content, c_reg_date, c_answer, c_seq) {
     $.ajax({
         url: "GetCommentsC",
-        type: "get",
+        type: "post",
         dataType: "json",
         data: {
             q_seq: q_seq,
@@ -187,6 +192,8 @@ function getComments(q_seq, c_commenter_name, c_comment_content, c_reg_date, c_a
 
 
                     $('#COMMENT_CONTENT').val(c_comment_content);
+                    $('#COMMENT_NAME').html(c_commenter_name);
+                    $('#hidden_c_ceq').val(cSeq);
                     
                     //모달창 열기
 	                if (c_comment_content != null) {
@@ -246,6 +253,13 @@ function updateModalContent(questionJson) {
 
 
 
+
+function updateComments (){
+	
+	let c_seq = $('#COMMENT_CONTENT').val();
+	let c_comment_content = $('#hidden_c_ceq').val();
+
+}
 
 
 

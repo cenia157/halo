@@ -26,18 +26,18 @@
 	
 	
 	
-	<form action="CommentSubmitC" method="get" style="width: 100%; height: 100%">
+	<form action="CommentSubmitC" method="post" style="width: 100%; height: 100%">
 		<div class="modal-title-set">
 			<div class="modal-title-tr">
 				<div class="modal-title-td-1">
 
 
 					<div class="real-title">
-						<div class="real-title-up"> <span id="QUESTION_TITLE"></span> </div>
+						<div class="real-title-up"> <span id="N_QUESTION_TITLE"></span> </div>
 						<div class="real-title-down">
 							<div class="real-title-down-L">
 
-								<div class="real-title-down-contain" id="QUESTION_DATE"></div>
+								<div class="real-title-down-contain" id="N_QUESTION_DATE"></div>
 								<div class="real-title-down-contain">미답변</div>
 							</div>
 							<div class="real-title-down-R"></div>
@@ -57,7 +57,7 @@
 						<jsp:include page="askEditPageCustomerQuestion.jsp"></jsp:include>
 					</div>
 <!-- 					확인용 -->
-					<span id="QUESTION_SEQ"></span>
+					<span id="N_QUESTION_SEQ"></span>
 					<textarea id="c_comment_content" name="c_comment_content" class="modal-content-txt-response-textarea" rows=""
 						cols="" placeholder="여기는 고객의 질문에 대답하는 곳"></textarea>
 				</div>

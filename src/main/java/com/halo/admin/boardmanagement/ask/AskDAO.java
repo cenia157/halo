@@ -45,6 +45,36 @@ public class AskDAO {
 		}
 	}
 	
+	public static void AskAnswerUpdate(HttpServletRequest request) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		String sql = "update comment_tbl set c_comment_content = ? where c_seq=?";
+		
+		try {
+			con = DBManagerhalo_YJ.connect();
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, request.getParameter("c_comment_content"));
+			pstmt.setString(2, request.getParameter("c_seq"));
+			
+			//확인용
+			System.out.println("update content: " + request.getParameter("c_comment_content"));
+			System.out.println("update seq: " + request.getParameter("c_seq"));
+			
+			if (pstmt.executeUpdate()==1) {
+				System.out.println("업데이트 성공");
+			} else {
+				System.out.println("업데이트 실패");
+			}
+			
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+		
+	}
+	
 	
 	
 	public static String AnswerOrNot(HttpServletRequest request) {
@@ -58,7 +88,7 @@ public class AskDAO {
 			pstmt = con.prepareStatement(sql);
 
 			c_answer = request.getParameter("c_answer");
-			pstmt.setString(1, request.getParameter("c_answer"));
+			pstmt.setString(1, request.getParameter("c_seq"));
 		
 			
 				if (c_answer != null) {
