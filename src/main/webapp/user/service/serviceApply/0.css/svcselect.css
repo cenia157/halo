@@ -221,7 +221,13 @@ letter-spacing: 2px;
 
 /* 서비스 선택 */
 
-.content-serviceselectbox-td {
+.content-form-box{
+	margin-top: 3%;
+	height: 90%;
+}
+
+
+.content-serviceselect-box-td {
   width: 100%;
   display: flex;
   justify-content: space-evenly;
@@ -231,7 +237,7 @@ letter-spacing: 2px;
 
 .content-serviceoption-td {
   border: solid 1px rgb(122, 174, 63);
-  width: 23%;
+  width: 25%;
   height: 50%;
   display: flex;
   justify-content: space-evenly;
@@ -250,6 +256,11 @@ letter-spacing: 2px;
   box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.3);
 
 }
+
+#nursingTexi{
+ font-size: 2.0rem;
+}
+
 
 .content-serviceoption-td button{
   color: #fff;

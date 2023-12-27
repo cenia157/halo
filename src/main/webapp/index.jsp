@@ -36,9 +36,10 @@
 			<div class="header-opmenu-back"></div>
 			<div class="header-tr-1">
 				<div class="header-br-logo">
-					<!-- 이미지 경로 확인 -->
-					<img src="${pageContext.request.contextPath}/user/0.img/logo.png" />
-<%-- 						<img src="${어트리뷰트.ㅁㅁㅁ}"> --%>
+					<!-- 로고 이미지 경로 확인 -->
+<%-- 					<img src="${pageContext.request.contextPath}/user/0.img/logo.png" /> --%>
+					<img src="${pageContext.request.contextPath}/user/upload_imgs/${newFileName}">
+<%-- 						<img src="c"> --%>
 					<a href="">ハロー</a>
 				</div>
 				<div class="header-br-space"></div>
@@ -74,7 +75,7 @@
 						</div>
 						<div class="header-opmenu-td">
 							<a class="header-opmenu-a" href="HC?link=6">서비스안내</a> <a
-								class="header-opmenu-a" href="ServiceC">서비스신청</a>
+								class="header-opmenu-a" href="ServiceApplyC">서비스신청</a>
 						</div>
 					</div>
 					<div class="header-td-menu">

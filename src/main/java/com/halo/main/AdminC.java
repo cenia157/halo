@@ -18,6 +18,7 @@ public class AdminC extends HttpServlet {
 		if (request.getParameter("link") != null) {
 			if (request.getParameter("link").equals("1")) {
 				menu = "/admin/homepageSetting/logo/logoContent";
+				MainpageDAO.getMdao().getLogo(request);
 			} else if (request.getParameter("link").equals("2")) {
 				menu = "/admin/homepageSetting/mainpage/mainpageContent";
 			} else if (request.getParameter("link").equals("3")) {
@@ -25,7 +26,7 @@ public class AdminC extends HttpServlet {
 			} else if (request.getParameter("link").equals("4")) {
 				menu = "/admin/homepageSetting/information/informationContent";
 			} else if (request.getParameter("link").equals("5")) {
-				menu = "/admin/boardmanagement/notice/noticeContent";
+				menu = "/admin/boardmanagement/notice_test/noticeContent";
 			} else if (request.getParameter("link").equals("6")) {
 				menu = "/admin/boardmanagement/ask/askContent";
 			} else if (request.getParameter("link").equals("7")) {

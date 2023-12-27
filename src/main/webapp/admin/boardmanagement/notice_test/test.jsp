@@ -63,7 +63,7 @@
 										</div>
 									</div>
 								</div>
-								<script src="admin/boardmanagement/notice/0.js/notice.js"></script>
+								<script src="admin/boardmanagement/notice_test/0.js/notice.js"></script>
 								<!--  -->
 							</div>
 						</div>
@@ -77,17 +77,15 @@
 						<!-- 아래의 코드는 CK Editor를 넣는 부분이다-->
 						<textarea name="txt" id="classicNR"></textarea>
 						<!-- 아래의 스크립트 코드는 CK Editor를 불러오는 부분이다-->
-						<script>
-						ClassicEditor
-						.create(document.querySelector('#classicNR'))
-						.then(editor => {
-								window.editor = editor;
-								})
-						.catch(error => {
-								console.error(error);
-								});
-						
-				</script>
+
+<!-- <script type="module" src="admin/boardmanagement/notice_test/0.js/testJW.js"></script> -->
+<script src="https://ckeditor.com/apps/ckfinder/3.5.0/ckfinder.js"></script>
+<script type="module" src="admin/boardmanagement/notice_test/0.js/testMZ.js"></script>
+
+
+
+
+
 					</div>
 					<div class="modal-content-button">
 						<button class="SubmitButton" type="submit" id="reg-btn"
@@ -97,12 +95,28 @@
 			</div>
 		</div>
 	</form>
+
+
+
+
+	<!-- 	
+	여기 아래는 ajax 예시
+	<script type="text/javascript">
+    function fetchPage(name) {
+        fetch(name).then(function (response) {
+          response.text().then(function (text) {
+            document.querySelector('article').innerHTML = text;
+          })
+        })
+      }
+	</script>
+	 -->
 	<script type="text/javascript">
 		 let ckForm = document.querySelector('.ck-form');
 		 console.log(ckForm);
 		
 		 ckForm.addEventListener("submit", function(event){
-	     event.preventDefault(); // 기본 submit 동작 방지
+	     event.preventDefault(); // 기본 submit 동작 방지aaa
 	     
 		 const content = window.editor.getData();
 		 const formData = new FormData(event.target);
@@ -134,7 +148,6 @@
 	        });
 		});
 </script>
-
 
 
 
