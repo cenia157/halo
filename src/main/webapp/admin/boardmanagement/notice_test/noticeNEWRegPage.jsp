@@ -26,7 +26,7 @@
 }
 </style>
 
-<script src="admin/0.js/ckeditor.js"></script>
+<script src="admin/_js/ckeditor.js"></script>
 
 </head>
 <body>

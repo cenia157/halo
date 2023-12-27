@@ -78,7 +78,9 @@
 						<textarea name="txt" id="classicNR"></textarea>
 						<!-- 아래의 스크립트 코드는 CK Editor를 불러오는 부분이다-->
 
-<script type="module" src="admin/boardmanagement/notice_test/0.js/testJW.js"></script>
+<!-- <script type="module" src="admin/boardmanagement/notice_test/0.js/testJW.js"></script> -->
+<script src="https://ckeditor.com/apps/ckfinder/3.5.0/ckfinder.js"></script>
+<script type="module" src="admin/boardmanagement/notice_test/0.js/testMZ.js"></script>
 
 
 
