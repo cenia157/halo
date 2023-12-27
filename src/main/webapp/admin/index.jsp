@@ -20,7 +20,7 @@
 </script>
 
 	<!-- 메뉴 js -->
-<script src="admin/0.js/test.js"></script>
+<script src="admin/_js/test.js"></script>
 
 	<!-- 메뉴 css -->
 <link rel="stylesheet" href="admin/0.css/test copy.css" />

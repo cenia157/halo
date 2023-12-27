@@ -9,6 +9,7 @@ import java.sql.PreparedStatement;
 import javax.servlet.http.HttpServletRequest;
 
 import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 public class Ck_DAO {
 
@@ -34,11 +35,14 @@ public class Ck_DAO {
 //		} else {
 //			System.out.println("select에 아무값도 들어있지 않다");
 //		}
+		try {
+			
+			
+			
 
 		String title = request.getParameter("title");
 		String select = request.getParameter("select");
 		String txt = request.getParameter("txt");
-
 
 		// 이곳에 이미지 가져와야한다
 		System.out.println(title);
@@ -50,9 +54,9 @@ public class Ck_DAO {
 		String sql = "INSERT INTO announced_tbl " + "(an_seq, an_title, an_content, an_writer, an_category, an_img) "
 				+ "VALUES (announced_tbl_seq.nextval, ?, ?, '임시데이터', ?, ?)";
 
-// 참고용 notice_seq.nextval, '타이틀', '텍스트', '김진욱', '일반', '이미지'
+		// 참고용 notice_seq.nextval, '타이틀', '텍스트', '김진욱', '일반', '이미지'
+		
 
-		try {
 			con = DBManagerhalo_JW.connect();
 			pstmt = con.prepareStatement(sql);
 
