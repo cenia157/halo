@@ -15,13 +15,8 @@ public class LogoUploadC extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//바꿀 로고 이미지파일 미리보기로 보여주기
-		System.out.println("asd");
-		MainpageDAO.getMdao().uploadLogo(request);
-		System.out.println("fgh");
+		MainpageDAO.getMdao().uploadLogo(request, response);
 		//이미지 받고 어디로?
-//		request.setAttribute("menu", "admin/homepageSetting/logo/logoContent.jsp");
-		request.getRequestDispatcher( request.getContextPath() + "/admin/homepageSetting/logo/logoContent.jsp").forward(request, response);
-		System.out.println("mmm");
 	}
 
 }

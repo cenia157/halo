@@ -36,9 +36,9 @@
 			<div class="header-opmenu-back"></div>
 			<div class="header-tr-1">
 				<div class="header-br-logo">
-					<!-- 이미지 경로 확인 -->
+					<!-- 로고 이미지 경로 확인 -->
 					<img src="${pageContext.request.contextPath}/user/0.img/logo.png" />
-<%-- 						<img src="${어트리뷰트.ㅁㅁㅁ}"> --%>
+<%-- 						<img src="c"> --%>
 					<a href="">ハロー</a>
 				</div>
 				<div class="header-br-space"></div>

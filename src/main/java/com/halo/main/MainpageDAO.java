@@ -1,11 +1,22 @@
 package com.halo.main;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.PrintWriter;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.List;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
+
 
 import com.oreilly.servlet.MultipartRequest;import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
@@ -63,19 +74,17 @@ public class MainpageDAO {
 	}
 	
 	//로고 미리보기 (멀티파트로 까서 어트리뷰트 넘겨주기만 하는 용도 DB는 변경버튼 누를때 업뎃메서드 사용예정)
-	public static void uploadLogo(HttpServletRequest request) {
+	public void uploadLogo(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 		String savepath = request.getServletContext().getRealPath("user/upload_imgs");
-		try {
-			MultipartRequest mr = new MultipartRequest(request, savepath, 1024*1024*20, "utf-8", new DefaultFileRenamePolicy());
-			
-			String h_logo_img = mr.getFilesystemName("logo_img");
-			request.setAttribute("logo_img", h_logo_img);
-			System.out.println(h_logo_img);
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+		MultipartRequest mr = new MultipartRequest(request, savepath, 1024*1024*20, "utf-8", new DefaultFileRenamePolicy());
+		String fileName = mr.getFilesystemName("logo_img");
+		System.out.println(fileName);
+
+		response.getWriter().write(fileName);
+    }
+
+    
 	
 	//로고 등록 메소드(처음에만 쓸거임 test용)
 	public static void regLogo(HttpServletRequest request) {
@@ -108,7 +117,7 @@ public class MainpageDAO {
 	}
 	
 	//로고 수정 메소드
-	private static void updateLogo(HttpServletRequest request) {
+	public static void updateLogo(HttpServletRequest request) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		String sql = "update hompage_common set h_logo_img=? where h_seq=?";

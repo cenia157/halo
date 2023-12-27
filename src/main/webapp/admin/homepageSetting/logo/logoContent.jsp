@@ -45,7 +45,6 @@
 			</div>
 		</div>
 		<!-- 		오른쪽(변경로고) 큰 div   form태그 감싸기, logoUpdateC, post로 img경로값 보내기 -->
-		<form action="LogoUploadC" method="post" enctype="multipart/form-data">
 			<div class="content-m-td-2-side2">
 				<div class="content-m-td-2-side-up2">
 					<div class="content-m-td-2-side-up-title2">변경로고</div>
@@ -55,41 +54,35 @@
 					<!-- 변경할 로고 파일 업로드 인풋 & 이미지미리보기 ajax 아니면 jstl 조건문으로 -->
 					<div class="content-m-td-2-side-mid-logo2">
 						<div class="logo_upload">
-							<!-- d -->
-							<c:choose>
-								<c:when test="${not empty param.logo_img}">
-								<label for="logo_img"> 
-									<img id="logoUpload" width="20%"
-									src="${pageContext.request.contextPath}/user/upload_imgs/${logo_img}">
-									</label>
-									</c:when>
-									<c:otherwise>
+							<!-- 바뀔 이미지 -->
+<!-- 								<label for="logo_img">  -->
+<!-- 									<img id="logoUpload" width="20%" -->
+<%-- 									src="${pageContext.request.contextPath}/user/upload_imgs/${logo_img}"> --%>
+<!-- 									</label> -->
+<!-- 										이미지 랩 -->
 									<label for="logo_img"> 
 								<img id="logo_preview"
 									src="${pageContext.request.contextPath}/admin/0.img/logo_upload.png">
 									</label>
-									</c:otherwise>
-							</c:choose>
-							
 							<!-- 변경할 로고이미지 인풋 -->
+						<form action="LogoUploadC" id="fileUploadForm" method="post"
+							enctype="multipart/form-data">
 							<input type="file" id="logo_img" name="logo_img">
-						</div>
+						</form>
+					</div>
 					</div>
 				</div>
 				<div class="content-m-td-2-side-down">
 					<!-- 로고변경 버튼  -->
 					<div class="content-m-td-2-side-down-button">
-						<!-- 업로드 버튼 -->
-						<button class="content-button" id="logo_btn_submit">1.업로드</button>
 						<!-- 변경완료버튼, 실제DB에 업뎃되면서 대기 업로드 대기이미지로 바뀜 -->
 						<button type="button" class="content-button" id="logo_btn_submit"
-							onclick="location.href='LogoUpdate?logo_img='">2.변경완료</button>
+							onclick="handleFileUpload()">2.변경완료</button>
 
 					</div>
 
 				</div>
 			</div>
-		</form>
 
 	</div>
 </body>

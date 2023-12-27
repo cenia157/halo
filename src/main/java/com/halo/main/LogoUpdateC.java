@@ -27,8 +27,8 @@ public class LogoUpdateC extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-//		MainpageDAO.getMdao().regLogo(request);
-		/* MainpageDAO.getAllHompage_common(request); */
+		MainpageDAO.getMdao().updateLogo(request);
+		//MainpageDAO.getManager().쓸 메소드();
 	}
 
 }
