@@ -116,7 +116,7 @@
 		 console.log(ckForm);
 		
 		 ckForm.addEventListener("submit", function(event){
-	     event.preventDefault(); // 기본 submit 동작 방지
+	     event.preventDefault(); // 기본 submit 동작 방지aaa
 	     
 		 const content = window.editor.getData();
 		 const formData = new FormData(event.target);
