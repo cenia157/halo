@@ -55,11 +55,7 @@
 					<div class="content-m-td-2-side-mid-logo2">
 						<div class="logo_upload">
 							<!-- 바뀔 이미지 -->
-<!-- 								<label for="logo_img">  -->
-<!-- 									<img id="logoUpload" width="20%" -->
-<%-- 									src="${pageContext.request.contextPath}/user/upload_imgs/${logo_img}"> --%>
-<!-- 									</label> -->
-<!-- 										이미지 랩 -->
+								<!-- 이미지 랩 -->
 									<label for="logo_img"> 
 								<img id="logo_preview"
 									src="${pageContext.request.contextPath}/admin/0.img/logo_upload.png">
@@ -77,7 +73,7 @@
 					<div class="content-m-td-2-side-down-button">
 						<!-- 변경완료버튼, 실제DB에 업뎃되면서 대기 업로드 대기이미지로 바뀜 -->
 						<button type="button" class="content-button" id="logo_btn_submit"
-							onclick="handleFileUpload()">2.변경완료</button>
+							onclick="#">2.변경완료</button>
 
 					</div>
 

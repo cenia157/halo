@@ -120,18 +120,16 @@ public class MainpageDAO {
 	public static void updateLogo(HttpServletRequest request) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
-		String sql = "update hompage_common set h_logo_img=? where h_seq=?";
+		String newFileName = request.getParameter("newFileName");
+		String savepath = request.getServletContext().getRealPath("user/upload_imgs/") + newFileName;
+		String sql = "update homepage_common set h_logo_img=?";
 		try {
 			con = DBManagerhalo.connect();
+			System.out.println(savepath);
 			pstmt = con.prepareStatement(sql);
-			String savepath = request.getRealPath("user/upload_imgs");
-			MultipartRequest mr = new MultipartRequest(request, savepath, 1024*1024*20, "utf-8", new DefaultFileRenamePolicy());
-			//바꿀 이미지, 바꾸기 전 이미지
-			String newImg = mr.getFilesystemName("newImg");
-			String oldImg = mr.getFilesystemName("oldImg");
-			//업뎃 위치용 시퀀스 넘버
-			String h_seq = mr.getParameter("h_seq");
-			
+			//바꿀 이미지
+			//업뎃 위치용 시퀀스 넘버 필요없음
+			pstmt.setString(1, savepath);
 			if (pstmt.executeUpdate() == 1) {
 				System.out.println("등록 성공!");
 			}else {

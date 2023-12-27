@@ -37,7 +37,8 @@
 			<div class="header-tr-1">
 				<div class="header-br-logo">
 					<!-- 로고 이미지 경로 확인 -->
-					<img src="${pageContext.request.contextPath}/user/0.img/logo.png" />
+<%-- 					<img src="${pageContext.request.contextPath}/user/0.img/logo.png" /> --%>
+					<img src="${pageContext.request.contextPath}/user/upload_imgs/${newFileName}">
 <%-- 						<img src="c"> --%>
 					<a href="">ハロー</a>
 				</div>

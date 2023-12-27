@@ -20,8 +20,9 @@ function handleFileUpload(event) {
 			contentType: false,	// 필수
 			cache: false,
 			success: function(fileName) {
-				
+				//미리보기 이미지 띄우기
 				$('#logo_preview').attr('src', 'user/upload_imgs/' + fileName);
+				//버튼 누를때 파라미터 (수정할 이미지 이름) 넘기기
 				$('#logo_btn_submit').attr('onclick', "location.href='LogoUpdateC?newFileName=" + fileName +"'")
 			},
 			error: function(e) {
