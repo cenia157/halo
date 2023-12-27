@@ -8,7 +8,7 @@
 <title>noticeEditPage</title>
 
 <link rel="stylesheet"
-	href="admin/boardmanagement/notice/0.css/notice.css" />
+	href="admin/boardmanagement/notice_test/0.css/notice.css" />
 <link
 	href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular"
 	rel="stylesheet" />
