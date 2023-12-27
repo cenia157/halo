@@ -12,7 +12,7 @@
 <!-- <script type="text/javascript" -->
 <%-- 	src="${pageContext.request.contextPath}/user/service/serviceApply/0.js/cal.js"></script> --%>
 <link rel="stylesheet"
-	href="${pageContext.request.contextPath}/user/service/serviceApply/0.css/svcselect.css" />
+	href="${pageContext.request.contextPath}/user/service/serviceApply/0.css/seviceapply.css" />
 </head>
 <body>
 	<div class="content-box-tr">
@@ -22,7 +22,8 @@
 				<div class="content-tab2-td tab2-pos">서비스 신청</div>
 			</div>
 			<div class="content-subtab-td">
-				<img src="0.img/home.png" alt="" /> > 서비스 > 서비스신청
+						<img src="${pageContext.request.contextPath}/user/0.img//home.png"
+						width="1.7%" alt="" /> > 서비스 > 서비스신청
 			</div>
 			<div class="content-procedure-box-td">
 				<!-- 서비스 신청 순서 -->
@@ -77,11 +78,11 @@
 				</ul>
 			</div>
 			<jsp:include page="${serviceStep }"></jsp:include>
-			<script src="${pageContext.request.contextPath}/user/service/serviceApply/0.js/cal.js">
-          </script>
+			
 <%-- 			<jsp:include page="calselect.jsp"></jsp:include> --%>
 		</div>
 	</div>
-
 </body>
+<script src="${pageContext.request.contextPath}/user/service/serviceApply/0.js/cal.js">
+          </script>
 </html>

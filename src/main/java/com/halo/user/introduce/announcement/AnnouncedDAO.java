@@ -3,6 +3,7 @@ package com.halo.user.introduce.announcement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -13,23 +14,30 @@ import com.halo.test.DBManagerhalo_ody;
 
 
 
-public class AnnouncedDAO {
-    
-    public static void getAllAnnouncements(HttpServletRequest request) {
 
-        Connection con = null;
+public class AnnouncedDAO {
+	
+	private static ArrayList<Announced_tbl_DTO> announcements; // 추가
+    
+	private static Connection con = null;
+	
+	/**
+	 * 목록을 가져온다.
+	 */
+    public static void getAllAnnouncements(HttpServletRequest request) {
         PreparedStatement pstmt = null;
         ResultSet rs = null;
-        String sql = "SELECT * FROM announced_tbl ORDER BY an_seq DESC";
+//        String sql = "SELECT * FROM announced_tbl ORDER BY an_seq DESC";
+        String sql = "SELECT * FROM announced_tbl";
         System.out.println("DB 연결 확인1");
 
         try {
-            con = DBManagerhalo_ody.connect();;
+            con = DBManagerhalo_ody.connect();
             pstmt = con.prepareStatement(sql);
             rs = pstmt.executeQuery();
             System.out.println("DB 연결 확인2");
 
-            ArrayList<Announced_tbl_DTO> announcements = new ArrayList<>();
+            announcements = new ArrayList<>();
             Announced_tbl_DTO announcement;
 
             while (rs.next()) {
@@ -46,19 +54,75 @@ public class AnnouncedDAO {
             }
 
             request.setAttribute("announcements", announcements);
-            System.out.println("announcements size: " + announcements.size());
-            System.out.println("request.setAttribute 실행");
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+        	DBManagerhalo_ody.close(con,pstmt, rs);
+        }
+    }
+    
+    /**
+     * 모달을 보여줄 한건의 데이터 조회
+     * @param request
+     */
+    public static void getAnnouncement(HttpServletRequest request) {
+    	Connection con = null;
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+        String sql = "SELECT * FROM announced_tbl WHERE an_seq =?";
 
-            String result = "조회 성공(표시해야 할 경우 조회 결과 메시지)";
-            request.setAttribute("result", result);
+        int anSeq = Integer.parseInt(request.getParameter("an_seq"));
+        
+        try {
+            con = DBManagerhalo_ody.connect();
+            pstmt = con.prepareStatement(sql);
+            
+            pstmt.setInt(1, anSeq);
+            rs = pstmt.executeQuery();
+
+
+            while (rs.next()) {
+            	
+            	String dateStr = rs.getString("an_reg_date");
+            	SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+            	
+            	request.setAttribute("writer", rs.getString("an_writer"));
+            	request.setAttribute("title", rs.getString("an_title"));
+            	request.setAttribute("content", rs.getString("an_content"));
+            	request.setAttribute("dateStr", dateStr);
+            }
+            
 
         } catch (Exception e) {
-            System.out.println("에러 발생");
             e.printStackTrace();
         } finally {
         	DBManagerhalo_ody.close(con, pstmt, rs);
         }
     }
-    
-    
+
+	public static void paging(int page, HttpServletRequest request) {
+		
+		request.setAttribute("curPageNo", page);
+		
+		int cnt = 5; 
+		int total = announcements.size(); 
+		System.out.println("total ::: " + total );
+		int pageCount = (int)Math.ceil((double)total / cnt);
+		System.out.println("pageCount ::: " + pageCount );
+		request.setAttribute("pageCount", pageCount);
+		
+		int start = total - (cnt * (page -1));
+		System.out.println("start ::: " + start );
+		
+		int end = (page == pageCount) ? -1 : start - (cnt + 1);
+		
+		ArrayList<Announced_tbl_DTO> items = new ArrayList<Announced_tbl_DTO>();
+		
+		for (int i = start-1; i > end; i--) {
+			items.add(announcements.get(i));
+		}
+		request.setAttribute("announcements", items);
+		
+	
+	}
 }

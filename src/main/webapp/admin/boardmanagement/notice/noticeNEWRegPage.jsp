@@ -23,7 +23,7 @@
 				<div class="modal-title-tr">
 					<div class="modal-title-td-1">
 						<div class="real-title">
-							<input class="real-title-editor" name="title"
+							<input class="real-title-editor" name="title" id="real-title-editor"
 								placeholder="이곳에 제목을 입력하세요">
 							<div class="real-title-select">
 								<!--  -->
@@ -37,21 +37,45 @@
 									<option value="service">서비스</option>
 									<option value="product">상품</option>
 								</select>
+
  -->
 
-
-								<div class="toggle" id="toggle" onclick="asd()">
-									<div class="kategorie" id="kategorie">카테고리</div>
+								<div class="toggle" id="toggle" onclick="toggle()">
+									<div class="kategorie" id="kategorie">카테고리
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									
+									</div>
 									<div class="toggle-down" id="toggle-down">
 										<div class="toggle-down-block">
 											<div class="toggle-item" id="aaaa">
-												<input name="ttt" type="hidden" id="myInput" value="aasdnn">
-												안내
+												<input name="announcementA" type="hidden" id="myInput"
+													value="announcement"> 안내
 											</div>
-											<div class="toggle-item" id="일정">일정</div>
-											<div class="toggle-item" id="일반">일반</div>
-											<div class="toggle-item" id="서비스">서비스</div>
-											<div class="toggle-item" id="상품">상품</div>
+											<div class="toggle-item" id="일정">
+												<input name="scheduleA" type="hidden" id="myInput"
+													value="schedule"> 일정
+											</div>
+											<div class="toggle-item" id="일반">
+												<input name="generalA" type="hidden" id="myInput"
+													value="general"> 일반
+											</div>
+											<div class="toggle-item" id="서비스">
+												<input name="serviceA" type="hidden" id="myInput"
+													value="service"> 서비스
+											</div>
+											<div class="toggle-item" id="상품">
+												<input name="productA" type="hidden" id="myInput"
+													value="product"> 상품
+											</div>
 										</div>
 									</div>
 								</div>
@@ -91,76 +115,40 @@
 				</script>
 					</div>
 					<div class="modal-content-button">
-						<button class="SubmitButton" type="submit" id="reg-btn">등록완료</button>
+						<button class="SubmitButton" type="submit" id="reg-btn" onclick="noValue()" >등록완료</button>
 					</div>
 				</div>
 			</div>
 		</div>
 	</form>
+
+
 	<script type="text/javascript">
-		let ckForm = document.querySelector('.ck-form');
-		console.log(ckForm);
+		 let ckForm = document.querySelector('.ck-form');
+		 console.log(ckForm);
 		
-		
-		ckForm.addEventListener("submit", function(event){
+		 ckForm.addEventListener("submit", function(event){
 	     event.preventDefault(); // 기본 submit 동작 방지
 		
 	     
-	 	 const titleValue = document.querySelector('input[name="title"]').value;
-	     const selectValueE = document.querySelector('.toggle-item').value;
-	 	 const selectValueR = document.querySelector('.toggle-down-block[class="toggle-item"].value');
-/* 	 	 const selectValue = document.querySelector('select[name="select"]').value; */
-	 	 const selectValueI = document.querySelector('.toggle-item');
-	 	 const textFromDiv = document.getElementById('aaaa').innerText;
-	 	 const textFromDiv2  = document.querySelector('#aaaa').innerHTML;
-	 	 const textFromDiv3  = document.querySelector('#aaaa').textContent;
- 	 	 const textFromDiv4  = document.querySelector('input[name="ttt"]'); 
-
-	 	
- 	 	 console.log('~~~~~~~~~')
-	 	 console.log(titleValue)
- 	 	 console.log(selectValueE)
- 	 	 console.log(selectValueR)
-/*   	 	 console.log(selectValue) */
-  	 	 console.log(selectValueI)  	 	 
-  	 	 console.log(textFromDiv)  	 	 
-  	 	 console.log(textFromDiv2)  	 	   	 	 
-   	 	 console.log(textFromDiv3)  	 	   	 	 
-   	 	 console.log('~~~~~~~~~1')
-   	 	 console.log(textFromDiv4)  	 	   	 	 
-   	 	 console.log('~~~~~~~~~')
-
-	 	 
-	 	 
-	 	 
-			    // URL 생성
-		 const url = `CkeditorC?title=${titleValue}&ttt=${textFromDiv4}&txt=${textareaValue}`;
 		 const content = window.editor.getData();
-		 console.log(event);
-		 console.log(titleValue);
-		 console.log(url);
-		 console.log('////////////');
-		 console.log(textFromDiv);
-		 console.log(content);
+
+		 
 		 const formData = new FormData(event.target);
 		 
 		 const payload = new URLSearchParams(formData);
-		 
+		 console.log('3333333333333333333333333331111111111111111')
 		 for (var pair of formData.entries()) {
-		        console.log(pair[0] + ': ' + pair[1] + ': ' + pair[2]);
+		        console.log(pair[0] + ': ' + pair[1]);
 		    }
-		 
-		let CkeditorC123 = fetch('CkeditorC',  {
+		 console.log('3333333333333333333333333331111111111111111')		 
+		 let CkeditorC123 = fetch('CkeditorC',  {
 		        method: 'POST',
 		        body: payload,
 		        headers: {
 		            'Content-Type': 'application/x-www-form-urlencoded', // 헤더 설정
 		        }
 		    })
-		    
-
-
-		    
 	        .then(response => {
 	            if (!response.ok) {
 	                throw new Error('Network response was not ok');
@@ -183,5 +171,12 @@
 		
 		
 </script>
+
+
+
+
+
+
+
 </body>
 </html>

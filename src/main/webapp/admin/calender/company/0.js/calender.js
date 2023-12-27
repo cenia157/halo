@@ -7,8 +7,8 @@ function fixedDate() {
 	return today.getDate();
 }
 
-/////////////////////////////////////////날짜/////////////////////////////////////////////
 
+/////////////////////////////////////////날짜/////////////////////////////////////////////
 
 let date = new Date(); // 현재 날짜(로컬 기준) 가져오기
 let utc = date.getTime() + (date.getTimezoneOffset() * 60 * 1000); // uct 표준시 도출
@@ -33,7 +33,6 @@ window.onload = function() {
 
 	let CompanyScheduleList = new Array;
 
-
 	// 전체 회사 일정 ajax 호출
 	fetch('CompanyScheduleList')
 		.then(response => response.json())
@@ -44,7 +43,6 @@ window.onload = function() {
 
 			// 전체데이터 출력
 			console.log(CompanyScheduleList);
-
 
 			// 전년도로 이동
 			document.querySelector('.go-year-prev').addEventListener('click', function() {
@@ -112,62 +110,21 @@ window.onload = function() {
 			let arrayThisMonth = CompanyScheduleList.filter(schedule => schedule.yearmonth.includes(thisMonthValue));
 			console.log(arrayThisMonth.length);
 
-
 			// 캘린더 렌더링
 			renderCalender(thisMonth, arrayThisMonth);
 
 			//클릭
-			//			calendar.addEventListener("click", function(e) {
-			//				if (e.target.className.includes("current")) {
-			//					if (!e.target.style.backgroundColor) {
-			//						e.target.style.backgroundColor = '#ACF6B3';
-			//
-			//						dateArr[e.target.textContent] = 1;
-			//					} else {
-			//						e.target.style.backgroundColor = '';
-			//
-			//						dateArr[e.target.textContent] = 0;
-			//					}
-			//
-			//				}
-			//				console.log(e.target); 
-			//				document.querySelector('.input-date').value = thisMonth.getFullYear() + '年 ' + (thisMonth.getMonth() + 1) + '月 ';
-			//				selectDate = "";
-			////				for (let i = 1; i <= dateArr.length; i++) {
-			////					if (dateArr[i] == 1) {
-			////						document.querySelector('.input-date').value += i + ',';
-			////					}
-			////				}
-			//
-			//
-			//
-			//
-			//				// 사용자가 보기위한 출력
-			//				document.querySelector('.input-date').value = document.querySelector('.input-date').value.slice(0, -1);
-			//
-			//			});
-
-			calendar.addEventListener("click", function(e) {
-
-
-			})
-
 			calendar.addEventListener("click", function(e) {
 				if (e.target.className.includes("current")) {
 					if (!e.target.style.backgroundColor) {
 						e.target.style.backgroundColor = '#ACF6B3';
-
-
-
 						dateArr[e.target.closest('.day.current').children[0].textContent] = 1;
 					} else {
 						e.target.style.backgroundColor = '';
 
 						dateArr[e.target.closest('.day.current').children[0].textContent] = 0;
 					}
-
 				}
-				console.log(dateArr);
 				document.querySelector('.input-date').value = thisMonth.getFullYear() + '年 ' + (thisMonth.getMonth() + 1) + '月 ';
 				selectDate = "";
 
@@ -177,12 +134,8 @@ window.onload = function() {
 					}
 				}
 
-
-
-
 				// 사용자가 보기위한 출력
 				document.querySelector('.input-date').value = document.querySelector('.input-date').value.slice(0, -1);
-
 			});
 
 			//스위치 토글
@@ -193,18 +146,29 @@ window.onload = function() {
 					$toggle.classList.toggle('active');
 				}
 			});
-
-
-
 		})
 		.catch(error => {
 			console.error('데이터를 가져오는 중 오류 발생:', error);
 		});
-
 };
 
-function renderCalender(thisMonth, arrayThisMonth) {
+function moveToMonth(CompanyScheduleList) {
+	thisMonth = new Date(currentYear, currentMonth + 1, 1);
 
+	document.querySelector('.input-date').value = thisMonth.getFullYear() + '年 ' + (thisMonth.getMonth() + 1) + '月 ';
+	dateArr = new Array(32).fill(0);
+	let thisMonthValue = document.querySelector('.input-date').value.slice(0, -1);
+	console.log(thisMonthValue);
+	console.log(CompanyScheduleList.filter(schedule => schedule.yearmonth.includes(thisMonthValue)));
+
+	let arrayThisMonth = CompanyScheduleList.filter(schedule => schedule.yearmonth.includes(thisMonthValue));
+	console.log(arrayThisMonth.length);
+
+	renderCalender(thisMonth, arrayThisMonth);
+}
+
+
+function renderCalender(thisMonth, arrayThisMonth) {
 
 	// 렌더링을 위한 데이터 정리
 	currentYear = thisMonth.getFullYear();
@@ -235,14 +199,13 @@ function renderCalender(thisMonth, arrayThisMonth) {
 		calendar.innerHTML = calendar.innerHTML + '<div class="day prev disable">' + i + '</div>'
 	}
 
-
 	// 이번달 1일부터 next date까지 돌림
 	for (let i = 1; i <= nextDate; i++) {
 
 		if (today.getMonth() == currentMonth && today.getFullYear() == currentYear && fixedDate() == i) {
 
 			// 오늘 날짜 표기
-			calendar.innerHTML = calendar.innerHTML + '<div class="day current date' + i + '">' + i + '<img src="user/0.img/logo.png">' + '</div>'
+			calendar.innerHTML = calendar.innerHTML + '<div class="day current date' + i + '"><div>' + i + '</div><img src="user/0.img/logo.png">' + '</div>'
 			todayDate = today.getDate();
 			let currentMonthDate = document.querySelectorAll('.dates .current');
 			currentMonthDate[todayDate - 1].classList.add('today');
@@ -258,33 +221,38 @@ function renderCalender(thisMonth, arrayThisMonth) {
 		calendar.innerHTML = calendar.innerHTML + '<div class="day next disable">' + i + '</div>'
 	}
 
-	// 배열데이터의 해당 날짜
-	let arrayDate = new Array(32);
-
 	// 렌더링전 월 배열 데이터 있는지 확인
 	if (arrayThisMonth.length != 0) {
+		// 배열데이터의 해당 날짜
+		let arrayDate = new Array(32);
+
 		console.log('월 배열 데이터값 있음')
 		arrayThisMonth.forEach(schedule => {
 			arrayDate = schedule.date.split(',');
-			dateTitle = schedule.title;
-			//			console.log(dateTitle);
+			dateTitle = schedule.title.length >= 5 ? schedule.title.slice(0, 5) + '...' : schedule.title;
 
 			for (let i = 0; i < arrayDate.length; i++) {
-
-				//				document.querySelectorAll('.dates').forEach(date => {
-				//					date.querySelector('.date' + arrayDate[i]);
-				//				})
-
+				arrayDates = document.querySelector('.dates .date' + arrayDate[i]);
 				document.querySelectorAll('.dates .date' + arrayDate[i]).forEach(dateElement => {
-					// 날짜 요소의 내용을 변경
-					dateElement.innerHTML += '<div class="schedule">' + dateTitle + '</div>';
+					// 스케쥴당 날짜에 따른 div 생성
+					dateElement.innerHTML += '<div class="schedule">' + dateTitle + 'asd</div>';
 				});
 			}
 		})
+
 	} else {
 		console.log('월 배열 데이터값 없음')
 	}
 
+	// 3개부터 폴딩
+	for (let i = 1; i < nextDate; i++) {
+		if (document.querySelector('.dates .date' + i) && document.querySelector('.dates .date' + i).children.length > 3) {
+			document.querySelector('.dates .date' + i).children[3].textContent = '++' + (document.querySelector('.dates .date' + i).children.length - 3) + '件';
+			for (let j = document.querySelector('.dates .date' + i).children.length - 1; j > 3; j--) {
+				document.querySelector('.dates .date' + i).children[j].remove();
+			}
+		}
+	}
 }
 
 
