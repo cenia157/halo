@@ -20,7 +20,6 @@
 
 
 
-	<form action="CommentUpdateC" method="post" style="width: 100%; height: 100%;">
 		<div class="modal-title-set">
 			<div class="modal-title-tr">
 				<div class="modal-title-td-1">
@@ -62,11 +61,10 @@
 					</div>
 				</div>
 				<div class="modal-content-button">
-					<button class="SubmitButton" onclick="closeModalA()">수정하기</button>
+					<button class="SubmitButton" onclick="updateComments(); closeModalA();">수정하기</button>
 				</div>
 			</div>
 		</div>
-	</form>
 	
 	</div>
 </body>

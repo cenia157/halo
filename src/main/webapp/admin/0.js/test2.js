@@ -253,17 +253,83 @@ function updateModalContent(questionJson) {
 
 
 
-
-function updateComments (){
+//CRUD: update
+function updateComments(){
 	
-	let c_seq = $('#COMMENT_CONTENT').val();
-	let c_comment_content = $('#hidden_c_ceq').val();
+	let c_seq = $('#hidden_c_ceq').val();
+	let c_comment_content = $('#COMMENT_CONTENT').val();
+	
+	//확인용
+	console.log("update c_seq: ", c_seq);
+	console.log("update c_comment_content: ", c_comment_content);
 
+	$.ajax({
+		url: 'CommentUpdateC' ,
+		method: 'post',
+		data: {
+		 c_seq: c_seq,
+		 c_comment_content: c_comment_content
+		},
+		
+		success: function(){
+			console.log("업데이트 성공")
+		},
+		error: function(xhr, status, error){
+			console.log("업데이트 실패 에러:", xhr, status, error);
+		}
+	});
+	
 }
 
+//CRUD: insert
+function submitComments(){
 
+	let c_comment_content = $('#c_comment_content').val();
+	//확인용
+	console.log("c_comment_content: ", c_comment_content);
+	
+	$.ajax({
+		url: 'CommentSubmitC',
+		method: 'post',
+		data: {
+			c_comment_content: c_comment_content
+		},
+		
+		success: function(){
+			console.log("Submit 성공");
+		},
+		error: function(xhr, status, error){
+			console.log("Submit 에러: ", xhr, status, error);
+		}
+	
+	});
+}
 
-
+//CRUD: delete
+function deleteQuestion(q_seq) {
+	//확인용
+	alert(q_seq);
+	
+    let ok = confirm("削除しますか?");
+    if (ok) {
+    $.ajax({
+    		url: 'AskDeleteC',
+    		method: 'post',
+    		data: {
+    			q_seq: q_seq
+    		},
+    		success: function(){
+    			console.log("삭제 성공");
+    			location.reload();
+    		},
+    		error: function(xhr, status, error){
+    			console.log("삭제 에러: ", xhr, status, error);
+    		}
+    		
+    		
+    	});
+	}
+}
 
 
 

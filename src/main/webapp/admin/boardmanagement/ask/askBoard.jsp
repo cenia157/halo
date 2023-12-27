@@ -12,15 +12,6 @@
 	href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular"
 	rel="stylesheet" />
 
-<script type="text/javascript">
-function deleteQuestion(n) {
-    let ok = confirm("削除しますか?");
-    if (ok) {
-        location.href= "AskDeleteC?q_seq=" + n;
-    }
-}
-</script>
-
 </head>
 <body>
 	<div class="ontent-m-td-2-content">
@@ -54,23 +45,30 @@ function deleteQuestion(n) {
 			</div>
 <!-- 			foreach문 추가 -->
 
-		<form action="GetDataC" method="post" style="height: 100%; width: 100%;">
-			<c:forEach items="${questions}" var="question">
+			<c:forEach items="${resultList}" var="item">
 			    <div class="ontent-m-td-2-content-txt-in">
-			        <div class="ontent-m-td-2-content-txt-no-in">${question.q_seq}</div>
-			        <div class="ontent-m-td-2-content-txt-kategorie-in"></div>
+			        <div class="ontent-m-td-2-content-txt-no-in">${item.q_seq}</div>
+			        <div class="ontent-m-td-2-content-txt-kategorie-in">
+						<c:choose>
+			                <c:when test="${item.c_answer eq '1'}">
+			                    완
+			                </c:when>
+			                <c:otherwise>
+			                    ${item.c_answer}
+			                </c:otherwise>
+			            </c:choose>
+			        </div>
 				        <div class="ontent-m-td-2-content-txt-title-in">
 			            <!-- JavaScript를 사용하여 form을 동적으로 생성 -->
-			            <a onclick="getData('${question.q_seq}');">${question.q_title}</a>
+			            <a onclick="getData('${item.q_seq}');">${item.q_title}</a>
 				        </div>
-			        <div class="ontent-m-td-2-content-txt-writer-in">${question.q_name}</div>
-			        <div class="ontent-m-td-2-content-txt-date-in">${question.q_reg_date}</div>
+			        <div class="ontent-m-td-2-content-txt-writer-in">${item.q_name}</div>
+			        <div class="ontent-m-td-2-content-txt-date-in">${item.q_reg_date}</div>
 			        <div class="ontent-m-td-2-content-txt-delete-in">
-			            <a onclick="deleteQuestion(${question.q_seq})">삭제하기</a>
+			            <a onclick="deleteQuestion(${item.q_seq})">삭제하기</a>
 			        </div>
 			    </div>
 			</c:forEach>
-		</form>
 
 		</div>
 	</div>

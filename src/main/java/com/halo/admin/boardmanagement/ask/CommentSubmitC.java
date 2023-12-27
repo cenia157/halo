@@ -16,18 +16,11 @@ public class CommentSubmitC extends HttpServlet {
 		QuestionDAO.getAllQuestions(request);
 		AskDAO.AskAnswerSubmit(request, response);
 		
-		
-		
-		request.setAttribute("menu", "/admin/boardmanagement/ask/askContent.jsp");
-		request.getRequestDispatcher("admin/index.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		QuestionDAO.getAllQuestions(request);
 		AskDAO.AskAnswerSubmit(request, response);
-		
-		request.setAttribute("menu", "/admin/boardmanagement/ask/askContent.jsp");
-		request.getRequestDispatcher("admin/index.jsp").forward(request, response);
 		
 	}
 

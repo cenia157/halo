@@ -239,21 +239,34 @@ public class QuestionDAO {
 
 	public static void deleteQuestion(HttpServletRequest request) {
 		Connection con = null;
-		PreparedStatement pstmt = null;
-		String sql = "delete from question_tbl where q_seq=?";
+		PreparedStatement pstmtQ = null;
+		PreparedStatement pstmtC = null;
 		
 		try {
 			try {
 				con = DBManagerhalo_YJ.connect();
-				pstmt = con.prepareStatement(sql);
+
+				String sqlC = "delete from comment_tbl where q_seq=?";
+				pstmtC = con.prepareStatement(sqlC);
+				pstmtC.setInt(1, Integer.parseInt(request.getParameter("q_seq")));
+				System.out.println("Cq_seq: " +request.getParameter("q_seq"));
+				System.out.println("C: "+sqlC);
+
+				String sqlQ = "delete from question_tbl where q_seq=?";
+				pstmtQ = con.prepareStatement(sqlQ);
+				pstmtQ.setInt(1, Integer.parseInt(request.getParameter("q_seq")));
+				System.out.println("Qq_seq: " + request.getParameter("q_seq"));
+				System.out.println("Q: "+sqlQ);
+
 			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
 			}
 
-			pstmt.setString(1, request.getParameter("q_seq"));
 			
-			if (pstmt.executeUpdate()==1) {
-				System.out.println("삭제성공");
+			if (pstmtQ.executeUpdate()==1) {
+				System.out.println("Q삭제성공");
+			} if (pstmtC.executeUpdate()==1) {
+				System.out.println("C삭제성공");
 			}
 			
 		} catch (SQLException e) {
