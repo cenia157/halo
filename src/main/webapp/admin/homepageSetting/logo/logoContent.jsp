@@ -30,10 +30,9 @@
 			<div class="content-m-td-2-side-mid">
 
 				<div class="content-m-td-2-side-mid-logo">
-					<!-- 여기에 이미지 삽입, 식별을 위해 임시로 이미지 대신 스타일삽입하였으므로 나중에 삭제 -->
-					<!-- 현재 이미지 보여주기 (바꾸기 이전 이미지 경로 EL태그 ㄱㄱ) -->
-					<img alt="" src=""
-						style="background-color: gray; height: 40%; width: 70%;">
+					<!-- 현재(기존)이미지 보여주기 (기존 이미지 경로 EL태그) -->
+					<img src="${pageContext.request.contextPath}/user/upload_imgs/${currentLogo}"
+						width: 80%;">
 				</div>
 			</div>
 			<div class="content-m-td-2-side-down"></div>
@@ -71,7 +70,7 @@
 				<div class="content-m-td-2-side-down">
 					<!-- 로고변경 버튼  -->
 					<div class="content-m-td-2-side-down-button">
-						<!-- 변경완료버튼, 실제DB에 업뎃되면서 대기 업로드 대기이미지로 바뀜 -->
+						<!-- 변경완료버튼, 실제DB에 업뎃되면서 대기이미지로 바뀜 -->
 						<button type="button" class="content-button" id="logo_btn_submit"
 							onclick="#">2.변경완료</button>
 
