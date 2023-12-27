@@ -43,7 +43,7 @@
 	border: 1px solid #546137;
 }
 
-#time {
+#selectedTime {
 	text-align: center;
 	height: 100%;
 	width: 30%;
@@ -59,7 +59,7 @@
 	margin-top:7%;
 	text-align: center;
 	width: 100%;
-	height: 5%;
+	height: 12vh;
 	display: flex;
 	justify-content: center;
 	align-items:center;
