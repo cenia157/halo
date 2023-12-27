@@ -16,9 +16,9 @@ pageEncoding="UTF-8"%>
   <body>
    
         <!-- step별 페이지 -->
-        <div class="content-calbox-td">
+        <form action="" class="content-calbox-td" method="post">
           <div class="content-date-select-box-td">
-           <div class="date-sel-text"> 시작일 :<input type="date" id="start-date-sel" class="date-sel" />~
+           <div class="date-sel-text"> 시작일 :<input type="date" id="start-date-sel" class="date-sel" /> ~
            종료일 :<input type="date" id="end-date-sel" class="date-sel" /></div> <br>
           </div>
           <div class="calendar">
@@ -49,10 +49,10 @@ pageEncoding="UTF-8"%>
               <div class="dates"></div>
             </div>
           </div>
-        </div>
         <div class="content-cal-btn-box-td">
         <a href="ServiceC?step=3" class="next-btn">다음으로</a>
         </div>
+        </form>
   </body>
         
 </html>
