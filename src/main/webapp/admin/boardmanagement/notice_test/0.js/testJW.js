@@ -2,10 +2,8 @@
 ClassicEditor
 	.create(document.querySelector('#classicNR'), {
 		simpleUpload: {
-			// The URL that the images are uploaded to.
-			uploadUrl: 'http://example.com/upload/image',
+			uploadUrl: 'http://localhost/halo/admin/0.js/ckeditor/file',
 
-			// Enable the XMLHttpRequest.withCredentials property.
 			withCredentials: true,
 
 			// Headers sent along with the XMLHttpRequest to the upload server.
