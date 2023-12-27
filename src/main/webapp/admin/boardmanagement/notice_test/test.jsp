@@ -78,46 +78,12 @@
 						<textarea name="txt" id="classicNR"></textarea>
 						<!-- 아래의 스크립트 코드는 CK Editor를 불러오는 부분이다-->
 
+<script type="module" src="admin/boardmanagement/notice_test/0.js/testJW.js"></script>
 
 
 
 
 
-	<script type="text/javascript">
-	ClassicEditor
-		.create(document.querySelector('#classicNR'), {
-			ckfinder: {
-				uploadUrl : 'Img_upload'
-			}
-		}).then(function (editor) {
-			// 이미지 업로드 세팅
-			editor.plugins.get('FileRepository').createUploadAdapter = (loader) => {
-				return new MyUploadAdapter(loader, 1);
-			};
-			$('style').append('.ck-content { min-height: ' + $('textarea[name="ckeditor"]').height() + 'px !important; }');
-		}).catch(error => { console.log(error); });
-	</script>
-
-
-
-
-
-
-
-					<script>
-						ClassicEditor
-						.create(document.querySelector('#classicNR'))
-						.then(editor => {
-								window.editor = editor;
-								})
-						.catch(error => {
-								console.error(error);
-								});
-						
-					</script>
-
-
-				
 					</div>
 					<div class="modal-content-button">
 						<button class="SubmitButton" type="submit" id="reg-btn"
@@ -127,11 +93,11 @@
 			</div>
 		</div>
 	</form>
-	
-	
 
 
-<!-- 	
+
+
+	<!-- 	
 	여기 아래는 ajax 예시
 	<script type="text/javascript">
     function fetchPage(name) {
@@ -182,7 +148,7 @@
 </script>
 
 
-asd
+	asd
 
 
 
