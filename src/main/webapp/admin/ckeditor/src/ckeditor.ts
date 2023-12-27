@@ -8,12 +8,12 @@ import { ClassicEditor } from '@ckeditor/ckeditor5-editor-classic';
 import { Autoformat } from '@ckeditor/ckeditor5-autoformat';
 import { Bold, Italic, Strikethrough, Underline } from '@ckeditor/ckeditor5-basic-styles';
 import { BlockQuote } from '@ckeditor/ckeditor5-block-quote';
-import { CKBox } from '@ckeditor/ckeditor5-ckbox';
 import { CloudServices } from '@ckeditor/ckeditor5-cloud-services';
 import type { EditorConfig } from '@ckeditor/ckeditor5-core';
 import { Essentials } from '@ckeditor/ckeditor5-essentials';
 import { FontBackgroundColor, FontColor, FontFamily, FontSize } from '@ckeditor/ckeditor5-font';
 import { Heading } from '@ckeditor/ckeditor5-heading';
+import { HorizontalLine } from '@ckeditor/ckeditor5-horizontal-line';
 import { GeneralHtmlSupport } from '@ckeditor/ckeditor5-html-support';
 import {
 	AutoImage,
@@ -23,26 +23,25 @@ import {
 	ImageResize,
 	ImageStyle,
 	ImageToolbar,
-	ImageUpload,
-	PictureEditing
+	ImageUpload
 } from '@ckeditor/ckeditor5-image';
-import { Indent } from '@ckeditor/ckeditor5-indent';
+import { Indent, IndentBlock } from '@ckeditor/ckeditor5-indent';
 import { Link, LinkImage } from '@ckeditor/ckeditor5-link';
 import { List } from '@ckeditor/ckeditor5-list';
-import { MediaEmbed, MediaEmbedToolbar } from '@ckeditor/ckeditor5-media-embed';
+import { MediaEmbed } from '@ckeditor/ckeditor5-media-embed';
 import { Paragraph } from '@ckeditor/ckeditor5-paragraph';
 import { PasteFromOffice } from '@ckeditor/ckeditor5-paste-from-office';
-import { StandardEditingMode } from '@ckeditor/ckeditor5-restricted-editing';
 import { Style } from '@ckeditor/ckeditor5-style';
 import {
 	Table,
 	TableCaption,
 	TableCellProperties,
 	TableColumnResize,
-	TableProperties,
 	TableToolbar
 } from '@ckeditor/ckeditor5-table';
 import { TextTransformation } from '@ckeditor/ckeditor5-typing';
+import { Undo } from '@ckeditor/ckeditor5-undo';
+import { Base64UploadAdapter } from '@ckeditor/ckeditor5-upload';
 
 // You can read more about extending the build with additional plugins in the "Installing plugins" guide.
 // See https://ckeditor.com/docs/ckeditor5/latest/installation/plugins/installing-plugins.html for details.
@@ -51,9 +50,9 @@ class Editor extends ClassicEditor {
 	public static override builtinPlugins = [
 		AutoImage,
 		Autoformat,
+		Base64UploadAdapter,
 		BlockQuote,
 		Bold,
-		CKBox,
 		CloudServices,
 		Essentials,
 		FontBackgroundColor,
@@ -62,6 +61,7 @@ class Editor extends ClassicEditor {
 		FontSize,
 		GeneralHtmlSupport,
 		Heading,
+		HorizontalLine,
 		Image,
 		ImageCaption,
 		ImageInsert,
@@ -70,26 +70,24 @@ class Editor extends ClassicEditor {
 		ImageToolbar,
 		ImageUpload,
 		Indent,
+		IndentBlock,
 		Italic,
 		Link,
 		LinkImage,
 		List,
 		MediaEmbed,
-		MediaEmbedToolbar,
 		Paragraph,
 		PasteFromOffice,
-		PictureEditing,
-		StandardEditingMode,
 		Strikethrough,
 		Style,
 		Table,
 		TableCaption,
 		TableCellProperties,
 		TableColumnResize,
-		TableProperties,
 		TableToolbar,
 		TextTransformation,
-		Underline
+		Underline,
+		Undo
 	];
 
 	public static override defaultConfig: EditorConfig = {
@@ -98,18 +96,21 @@ class Editor extends ClassicEditor {
 				'heading',
 				'style',
 				'|',
-				'fontColor',
+				'fontBackgroundColor',
 				'fontFamily',
 				'fontSize',
-				'fontBackgroundColor',
-				'strikethrough',
-				'underline',
+				'fontColor',
+				'|',
+				'horizontalLine',
 				'bold',
+				'underline',
+				'strikethrough',
 				'italic',
 				'link',
 				'bulletedList',
 				'numberedList',
 				'|',
+				'-',
 				'outdent',
 				'indent',
 				'|',
@@ -119,10 +120,9 @@ class Editor extends ClassicEditor {
 				'insertTable',
 				'mediaEmbed',
 				'undo',
-				'redo',
-				'|',
-				'ckbox'
-			]
+				'redo'
+			],
+			shouldNotGroupWhenFull: true
 		},
 		language: 'ja',
 		image: {
@@ -140,8 +140,7 @@ class Editor extends ClassicEditor {
 				'tableColumn',
 				'tableRow',
 				'mergeTableCells',
-				'tableCellProperties',
-				'tableProperties'
+				'tableCellProperties'
 			]
 		}
 	};
