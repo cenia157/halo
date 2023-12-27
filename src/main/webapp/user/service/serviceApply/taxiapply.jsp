@@ -15,6 +15,9 @@
 
 
 	<!-- 신청폼 -->
+		<input type="hidden" name="selectedStart" value="${selectedStart }">
+		<input type="hidden" name="selectedEnd" value="${selectedEnd }">
+		<input type="hidden" name="selectedTime" value="${selectedTime }">
 	<div class="content-applyform-td">
 		<div class="content-applyform-tr-1">
 			<div class="categotyselect" name="category" id="category">
@@ -27,10 +30,6 @@
 			</div>
 			<div class="content-applyform-tr-2">
 				<span class="content-applyform-tr-2-1">서비스 받으실 분 성함* :</span> <input
-					class="content-applyform-tr-2-2" type="text">
-			</div>
-			<div class="content-applyform-tr-2">
-				<span class="content-applyform-tr-2-1">지역* :</span> <input
 					class="content-applyform-tr-2-2" type="text">
 			</div>
 			<div class="content-applyform-tr-2">

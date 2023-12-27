@@ -74,7 +74,7 @@
 						</div>
 						<div class="header-opmenu-td">
 							<a class="header-opmenu-a" href="HC?link=6">서비스안내</a> <a
-								class="header-opmenu-a" href="ServiceC">서비스신청</a>
+								class="header-opmenu-a" href="ServiceApplyC">서비스신청</a>
 						</div>
 					</div>
 					<div class="header-td-menu">

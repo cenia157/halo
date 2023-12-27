@@ -11,6 +11,10 @@
 </head>
 <body>
 				<!-- 신청폼 -->
+		<form action="${sevice}" method="post">
+		<input type="hidden" name="selectedStart" value="${selectedStart }">
+		<input type="hidden" name="selectedEnd" value="${selectedEnd }">
+		<input type="hidden" name="selectedTime" value="${selectedTime }">
 			<div class="na-content-applyform-td">
 				<div class="na-content-applyform-tr-1">
 					<div class="categotyselect" name="category" id="category">
@@ -20,7 +24,7 @@
 				<div class="na-content-applyform-td2">
 					<div class="na-content-applyform-tr-2">
 						<span class="na-content-applyform-tr-2-1">신청자 이름* :</span> <input
-							class="na-content-applyform-tr-2-2" type="text">
+							name="" class="na-content-applyform-tr-2-2" type="text">
 					</div>
 					<div class="na-content-applyform-tr-2">
 						<span class="na-content-applyform-tr-2-1">요양받으실 분 성함* :</span> <input
@@ -39,7 +43,7 @@
 			<a href="ServiceC?step=${nextBtn }" class="na-content-cal-btn-td">다음으로</a>
 		</div>
 			</div>
-
+		</form>
 
 </body>
 </html>
