@@ -15,20 +15,28 @@
 	href="${pageContext.request.contextPath}/user/service/serviceApply/0.css/svcselect.css" />
 </head>
 <body>
-
 	<div class="content-serviceselectbox-td">
-		<a href="ServiceC?step=2&svc=nursing" id="nursing"
-			class="content-serviceoption-td">방문요양</a> <a
-			href="ServiceC?step=2&svc=texi" id="texi"
-			class="content-serviceoption-td">개호택시</a> <a
-			href="ServiceC?step=2&svc=nursingTexi" id="nursingTexi"
-			class="content-serviceoption-td">방문요양 & 개호택시</a>
+<form action="" class="content-serviceoption-td">
+		<input type="hidden" name="step" value="2">
+    	<input type="hidden" name="svc" value="nursing">
+		<button type="submit" id="nursing">방문요양</button>
+</form>
+<form action="" class="content-serviceoption-td">
+		<input type="hidden" name="step" value="2">
+    	<input type="hidden" name="svc" value="texi">
+		<button type="submit" id="texi">개호택시</button>
+</form>		
+			
+<form action="" class="content-serviceoption-td">
+		<input type="hidden" name="step" value="2">
+    	<input type="hidden" name="svc" value="nursingTexi">
+		<button type="submit" id="nursingTexi">방문요양 & 개호택시</button>
+			</form>		
 	</div>
 	<div class="content-servicebtn-box-td">
 		<div class="content-servicebtn-td">신청 페이지로 가기</div>
 	</div>
 	<div class="content-reference-txt-td">※이용하실 서비스 내용을 선택 후 신청 페이지
 		버튼을 눌러주세요.</div>
-
 </body>
 </html>
