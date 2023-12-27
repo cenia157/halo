@@ -237,26 +237,26 @@ public class QuestionDAO {
 
 
 
-	public static void deleteQuestion(HttpServletRequest request) {
+	public static void deleteQuestionNComment(HttpServletRequest request) {
 		Connection con = null;
 		PreparedStatement pstmtQ = null;
 		PreparedStatement pstmtC = null;
 		
 		try {
 			try {
-				con = DBManagerhalo_YJ.connect();
+		        con = DBManagerhalo_YJ.connect();
 
-				String sqlC = "delete from comment_tbl where q_seq=?";
-				pstmtC = con.prepareStatement(sqlC);
-				pstmtC.setInt(1, Integer.parseInt(request.getParameter("q_seq")));
-				System.out.println("Cq_seq: " +request.getParameter("q_seq"));
-				System.out.println("C: "+sqlC);
+	            // 먼저 comment_tbl에서 해당 q_seq 값을 가진 레코드 삭제
+	            String sqlC = "DELETE FROM comment_tbl WHERE q_seq=?";
+	            pstmtC = con.prepareStatement(sqlC);
+	            pstmtC.setInt(1, Integer.parseInt(request.getParameter("q_seq")));
+	            pstmtC.executeUpdate(); // comment_tbl에서 레코드 삭제
 
-				String sqlQ = "delete from question_tbl where q_seq=?";
-				pstmtQ = con.prepareStatement(sqlQ);
-				pstmtQ.setInt(1, Integer.parseInt(request.getParameter("q_seq")));
-				System.out.println("Qq_seq: " + request.getParameter("q_seq"));
-				System.out.println("Q: "+sqlQ);
+	            // 이후 question_tbl에서 q_seq 값을 가진 레코드 삭제
+	            String sqlQ = "DELETE FROM question_tbl WHERE q_seq=?";
+	            pstmtQ = con.prepareStatement(sqlQ);
+	            pstmtQ.setInt(1, Integer.parseInt(request.getParameter("q_seq")));
+	            pstmtQ.executeUpdate(); // question_tbl에서 레코드 삭제
 
 			} catch (ClassNotFoundException e) {
 				e.printStackTrace();

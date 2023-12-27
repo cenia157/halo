@@ -18,14 +18,14 @@ public class AskDeleteC extends HttpServlet {
 		QuestionDAO.getAllQuestions(request);
 		List<QuestionNComment> resultList = AskDAO.QuestionsAndComments();
 		request.setAttribute("resultList", resultList);
-		QuestionDAO.deleteQuestion(request);
+		QuestionDAO.deleteQuestionNComment(request);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		QuestionDAO.getAllQuestions(request);
 		List<QuestionNComment> resultList = AskDAO.QuestionsAndComments();
 		request.setAttribute("resultList", resultList);
-		QuestionDAO.deleteQuestion(request);
+		QuestionDAO.deleteQuestionNComment(request);
 	}
 
 }

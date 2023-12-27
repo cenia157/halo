@@ -223,8 +223,6 @@ public class AskDAO {
 			
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
-		}finally {
-			DBManagerhalo_YJ.close(con, pstmt, rs);
 		}
 		System.out.println("결과리스트: "+ resultList);
 		return resultList;
