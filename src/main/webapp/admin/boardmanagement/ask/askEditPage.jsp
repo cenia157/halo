@@ -57,8 +57,8 @@
 						<jsp:include page="askEditPageCustomerQuestion.jsp"></jsp:include>
 					</div>
 					<div class="modal-content-txt-response">
-						<textarea id="COMMENT_CONTENT" class="Edit-textarea" rows="" cols="" 
-						placeholder="코멘트"></textarea>
+						<textarea class="Edit-textarea" rows="" cols="" 
+						id="COMMENT_CONTENT"></textarea>
 					</div>
 				</div>
 				<div class="modal-content-button">

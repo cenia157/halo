@@ -88,7 +88,14 @@ public class AskDAO {
 	            // 댓글 조회 SQL
 	            String sql = "SELECT * FROM comment_tbl WHERE q_seq = ?";
 	            pstmt = con.prepareStatement(sql);
-	            pstmt.setString(1, qSeq);
+	            pstmt.setString(1, request.getParameter("q_seq"));
+	            System.out.println(request.getParameter("q_seq"));
+	            System.out.println("c_seq: "+ request.getParameter("c_seq"));
+	            System.out.println("c_commenter_name: "+ request.getParameter("c_commenter_name"));
+	            System.out.println("c_comment_content: "+ request.getParameter("c_comment_content"));
+	            System.out.println("c_reg_date: " + request.getParameter("c_reg_date"));
+	            System.out.println("c_answer: " + request.getParameter("c_answer"));
+	            System.out.println("q_seq: "+ request.getParameter("q_seq"));
 
 	            rs = pstmt.executeQuery();
 
@@ -98,8 +105,16 @@ public class AskDAO {
 	                String cCommentContent = rs.getString("c_comment_content");
 	                Date cRegDate = rs.getDate("c_reg_date");
 	                String cAnswer = rs.getString("c_answer");
+	                int qSeq = rs.getInt("q_seq");
+	                
+		            System.out.println("c_seq: "+ request.getParameter("c_seq"));
+		            System.out.println("c_commenter_name: "+ request.getParameter("c_commenter_name"));
+		            System.out.println("c_comment_content: "+ request.getParameter("c_comment_content"));
+		            System.out.println("c_reg_date: " + request.getParameter("c_reg_date"));
+		            System.out.println("c_answer: " + request.getParameter("c_answer"));
+		            System.out.println("q_seq: "+ request.getParameter("q_seq"));
 
-	                Comment comment = new Comment(cSeq, cCommenterName, cCommentContent, cRegDate, cAnswer);
+	                Comment comment = new Comment(cSeq, cCommenterName, cCommentContent, cRegDate, cAnswer, qSeq);
 	                commentList.add(comment);
 	            }
 
@@ -116,7 +131,7 @@ public class AskDAO {
 	        return jsonResult;
 	    }
 		
-	}
+
 	
 }
 

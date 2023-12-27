@@ -89,8 +89,6 @@ function closeModalNR() {
 //모달창 데이터
 function getData(q_seq, q_title, q_content, q_reg_date, q_contact_number, q_email, q_name, q_password, q_category) {
     console.log("q_seq: "+ q_seq);
-
-    let c_comment_content = null;
     
     // 첫 번째 Ajax 요청
     $.ajax({
@@ -123,6 +121,8 @@ function getData(q_seq, q_title, q_content, q_reg_date, q_contact_number, q_emai
                     let qPW = data[0].q_password;
                     let qCategory = data[0].q_category;
 
+            		
+            		// questions 데이터 표시
                     $('#QUESTION_TITLE').html(qTitle);
                     $('#QUESTION_DATE').html(formattedDate);
                     $('#QUESTION_NAME').html(qName);
@@ -130,18 +130,18 @@ function getData(q_seq, q_title, q_content, q_reg_date, q_contact_number, q_emai
                     $('#q_seq').val(qSeq);
                     //확인
                     $('#QUESTION_SEQ').html(qSeq);
-                    
+                    console.log(qTitle);
+                    console.log(formattedDate);
+                    console.log(qName);
+                    console.log(qContent);
+                    console.log("=======확인용");
+            		
+            		
                     // comments 데이터를 가져와서 표시
             		getComments(q_seq);
             		
                 } else {
                     console.error("데이터가 비어있거나 배열이 아닙니다.");
-                }
-
-                if (c_comment_content != null) {
-                    openModalA();
-                } else {
-                    openModalN();
                 }
 
             } catch (error) {
@@ -155,9 +155,10 @@ function getData(q_seq, q_title, q_content, q_reg_date, q_contact_number, q_emai
 }
 
 // 댓글 불러오기
-function getComments(c_seq, c_commenter_name, c_comment_content, c_reg_date, c_answer, q_seq) {
+function getComments(q_seq, c_commenter_name, c_comment_content, c_reg_date, c_answer, c_seq) {
     $.ajax({
         url: "GetCommentsC",
+        type: "get",
         dataType: "json",
         data: {
             q_seq: q_seq,
@@ -169,20 +170,35 @@ function getComments(c_seq, c_commenter_name, c_comment_content, c_reg_date, c_a
         },
         success: function (commentData) {
             try {
-                console.log("CommentData:", commentData);
 
                 if (Array.isArray(commentData) && commentData.length > 0) {
-                    let c_seq = commentData[0].c_seq;
+                    let cSeq = commentData[0].c_seq;
                     let c_commenter_name = commentData[0].c_commenter_name;
                     let CRegDate = new Date(commentData[0].c_reg_date);
                     let formattedDate = formatDate(CRegDate);
                     let c_comment_content = commentData[0].c_comment_content;
                     let c_answer = commentData[0].c_answer;
                     let qSeq = commentData[0].q_seq;
+                    
+                    //확인용
+                    console.log("c_seq: ", cSeq);
+            		console.log("q_seq: ", qSeq);
+                	console.log("CommentData:", commentData);
+
 
                     $('#COMMENT_CONTENT').val(c_comment_content);
+                    
+                    //모달창 열기
+	                if (c_comment_content != null) {
+	                    openModalA();
+	                }
+                    
                 } else {
                     console.log("댓글이 없습니다.");
+	                //모달창 열기
+	                if(c_comment_content == null){
+	                openModalN();
+	                }
                 }
             } catch (error) {
                 console.error("댓글 처리 오류:", error);
