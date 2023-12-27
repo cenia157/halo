@@ -17,18 +17,17 @@ import org.apache.tomcat.util.http.fileupload.servlet.ServletFileUpload;
 
 @WebServlet("/LogoUpdateC")
 public class LogoUpdateC extends HttpServlet {
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-	
-		
-		
-		
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		// ajax로 미리보기 띄운 이미지 이름 -> DB에 업뎃
+		MainpageDAO.getMdao().updateLogo(request);
+		response.sendRedirect("/AdminC?link=1");
+
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
-//		MainpageDAO.getMdao().regLogo(request);
-		/* MainpageDAO.getAllHompage_common(request); */
 	}
 
 }
