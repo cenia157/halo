@@ -6,7 +6,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 
 <%@ page import="java.util.Collections" %>
-<%@ page import="com.halo.user.qa.question.QuestionDAO.QuestionComparator" %>
 
 
 
@@ -152,10 +151,10 @@
                   
                   
                   <!-- 2번째 행 여기는 forEach문이겠죠?-->
-					<c:forEach items="${resultList}" var="question">
+					<c:forEach items="${resultList}" var="question" varStatus="loop">
 					    <div class="q_content-box-tr1-td3-1-1-1-2">
 			                    <div class="q_content-box-tr1-td3-1-1-1-2-1 No-width">
-			                      <span>${question.q_seq}</span>
+			                      <span>${loop.index + 1}</span>
 			                    </div>
 			                    <div class="q_content-box-tr1-td3-1-1-1-2-2 writer-width">
 			                      <span>${question.q_name}</span>
@@ -179,16 +178,7 @@
 					    </div>
 					</c:forEach>
 					
-					<!-- Pagination -->
-					<nav aria-label="Page navigation example">
-					    <ul class="pagination">
-					        <c:forEach var="page" begin="1" end="5">
-					            <li class="page-item ${page == currentPage ? 'active' : ''}">
-					                <a class="page-link" href="?currentPage=${page}">●</a>
-					            </li>
-					        </c:forEach>
-					    </ul>
-					</nav>
+
 
 <!-- Bootstrap JS (required for pagination) -->
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>

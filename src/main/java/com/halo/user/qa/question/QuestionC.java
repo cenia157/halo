@@ -16,8 +16,6 @@ import com.halo.admin.boardmanagement.ask.QuestionNComment;
 public class QuestionC extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		QuestionDAO.getAllQuestions(request);
-		
 		List<QuestionNComment> resultList = AskDAO.QuestionsAndComments();
 		request.setAttribute("resultList", resultList);
 		
@@ -29,7 +27,9 @@ public class QuestionC extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		QuestionDAO.questionSubmit(request);
-		QuestionDAO.getAllQuestions(request);
+		List<QuestionNComment> resultList = AskDAO.QuestionsAndComments();
+		request.setAttribute("resultList", resultList);
+		
 		String subMenu = "qa/question/question";
 		request.setAttribute("menu", "user/menu-index.jsp");
 		request.setAttribute("subMenu", subMenu + ".jsp");
