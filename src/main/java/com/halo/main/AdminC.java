@@ -18,6 +18,8 @@ public class AdminC extends HttpServlet {
 		if (request.getParameter("link") != null) {
 			if (request.getParameter("link").equals("1")) {
 				menu = "/admin/homepageSetting/logo/logoContent";
+				//DB에 업뎃된(저장된) 로고 어트리뷰트를 수동으로 실어줬음, 컨트롤 수정시 바꿀 예정
+				MainpageDAO.getMdao().getLogo(request);
 			} else if (request.getParameter("link").equals("2")) {
 				menu = "/admin/homepageSetting/mainpage/mainpageContent";
 			} else if (request.getParameter("link").equals("3")) {

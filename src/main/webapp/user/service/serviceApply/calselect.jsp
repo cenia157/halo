@@ -16,10 +16,10 @@ pageEncoding="UTF-8"%>
   <body>
    
         <!-- step별 페이지 -->
-        <form action="" class="content-calbox-td" method="post">
+        <form action="CalselectC" class="content-calbox-td" method="post">
           <div class="content-date-select-box-td">
-           <div class="date-sel-text"> 시작일 :<input type="date" id="start-date-sel" class="date-sel" /> ~
-           종료일 :<input type="date" id="end-date-sel" class="date-sel" /></div> <br>
+           <div class="date-sel-text"> 시작일 :<input type="date" id="start-date-sel" name="start-date-sel" class="date-sel" /> ~
+           종료일 :<input type="date" id="end-date-sel" name="end-date-sel" class="date-sel" /></div> <br>
           </div>
           <div class="calendar">
             <div class="header">
@@ -50,7 +50,7 @@ pageEncoding="UTF-8"%>
             </div>
           </div>
         <div class="content-cal-btn-box-td">
-        <a href="ServiceC?step=3" class="next-btn">다음으로</a>
+        <button class="next-btn">다음으로</button>
         </div>
         </form>
   </body>
