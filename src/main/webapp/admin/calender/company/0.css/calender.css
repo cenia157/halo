@@ -110,13 +110,22 @@ EDIT ON */
 	color: #ddd;
 }
 
-.sec_cal .dates div {
-/* 		border: 1px solid black; */
-/* 		margin: 0.1%; */
-	
+.sec_cal .dates .current .month-date {
+	width: 100%;
 }
 
+.sec_cal .dates .current div:first-child {
+	display: flex;
+}
 
+.sec_cal .dates .current div:first-child input[type="checkbox"] {
+	width: 20%;
+	cursor: pointer;
+}
+
+.dateCheckBox:checked {
+	accent-color: #ACF6B3;
+}
 
 .nav-btn {
 	width: 8%;
@@ -203,8 +212,72 @@ EDIT ON */
 	transform: rotate(45deg); /* 각도 */
 }
 
-/* ********************************************************* */
+.date-modal {
+	position: absolute;
+	width: 15%;
+	height: auto;
+	border: 1px solid rgba(255, 255, 255, 0.00);
+	background: #FFF;
+	box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.50);
+	border: 1px solid rgba(255, 255, 255, 0.00)
+}
 
+.date-modal-header {
+	display: flex;
+	width: 100%;
+	height: auto;
+}
+
+.date-modal-title {
+	font-size: 2rem;
+	font-weight: 600;
+	line-height: normal;
+/* 	box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.50); */
+	background: #FFF;
+	width: 80%;
+	padding: 2%;
+	display: flex;
+	align-content: center;
+}
+
+.modal-close {
+	position: relative;
+/* 	box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.50); */
+	background: #FFF;
+	width: 20%;
+	height: auto;
+	padding: 2%;
+}
+
+.modal-close::before, .modal-close::after {
+	content: '';
+	position: absolute;
+	width: 80%;
+	height: 4%;
+	top : 40%;
+	background-color: #333;
+}
+
+.modal-close::after {
+	transform: rotate(45deg);
+}
+
+.modal-close::before {
+	transform: rotate(-45deg);
+}
+
+.date-modal-content {
+	font-size: 2rem;
+	font-weight: 600;
+	line-height: normal;
+	background: #FFF;
+	box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.50);
+	width: 100%;
+	height: auto;
+	padding: 2%
+}
+
+/* ********************************************************* */
 .company-form {
 	height: auto;
 	width: 29%;

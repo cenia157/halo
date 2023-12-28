@@ -18,6 +18,7 @@ public class AdminC extends HttpServlet {
 		if (request.getParameter("link") != null) {
 			if (request.getParameter("link").equals("1")) {
 				menu = "/admin/homepageSetting/logo/logoContent";
+				MainpageDAO.getMdao().getLogo(request);
 			} else if (request.getParameter("link").equals("2")) {
 				menu = "/admin/homepageSetting/mainpage/mainpageContent";
 			} else if (request.getParameter("link").equals("3")) {
