@@ -58,12 +58,7 @@ public class AskDAO {
 			
 			pstmt.setString(1, request.getParameter("c_comment_content"));
 			pstmt.setString(2, request.getParameter("c_seq"));
-			System.out.println("ccc: " + request.getParameter("c_comment_content"));
-			System.out.println("csq: " + request.getParameter("c_seq"));
 			
-			//확인용
-			System.out.println("update content: " + request.getParameter("c_comment_content"));
-			System.out.println("update seq: " + request.getParameter("c_seq"));
 			
 			if (pstmt.executeUpdate()==1) {
 				System.out.println("업데이트 성공");
@@ -96,7 +91,6 @@ public class AskDAO {
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				String cAnswer = rs.getString("c_answer");
-				System.out.println("c_answer: " + cAnswer);
 			}
 			
 			if (pstmt.executeUpdate()==1) {
@@ -204,7 +198,6 @@ public class AskDAO {
 			DBManagerhalo_YJ.close(con, pstmt, rs);
 		}
 		
-		System.out.println("결과리스트: "+ resultList);
 		return resultList;
 		
 	}

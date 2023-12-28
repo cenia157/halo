@@ -29,10 +29,12 @@
 		<div class="ontent-m-td-2-mid">
 <!-- 			foreach문 추가 -->
 
-			<c:forEach items="${resultList}" var="item">
+			<c:forEach items="${resultList}" var="item" varStatus="loop">
 			    <div class="ontent-m-td-2-content-txt-in">
 			    	<input hidden="1" name="q_seq" value="${item.q_seq}">
-			        <div class="ontent-m-td-2-content-txt-no-in">${item.q_seq}</div>
+				        <div class="ontent-m-td-2-content-txt-no-in">
+				        	${loop.index + 1}
+				        </div>
 			        <div class="ontent-m-td-2-content-txt-kategorie-in">
 						<c:choose>
 			                <c:when test="${item.c_answer eq '1'}">
@@ -49,7 +51,7 @@
 			        <div class="ontent-m-td-2-content-txt-writer-in">${item.q_name}</div>
 			        <div class="ontent-m-td-2-content-txt-date-in">${item.q_reg_date}</div>
 			        <div class="ontent-m-td-2-content-txt-delete-in">
-			            <a onclick="deleteQuestion(${item.q_seq})">삭제하기</a>
+			            <a onclick="deleteQuestion(${item.q_seq})">削除</a>
 			        </div>
 			    </div>
 			</c:forEach>

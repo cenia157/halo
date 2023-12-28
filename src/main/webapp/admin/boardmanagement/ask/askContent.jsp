@@ -30,13 +30,13 @@
 	<div class="ontent-m-td-2-chackbox">
 		<div class="ontent-m-td-2-chackbox-contain">
 				<div class="ontent-m-td-2-chackbox-contain-input">
-					<input type="checkbox" id="completed_checkbox" name="status_checkbox" onchange="statusCheck()">
+					<input type="checkbox" id="completed_checkbox" name="status_checkbox" onchange="statusCheck()" checked="checked">
 				</div>
-			<div class="ontent-m-td-2-chackbox-contain-txt">応答完了</div>
+				<div class="ontent-m-td-2-chackbox-contain-txt">完</div>
 				<div class="ontent-m-td-2-chackbox-contain-input">
-					<input type="checkbox" id="uncompleted_checkbox" name="status_checkbox" onchange="statusCheck()">
+					<input type="checkbox" id="uncompleted_checkbox" name="status_checkbox" onchange="statusCheck()" checked="checked">
 				</div>
-			<div class="ontent-m-td-2-chackbox-contain-txt">未応答</div>
+				<div class="ontent-m-td-2-chackbox-contain-txt">未</div>
 			<div class="ontent-m-td-2-chackbox-contain-input"></div>
 			<div class="ontent-m-td-2-chackbox-contain-txt"></div>
 			<div class="ontent-m-td-2-chackbox-contain-input"></div>

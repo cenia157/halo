@@ -327,13 +327,30 @@ function deleteQuestion(q_seq) {
 
 
 function statusCheck(){
-
+	
 	let completed_checkbox = document.getElementById('completed_checkbox');
 	let uncompleted_checkbox = document.getElementById('uncompleted_checkbox');
 	
-	let checkbox_result = document.querySelectorAll('')
+	let checkbox_result = document.querySelectorAll(".ontent-m-td-2-content-txt-in")
+	
+	checkbox_result.forEach(function(item) {
+		let YorN = item.querySelector(".ontent-m-td-2-content-txt-kategorie-in");
+		console.log("YorN: ", YorN);
+		
+		let isCompleted = YorN.textContent.trim() === "完";
+		let isUncompleted = YorN.textContent.trim() === "未";
+		
+		
+            if ((completed_checkbox.checked && isCompleted) || (uncompleted_checkbox.checked && isUncompleted) || (completed_checkbox.checked && uncompleted_checkbox.checked)) {
+                 item.style.display = "flex";
+            } else {
+                 item.style.display = "none";
+            }
+	
+		})
+	}
+	
 
-}
 
 
 

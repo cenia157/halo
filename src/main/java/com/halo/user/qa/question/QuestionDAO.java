@@ -43,7 +43,6 @@ public class QuestionDAO {
 			pstmt.setString(6, request.getParameter("q_password"));
 			pstmt.setString(7, request.getParameter("q_category"));
 			
-			System.out.println(request.getParameter("q_title"));
 			
 			
 			if (pstmt.executeUpdate() ==1) {
@@ -127,7 +126,6 @@ public class QuestionDAO {
 	            q.setQ_category(rs.getString("q_category"));
 
 	            request.setAttribute("question", q);
-	            System.out.println("question: " + request.getAttribute("question"));
 	        }
 
 	    } catch (SQLException e) {
@@ -177,12 +175,10 @@ public class QuestionDAO {
 				Question question = new Question(q_seq, q_title, q_content, q_reg_date, q_contact_number, q_email, q_name, q_password, q_category);
                 questionList.add(question);
                 
-                System.out.println("question: " + question);
 				
 	            try {
 	            	ObjectMapper objectMapper = new ObjectMapper();
 					jsonResult = objectMapper.writeValueAsString(questionList);
-					System.out.println("JSON: "+jsonResult);
 				} catch (JsonProcessingException e) {
 					e.printStackTrace();
 				}
