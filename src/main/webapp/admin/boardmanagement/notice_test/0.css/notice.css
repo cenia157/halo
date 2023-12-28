@@ -220,7 +220,7 @@
 여기서부터는  noticeEditPage.jsp 영역!
  */
 .modal-background {
-/* 	display: none; */
+	/* 	display: none; */
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -230,7 +230,7 @@
 }
 
 .modal-tbl {
-/* 	display: none; */
+	/* 	display: none; */
 	width: 100%;
 	height: 100%;
 	position: absolute;
@@ -432,13 +432,8 @@
 	font-size: 1rem;
 }
 
-.ck-editor__editable_inline:not(.ck-comment__input *) {
-	/* 여기서 어떻게 CKEditor의 크기를 100%로 맞출 수 있을까? */
-	overflow-y: auto;
-	height: 100%;
-}
-
 .ck-editor__main {
+	overflow-y: auto;
 	border-bottom: 1px solid #616161;
 	flex-grow: 1;
 	flex-shrink: 1;
@@ -477,35 +472,12 @@
 	font-size: 2.5rem;
 }
 
-/*  */
-/*  */
-/*  */
-/*  */
-/*  */
-/*  */
-/*  */
-/*  */
-/*  */
-/*  */
-/*  */
-
-
-
-
-
-
-
 .toggle {
 	width: 10%;
-	position :relative;
+	position: relative;
 	z-index: 5;
 }
 
-/*  .toggle:hover {
-	border: solid 1px black;
-	width: 10%;
-	height:500%;
-}  */
 .kategorie {
 	background-color: aqua;
 }
@@ -524,10 +496,6 @@
 	display: block;
 	width: 100%;
 }
-
-
-
-
 
 .toggle-item:hover {
 	border: solid 1px black;

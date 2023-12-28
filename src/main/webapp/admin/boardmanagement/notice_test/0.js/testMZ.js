@@ -14,6 +14,7 @@ class MyUploadAdapter {
 			}));
 	}
 
+
 	// Aborts the upload process.
 	abort() {
 		if (this.xhr) {
@@ -29,7 +30,7 @@ class MyUploadAdapter {
 		// integration to choose the right communication channel. This example uses
 		// a POST request with JSON as a data structure but your configuration
 		// could be different.
-		xhr.open('POST', '/halo/MZ', true);
+		xhr.open('POST', '/halo/CKEditorAjax', true);
 		xhr.responseType = 'json';
 	}
 
@@ -116,3 +117,4 @@ ClassicEditor
 	.catch(error => {
 		console.log(error);
 	});
+// 센세 항상 감사합니다ㅠㅠ

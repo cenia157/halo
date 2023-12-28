@@ -25,14 +25,15 @@ public class Ck_DAO {
 			Connection con = null;
 			PreparedStatement pstmt = null;
 			String sql = "INSERT INTO announced_tbl " + "(an_seq, an_title, an_content, an_writer, an_category) "
-					+ "VALUES (announced_tbl_seq.nextval, ?, ?, '더미작성자',?)";
+					+ "VALUES (announced_tbl_seq.nextval, ?, ?, ?, ?)";
 
 			con = DBManagerhalo_JW.connect();
 			pstmt = con.prepareStatement(sql);
 
 			pstmt.setString(1, title);
 			pstmt.setString(2, txt);
-			pstmt.setString(3, select);
+			pstmt.setString(3, "더미작성자2");
+			pstmt.setString(4, select);
 
 			if (pstmt.executeUpdate() == 1) {
 				System.out.println("등록성공");

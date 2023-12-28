@@ -22,9 +22,11 @@ public class MZConfig {
 
 			Enumeration<String> fileNames = mr.getFileNames();
 			while (fileNames.hasMoreElements()) {
+
+				
 				String fileName = fileNames.nextElement();
 				File file = mr.getFile(fileName);
-
+				
 				System.out.println("지금 보이는 결과값은 CKeditor에 이미지를 올렸을 때 ajax로 올라온 파일이다");
 				System.out.println("파일 경로: " + file.getAbsolutePath());
 				System.out.println("파일 이름: " + file.getName());
@@ -35,6 +37,8 @@ public class MZConfig {
 				response.getWriter().write(jo.toJSONString());
 			}
 
+			
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -42,3 +46,18 @@ public class MZConfig {
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -56,7 +56,8 @@
 										</div>
 									</div>
 								</div>
-								<script src="admin/boardmanagement/notice_test/0.js/notice.js"></script>
+								<script
+									src="admin/boardmanagement/notice_test/0.js/noticeToggle.js"></script>
 								<!--  -->
 							</div>
 						</div>
@@ -68,10 +69,15 @@
 				<div class="modal-content">
 					<div class="modal-content-txt">
 						<!-- 아래의 코드는 CK Editor를 넣는 부분이다-->
-						<textarea name="txt" id="classicNR"></textarea>
+						<textarea name="txt" id="classicNR" class="classicNR"></textarea>
 					</div>
 					<div class="modal-content-button">
-						<button class="SubmitButton" type="button" id="reg-btn">등록완료</button>
+
+						<button class="SubmitButton" type="button" id="reg-btn"
+							onclick="noValue()">등aaa록완료</button>
+						<!-- 여기는 필수 입력값을 안넣었을 때 거부하는 부분이다 (아직 미완성, 마지막에 할 예정)-->
+						<!-- <script
+							src="admin/boardmanagement/notice_test/0.js/ValidationItems.js"></script> -->
 					</div>
 				</div>
 			</div>
@@ -81,7 +87,6 @@
 	<!-- 아래의 스크립트는 CKEditor에 올라온 이미지를 ajax로 올리는 역힐이다-->
 	<script type="module"
 		src="admin/boardmanagement/notice_test/0.js/testMZ.js"></script>
-
 	<!-- 여기는 CKEditor에 들어간 값을 서버로 보내는 역할이다 -->
 	<script type="text/javascript">
 	let regBtn = document.querySelector('#reg-btn');
@@ -121,15 +126,6 @@
 			});
 	});
 	</script>
-
-
-
-
-
-
-
-
-
 
 </body>
 </html>
