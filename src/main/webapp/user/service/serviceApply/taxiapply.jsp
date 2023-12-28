@@ -18,6 +18,8 @@
 		<input type="hidden" name="selectedStart" value="${selectedStart }">
 		<input type="hidden" name="selectedEnd" value="${selectedEnd }">
 		<input type="hidden" name="selectedTime" value="${selectedTime }">
+		
+		<textarea class="na-content-applyform-tr-2-2" type="hidden"></textarea>
 	<div class="content-applyform-td">
 		<div class="content-applyform-tr-1">
 			<div class="categotyselect" name="category" id="category">

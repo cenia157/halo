@@ -24,15 +24,15 @@
 				<div class="na-content-applyform-td2">
 					<div class="na-content-applyform-tr-2">
 						<span class="na-content-applyform-tr-2-1">신청자 이름* :</span> <input
-							name="" class="na-content-applyform-tr-2-2" type="text">
+							name="applicant" class="na-content-applyform-tr-2-2" type="text">
 					</div>
 					<div class="na-content-applyform-tr-2">
 						<span class="na-content-applyform-tr-2-1">요양받으실 분 성함* :</span> <input
-							class="na-content-applyform-tr-2-2" type="text">
+							name="user_name" class="na-content-applyform-tr-2-2" type="text">
 					</div>
 					<div class="na-content-applyform-tr-2">
 						<span class="na-content-applyform-tr-2-1">지역 (방문할 주소)* :</span> <input
-							class="na-content-applyform-tr-2-2" type="text">
+							name="" class="na-content-applyform-tr-2-2" type="text">
 					</div>
 					<div class="na-content-applyform-tr-2">
 						<span class="na-content-applyform-tr-2-1">비고란(요청사항)* :</span>
