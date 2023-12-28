@@ -14,7 +14,7 @@
 	<div class="content-m-td-2-wrap">
 		<div class="content-m-td-2-wrap-contain">
 	<!-- 폼태그 => 회사정보변경C -->
-		<form action="InformUpdateC" method="get">
+		<form action="InformUpdateC" method="post">
 			<div class="CompanyInformation">
 				<div class="CompanyInformation-large">
 					<div class="CompanyInformation-info">회사의주소</div>
@@ -56,7 +56,7 @@
 							<div class="CompanyInformation-info">회사의 FAX</div>
 							<div class="CompanyInformation-txt">
 							<!-- 회사 FAX 인풋 -->
-								<textarea name="h_fax" class="CompanyInformation-textarea-mini" rows=""
+								<textarea name="h_fax_no" class="CompanyInformation-textarea-mini" rows=""
 									cols="" placeholder="06-6997-6520"></textarea>
 							</div>
 						</div>

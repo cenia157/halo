@@ -166,7 +166,37 @@ public class MainpageDAO {
 	}
 
 	public void updateFooter(HttpServletRequest request) {
-		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		String newFileName = request.getParameter("newFileName");
+		String sql = "update homepage_common set h_tel_no=?, h_fax_no=?, h_phone_no=?, h_email=?, h_address=? where h_seq=1";
+		String paramName = "error";
+		String param = "등록 실패";
+		try {
+			con = DBManagerhalo.connect();
+			System.out.println(newFileName);
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, request.getParameter("h_tel_no"));
+			pstmt.setString(2, request.getParameter("h_fax_no"));
+			pstmt.setString(3, request.getParameter("h_phone_no"));
+			pstmt.setString(4, request.getParameter("h_email"));
+			pstmt.setString(5, request.getParameter("h_address"));
+			if (pstmt.executeUpdate() == 1) {
+				System.out.println("등록 성공!");
+				
+				param = "등록 성공!";
+				paramName ="success";
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("db server error...");
+		}finally {
+			request.setAttribute("paramName", paramName);
+			request.setAttribute("param", param);
+			DBManagerhalo.close(con, pstmt, null);
+		}
 		
 	}
 	

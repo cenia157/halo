@@ -11,11 +11,13 @@ import javax.servlet.http.HttpServletResponse;
 public class InformUpdateC extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		MainpageDAO.getMdao().getAllHompage_common(request);
-		request.getRequestDispatcher("AdminC?link=4").forward(request, response);
+		
+		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
+		MainpageDAO.getMdao().updateFooter(request);
+		request.getRequestDispatcher("AdminC?link=4").forward(request, response);
 	}
 
 }
