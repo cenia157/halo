@@ -134,7 +134,7 @@
 
 
 
-/*  로고 이미지 파일 업로드 */
+/*  로고 이미지 파일 업로드 칸*/
 .logo_upload{
 	width: auto;
 	height: 100%;
@@ -143,8 +143,15 @@
 	text-align: center;
 }
 
-.logo_preview{
-	width: 50%;
+/*  로고 이미지 미리보기 & 파일업로드 대기 이미지*/
+/* 라벨 */
+.logo_upload > label {
+	width: 100%;
+	display: flex;
+}
+/* 이미지 */
+#logo_preview{
+	width: 80%;
 }
 
 /* 인풋 타입 파일 안보이게 */

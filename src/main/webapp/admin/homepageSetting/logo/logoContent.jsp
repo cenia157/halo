@@ -55,7 +55,7 @@
 						<div class="logo_upload">
 							<!-- 바뀔 이미지 -->
 								<!-- 이미지 랩 -->
-									<label for="logo_img"> 
+									<label for="logo_img">
 								<img id="logo_preview"
 									src="${pageContext.request.contextPath}/admin/0.img/logo_upload.png">
 									</label>
