@@ -45,6 +45,16 @@ pageEncoding="UTF-8"%>
           />
           > 소개 > 앨범
         </div>
+        <a class="a_content-box-tr1-td2-2" href="https://www.instagram.com/ody_1004/" target='_blank'>
+          <div class="a_content-box-tr1-td2-2-1">
+            <img
+              src="${pageContext.request.contextPath}/user/introduce/album/0.img/insta_logo.png"
+              alt=""
+            />
+          </div>
+          <div class="a_content-box-tr1-td2-2-2">instagramで移動</div>
+         </a>
+        
       </div>
 
       <!-- content-box-tr1-td3 ::: display: flex wrap용 -->
@@ -106,9 +116,9 @@ pageEncoding="UTF-8"%>
           method: "GET",
           dataType: "jsonp",
           success: function (response) {
-            console.log('response :::' + response);
+            console.log("response :::" + response);
             items = response.data;
-            console.log('items :::' + items);
+            console.log("items :::" + items);
             makeView();
           },
           error: function (xhr, status, error) {
@@ -135,7 +145,9 @@ pageEncoding="UTF-8"%>
           }
 
           for (let i = page * 9; i < (1 + page) * 9; i++) {
-            if (items[i] == null) { break;}
+            if (items[i] == null) {
+              break;
+            }
 
             if (i % 3 == 0) {
               rowDiv = $("<div></div>").addClass("rowDiv");
@@ -147,7 +159,7 @@ pageEncoding="UTF-8"%>
 
             if (items[i].media_type === "VIDEO") {
               mediaTag = $(
-                "<video class='video' autoplay loop controls></video>"
+                "<video class='video' loop controls></video>"
               ).attr("src", items[i].media_url);
             } else {
               mediaTag = $("<img class='img'>").attr("src", items[i].media_url);
@@ -181,10 +193,10 @@ pageEncoding="UTF-8"%>
 
           let haedHeight = 800;
           let contentHeight = 500;
-          totalHeight = haedHeight + contentHeight
+          totalHeight = haedHeight + contentHeight;
 
           if (scroll_index >= 1) {
-        	  totalHeight += 900;
+            totalHeight += 900;
           }
 
           // 스크롤 값이 800 이상인 경우 makeView 함수 실행
