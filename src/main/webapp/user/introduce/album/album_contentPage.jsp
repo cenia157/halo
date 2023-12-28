@@ -99,12 +99,10 @@ pageEncoding="UTF-8"%>
           <!--           </div> -->
         </div>
         <!--여기까지 동적생성 -->
-        <!--insta more 시작-->
-        <!--           <div class="a_content-box-tr1-td3-2 나중에지우자"></div> -->
-        <!--insta more 끝-->
       </div>
     </div>
     <script type="text/javascript">
+	  //전역변수들
       let page = 0;
       let totalPage;
       let items;
@@ -274,7 +272,7 @@ pageEncoding="UTF-8"%>
               scroll_per_val = 84;
               break;
             case 2:
-              scroll_per_val = 85;
+              scroll_per_val = 90;
               break;
             default:
               scroll_per_val = 101; // 예외 처리 101 도달 불가능함
@@ -292,9 +290,9 @@ pageEncoding="UTF-8"%>
 
             scroll_index++;
             console.log("scroll_index ::" + scroll_index);
-          }
+          } // if (scrollPercentage >= scroll_per_val)
         }); // window.addEventListener('scroll', function()
-      });
+      }); //  $(document).ready(function () {
     </script>
   </body>
 </html>
