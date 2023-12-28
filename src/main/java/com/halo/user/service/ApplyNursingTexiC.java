@@ -8,16 +8,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet("/NursingTexiC")
-public class NursingTexiC extends HttpServlet {
+@WebServlet("/ApplyNursingTexiC")
+public class ApplyNursingTexiC extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
 	SeviceApplyDAO.calSelect(request);
-	SeviceApplyDAO.timeSelect(request);
-	SeviceApplyDAO.nursingTexi(request);
+
 
 	request.setAttribute("agree", "ApplyNursingTexiC");
 	request.setAttribute("serviceStep", "agree.jsp");

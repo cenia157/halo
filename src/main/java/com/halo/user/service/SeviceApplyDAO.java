@@ -1,9 +1,15 @@
 package com.halo.user.service;
 
+import java.sql.Connection;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import com.google.gson.Gson;
+import com.halo.main.DBManagerhalo;
+
 public class SeviceApplyDAO {
+private static Connection con = null;
 
 	public static void svcSelect(HttpServletRequest request) {
 		String selectedService = request.getParameter("service");
@@ -38,8 +44,6 @@ public class SeviceApplyDAO {
 		request.setAttribute("selectedTime", selectedTime);
 	}
 
-
-	
 
 	public static void nursingApply(HttpServletRequest request) {
 
@@ -118,14 +122,15 @@ public class SeviceApplyDAO {
 		System.out.println(userName);
 		System.out.println(userGender);
 		System.out.println(addr);
-		System.out.println(niText);
 		System.out.println(startAddr);
 		System.out.println(endAddr);
+		System.out.println(niText);
 		System.out.println(tiText);
 		
 		request.setAttribute("applicant", applicant);
 		request.setAttribute("phoneNum", phoneNum);
 		request.setAttribute("userName", userName);
+		request.setAttribute("userGender", userGender);
 		request.setAttribute("addr", addr);
 		request.setAttribute("niText", niText);
 		request.setAttribute("startAddr", startAddr);
@@ -133,5 +138,50 @@ public class SeviceApplyDAO {
 		request.setAttribute("tiText", tiText);
 		
 	}
+
+
+	public static void applyNursingTexi(HttpServletRequest request) {
+		PreparedStatement pstmt = null;
+		try {
+			
+		// 문자인코딩형식
+		request.setCharacterEncoding("UTF-8");
+		String sql = "insert into company_schedule values(company_schedule_seq.nextval, ?, ?, ?, ?, ?)";
+		con = DBManagerhalo.connect();
+		pstmt = con.prepareStatement(sql);
+		
+		
+		
+		
+		
+
+			pstmt.setString(1, name);
+			pstmt.setString(2, id);
+			pstmt.setString(3, pw);
+			pstmt.setString(4, gender);
+			pstmt.setString(5, addr);
+			pstmt.setString(6, interest2);
+			pstmt.setString(7, txt);
+			pstmt.setString(8, img);
+
+			if (pstmt.executeUpdate() == 1) {
+				System.out.println("등록성공");
+				return "등록성공";
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("일정추가 실패");
+		} finally {
+			DBManagerhalo.close(con, pstmt, null);
+		}
+
+	}
+
+	public String toJson() {
+		Gson gson = new Gson();
+		return gson.toJson(this);
+	}
+
 
 }
