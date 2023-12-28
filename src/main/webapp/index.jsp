@@ -37,8 +37,9 @@
 			<div class="header-tr-1">
 				<div class="header-br-logo">
 					<!-- 로고 이미지 경로 확인, 텍스트까지 이미지로 업로드, <a>홈으로 연결 -->
+					<a href="HC">
 					<img src="user/upload_imgs/${currentLogo}">
-					<a href="">ハロー</a>
+					</a>
 				</div>
 				<div class="header-br-space"></div>
 <!-- 				전화번호 수정 가능하도록, 회사정보(footer 변경 어트리뷰트 재활용) -->

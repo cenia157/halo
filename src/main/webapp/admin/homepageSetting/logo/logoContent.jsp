@@ -32,10 +32,13 @@
 				<div class="content-m-td-2-side-mid-logo">
 					<!-- 현재(기존)이미지 보여주기 (기존 이미지 경로 EL태그) -->
 					<img src="${pageContext.request.contextPath}/user/upload_imgs/${currentLogo}"
-						width: 50%;">
+						width: 50%;>
 				</div>
 			</div>
-			<div class="content-m-td-2-side-down"></div>
+			<div class="content-m-td-2-side-down">
+			<h2 class="logo_result success">${param.success}</h2>
+			<h2 class="logo_result error">${param.error}</h2>
+			</div>
 		</div>
 		<div class="content-m-td-2-mid">
 			<div class="content-m-td-2-mid-Play">
@@ -53,8 +56,7 @@
 					<!-- 변경할 로고 파일 업로드 인풋 & 이미지미리보기 ajax 아니면 jstl 조건문으로 -->
 					<div class="content-m-td-2-side-mid-logo2">
 						<div class="logo_upload">
-							<!-- 바뀔 이미지 -->
-								<!-- 이미지 랩 -->
+							<!-- 바뀔 이미지 미리보기(Ajax) -->
 									<label for="logo_img">
 								<img id="logo_preview"
 									src="${pageContext.request.contextPath}/admin/0.img/logo_upload.png">

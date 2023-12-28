@@ -115,6 +115,8 @@ public class MainpageDAO {
 		PreparedStatement pstmt = null;
 		String newFileName = request.getParameter("newFileName");
 		String sql = "update homepage_common set h_logo_img = ? where h_seq=1";
+		String paramName = "error";
+		String param = "등록 실패";
 		try {
 			con = DBManagerhalo.connect();
 			System.out.println(newFileName);
@@ -122,14 +124,17 @@ public class MainpageDAO {
 			pstmt.setString(1, newFileName);
 			if (pstmt.executeUpdate() == 1) {
 				System.out.println("등록 성공!");
-			}else {
-				System.out.println("등록 실패");
+				
+				param = "등록 성공!";
+				paramName ="success";
 			}
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("db server error...");
 		}finally {
+			request.setAttribute("paramName", paramName);
+			request.setAttribute("param", param);
 			DBManagerhalo.close(con, pstmt, null);
 		}
 	}
@@ -152,6 +157,8 @@ public class MainpageDAO {
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}finally {
+			DBManagerhalo.close(con, pstmt, rs);
 		}
 		
 		
