@@ -81,7 +81,7 @@
 
 /* 로고이미지 변경쪽 form태그 안 박스 */
 .content-m-td-2-side2 {
-	width: 90%;
+	width: 50%;
 	height: 100%;
 	display: block;
 }
@@ -104,7 +104,7 @@
 
 .content-m-td-2-side-up-title2 {
 	height: 100%;
-	width: 90%;
+	width: 50%;
 	display: flex;
 	align-items: center;
 	font-size: 2.5rem;
@@ -134,7 +134,7 @@
 
 
 
-/*  로고 이미지 파일 업로드 */
+/*  로고 이미지 파일 업로드 칸*/
 .logo_upload{
 	width: auto;
 	height: 100%;
@@ -143,7 +143,16 @@
 	text-align: center;
 }
 
-
+/*  로고 이미지 미리보기 & 파일업로드 대기 이미지*/
+/* 라벨 */
+.logo_upload > label {
+	width: 100%;
+	display: flex;
+}
+/* 이미지 */
+#logo_preview{
+	width: 80%;
+}
 
 /* 인풋 타입 파일 안보이게 */
 #logo_img{
