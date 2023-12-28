@@ -6,7 +6,8 @@ import java.net.URLEncoder;
 import javax.servlet.http.HttpServletRequest;
 
 public class HaloUtils {
-
+	
+	// 결과값 한글로 파람 넘길떄 인코딩, 자르기
 	public static String setParam(HttpServletRequest request) {
 		String param="";
 		try {

@@ -74,7 +74,7 @@
 					<div class="content-m-td-2-side-down-button">
 						<!-- 변경완료버튼, 실제DB에 업뎃되면서 대기이미지로 바뀜 -->
 						<button type="button" class="content-button" id="logo_btn_submit"
-							onclick="#">2.변경완료</button>
+							onclick="#">변경완료</button>
 
 					</div>
 

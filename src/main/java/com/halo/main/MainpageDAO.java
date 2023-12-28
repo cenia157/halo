@@ -138,7 +138,8 @@ public class MainpageDAO {
 			DBManagerhalo.close(con, pstmt, null);
 		}
 	}
-
+	
+	//컨트롤러 수정 전에 로고 어트리뷰트 수동으로 실어주기 위한 메소드
 	public void getLogo(HttpServletRequest request) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -163,6 +164,12 @@ public class MainpageDAO {
 		
 		
 	}
+
+	public void updateFooter(HttpServletRequest request) {
+		
+		
+	}
+	
 	
 	
 	

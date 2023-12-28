@@ -153,6 +153,7 @@
 		<!-- Footer풋터 시작 -->
 		<div class="footer-tbl">
 			<div class="footer-tr">
+			<!-- TODO 서효원 admin페이지에서 footer정보 변경 가능하도록 -->
 				<div class="footer-item-td-1">
 					Tel. 06-6997-6531 <br /> FAX : 06-6997-6520 <br /> PhoneNumber :
 					090-8799-3855 <br /> email : hello20201110@gmail.com <br />
