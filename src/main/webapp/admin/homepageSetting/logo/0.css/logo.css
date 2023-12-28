@@ -143,7 +143,9 @@
 	text-align: center;
 }
 
-
+.logo_preview{
+	width: 50%;
+}
 
 /* 인풋 타입 파일 안보이게 */
 #logo_img{
