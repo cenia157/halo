@@ -11,16 +11,14 @@ import javax.servlet.http.HttpServletResponse;
 public class InsertCompanyC extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
-		
-		
+
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+
 		CompanyDAO.insertCompanySchedule(request);
-		
+
 		request.setAttribute("menu", "/admin/calender/company/companyContent.jsp");
 		request.getRequestDispatcher("admin/index.jsp").forward(request, response);
 	}
