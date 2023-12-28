@@ -124,6 +124,8 @@ function getData(q_seq, q_title, q_content, q_reg_date, q_contact_number, q_emai
                     let qName = data[0].q_name;
                     let qPW = data[0].q_password;
                     let qCategory = data[0].q_category;
+                    
+                    console.log("qSeq: ", qSeq);
 
             		
             		// A questions 데이터 표시
@@ -161,6 +163,9 @@ function getData(q_seq, q_title, q_content, q_reg_date, q_contact_number, q_emai
 
 // 댓글 불러오기
 function getComments(q_seq, c_commenter_name, c_comment_content, c_reg_date, c_answer, c_seq) {
+    
+    console.log("콘솔: ", q_seq);
+    
     $.ajax({
         url: "GetCommentsC",
         type: "post",
@@ -184,16 +189,10 @@ function getComments(q_seq, c_commenter_name, c_comment_content, c_reg_date, c_a
                     let c_comment_content = commentData[0].c_comment_content;
                     let c_answer = commentData[0].c_answer;
                     let qSeq = commentData[0].q_seq;
-                    
-                    //확인용
-                    console.log("c_seq: ", cSeq);
-            		console.log("q_seq: ", qSeq);
-                	console.log("CommentData:", commentData);
-
 
                     $('#COMMENT_CONTENT').val(c_comment_content);
                     $('#COMMENT_NAME').html(c_commenter_name);
-                    $('#hidden_c_ceq').val(cSeq);
+                    $('#hidden_c_seq').val(cSeq);
                     
                     //모달창 열기
 	                if (c_comment_content != null) {
@@ -202,9 +201,10 @@ function getComments(q_seq, c_commenter_name, c_comment_content, c_reg_date, c_a
                     
                 } else {
                     console.log("댓글이 없습니다.");
+                    console.log("QSEQ: " + q_seq); 
 	                //모달창 열기
 	                if(c_comment_content == null){
-	                openModalN();
+	                openModalN(q_seq);
 	                }
                 }
             } catch (error) {
@@ -256,12 +256,8 @@ function updateModalContent(questionJson) {
 //CRUD: update
 function updateComments(){
 	
-	let c_seq = $('#hidden_c_ceq').val();
+	let c_seq = $('#hidden_c_seq').val();
 	let c_comment_content = $('#COMMENT_CONTENT').val();
-	
-	//확인용
-	console.log("update c_seq: ", c_seq);
-	console.log("update c_comment_content: ", c_comment_content);
 
 	$.ajax({
 		url: 'CommentUpdateC' ,
@@ -285,18 +281,19 @@ function updateComments(){
 function submitComments(){
 
 	let c_comment_content = $('#c_comment_content').val();
-	//확인용
-	console.log("c_comment_content: ", c_comment_content);
+	let q_seq = $('#q_seq').val();
 	
 	$.ajax({
 		url: 'CommentSubmitC',
 		method: 'post',
 		data: {
+			q_seq: q_seq,
 			c_comment_content: c_comment_content
 		},
 		
 		success: function(){
 			console.log("Submit 성공");
+			location.reload(true);
 		},
 		error: function(xhr, status, error){
 			console.log("Submit 에러: ", xhr, status, error);
@@ -307,9 +304,6 @@ function submitComments(){
 
 //CRUD: delete
 function deleteQuestion(q_seq) {
-	//확인용
-	alert(q_seq);
-	
     let ok = confirm("削除しますか?");
     if (ok) {
     $.ajax({
@@ -332,7 +326,14 @@ function deleteQuestion(q_seq) {
 }
 
 
+function statusCheck(){
 
+	let completed_checkbox = document.getElementById('completed_checkbox');
+	let uncompleted_checkbox = document.getElementById('uncompleted_checkbox');
+	
+	let checkbox_result = document.querySelectorAll('')
+
+}
 
 
 

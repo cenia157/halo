@@ -57,7 +57,7 @@
 					<div class="modal-content-txt-response">
 						<textarea class="Edit-textarea" rows="" cols="" 
 						id="COMMENT_CONTENT" name="c_comment_content"></textarea>
-						<input id="hidden_c_ceq" name="c_seq" hidden="1" >
+						<input id="hidden_c_seq" name="c_seq" hidden="1" >
 					</div>
 				</div>
 				<div class="modal-content-button">

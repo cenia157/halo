@@ -152,7 +152,7 @@
                   
                   
                   <!-- 2번째 행 여기는 forEach문이겠죠?-->
-					<c:forEach items="${questions}" var="question">
+					<c:forEach items="${resultList}" var="question">
 					    <div class="q_content-box-tr1-td3-1-1-1-2">
 			                    <div class="q_content-box-tr1-td3-1-1-1-2-1 No-width">
 			                      <span>${question.q_seq}</span>
@@ -164,8 +164,14 @@
 			                      <a href="QuestionDetailC?q_seq=${question.q_seq}">${question.q_title}</a>
 			                    </div>
 			                    <div class="q_content-box-tr1-td3-1-1-1-2-4 answer-width">
-<!-- 추후 추가할 것 / c_seq!=null 이면 답변된 것? -->
-<%-- 			                      <span>${question.q_answer}</span> --%>
+			                    	<c:choose>
+						                <c:when test="${question.c_answer eq '1'}">
+						                    完
+						                </c:when>
+						                <c:otherwise>
+						                    未
+						                </c:otherwise>
+						            </c:choose>
 			                    </div>
 			                    <div class="q_content-box-tr1-td3-1-1-1-2-5 reg-width">
 			                      <span>${question.q_reg_date}</span>

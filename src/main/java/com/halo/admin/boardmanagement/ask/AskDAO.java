@@ -1,6 +1,5 @@
 package com.halo.admin.boardmanagement.ask;
 
-import java.io.Console;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -14,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.halo.main.DBManagerhalo;
 import com.halo.test.DBManagerhalo_YJ;
 
 public class AskDAO {
@@ -22,7 +20,8 @@ public class AskDAO {
 	public static void AskAnswerSubmit(HttpServletRequest request, HttpServletResponse response) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
-		String sql = "insert into comment_tbl values (comment_tbl_seq.nextval, ?, ?, sysdate, ?,?)";
+		String sql = "insert into comment_tbl (c_seq, c_commenter_name, c_comment_content, c_reg_date, c_answer, q_seq)"
+				+ " values (comment_tbl_seq.nextval, ?, ?, sysdate, ?,?)";
 		
 		try {
 			con = DBManagerhalo_YJ.connect();
@@ -33,7 +32,7 @@ public class AskDAO {
 			pstmt.setString(2, request.getParameter("c_comment_content"));
 			pstmt.setString(3, "1");
 			pstmt.setString(4, request.getParameter("q_seq"));
-			
+
 			
 			if (pstmt.executeUpdate()==1) {
 				System.out.println("코멘트 성공");
@@ -41,8 +40,10 @@ public class AskDAO {
 				System.err.println("코멘트 실패");
 			}
 			
-		} catch (SQLException | ClassNotFoundException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
+		}finally {
+			DBManagerhalo_YJ.close(con, pstmt, null);
 		}
 	}
 	
@@ -57,6 +58,8 @@ public class AskDAO {
 			
 			pstmt.setString(1, request.getParameter("c_comment_content"));
 			pstmt.setString(2, request.getParameter("c_seq"));
+			System.out.println("ccc: " + request.getParameter("c_comment_content"));
+			System.out.println("csq: " + request.getParameter("c_seq"));
 			
 			//확인용
 			System.out.println("update content: " + request.getParameter("c_comment_content"));
@@ -68,41 +71,16 @@ public class AskDAO {
 				System.out.println("업데이트 실패");
 			}
 			
-		} catch (ClassNotFoundException | SQLException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			DBManagerhalo_YJ.close(con, pstmt, null);
 		}
 		
 		
 		
 	}
 	
-	
-	
-	public static String AnswerOrNot(HttpServletRequest request) {
-		Connection con = null;
-		PreparedStatement pstmt = null;
-		String sql = "select c_answer from comment_tbl where c_seq=?";
-		String c_answer = null;
-		
-		try {
-			con = DBManagerhalo_YJ.connect();
-			pstmt = con.prepareStatement(sql);
-
-			c_answer = request.getParameter("c_answer");
-			pstmt.setString(1, request.getParameter("c_seq"));
-		
-			
-				if (c_answer != null) {
-					c_answer = "完";
-				}else {
-					c_answer = "未";
-				}
-
-		} catch (SQLException | ClassNotFoundException e) {
-			e.printStackTrace();
-		}
-		return c_answer;
-	}
 	
 	//답변여부
 	public static void AskAnswerYorN(HttpServletRequest request) {
@@ -127,7 +105,7 @@ public class AskDAO {
 				System.out.println("answer 값 변환 실패");
 			}
 			
-		} catch (ClassNotFoundException | SQLException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
 			DBManagerhalo_YJ.close(con, pstmt, rs);
@@ -142,11 +120,10 @@ public class AskDAO {
 	        ArrayList<Comment> commentList = new ArrayList<>();
 	        String jsonResult = null;
 
-	        // TODO: 데이터베이스 연결 및 예외 처리 등 필요한 부분은 여기에 추가
 
 	        try {
 	            con = DBManagerhalo_YJ.connect();
-
+	            System.out.println("댓글조회 시도");
 	            // 댓글 조회 SQL
 	            String sql = "SELECT * FROM comment_tbl WHERE q_seq = ?";
 	            pstmt = con.prepareStatement(sql);
@@ -170,11 +147,11 @@ public class AskDAO {
 	            ObjectMapper objectMapper = new ObjectMapper();
 	            jsonResult = objectMapper.writeValueAsString(commentList);
 
-	        } catch (ClassNotFoundException | SQLException | JsonProcessingException e) {
+	        } catch (SQLException | JsonProcessingException e) {
 	            e.printStackTrace();
-	        } finally {
-	            DBManagerhalo_YJ.close(con, pstmt, rs);
-	        }
+	        }finally {
+				DBManagerhalo_YJ.close(con, pstmt, rs);
+			}
 
 	        return jsonResult;
 	    }
@@ -221,9 +198,12 @@ public class AskDAO {
 				resultList.add(questionNComment);
 			}
 			
-		} catch (ClassNotFoundException | SQLException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
+		}finally {
+			DBManagerhalo_YJ.close(con, pstmt, rs);
 		}
+		
 		System.out.println("결과리스트: "+ resultList);
 		return resultList;
 		

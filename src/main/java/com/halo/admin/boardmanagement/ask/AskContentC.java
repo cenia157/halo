@@ -16,7 +16,7 @@ import com.halo.user.qa.question.QuestionDAO;
 public class AskContentC extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		QuestionDAO.getAllQuestions(request);
+//		QuestionDAO.getAllQuestions(request);
 		List<QuestionNComment> resultList = AskDAO.QuestionsAndComments();
 		request.setAttribute("resultList", resultList);
 		
@@ -26,7 +26,7 @@ public class AskContentC extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		QuestionDAO.getAllQuestions(request);
+//		QuestionDAO.getAllQuestions(request);
 		List<QuestionNComment> resultList = AskDAO.QuestionsAndComments();
 		request.setAttribute("resultList", resultList);
 		

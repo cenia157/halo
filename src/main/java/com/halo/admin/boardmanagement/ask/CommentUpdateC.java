@@ -18,7 +18,7 @@ public class CommentUpdateC extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		AskDAO.AskAnswerUpdate(request);
-		QuestionDAO.getAllQuestions(request);
+//		QuestionDAO.getAllQuestions(request);
 		String comments = AskDAO.commentList(request, response);
 		request.setAttribute("comments", comments);
 		System.out.println("comments: "+ comments);

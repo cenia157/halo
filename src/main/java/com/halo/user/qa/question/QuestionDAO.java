@@ -32,12 +32,8 @@ public class QuestionDAO {
 		
 		try {
 
-			try {
-				con = DBManagerhalo_YJ.connect();
-				pstmt = con.prepareStatement(sql);
-			} catch (ClassNotFoundException e) {
-				e.printStackTrace();
-			}
+			con = DBManagerhalo_YJ.connect();
+			pstmt = con.prepareStatement(sql);
 			
 			pstmt.setString(1, request.getParameter("q_title"));
 			pstmt.setString(2, request.getParameter("q_content"));
@@ -94,8 +90,10 @@ public class QuestionDAO {
 				}
 				
 				request.setAttribute("questions", questions);
-		} catch (SQLException | ClassNotFoundException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
+		}finally {
+			DBManagerhalo_YJ.close(con, pstmt, rs);
 		}
 		
 		
@@ -132,7 +130,7 @@ public class QuestionDAO {
 	            System.out.println("question: " + request.getAttribute("question"));
 	        }
 
-	    } catch (SQLException | ClassNotFoundException e) {
+	    } catch (SQLException e) {
 	        e.printStackTrace();
 	    } finally {
 	        DBManagerhalo_YJ.close(con, pstmt, rs);
@@ -178,6 +176,8 @@ public class QuestionDAO {
 				
 				Question question = new Question(q_seq, q_title, q_content, q_reg_date, q_contact_number, q_email, q_name, q_password, q_category);
                 questionList.add(question);
+                
+                System.out.println("question: " + question);
 				
 	            try {
 	            	ObjectMapper objectMapper = new ObjectMapper();
@@ -189,7 +189,7 @@ public class QuestionDAO {
 				
 			}
 			
-		} catch (ClassNotFoundException | SQLException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			DBManagerhalo_YJ.close(con, pstmt, rs);
@@ -226,8 +226,10 @@ public class QuestionDAO {
 	            questionsArray.add(question);
 			}
 			
-		} catch (SQLException | ClassNotFoundException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			DBManagerhalo_YJ.close(con, pstmt, rs);
 		}
 		return questionsArray;
 		
@@ -243,24 +245,19 @@ public class QuestionDAO {
 		PreparedStatement pstmtC = null;
 		
 		try {
-			try {
-		        con = DBManagerhalo_YJ.connect();
+			con = DBManagerhalo_YJ.connect();
 
-	            // 먼저 comment_tbl에서 해당 q_seq 값을 가진 레코드 삭제
-	            String sqlC = "DELETE FROM comment_tbl WHERE q_seq=?";
-	            pstmtC = con.prepareStatement(sqlC);
-	            pstmtC.setInt(1, Integer.parseInt(request.getParameter("q_seq")));
-	            pstmtC.executeUpdate(); // comment_tbl에서 레코드 삭제
+			// 먼저 comment_tbl에서 해당 q_seq 값을 가진 레코드 삭제
+			String sqlC = "DELETE FROM comment_tbl WHERE q_seq=?";
+			pstmtC = con.prepareStatement(sqlC);
+			pstmtC.setInt(1, Integer.parseInt(request.getParameter("q_seq")));
+			pstmtC.executeUpdate(); // comment_tbl에서 레코드 삭제
 
-	            // 이후 question_tbl에서 q_seq 값을 가진 레코드 삭제
-	            String sqlQ = "DELETE FROM question_tbl WHERE q_seq=?";
-	            pstmtQ = con.prepareStatement(sqlQ);
-	            pstmtQ.setInt(1, Integer.parseInt(request.getParameter("q_seq")));
-	            pstmtQ.executeUpdate(); // question_tbl에서 레코드 삭제
-
-			} catch (ClassNotFoundException e) {
-				e.printStackTrace();
-			}
+			// 이후 question_tbl에서 q_seq 값을 가진 레코드 삭제
+			String sqlQ = "DELETE FROM question_tbl WHERE q_seq=?";
+			pstmtQ = con.prepareStatement(sqlQ);
+			pstmtQ.setInt(1, Integer.parseInt(request.getParameter("q_seq")));
+			pstmtQ.executeUpdate(); // question_tbl에서 레코드 삭제
 
 			
 			if (pstmtQ.executeUpdate()==1) {
@@ -272,17 +269,12 @@ public class QuestionDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 			System.out.println("삭제실패");
+		} finally {
+			DBManagerhalo_YJ.close(con, pstmtC, null);
 		}
 		
 	}
 	
-	public class QuestionComparator implements Comparator<Question> {
-	    @Override
-	    public int compare(Question q1, Question q2) {
-	        // 시퀀스를 기준으로 오름차순 정렬
-	        return Integer.compare(q1.getQ_seq(), q2.getQ_seq());
-	    }
-	}
 
 	
     

@@ -30,7 +30,6 @@
 			<div class="modal-title-tr">
 				<div class="modal-title-td-1">
 
-
 					<div class="real-title">
 						<div class="real-title-up"> <span id="N_QUESTION_TITLE"></span> </div>
 						<div class="real-title-down">
@@ -61,7 +60,10 @@
 						cols="" placeholder="여기는 고객의 질문에 대답하는 곳"></textarea>
 				</div>
 				<div class="modal-content-button">
-					<input hidden="1"; id="q_seq" name="q_seq"/>
+				
+					<!-- 					q_seq값 넘기기 -->
+					<input hidden="1" id="q_seq" name="q_seq"/>
+					
 					<button class="SubmitButton" onclick="submitComments(); closeModalN();">답변하기</button>
 				</div>
 				

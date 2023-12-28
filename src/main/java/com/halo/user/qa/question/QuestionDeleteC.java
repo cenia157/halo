@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 public class QuestionDeleteC extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		QuestionDAO.deleteQuestion(request);
+		QuestionDAO.deleteQuestionNComment(request);
 		QuestionDAO.getAllQuestions(request);
 		String subMenu = "qa/question/question";
 		request.setAttribute("menu", "user/menu-index.jsp");
@@ -20,7 +20,7 @@ public class QuestionDeleteC extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		QuestionDAO.deleteQuestion(request);
+		QuestionDAO.deleteQuestionNComment(request);
 		QuestionDAO.getAllQuestions(request);
 		String subMenu = "qa/question/question";
 		request.setAttribute("menu", "user/menu-index.jsp");

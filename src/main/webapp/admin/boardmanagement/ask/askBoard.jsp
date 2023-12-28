@@ -27,26 +27,11 @@
 			</div>
 		</div>
 		<div class="ontent-m-td-2-mid">
-<!-- 			<div class="ontent-m-td-2-content-txt-in"> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-no-in">8</div> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-kategorie-in">미답변</div> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-title-in"><a onclick="openModalN()">이곳을 클릭하면 미답변 모달이 열릴 것이다</a></div> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-writer-in">8</div> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-date-in">8</div> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-delete-in"> <a onclick="deleteQuestion()">삭제하기</a></div> -->
-<!-- 			</div> -->
-<!-- 			<div class="ontent-m-td-2-content-txt-in"> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-no-in">7</div> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-kategorie-in">답변</div> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-title-in"><a onclick="openModalA()">이곳을 클릭하면 답변 모달이 열릴 것이다</a></div> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-writer-in">7</div> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-date-in">7</div> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-delete-in">삭제하기</div> -->
-<!-- 			</div> -->
 <!-- 			foreach문 추가 -->
 
 			<c:forEach items="${resultList}" var="item">
 			    <div class="ontent-m-td-2-content-txt-in">
+			    	<input hidden="1" name="q_seq" value="${item.q_seq}">
 			        <div class="ontent-m-td-2-content-txt-no-in">${item.q_seq}</div>
 			        <div class="ontent-m-td-2-content-txt-kategorie-in">
 						<c:choose>
@@ -59,7 +44,6 @@
 			            </c:choose>
 			        </div>
 				        <div class="ontent-m-td-2-content-txt-title-in">
-			            <!-- JavaScript를 사용하여 form을 동적으로 생성 -->
 			            <a onclick="getData('${item.q_seq}');">${item.q_title}</a>
 				        </div>
 			        <div class="ontent-m-td-2-content-txt-writer-in">${item.q_name}</div>
@@ -74,6 +58,6 @@
 	</div>
 </body>
 
-<script src="admin/0.js/test2.js"></script>
-<script src="admin/0.js/test.js"></script>
+<script src="admin/_js/test2.js"></script>
+<script src="admin/_js/test.js"></script>
 </html>

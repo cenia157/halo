@@ -15,15 +15,19 @@ import com.halo.user.qa.question.QuestionDAO;
 public class CommentSubmitC extends HttpServlet {
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		QuestionDAO.getAllQuestions(request);
+//		QuestionDAO.getAllQuestions(request);
 		List<QuestionNComment> resultList = AskDAO.QuestionsAndComments();
 		request.setAttribute("resultList", resultList);
+
 		AskDAO.AskAnswerSubmit(request, response);
 		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		QuestionDAO.getAllQuestions(request);
+//		QuestionDAO.getAllQuestions(request);
+		List<QuestionNComment> resultList = AskDAO.QuestionsAndComments();
+		request.setAttribute("resultList", resultList);
+
 		AskDAO.AskAnswerSubmit(request, response);
 		
 	}

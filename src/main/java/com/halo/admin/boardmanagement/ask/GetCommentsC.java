@@ -10,14 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/GetCommentsC")
 public class GetCommentsC extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	    try {
-	        String jsonData = AskDAO.commentList(request, response);
-	        response.setContentType("application/json");
-	        response.getWriter().write(jsonData);
-	    } catch (Exception e) {
-	        e.printStackTrace();
-	        response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-	    }
+
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
