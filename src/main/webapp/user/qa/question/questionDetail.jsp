@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,7 +27,6 @@ function deleteQuestion(n) {
 <body>
 
 
-
 	<div class="qd-content-tbl">
 
 	<!-- 본문 -->
@@ -39,28 +40,28 @@ function deleteQuestion(n) {
 				</div>
 				<div class="qd-content-box-td1-2">
 					<div class="qd-content-box-td1-2-1">タイトル</div>
-					<div class="qd-content-box-td1-2-2"> ${question.q_title} </div>
+					<div class="qd-content-box-td1-2-2"> ${QnC.q_title} </div>
 				</div>
 
 				<div class="qd-content-box-td1-3">
 					<div class="qd-content-box-td1-3-1">作成者</div>
-					<div class="qd-content-box-td1-3-2"> ${question.q_name} </div>
+					<div class="qd-content-box-td1-3-2"> ${QnC.q_name} </div>
 				</div>
 
 				<div class="qd-content-box-td1-4">
 					<div class="qd-content-box-td1-4-content">
 						<span class="qd-content-box-td1-4-1">作成日時</span> <span
-							class="qd-content-box-td1-4-2"> ${question.q_reg_date} </span>
+							class="qd-content-box-td1-4-2"> ${QnC.q_reg_date} </span>
 					</div>
 					<div class="qd-content-box-td-button">
-						<button class="qd-content-box-td-button-2" onclick="deleteQuestion(${question.q_seq})">削除 X</button>
+						<button class="qd-content-box-td-button-2" onclick="deleteQuestion(${QnC.q_seq})">削除 X</button>
 					</div>
 				</div>
 
 				<!-- 본문 -->
 				<div class="qd-content-box-td2-1">
 					<div class="qd-content-box-td2-1-content">
-						${question.q_content}
+						${QnC.q_content}
 					</div>
 				</div>
 
@@ -70,29 +71,47 @@ function deleteQuestion(n) {
 				<!-- 댓글 -->
 				<div class="qd-content-box-td3">
 				<div class="qd-content-box-td3-1">
-						<div class="qd-content-box-td3-1-1">이름 ${c_commenter_name}</div>
-						<div class="qd-content-box-td3-1-2">작성일 ${c_reg_date }</div>
+						<div class="qd-content-box-td3-1-1">${QnC.c_commenter_name}</div>
+						<div class="qd-content-box-td3-1-2">${QnC.c_reg_date }</div>
 					</div>
 					<div class="qd-content-box-td3-2">
 						<div class="qd-content-box-td3-2-1">
 							<img alt=""
 								src="${pageContext.request.contextPath}/user/qa/question/0.img/lock.png">
 						</div>
-						<div class="qd-content-box-td3-2-2">댓글 ${ c_comment_content}</div>
+						<div class="qd-content-box-td3-2-2">${QnC.c_comment_content}</div>
 					</div>
 				</div>
+				
+				
 				<!-- 이전글/다음글 -->
 				<div class="qd-content-box-td4" >
+				
+<!-- 현재위치 찾기 -->
+    <c:forEach var="question" items="${questionList}" varStatus="status">
+        <c:if test="${question.q_seq eq questionId}">
+            <c:set var="currentIndex" value="${status.index}" />
+        </c:if>
+    </c:forEach>
+<%-- 1보다 큰 차이가 있는 경우의 처리 --%>
+    <c:if test="${fn:length(questionList) > 1 and (currentIndex < fn:length(questionList) - 1) and (currentIndex - 1) > 0}">
+        <c:forEach var="gap" begin="1" end="${currentIndex - 1}">
+            <a href="${questionList[currentIndex - gap].q_seq}">이전 글(${gap} 차이): ${questionList[currentIndex - gap].q_title}</a>
+        </c:forEach>
+    </c:if>
 					<div class="qd-content-box-td4-1">
 						<div class="qd-content-box-td4-1-1">前のページ</div>
 							<div class="qd-content-box-td4-1-2">
-							<!-- 이전 질문 표시 -->
+							    <c:if test="${currentIndex > 0}">
+							        <a href="${questionList[currentIndex - 1].q_seq}">이전 글: ${questionList[currentIndex - 1].q_title}</a>
+							    </c:if>
 							</div>
 						</div>
-					<div class="qd-content-box-td4-2">
+						<div class="qd-content-box-td4-2">
 						<div class="qd-content-box-td4-2-1">後のページ</div>
-						<!-- 다음 질문 표시 -->
-							</a>
+						    <c:if test="${currentIndex < fn:length(questionList) - 1}">
+						        <a href="${questionList[currentIndex + 1].q_seq}">다음 글</a>
+						    </c:if>
 						</div>
 					</div>
 				</div>
@@ -107,7 +126,6 @@ function deleteQuestion(n) {
 		</div>
 	</div>
 
-	</div>
 
 </body>
 

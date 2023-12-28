@@ -18,6 +18,7 @@ public class QuestionC extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		List<QuestionNComment> resultList = AskDAO.QuestionsAndComments();
 		request.setAttribute("resultList", resultList);
+
 		
 		String subMenu = "qa/question/question";
 		request.setAttribute("menu", "user/menu-index.jsp");

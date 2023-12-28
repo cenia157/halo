@@ -20,6 +20,7 @@ import org.json.simple.JSONObject;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.halo.admin.boardmanagement.ask.QuestionNComment;
 import com.halo.main.DBManagerhalo;
 import com.halo.test.DBManagerhalo_YJ;
 
@@ -98,34 +99,48 @@ public class QuestionDAO {
 		
 	}
 
-	public static void getQuestion(HttpServletRequest request) {
+	public static void getQuestionNComment(HttpServletRequest request) {
 		
 		Connection con = null;
 	    PreparedStatement pstmt = null;
 	    ResultSet rs = null;
-	    String sql = "select * from question_tbl where q_seq=?";
+		String sql = "SELECT q.*, c.*"
+				+ " FROM question_tbl q"
+				+ " LEFT JOIN comment_tbl c"
+				+ " ON q.q_seq = c.q_seq"
+				+ " WHERE q.q_seq = ?";
 
-	    String q_seq = request.getParameter("q_seq"); // 수정된 부분
+	    String q_seq = request.getParameter("q_seq");
+	    System.out.println("q_seq: " + q_seq);
 
 	    try {
 	        con = DBManagerhalo_YJ.connect();
 	        pstmt = con.prepareStatement(sql);
-	        pstmt.setString(1, q_seq);
+	        pstmt.setInt(1, Integer.parseInt(q_seq));
+	        
+	        
 	        rs = pstmt.executeQuery();
 	        
 	        if (rs.next()) {
-	            Question q = new Question();
-	            q.setQ_seq(rs.getInt("q_seq"));
-	            q.setQ_title(rs.getString("q_title"));
-	            q.setQ_content(rs.getString("q_content"));
-	            q.setQ_reg_date(rs.getDate("q_reg_date"));
-	            q.setQ_contact_number(rs.getString("q_contact_number"));
-	            q.setQ_email(rs.getString("q_email"));
-	            q.setQ_name(rs.getString("q_name"));
-	            q.setQ_password(rs.getString("q_password"));
-	            q.setQ_category(rs.getString("q_category"));
+	            QuestionNComment QnC = new QuestionNComment();
+	            QnC.setQ_seq(rs.getInt("q_seq"));
+	            QnC.setQ_title(rs.getString("q_title"));
+	            QnC.setQ_content(rs.getString("q_content"));
+	            QnC.setQ_reg_date(rs.getDate("q_reg_date"));
+	            QnC.setQ_contact_number(rs.getString("q_contact_number"));
+	            QnC.setQ_email(rs.getString("q_email"));
+	            QnC.setQ_name(rs.getString("q_name"));
+	            QnC.setQ_password(rs.getString("q_password"));
+	            QnC.setQ_category(rs.getString("q_category"));
+	            
+	            QnC.setC_seq(rs.getInt("c_seq"));
+	            QnC.setC_commenter_name(rs.getString("c_commenter_name"));
+	            QnC.setC_comment_content(rs.getString("c_comment_content"));
+	            QnC.setC_reg_date(rs.getDate("c_reg_date"));
+	            QnC.setC_answer(rs.getString("c_answer"));
 
-	            request.setAttribute("question", q);
+	            request.setAttribute("QnC", QnC);
+	            System.out.println("QnC: " + QnC);
 	        }
 
 	    } catch (SQLException e) {

@@ -42,7 +42,9 @@
         });
     });
     
-    
+    function submitForm() {
+        document.getElementById('QuestionDetailC').submit();
+    }
     
 </script>
 
@@ -149,10 +151,11 @@
                   </div>
                   
                   
-                  
+             <form id="QuestionDetailC" action="QuestionDetailC" method="post" style="height: 100%; width: 100%;">     
                   <!-- 2번째 행 여기는 forEach문이겠죠?-->
 					<c:forEach items="${resultList}" var="question" varStatus="loop">
 					    <div class="q_content-box-tr1-td3-1-1-1-2">
+					    		<input hidden="1" name="q_seq" val="${question.q_seq }"/>
 			                    <div class="q_content-box-tr1-td3-1-1-1-2-1 No-width">
 			                      <span>${loop.index + 1}</span>
 			                    </div>
@@ -177,7 +180,7 @@
 			                    </div>
 					    </div>
 					</c:forEach>
-					
+				</form>
 
 
 <!-- Bootstrap JS (required for pagination) -->
