@@ -155,9 +155,9 @@
 			<div class="footer-tr">
 			<!-- TODO 서효원 admin페이지에서 footer정보 변경 가능하도록 -->
 				<div class="footer-item-td-1">
-					Tel. 06-6997-6531 <br /> FAX : 06-6997-6520 <br /> PhoneNumber :
-					090-8799-3855 <br /> email : hello20201110@gmail.com <br />
-					address : 大阪府守口市馬場町3-14-6メゾンエミール701号 <br />
+					Tel. ${h_tel_no} <br /> FAX :${h_fax_no}  <br /> PhoneNumber :
+					${h_phone_no} <br /> email : ${h_email} <br />
+					address : ${h_address} <br />
 				</div>
 				<div class="footer-item-td-2">
 					<div>

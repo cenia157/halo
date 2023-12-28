@@ -110,10 +110,18 @@
 	display: flex;
 	padding-top: 5%;
 }
-
+/* 결과 div */
 .information-result{
 	margin-right: 5%;
 }
+.success {
+	color: blue;
+}
+
+.error {
+	color: red;
+}
+
 
 .content-m-td-2-side-down-button {
 	height: 100%;

@@ -66,7 +66,10 @@
 			<!-- 하단 div박스 등록결과, 버튼 -->
 			<div class="content-m-td-2-down">
 				<div class="content-m-td-2-side-down-button">
-				<div class="information-result">등록 결과 어트리뷰트자리</div>
+				<div class="information-result">
+				<h2 class="logo_result success">${param.success}</h2>
+			<h2 class="logo_result error">${param.error}</h2>
+			</div>
 					<button class="content-button">변경</button>
 				</div>
 			</div>
