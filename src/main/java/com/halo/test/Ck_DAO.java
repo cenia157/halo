@@ -19,7 +19,7 @@ public class Ck_DAO {
 			System.out.println(title);
 			System.out.println(select);
 			System.out.println(saveFName);
-			txt = txt.replace("img", "img src=\'" + saveFName + "\'");
+			txt = txt.replace("img", "img src=\'" + saveFName + "\'" + "style=\"width:100%\"");
 			System.out.println(txt);
 
 			Connection con = null;

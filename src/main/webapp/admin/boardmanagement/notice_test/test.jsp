@@ -27,7 +27,7 @@
 								id="real-title-editor" placeholder="이곳에 제목을 입력하세요">
 							<!-- 아래의 input은 ajax로 올라갔던 이미지의 실제 이름을 받기 위한 역할을 한다.
 							type="hidden"을 삭제하고 이미지를 올려놓으면 올린 이미지의 경로+이름이 나온다. -->
-							<input name="saveFname" id="img-url" type="hidden">
+							<input name="saveFname" id="img-url" >
 							<div class="real-title-select">
 								<div class="toggle" id="toggle" onclick="toggle()">
 									<div class="kategorie" id="kategorie">카테고리</div>
@@ -63,7 +63,7 @@
 						</div>
 					</div>
 					<div class="modal-title-td-2">
-						<span class="close" id="closeModalBtn" onclick="closeModalNR()">&times;</span>
+						<span style="width: 100%;" class="close" id="closeModalBtn" onclick="closeModalNR()">&times;</span>
 					</div>
 				</div>
 				<div class="modal-content">
