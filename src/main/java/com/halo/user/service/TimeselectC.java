@@ -8,13 +8,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet("/timeselectC")
-public class timeselectC extends HttpServlet {
+@WebServlet("/TimeselectC")
+public class TimeselectC extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+	SeviceApplyDAO.calSelect(request);
 	SeviceApplyDAO.timeSelect(request);
 	
 	// 세션 객체 가져오기
@@ -27,12 +28,13 @@ public class timeselectC extends HttpServlet {
 	if (selectedService != null) {
 		if (selectedService.equals("texi")) {
 			service = "texiapply";
+			request.setAttribute("sevice", "TexiapplyC");
 		}else {
 			if (selectedService.equals("nursingTexi")) {
 				request.setAttribute("sevice", "NursingTexiC");
 			}
 			service = "nursingapply";
-			request.setAttribute("sevice", "NursingApplyC");
+			request.setAttribute("sevice", "NursingapplyC");
 		}
 	    System.out.println("Selected Service: " + selectedService);
 	} else {

@@ -18,8 +18,8 @@ pageEncoding="UTF-8"%>
         <!-- step별 페이지 -->
         <form action="CalselectC" class="content-calbox-td" method="post">
           <div class="content-date-select-box-td">
-           <div class="date-sel-text"> 시작일 :<input type="date" id="start-date-sel" name="start-date-sel" class="date-sel" /> ~
-           종료일 :<input type="date" id="end-date-sel" name="end-date-sel" class="date-sel" /></div> <br>
+           <div class="date-sel-text"> 시작일 :<input type="date" id="start-date-sel" name="selectedStart" class="date-sel" /> ~
+           종료일 :<input type="date" id="end-date-sel" name="selectedEnd" class="date-sel" /></div> <br>
           </div>
           <div class="calendar">
             <div class="header">
