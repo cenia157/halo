@@ -1,15 +1,10 @@
 package com.halo.test;
 
-import java.io.BufferedReader;
-
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
 import javax.servlet.http.HttpServletRequest;
-
-import com.oreilly.servlet.MultipartRequest;
-import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 public class Ck_DAO {
 
@@ -43,11 +38,12 @@ public class Ck_DAO {
 		String title = request.getParameter("title");
 		String select = request.getParameter("select");
 		String txt = request.getParameter("txt");
-
+		System.out.println("----------------------");
 		// 이곳에 이미지 가져와야한다
 		System.out.println(title);
 		System.out.println(select);
 		System.out.println(txt);
+		System.out.println("----------------------");
 
 		Connection con = null;
 		PreparedStatement pstmt = null;

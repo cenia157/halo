@@ -17,7 +17,7 @@
 
 <body>
 	<div onclick="closeModalNR()" id="myModalNR" class="modal-background"></div>
-	<form class="ck-form" method="post">
+	<form id="ck-form" method="post" >
 		<div id="myModal-tblNR" class="modal-tbl">
 			<div class="modal-title-set">
 				<div class="modal-title-tr">
@@ -79,8 +79,6 @@
 						<!-- 아래의 스크립트 코드는 CK Editor를 불러오는 부분이다-->
 
 <!-- <script type="module" src="admin/boardmanagement/notice_test/0.js/testJW.js"></script> -->
-<script src="https://ckeditor.com/apps/ckfinder/3.5.0/ckfinder.js"></script>
-<script type="module" src="admin/boardmanagement/notice_test/0.js/testMZ.js"></script>
 
 
 
@@ -88,8 +86,7 @@
 
 					</div>
 					<div class="modal-content-button">
-						<button class="SubmitButton" type="submit" id="reg-btn"
-							onclick="noValue()">등록완료</button>
+						<button class="SubmitButton" type="button" id="reg-btn">등록완료1111</button>
 					</div>
 				</div>
 			</div>
@@ -111,21 +108,24 @@
       }
 	</script>
 	 -->
+<script type="module" src="admin/boardmanagement/notice_test/0.js/testMZ.js"></script>
 	<script type="text/javascript">
-		 let ckForm = document.querySelector('.ck-form');
-		 console.log(ckForm);
-		
-		 ckForm.addEventListener("submit", function(event){
-	     event.preventDefault(); // 기본 submit 동작 방지aaa
-	     
+	
+		 let ckForm = document.querySelector('#ck-form');
+		 let regBtn = document.querySelector('#reg-btn');
+		 regBtn.addEventListener("click", function(event){
 		 const content = window.editor.getData();
-		 const formData = new FormData(event.target);
+		 const formData = new FormData(ckForm);
+		 formData.set('txt', content);
+	console.log('--------------------')		
+		 console.log(content)
+		  console.log(formData);
 		 const payload = new URLSearchParams(formData);
-		 console.log('3333333333333333333333333331111111111111111')
+		 console.log(payload)
 		 for (var pair of formData.entries()) {
 		        console.log(pair[0] + ': ' + pair[1]);
 		    }
-		 console.log('3333333333333333333333333331111111111111111')		 
+	console.log('--------------------')		
 		 let CkeditorC123 = fetch('CkeditorC',  {
 		        method: 'POST',
 		        body: payload,
@@ -147,6 +147,7 @@
 	            console.error('POST 요청 실패:', error);
 	        });
 		});
+		 
 </script>
 
 

@@ -14,8 +14,8 @@ public class MZConfig {
 		try {
 
 			
-			
 		String path = request.getServletContext().getRealPath("admin/_js/ckeditor/file");
+		System.out.println(path);
 		MultipartRequest mr = new MultipartRequest(request, path, 1024*1024*20, "utf-8", new DefaultFileRenamePolicy());
 		
 		String fName = mr.getFilesystemName("");
