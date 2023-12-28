@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.halo.user.qa.question.QuestionDAO;
 
-
 @WebServlet("/AdminC")
 public class AdminC extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -37,16 +36,15 @@ public class AdminC extends HttpServlet {
 			} else if (request.getParameter("link").equals("10")) {
 				menu = "qa/question/questionDetail";
 			} else if (request.getParameter("link").equals("11")) {
-					menu = "/admin/customerCare/stats/stats2";
+				menu = "/admin/customerCare/stats/stats2";
 			}
 			request.setAttribute("menu", menu + ".jsp");
 			request.getRequestDispatcher("admin/index.jsp").forward(request, response);
-			
+
 		} else {
 			request.setAttribute("menu", "/admin/dashboard/dashboard.jsp");
 			request.getRequestDispatcher("admin/index.jsp").forward(request, response);
 		}
-
 
 		String link = request.getParameter("link");
 		System.out.println(link);
