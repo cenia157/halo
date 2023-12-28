@@ -63,6 +63,8 @@ class MyUploadAdapter {
 			});
 				console.log(response);
 				console.log('~~~~~~~~~ success call!!!');
+				document.querySelector('figure').firstChild.src = response.fName;
+				document.querySelector('#img-url').value = response.fName;
 		});
 
 		// Upload progress when it is supported. The file loader has the #uploadTotal and #uploaded

@@ -17,7 +17,7 @@
 
 <body>
 	<div onclick="closeModalNR()" id="myModalNR" class="modal-background"></div>
-	<form id="ck-form" method="post" >
+	<form id="ck-form" method="post">
 		<div id="myModal-tblNR" class="modal-tbl">
 			<div class="modal-title-set">
 				<div class="modal-title-tr">
@@ -25,17 +25,10 @@
 						<div class="real-title">
 							<input class="real-title-editor" name="title"
 								id="real-title-editor" placeholder="이곳에 제목을 입력하세요">
+							<!-- 아래의 input은 ajax로 올라갔던 이미지의 실제 이름을 받기 위한 역할을 한다.
+							type="hidden"을 삭제하고 이미지를 올려놓으면 올린 이미지의 경로+이름이 나온다. -->
+							<input name="saveFname" id="img-url" type="hidden">
 							<div class="real-title-select">
-								<!--  -->
-								<!-- 
-								<select name="select">
-									<option value="announcement">안내</option>
-									<option value="schedule">일정</option>
-									<option value="general">일반</option>
-									<option value="service">서비스</option>
-									<option value="product">상품</option>
-								</select>
- -->
 								<div class="toggle" id="toggle" onclick="toggle()">
 									<div class="kategorie" id="kategorie">카테고리</div>
 									<div class="toggle-down" id="toggle-down">
@@ -76,79 +69,58 @@
 					<div class="modal-content-txt">
 						<!-- 아래의 코드는 CK Editor를 넣는 부분이다-->
 						<textarea name="txt" id="classicNR"></textarea>
-						<!-- 아래의 스크립트 코드는 CK Editor를 불러오는 부분이다-->
-
-<!-- <script type="module" src="admin/boardmanagement/notice_test/0.js/testJW.js"></script> -->
-
-
-
-
-
 					</div>
 					<div class="modal-content-button">
-						<button class="SubmitButton" type="button" id="reg-btn">등록완료1111</button>
+						<button class="SubmitButton" type="button" id="reg-btn">등록완료</button>
 					</div>
 				</div>
 			</div>
 		</div>
 	</form>
 
+	<!-- 아래의 스크립트는 CKEditor에 올라온 이미지를 ajax로 올리는 역힐이다-->
+	<script type="module"
+		src="admin/boardmanagement/notice_test/0.js/testMZ.js"></script>
 
-
-
-	<!-- 	
-	여기 아래는 ajax 예시
+	<!-- 여기는 CKEditor에 들어간 값을 서버로 보내는 역할이다 -->
 	<script type="text/javascript">
-    function fetchPage(name) {
-        fetch(name).then(function (response) {
-          response.text().then(function (text) {
-            document.querySelector('article').innerHTML = text;
-          })
-        })
-      }
+	let regBtn = document.querySelector('#reg-btn');
+	regBtn.addEventListener("click", function(event) {
+		let ckForm = document.querySelector('#ck-form');
+		const content = window.editor.getData();
+		const formData = new FormData(ckForm);
+		formData.set('txt', content);
+		console.log('--------------------')
+		console.log(content)
+		console.log(formData);
+		const payload = new URLSearchParams(formData);
+		console.log(payload)
+		for (var pair of formData.entries()) {
+			console.log(pair[0] + ': ' + pair[1]);
+		}
+		console.log('--------------------')
+		let CkeditorC123 = fetch('CkeditorC', {
+			method: 'POST',
+			body: payload,
+			headers: {
+				'Content-Type': 'application/x-www-form-urlencoded', // 헤더 설정
+			}
+		})
+			.then(response => {
+				if (!response.ok) {
+					throw new Error('Network response was not ok');
+				}
+				return response.text();
+			})
+			.then(data => {
+				console.log('POST 요청 성공:', data);
+				console.log(CkeditorC123);
+			})
+			.catch(error => {
+				console.error('POST 요청 실패:', error);
+			});
+	});
 	</script>
-	 -->
-<script type="module" src="admin/boardmanagement/notice_test/0.js/testMZ.js"></script>
-	<script type="text/javascript">
-	
-		 let ckForm = document.querySelector('#ck-form');
-		 let regBtn = document.querySelector('#reg-btn');
-		 regBtn.addEventListener("click", function(event){
-		 const content = window.editor.getData();
-		 const formData = new FormData(ckForm);
-		 formData.set('txt', content);
-	console.log('--------------------')		
-		 console.log(content)
-		  console.log(formData);
-		 const payload = new URLSearchParams(formData);
-		 console.log(payload)
-		 for (var pair of formData.entries()) {
-		        console.log(pair[0] + ': ' + pair[1]);
-		    }
-	console.log('--------------------')		
-		 let CkeditorC123 = fetch('CkeditorC',  {
-		        method: 'POST',
-		        body: payload,
-		        headers: {
-		            'Content-Type': 'application/x-www-form-urlencoded', // 헤더 설정
-		        }
-		    })
-	        .then(response => {
-	            if (!response.ok) {
-	                throw new Error('Network response was not ok');
-	            }
-	            return response.text();
-	        })
-	        .then(data => {
-	            console.log('POST 요청 성공:', data);
-	            console.log(CkeditorC123);
-	        })
-	        .catch(error => {
-	            console.error('POST 요청 실패:', error);
-	        });
-		});
-		 
-</script>
 
 
 
