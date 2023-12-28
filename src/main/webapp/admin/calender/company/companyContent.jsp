@@ -42,6 +42,13 @@
 					<div class="day">SUN</div>
 				</div>
 				<div class="dates"></div>
+				<div class="date-modal">
+					<div class="date-modal-header">
+					<div class="date-modal-title"></div>
+					<div class="modal-close"></div>
+					</div>
+					<div class="date-modal-content"></div> 
+				</div>
 			</div>
 			<form class="company-form" action="InsertCompanyC" method="post">
 				<div class="sec-ins">
@@ -92,7 +99,6 @@
 							</div>
 							<div></div>
 						</div>
-
 						<div class="ins-tr-3-txt">
 							<div class="ins-tr-3-txt-tr">
 								<div class="ins-tr-txt-tr-title">내용</div>
