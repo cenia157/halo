@@ -20,7 +20,7 @@
 }
 
 /*
-¿©±â¿¡ È¸»çÁ¤º¸º¯°æ ³»¿ë css¸¦ Ã¤¿ö¾ßÇÑ´Ù
+ï¿½ï¿½ï¿½â¿¡ È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ cssï¿½ï¿½ Ã¤ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½
 */
 .CompanyInformation-textarea-big {
 	padding: 1%;
@@ -103,10 +103,15 @@
 	height: 100%;
 }
 
-/* ¿©±â´Â È¸»çÁ¤º¸º¯°æÀÇ ³¡ */
+/* í•˜ë‹¨ divë°•ìŠ¤ ë“±ë¡ê²°ê³¼, ë²„íŠ¼ */
 .content-m-td-2-down {
-	height: 20%;
+	height: 30%;
 	width: 100%;
+	display: flex;
+	padding-top: 5%;
+}
+.information-result{
+	margin-right: 5%;
 }
 
 .content-m-td-2-side-down-button {

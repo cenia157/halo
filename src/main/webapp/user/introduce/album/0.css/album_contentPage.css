@@ -1,9 +1,9 @@
 /*
-바꾼사항 23-12-14 17:00
+바꾼사항 23-12-28 17:00
   *** contentPage.css에서 수정했기떄문에 원본 css파일 걱정안해도됨 ***
 1) .container_tbl -> 280vh -> 220vh
-2) .content_sec -> 160vh -> 180vh
-3) .content-tbl -> 260vh -> 220vh
+2) .content_sec -> 160vh -> auto
+3) .content-tbl -> 260vh -> auto
 4) .bottom-venner-tr -> 색상변경(현 페이지에서 흰색이라서 초록색으로 변경)
 */
 
@@ -28,7 +28,6 @@
 /* ------------------------------------------------------------------- */
 
 .a_content-box-tr1 {
-  border: solid 1px red;
   border-radius: 35px;
   background-color: #fffcf0;
   width: 95%;
@@ -111,6 +110,32 @@
   width: 1.5%; /* 23-12-14 변동사항 */
 }
 
+.a_content-box-tr1-td2-2 {
+	display: flex;
+	align-items: center;
+	margin-left: 3%;
+}
+
+.a_content-box-tr1-td2-2-1 {
+	display:flex;
+	width: 3.5%;
+	height: 3.5%;
+	
+}
+
+.a_content-box-tr1-td2-2-1 > img {
+	width: 100%;
+	height: 100%;
+}
+
+.a_content-box-tr1-td2-2-2 {
+	color: #006400;
+	font-weight: 700;
+	margin-left: 0.4%;
+}
+
+
+
 /* .a_content-box-tr1-td3-1 { */
 /*   display: flex; */
 /*   flex-wrap: wrap; */
@@ -133,7 +158,7 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  outline: 2px solid greenyellow;
+/*   outline: 2px solid greenyellow; */
   width: 100%;
   height: 75%;
 }
@@ -141,7 +166,7 @@
 .a_content-box-tr1-td3-1 {
   display: flex;
   flex-direction: column;
-  outline: 1px solid pink;
+/*   outline: 1px solid pink; */
   width: 95%;
   height: 95%;
   padding-left: 1.5%;
@@ -159,7 +184,7 @@
 }
 
 .a_content-box-tr1-td3-1 > div {
-  outline: 1px solid #ffd66c;
+/*   outline: 1px solid #ffd66c; */
   width: 100%;
   height: 33.3%;
 }
@@ -180,7 +205,7 @@
 .a_content-box-tr1-td3-1 > div > div {
   width: 20%;
   height: 100%;
-  outline: 1px solid pink;
+/*   outline: 1px solid pink; */
   padding-right: 1.5%;
   padding-bottom: 1.5%;
   display: flex;
@@ -190,9 +215,30 @@
 }
 
 .a_content-box-tr1-td3-1 > div > div > a > img {
-  width: 100%; /* 이미지 너비를 div의 너비에 맞춤 */
-  height: 100%; /* 이미지 높이를 자동으로 조절하여 비율 유지 */
+  width: 100%; 
+  height: 100%; 
 /*   object-fit: cover;  */
 }
+
+.rowDiv img,
+.rowDiv video,
+.rowDiv a {
+  border-radius: 7.5%;
+}
+
+.rowDiv > div > a > img,
+.rowDiv > div > a > video {
+  transition: opacity 2s ease, border 2s ease;
+  opacity: 1;
+  border: 1px solid transparent; /* 처음에는 투명한 테두리로 설정 */
+}
+
+.rowDiv > div > a > img:hover,
+.rowDiv > div > a > video:hover {
+  opacity: 0.6;
+  border: 3px solid green;
+}
+
+
 
 
