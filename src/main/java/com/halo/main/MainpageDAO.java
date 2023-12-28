@@ -147,6 +147,7 @@ public class MainpageDAO {
 			
 			if(rs.next()) {
 				request.setAttribute("currentLogo", rs.getString("h_logo_img"));
+				System.out.println("currentLogo : " + rs.getString("h_logo_img"));
 			}
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

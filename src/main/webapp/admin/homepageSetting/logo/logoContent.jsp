@@ -32,7 +32,7 @@
 				<div class="content-m-td-2-side-mid-logo">
 					<!-- 현재(기존)이미지 보여주기 (기존 이미지 경로 EL태그) -->
 					<img src="${pageContext.request.contextPath}/user/upload_imgs/${currentLogo}"
-						width: 80%;">
+						width: 50%;">
 				</div>
 			</div>
 			<div class="content-m-td-2-side-down"></div>
