@@ -1,21 +1,14 @@
 package com.halo.main;
 
-import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.PrintWriter;
-import java.nio.file.Files;
-import java.nio.file.StandardCopyOption;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.ArrayList;
-import java.util.List;
+import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
 
 
 import com.oreilly.servlet.MultipartRequest;import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
@@ -121,28 +114,62 @@ public class MainpageDAO {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		String newFileName = request.getParameter("newFileName");
-		String savepath = request.getServletContext().getRealPath("user/upload_imgs/") + newFileName;
-		String sql = "update homepage_common set h_logo_img=?";
+		String sql = "update homepage_common set h_logo_img = ? where h_seq=1";
+		String paramName = "error";
+		String param = "등록 실패";
 		try {
 			con = DBManagerhalo.connect();
-			System.out.println(savepath);
+			System.out.println(newFileName);
 			pstmt = con.prepareStatement(sql);
-			//바꿀 이미지
-			//업뎃 위치용 시퀀스 넘버 필요없음
-			pstmt.setString(1, savepath);
+			pstmt.setString(1, newFileName);
 			if (pstmt.executeUpdate() == 1) {
 				System.out.println("등록 성공!");
-			}else {
-				System.out.println("등록 실패");
+				
+				param = "등록 성공!";
+				paramName ="success";
 			}
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("db server error...");
 		}finally {
+			request.setAttribute("paramName", paramName);
+			request.setAttribute("param", param);
 			DBManagerhalo.close(con, pstmt, null);
 		}
 	}
+	
+	//컨트롤러 수정 전에 로고 어트리뷰트 수동으로 실어주기 위한 메소드
+	public void getLogo(HttpServletRequest request) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "select h_logo_img from homepage_common where h_seq=1";
+		
+		try {
+			con = DBManagerhalo.connect();
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				request.setAttribute("currentLogo", rs.getString("h_logo_img"));
+				System.out.println("currentLogo : " + rs.getString("h_logo_img"));
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			DBManagerhalo.close(con, pstmt, rs);
+		}
+		
+		
+	}
+
+	public void updateFooter(HttpServletRequest request) {
+		
+		
+	}
+	
 	
 	
 	

@@ -88,9 +88,17 @@
 
 .content-applyform-tr-2-2 {
 	width: 80%;
+	display: flex;
+    justify-content: center;
 }
 
-.content-applyform-tr-2:nth-child(6) {
+.content-applyform-tr-2-3 {
+	display: flex;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.content-applyform-tr-2:nth-child(7) {
 	height: 40vh;
 }
 

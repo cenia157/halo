@@ -15,6 +15,13 @@
 
 
 	<!-- 신청폼 -->
+		<form action="${sevice}" method="post">
+		<input type="hidden" name="selectedStart" value="${selectedStart }">
+		<input type="hidden" name="selectedEnd" value="${selectedEnd }">
+		<input type="hidden" name="selectedTime" value="${selectedTime }">
+		<input type="hidden" name="addr" value="${addr }">
+		<input type="hidden" name="niText" value="${niText }">
+		
 	<div class="content-applyform-td">
 		<div class="content-applyform-tr-1">
 			<div class="categotyselect" name="category" id="category">
@@ -23,34 +30,46 @@
 		<div class="content-applyform-td2">
 			<div class="content-applyform-tr-2">
 				<span class="content-applyform-tr-2-1">신청자 이름* :</span> <input
-					class="content-applyform-tr-2-2" type="text">
+					name="applicant" value="${applicant }" class="content-applyform-tr-2-2" type="text">
 			</div>
+			<div class="content-applyform-tr-2">
+				<span class="content-applyform-tr-2-1">연락처* :</span> <input
+						name="phoneNum" value="${phoneNum }" class="content-applyform-tr-2-2" type="text">
+				</div>
 			<div class="content-applyform-tr-2">
 				<span class="content-applyform-tr-2-1">서비스 받으실 분 성함* :</span> <input
-					class="content-applyform-tr-2-2" type="text">
+					name="userName" value="${userName }" class="content-applyform-tr-2-2" type="text">
 			</div>
-			<div class="content-applyform-tr-2">
-				<span class="content-applyform-tr-2-1">지역* :</span> <input
-					class="content-applyform-tr-2-2" type="text">
-			</div>
+					<div class="content-applyform-tr-2">
+					<span class="content-applyform-tr-2-1">요양받으실 분 성별* :
+					</span> 
+					<div class="content-applyform-tr-2-2">
+					<div class="content-applyform-tr-2-3">
+					<input name="userGender" type="radio" value="m" ${manChecked }>男 
+					</div>
+					<div class="content-applyform-tr-2-3">
+					<input name="userGender" class="content-applyform-tr-2-3" type="radio" value="w" ${womanChecked }>女
+					</div>
+					</div>
+				</div>
 			<div class="content-applyform-tr-2">
 				<span class="content-applyform-tr-2-1">출발지* :</span> <input
-					class="content-applyform-tr-2-2" type="text">
+					name="startAddr" class="content-applyform-tr-2-2" type="text">
 			</div>
 			<div class="content-applyform-tr-2">
 				<span class="content-applyform-tr-2-1">목적지* :</span> <input
-					class="content-applyform-tr-2-2" type="text">
+					name="endAddr" class="content-applyform-tr-2-2" type="text">
 			</div>
 			<div class="content-applyform-tr-2">
-				<span class="content-applyform-tr-2-1">비고란(요청사항)* :</span> <input
-					class="content-applyform-tr-2-2" type="text">
+				<span class="content-applyform-tr-2-1">비고란(요청사항)* :</span> <textarea
+					 name="tiText" class="content-applyform-tr-2-2" ></textarea>
 			</div>
 		</div>
 		<div class="content-cal-btn-box-td">
-		<a href="ServiceC?step=6" class="content-cal-btn-td">다음으로</a>
+		<button class="content-cal-btn-td">다음으로</button>
 		</div>
 	</div>
-
+	</form>
 
 </body>
 </html>

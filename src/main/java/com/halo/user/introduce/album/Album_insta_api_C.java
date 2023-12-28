@@ -14,7 +14,7 @@ public class Album_insta_api_C extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// 토큰을 서버 사이드에서 가져오는 로직 구현
-		String token = "IGQWRQQmNnTXNaZA2hCMEtvUmhSSFhEUDJXSFF4dEsweU9tb2xiTmJReURSbVExUTVQcTJtQlhhZAFdyWnU3LTBSdms3RWRVNnVwa0ZAZAOVQxc2VjMGl1TjlPcE1yYVdJZAGxoNWZAOb1pGWnN4RzQzemtzMWdHYU84X28ZD";
+		String token = "IGQWRPUUlmTElqTHpXNXZAxUE1SNTBHRS0tY2M2RUxWTXNFT2htWmhaX1JKdnFLOGhpTDVlZAjlNQVlySkM1ZAm1fVGg4cktRcVFfaVF4ZAnh3b3VnVXJMeENEOUZAxU1ZAhY2t1Um9wVFRXaHpBNkRwUmZA0WTkzc2FzeXcZD";
 		// 토큰을 request 속성에 추가
 		request.setAttribute("token", token);
 		request.setAttribute("menu", "user/menu-index.jsp");

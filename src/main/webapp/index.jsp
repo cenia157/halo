@@ -36,13 +36,13 @@
 			<div class="header-opmenu-back"></div>
 			<div class="header-tr-1">
 				<div class="header-br-logo">
-					<!-- 로고 이미지 경로 확인 -->
-<%-- 					<img src="${pageContext.request.contextPath}/user/0.img/logo.png" /> --%>
-					<img src="${pageContext.request.contextPath}/user/upload_imgs/${newFileName}">
-<%-- 						<img src="c"> --%>
-					<a href="">ハロー</a>
+					<!-- 로고 이미지 경로 확인, 텍스트까지 이미지로 업로드, <a>홈으로 연결 -->
+					<a href="HC">
+					<img src="user/upload_imgs/${currentLogo}">
+					</a>
 				</div>
 				<div class="header-br-space"></div>
+<!-- 				전화번호 수정 가능하도록, 회사정보(footer 변경 어트리뷰트 재활용) -->
 				<div class="header-br-call">Tel. 06-6997-6531</div>
 			</div>
 			<div class="header-tr-2">
@@ -75,7 +75,7 @@
 						</div>
 						<div class="header-opmenu-td">
 							<a class="header-opmenu-a" href="HC?link=6">서비스안내</a> <a
-								class="header-opmenu-a" href="ServiceC">서비스신청</a>
+								class="header-opmenu-a" href="ServiceApplyC">서비스신청</a>
 						</div>
 					</div>
 					<div class="header-td-menu">
@@ -153,6 +153,7 @@
 		<!-- Footer풋터 시작 -->
 		<div class="footer-tbl">
 			<div class="footer-tr">
+			<!-- TODO 서효원 admin페이지에서 footer정보 변경 가능하도록 -->
 				<div class="footer-item-td-1">
 					Tel. 06-6997-6531 <br /> FAX : 06-6997-6520 <br /> PhoneNumber :
 					090-8799-3855 <br /> email : hello20201110@gmail.com <br />

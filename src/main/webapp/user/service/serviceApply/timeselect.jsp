@@ -14,10 +14,12 @@
 	href="${pageContext.request.contextPath}/user/service/serviceApply/0.css/seviceapply.css" />
 </head>
 <body>
-
+<form action="TimeselectC" method="post">
+<input type="hidden" name="selectedStart" value="${selectedStart }">
+<input type="hidden" name="selectedEnd" value="${selectedEnd }">
 	<div class="content-step-page-td">
 		<!-- step별 페이지  시작-->
-		<select id="time" name="time">
+		<select id="selectedTime" name="selectedTime">
 			<option value="" disabled selected>시간 선택</option>
 			<option value="AM">오전 : 08:00~12:00</option>
 			<option value="PM">오후 : 14:00~18:00</option>
@@ -25,9 +27,10 @@
 		<hr />
 	</div>
 	<div class="content-time-btn-td">
-		<a href="ServiceC?step=${nextBtn }" class="content-time-btn">다음으로</a>
+		<button class="content-time-btn">다음으로</button>
 	</div>
 	<!-- step별 페이지  끝-->
+</form>
 
 </body>
 </html>

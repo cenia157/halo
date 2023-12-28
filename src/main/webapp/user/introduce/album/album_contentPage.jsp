@@ -45,6 +45,19 @@ pageEncoding="UTF-8"%>
           />
           > 소개 > 앨범
         </div>
+        <a
+          class="a_content-box-tr1-td2-2"
+          href="https://www.instagram.com/ody_1004/"
+          target="_blank"
+        >
+          <div class="a_content-box-tr1-td2-2-1">
+            <img
+              src="${pageContext.request.contextPath}/user/introduce/album/0.img/insta_logo.png"
+              alt=""
+            />
+          </div>
+          <div class="a_content-box-tr1-td2-2-2">instagramで見る</div>
+        </a>
       </div>
 
       <!-- content-box-tr1-td3 ::: display: flex wrap용 -->
@@ -84,19 +97,20 @@ pageEncoding="UTF-8"%>
 
           <!--             </div> -->
           <!--           </div> -->
-          <!--여기까지 동적생성 -->
         </div>
+        <!--여기까지 동적생성 -->
       </div>
     </div>
     <script type="text/javascript">
+	  //전역변수들
       let page = 0;
       let totalPage;
       let items;
       let scroll_index = 0;
-      let totalHeight;
+      let scroll_per_val;
 
       $(document).ready(function () {
-        // JSTL을 사용하여 서블릿에서 전달받은 토큰 사용
+        // JSTL을 사용하여 서블릿에서 전달받은 토큰 사용~~~~
         let token = "${token}";
 
         $.ajax({
@@ -106,9 +120,9 @@ pageEncoding="UTF-8"%>
           method: "GET",
           dataType: "jsonp",
           success: function (response) {
-            console.log('response :::' + response);
+            console.log("response :::" + response);
             items = response.data;
-            console.log('items :::' + items);
+            console.log("items :::" + items);
             makeView();
           },
           error: function (xhr, status, error) {
@@ -135,7 +149,13 @@ pageEncoding="UTF-8"%>
           }
 
           for (let i = page * 9; i < (1 + page) * 9; i++) {
-            if (items[i] == null) { break;}
+            if (i == 24) {
+              break;
+            }
+
+            if (items[i] == null) {
+              break;
+            }
 
             if (i % 3 == 0) {
               rowDiv = $("<div></div>").addClass("rowDiv");
@@ -146,9 +166,10 @@ pageEncoding="UTF-8"%>
             rowDiv.append(columnDiv);
 
             if (items[i].media_type === "VIDEO") {
-              mediaTag = $(
-                "<video class='video' autoplay loop controls></video>"
-              ).attr("src", items[i].media_url);
+              mediaTag = $("<video class='video' loop controls></video>").attr(
+                "src",
+                items[i].media_url
+              );
             } else {
               mediaTag = $("<img class='img'>").attr("src", items[i].media_url);
             }
@@ -170,6 +191,70 @@ pageEncoding="UTF-8"%>
           console.log("page++ :::" + page);
         } // makeView(res)
 
+		function makeInstaIcon() {
+		    let container = $(".a_content-box-tr1-td3-1");
+		    let under_icon_div = $("<div></div>").addClass("under_icon_div");
+		
+		    // CSS 속성 설정
+		    under_icon_div.css({
+		        height: "auto",
+		    });
+		
+		    // 새로운 div 요소 생성
+		    let innerDiv = $("<div></div>")
+		        .addClass("inner_div")
+		        .css({
+		            cursor: "pointer", // 마우스 커서 포인터로 변경
+		        })
+		        .click(function () {
+		            // innerDiv를 클릭했을 때 Instagram 프로필 페이지로 이동
+		            window.location.href = "https://www.instagram.com/ody_1004/", "_blank";
+		        });
+		
+		    // 첫 번째 내부 div 생성 및 클래스 추가
+		    let innerDivIcon = $("<div></div>").addClass("innerDiv_icon");
+		
+		    // 이미지를 포함하는 img 요소 생성 및 속성 설정
+		    let img = $("<img />")
+		        .addClass("insta_img")
+		        .attr("src", "${pageContext.request.contextPath}/user/introduce/album/0.img/insta_logo2.png")
+		        .css({
+		            width: "100%",
+		            height: "100%",
+		        });
+		
+		    // img 요소를 innerDivIcon에 추가
+		    innerDivIcon.append(img);
+		
+		    // 두 번째 내부 div 생성 및 클래스 추가
+		    let innerDivWord = $("<div></div>").addClass("innerDiv_word");
+		
+		    innerDivWord.html("Instagram&nbsp;でフォロー");
+		
+		    // 각 내부 div를 innerDiv에 추가
+		    innerDiv.append(innerDivIcon);
+		    innerDiv.append(innerDivWord);
+		
+		    // 각 내부 div에 CSS 속성 설정
+		    innerDivIcon.css({
+		        width: "20%",
+		        height: "20%",
+		    });
+		
+		    innerDivWord.css({
+		        color: "#006400",
+		        "font-weight": "700",
+		        "margin-left": "1.5%",
+		        "font-size": "1.5rem",
+		        "white-space": "nowrap",
+		    });
+		
+		    // innerDiv를 under_icon_div에 추가
+		    under_icon_div.append(innerDiv);
+		
+		    container.append(under_icon_div);
+		} // makeInstaIcon()
+
         window.addEventListener("scroll", function () {
           console.log("window.scrollY ::: " + window.scrollY);
           let scrollValue_px = window.scrollY;
@@ -179,24 +264,35 @@ pageEncoding="UTF-8"%>
             100;
           console.log("scrollPercentage :::" + scrollPercentage);
 
-          let haedHeight = 800;
-          let contentHeight = 500;
-          totalHeight = haedHeight + contentHeight
-
-          if (scroll_index >= 1) {
-        	  totalHeight += 900;
+          switch (scroll_index) {
+            case 0:
+              scroll_per_val = 73;
+              break;
+            case 1:
+              scroll_per_val = 84;
+              break;
+            case 2:
+              scroll_per_val = 90;
+              break;
+            default:
+              scroll_per_val = 101; // 예외 처리 101 도달 불가능함
+              break;
           }
 
-          // 스크롤 값이 800 이상인 경우 makeView 함수 실행
-          if (scrollValue_px >= totalHeight) {
-            makeView(); // makeView 함수 호출
-            console.log("************************************");
-            console.log("*makeView()호출 !@$$%!@%!@%!@%!@%!@%*");
-            console.log("************************************");
+          if (scrollPercentage >= scroll_per_val) {
+            if (scroll_index <= 2) {
+              makeView(); // makeView 함수 호출
+              if (scroll_index == 2) {
+                makeInstaIcon();
+                console.log("makeInstaIcon()실행");
+              }
+            }
+
             scroll_index++;
-          }
+            console.log("scroll_index ::" + scroll_index);
+          } // if (scrollPercentage >= scroll_per_val)
         }); // window.addEventListener('scroll', function()
-      });
+      }); //  $(document).ready(function () {
     </script>
   </body>
 </html>
