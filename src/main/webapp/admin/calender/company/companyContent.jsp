@@ -62,7 +62,7 @@
 							</div>
 						</div>
 						<div class="ins-tr-td">
-							<div class="ins-tr-td-btn">
+							<div class="ins-tr-td-btn" >
 								예약 <input type="checkbox" class="toggle" hidden> <label
 									for="toggle" class="toggleSwitch"> <span
 									class="toggleButton"></span>
