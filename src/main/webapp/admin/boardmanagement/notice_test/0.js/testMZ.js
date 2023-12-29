@@ -62,10 +62,91 @@ class MyUploadAdapter {
 			resolve({
 				default: response.url
 			});
-				console.log(response);
-				console.log('~~~~~~~~~ success call!!!');
-				document.querySelector('figure').firstChild.src = response.fName;
-				document.querySelector('#img-url').value = response.fName;
+			console.log(response);
+			console.log('~~~~~~~~~ success call!!!');
+
+			/* 
+			이건 백업용	
+			document.querySelector('figure').firstChild.src = response.fName;
+			document.querySelector('#img-url').value = response.fName;
+			*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			/*			var newInput = document.querySelector('#img-temporary');*/
+
+
+			var newInput = document.createElement("input");
+			var targetDiv = document.getElementById("img-temporary");
+			var nextInput = targetDiv.appendChild(newInput);
+
+
+			nextInput.name = 'saveFname';
+			nextInput.id = 'img-url';
+			nextInput.value = response.fName;
+
+
+			document.querySelector('figure').lastChild.src = response.fName;
+
+
+
+
+			/*			document.querySelector('figure').lastElementChild.src = response.fName;
+						document.querySelector('#img-url' + 1).value = response.fName;
+			
+			
+			
+			
+						targetDiv.appendChild(newInput);
+			
+			
+						var last = targetDiv.lastElementChild;
+			
+						console.log(targetDiv);
+						console.log(newInput);
+						console.log(last);
+			
+			*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 		});
 
 		// Upload progress when it is supported. The file loader has the #uploadTotal and #uploaded

@@ -14,12 +14,27 @@ public class Ck_DAO {
 			String title = request.getParameter("title");
 			String select = request.getParameter("select");
 			String txt = request.getParameter("txt");
-			String saveFName = request.getParameter("saveFname");
+			String saveFName = null;
+
+			
+			
+			
+			String[] saveFnameValues = request.getParameterValues("saveFname");
+			
+			for (int i = 0; i < saveFnameValues.length; i++) {
+				
+			}
+			
+			
+			
+			
+			
+			
 
 			System.out.println(title);
 			System.out.println(select);
 			System.out.println(saveFName);
-			txt = txt.replace("img", "img src=\'" + saveFName + "\'" + "style=\"width:100%\"");
+			txt = txt.replace("img", "img src=\'" + saveFName + "\'");
 			System.out.println(txt);
 
 			Connection con = null;
@@ -32,11 +47,11 @@ public class Ck_DAO {
 
 			pstmt.setString(1, title);
 			pstmt.setString(2, txt);
-			pstmt.setString(3, "´õ¹ÌÀÛ¼ºÀÚ2");
+			pstmt.setString(3, "ì‚°íƒ€");
 			pstmt.setString(4, select);
 
 			if (pstmt.executeUpdate() == 1) {
-				System.out.println("µî·Ï¼º°ø");
+				System.out.println("ë“±ë¡ì„±ê³µ");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
