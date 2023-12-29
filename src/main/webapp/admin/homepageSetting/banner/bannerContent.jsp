@@ -118,7 +118,9 @@
 				</div>
 			</div>
 		</div>
-		<div class="content-button"><button>변경</button></div>
+		<div class="content-button">
+		<button>변경</button>
+		</div>
 		</form>
 	</div>
 </body>
