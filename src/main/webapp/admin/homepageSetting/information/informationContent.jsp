@@ -21,7 +21,7 @@
 					<div class="CompanyInformation-txt">
 						<!-- 회사 주소 인풋 -->
 						<textarea name="h_address" class="CompanyInformation-textarea-big" rows="" cols=""
-							placeholder="이곳에 이전에 입력했던 회사의 정보를 표시해야한다"></textarea>
+							>${hdto.h_address}</textarea>
 					</div>
 				</div>
 				<div class="CompanyInformation-small">
@@ -31,7 +31,7 @@
 							<div class="CompanyInformation-txt">
 							<!-- 회사 전화번호 인풋 -->
 								<textarea name="h_tel_no" class="CompanyInformation-textarea-mini" rows=""
-									cols="" placeholder="06-6997-6531"></textarea>
+									cols="">${hdto.h_tel_no }</textarea>
 							</div>
 						</div>
 						<div class="CompanyInformation-small-td">
@@ -39,7 +39,7 @@
 							<div class="CompanyInformation-txt">
 							<!-- 회사 휴대전화 인풋 -->
 								<textarea name="h_phone_no" class="CompanyInformation-textarea-mini" rows=""
-									cols="" placeholder="090-8799-3855"></textarea>
+									cols="">${hdto.h_phone_no}</textarea>
 							</div>
 						</div>
 					</div>
@@ -49,7 +49,7 @@
 							<div class="CompanyInformation-txt">
 							<!-- 회사 이메일 인풋 -->
 								<textarea name="h_email" class="CompanyInformation-textarea-mini" rows=""
-									cols="" placeholder="hello20201110@gmail.com"></textarea>
+									cols="">${hdto.h_email}</textarea>
 							</div>
 						</div>
 						<div class="CompanyInformation-small-td">
@@ -57,7 +57,7 @@
 							<div class="CompanyInformation-txt">
 							<!-- 회사 FAX 인풋 -->
 								<textarea name="h_fax_no" class="CompanyInformation-textarea-mini" rows=""
-									cols="" placeholder="06-6997-6520"></textarea>
+									cols="">${hdto.h_fax_no}</textarea>
 							</div>
 						</div>
 					</div>
