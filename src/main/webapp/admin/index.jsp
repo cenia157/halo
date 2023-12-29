@@ -67,7 +67,7 @@
 										<img src="admin/0.img/admintble-select.png" alt=""><a href="AdminC?link=2">주요메뉴설정</a>
 									</div>
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
-										<img src="admin/0.img/admintble-select.png" alt=""><a href="AdminC?link=3">하단배너설정</a>
+										<img src="admin/0.img/admintble-select.png" alt=""><a href="BannerUpdateC">하단배너설정</a>
 									</div>
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
 										<img src="admin/0.img/admintble-select.png" alt=""><a href="InformUpdateC">회사정보변경</a>

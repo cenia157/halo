@@ -35,6 +35,7 @@
 				<option value="service_apply">서비스신청</option>
 				<option value="faq">자주묻는질문</option>
 				<option value="question">문의게시판</option>
+				<option value="sales">상품판매</option>
 				</select>
 				 </div>
 				 <!-- url 링크 -->
@@ -66,6 +67,7 @@
 				<option value="service_apply">서비스신청</option>
 				<option value="faq">자주묻는질문</option>
 				<option value="question">문의게시판</option>
+				<option value="sales">상품판매</option>
 				</select>
 				</div>
 				<!-- url 링크 -->
@@ -97,6 +99,7 @@
 				<option value="service_apply">서비스신청</option>
 				<option value="faq">자주묻는질문</option>
 				<option value="question">문의게시판</option>
+				<option value="sales">상품판매</option>
 				</select>
 				</div>
 				<!-- url 링크 -->

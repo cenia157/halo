@@ -47,7 +47,7 @@
 
 				<div class="content-m-td-3-mid-2-tr-underbar">
 					<select class="mainpageOption">
-						<option value="">채용aa공고</option>
+						<option value="">채용공고</option>
 						<option value="">공지사항</option>
 						<option value="">앨범</option>
 					</select>
