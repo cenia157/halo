@@ -98,6 +98,29 @@
 	width: 17%;
 	height: 100%;
 }
+/* 셀렉 css */
+.content-m-td-3-mid-2-tr-underbar > select {
+	/* 	size: 4; */
+	width: 80%;
+	height: 70%;
+	border-radius: 5px;
+	border-top: solid 1px rgb(209, 209, 209);
+	border-left: solid 1px rgb(209, 209, 209);
+	border-right: solid 1px rgb(209, 209, 209);
+	border-bottom: solid 2px rgb(130, 130, 130);
+	font-size: 1.2rem;
+	text-align: center;
+}
+.content-m-td-3-mid-2-tr-underbar > select:hover {
+    background: rgb(77,77,77);
+    color: #fff;
+    border-radius: 5px;
+    border-top: solid 1px rgb(209, 209, 209);
+	border-left: solid 1px rgb(209, 209, 209);
+	border-right: solid 1px rgb(209, 209, 209);
+	border-bottom: solid 2px rgb(130, 130, 130);
+  }
+
 
 .mainpageOption {
 	border-radius: 4px;

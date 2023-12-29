@@ -32,7 +32,7 @@ public class MainpageDAO {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "select * from hompage_common";
+		String sql = "select * from homepage_common";
 		try {
 			con = DBManagerhalo.connect();
 			pstmt = con.prepareStatement(sql);
@@ -57,23 +57,9 @@ public class MainpageDAO {
 				hdto.setH_address(rs.getString("h_address"));
 				hdto.setH_resume_file(rs.getString("h_resume_file"));
 				
-				//메인에 뿌릴 어트리뷰트
-				request.setAttribute("h_seq", hdto.getH_seq());
-				request.setAttribute("h_logo_img", hdto.getH_logo_img());
-				request.setAttribute("h_slogan", hdto.getH_slogan());
-				request.setAttribute("h_left_baner", hdto.getH_slogan());
-				request.setAttribute("h_left_banner_title", hdto.getH_left_banner_title());
-				request.setAttribute("h_center_banner_title", hdto.getH_center_banner_title());
-				request.setAttribute("h_right_banner_title", hdto.getH_right_banner_title());
-				request.setAttribute("h_left_banner_img", hdto.getH_left_banner_img());
-				request.setAttribute("h_center_banner_img", hdto.getH_center_banner_img());
-				request.setAttribute("h_right_banner_img", hdto.getH_right_banner_img());
-				request.setAttribute("h_tel_no", hdto.getH_tel_no());
-				request.setAttribute("h_fax_no", hdto.getH_fax_no());
-				request.setAttribute("h_phone_no", hdto.getH_phone_no());
-				request.setAttribute("h_email", hdto.getH_email());
-				request.setAttribute("h_address", hdto.getH_address());
-				request.setAttribute("h_resume_file", hdto.getH_resume_file());
+				//뷰에 뿌릴 어트리뷰트
+				request.setAttribute("hdto", hdto);
+				
 				
 			}
 			
@@ -159,31 +145,7 @@ public class MainpageDAO {
 		}
 	}
 	
-	//컨트롤러 수정 전에 로고 어트리뷰트 수동으로 실어주기 위한 메소드
-	public void getLogo(HttpServletRequest request) {
-		Connection con = null;
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		String sql = "select h_logo_img from homepage_common where h_seq=1";
-		
-		try {
-			con = DBManagerhalo.connect();
-			pstmt = con.prepareStatement(sql);
-			rs = pstmt.executeQuery();
-			
-			if(rs.next()) {
-				request.setAttribute("currentLogo", rs.getString("h_logo_img"));
-				System.out.println("currentLogo : " + rs.getString("h_logo_img"));
-			}
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}finally {
-			DBManagerhalo.close(con, pstmt, rs);
-		}
-		
-		
-	}
+	
 
 	public void updateFooter(HttpServletRequest request) {
 		Connection con = null;
@@ -192,6 +154,7 @@ public class MainpageDAO {
 		String paramName = "error";
 		String param = "등록 실패";
 		try {
+			request.setCharacterEncoding("utf-8");
 			con = DBManagerhalo.connect();
 			pstmt = con.prepareStatement(sql);
 			
@@ -215,6 +178,41 @@ public class MainpageDAO {
 			request.setAttribute("param", param);
 			DBManagerhalo.close(con, pstmt, null);
 		}
+		
+	}
+
+	public void bannerUpdate(HttpServletRequest request) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		String sql = "";
+		String paramName = "error";
+		String param = "등록 실패";
+		try {
+			request.setCharacterEncoding("utf-8");
+			con = DBManagerhalo.connect();
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, request.getParameter("h_tel_no"));
+			pstmt.setString(2, request.getParameter("h_fax_no"));
+			pstmt.setString(3, request.getParameter("h_phone_no"));
+			pstmt.setString(4, request.getParameter("h_email"));
+			pstmt.setString(5, request.getParameter("h_address"));
+			if (pstmt.executeUpdate() == 1) {
+				System.out.println("등록 성공!");
+				
+				param = "등록 성공!";
+				paramName ="success";
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("db server error...");
+		}finally {
+			request.setAttribute("paramName", paramName);
+			request.setAttribute("param", param);
+			DBManagerhalo.close(con, pstmt, null);
+		}
+		
 		
 	}
 	
