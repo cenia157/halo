@@ -14,18 +14,21 @@ public class Ck_DAO {
 			String title = request.getParameter("title");
 			String select = request.getParameter("select");
 			String txt = request.getParameter("txt");
-			String saveFnameValues = request.getParameter("saveFname");
+			System.out.println("txt :::" + txt);
+			String saveFnameValues[] = request.getParameterValues("saveFname");
+			System.out.println("saveFnameValues :::" + saveFnameValues[0]);
+			System.out.println("saveFnameValues :::" + saveFnameValues[1]);
 
-			if (saveFnameValues != null) {
-			    String[] saveArray = saveFnameValues.split("&");
-
-			    for (int i = 0; i < saveArray.length; i++) {
-			        // 각각의 img 태그에 대해 대체 수행
-			        txt = txt.replace("img", "img src=\'" + saveArray[i] + "'");
-
-			        System.out.println("saveFName: " + saveArray[i]);
-			    }
-			}
+//			if (saveFnameValues != null) {
+//			    String[] saveArray = saveFnameValues.split("&");
+//
+//			    for (int i = 0; i < saveArray.length; i++) {
+//			        // 각각의 img 태그에 대해 대체 수행
+//			        txt = txt.replace("img", "img src=\'" + saveArray[i] + "'");
+//
+//			        System.out.println("saveFName: " + saveArray[i]);
+//			    }
+//			}
 
 			
 

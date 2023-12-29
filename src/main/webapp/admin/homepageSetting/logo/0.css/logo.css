@@ -114,7 +114,7 @@
 
 .content-m-td-2-side-up-title2 {
 	height: 100%;
-	width: 50%;
+	width: 45%;
 	display: flex;
 	align-items: center;
 	font-size: 2.5rem;
@@ -140,6 +140,11 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+
+/* 현재로고 이미지 사이즈 제한css */
+#currentImg{
+	width: 100%;
 }
 
 /*  로고 이미지 파일 업로드 칸*/

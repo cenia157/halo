@@ -20,8 +20,9 @@ public class TexiapplyC extends HttpServlet {
 	SeviceApplyDAO.nursingApply(request);
 	SeviceApplyDAO.texiApply(request);
 	
+	request.setAttribute("agree", "ApplyTexiC");
 	request.setAttribute("serviceStep", "agree.jsp");
-	request.setAttribute("step4Pos", "#ffdf6c");
+	request.setAttribute("step5Pos", "#ffdf6c");
 	request.setAttribute("menu", "user/menu-index.jsp");
 	request.setAttribute("subMenu", "service/serviceApply/serviceApply.jsp");
 	request.getRequestDispatcher("index.jsp").forward(request, response);

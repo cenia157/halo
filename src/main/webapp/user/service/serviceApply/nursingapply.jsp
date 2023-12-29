@@ -35,15 +35,28 @@
 						name="userName" class="na-content-applyform-tr-2-2" type="text">
 				</div>
 				<div class="na-content-applyform-tr-2">
-					<span class="na-content-applyform-tr-2-1">요양받으실 분 성별* :
-					</span> 
+					<span class="na-content-applyform-tr-2-1">요양받으실 분 성별* : </span>
 					<div class="na-content-applyform-tr-2-2">
-					<div class="na-content-applyform-tr-2-3">
-					<input name="userGender" type="radio" value="m" >男 
+						<div class="na-content-applyform-tr-2-3">
+							<input name="userGender" type="radio" value="m">男
+						</div>
+						<div class="na-content-applyform-tr-2-3">
+							<input name="userGender" class="na-content-applyform-tr-2-3"
+								type="radio" value="w">女
+						</div>
 					</div>
-					<div class="na-content-applyform-tr-2-3">
-					<input name="userGender" class="na-content-applyform-tr-2-3" type="radio" value="w">女
-					</div>
+				</div>
+				<div class="na-content-applyform-tr-2">
+					<span class="na-content-applyform-tr-2-1">요양받으실 분 생년월일 * :</span>
+					<div class="na-content-applyform-tr-2-2">
+					 <label for="userYear">年:</label>
+					<select id="userYear" name="userYear"></select>
+
+					<label for="userMonth">月:</label>
+					<select id="userMonth" name="userMonth"></select>
+
+					<label for="userDay">日:</label>
+					<select id="userDay" name="userDay"></select>
 					</div>
 				</div>
 				<div class="na-content-applyform-tr-2">
@@ -52,14 +65,46 @@
 				</div>
 				<div class="na-content-applyform-tr-2">
 					<span class="na-content-applyform-tr-2-1">비고란(요청사항)* :</span>
-					<textarea name="niText" class="na-content-applyform-tr-2-2" ></textarea>
+					<textarea name="niText" class="na-content-applyform-tr-2-2"></textarea>
 				</div>
 			</div>
 			<div class="na-content-cal-btn-box-td">
-				<button class="na-content-cal-btn-td">다음으로</button>>
+				<button class="na-content-cal-btn-td">다음으로</button>
+				>
 			</div>
 		</div>
 	</form>
-
 </body>
+<script type="text/javascript">
+// 년도 선택 옵션 생성
+var yearSelect = document.getElementById("userYear");
+var currentYear = new Date().getFullYear();
+for (var year = currentYear; year >= 1900; year--) {
+  var option = document.createElement("option");
+  option.text = year;
+  option.value = year;
+  if (year === userYear.year) {
+	    option.selected = true;
+	  }
+  yearSelect.appendChild(option);
+}
+
+// 월 선택 옵션 생성
+var monthSelect = document.getElementById("userMonth");
+for (var month = 1; month <= 12; month++) {
+  var option = document.createElement("option");
+  option.text = month;
+  option.value = month;
+  monthSelect.appendChild(option);
+}
+
+// 일 선택 옵션 생성 (1일부터 31일까지)
+var daySelect = document.getElementById("userDay");
+for (var day = 1; day <= 31; day++) {
+  var option = document.createElement("option");
+  option.text = day;
+  option.value = day;
+  daySelect.appendChild(option);
+}
+</script>
 </html>
