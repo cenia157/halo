@@ -110,8 +110,8 @@ pageEncoding="UTF-8"%>
       let scroll_per_val;
 
       $(document).ready(function () {
-        // JSTL을 사용하여 서블릿에서 전달받은 토큰 사용~~~~
-        let token = "${token}";
+
+        let token = "${apiToken}"
 
         $.ajax({
           url:
@@ -121,6 +121,8 @@ pageEncoding="UTF-8"%>
           dataType: "jsonp",
           success: function (response) {
             console.log("response :::" + response);
+            console.log(" response.data :::" +  response.data);
+            console.log("API Response:", response);
             items = response.data;
             console.log("items :::" + items);
             makeView();
