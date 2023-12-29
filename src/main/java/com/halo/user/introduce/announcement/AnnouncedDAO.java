@@ -27,8 +27,9 @@ public class AnnouncedDAO {
     public static void getAllAnnouncements(HttpServletRequest request) {
         PreparedStatement pstmt = null;
         ResultSet rs = null;
-//        String sql = "SELECT * FROM announced_tbl ORDER BY an_seq DESC";
-        String sql = "SELECT * FROM announced_tbl";
+
+        String sql = "SELECT * FROM announced_tbl ORDER BY an_seq ASC";
+        
         System.out.println("DB 연결 확인1");
 
         try {
