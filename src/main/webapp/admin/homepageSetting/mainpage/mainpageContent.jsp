@@ -46,28 +46,48 @@
 			<div class="content-m-td-3-mid-2-tr">
 
 				<div class="content-m-td-3-mid-2-tr-underbar">
-					<select class="mainpageOption">
-						<option value="">채용aa공고</option>
-						<option value="">공지사항</option>
-						<option value="">앨범</option>
-					</select>
+					<select name="banner_menu">
+				<option value="info_com">회사소개</option>
+				<option value="info_map">오시는길</option>
+				<option value="intro_announce">공지사항</option>
+				<option value="intro_album">앨범</option>
+				<option value="intro_employ">채용공고</option>
+				<option value="service_info">서비스안내</option>
+				<option value="service_apply">서비스신청</option>
+				<option value="faq">자주묻는질문</option>
+				<option value="question">문의게시판</option>
+				<option value="sales">상품판매</option>
+				</select>
 				</div>
 
 				<div class="content-m-td-3-mid-2-tr-underbar">
-					<select class="mainpageOption">
-
-						<option value="">신청</option>
-						<option value="">안내</option>
-					</select>
+					<select name="banner_menu">
+				<option value="info_com">회사소개</option>
+				<option value="info_map">오시는길</option>
+				<option value="intro_announce">공지사항</option>
+				<option value="intro_album">앨범</option>
+				<option value="intro_employ">채용공고</option>
+				<option value="service_info">서비스안내</option>
+				<option value="service_apply">서비스신청</option>
+				<option value="faq">자주묻는질문</option>
+				<option value="question">문의게시판</option>
+				<option value="sales">상품판매</option>
+				</select>
 				</div>
 
 				<div class="content-m-td-3-mid-2-tr-underbar">
-					<select class="mainpageOption">
-
-						<option value="">문의</option>
-						<option value="">자주묻는질문</option>
-
-					</select>
+					<select name="banner_menu">
+				<option value="info_com">회사소개</option>
+				<option value="info_map">오시는길</option>
+				<option value="intro_announce">공지사항</option>
+				<option value="intro_album">앨범</option>
+				<option value="intro_employ">채용공고</option>
+				<option value="service_info">서비스안내</option>
+				<option value="service_apply">서비스신청</option>
+				<option value="faq">자주묻는질문</option>
+				<option value="question">문의게시판</option>
+				<option value="sales">상품판매</option>
+				</select>
 				</div>
 
 

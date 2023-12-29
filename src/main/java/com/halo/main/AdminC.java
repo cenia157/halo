@@ -9,24 +9,18 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.halo.user.qa.question.QuestionDAO;
 
-
 @WebServlet("/AdminC")
 public class AdminC extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String menu = null;
+		//DB에 업뎃된(저장된) homepage_common 모든 어트리뷰트
+		MainpageDAO.getMdao().getAllHompage_common(request);
 		if (request.getParameter("link") != null) {
-			if (request.getParameter("link").equals("1")) {
-				menu = "/admin/homepageSetting/logo/logoContent";
-				//DB에 업뎃된(저장된) 로고 어트리뷰트를 수동으로 실어줬음, 컨트롤 수정시 바꿀 예정
-				MainpageDAO.getMdao().getLogo(request);
-			} else if (request.getParameter("link").equals("2")) {
+			if (request.getParameter("link").equals("2")) {
 				menu = "/admin/homepageSetting/mainpage/mainpageContent";
-			} else if (request.getParameter("link").equals("3")) {
-				menu = "/admin/homepageSetting/banner/bannerContent";
-			} else if (request.getParameter("link").equals("4")) {
-				menu = "/admin/homepageSetting/information/informationContent";
-			} else if (request.getParameter("link").equals("5")) {
+			} // 버튼누르면 바로 해당기능C로 ㄱㄱ하도록 인덱스에 박아둠, 해당 페이지 링크부분 삭제함
+			else if (request.getParameter("link").equals("5")) {
 				menu = "/admin/boardmanagement/notice_test/noticeContent";
 			} else if (request.getParameter("link").equals("6")) {
 				menu = "/admin/boardmanagement/ask/askContent";
@@ -39,16 +33,15 @@ public class AdminC extends HttpServlet {
 			} else if (request.getParameter("link").equals("10")) {
 				menu = "qa/question/questionDetail";
 			} else if (request.getParameter("link").equals("11")) {
-					menu = "/admin/customerCare/stats/stats2";
+				menu = "/admin/customerCare/stats/stats2";
 			}
 			request.setAttribute("menu", menu + ".jsp");
 			request.getRequestDispatcher("admin/index.jsp").forward(request, response);
-			
+
 		} else {
 			request.setAttribute("menu", "/admin/dashboard/dashboard.jsp");
 			request.getRequestDispatcher("admin/index.jsp").forward(request, response);
 		}
-
 
 		String link = request.getParameter("link");
 		System.out.println(link);

@@ -26,13 +26,13 @@ pageEncoding="UTF-8"%>
     <div class="a_content-box-tr1">
       <div class="a_content-box-tr1-td1">
         <div class="a_content-box-tr1-td1-1">
-          <span><a href="//www.test.com">공지사항</a></span>
+          <span><a href="Announced_C">공지사항</a></span>
         </div>
         <div class="a_content-box-tr1-td1-2">
-          <span><a href="//www.test.com">앨범</a></span>
+          <span><a href="Album_insta_api_C">앨범</a></span>
         </div>
         <div class="a_content-box-tr1-td1-3">
-          <span><a href="//www.test.com">채용공고</a></span>
+          <span><a href="Employment_C">채용공고</a></span>
         </div>
       </div>
 
@@ -110,8 +110,8 @@ pageEncoding="UTF-8"%>
       let scroll_per_val;
 
       $(document).ready(function () {
-        // JSTL을 사용하여 서블릿에서 전달받은 토큰 사용~~~~
-        let token = "${token}";
+
+        let token = "${apiToken}"
 
         $.ajax({
           url:
@@ -121,6 +121,8 @@ pageEncoding="UTF-8"%>
           dataType: "jsonp",
           success: function (response) {
             console.log("response :::" + response);
+            console.log(" response.data :::" +  response.data);
+            console.log("API Response:", response);
             items = response.data;
             console.log("items :::" + items);
             makeView();

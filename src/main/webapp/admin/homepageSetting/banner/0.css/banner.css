@@ -26,10 +26,14 @@
 	display: block;
 }
 
+form {
+	width: 100%;
+	height: 100%;
+}
+
 
 /* 하단 배너  */
 .banner-tbl {
-	border: dotted 1px orange;
 	width: 100%;
 	height: 90%;
 	display: flex;
@@ -38,12 +42,18 @@
 }
 
 .banner-tr {
-	border: solid 1px orange;
 	width: 30%;
 	height: 80%;
 	margin: 1.3%;
 	width: 30%;
 }
+
+/* 베너 순서 No. */
+.banner-no {
+	width: 100%;
+	margin-bottom: 5%;
+}
+
 /* 하단 배너 미리보기 이미지 박스  */
 .banner-td-img-box {
 	border: solid 6px rgb(221, 226, 229);
@@ -55,7 +65,6 @@
 
 /* (빠른메뉴)주요메뉴 설정 셀렉  */
 .banner-td-1 {
-	border: solid 1px green;
 	width: 100%;
 	height: 13%;
 	margin-bottom: 1.5%;
@@ -90,7 +99,6 @@
 
 /* 상품판매 등 url 첨부 인풋  */
 .banner-td-2 {
-	border: solid 1px blue;
 	width: 100%;
 	height: 13%;
 	margin-bottom: 1.5%;
@@ -119,7 +127,6 @@
 
 /* 베너 썸네일 이미지(파일업로드)인풋  */
 .banner-td-3 {
-	border: solid 1px yellowgreen;
 	width: 100%;
 	height: 13%;
 	font-size: 1.2rem;
@@ -176,6 +183,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	margin-top: -3%;
 }
 .content-button > button{
 	border-radius: 5%/15%;

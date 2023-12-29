@@ -60,16 +60,17 @@
 							<div class="menu-td-3-td-open-td-2-con">
 								<div class="menu-td-3-td-open-td-2-con-td-2">
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
-										<img src="admin/0.img/admintble-select.png" alt=""><a href="AdminC?link=1">로고변경</a>
+									<!-- TODO 서효원 기능 서블렛 만들때마다 연결시키고 컨트롤러 if문 지우기! -->
+										<img src="admin/0.img/admintble-select.png" alt=""><a href="LogoUploadC">로고변경</a>
 									</div>
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
 										<img src="admin/0.img/admintble-select.png" alt=""><a href="AdminC?link=2">주요메뉴설정</a>
 									</div>
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
-										<img src="admin/0.img/admintble-select.png" alt=""><a href="AdminC?link=3">하단배너설정</a>
+										<img src="admin/0.img/admintble-select.png" alt=""><a href="BannerUpdateC">하단배너설정</a>
 									</div>
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
-										<img src="admin/0.img/admintble-select.png" alt=""><a href="AdminC?link=4">회사정보변경</a>
+										<img src="admin/0.img/admintble-select.png" alt=""><a href="InformUpdateC">회사정보변경</a>
 									</div>
 								</div>
 							</div>

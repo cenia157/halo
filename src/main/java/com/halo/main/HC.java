@@ -13,8 +13,8 @@ public class HC extends HttpServlet {
 			throws ServletException, IOException {
 		String contentPage = null;
 		String subMenu = null;
-		//DB에 업뎃된(저장된) 로고 어트리뷰트를 수동으로 실어줬음, HC 수정시 바꿀 예정
-		MainpageDAO.getMdao().getLogo(request);
+		//DB에 업뎃된 모든 homepage_common 정보
+		MainpageDAO.getMdao().getAllHompage_common(request);
 		if (request.getParameter("link") != null) {
 			if (request.getParameter("link").equals("1")) {
 				subMenu = "information/company/inform";

@@ -8,16 +8,14 @@ import java.sql.SQLException;
 
 import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
 
-public class DBManagerhalo {
+public class DBManagerhalo2 {
 
 	private static BasicDataSource dataSource;
 
 	static {
 		dataSource = new BasicDataSource();
 		dataSource.setDriverClassName("oracle.jdbc.OracleDriver");
-		dataSource.setUrl("jdbc:oracle:thin:@anxucl0a8nyvimp0_high?TNS_ADMIN=C:/Wallet_ANXUCL0A8NYVIMP0");
 		dataSource.setUrl("jdbc:oracle:thin:@anxucl0a8nyvimp0_high?TNS_ADMIN=/Users/admin/mg/Wallet_ANXUCL0A8NYVIMP0");
-		dataSource.setUrl("jdbc:oracle:thin:@anxucl0a8nyvimp0_high?TNS_ADMIN=C:/Wallet_ANXUCL0A8NYVIMP0");
 		dataSource.setUsername("ADMIN");
 		dataSource.setPassword("Soldesk802!!");
 	}

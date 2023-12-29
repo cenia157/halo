@@ -37,8 +37,9 @@
 			<div class="header-tr-1">
 				<div class="header-br-logo">
 					<!-- 로고 이미지 경로 확인, 텍스트까지 이미지로 업로드, <a>홈으로 연결 -->
-					<img src="user/upload_imgs/${currentLogo}">
-					<a href="">ハロー</a>
+					<a href="HC">
+					<img src="user/upload_imgs/${hdto.h_logo_img}">
+					</a>
 				</div>
 				<div class="header-br-space"></div>
 <!-- 				전화번호 수정 가능하도록, 회사정보(footer 변경 어트리뷰트 재활용) -->
@@ -62,9 +63,9 @@
 							</a>
 						</div>
 						<div class="header-opmenu-td">
-							<a class="header-opmenu-a" href="HC?link=3">공지사항</a> <a
-								class="header-opmenu-a" href="HC?link=4">앨범</a> <a
-								class="header-opmenu-a" href="HC?link=5">채용공고</a>
+							<a class="header-opmenu-a" href="Announced_C">공지사항</a> <a
+								class="header-opmenu-a" href="Album_insta_api_C">앨범</a> <a
+								class="header-opmenu-a" href="Employment_C">채용공고</a>
 						</div>
 					</div>
 					<div class="header-td-menu">
@@ -152,10 +153,11 @@
 		<!-- Footer풋터 시작 -->
 		<div class="footer-tbl">
 			<div class="footer-tr">
+			<!-- TODO 서효원 admin페이지에서 업뎃된 footer정보 getAll로 뿌림 -->
 				<div class="footer-item-td-1">
-					Tel. 06-6997-6531 <br /> FAX : 06-6997-6520 <br /> PhoneNumber :
-					090-8799-3855 <br /> email : hello20201110@gmail.com <br />
-					address : 大阪府守口市馬場町3-14-6メゾンエミール701号 <br />
+					Tel. ${hdto.h_tel_no} <br /> FAX : ${hdto.h_fax_no}  <br /> PhoneNumber :
+					${hdto.h_phone_no} <br /> email : ${hdto.h_email} <br />
+					address : ${hdto.h_address} <br />
 				</div>
 				<div class="footer-item-td-2">
 					<div>
