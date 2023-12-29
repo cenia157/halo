@@ -72,6 +72,7 @@ select * from notice;
 
 
 
+
 // 여기서부터 진짜
 
 
@@ -84,15 +85,14 @@ CREATE TABLE announced_tbl (
 	an_writer VARCHAR2(20),    
     an_reg_date DATE DEFAULT SYSDATE,
 	an_category VARCHAR2(50),
-	an_img VARCHAR2(200)
 );
 create sequence announced_tbl_seq;
 
-INSERT INTO announced_tbl (an_sql, an_title, an_content, an_writer, an_category, an_img) VALUES (announced_tbl_seq.nextval, '타이틀', '텍스트', '김진욱', '일반', '이미지');
+INSERT INTO announced_tbl (an_sql, an_title, an_content, an_writer, an_category) VALUES (announced_tbl_seq.nextval, '타이틀', '텍스트', '김진욱', '일반');
 
 
 
-c
+select * from announced_tbl;
 
 
 

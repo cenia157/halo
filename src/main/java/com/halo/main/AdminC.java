@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.halo.user.qa.question.QuestionDAO;
 
-
 @WebServlet("/AdminC")
 public class AdminC extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -24,9 +23,8 @@ public class AdminC extends HttpServlet {
 				menu = "/admin/homepageSetting/mainpage/mainpageContent";
 			} else if (request.getParameter("link").equals("3")) {
 				menu = "/admin/homepageSetting/banner/bannerContent";
-			} else if (request.getParameter("link").equals("4")) {
-				menu = "/admin/homepageSetting/information/informationContent";
-			} else if (request.getParameter("link").equals("5")) {
+			}// 버튼누르면 바로 InformUpdateC로 ㄱㄱ하도록 인덱스에 박아둠
+			else if (request.getParameter("link").equals("5")) {
 				menu = "/admin/boardmanagement/notice_test/noticeContent";
 			} else if (request.getParameter("link").equals("6")) {
 				menu = "/admin/boardmanagement/ask/askContent";
@@ -39,16 +37,15 @@ public class AdminC extends HttpServlet {
 			} else if (request.getParameter("link").equals("10")) {
 				menu = "qa/question/questionDetail";
 			} else if (request.getParameter("link").equals("11")) {
-					menu = "/admin/customerCare/stats/stats2";
+				menu = "/admin/customerCare/stats/stats2";
 			}
 			request.setAttribute("menu", menu + ".jsp");
 			request.getRequestDispatcher("admin/index.jsp").forward(request, response);
-			
+
 		} else {
 			request.setAttribute("menu", "/admin/dashboard/dashboard.jsp");
 			request.getRequestDispatcher("admin/index.jsp").forward(request, response);
 		}
-
 
 		String link = request.getParameter("link");
 		System.out.println(link);

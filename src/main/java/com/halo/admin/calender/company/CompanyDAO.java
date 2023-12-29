@@ -49,7 +49,6 @@ public class CompanyDAO {
 				companySchedule.add(schedule.toJson());
 
 			}
-			
 
 			System.out.println("회사 달력 조회 성공");
 			response.getWriter().print(companySchedule);
