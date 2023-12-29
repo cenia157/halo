@@ -14,27 +14,59 @@ public class Ck_DAO {
 			String title = request.getParameter("title");
 			String select = request.getParameter("select");
 			String txt = request.getParameter("txt");
-			String saveFName = null;
+
+			String saveFnameValues = request.getParameter("saveFname");
 
 			
 			
 			
-			String[] saveFnameValues = request.getParameterValues("saveFname");
 			
-			for (int i = 0; i < saveFnameValues.length; i++) {
-				
+			if (saveFnameValues != null) {
+			    String[] saveArray = saveFnameValues.split("&");
+
+			    int saveIndex = 0; // saveArray의 인덱스를 나타내는 변수
+
+			    // txt 문자열 내에서 각 img 태그를 찾아 대체
+			    while (txt.contains("<img")) {
+			        // <img 태그의 시작 위치
+			        int startIndex = txt.indexOf("<img");
+
+			        // <img 태그의 끝 위치
+			        int endIndex = txt.indexOf(">", startIndex) + 1;
+
+			        // <img 태그 추출
+			        String imgTag = txt.substring(startIndex, endIndex);
+
+			        // 이미 src 속성이 있는 경우에만 대체
+			        if (!imgTag.contains("src")) {
+			            // <img 태그에 src 속성이 없으면 대체
+			            txt = txt.replaceFirst("<img", "<img src='" + saveArray[saveIndex++] + "'");
+			            System.out.println("Replaced: " + imgTag);
+			        } else {
+			            // 이미 src 속성이 있으면 endIndex까지를 그대로 사용
+			            System.out.println("Skipped: " + imgTag);
+			            saveIndex++;
+			        }
+			    }
 			}
-			
-			
-			
-			
-			
-			
 
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			System.out.println("33333333333333333");
 			System.out.println(title);
 			System.out.println(select);
-			System.out.println(saveFName);
-			txt = txt.replace("img", "img src=\'" + saveFName + "\'");
+//			System.out.println(saveFName);
 			System.out.println(txt);
 
 			Connection con = null;
