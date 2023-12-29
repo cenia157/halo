@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%>
+pageEncoding="UTF-8"%> <%@ taglib uri="http://java.sun.com/jsp/jstl/core"
+prefix="c" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -14,6 +15,7 @@ pageEncoding="UTF-8"%>
       rel="stylesheet"
       href="${pageContext.request.contextPath}/user/introduce/announcement/0.css/announcement_contentPage.css"
     />
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
   </head>
   <body>
     <!--     <div class="a_container"> -->
@@ -23,13 +25,13 @@ pageEncoding="UTF-8"%>
       <div class="a_content-box-tr1">
         <div class="a_content-box-tr1-td1">
           <div class="a_content-box-tr1-td1-1">
-            <span><a href="www.test.com">공지사항</a></span>
+            <span><a href="Announced_C">공지사항</a></span>
           </div>
           <div class="a_content-box-tr1-td1-2">
-            <span><a href="www.test.com">앨범</a></span>
+            <span><a href="Album_insta_api_C">앨범</a></span>
           </div>
           <div class="a_content-box-tr1-td1-3">
-            <span><a href="www.test.com">채용공고</a></span>
+            <span><a href="Employment_C">채용공고</a></span>
           </div>
         </div>
 
@@ -51,6 +53,7 @@ pageEncoding="UTF-8"%>
             <div class="a_content-box-tr1-td3-1-1">
               <div class="a_content-box-tr1-td3-1-1-1">
                 <!-- 타이블 첫 행 -->
+
                 <div class="a_content-box-tr1-td3-1-1-1-1">
                   <div class="a_content-box-tr1-td3-1-1-1-1-1 No-width">
                     <span>No</span>
@@ -69,26 +72,134 @@ pageEncoding="UTF-8"%>
                   </div>
                 </div>
                 <!-- 2번째 행 여기는 forEach문이겠죠?-->
-                <div class="a_content-box-tr1-td3-1-1-1-2">
-                  <div class="a_content-box-tr1-td3-1-1-1-2-1 No-width">
-                    <span>18</span>
+                <c:forEach var="announcement" items="${announcements}">
+                  <div class="a_content-box-tr1-td3-1-1-1-2">
+                    <div class="a_content-box-tr1-td3-1-1-1-2-1 No-width">
+                      <span>${announcement.an_seq}</span>
+                    </div>
+                    <div class="a_content-box-tr1-td3-1-1-1-2-2 writer-width">
+                      <span>${announcement.an_writer}</span>
+                    </div>
+                    <div
+                      class="a_content-box-tr1-td3-1-1-1-2-3 title-width ancTitleDiv"
+                      data-anseq="${announcement.an_seq }"
+                    >
+                      <span>${announcement.an_title}</span>
+                    </div>
+                    <div class="a_content-box-tr1-td3-1-1-1-2-4 category-width">
+                      <span>${announcement.an_category}</span>
+                    </div>
+                    <div class="a_content-box-tr1-td3-1-1-1-2-5 reg-width">
+                      <span
+                        ><fmt:formatDate
+                          value="${announcement.an_reg_date}"
+                          pattern="yyyy-MM-dd"
+                      /></span>
+                    </div>
                   </div>
-                  <div class="a_content-box-tr1-td3-1-1-1-2-2 writer-width">
-                    <span>사토*케시</span>
-                  </div>
-                  <div class="a_content-box-tr1-td3-1-1-1-2-3 title-width">
-                    <span>일정공지</span>
-                  </div>
-                  <div class="a_content-box-tr1-td3-1-1-1-2-4 category-width">
-                    <span>일정</span>
-                  </div>
-                  <div class="a_content-box-tr1-td3-1-1-1-2-5 reg-width">
-                    <span>2023-12-06</span>
-                  </div>
+                </c:forEach>
+                <!--페이징시작 -->
+                <div class="paging-div">
+                  <!-- 처음으로 가는 버튼 -->
+                  <c:choose>
+                    <c:when test="${curPageNo > 5}">
+                      <a href="Announced_paging_C?p=${curPageNo - 5}">
+                        <button><<</button>
+                      </a>
+                    </c:when>
+                    <c:when test="${curPageNo <= 5 && curPageNo > 1}">
+                      <a href="Announced_paging_C?p=1">
+                        <button><<</button>
+                      </a>
+                    </c:when>
+                    <c:otherwise>
+                      <button disabled><<</button>
+                    </c:otherwise>
+                  </c:choose>
+
+                  <!-- 이전 페이지로 가는 버튼 -->
+                  <c:choose>
+                    <c:when test="${curPageNo > 1}">
+                      <a href="Announced_paging_C?p=${curPageNo - 1}">
+                        <button>이전</button>
+                      </a>
+                    </c:when>
+                    <c:otherwise>
+                      <button disabled>이전</button>
+                    </c:otherwise>
+                  </c:choose>
+
+                  <!-- 페이지 번호 생성 시작 -->
+                  <c:set var="pageSize" value="10" />
+                  <c:set var="startPage" value="${curPageNo - 2}" />
+                  <c:set var="endPage" value="${curPageNo + 2}" />
+                  <!-- 시작 페이지와 끝 페이지 계산 -->
+
+                  <c:if test="${startPage < 1}">
+                    <c:set var="startPage" value="1" />
+                    <c:set var="endPage" value="${startPage + 4}" />
+                    <!-- 시작 페이지가 1보다 작으면 1로 설정하고 끝 페이지를 조정 -->
+                  </c:if>
+
+                  <c:if test="${endPage > pageCount}">
+                    <c:set var="endPage" value="${pageCount}" />
+                    <c:set var="startPage" value="${endPage - 4}" />
+                    <!-- 끝 페이지가 페이지 수를 넘으면 끝 페이지를 페이지 수로 설정하고 시작 페이지를 조정 -->
+                  </c:if>
+
+                  <c:forEach
+                    var="pageNumber"
+                    begin="${startPage}"
+                    end="${endPage}"
+                  >
+                    <c:set
+                      var="currentPageClass"
+                      value="${pageNumber == curPageNo ? 'current-page' : ''}"
+                    />
+                    <a
+                      href="Announced_paging_C?p=${pageNumber}"
+                      class="page-number ${currentPageClass}"
+                      >[${pageNumber}]</a
+                    >
+                  </c:forEach>
+                  <!-- 페이지 번호 생성 끝 -->
+
+                  <!-- 다음 페이지로 가는 버튼 -->
+                  <c:choose>
+                    <c:when test="${curPageNo < pageCount}">
+                      <a href="Announced_paging_C?p=${curPageNo + 1}">
+                        <button>다음</button>
+                      </a>
+                    </c:when>
+                    <c:otherwise>
+                      <button disabled>다음</button>
+                    </c:otherwise>
+                  </c:choose>
+
+                  <!-- 마지막으로 가는 버튼 -->
+                  <c:choose>
+                    <c:when test="${curPageNo + 5 <= pageCount}">
+                      <a href="Announced_paging_C?p=${curPageNo + 5}">
+                        <button>>></button>
+                      </a>
+                    </c:when>
+                    <c:when
+                      test="${curPageNo + 5 > pageCount && curPageNo < pageCount}"
+                    >
+                      <a href="Announced_paging_C?p=${pageCount}">
+                        <button>>></button>
+                      </a>
+                    </c:when>
+                    <c:otherwise>
+                      <button disabled>>></button>
+                    </c:otherwise>
+                  </c:choose>
                 </div>
+                <!-- 페이징끝 -->
               </div>
             </div>
-            <div class="a_content-box-tr1-td3-1-2">페이징 아이콘</div>
+            <!--             <div class="a_content-box-tr1-td3-1-2"> -->
+            <!--             </div> -->
           </div>
         </div>
       </div>
@@ -105,37 +216,45 @@ pageEncoding="UTF-8"%>
         </div>
         <div class="qd-content-box-td1-2">
           <div class="qd-content-box-td1-2-1">제목</div>
-          <div class="qd-content-box-td1-2-2">일정공지</div>
+          <div class="qd-content-box-td1-2-2" id="modalTitle">일정공지</div>
         </div>
 
         <div class="qd-content-box-td1-3">
           <div class="qd-content-box-td1-3-1">작성자</div>
-          <div class="qd-content-box-td1-3-2">오오데아키코</div>
+          <div class="qd-content-box-td1-3-2" id="modalWriter">
+            오오데아키코
+          </div>
         </div>
 
         <div class="qd-content-box-td1-4">
           <div class="qd-content-box-td1-4-content">
             <span class="qd-content-box-td1-4-1">작성일: </span>
-            <span class="qd-content-box-td1-4-2">23-12-15</span>
+            <span class="qd-content-box-td1-4-2" id="modalregDate"
+              >23-12-15</span
+            >
           </div>
         </div>
 
         <!-- 본문 -->
         <div class="qd-content-box-td2-1">
-          <div class="qd-content-box-td2-1-content">
+          <div class="qd-content-box-td2-1-content" id="modalContent">
             안녕하세요, 운영자입니다. <br />
             일정관리를 다음과 같이 알려드립니다. 시세확장때문에 하는데요. <br />
             평일 중 2일과 주말 1일을 정기적으로 한 달 동안 이용하는 것이
-            가능한지 궁금합니다. <br />   안녕하세요, 운영자입니다. <br />
+            가능한지 궁금합니다. <br />
+            안녕하세요, 운영자입니다. <br />
             일정관리를 다음과 같이 알려드립니다. 시세확장때문에 하는데요. <br />
             평일 중 2일과 주말 1일을 정기적으로 한 달 동안 이용하는 것이
-            가능한지 궁금합니다. <br />   안녕하세요, 운영자입니다. <br />
+            가능한지 궁금합니다. <br />
+            안녕하세요, 운영자입니다. <br />
             일정관리를 다음과 같이 알려드립니다. 시세확장때문에 하는데요. <br />
             평일 중 2일과 주말 1일을 정기적으로 한 달 동안 이용하는 것이
-            가능한지 궁금합니다. <br />   안녕하세요, 운영자입니다. <br />
+            가능한지 궁금합니다. <br />
+            안녕하세요, 운영자입니다. <br />
             일정관리를 다음과 같이 알려드립니다. 시세확장때문에 하는데요. <br />
             평일 중 2일과 주말 1일을 정기적으로 한 달 동안 이용하는 것이
-            가능한지 궁금합니다. <br />   안녕하세요, 운영자입니다. <br />
+            가능한지 궁금합니다. <br />
+            안녕하세요, 운영자입니다. <br />
             일정관리를 다음과 같이 알려드립니다. 시세확장때문에 하는데요. <br />
             평일 중 2일과 주말 1일을 정기적으로 한 달 동안 이용하는 것이
             가능한지 궁금합니다. <br />
@@ -150,52 +269,34 @@ pageEncoding="UTF-8"%>
         </div>
 
         <div class="qd-content-box-td2-2">
-          <button class="qd-content-box-td2-2-button">닫기</button>
+          <button class="qd-content-box-td2-2-button" id="closeModalBtn">
+            닫기
+          </button>
         </div>
       </div>
     </div>
     <!-- 모달끝 -->
 
     <script>
+      let modal = document.querySelector("#myModal");
+      let closeModalButtons = document.querySelectorAll(
+        ".qd-content-box-td2-2-button"
+      );
       window.onload = function () {
-        let modal = document.querySelector("#myModal");
         let modalContent = document.querySelector(".modal-content"); // 모달 내용 요소
-        let triggerElement = document.querySelector(
-          ".a_content-box-tr1-td3-1-1-1-2-3"
-        );
+        let ancTitleDiv = document.querySelector(".ancTitleDiv"); //모달 제목
         let headerTbl = document.querySelector(".header-tbl");
-        let closeModalButtons = document.querySelectorAll(
-          ".qd-content-box-td2-2-button"
-        );
         let contentBox = document.querySelector(
           ".qd-content-box-td2-1-content"
         ); // 스크롤 위치 조정을 위한 요소
 
-        // 모달 표시 이벤트 리스너
-        triggerElement.addEventListener("click", function () {
-          modal.style.display = "flex";
-          contentBox.scrollTop = 0; // 스크롤 위치를 맨 위로 설정
-          if (headerTbl) {
-            headerTbl.style.display = "none";
+        $(document).keydown(function (e) {
+          if (e.key === "Escape") {
+            // 'Escape'는 ESC 키를 나타냄
+            // 'click' 이벤트 생성
+            var event = new Event("click");
+            closeModalButtons[0].dispatchEvent(event);
           }
-        });
-		
-        // 모달 닫기 버튼 이벤트 리스너
-        closeModalButtons.forEach(function (button) {
-          button.addEventListener("click", function () {
-            modal.style.display = "none";
-            if (headerTbl) {
-              headerTbl.style.display = "block";
-            }
-          });
-        });
-        $(document).keydown(function(e) {
-            if (e.key === "Escape") { // 'Escape'는 ESC 키를 나타냄
-            	// 'click' 이벤트 생성
-            	var event = new Event('click');
-            	closeModalButtons[0].dispatchEvent(event);
-            	
-            }
         });
         // 모달 외부 클릭 시 모달 닫기 이벤트 리스너
         window.addEventListener("click", function (e) {
@@ -208,6 +309,44 @@ pageEncoding="UTF-8"%>
           }
         });
       };
+    </script>
+
+    <script>
+      $(document).ready(function () {
+        //모달 조회
+        $(".ancTitleDiv").on("click", function () {
+          var aidx = $(this).data("anseq");
+
+          $.ajax({
+            type: "post",
+            url: "/halo/Announced_C",
+            data: { an_seq: aidx },
+            success: function (result) {
+              var dataArr = result.split("|");
+              var writer = dataArr[0];
+              var title = dataArr[1];
+              var content = dataArr[2];
+              var regdate = dataArr[3];
+
+              $("#modalWriter").text(writer);
+              $("#modalTitle").text(title);
+              $("#modalContent").html(content);
+              $("#modalregDate").text(regdate);
+
+              //DB조회 -> 화면 그려주고 -> 모달 노출
+              modal.style.display = "flex";
+            },
+            error: function () {
+              alert("error!!!");
+            },
+          });
+        });
+
+        //모달 닫기
+        $("#closeModalBtn").on("click", function () {
+          modal.style.display = "none";
+        });
+      });
     </script>
   </body>
 </html>
