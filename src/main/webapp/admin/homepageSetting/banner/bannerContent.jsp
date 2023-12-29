@@ -17,15 +17,11 @@
 	rel="stylesheet" />
 </head>
 <body>
-	<!-- 하단배너 설정 담당 -서효원- -->
 	<div class="content-m-td-3">
-		<!-- 		<div class="filebox"> -->
-		<!-- 			<input class="bannerInput" value="" placeholder="첨부파일"> <label -->
-		<!-- 				for="file">파일찾기</label> <input type="file" id="file"> -->
-		<!-- 		</div> -->
-		
+	<form action="BannerUpdateC" method="post">
 		<div class="banner-tbl">
 			<div class="banner-tr">
+			<div class="banner-no"><h1>1.box</h1></div>
 				<div class="banner-td-img-box">배너img 미리보기</div>
 				<!-- 빠른메뉴 설정(셀렉) -->
 				<div class="banner-td-1"> 빠른메뉴 선택 :&nbsp;
@@ -57,6 +53,7 @@
 				</div>
 			</div>
 			<div class="banner-tr">
+			<div class="banner-no"><h1>2.box</h1></div>
 				<div class="banner-td-img-box">배너img 미리보기</div>
 				<div class="banner-td-1">빠른메뉴 선택 :&nbsp;
 					<select name="banner_menu">
@@ -87,6 +84,7 @@
 				</div>
 			</div>
 			<div class="banner-tr">
+			<div class="banner-no"><h1>3.box</h1></div>
 				<div class="banner-td-img-box">배너img 미리보기</div>
 				<div class="banner-td-1">빠른메뉴 선택 :&nbsp;
 					<select name="banner_menu">
@@ -118,6 +116,7 @@
 			</div>
 		</div>
 		<div class="content-button"><button>변경</button></div>
+		</form>
 	</div>
 </body>
 

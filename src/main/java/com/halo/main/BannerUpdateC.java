@@ -7,21 +7,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/LogoRegC")
-public class LogoRegC extends HttpServlet {
+@WebServlet("/BannerUpdateC")
+public class BannerUpdateC extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		//getAll로 DTO깐거 가져옴
+		MainpageDAO.getMdao().getAllHompage_common(request);
+		//AdminC에 있던 menu 어트리뷰트(경로) 정의
+		//Admin page 메뉴(index.jsp) 안고가기 => 디스페쳐
+		request.setAttribute("menu", "/admin/homepageSetting/banner/bannerContent.jsp");
+		request.getRequestDispatcher("admin/index.jsp").forward(request, response);
+		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//로고img 등록하는 일
-//		MainpageDAO.regLogo(request);
-		
-		//싱글톤 수정
-		MainpageDAO.getMdao().regLogo(request);
-		
-		//하고나서 
-		request.getRequestDispatcher("index.jsp").forward(request, response);
+		MainpageDAO.getMdao().bannerUpdate(request);
 	}
 
 }

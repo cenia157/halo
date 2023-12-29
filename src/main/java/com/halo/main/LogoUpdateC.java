@@ -22,9 +22,10 @@ import com.halo.utils.HaloUtils;
 public class LogoUpdateC extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// ajax로 미리보기 띄운 이미지 이름 -> DB에 업뎃
+		// ajax로 미리보기 띄운 이미지 -> DB에 업뎃
 		MainpageDAO.getMdao().updateLogo(request);
-		response.sendRedirect("AdminC?link=1&" + HaloUtils.setParam(request));
+		response.sendRedirect("LogoUploadC");
+		
 
 	}
 
