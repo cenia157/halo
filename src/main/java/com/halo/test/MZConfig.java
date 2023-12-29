@@ -27,9 +27,11 @@ public class MZConfig {
 				String fileName = fileNames.nextElement();
 				File file = mr.getFile(fileName);
 				
-				System.out.println("Áö±İ º¸ÀÌ´Â °á°ú°ªÀº CKeditor¿¡ ÀÌ¹ÌÁö¸¦ ¿Ã·ÈÀ» ¶§ ajax·Î ¿Ã¶ó¿Â ÆÄÀÏÀÌ´Ù");
-				System.out.println("ÆÄÀÏ °æ·Î: " + file.getAbsolutePath());
-				System.out.println("ÆÄÀÏ ÀÌ¸§: " + file.getName());
+				System.out.println("ì´ê³³ì€ CKeditorì— ì˜¬ë¼ì˜¨ ì´ë¯¸ì§€ë¥¼ ajaxë¡œ ë³´ë‚¸ ê³³");
+				System.out.println();
+				System.out.println("íŒŒì¼ê²½ë¡œ : " + file.getAbsolutePath());
+				System.out.println();
+				System.out.println("íŒŒì¼ì´ë¦„ : " + file.getName());
 				System.out.println("--------------------------------");
 				JSONObject jo = new JSONObject();
 				jo.put("fName", "admin/_js/ckeditor/file/" + file.getName());

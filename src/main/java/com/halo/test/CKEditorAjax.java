@@ -15,7 +15,7 @@ public class CKEditorAjax extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// ÀÌ°÷Àº CKEditor¿¡ ¿Ã¶ó¿Â ÀÌ¹ÌÁö¸¦ ajax·Î º¸³»´Â ¿ªÇÒÀ» ÇÑ´Ù. ¸¸µçÀÌ : ¼±»ı´Ô
+		// ì´ê³³ì€ ckeditorì˜ ajaxê°€ ì´ë™í•˜ëŠ” ê³³
 		MZConfig.uploadFile(request, response);
 
 	}
