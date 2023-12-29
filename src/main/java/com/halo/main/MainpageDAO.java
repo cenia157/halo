@@ -28,7 +28,7 @@ public class MainpageDAO {
 	}
 		
 
-	public static void getAllHompage_common(HttpServletRequest request) {
+	public void getAllHompage_common(HttpServletRequest request) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -38,7 +38,8 @@ public class MainpageDAO {
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			HomepageDTO hdto = null;
-			while (rs.next()) {
+			
+			if (rs.next()) {
 				hdto = new HomepageDTO();
 				hdto.setH_seq(rs.getInt("h_seq"));
 				hdto.setH_logo_img(rs.getString("h_logo_img"));
@@ -55,6 +56,25 @@ public class MainpageDAO {
 				hdto.setH_email(rs.getString("h_email"));
 				hdto.setH_address(rs.getString("h_address"));
 				hdto.setH_resume_file(rs.getString("h_resume_file"));
+				
+				//메인에 뿌릴 어트리뷰트
+				request.setAttribute("h_seq", hdto.getH_seq());
+				request.setAttribute("h_logo_img", hdto.getH_logo_img());
+				request.setAttribute("h_slogan", hdto.getH_slogan());
+				request.setAttribute("h_left_baner", hdto.getH_slogan());
+				request.setAttribute("h_left_banner_title", hdto.getH_left_banner_title());
+				request.setAttribute("h_center_banner_title", hdto.getH_center_banner_title());
+				request.setAttribute("h_right_banner_title", hdto.getH_right_banner_title());
+				request.setAttribute("h_left_banner_img", hdto.getH_left_banner_img());
+				request.setAttribute("h_center_banner_img", hdto.getH_center_banner_img());
+				request.setAttribute("h_right_banner_img", hdto.getH_right_banner_img());
+				request.setAttribute("h_tel_no", hdto.getH_tel_no());
+				request.setAttribute("h_fax_no", hdto.getH_fax_no());
+				request.setAttribute("h_phone_no", hdto.getH_phone_no());
+				request.setAttribute("h_email", hdto.getH_email());
+				request.setAttribute("h_address", hdto.getH_address());
+				request.setAttribute("h_resume_file", hdto.getH_resume_file());
+				
 			}
 			
 			
@@ -80,7 +100,7 @@ public class MainpageDAO {
     
 	
 	//로고 등록 메소드(처음에만 쓸거임 test용)
-	public static void regLogo(HttpServletRequest request) {
+	public void regLogo(HttpServletRequest request) {
 		
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -110,7 +130,7 @@ public class MainpageDAO {
 	}
 	
 	//로고 수정 메소드
-	public static void updateLogo(HttpServletRequest request) {
+	public void updateLogo(HttpServletRequest request) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		String newFileName = request.getParameter("newFileName");
@@ -119,7 +139,7 @@ public class MainpageDAO {
 		String param = "등록 실패";
 		try {
 			con = DBManagerhalo.connect();
-			System.out.println(newFileName);
+//			System.out.println(newFileName);
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, newFileName);
 			if (pstmt.executeUpdate() == 1) {
@@ -166,7 +186,35 @@ public class MainpageDAO {
 	}
 
 	public void updateFooter(HttpServletRequest request) {
-		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		String sql = "update homepage_common set h_tel_no=?, h_fax_no=?, h_phone_no=?, h_email=?, h_address=? where h_seq=1";
+		String paramName = "error";
+		String param = "등록 실패";
+		try {
+			con = DBManagerhalo.connect();
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, request.getParameter("h_tel_no"));
+			pstmt.setString(2, request.getParameter("h_fax_no"));
+			pstmt.setString(3, request.getParameter("h_phone_no"));
+			pstmt.setString(4, request.getParameter("h_email"));
+			pstmt.setString(5, request.getParameter("h_address"));
+			if (pstmt.executeUpdate() == 1) {
+				System.out.println("등록 성공!");
+				
+				param = "등록 성공!";
+				paramName ="success";
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("db server error...");
+		}finally {
+			request.setAttribute("paramName", paramName);
+			request.setAttribute("param", param);
+			DBManagerhalo.close(con, pstmt, null);
+		}
 		
 	}
 	

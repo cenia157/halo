@@ -14,7 +14,6 @@ public class Announced_test_C extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		AnnouncedDAO.getAllAnnouncements(request);
-		request.setAttribute("menu", "/user/introduce/announcement/announcement_contentPage_db_test.jsp");
 		AnnouncedDAO.paging(1, request);
 		request.setAttribute("menu", "user/menu-index.jsp");
 		request.setAttribute("subMenu", "/user/introduce/announcement/announcement_contentPage_db_test.jsp");

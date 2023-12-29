@@ -19,9 +19,7 @@
 		format("svg");
 }
 
-/*
-���⿡ ȸ���������� ���� css�� ä�����Ѵ�
-*/
+/* 회사주소 인풋 text area */
 .CompanyInformation-textarea-big {
 	padding: 1%;
 	border: none;
@@ -31,10 +29,10 @@
 	background-color: #FFEFEF;
 	border: none;
 	resize: none;
-	font-size: 2.5rem;
+	font-size: 2rem;
 	font-weight: 700;
 }
-
+/* 나머지 인풋 text area */
 .CompanyInformation-textarea-mini {
 	padding: 1% 2% ;
 	border: none;
@@ -44,7 +42,7 @@
 	background-color: #FFEFEF;
 	border: none;
 	resize: none;
-	font-size: 2.5rem;
+	font-size: 2rem;
 	font-weight: 700;
 }
 
@@ -61,7 +59,9 @@
 	height: 100%;
 }
 
+/* 인풋 감싸는 큰 div박스 */
 .CompanyInformation {
+	margin-top: 5%;
 	height: 80%;
 	width: 100%;
 }
@@ -110,9 +110,18 @@
 	display: flex;
 	padding-top: 5%;
 }
+/* 결과 div */
 .information-result{
 	margin-right: 5%;
 }
+.success {
+	color: blue;
+}
+
+.error {
+	color: red;
+}
+
 
 .content-m-td-2-side-down-button {
 	height: 100%;
