@@ -18,7 +18,7 @@ public class HomepageDTO {
 	String h_resume_file;		//이력서 파일 양식
 	
 	
-	//필수3가지 까지만함
+	//필수3
 	public HomepageDTO() {
 
 	}

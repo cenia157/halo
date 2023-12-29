@@ -23,9 +23,8 @@ public class AdminC extends HttpServlet {
 				menu = "/admin/homepageSetting/mainpage/mainpageContent";
 			} else if (request.getParameter("link").equals("3")) {
 				menu = "/admin/homepageSetting/banner/bannerContent";
-			} else if (request.getParameter("link").equals("4")) {
-				menu = "/admin/homepageSetting/information/informationContent";
-			} else if (request.getParameter("link").equals("5")) {
+			}// 버튼누르면 바로 InformUpdateC로 ㄱㄱ하도록 인덱스에 박아둠
+			else if (request.getParameter("link").equals("5")) {
 				menu = "/admin/boardmanagement/notice_test/noticeContent";
 			} else if (request.getParameter("link").equals("6")) {
 				menu = "/admin/boardmanagement/ask/askContent";

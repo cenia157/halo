@@ -14,7 +14,7 @@
 	<div class="content-m-td-2-wrap">
 		<div class="content-m-td-2-wrap-contain">
 	<!-- 폼태그 => 회사정보변경C -->
-		<form action="InformUpdateC" method="get">
+		<form action="InformUpdateC" method="post">
 			<div class="CompanyInformation">
 				<div class="CompanyInformation-large">
 					<div class="CompanyInformation-info">회사의주소</div>
@@ -56,7 +56,7 @@
 							<div class="CompanyInformation-info">회사의 FAX</div>
 							<div class="CompanyInformation-txt">
 							<!-- 회사 FAX 인풋 -->
-								<textarea name="h_fax" class="CompanyInformation-textarea-mini" rows=""
+								<textarea name="h_fax_no" class="CompanyInformation-textarea-mini" rows=""
 									cols="" placeholder="06-6997-6520"></textarea>
 							</div>
 						</div>
@@ -66,7 +66,10 @@
 			<!-- 하단 div박스 등록결과, 버튼 -->
 			<div class="content-m-td-2-down">
 				<div class="content-m-td-2-side-down-button">
-				<div class="information-result">등록 결과 어트리뷰트자리</div>
+				<div class="information-result">
+				<h2 class="logo_result success">${param.success}</h2>
+			<h2 class="logo_result error">${param.error}</h2>
+			</div>
 					<button class="content-button">변경</button>
 				</div>
 			</div>
