@@ -63,9 +63,9 @@
 							</a>
 						</div>
 						<div class="header-opmenu-td">
-							<a class="header-opmenu-a" href="HC?link=3">공지사항</a> <a
-								class="header-opmenu-a" href="HC?link=4">앨범</a> <a
-								class="header-opmenu-a" href="HC?link=5">채용공고</a>
+							<a class="header-opmenu-a" href="Announced_C">공지사항</a> <a
+								class="header-opmenu-a" href="Album_insta_api_C">앨범</a> <a
+								class="header-opmenu-a" href="Employment_C">채용공고</a>
 						</div>
 					</div>
 					<div class="header-td-menu">

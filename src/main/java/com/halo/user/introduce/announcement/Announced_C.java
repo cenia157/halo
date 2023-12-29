@@ -9,14 +9,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/Announced_test_C")
-public class Announced_test_C extends HttpServlet {
+@WebServlet("/Announced_C")
+public class Announced_C extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		AnnouncedDAO.getAllAnnouncements(request);
 		AnnouncedDAO.paging(1, request);
 		request.setAttribute("menu", "user/menu-index.jsp");
-		request.setAttribute("subMenu", "/user/introduce/announcement/announcement_contentPage_db_test.jsp");
+		request.setAttribute("subMenu", "/user/introduce/announcement/announcement_contentPage.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 

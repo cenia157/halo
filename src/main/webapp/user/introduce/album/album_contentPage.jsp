@@ -26,13 +26,13 @@ pageEncoding="UTF-8"%>
     <div class="a_content-box-tr1">
       <div class="a_content-box-tr1-td1">
         <div class="a_content-box-tr1-td1-1">
-          <span><a href="//www.test.com">공지사항</a></span>
+          <span><a href="Announced_C">공지사항</a></span>
         </div>
         <div class="a_content-box-tr1-td1-2">
-          <span><a href="//www.test.com">앨범</a></span>
+          <span><a href="Album_insta_api_C">앨범</a></span>
         </div>
         <div class="a_content-box-tr1-td1-3">
-          <span><a href="//www.test.com">채용공고</a></span>
+          <span><a href="Employment_C">채용공고</a></span>
         </div>
       </div>
 
