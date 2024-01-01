@@ -9,12 +9,12 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function changeInformBox(indexNo){
-	let selectedOption = document.getElementsByName("banner_menu")[indexNo - 1].value;
+	let selectedOption = document.getElementsByName("banner_menu"+indexNo)[0].value;
 	let informBox = document.getElementById("informBox" + indexNo);
 	if(selectedOption === "sales" ){
 		informBox.style.display = "block";
 	}else{
 		informBox.style.display = "none";
 	}
-	
 }
+	

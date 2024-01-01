@@ -22,7 +22,7 @@
 </head>
 <body>
 	<div class="content-m-td-3">
-	<form action="BannerUpdateC" method="post">
+	<form action="BannerUpdateC" method="post" enctype="multipart/form-data">
 		<div class="banner-tbl">
 			<div class="banner-tr">
 			<div class="banner-no"><h1>1.box</h1></div>
@@ -40,13 +40,17 @@
 				<option value="faq">자주묻는질문</option>
 				<option value="question">문의게시판</option>
 				<option value="sales">상품판매</option>
-				</select>
+				</select> 
 				 </div>
 				<!-- url 링크 -->
 				<div class="sales-inform" id="informBox1">
 				<div class="banner-td-2">
 				<img src="${pageContext.request.contextPath}/admin/0.img/url.png" alt="이미지준비중">
-				url :&nbsp;<input name="banner_url" type="text">
+				url :&nbsp;<input name="banner_url1" type="text">
+				</div>
+				<div class="banner-td-2">
+				<img src="${pageContext.request.contextPath}/admin/0.img/url.png" alt="이미지준비중">
+				상품명 :&nbsp;<input name="banner_text1" type="text">
 				</div>
 				<!-- 썸네일 이미지 설정 -->
 				<div class="banner-td-3">
@@ -55,7 +59,7 @@
 				<label for="thumbnail">
 				<div class="btn-upload">파일업로드</div>
 				</label>
-				<input type="file1" name="banner_thumbnail" id="thumbnail">
+				<input type="file" name="banner_thumbnail1" id="thumbnail">
 				</div>
 				</div>
 			</div>
@@ -80,7 +84,11 @@
 				<div class="sales-inform" id="informBox2">
 				<div class="banner-td-2">
 				<img src="${pageContext.request.contextPath}/admin/0.img/url.png" alt="이미지준비중">
-				url :&nbsp;<input name="banner_ur2" type="text">
+				url :&nbsp;<input name="banner_url2" type="text">
+				</div>
+				<div class="banner-td-2">
+				<img src="${pageContext.request.contextPath}/admin/0.img/url.png" alt="이미지준비중">
+				상품명 :&nbsp;<input name="banner_text2" type="text">
 				</div>
 				<!-- 썸네일 이미지 설정 -->
 				<div class="banner-td-3">
@@ -115,6 +123,10 @@
 				<div class="banner-td-2">
 				<img src="${pageContext.request.contextPath}/admin/0.img/url.png" alt="이미지준비중">
 				url :&nbsp;<input name="banner_url3" type="text">
+				</div>
+				<div class="banner-td-2">
+				<img src="${pageContext.request.contextPath}/admin/0.img/url.png" alt="이미지준비중">
+				상품명 :&nbsp;<input name="banner_text3" type="text">
 				</div>
 				<!-- 썸네일 이미지 설정 -->
 				<div class="banner-td-3">

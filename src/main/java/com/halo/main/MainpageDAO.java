@@ -185,28 +185,48 @@ public class MainpageDAO {
 		}
 		
 	}
-
+	
+	//하단베너 업데이트
 	public void bannerUpdate(HttpServletRequest request) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		String sql = "";
 		String paramName = "error";
 		String param = "등록 실패";
+		String savepath = request.getServletContext().getRealPath("user/upload_imgs/banner");
+		
 		try {
-			request.setCharacterEncoding("utf-8");
-			con = DBManagerhalo.connect();
-			pstmt = con.prepareStatement(sql);
 			
-			pstmt.setString(1, request.getParameter("h_tel_no"));
-			pstmt.setString(2, request.getParameter("h_fax_no"));
-			pstmt.setString(3, request.getParameter("h_phone_no"));
-			pstmt.setString(4, request.getParameter("h_email"));
-			pstmt.setString(5, request.getParameter("h_address"));
-			if (pstmt.executeUpdate() == 1) {
-				System.out.println("등록 성공!");
-				
-				param = "등록 성공!";
-				paramName ="success";
+			con = DBManagerhalo.connect();
+			MultipartRequest mr = new MultipartRequest(request, savepath, 1024*1024*20, "utf-8", new DefaultFileRenamePolicy());
+			String[] banner_menus = {mr.getParameter("banner_menu1"),mr.getParameter("banner_menu2"),mr.getParameter("banner_menu3")};
+			//하단베너3개 => for문 i = name뒤에 붙을 인덱스번호, 
+			for(int i = 0; i < 3; i++) {
+				if(banner_menus[i] == "sales") {
+					sql = "update banner_test \r\n"
+							+ "set b_type = 2, b_m_name = 'sales', b_url = ?, b_m_text = ?, b_img_url = ? \r\n"
+							+ "where b_index = " + (i+1);
+					pstmt = con.prepareStatement(sql);
+					pstmt.setString(1, mr.getParameter("banner_url" + (i+1)));
+					System.out.println(mr.getParameter("banner_url" + (i+1)));
+					pstmt.setString(2, mr.getParameter("banner_text" + (i+1)));
+					pstmt.setString(3, mr.getFilesystemName("banner_thumbnail" + (i+1)));
+					System.out.println(mr.getFilesystemName("banner_thumbnail" + (i+1)));
+					
+				} else {
+					sql = "update banner_test \r\n"
+							+ "set b_type = 1, b_m_name = ?, b_url = (select m_servlet from menu_test where m_name = ?), b_m_text = (select m_text from menu_test where m_name = ?) \r\n"
+							+ "where b_index = " + (i+1) ;
+					pstmt = con.prepareStatement(sql);
+					pstmt.setString(1, banner_menus[i]);
+					pstmt.setString(2, banner_menus[i]);
+					pstmt.setString(3, banner_menus[i]);
+				}
+				if(pstmt.executeUpdate() > 0) {
+					System.out.println("bannerNo: " + i + "update Success");
+				} else {
+					System.out.println("bannerNo: " + i + "update Fail");
+				}
 			}
 			
 		} catch (Exception e) {
@@ -217,9 +237,9 @@ public class MainpageDAO {
 			request.setAttribute("param", param);
 			DBManagerhalo.close(con, pstmt, null);
 		}
-		
-		
 	}
+	
+	
 	
 	//하단베너 DTO
 	public void getAllBanner(HttpServletRequest request) {

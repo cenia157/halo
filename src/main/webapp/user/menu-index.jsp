@@ -21,7 +21,7 @@
 					<div class="bottom-venner-td" onclick="location.href='${bannerInform.b_url}'" >${bannerInform.b_m_text }</div>
 				</c:if>
 				<c:if test="${bannerInform.b_type == 2 }">
-<%-- 				나중에 경로추가	<div class="bottom-venner-td" onclick="location.href='${bannerInform.b_url}'" > <img src="${pageContext.request.contextPath}/admin/0.img/${b_img_url }"> </div> --%>
+ 				나중에 경로추가	<div class="bottom-venner-td" onclick="location.href='${bannersInform.b_url}'" > <img src="${pageContext.request.contextPath}/admin/0.img/${bannersInform.b_img_url}"> </div>
 				</c:if>
 				
 			</c:forEach>
