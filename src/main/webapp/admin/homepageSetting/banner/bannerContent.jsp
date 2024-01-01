@@ -29,7 +29,7 @@
 				<div class="banner-td-img-box">배너img 미리보기</div>
 				<!-- 빠른메뉴 설정(셀렉) -->
 				<div class="banner-td-1"> 빠른메뉴 선택 :&nbsp;
-				<select name="banner_menu" onchange="changeInformBox(1)">
+				<select name="banner_menu1" onchange="changeInformBox(1)">
 				<option value="info_com">회사소개</option>
 				<option value="info_map">오시는길</option>
 				<option value="intro_announce">공지사항</option>
@@ -55,7 +55,7 @@
 				<label for="thumbnail">
 				<div class="btn-upload">파일업로드</div>
 				</label>
-				<input type="file" name="banner_thumbnail" id="thumbnail">
+				<input type="file1" name="banner_thumbnail" id="thumbnail">
 				</div>
 				</div>
 			</div>
@@ -63,7 +63,7 @@
 			<div class="banner-no"><h1>2.box</h1></div>
 				<div class="banner-td-img-box">배너img 미리보기</div>
 				<div class="banner-td-1">빠른메뉴 선택 :&nbsp;
-					<select name="banner_menu" onchange="changeInformBox(2)">
+					<select name="banner_menu2" onchange="changeInformBox(2)">
 				<option value="info_com">회사소개</option>
 				<option value="info_map">오시는길</option>
 				<option value="intro_announce">공지사항</option>
@@ -80,7 +80,7 @@
 				<div class="sales-inform" id="informBox2">
 				<div class="banner-td-2">
 				<img src="${pageContext.request.contextPath}/admin/0.img/url.png" alt="이미지준비중">
-				url :&nbsp;<input name="banner_url" type="text">
+				url :&nbsp;<input name="banner_ur2" type="text">
 				</div>
 				<!-- 썸네일 이미지 설정 -->
 				<div class="banner-td-3">
@@ -89,7 +89,7 @@
 				<label for="thumbnail">
 				<div class="btn-upload">파일업로드</div>
 				</label>
-				<input type="file" name="banner_thumbnail" id="thumbnail">
+				<input type="file" name="banner_thumbnail2" id="thumbnail">
 				</div>
 				</div>
 			</div>
@@ -97,7 +97,7 @@
 			<div class="banner-no"><h1>3.box</h1></div>
 				<div class="banner-td-img-box">배너img 미리보기</div>
 				<div class="banner-td-1">빠른메뉴 선택 :&nbsp;
-					<select name="banner_menu" onchange="changeInformBox(3)">
+					<select name="banner_menu3" onchange="changeInformBox(3)">
 				<option value="info_com">회사소개</option>
 				<option value="info_map">오시는길</option>
 				<option value="intro_announce">공지사항</option>
@@ -114,7 +114,7 @@
 				<div class="sales-inform" id="informBox3">
 				<div class="banner-td-2">
 				<img src="${pageContext.request.contextPath}/admin/0.img/url.png" alt="이미지준비중">
-				url :&nbsp;<input name="banner_url" type="text">
+				url :&nbsp;<input name="banner_url3" type="text">
 				</div>
 				<!-- 썸네일 이미지 설정 -->
 				<div class="banner-td-3">
@@ -123,7 +123,7 @@
 				<label for="thumbnail">
 				<div class="btn-upload">파일업로드</div>
 				</label>
-				<input type="file" name="banner_thumbnail" id="thumbnail">
+				<input type="file" name="banner_thumbnail3" id="thumbnail">
 				</div>
 				</div>
 			</div>
