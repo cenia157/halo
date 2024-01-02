@@ -29,7 +29,6 @@ public class NursingapplyC extends HttpServlet {
 	// 불러온 데이터 사용 예시
 	if (selectedService != null) {
 			if (selectedService.equals("nursingTexi")) {
-				request.setAttribute("sevice", "NursingTexiC");
 				service = "taxiapply";
 				request.setAttribute("step4Pos", "#ffdf6c");
 			}else {

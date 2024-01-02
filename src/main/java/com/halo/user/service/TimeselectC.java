@@ -31,10 +31,10 @@ public class TimeselectC extends HttpServlet {
 			request.setAttribute("sevice", "TexiapplyC");
 		}else {
 			if (selectedService.equals("nursingTexi")) {
-				request.setAttribute("sevice", "NursingTexiC");
+				request.setAttribute("service", "NursingTexiC");
 			}
 			service = "nursingapply";
-			request.setAttribute("sevice", "NursingapplyC");
+			request.setAttribute("service", "NursingapplyC");
 		}
 	    System.out.println("Selected Service: " + selectedService);
 	} else {

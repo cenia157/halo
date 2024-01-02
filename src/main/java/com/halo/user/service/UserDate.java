@@ -11,10 +11,10 @@ import javax.servlet.http.HttpSession;
 @WebServlet("/UserDate")
 public class UserDate extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		SeviceApplyDAO.userDate(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		SeviceApplyDAO.userDate(request, response);
 
 	
 	

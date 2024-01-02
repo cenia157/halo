@@ -15,15 +15,15 @@
 
 
 	<!-- 신청폼 -->
-		<form action="${sevice}" method="post">
+		<form action="TexiapplyC" method="post">
 		<input type="hidden" name="selectedStart" value="${selectedStart }">
 		<input type="hidden" name="selectedEnd" value="${selectedEnd }">
 		<input type="hidden" name="selectedTime" value="${selectedTime }">
 		<input type="hidden" name="addr" value="${addr }">
 		<input type="hidden" name="niText" value="${niText }">
-		<input type="hidden" id="userYear" value="${userYear }">
-		<input type="hidden" id="userMonth" value="${userMonth }">
-		<input type="hidden" id="userDay" value="${userDay }">
+		<input type="hidden" id="getYear" value="${userYear }">
+		<input type="hidden" id="getMonth" value="${userMonth }">
+		<input type="hidden" id="getDay" value="${userDay }">
 		
 	<div class="content-applyform-td">
 		<div class="content-applyform-tr-1">
@@ -40,11 +40,11 @@
 						name="phoneNum" value="${phoneNum }" class="content-applyform-tr-2-2" type="text">
 				</div>
 			<div class="content-applyform-tr-2">
-				<span class="content-applyform-tr-2-1">서비스 받으실 분 성함* :</span> <input
+				<span class="content-applyform-tr-2-1">간호 대상자 성함* :</span> <input
 					name="userName" value="${userName }" class="content-applyform-tr-2-2" type="text">
 			</div>
 					<div class="content-applyform-tr-2">
-					<span class="content-applyform-tr-2-1">요양받으실 분 성별* :
+					<span class="content-applyform-tr-2-1">간호 대상자 성별* :
 					</span> 
 					<div class="content-applyform-tr-2-2">
 					<div class="content-applyform-tr-2-3">
@@ -55,9 +55,9 @@
 					</div>
 					</div>
 				</div>
-				<div class="na-content-applyform-tr-2">
-					<span class="na-content-applyform-tr-2-1">요양받으실 분 생년월일 * :</span>
-					<div class="na-content-applyform-tr-2-2">
+				<div class="content-applyform-tr-2">
+					<span class="content-applyform-tr-2-1">간호 대상자 생년월일* :</span>
+					<div class="content-applyform-tr-2-2">
 					 <label for="userYear">年:</label>
 					<select id="userYear" name="userYear" value="${userYear }" ></select>
 
@@ -89,59 +89,47 @@
 
 </body>
 <script type="text/javascript">
-window.onload = function() {
-    fetch('UserDate')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('서버 응답 실패');
-            }
-            return response.json(); // JSON 형태의 데이터로 변환
-        })
-        .then(data => {
-            // 받아온 데이터를 처리하거나 활용
-            console.log(data);
+var selectedYear = document.getElementById("getYear").value;
+var selectedMonth = document.getElementById("getMonth").value;
+var selectedDay = document.getElementById("getDay").value;
 
-            var yearSelect = document.getElementById("userYear");
-            var monthSelect = document.getElementById("userMonth");
-            var daySelect = document.getElementById("userDay");
+console.log(selectedYear);
+console.log(selectedMonth);
+console.log(selectedDay);
 
-            // 년도 선택 옵션 생성
-            var currentYear = new Date().getFullYear();
-            for (var year = currentYear; year >= 1900; year--) {
-                var option = document.createElement("option");
-                option.text = year;
-                option.value = year;
-                if (year === parseInt(data.userYear)) {
-                    option.selected = true;
-                }
-                yearSelect.appendChild(option);
-            }
+var yearSelect = document.getElementById("userYear");
+var currentYear = new Date().getFullYear();
+for (var year = currentYear; year >= 1900; year--) {
+    var option = document.createElement("option");
+    option.text = year;
+    option.value = year;
+    if (year === parseInt(selectedYear)) {
+        option.selected = true;
+    }
+    yearSelect.appendChild(option);
+}
 
-            // 월 선택 옵션 생성
-            for (var month = 1; month <= 12; month++) {
-                var option = document.createElement("option");
-                option.text = month;
-                option.value = month;
-                if (month === parseInt(data.userMonth)) {
-                    option.selected = true;
-                }
-                monthSelect.appendChild(option);
-            }
+var monthSelect = document.getElementById("userMonth");
+for (var month = 1; month <= 12; month++) {
+    var option = document.createElement("option");
+    option.text = month;
+    option.value = month;
+    if (month === parseInt(selectedMonth)) {
+        option.selected = true;
+    }
+    monthSelect.appendChild(option);
+}
 
-            // 일 선택 옵션 생성 (1일부터 31일까지)
-            for (var day = 1; day <= 31; day++) {
-                var option = document.createElement("option");
-                option.text = day;
-                option.value = day;
-                if (day === parseInt(data.userDay)) {
-                    option.selected = true;
-                }
-                daySelect.appendChild(option);
-            }
-        })
-        .catch(error => {
-            console.error('요청 중 오류 발생:', error);
-        });
-};
+var daySelect = document.getElementById("userDay");
+for (var day = 1; day <= 31; day++) {
+    var option = document.createElement("option");
+    option.text = day;
+    option.value = day;
+    if (day === parseInt(selectedDay)) {
+        option.selected = true;
+    }
+    daySelect.appendChild(option);
+}
+
 </script>
 </html>
