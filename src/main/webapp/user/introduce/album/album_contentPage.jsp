@@ -109,30 +109,27 @@ pageEncoding="UTF-8"%>
       let scroll_index = 0;
       let scroll_per_val;
 
-      $(document).ready(function () {
-
-        let token = "${apiToken}"
-
-        $.ajax({
-          url:
-            "https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url,permalink,thumbnail_url&access_token=" +
-            token,
-          method: "GET",
-          dataType: "jsonp",
-          success: function (response) {
-            console.log("response :::" + response);
-            console.log(" response.data :::" +  response.data);
-            console.log("API Response:", response);
-            items = response.data;
-            console.log("items :::" + items);
-            makeView();
-          },
-          error: function (xhr, status, error) {
-            console.log(xhr.responseText);
-          },
-        });
-
-        function makeView() {
+      //인스타 api 요청
+      let requestInstagram = function(){
+	      $.ajax({
+          	url:"/halo/Album_insta_api_C",
+          	method: "POST",
+          	dataType: "json",
+			success: function (response) {
+			  console.log("response :::" + response);
+			  console.log(" response.data :::" +  response.data);
+			  console.log("API Response:", response);
+			  items = response.data;
+			  console.log("items :::" + items);
+			  makeView();
+			},
+			error: function (xhr, status, error) {
+			  console.log(xhr.responseText);
+			},
+		});
+      };
+      
+      function makeView() {
           let mediaTag;
           totalPage = Math.ceil(items.length / 9);
           console.log("토탈페이지: " + totalPage);
@@ -192,8 +189,8 @@ pageEncoding="UTF-8"%>
 
           console.log("page++ :::" + page);
         } // makeView(res)
-
-		function makeInstaIcon() {
+        
+        function makeInstaIcon() {
 		    let container = $(".a_content-box-tr1-td3-1");
 		    let under_icon_div = $("<div></div>").addClass("under_icon_div");
 		
@@ -256,7 +253,10 @@ pageEncoding="UTF-8"%>
 		
 		    container.append(under_icon_div);
 		} // makeInstaIcon()
-
+		
+      $(document).ready(function () {
+    	 requestInstagram();
+    	  
         window.addEventListener("scroll", function () {
           console.log("window.scrollY ::: " + window.scrollY);
           let scrollValue_px = window.scrollY;
