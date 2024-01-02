@@ -20,7 +20,7 @@ function noValue() {
 	*/
 
 
-	// 제목, 카테고리, 내용 중 하나라도 입력하지 않았을 시 
+	// 제목, 카테고리, 내용 중 하나라도 입력하지 않았을 시
 	if (!document.querySelector('#real-title-editor').value ||
 		document.querySelector('#kategorie').children[0] == null ||
 		!document.querySelector('#classicNR').value) {
