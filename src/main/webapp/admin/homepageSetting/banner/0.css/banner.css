@@ -21,11 +21,12 @@
 
 .content-m-td-3 {
 	width: 100%;
-	height: 88%;
+	height: 100%;
 	position: relative;
 	display: block;
 }
 
+/* 폼태그 범위-> 이미지미리보기, 모든 입풋박스, 버튼까지 */
 form {
 	width: 100%;
 	height: 100%;
@@ -37,12 +38,11 @@ form {
 	height: 90%;
 	display: flex;
 	justify-content: center;
-	align-items: center;
 }
 
 .banner-tr {
 	width: 30%;
-	height: 80%;
+	height: 98%;
 	margin-top: 0;
 	margin-bottom: 1.3%;
 	margin-left: 1%;
@@ -52,7 +52,10 @@ form {
 /* 베너 순서 No. */
 .banner-no {
 	width: 100%;
-	margin-bottom: 5%;
+	height: 7%;
+	margin-bottom: 2%;
+	margin-top: 2%;
+	margin-bottom: 2%;
 }
 
 /* 하단 배너 미리보기 이미지 박스  */
@@ -60,18 +63,17 @@ form {
 	border: solid 6px rgb(221, 226, 229);
 	border-radius: 20px;
 	width: 100%;
-	height: 52%;
+	height: 40%;
 	margin-bottom: 1.5%;
 }
 
 /* (빠른메뉴)주요메뉴 설정 셀렉  */
 .banner-td-1 {
 	width: 100%;
-	height: 13%;
+	height: 10%;
 	margin-bottom: 1.5%;
 	font-size: 1.2rem;
 	display: flex;
-	/* 	justify-content: center; */
 	align-items: center;
 	font-weight: 700;
 }
@@ -102,17 +104,17 @@ form {
 /* 상품판매 등 url 첨부 인풋  */
 .banner-td-2 {
 	width: 100%;
-	height: 13%;
+	height: 28%;
 	margin-bottom: 1.5%;
 	font-size: 1.2rem;
 	display: flex;
-	/* 	justify-content: center; */
 	align-items: center;
+	justify-content: space-between;
 	font-weight: 700;
 }
 
 .banner-td-2>input {
-	width: 78%;
+	width: 70%;
 	height: 70%;
 	border-radius: 5px;
 	border-top: solid 1px rgb(209, 209, 209);
@@ -122,33 +124,21 @@ form {
 }
 
 .banner-td-2>img {
-	width: 7%;
+	width: 5%;
 	margin-right: 3%;
 }
 
 /* 베너 썸네일 이미지(파일업로드)인풋  */
-.banner-td-3 {
-	width: 100%;
-	height: 13%;
-	font-size: 1.2rem;
-	display: flex;
-	align-items: center;
-	font-weight: 700;
-}
-
-.banner-td-3>input {
+#thumbnail {
 	width: 60%;
 	height: 70%;
 	font-size: 1.2rem;
-}
-
-.banner-td-3>img {
-	width: 7%;
-	margin-right: 3%;
-}
-
-#thumbnail {
 	display: none;
+}
+/* 베너 썸네일 제목 옆 아이콘 */
+#file-icon {
+	width: 5.5%;
+	margin-right: 3%;
 }
 
 /* 파일업로드 인풋 라벨 & 호버 */
@@ -177,21 +167,21 @@ form {
 	border-right: solid 1px rgb(209, 209, 209);
 	border-bottom: solid 2px rgb(130, 130, 130);
 }
-
+/* 상품판매 선택시 변하는 부분 */
 .sales-inform {
 	display: none;
 	width: 100%;
-	height: 100%;
+	height: 34%;
 }
 
 /* 버튼 */
 .content-button {
 	width: 100%;
-	height: 30%;
+	height: 10%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin-top: -3%;
+	margin-top: -2.5%;
 }
 
 .content-button>button {
@@ -201,7 +191,7 @@ form {
 	color: white;
 	border: none;
 	width: 15%;
-	height: 30%;
+	height: 60%;
 	font-size: 1.5rem;
 	cursor: pointer;
 }

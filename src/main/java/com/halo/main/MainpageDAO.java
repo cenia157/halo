@@ -216,7 +216,7 @@ public class MainpageDAO {
 				} else {
 					sql = "update banner_test \r\n"
 							+ "set b_type = 1, b_m_name = ?, b_url = (select m_servlet from menu_test where m_name = ?), b_m_text = (select m_text from menu_test where m_name = ?) \r\n"
-							+ "where b_index = " + (i+1) ;
+							+ "where b_index = " + (i+1);
 					pstmt = con.prepareStatement(sql);
 					pstmt.setString(1, banner_menus[i]);
 					pstmt.setString(2, banner_menus[i]);

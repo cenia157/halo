@@ -49,11 +49,11 @@
 				url :&nbsp;<input name="banner_url1" type="text">
 				</div>
 				<div class="banner-td-2">
-				<img src="${pageContext.request.contextPath}/admin/0.img/url.png" alt="이미지준비중">
-				상품명 :&nbsp;<input name="banner_text1" type="text">
+				<img src="${pageContext.request.contextPath}/admin/0.img/sales-icon.png" alt="이미지준비중">
+				상품명 :<input name="banner_text1" type="text">
 				</div>
 				<!-- 썸네일 이미지 설정 -->
-				<div class="banner-td-3">
+				<div class="banner-td-2">
 				<img src="${pageContext.request.contextPath}/admin/0.img/fileDown.png" alt="이미지준비중">
 				썸네일 :&nbsp;
 				<label for="thumbnail">
@@ -87,11 +87,11 @@
 				url :&nbsp;<input name="banner_url2" type="text">
 				</div>
 				<div class="banner-td-2">
-				<img src="${pageContext.request.contextPath}/admin/0.img/url.png" alt="이미지준비중">
+				<img src="${pageContext.request.contextPath}/admin/0.img/sales-icon.png" alt="이미지준비중">
 				상품명 :&nbsp;<input name="banner_text2" type="text">
 				</div>
 				<!-- 썸네일 이미지 설정 -->
-				<div class="banner-td-3">
+				<div class="banner-td-2">
 				<img src="${pageContext.request.contextPath}/admin/0.img/fileDown.png" alt="이미지준비중">
 				썸네일 :&nbsp;
 				<label for="thumbnail">
@@ -125,12 +125,12 @@
 				url :&nbsp;<input name="banner_url3" type="text">
 				</div>
 				<div class="banner-td-2">
-				<img src="${pageContext.request.contextPath}/admin/0.img/url.png" alt="이미지준비중">
+				<img src="${pageContext.request.contextPath}/admin/0.img/sales-icon.png" alt="이미지준비중">
 				상품명 :&nbsp;<input name="banner_text3" type="text">
 				</div>
 				<!-- 썸네일 이미지 설정 -->
-				<div class="banner-td-3">
-				<img src="${pageContext.request.contextPath}/admin/0.img/fileDown.png" alt="이미지준비중">
+				<div class="banner-td-2">
+				<img id="file-icon" src="${pageContext.request.contextPath}/admin/0.img/fileDown.png" alt="이미지준비중">
 				썸네일 :&nbsp;
 				<label for="thumbnail">
 				<div class="btn-upload">파일업로드</div>
