@@ -8,16 +8,33 @@ function openModal(modalId, tblId) {
 function closeModal(modalId, tblId) {
 	document.getElementById(modalId).style.display = 'none';
 	document.getElementById(tblId).style.display = 'none';
-}
 
-// 공통 함수: 모달 외부 클릭 시 닫기
-function closeModalOnOutsideClick(modalId) {
-	window.onclick = function(event) {
-		if (event.target == document.getElementById(modalId)) {
+	// 모달 창을 숨김
+    var modalNR = document.getElementById("myModalNR");
+    modalNR.style.display = "none";
+
+    // input 초기화
+    var titleInput = document.getElementById("real-title-editor");
+    titleInput.value = "";
+
+	// #kategorie 안의 input(#select)과 그 안의 텍스트 둘 다 삭제 및 '카테고리' 재설정
+    var kategorieInput = document.querySelector('#kategorie input');
+    if (kategorieInput) {
+        kategorieInput.remove();
+        document.querySelector('#kategorie').textContent = '카테고리';
+    }
+    // CKEditor 초기화
+    window.editor.setData(""); // CKEditor의 내용을 빈 문자열로 설정합니다.
+	}
+
+	// 공통 함수: 모달 외부 클릭 시 닫기
+	function closeModalOnOutsideClick(modalId) {
+		window.onclick = function(event) {
+			if (event.target == document.getElementById(modalId)) {
 			closeModal(modalId, getTblId(modalId));
-		}
-	};
-}
+			}
+		};
+	}
 
 // 공통 함수: 모달의 tbl 아이디 가져오기
 function getTblId(modalId) {

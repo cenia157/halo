@@ -34,20 +34,7 @@
 
 
 
-<div id="img-temporary">
-
-
-
-
-
-
-
-
-
-
-
-							
-</div>
+							<div id="img-temporary"></div>
 
 
 
@@ -60,24 +47,24 @@
 									<div class="kategorie" id="kategorie">카테고리</div>
 									<div class="toggle-down" id="toggle-down">
 										<div class="toggle-down-block">
-											<div class="toggle-item" id="aaaa">
-												<input name="announcementA" type="hidden" id="myInput"
+											<div class="toggle-item" id="announcement">
+												<input name="announcement" type="hidden" id="myInput"
 													value="announcement"> 안내
 											</div>
-											<div class="toggle-item" id="일정">
-												<input name="scheduleA" type="hidden" id="myInput"
+											<div class="toggle-item" id="schedule">
+												<input name="schedule" type="hidden" id="myInput"
 													value="schedule"> 일정
 											</div>
-											<div class="toggle-item" id="일반">
-												<input name="generalA" type="hidden" id="myInput"
+											<div class="toggle-item" id="general">
+												<input name="general" type="hidden" id="myInput"
 													value="general"> 일반
 											</div>
-											<div class="toggle-item" id="서비스">
-												<input name="serviceA" type="hidden" id="myInput"
+											<div class="toggle-item" id="service">
+												<input name="service" type="hidden" id="myInput"
 													value="service"> 서비스
 											</div>
-											<div class="toggle-item" id="상품">
-												<input name="productA" type="hidden" id="myInput"
+											<div class="toggle-item" id="product">
+												<input name="product" type="hidden" id="myInput"
 													value="product"> 상품
 											</div>
 										</div>
@@ -90,7 +77,8 @@
 						</div>
 					</div>
 					<div class="modal-title-td-2">
-						<span style="width: 100%;" class="close" id="closeModalBtn" onclick="closeModalNR()">&times;</span>
+						<span style="width: 100%;" class="close" id="closeModalBtn"
+							onclick="closeModalNR()">&times;</span>
 					</div>
 				</div>
 				<div class="modal-content">
@@ -101,10 +89,8 @@
 					<div class="modal-content-button">
 
 						<button class="SubmitButton" type="button" id="reg-btn"
-							onclick="noValue()">등aaa록완료</button>
+							onclick="noValue()">등록완료</button>
 						<!-- 여기는 필수 입력값을 안넣었을 때 거부하는 부분이다 (아직 미완성, 마지막에 할 예정)-->
-						<!-- <script
-							src="admin/boardmanagement/notice_test/0.js/ValidationItems.js"></script> -->
 					</div>
 				</div>
 			</div>
@@ -112,6 +98,8 @@
 	</form>
 
 	<!-- 아래의 스크립트는 CKEditor에 올라온 이미지를 ajax로 올리는 역힐이다-->
+						<script
+							src="admin/boardmanagement/notice_test/0.js/ValidationItems.js"></script>
 	<script type="module"
 		src="admin/boardmanagement/notice_test/0.js/testMZ.js"></script>
 	<!-- 여기는 CKEditor에 들어간 값을 서버로 보내는 역할이다 -->
@@ -155,7 +143,7 @@
 	
 	</script>
 
-<script>
+	<script>
 let imgIdx = 0;
 
 $(document).ready(function(){

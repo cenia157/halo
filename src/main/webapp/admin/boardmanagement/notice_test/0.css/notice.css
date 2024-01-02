@@ -220,7 +220,9 @@
 여기서부터는  noticeEditPage.jsp 영역!
  */
 .modal-background {
-	/* 	display: none; */
+	
+	display: none;
+	
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -230,7 +232,9 @@
 }
 
 .modal-tbl {
-	/* 	display: none; */
+
+	display: none;
+
 	width: 100%;
 	height: 100%;
 	position: absolute;
@@ -239,6 +243,10 @@
 	transform: translate(-50%, -50%);
 	background-color: white;
 }
+
+
+
+
 
 .modal-title-set {
 	display: block;

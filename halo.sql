@@ -1,66 +1,76 @@
-CREATE TABLE customer_information (
-    ci_seq NUMBER(5) PRIMARY KEY,
-    ci_applicant VARCHAR2(20) NOT NULL,
-    ci_user_name VARCHAR2(20) NOT NULL,
-    ci_birth_date DATE NOT NULL,
-    ci_gender CHAR(1) NOT NULL,
-    ci_phone_number NUMBER(20) NOT NULL
-);
-CREATE TABLE taxi_reservation_information (
-    ti_seq NUMBER(5) PRIMARY KEY,
-    ci_seq NUMBER(5) NOT NULL,
-    ti_car_no VARCHAR2(10),
-    ti_start_place VARCHAR2(200) NOT NULL,
-    ti_end_place VARCHAR2(200) NOT NULL,
-    ti_reservation_start DATE NOT NULL,
-    ti_reservation_end DATE NOT NULL,
-    ti_reservation_time VARCHAR2(50) NOT NULL,
-    ti_reservation_check CHAR(1) NOT NULL,
-    ti_registration_date DATE NOT NULL,
-    ti_additional_info VARCHAR2(200),
-    ti_service_completion_status CHAR(1) NOT NULL,
-    ti_feedback VARCHAR2(200),
-    FOREIGN KEY (ci_seq) REFERENCES customer_information(ci_seq)
-);
-
-CREATE TABLE nursing_reservation_information (
-    ni_seq NUMBER(5) PRIMARY KEY,
-    ci_seq NUMBER(5) NOT NULL,
-    ni_addr VARCHAR2(200) NOT NULL,
-    ni_reservation_start DATE NOT NULL,
-    ni_reservation_end DATE NOT NULL,
-    ni_reservation_time VARCHAR2(50) NOT NULL,
-    ni_reservation_check CHAR(1) NOT NULL,
-    ni_registration_date DATE NOT NULL,
-    ni_additional_info VARCHAR2(200),
-    ni_service_completion_status CHAR(1) NOT NULL,
-    ni_feedback VARCHAR2(200),
-    FOREIGN KEY (ci_seq) REFERENCES customer_information(ci_seq)
+CREATE TABLE reservation_information (
+    sa_seq number(5) NOT NULL,
+    sa_applicant varchar2(20 char) NULL,
+    sa_phone_number VARCHAR2(20 char) NOT NULL,
+    sa_user_name varchar2(20 char) NOT NULL,
+    sa_gender char(1 char) NOT NULL,
+    sa_birth_date varchar2(20 char) NOT NULL,
+    sa_year varchar2(4 char) NOT NULL,
+    sa_month varchar2(2 char) NOT NULL,
+    sa_days varchar2(200 char) NOT NULL,
+    sa_time varchar2(50 char) NOT NULL,
+    sa_addr varchar2(200 char) NULL,
+    sa_start_place varchar2(200 char) NULL,
+    sa_end_place varchar2(200 char) NULL,
+    sa_reservation_check char(1 char) NOT NULL,
+    sa_car_no varchar2(10) NULL,
+    sa_nurssing_info varchar2(200 char) NULL,
+    sa_texi_info varchar2(200 char) NULL,
+    sa_service_completion_status char(1 char) NOT NULL,
+    sa_feedback varchar2(200 char) NULL,
+    sa_registration_date varchar2(30 char) NOT NULL
 );
 
 
+CREATE SEQUENCE reservation_information_seq START WITH 1 INCREMENT BY 1;
 
 
-CREATE SEQUENCE customer_information_seq START WITH 1 INCREMENT BY 1;
-CREATE SEQUENCE taxi_reservation_information_seq START WITH 1 INCREMENT BY 1;
-CREATE SEQUENCE nursing_reservation_information_seq START WITH 1 INCREMENT BY 1;
+DROP SEQUENCE reservation_information_seq;
 
-DROP SEQUENCE customer_information_seq;
-DROP SEQUENCE taxi_reservation_information_seq;
-DROP SEQUENCE nursing_reservation_information_seq;
 
-select * from customer_information;
-select * from taxi_reservation_information;
-select * from nursing_reservation_information;
+select * from reservation_information;
 
--- Taxi_reservation_information 테이블에 새로운 예약 추가
-INSERT INTO Taxi_reservation_information (ti_seq, ci_seq, ti_car_no, ti_start_place, ti_end_place, ti_reservation_start, ti_reservation_end, ti_reservation_time, ti_reservation_check, ti_registration_date, ti_additional_info, ti_service_completion_status, ti_feedback)
-VALUES (taxi_reservation_information_seq, customer_information_seq, 'ABC123', '출발지', '도착지', '2023-12-31', '2024-01-01', '10:00', 'Y', '2023-12-25 08:00:00', '특별 요청사항', 'N', '서비스 후 피드백');
-
--- Customer_Information 테이블에 새로운 고객 정보 추가
-INSERT INTO Customer_Information (ci_seq, ci_applicant, ci_user_name, ci_birth_date, ci_gender, ci_phone_number)
-VALUES (customer_information_seq, '신청자1', '대상자1', '1990-01-01', 'M', '01012345678');
-
--- Nursing_reservation_information 테이블에 새로운 간호 예약 추가
-INSERT INTO Nursing_reservation_information (ni_seq, ci_seq, ni_addr, ni_reservation_start, ni_reservation_end, ni_reservation_time, ni_reservation_check, ni_registration_date, ni_additional_info, ni_service_completion_status, ni_feedback)
-VALUES (nursing_reservation_information_seq, customer_information_seq, '출발지', '2023-12-31', '2024-01-01', '10:00', 'Y', '2023-12-25 08:00:00', '특별 요청사항', 'N', '서비스 후 피드백');
+INSERT INTO reservation_information (
+    sa_seq,
+    sa_applicant,
+    sa_phone_number,
+    sa_user_name,
+    sa_gender,
+    sa_birth_date,
+    sa_year,
+    sa_month,
+    sa_days,
+    sa_time,
+    sa_addr,
+    sa_start_place,
+    sa_end_place,
+    sa_reservation_check,
+    sa_car_no,
+    sa_nurssing_info,
+    sa_texi_info,
+    sa_service_completion_status,
+    sa_feedback,
+    sa_registration_date
+)
+VALUES (
+    reservation_information_seq.nextval,
+    'John Doe',
+    1234567890,
+    'john_doe',
+    'M',
+    '1990-01-01',
+    '1990',
+    '01',
+    'Monday',
+    '10:00 AM',
+    '123 Main St',
+    'Park',
+    'Airport',
+    'Y',
+    'ABC123',
+    NULL,
+    NULL,
+    'C',
+    NULL,
+    SYSDATE
+);

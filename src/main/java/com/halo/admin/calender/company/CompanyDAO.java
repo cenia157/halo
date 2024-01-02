@@ -46,8 +46,9 @@ public class CompanyDAO {
 				String txt = rs.getString("cs_txt");
 				String date = rs.getString("cs_date");
 				String update = rs.getString("cs_update");
+				String no = rs.getString("cs_no");
 
-				schedule = new CompanyScheduleDTO(year ,month ,title ,txt ,date ,update);
+				schedule = new CompanyScheduleDTO(year ,month ,title ,txt ,date ,update, no);
 				companySchedule.add(schedule.toJson());
 
 			}
