@@ -49,6 +49,13 @@
 					</div>
 					<div class="date-modal-content"></div>
 				</div>
+				<div class="detail-schedule">
+					<div class="detail-schedule-header">
+						<div class="detail-schedule-title"></div>
+						<div class="detail-schedule-close modal-close"></div>
+					</div>
+					<div class="detail-schedule-content"></div>
+				</div>
 			</div>
 			<form class="company-form" action="InsertCompanyC" method="post">
 				<div class="sec-ins">
@@ -90,7 +97,7 @@
 									name="input-title">
 							</div>
 						</div>
-
+						
 						<div class="ins-tr-3-date">
 							<div class="ins-tr-3-date-tr">
 								<div class="ins-tr-title-title">날짜</div>
