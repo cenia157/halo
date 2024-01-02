@@ -13,12 +13,18 @@
 <body>
 	
 			<!-- step별 페이지  시작 -->
-			<form action="${agree }" method="post">
-			
+			<form action="ApplyC" method="post">
+		
+		<input type="hidden" name="selectedStart" value="${selectedStart }">
+		<input type="hidden" name="selectedEnd" value="${selectedEnd }">
+		<input type="hidden" name="selectedTime" value="${selectedTime }">
 		<input type="hidden" name="applicant" value="${applicant }">
 		<input type="hidden" name="phoneNum" value="${phoneNum }">
 		<input type="hidden" name="userName" value="${userName }">
 		<input type="hidden" name="userGender" value="${userGender }">
+		<input type="hidden" name="userYear" value="${userYear }">
+		<input type="hidden" name="userMonth" value="${userMonth }">
+		<input type="hidden" name="userDay" value="${userDay }">
 		<input type="hidden" name="addr" value="${addr }">
 		<input type="hidden" name="startAddr" value="${startAddr }">
 		<input type="hidden" name="endAddr" value="${endAddr }">
