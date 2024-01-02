@@ -47,58 +47,52 @@
 
 				<div class="content-m-td-3-mid-2-tr-underbar">
 					<select name="banner_menu">
-				<option value="info_com">회사소개</option>
-				<option value="info_map">오시는길</option>
-				<option value="intro_announce">공지사항</option>
-				<option value="intro_album">앨범</option>
-				<option value="intro_employ">채용공고</option>
-				<option value="service_info">서비스안내</option>
-				<option value="service_apply">서비스신청</option>
-				<option value="faq">자주묻는질문</option>
-				<option value="question">문의게시판</option>
-				<option value="sales">상품판매</option>
-				</select>
+						<option value="info_com">회사소개</option>
+						<option value="info_map">오시는길</option>
+						<option value="intro_announce">공지사항</option>
+						<option value="intro_album">앨범</option>
+						<option value="intro_employ">채용공고</option>
+						<option value="service_info">서비스안내</option>
+						<option value="service_apply">서비스신청</option>
+						<option value="faq">자주묻는질문</option>
+						<option value="question">문의게시판</option>
+						<option value="sales">상품판매</option>
+					</select>
 				</div>
 
 				<div class="content-m-td-3-mid-2-tr-underbar">
 					<select name="banner_menu">
-				<option value="info_com">회사소개</option>
-				<option value="info_map">오시는길</option>
-				<option value="intro_announce">공지사항</option>
-				<option value="intro_album">앨범</option>
-				<option value="intro_employ">채용공고</option>
-				<option value="service_info">서비스안내</option>
-				<option value="service_apply">서비스신청</option>
-				<option value="faq">자주묻는질문</option>
-				<option value="question">문의게시판</option>
-				<option value="sales">상품판매</option>
-				</select>
+						<option value="info_com">회사소개</option>
+						<option value="info_map">오시는길</option>
+						<option value="intro_announce">공지사항</option>
+						<option value="intro_album">앨범</option>
+						<option value="intro_employ">채용공고</option>
+						<option value="service_info">서비스안내</option>
+						<option value="service_apply">서비스신청</option>
+						<option value="faq">자주묻는질문</option>
+						<option value="question">문의게시판</option>
+						<option value="sales">상품판매</option>
+					</select>
 				</div>
 
 				<div class="content-m-td-3-mid-2-tr-underbar">
 					<select name="banner_menu">
-				<option value="info_com">회사소개</option>
-				<option value="info_map">오시는길</option>
-				<option value="intro_announce">공지사항</option>
-				<option value="intro_album">앨범</option>
-				<option value="intro_employ">채용공고</option>
-				<option value="service_info">서비스안내</option>
-				<option value="service_apply">서비스신청</option>
-				<option value="faq">자주묻는질문</option>
-				<option value="question">문의게시판</option>
-				<option value="sales">상품판매</option>
-				</select>
+						<option value="info_com">회사소개</option>
+						<option value="info_map">오시는길</option>
+						<option value="intro_announce">공지사항</option>
+						<option value="intro_album">앨범</option>
+						<option value="intro_employ">채용공고</option>
+						<option value="service_info">서비스안내</option>
+						<option value="service_apply">서비스신청</option>
+						<option value="faq">자주묻는질문</option>
+						<option value="question">문의게시판</option>
+						<option value="sales">상품판매</option>
+					</select>
 				</div>
-
-
-
 			</div>
-
 		</div>
-		<div class="content-m-td-3-down">
-
-			<button class="content-button">변경</button>
-
+		<div class="content-button">
+			<button>변경</button>
 		</div>
 
 
