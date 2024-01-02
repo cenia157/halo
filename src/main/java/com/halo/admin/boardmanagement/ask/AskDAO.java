@@ -14,9 +14,12 @@ import javax.servlet.http.HttpServletResponse;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.halo.test.DBManagerhalo_YJ;
+import com.halo.user.introduce.announcement.Announced_tbl_DTO;
 
 public class AskDAO {
 
+	private static ArrayList<QuestionNComment> QnCs;
+	
 	public static void AskAnswerSubmit(HttpServletRequest request, HttpServletResponse response) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -202,6 +205,82 @@ public class AskDAO {
 		
 	}
 
+	
+	
+	public static void getAllQnC(HttpServletRequest request, HttpServletResponse response) {
+		Connection con = null;
+		PreparedStatement pstmt =null;
+		ResultSet rs = null;
+		String sql = "SELECT q.*, c.*"
+				+ " FROM question_tbl q"
+				+ " LEFT JOIN comment_tbl c"
+				+ " ON q.q_seq = c.q_seq"
+				+ " ORDER BY q.q_seq ASC";
+		
+		try {
+			con = DBManagerhalo_YJ.connect();
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			QnCs = new ArrayList<QuestionNComment>();
+			QuestionNComment QnC;
+			
+			while (rs.next()) {
+				int c_seq = rs.getInt("c_seq");
+				String c_commenter_name = rs.getString("c_commenter_name");
+				String c_comment_content = rs.getString("c_comment_content");
+				Date c_reg_date = rs.getDate("c_reg_date");
+				String c_answer = rs.getString("c_answer");
+				
+				int q_seq = rs.getInt("q_seq");
+				String q_title = rs.getString("q_title");
+				String q_content = rs.getString("q_content");
+				Date q_reg_date = rs.getDate("q_reg_date");
+				String q_contact_number = rs.getString("q_contact_number");
+				String q_email = rs.getString("q_email");
+				String q_name = rs.getString("q_name");
+				String q_password = rs.getString("q_password");
+				String q_category = rs.getString("q_category");
+				
+				QnC = new QuestionNComment(c_seq, c_commenter_name, c_comment_content, c_reg_date, c_answer, q_seq, q_title, q_content, q_reg_date, q_contact_number, q_email, q_name, q_password, q_category);
+				QnCs.add(QnC);
+			}
+			
+			request.setAttribute("QnCs", QnCs);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			DBManagerhalo_YJ.close(con, pstmt, rs);
+		}
+		
+	}
+	
+	public static void Qpaging(int page, HttpServletRequest request) {
+		
+		request.setAttribute("curPageNo", page);
+		
+		int cnt = 5; 
+		int total = QnCs.size(); 
+		System.out.println("total ::: " + total );
+		int pageCount = (int)Math.ceil((double)total / cnt);
+		System.out.println("pageCount ::: " + pageCount );
+		request.setAttribute("pageCount", pageCount);
+		
+		int start = total - (cnt * (page -1));
+		System.out.println("start ::: " + start );
+		
+		int end = (page == pageCount) ? -1 : start - (cnt + 1);
+		
+		ArrayList<QuestionNComment> items = new ArrayList<QuestionNComment>();
+		
+		for (int i = start-1; i > end; i--) {
+			items.add(QnCs.get(i));
+		}
+		request.setAttribute("QnCs", items);
+		
+	
+	}
 	
 }
 

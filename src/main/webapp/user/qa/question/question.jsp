@@ -1,5 +1,6 @@
 <%@ page import="java.util.List" %>
 <%@ page import="com.halo.user.qa.question.Question" %>
+<%@ page import="com.halo.admin.boardmanagement.ask.AskDAO" %>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -26,22 +27,6 @@
 
 
 <script>
-    // 페이지 로드가 완료된 후 실행
-    document.addEventListener('DOMContentLoaded', function() {
-        // 페이징 버튼에 대한 클릭 이벤트 리스너 등록
-        document.querySelectorAll('.page-link').forEach(function(button) {
-            button.addEventListener('click', function(event) {
-                // 기본 동작인 페이지 이동을 막음
-                event.preventDefault();
-                
-                // 여기에 페이징 버튼을 클릭했을 때 수행할 동작을 추가
-                // 예: 페이지 내용 로드, 페이지 이동 등
-                // 클릭된 버튼의 href 속성에서 페이지 URL을 가져옴
-                var targetPage = this.getAttribute('href');
-            });
-        });
-    });
-    
     function submitForm() {
         document.getElementById('QuestionDetailC').submit();
     }
@@ -153,7 +138,7 @@
                   
              <form id="QuestionDetailC" action="QuestionDetailC" method="post" style="height: 100%; width: 100%;">     
                   <!-- 2번째 행 여기는 forEach문이겠죠?-->
-					<c:forEach items="${resultList}" var="question" varStatus="loop">
+					<c:forEach items="${QnCs}" var="question" varStatus="loop">
 					    <div class="q_content-box-tr1-td3-1-1-1-2">
 					    		<input hidden="1" name="q_seq" val="${question.q_seq }"/>
 			                    <div class="q_content-box-tr1-td3-1-1-1-2-1 No-width">
@@ -180,6 +165,109 @@
 			                    </div>
 					    </div>
 					</c:forEach>
+					
+<!-- 					페이징처리 해야할 부분 -->
+					                <!--페이징시작 -->
+                <div class="paging-div">
+                  <!-- 처음으로 가는 버튼 -->
+                  <c:choose>
+                    <c:when test="${curPageNo > 5}">
+                      <a href="QuestionPagingC?p=${curPageNo - 5}">
+                        <button><<</button>
+                      </a>
+                    </c:when>
+                    <c:when test="${curPageNo <= 5 && curPageNo > 1}">
+                      <a href="QuestionPagingC?p=1">
+                        <button><<</button>
+                      </a>
+                    </c:when>
+                    <c:otherwise>
+                      <button disabled><<</button>
+                    </c:otherwise>
+                  </c:choose>
+
+                  <!-- 이전 페이지로 가는 버튼 -->
+                  <c:choose>
+                    <c:when test="${curPageNo > 1}">
+                      <a href="QuestionPagingC?p=${curPageNo - 1}">
+                        <button>이전</button>
+                      </a>
+                    </c:when>
+                    <c:otherwise>
+                      <button disabled>이전</button>
+                    </c:otherwise>
+                  </c:choose>
+
+                  <!-- 페이지 번호 생성 시작 -->
+                  <c:set var="pageSize" value="10" />
+                  <c:set var="startPage" value="${curPageNo - 2}" />
+                  <c:set var="endPage" value="${curPageNo + 2}" />
+                  <!-- 시작 페이지와 끝 페이지 계산 -->
+
+					<c:if test="${startPage < 1}">
+					    <c:set var="startPage" value="1" />
+					    <c:set var="endPage" value="${startPage + 4}" />
+					    <!-- 시작 페이지가 1보다 작으면 1로 설정하고 끝 페이지를 조정 -->
+					</c:if>
+
+
+                  <c:if test="${endPage > pageCount}">
+                    <c:set var="endPage" value="${pageCount}" />
+                    <c:set var="startPage" value="${endPage - 4}" />
+                    <!-- 끝 페이지가 페이지 수를 넘으면 끝 페이지를 페이지 수로 설정하고 시작 페이지를 조정 -->
+                  </c:if>
+
+                  <c:forEach
+                    var="pageNumber"
+                    begin="${startPage}"
+                    end="${endPage}"
+                  >
+                    <c:set
+                      var="currentPageClass"
+                      value="${pageNumber == curPageNo ? 'current-page' : ''}"
+                    />
+                    <a
+                      href="QuestionPagingC?p=${pageNumber}"
+                      class="page-number ${currentPageClass}"
+                      >[${pageNumber}]</a
+                    >
+                  </c:forEach>
+                  <!-- 페이지 번호 생성 끝 -->
+
+                  <!-- 다음 페이지로 가는 버튼 -->
+                  <c:choose>
+                    <c:when test="${curPageNo < pageCount}">
+                      <a href="QuestionPagingC?p=${curPageNo + 1}">
+                        <button>다음</button>
+                      </a>
+                    </c:when>
+                    <c:otherwise>
+                      <button disabled>다음</button>
+                    </c:otherwise>
+                  </c:choose>
+
+                  <!-- 마지막으로 가는 버튼 -->
+                  <c:choose>
+                    <c:when test="${curPageNo + 5 <= pageCount}">
+                      <a href="QuestionPagingC?p=${curPageNo + 5}">
+                        <button>>></button>
+                      </a>
+                    </c:when>
+                    <c:when
+                      test="${curPageNo + 5 > pageCount && curPageNo < pageCount}"
+                    >
+                      <a href="QuestionPagingC?p=${pageCount}">
+                        <button>>></button>
+                      </a>
+                    </c:when>
+                    <c:otherwise>
+                      <button disabled>>></button>
+                    </c:otherwise>
+                  </c:choose>
+                </div>
+                <!-- 페이징끝 -->
+					
+					
 				</form>
 
 
@@ -195,7 +283,6 @@
               </div>
             </div>
           </div>
-		</div>
 		
 	
 </body>

@@ -14,12 +14,30 @@
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/user/0.css/index-menu.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/user/0.css/index-footer.css">
 
+<%-- <script type="text/javascript" src="${pageContext.request.contextPath}/user/qa/question/0.js/questionDetails.js"></script> --%>
 <script type="text/javascript">
 function deleteQuestion(n) {
 	let ok = confirm("削除しますか?");
 	if (ok) {
 		location.href= "QuestionDeleteC?q_seq=" + n;
 	}
+}
+
+function checkPW(){
+	let enteredPassword = document.getElementById("password").value;
+    let correctPassword = "${QnC.q_password}"; // 서버에서 가져온 올바른 패스워드
+
+    if (enteredPassword === correctPassword) {
+        // 패스워드가 올바르면 password_input을 숨기고 password_content를 보이게 설정
+        document.getElementById("password_input").style.display = "none";
+        document.getElementById("password_content").style.display = "block";
+    } else {
+        // 패스워드가 틀렸을 때의 처리
+        alert("パスワードをご確認ください。");
+        document.getElementById("password_input").style.display = "block";
+        document.getElementById("password_content").style.display = "none";
+        document.getElementById("password").value = null;
+    }
 }
 </script>
 
@@ -29,9 +47,7 @@ function deleteQuestion(n) {
 
 	<div class="qd-content-tbl">
 
-	<!-- 본문 -->
 	<div class="qd-content-tbl">
-		<!-- 문의글 게시판 (디테일) -->
 		<div class="qd-content-box-tr1">
 			<div class="qd-content-box-tr2">
 				<div class="qd-content-box-tr2-1">
@@ -58,7 +74,6 @@ function deleteQuestion(n) {
 					</div>
 				</div>
 
-				<!-- 본문 -->
 				<div class="qd-content-box-td2-1">
 					<div class="qd-content-box-td2-1-content">
 						${QnC.q_content}
@@ -68,50 +83,80 @@ function deleteQuestion(n) {
 				<div class="qd-content-box-td2-2">
 					<button class="qd-content-box-td2-2-button" id="listButton">リスト</button>
 				</div>
-				<!-- 댓글 -->
 				<div class="qd-content-box-td3">
 				<div class="qd-content-box-td3-1">
-						<div class="qd-content-box-td3-1-1">${QnC.c_commenter_name}</div>
-						<div class="qd-content-box-td3-1-2">${QnC.c_reg_date }</div>
-					</div>
-					<div class="qd-content-box-td3-2">
+					<c:choose>
+						<c:when test="${not empty QnC.c_comment_content}">
+							<div class="qd-content-box-td3-1-1">${QnC.c_commenter_name}</div>
+							<div class="qd-content-box-td3-1-2">${QnC.c_reg_date }</div>
+						</c:when>
+						<c:otherwise>
+							<div class="qd-content-box-td3-1-1">まだコメントがありません</div>
+						</c:otherwise>
+					</c:choose>
+				</div>
+				<div class="qd-content-box-td3-2">
 						<div class="qd-content-box-td3-2-1">
 							<img alt=""
 								src="${pageContext.request.contextPath}/user/qa/question/0.img/lock.png">
 						</div>
-						<div class="qd-content-box-td3-2-2">${QnC.c_comment_content}</div>
-					</div>
+						
+						<c:choose>
+							<c:when test="${not empty QnC.c_comment_content}">
+								<div id="password_input">
+									<input name="password" id="password" type="password" placeholder="パスワードを入力してください" />
+									<button id="password_submit_btn" onclick="checkPW()">確認</button>
+								</div>
+								<div class="password_submit">
+								</div>
+								<div class="qd-content-box-td3-2-2" id="password_content">
+									${QnC.c_comment_content}
+								</div>
+							</c:when>
+							<c:otherwise></c:otherwise>					
+						</c:choose>
+				</div>
 				</div>
 				
 				
-				<!-- 이전글/다음글 -->
 				<div class="qd-content-box-td4" >
-				
-<!-- 현재위치 찾기 -->
-    <c:forEach var="question" items="${questionList}" varStatus="status">
-        <c:if test="${question.q_seq eq questionId}">
-            <c:set var="currentIndex" value="${status.index}" />
-        </c:if>
-    </c:forEach>
-<%-- 1보다 큰 차이가 있는 경우의 처리 --%>
-    <c:if test="${fn:length(questionList) > 1 and (currentIndex < fn:length(questionList) - 1) and (currentIndex - 1) > 0}">
-        <c:forEach var="gap" begin="1" end="${currentIndex - 1}">
-            <a href="${questionList[currentIndex - gap].q_seq}">이전 글(${gap} 차이): ${questionList[currentIndex - gap].q_title}</a>
-        </c:forEach>
+<c:forEach var="question" items="${resultList}" varStatus="status">
+    <c:if test="${question.q_seq eq questionId}">
+        <c:set var="currentIndex" value="${status.index}" />
     </c:if>
+</c:forEach>
+
 					<div class="qd-content-box-td4-1">
 						<div class="qd-content-box-td4-1-1">前のページ</div>
 							<div class="qd-content-box-td4-1-2">
-							    <c:if test="${currentIndex > 0}">
-							        <a href="${questionList[currentIndex - 1].q_seq}">이전 글: ${questionList[currentIndex - 1].q_title}</a>
-							    </c:if>
+								<c:choose>
+								    <c:when test="${currentIndex > 0}">
+								        <c:set var="prevIndex" value="${currentIndex - 1}" />
+								        <c:set var="prevQuestion" value="${resultList[prevIndex]}" />
+								        <a href="QuestionDetailC?q_seq=${prevQuestion.q_seq}">${prevQuestion.q_title}</a>
+								    </c:when>
+								    <c:otherwise>
+								        <p>이전 글이 없습니다.</p>
+								    </c:otherwise>
+								</c:choose>
 							</div>
 						</div>
 						<div class="qd-content-box-td4-2">
 						<div class="qd-content-box-td4-2-1">後のページ</div>
-						    <c:if test="${currentIndex < fn:length(questionList) - 1}">
-						        <a href="${questionList[currentIndex + 1].q_seq}">다음 글</a>
-						    </c:if>
+							<div class="qd-content-box-td4-2-2">
+
+								<c:choose>
+								    <c:when test="${currentIndex < fn:length(resultList) - 1}">
+								        <c:set var="nextIndex" value="${currentIndex + 1}" />
+								        <c:set var="nextQuestion" value="${resultList[nextIndex]}" />
+								        <a href="QuestionDetailC?q_seq=${nextQuestion.q_seq}">${nextQuestion.q_title}</a>
+								    </c:when>
+								    <c:otherwise>
+								        <p>다음 글이 없습니다.</p>
+								    </c:otherwise>
+
+								</c:choose>
+							</div>
 						</div>
 					</div>
 				</div>
