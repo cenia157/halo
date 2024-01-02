@@ -25,6 +25,7 @@ public class NursingapplyC extends HttpServlet {
 	SeviceApplyDAO.calSelect(request);
 	SeviceApplyDAO.timeSelect(request);
 	SeviceApplyDAO.nursingApply(request);
+	
 	// 불러온 데이터 사용 예시
 	if (selectedService != null) {
 			if (selectedService.equals("nursingTexi")) {

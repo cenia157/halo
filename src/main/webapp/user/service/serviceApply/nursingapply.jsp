@@ -106,5 +106,33 @@ for (var day = 1; day <= 31; day++) {
   option.value = day;
   daySelect.appendChild(option);
 }
+
+//사용자가 선택한 값 가져오기
+var selectedYear = document.getElementById("userYear").value;
+var selectedMonth = document.getElementById("userMonth").value;
+var selectedDay = document.getElementById("userDay").value;
+
+// JSON 객체 생성
+var jsonData = {
+    userYear: selectedYear,
+    userMonth: selectedMonth,
+    userDay: selectedDay
+};
+
+fetch('UserDate', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(jsonData)
+})
+.then(response => {
+    if (!response.ok) {
+        throw new Error('서버 응답 실패');
+    }
+    return response.json(); // JSON 형태의 데이터로 변환
+})
+
+
 </script>
 </html>

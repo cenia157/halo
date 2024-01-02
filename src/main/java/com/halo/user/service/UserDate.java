@@ -14,9 +14,9 @@ public class UserDate extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		SeviceApplyDAO.userDate(request, response);
 
 	
-	SeviceApplyDAO.userDate(request, response);
 	
 	
 	}
