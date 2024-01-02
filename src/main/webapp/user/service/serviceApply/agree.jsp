@@ -13,6 +13,19 @@
 <body>
 	
 			<!-- step별 페이지  시작 -->
+			<form action="${agree }" method="post">
+			
+		<input type="hidden" name="applicant" value="${applicant }">
+		<input type="hidden" name="phoneNum" value="${phoneNum }">
+		<input type="hidden" name="userName" value="${userName }">
+		<input type="hidden" name="userGender" value="${userGender }">
+		<input type="hidden" name="addr" value="${addr }">
+		<input type="hidden" name="startAddr" value="${startAddr }">
+		<input type="hidden" name="endAddr" value="${endAddr }">
+		<input type="hidden" name="niText" value="${niText }">
+		<input type="hidden" name="tiText" value="${tiText }">
+			
+			
 			<!-- 여기에 약관 내용을 삽입합니다 -->
 			<div class="content-step-page-td">
 				<h2>介護コールタクシーサービス規約</h2>
@@ -66,10 +79,27 @@
 
 				<!-- 추가사항 2: 신청 버튼 -->
 				<div class="button-container">
-							<a href="ServiceC?step=7" id="apply" name="apply">申請</a>
+							<button onclick="return agreeChecked()" value="${agree }" id="apply" name="apply">申し込み</button>
 				</div>
 
 				<!-- step별 페이지  끝-->
 			</div>
+			</form>
 </body>
+			<script>
+    // JavaScript
+    function agreeChecked() {
+        var checkBox = document.getElementById("terms-agree");
+		document. agree
+        if (!checkBox.checked) {
+            alert("동의 체크박스를 선택해주세요.");
+            return false; // 체크박스가 선택되지 않았으므로 함수 실행 중지
+        }
+
+        // 만약 체크박스가 선택되었을 때 추가적인 작업이 필요하다면 이 부분에 코드를 추가하세요.
+
+        // 체크박스가 선택된 경우, 이 아래로 코드가 실행됩니다.
+        // 예를 들어, 신청 프로세스를 진행하는 등의 작업을 수행할 수 있습니다.
+    }
+</script>
 </html>

@@ -13,6 +13,7 @@ public class CompanyScheduleList extends HttpServlet {
 			throws ServletException, IOException {
 
 		CompanyDAO.getAllCompanySchedule(request, response);
+		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
