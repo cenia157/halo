@@ -152,7 +152,24 @@
 				console.error('POST 요청 실패:', error);
 			});
 	});
+	
 	</script>
 
+<script>
+let imgIdx = 0;
+
+$(document).ready(function(){
+	$('.ck-content').on('click', 'figure', function(e){
+		imgIdx = $(this).index();
+	});
+	
+	$('.ck-content').on('keydown', function(e){
+		if(e.key === 'Delete'&& $('figure').length > 0){
+			$('[name=saveFname]').eq(imgIdx).attr('disabled', 'disabled');
+			$('[name=saveFname]').eq(imgIdx).hide();
+		}
+	});
+});
+</script>
 </body>
 </html>
