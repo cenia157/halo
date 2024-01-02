@@ -30,8 +30,11 @@ public class NursingapplyC extends HttpServlet {
 			if (selectedService.equals("nursingTexi")) {
 				request.setAttribute("sevice", "NursingTexiC");
 				service = "taxiapply";
+				request.setAttribute("step4Pos", "#ffdf6c");
 			}else {
 			service = "agree";
+			request.setAttribute("step5Pos", "#ffdf6c");
+			request.setAttribute("agree", "ApplyNursingC");
 			}
 	    System.out.println("Selected Service: " + selectedService);
 	} else {
@@ -39,7 +42,6 @@ public class NursingapplyC extends HttpServlet {
 	}
 	
 	request.setAttribute("serviceStep", service + ".jsp");
-	request.setAttribute("step4Pos", "#ffdf6c");
 	request.setAttribute("menu", "user/menu-index.jsp");
 	request.setAttribute("subMenu", "service/serviceApply/serviceApply.jsp");
 	request.getRequestDispatcher("index.jsp").forward(request, response);

@@ -25,13 +25,18 @@
   width: 25%;
   align-items: center;
 }
-
+/* 로고 이미지 크기 조절 css */
+.header-br-logo > a > img{
+	margin-top: 6%;
+	width: 70%;	
+}
 .header-br-logo > a {
-  color: #546137;
+/*   color: #546137; */
+
 }
 
 .header-br-logo > a:visited {
-  color: #546137;
+/*   color: #546137; */
 }
 
 .header-br-logo > img {

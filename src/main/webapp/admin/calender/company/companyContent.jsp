@@ -44,10 +44,10 @@
 				<div class="dates"></div>
 				<div class="date-modal">
 					<div class="date-modal-header">
-					<div class="date-modal-title"></div>
-					<div class="modal-close"></div>
+						<div class="date-modal-title"></div>
+						<div class="modal-close"></div>
 					</div>
-					<div class="date-modal-content"></div> 
+					<div class="date-modal-content"></div>
 				</div>
 			</div>
 			<form class="company-form" action="InsertCompanyC" method="post">
@@ -62,7 +62,7 @@
 							</div>
 						</div>
 						<div class="ins-tr-td">
-							<div class="ins-tr-td-btn">
+							<div class="ins-tr-td-btn" >
 								예약 <input type="checkbox" class="toggle" hidden> <label
 									for="toggle" class="toggleSwitch"> <span
 									class="toggleButton"></span>

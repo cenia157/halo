@@ -16,9 +16,9 @@ public class HomepageDTO {
 	String h_email;				//footer 이메일
 	String h_address;			//footer (회사)주소
 	String h_resume_file;		//이력서 파일 양식
+	// 네이밍 최적화 예시 => logo, BannerTitle
 	
-	
-	//필수3가지 까지만함
+	//필수3
 	public HomepageDTO() {
 
 	}

@@ -1,75 +1,61 @@
 package com.halo.test;
 
-import java.io.BufferedReader;
-
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
 import javax.servlet.http.HttpServletRequest;
 
-import com.oreilly.servlet.MultipartRequest;
-import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
-
 public class Ck_DAO {
 
 	public static void regNotice(HttpServletRequest request) throws IOException {
 		request.setCharacterEncoding("utf-8");
-		// title
-		// txt
-		// date
-		// img
-
-//		String select = null;
-//
-//		if (request.getParameter("select") == "announcement") {
-//			select = "announcement";
-//		} else if (request.getParameter("select") == "schedule") {
-//			select = "schedule";
-//		} else if (request.getParameter("select") == "general") {
-//			select = "general";
-//		} else if (request.getParameter("select") == "service") {
-//			select = "service";
-//		} else if (request.getParameter("select") == "product") {
-//			select = "product";
-//		} else {
-//			System.out.println("select¿¡ ¾Æ¹«°ªµµ µé¾îÀÖÁö ¾Ê´Ù");
-//		}
 		try {
+			String title = request.getParameter("title");
+			String select = request.getParameter("select");
+			String txt = request.getParameter("txt");
+			System.out.println("txt :::" + txt);
+			String saveFnameValues[] = request.getParameterValues("saveFname");
+			System.out.println("saveFnameValues :::" + saveFnameValues[0]);
+			System.out.println("saveFnameValues :::" + saveFnameValues[1]);
+
+//			if (saveFnameValues != null) {
+//			    String[] saveArray = saveFnameValues.split("&");
+//
+//			    for (int i = 0; i < saveArray.length; i++) {
+//			        // ê°ê°ì˜ img íƒœê·¸ì— ëŒ€í•´ ëŒ€ì²´ ìˆ˜í–‰
+//			        txt = txt.replace("img", "img src=\'" + saveArray[i] + "'");
+//
+//			        System.out.println("saveFName: " + saveArray[i]);
+//			    }
+//			}
+
 			
-			
-			
 
-		String title = request.getParameter("title");
-		String select = request.getParameter("select");
-		String txt = request.getParameter("txt");
 
-		// ÀÌ°÷¿¡ ÀÌ¹ÌÁö °¡Á®¿Í¾ßÇÑ´Ù
-		System.out.println(title);
-		System.out.println(select);
-		System.out.println(txt);
 
-		Connection con = null;
-		PreparedStatement pstmt = null;
-		String sql = "INSERT INTO announced_tbl " + "(an_seq, an_title, an_content, an_writer, an_category, an_img) "
-				+ "VALUES (announced_tbl_seq.nextval, ?, ?, 'ÀÓ½Ãµ¥ÀÌÅÍ', ?, ?)";
+			System.out.println(title);
+			System.out.println(select);
+//			System.out.println(saveFName);
+//			txt = txt.replace("img", "img src=\'" + saveFName + "\'");
+			System.out.println(txt);
 
-		// Âü°í¿ë notice_seq.nextval, 'Å¸ÀÌÆ²', 'ÅØ½ºÆ®', '±èÁø¿í', 'ÀÏ¹Ý', 'ÀÌ¹ÌÁö'
-		
+			Connection con = null;
+			PreparedStatement pstmt = null;
+			String sql = "INSERT INTO announced_tbl " + "(an_seq, an_title, an_content, an_writer, an_category) "
+					+ "VALUES (announced_tbl_seq.nextval, ?, ?, ?, ?)";
 
 			con = DBManagerhalo_JW.connect();
 			pstmt = con.prepareStatement(sql);
 
 			pstmt.setString(1, title);
 			pstmt.setString(2, txt);
-			pstmt.setString(3, select);
-			pstmt.setString(4, "ÀÓ½ÃÀÌ¹ÌÁöµ¥ÀÌÅÍ");
+			pstmt.setString(3, "ì‚°íƒ€");
+			pstmt.setString(4, select);
 
 			if (pstmt.executeUpdate() == 1) {
-				System.out.println("µî·Ï¼º°ø");
-
+				System.out.println("ë“±ë¡ì„±ê³µ");
 			}
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

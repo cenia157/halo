@@ -28,17 +28,18 @@ public class MainpageDAO {
 	}
 		
 
-	public static void getAllHompage_common(HttpServletRequest request) {
+	public void getAllHompage_common(HttpServletRequest request) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "select * from hompage_common";
+		String sql = "select * from homepage_common";
 		try {
 			con = DBManagerhalo.connect();
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			HomepageDTO hdto = null;
-			while (rs.next()) {
+			
+			if (rs.next()) {
 				hdto = new HomepageDTO();
 				hdto.setH_seq(rs.getInt("h_seq"));
 				hdto.setH_logo_img(rs.getString("h_logo_img"));
@@ -55,6 +56,11 @@ public class MainpageDAO {
 				hdto.setH_email(rs.getString("h_email"));
 				hdto.setH_address(rs.getString("h_address"));
 				hdto.setH_resume_file(rs.getString("h_resume_file"));
+				
+				//뷰에 뿌릴 어트리뷰트
+				request.setAttribute("hdto", hdto);
+				
+				
 			}
 			
 			
@@ -80,7 +86,7 @@ public class MainpageDAO {
     
 	
 	//로고 등록 메소드(처음에만 쓸거임 test용)
-	public static void regLogo(HttpServletRequest request) {
+	public void regLogo(HttpServletRequest request) {
 		
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -110,52 +116,106 @@ public class MainpageDAO {
 	}
 	
 	//로고 수정 메소드
-	public static void updateLogo(HttpServletRequest request) {
+	public void updateLogo(HttpServletRequest request) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		String newFileName = request.getParameter("newFileName");
 		String sql = "update homepage_common set h_logo_img = ? where h_seq=1";
+		String paramName = "error";
+		String param = "등록 실패";
 		try {
 			con = DBManagerhalo.connect();
-			System.out.println(newFileName);
+//			System.out.println(newFileName);
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, newFileName);
 			if (pstmt.executeUpdate() == 1) {
 				System.out.println("등록 성공!");
-			}else {
-				System.out.println("등록 실패");
+				
+				param = "등록 성공!";
+				paramName ="success";
 			}
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("db server error...");
 		}finally {
+			request.setAttribute("paramName", paramName);
+			request.setAttribute("param", param);
 			DBManagerhalo.close(con, pstmt, null);
 		}
 	}
+	
+	
 
-	public void getLogo(HttpServletRequest request) {
+	public void updateFooter(HttpServletRequest request) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		String sql = "select h_logo_img from homepage_common where h_seq=1";
-		
+		String sql = "update homepage_common set h_tel_no=?, h_fax_no=?, h_phone_no=?, h_email=?, h_address=? where h_seq=1";
+		String paramName = "error";
+		String param = "등록 실패";
 		try {
+			request.setCharacterEncoding("utf-8");
 			con = DBManagerhalo.connect();
 			pstmt = con.prepareStatement(sql);
-			rs = pstmt.executeQuery();
 			
-			if(rs.next()) {
-				request.setAttribute("currentLogo", rs.getString("h_logo_img"));
-				System.out.println("currentLogo : " + rs.getString("h_logo_img"));
+			pstmt.setString(1, request.getParameter("h_tel_no"));
+			pstmt.setString(2, request.getParameter("h_fax_no"));
+			pstmt.setString(3, request.getParameter("h_phone_no"));
+			pstmt.setString(4, request.getParameter("h_email"));
+			pstmt.setString(5, request.getParameter("h_address"));
+			if (pstmt.executeUpdate() == 1) {
+				System.out.println("등록 성공!");
+				
+				param = "등록 성공!";
+				paramName ="success";
 			}
+			
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+			System.out.println("db server error...");
+		}finally {
+			request.setAttribute("paramName", paramName);
+			request.setAttribute("param", param);
+			DBManagerhalo.close(con, pstmt, null);
+		}
+		
+	}
+
+	public void bannerUpdate(HttpServletRequest request) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		String sql = "";
+		String paramName = "error";
+		String param = "등록 실패";
+		try {
+			request.setCharacterEncoding("utf-8");
+			con = DBManagerhalo.connect();
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, request.getParameter("h_tel_no"));
+			pstmt.setString(2, request.getParameter("h_fax_no"));
+			pstmt.setString(3, request.getParameter("h_phone_no"));
+			pstmt.setString(4, request.getParameter("h_email"));
+			pstmt.setString(5, request.getParameter("h_address"));
+			if (pstmt.executeUpdate() == 1) {
+				System.out.println("등록 성공!");
+				
+				param = "등록 성공!";
+				paramName ="success";
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("db server error...");
+		}finally {
+			request.setAttribute("paramName", paramName);
+			request.setAttribute("param", param);
+			DBManagerhalo.close(con, pstmt, null);
 		}
 		
 		
 	}
+	
 	
 	
 	

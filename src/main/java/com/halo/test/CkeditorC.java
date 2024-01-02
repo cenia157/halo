@@ -18,12 +18,9 @@ public class CkeditorC extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~");
+		// 이곳은 Notice에서 등록완료를 눌렀을 때 등록하기 위한 곳
 		Ck_DAO.regNotice(request);
-		
-		
-		
+
 	}
 
 }

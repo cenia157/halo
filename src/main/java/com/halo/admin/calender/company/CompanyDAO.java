@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 import com.halo.main.DBManagerhalo;
+import com.halo.main.DBManagerhalo2;
 
 public class CompanyDAO {
 	private static Connection con = null;
@@ -27,7 +28,7 @@ public class CompanyDAO {
 
 			// 데이터베이스 연동
 			String sql = "select * from company_schedule";
-			con = DBManagerhalo.connect();
+			con = DBManagerhalo2.connect();
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 
@@ -39,17 +40,17 @@ public class CompanyDAO {
 
 			// 객체에 데이터 추가
 			while (rs.next()) {
-				String yearmonth = rs.getString("cs_yearmonth");
+				String year = rs.getString("cs_year");
+				String month = rs.getString("cs_month");
 				String title = rs.getString("cs_title");
 				String txt = rs.getString("cs_txt");
 				String date = rs.getString("cs_date");
 				String update = rs.getString("cs_update");
 
-				schedule = new CompanyScheduleDTO(yearmonth, title, txt, date, update);
+				schedule = new CompanyScheduleDTO(year ,month ,title ,txt ,date ,update);
 				companySchedule.add(schedule.toJson());
 
 			}
-			
 
 			System.out.println("회사 달력 조회 성공");
 			response.getWriter().print(companySchedule);
@@ -74,26 +75,25 @@ public class CompanyDAO {
 			LocalDateTime now = LocalDateTime.now();
 
 			// 데이터베이스 연동
-			String sql = "insert into company_schedule values(company_schedule_seq.nextval, ?, ?, ?, ?, ?)";
-			con = DBManagerhalo.connect();
+			String sql = "insert into company_schedule values(company_schedule_seq.nextval, ?, ?, ?, ?, ?, ?)";
+			con = DBManagerhalo2.connect();
 			pstmt = con.prepareStatement(sql);
 
 			// 날짜 파라미터 요청
 			String inputDates = request.getParameter("input-date");
 
-			// 날짜 파라미터 연월 / 일 로 분할
+			// 날짜 파라미터 연 / 월 / 일 로 분할
 			int selectYearMonthPlace = inputDates.indexOf("月") + 1;
-			String selectYearMonth = inputDates.substring(0, selectYearMonthPlace);
+			String inputYear = inputDates.substring(0, inputDates.indexOf("年"));
+			String inputMonth = inputDates.substring(inputDates.indexOf("年")+2, inputDates.indexOf("月"));
 			String selectDates = inputDates.substring(selectYearMonthPlace + 1, inputDates.length());
-
-//			System.out.println(selectDates);
-//			System.out.println(selectYearMonth);
-
-			pstmt.setString(1, selectYearMonth);
-			pstmt.setString(2, request.getParameter("input-title"));
-			pstmt.setString(3, request.getParameter("input-txt"));
-			pstmt.setString(4, selectDates);
-			pstmt.setString(5, now.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
+			
+			pstmt.setString(1, inputYear);
+			pstmt.setString(2, inputMonth);
+			pstmt.setString(3, request.getParameter("input-title"));
+			pstmt.setString(4, request.getParameter("input-txt"));
+			pstmt.setString(5, selectDates);
+			pstmt.setString(6, now.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
 
 			if (pstmt.executeUpdate() == 1) {
 				System.out.println("일정추가 성공");
