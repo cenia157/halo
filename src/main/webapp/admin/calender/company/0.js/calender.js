@@ -43,8 +43,14 @@ let clickButton = "";
 // 일정 상세 모달창 초기값
 let dateModal = 0;
 
+// 디테일 모달 초기
+let dateDetailModal = 0;
+
 // 일정 렌더링을 위한 이전달 개수
 let prevDateLength = 0;
+
+// 모달생성시 해당날짜
+let modalDivDate = '';
 
 // 토글스위치
 let toggleList = '';
@@ -120,25 +126,31 @@ function getAllSchedule() {
 
 			// 날짜클릭
 			calendar.addEventListener("click", function(e) {
-				if (e.target.classList.contains('month-date') && e.target.closest('.current')) {
+				if (e.target.classList.contains('month-date') && e.target.closest('.current') && e.target.closest('.current').children.length > 2) {
+
+					if (dateDetailModal == 1) {
+						document.querySelector('.detail-schedule').style.visibility = 'hidden';
+						dateDetailModal = 0;
+					}
+
 					if (dateModal == 0 || dateModal == 1) {
 						// 클릭시 마우스 좌표에 모달창 visible
 						document.querySelector('.date-modal').style.left = e.clientX + 'px';
 						document.querySelector('.date-modal').style.top = e.clientY + 'px';
 						document.querySelector('.date-modal').style.visibility = 'visible';
 
-						let divDate = e.target.closest('.current').className.match(/date(\d+)/);
+						modalDivDate = e.target.closest('.current').className.match(/date(\d+)/);
 
 						// 모달 title 해당 달력 연 월 표시
-						document.querySelector('.date-modal-title').textContent = arrayDate[parseInt(divDate[1]) + prevDateLength].date;
+						document.querySelector('.date-modal-title').textContent = arrayDate[parseInt(modalDivDate[1]) + prevDateLength].date;
 
 						// 모달 title 표시
 						document.querySelector('.date-modal-content').innerHTML = '';
-						let modalTitleData = arrayDate[parseInt(divDate[1]) + prevDateLength].title.split(',');
-
+						let modalTitleData = arrayDate[parseInt(modalDivDate[1]) + prevDateLength].title.split(',');
 						for (i = 0; i < modalTitleData.length; i++) {
 							if (modalTitleData[0] != '') {
-								document.querySelector('.date-modal-content').innerHTML += '<div class="modalTitleData"><div>' + modalTitleData[i] + '</div><a class="getScheduleDetail">상세보기</a></div>';
+								document.querySelector('.date-modal-content').innerHTML += '<div class="modalTitleData"><input class="detailValue" value="' + (modalTitleData[i].split('.'))[0]
+									+ '" type="hidden"><div>' + (modalTitleData[i].split('.'))[1] + '</div><a class="getScheduleDetail">상세보기</a></div>';
 							}
 						}
 
@@ -148,6 +160,11 @@ function getAllSchedule() {
 						document.querySelector('.modal-close').addEventListener("click", function() {
 							document.querySelector('.date-modal').style.visibility = 'hidden';
 							dateModal = 0;
+
+							if (dateDetailModal == 1) {
+								document.querySelector('.detail-schedule').style.visibility = 'hidden';
+								dateDetailModal = 0;
+							}
 						});
 					}
 				}
@@ -156,19 +173,45 @@ function getAllSchedule() {
 			// 일정 클릭
 			document.querySelector('.date-modal-content').addEventListener("click", function(e) {
 				if (e.target.classList.contains('getScheduleDetail')) {
-					console.log(e.target.getBoundingClientRect())
-					console.log(e.target)
-					
+					// console.log(e.target.getBoundingClientRect())
+
 					// 클릭시 마우스 좌표에 모달창 visible
-					document.querySelector('.detail-schedule').style.left = e.target.getBoundingClientRect().left + (document.querySelector('.getScheduleDetail').getBoundingClientRect().width/2) + 'px';
-					document.querySelector('.detail-schedule').style.top = e.target.getBoundingClientRect().bottom + 'px';
-					document.querySelector('.detail-schedule').style.visibility = 'visible';
+					document.querySelector('.detail-schedule').style.left = e.target.getBoundingClientRect().left + (document.querySelector('.getScheduleDetail').getBoundingClientRect().width / 2) + 'px';
+
 
 					// 모달 title 해당 일정 표시
-					console.log(document.querySelector('.getScheduleDetail').previousSibling);
 					document.querySelector('.detail-schedule-title').textContent = document.querySelector('.getScheduleDetail').previousSibling.textContent;
 
+					// 해당 	디테일 일정 배열
+					let selectDetailSchedule = CompanyScheduleList[document.querySelector('.detailValue').value - 1];
 
+					document.querySelector('.detail-schedule-content').innerHTML = '';
+
+					// 일정
+					for (i = 0; i < selectDetailSchedule.date.split(',').length; i++) {
+						if (i == 0) {
+							document.querySelector('.detail-schedule-content').innerHTML += '<div class="datail-schedule-txt" style="padding-bottom : 10%">' + selectDetailSchedule.txt + '</div>'
+						} else if (i < selectDetailSchedule.date.split(',').length) {
+							document.querySelector('.detail-schedule-content').innerHTML += '<div class="datail-schedule-data"><div>' + selectDetailSchedule.year + '.' + selectDetailSchedule.month + '.' + (selectDetailSchedule.date.split(','))[i] + '</div><a class="delete-detail-data">삭제</a></div>';
+						}
+
+						if (i == selectDetailSchedule.date.split(',').length - 1) {
+							document.querySelector('.detail-schedule-content').innerHTML += '<div class="delete-all-detail-data" style="padding-top : 10%"><a>전체삭제</a></div>'
+						}
+					}
+
+
+					document.querySelector('.detail-schedule').style.top = e.target.getBoundingClientRect().top - document.querySelector('.detail-schedule').getBoundingClientRect().height + (e.target.getBoundingClientRect().height / 2) + 'px';
+					document.querySelector('.detail-schedule').style.visibility = 'visible';
+					dateDetailModal = 1;
+
+
+					if (dateDetailModal == 1) {
+						document.querySelector('.detail-schedule-close').addEventListener("click", function() {
+							document.querySelector('.detail-schedule').style.visibility = 'hidden';
+							dateDetailModal = 0;
+						})
+					}
 				}
 			})
 		})
@@ -295,13 +338,13 @@ function renderCalender(CompanyScheduleList) {
 
 					// 일과 데이터의 값이 일치할경우 객체에 추가
 					if (splitDates[k] == divDate[1]) {
-						dateData.title += CompanyScheduleList[j].title + ',';
+						dateData.title += CompanyScheduleList[j].no + '.' + CompanyScheduleList[j].title + ',';
 						foldingCnt++;
 						if (calendar.children[i] && calendar.children[i].children.length < 4) {
 
 							// 5글자 이상인경우 폴딩
 							if (CompanyScheduleList[j].title.length >= 5) {
-								calendar.children[i].innerHTML += '<div class="schedule">' + CompanyScheduleList[j].title.slice(0, 5) + '...' + '</div>';
+								calendar.children[i].innerHTML += '<div class="schedule">' + CompanyScheduleList[j].title.split('.') + '...' + '</div>';
 							} else {
 								calendar.children[i].innerHTML += '<div class="schedule">' + CompanyScheduleList[j].title + '</div>';
 							}
