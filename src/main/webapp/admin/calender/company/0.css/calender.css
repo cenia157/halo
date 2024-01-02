@@ -281,7 +281,7 @@ EDIT ON */
 	font-size: 1rem;
 	color: #3B82F6;
 	cursor: pointer;
-	padding-top : 3%;
+	padding-top: 3%;
 }
 
 .modalTitleData a:hover {
@@ -322,6 +322,34 @@ EDIT ON */
 	width: 100%;
 	height: auto;
 	padding: 2%
+}
+
+.datail-schedule-data {
+	display: flex;
+	justify-content: space-between;
+}
+
+.datail-schedule-data a {
+	font-size: 1rem;
+	color: #FE2E2E;
+	cursor: pointer;
+	padding-top: 3%;
+}
+
+.datail-schedule-data a:hover {
+	text-decoration: underline;
+}
+
+.delete-all-detail-data a {
+	display: flex;
+	justify-content: center;
+	font-size: 1rem;
+	color: #FE2E2E;
+	cursor: pointer;
+}
+
+.delete-all-detail-data a:hover {
+	text-decoration: underline;
 }
 
 /* ********************************************************* */

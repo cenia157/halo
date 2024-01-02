@@ -9,12 +9,14 @@ public class CompanyScheduleDTO {
 	private String txt;
 	private String date;
 	private String update;
+	private String no;
 
 	public CompanyScheduleDTO() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public CompanyScheduleDTO(String year, String month, String title, String txt, String date, String update) {
+	public CompanyScheduleDTO(String year, String month, String title, String txt, String date, String update,
+			String no) {
 		super();
 		this.year = year;
 		this.month = month;
@@ -22,6 +24,7 @@ public class CompanyScheduleDTO {
 		this.txt = txt;
 		this.date = date;
 		this.update = update;
+		this.no = no;
 	}
 
 	public String getYear() {
@@ -71,11 +74,13 @@ public class CompanyScheduleDTO {
 	public void setUpdate(String update) {
 		this.update = update;
 	}
-	
-	@Override
-	public String toString() {
-		return "CompanyScheduleDTO [year=" + year + ", month=" + month + ", title=" + title + ", txt=" + txt + ", date="
-				+ date + ", update=" + update + "]";
+
+	public String getNo() {
+		return no;
+	}
+
+	public void setNo(String no) {
+		this.no = no;
 	}
 
 	public String toJson() {
