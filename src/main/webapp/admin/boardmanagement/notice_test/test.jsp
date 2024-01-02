@@ -22,7 +22,7 @@
 			<div class="modal-title-set">
 				<div class="modal-title-tr">
 					<div class="modal-title-td-1">
-						<div class="real-title" id="XXXX">
+						<div class="real-title">
 							<input class="real-title-editor" name="title"
 								id="real-title-editor" placeholder="이곳에 제목을 입력하세요">
 							<!-- 아래의 input은 ajax로 올라갔던 이미지의 실제 이름을 받기 위한 역할을 한다.
@@ -91,8 +91,6 @@
 						<button class="SubmitButton" type="button" id="reg-btn"
 							onclick="noValue()">등록완료</button>
 						<!-- 여기는 필수 입력값을 안넣었을 때 거부하는 부분이다 (아직 미완성, 마지막에 할 예정)-->
-						<script
-							src="admin/boardmanagement/notice_test/0.js/ValidationItems.js"></script>
 					</div>
 				</div>
 			</div>
@@ -100,6 +98,8 @@
 	</form>
 
 	<!-- 아래의 스크립트는 CKEditor에 올라온 이미지를 ajax로 올리는 역힐이다-->
+						<script
+							src="admin/boardmanagement/notice_test/0.js/ValidationItems.js"></script>
 	<script type="module"
 		src="admin/boardmanagement/notice_test/0.js/testMZ.js"></script>
 	<!-- 여기는 CKEditor에 들어간 값을 서버로 보내는 역할이다 -->
