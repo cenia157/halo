@@ -216,10 +216,6 @@ EDIT ON */
 	position: absolute;
 	width: 15%;
 	height: auto;
-	border: 1px solid rgba(255, 255, 255, 0.00);
-	background: #FFF;
-	box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.50);
-	border: 1px solid rgba(255, 255, 255, 0.00);
 	visibility: hidden;
 }
 
@@ -227,14 +223,14 @@ EDIT ON */
 	display: flex;
 	width: 100%;
 	height: auto;
+	box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.50);
+	background: #FFF;
 }
 
 .date-modal-title {
 	font-size: 2rem;
 	font-weight: 600;
 	line-height: normal;
-	/* 	box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.50); */
-	background: #FFF;
 	width: 80%;
 	padding: 2%;
 	display: flex;
@@ -243,8 +239,6 @@ EDIT ON */
 
 .modal-close {
 	position: relative;
-	/* 	box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.50); */
-	background: #FFF;
 	width: 20%;
 	height: auto;
 	padding: 2%;
@@ -268,7 +262,59 @@ EDIT ON */
 }
 
 .date-modal-content {
+	font-size: 1.5rem;
+	font-weight: 600;
+	line-height: normal;
+	background: #FFF;
+	box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.50);
+	width: 100%;
+	height: auto;
+	padding: 2%
+}
+
+.modalTitleData {
+	display: flex;
+	justify-content: space-between;
+}
+
+.modalTitleData a {
+	font-size: 1rem;
+	color: #3B82F6;
+	cursor: pointer;
+	padding-top : 3%;
+}
+
+.modalTitleData a:hover {
+	text-decoration: underline;
+}
+
+.detail-schedule {
+	position: absolute;
+	width: 15%;
+	height: auto;
+	visibility: visible;
+}
+
+.detail-schedule-header {
+	display: flex;
+	width: 100%;
+	height: auto;
+	box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.50);
+	background: #FFF;
+}
+
+.detail-schedule-title {
 	font-size: 2rem;
+	font-weight: 600;
+	line-height: normal;
+	width: 80%;
+	padding: 2%;
+	display: flex;
+	align-content: center;
+}
+
+.detail-schedule-content {
+	font-size: 1.5rem;
 	font-weight: 600;
 	line-height: normal;
 	background: #FFF;

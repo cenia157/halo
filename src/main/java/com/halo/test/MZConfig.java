@@ -27,6 +27,7 @@ public class MZConfig {
 				String fileName = fileNames.nextElement();
 				File file = mr.getFile(fileName);
 				
+				
 				System.out.println("이곳은 CKeditor에 올라온 이미지를 ajax로 보낸 곳");
 				System.out.println();
 				System.out.println("파일경로 : " + file.getAbsolutePath());
