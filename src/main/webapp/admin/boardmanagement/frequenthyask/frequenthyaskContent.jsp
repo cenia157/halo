@@ -7,7 +7,9 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<script src="admin/_js/ckeditor/build/ckeditor.js"></script>
+<script src="admin/0.js/ckeditor.js"></script>
+<script src="admin/_js/ckeditor/ckeditor.js"></script>
+
 <title>Frequenthyask</title>
 
 
@@ -18,6 +20,7 @@
 <link rel="stylesheet"
 	href="admin/boardmanagement/frequenthyask/0.css/frequenthyask.css" />
 
+<script src="admin/_js/test2.js"></script>
 <script src="admin/_js/test2.js"></script>
 <script src="admin/_js/test.js"></script>
 
