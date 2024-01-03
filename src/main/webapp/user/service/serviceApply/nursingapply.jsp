@@ -24,21 +24,21 @@
 			<div class="na-content-applyform-td2">
 				<div class="na-content-applyform-tr-2">
 					<span class="na-content-applyform-tr-2-1">신청자 이름* :</span> <input
-						name="applicant" class="na-content-applyform-tr-2-2" type="text">
+						name="applicant" class="na-content-applyform-tr-2-2" type="text" required="required">
 				</div>
 				<div class="na-content-applyform-tr-2">
 					<span class="na-content-applyform-tr-2-1">연락처* :</span> <input
-						name="phoneNum" class="na-content-applyform-tr-2-2" type="text">
+						name="phoneNum" class="na-content-applyform-tr-2-2" type="text" pattern="[0-9]+" required="required">
 				</div>
 				<div class="na-content-applyform-tr-2">
 					<span class="na-content-applyform-tr-2-1">간호 대상자 성함* :</span> <input
-						name="userName" class="na-content-applyform-tr-2-2" type="text">
+						name="userName" class="na-content-applyform-tr-2-2" type="text" required="required">
 				</div>
 				<div class="na-content-applyform-tr-2">
 					<span class="na-content-applyform-tr-2-1">간호 대상자 성별* : </span>
 					<div class="na-content-applyform-tr-2-2">
 						<div class="na-content-applyform-tr-2-3">
-							<input name="userGender" type="radio" value="m">男
+							<input name="userGender" type="radio" value="m" checked>男
 						</div>
 						<div class="na-content-applyform-tr-2-3">
 							<input name="userGender" class="na-content-applyform-tr-2-3"
@@ -50,7 +50,7 @@
 					<span class="na-content-applyform-tr-2-1">간호 대상자 생년월일 * :</span>
 					<div class="na-content-applyform-tr-2-2">
 					 <label for="userYear">年:</label>
-					<select id="userYear" name="userYear"></select>
+					<select id="userYear" name="userYear" ></select>
 
 					<label for="userMonth">月:</label>
 					<select id="userMonth" name="userMonth"></select>
@@ -61,7 +61,7 @@
 				</div>
 				<div class="na-content-applyform-tr-2">
 					<span class="na-content-applyform-tr-2-1">지역 (방문할 주소)* :</span> <input
-						name="addr" class="na-content-applyform-tr-2-2" type="text">
+						name="addr" class="na-content-applyform-tr-2-2" type="text" required="required">
 				</div>
 				<div class="na-content-applyform-tr-2">
 					<span class="na-content-applyform-tr-2-1">비고란(요청사항)* :</span>

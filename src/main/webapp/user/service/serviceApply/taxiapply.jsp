@@ -33,15 +33,15 @@
 		<div class="content-applyform-td2">
 			<div class="content-applyform-tr-2">
 				<span class="content-applyform-tr-2-1">신청자 이름* :</span> <input
-					name="applicant" value="${applicant }" class="content-applyform-tr-2-2" type="text">
+					name="applicant" value="${applicant }" class="content-applyform-tr-2-2" type="text" required="required">
 			</div>
 			<div class="content-applyform-tr-2">
 				<span class="content-applyform-tr-2-1">연락처* :</span> <input
-						name="phoneNum" value="${phoneNum }" class="content-applyform-tr-2-2" type="text">
+						name="phoneNum" value="${phoneNum }" class="content-applyform-tr-2-2" type="text" required="required">
 				</div>
 			<div class="content-applyform-tr-2">
 				<span class="content-applyform-tr-2-1">간호 대상자 성함* :</span> <input
-					name="userName" value="${userName }" class="content-applyform-tr-2-2" type="text">
+					name="userName" value="${userName }" class="content-applyform-tr-2-2" type="text" required="required">
 			</div>
 					<div class="content-applyform-tr-2">
 					<span class="content-applyform-tr-2-1">간호 대상자 성별* :
@@ -70,11 +70,11 @@
 				</div>
 			<div class="content-applyform-tr-2">
 				<span class="content-applyform-tr-2-1">출발지* :</span> <input
-					name="startAddr" class="content-applyform-tr-2-2" type="text">
+					name="startAddr" class="content-applyform-tr-2-2" type="text" required="required">
 			</div>
 			<div class="content-applyform-tr-2">
 				<span class="content-applyform-tr-2-1">목적지* :</span> <input
-					name="endAddr" class="content-applyform-tr-2-2" type="text">
+					name="endAddr" class="content-applyform-tr-2-2" type="text" required="required">
 			</div>
 			<div class="content-applyform-tr-2">
 				<span class="content-applyform-tr-2-1">비고란(요청사항)* :</span> <textarea

@@ -27,8 +27,9 @@ public class TimeselectC extends HttpServlet {
 	// 불러온 데이터 사용 예시
 	if (selectedService != null) {
 		if (selectedService.equals("texi")) {
-			service = "texiapply";
+			service = "taxiapply";
 			request.setAttribute("sevice", "TexiapplyC");
+			request.setAttribute("manChecked", "checked");
 		}else {
 			if (selectedService.equals("nursingTexi")) {
 				request.setAttribute("service", "NursingTexiC");
@@ -40,7 +41,6 @@ public class TimeselectC extends HttpServlet {
 	} else {
 	    System.out.println("No selected service found in session.");
 	}
-	
 	request.setAttribute("serviceStep", service + ".jsp");
 	request.setAttribute("step4Pos", "#ffdf6c");
 	request.setAttribute("menu", "user/menu-index.jsp");

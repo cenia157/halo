@@ -14,7 +14,8 @@ public class NursingapplyC extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+	// 문자인코딩형식
+	request.setCharacterEncoding("UTF-8");
 	
 	// 세션 객체 가져오기
 	HttpSession session = request.getSession();

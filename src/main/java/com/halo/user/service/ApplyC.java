@@ -15,7 +15,8 @@ public class ApplyC extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-
+	// 문자인코딩형식
+	request.setCharacterEncoding("UTF-8");
 	SeviceApplyDAO.apply(request);
 	
 //	// 세션 객체 가져오기

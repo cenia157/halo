@@ -18,20 +18,20 @@
 	<form action="SvcselectC" class="content-form-box" method="post" >
 		<div class="content-serviceselect-box-td">
 			<div class="content-serviceoption-td">
-				<input type="radio" name="service" value="nursing" id="nursing">
+				<input type="radio" name="service" value="nursingTexi"
+					id="service" checked> <label for="nursingTexi" >방문요양 &
+					개호택시</label><br>
+			</div>
+			<div class="content-serviceoption-td">
+				<input type="radio" name="service" value="nursing" id="service">
 				<label for="nursing">방문요양</label>
 			</div>
 
 			<div class="content-serviceoption-td">
-				<input type="radio" name="service" value="texi" id="texi"> <label
+				<input type="radio" name="service" value="texi" id="service"> <label
 					for="texi">개호택시</label>
 			</div>
 
-			<div class="content-serviceoption-td">
-				<input type="radio" name="service" value="nursingTexi"
-					id="nursingTexi"> <label for="nursingTexi">방문요양 &
-					개호택시</label><br>
-			</div>
 		</div>
 		<div class="content-servicebtn-box-td">
 			<div class="content-servicebtn-td">
@@ -42,4 +42,5 @@
 			버튼을 눌러주세요.</div>
 	</form>
 </body>
+
 </html>
