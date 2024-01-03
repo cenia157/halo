@@ -214,7 +214,7 @@ EDIT ON */
 
 .date-modal {
 	position: absolute;
-	width: 15%;
+	width: 10%;
 	height: auto;
 	visibility: hidden;
 }
@@ -290,9 +290,9 @@ EDIT ON */
 
 .detail-schedule {
 	position: absolute;
-	width: 15%;
+	width: 10%;
 	height: auto;
-	visibility: visible;
+	visibility: hidden;
 }
 
 .detail-schedule-header {
@@ -349,6 +349,22 @@ EDIT ON */
 }
 
 .delete-all-detail-data a:hover {
+	text-decoration: underline;
+}
+
+.datail-schedule-txt {
+	display: flex;
+	justify-content: space-between;
+}
+
+.datail-schedule-txt a{
+	font-size: 1rem;
+	color: #FE2E2E;
+	cursor: pointer;
+	padding-top: 3%;
+}
+
+.datail-schedule-txt a:hover {
 	text-decoration: underline;
 }
 
