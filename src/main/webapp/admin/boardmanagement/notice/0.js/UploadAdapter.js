@@ -69,3 +69,18 @@ function MyCustomUploadAdapterPlugin(editor) {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

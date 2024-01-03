@@ -12,7 +12,7 @@
 </head>
 <body>
 	<!-- 신청폼 -->
-	<form action="${sevice}" method="post">
+	<form action="${service}" method="post">
 		<input type="hidden" name="selectedStart" value="${selectedStart }">
 		<input type="hidden" name="selectedEnd" value="${selectedEnd }">
 		<input type="hidden" name="selectedTime" value="${selectedTime }">
@@ -31,11 +31,11 @@
 						name="phoneNum" class="na-content-applyform-tr-2-2" type="text">
 				</div>
 				<div class="na-content-applyform-tr-2">
-					<span class="na-content-applyform-tr-2-1">요양받으실 분 성함* :</span> <input
+					<span class="na-content-applyform-tr-2-1">간호 대상자 성함* :</span> <input
 						name="userName" class="na-content-applyform-tr-2-2" type="text">
 				</div>
 				<div class="na-content-applyform-tr-2">
-					<span class="na-content-applyform-tr-2-1">요양받으실 분 성별* : </span>
+					<span class="na-content-applyform-tr-2-1">간호 대상자 성별* : </span>
 					<div class="na-content-applyform-tr-2-2">
 						<div class="na-content-applyform-tr-2-3">
 							<input name="userGender" type="radio" value="m">男
@@ -47,7 +47,7 @@
 					</div>
 				</div>
 				<div class="na-content-applyform-tr-2">
-					<span class="na-content-applyform-tr-2-1">요양받으실 분 생년월일 * :</span>
+					<span class="na-content-applyform-tr-2-1">간호 대상자 생년월일 * :</span>
 					<div class="na-content-applyform-tr-2-2">
 					 <label for="userYear">年:</label>
 					<select id="userYear" name="userYear"></select>
@@ -83,9 +83,6 @@ for (var year = currentYear; year >= 1900; year--) {
   var option = document.createElement("option");
   option.text = year;
   option.value = year;
-  if (year === userYear.year) {
-	    option.selected = true;
-	  }
   yearSelect.appendChild(option);
 }
 
@@ -106,5 +103,33 @@ for (var day = 1; day <= 31; day++) {
   option.value = day;
   daySelect.appendChild(option);
 }
+
+// //사용자가 선택한 값 가져오기
+// var selectedYear = document.getElementById("userYear").value;
+// var selectedMonth = document.getElementById("userMonth").value;
+// var selectedDay = document.getElementById("userDay").value;
+
+// // JSON 객체 생성
+// var jsonData = {
+//     userYear: selectedYear,
+//     userMonth: selectedMonth,
+//     userDay: selectedDay
+// };
+
+// fetch('UserDate', {
+//     method: 'POST',
+//     headers: {
+//         'Content-Type': 'application/json'
+//     },
+//     body: JSON.stringify(jsonData)
+// })
+// .then(response => {
+//     if (!response.ok) {
+//         throw new Error('서버 응답 실패');
+//     }
+//     return response.json(); // JSON 형태의 데이터로 변환
+// })
+
+
 </script>
 </html>

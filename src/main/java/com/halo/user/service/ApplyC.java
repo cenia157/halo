@@ -8,18 +8,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet("/TexiapplyC")
-public class TexiapplyC extends HttpServlet {
+@WebServlet("/ApplyC")
+public class ApplyC extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-	SeviceApplyDAO.calSelect(request);
-	SeviceApplyDAO.timeSelect(request);
-	SeviceApplyDAO.nursingTexi(request);
-	SeviceApplyDAO.texiApply(request);
-//	
+
+	SeviceApplyDAO.apply(request);
+	
 //	// 세션 객체 가져오기
 //		HttpSession session = request.getSession();
 //
@@ -35,11 +33,11 @@ public class TexiapplyC extends HttpServlet {
 //		} else {
 //		    System.out.println("No selected service found in session.");
 //		}
-//	
-//	
 	
-	request.setAttribute("serviceStep", "agree.jsp");
-	request.setAttribute("step5Pos", "#ffdf6c");
+	
+	
+	request.setAttribute("serviceStep", "complet.jsp");
+	request.setAttribute("step6Pos", "#ffdf6c");
 	request.setAttribute("menu", "user/menu-index.jsp");
 	request.setAttribute("subMenu", "service/serviceApply/serviceApply.jsp");
 	request.getRequestDispatcher("index.jsp").forward(request, response);

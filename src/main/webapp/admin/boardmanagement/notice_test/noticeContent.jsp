@@ -7,7 +7,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>notice</title>
-<script src="admin/_js/ckeditor/build/ckeditor.js"></script>
+<script src="admin/_js/ckeditor/ckeditor.js"></script>
 <script src="admin/_js/test2.js"></script>
 
 
@@ -62,5 +62,15 @@
 		<jsp:include page="test.jsp"></jsp:include>
 	</div>
 </body>
+
+
+
+
+
+
+
+
+
+
 
 </html>
