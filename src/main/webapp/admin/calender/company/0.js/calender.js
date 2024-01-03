@@ -53,7 +53,10 @@ let prevDateLength = 0;
 let modalDivDate = '';
 
 // 토글스위치
-let toggleList = '';
+let toggle = '';
+
+// 토글 리스트
+let toggleList = [0, 1, 2];
 
 function getAllSchedule() {
 
@@ -124,20 +127,20 @@ function getAllSchedule() {
 				}
 			});
 
-			// 날짜클릭
+			// ++건수 클릭
 			calendar.addEventListener("click", function(e) {
-				if (e.target.classList.contains('month-date') && e.target.closest('.current') && e.target.closest('.current').children.length > 2) {
+				if (e.target.textContent.includes('++')) {
 
 					if (dateDetailModal == 1) {
 						document.querySelector('.detail-schedule').style.visibility = 'hidden';
 						dateDetailModal = 0;
 					}
 
+
 					if (dateModal == 0 || dateModal == 1) {
 						// 클릭시 마우스 좌표에 모달창 visible
-						document.querySelector('.date-modal').style.left = e.clientX + 'px';
-						document.querySelector('.date-modal').style.top = e.clientY + 'px';
 						document.querySelector('.date-modal').style.visibility = 'visible';
+						document.querySelector('.date-modal').style.left = e.clientX + 'px';
 
 						modalDivDate = e.target.closest('.current').className.match(/date(\d+)/);
 
@@ -147,37 +150,37 @@ function getAllSchedule() {
 						// 모달 title 표시
 						document.querySelector('.date-modal-content').innerHTML = '';
 						let modalTitleData = arrayDate[parseInt(modalDivDate[1]) + prevDateLength].title.split(',');
-						for (i = 0; i < modalTitleData.length; i++) {
+						for (i = 2; i < modalTitleData.length; i++) {
 							if (modalTitleData[0] != '') {
 								document.querySelector('.date-modal-content').innerHTML += '<div class="modalTitleData"><input class="detailValue" value="' + (modalTitleData[i].split('.'))[0]
 									+ '" type="hidden"><div>' + (modalTitleData[i].split('.'))[1] + '</div><a class="getScheduleDetail">상세보기</a></div>';
 							}
 						}
 
+						if (e.target.getBoundingClientRect().y > window.innerHeight * 0.8) {
+							document.querySelector('.date-modal').style.top = e.clientY - document.querySelector('.date-modal').getBoundingClientRect().height + 'px';
+						} else {
+							document.querySelector('.date-modal').style.top = e.clientY + 'px';
+						}
 						dateModal = 1;
 					}
+
 					if (dateModal == 1) {
 						document.querySelector('.modal-close').addEventListener("click", function() {
 							document.querySelector('.date-modal').style.visibility = 'hidden';
 							dateModal = 0;
-
-							if (dateDetailModal == 1) {
-								document.querySelector('.detail-schedule').style.visibility = 'hidden';
-								dateDetailModal = 0;
-							}
 						});
 					}
 				}
 			})
 
-			// 일정 클릭
+			// 날짜 모달 내 세부사항 클릭
 			document.querySelector('.date-modal-content').addEventListener("click", function(e) {
 				if (e.target.classList.contains('getScheduleDetail')) {
 					// console.log(e.target.getBoundingClientRect())
 
 					// 클릭시 마우스 좌표에 모달창 visible
 					document.querySelector('.detail-schedule').style.left = e.target.getBoundingClientRect().left + (document.querySelector('.getScheduleDetail').getBoundingClientRect().width / 2) + 'px';
-
 
 					// 모달 title 해당 일정 표시
 					document.querySelector('.detail-schedule-title').textContent = document.querySelector('.getScheduleDetail').previousSibling.textContent;
@@ -190,7 +193,49 @@ function getAllSchedule() {
 					// 일정
 					for (i = 0; i < selectDetailSchedule.date.split(',').length; i++) {
 						if (i == 0) {
-							document.querySelector('.detail-schedule-content').innerHTML += '<div class="datail-schedule-txt" style="padding-bottom : 10%">' + selectDetailSchedule.txt + '</div>'
+							document.querySelector('.detail-schedule-content').innerHTML += '<div class="datail-schedule-txt" style="padding-bottom : 10%">' + selectDetailSchedule.txt + '<a>수정</a></div>'
+						} else if (i < selectDetailSchedule.date.split(',').length) {
+							document.querySelector('.detail-schedule-content').innerHTML += '<div class="datail-schedule-data"><div>' + selectDetailSchedule.year + '.' + selectDetailSchedule.month + '.' + (selectDetailSchedule.date.split(','))[i] + '</div><a class="delete-detail-data">삭제</a></div>';
+						}
+
+						if (i == selectDetailSchedule.date.split(',').length - 1) {
+							document.querySelector('.detail-schedule-content').innerHTML += '<div class="delete-all-detail-data" style="padding-top : 10%"><a>전체삭제</a></div>'
+						}
+					}
+
+
+					document.querySelector('.detail-schedule').style.top = e.target.getBoundingClientRect().top - document.querySelector('.detail-schedule').getBoundingClientRect().height + (e.target.getBoundingClientRect().height / 2) + 'px';
+					document.querySelector('.detail-schedule').style.visibility = 'visible';
+					dateDetailModal = 1;
+
+
+					if (dateDetailModal == 1) {
+						document.querySelector('.detail-schedule-close').addEventListener("click", function() {
+							document.querySelector('.detail-schedule').style.visibility = 'hidden';
+							dateDetailModal = 0;
+						})
+					}
+				}
+			})
+
+			// 달력에서 일정 클릭
+			calendar.addEventListener("click", function(e) {
+				if (e.target.children.length > 0 && e.target.children[0].value > 0) {
+					// 클릭시 마우스 좌표에 모달창 visible
+					document.querySelector('.detail-schedule').style.left = e.target.getBoundingClientRect().left + (e.target.getBoundingClientRect().width / 2) + 'px';
+
+					// 모달 title 해당 일정 표시
+					document.querySelector('.detail-schedule-title').textContent = CompanyScheduleList[e.target.children[0].value - 1].title;
+
+					// 해당 	디테일 일정 배열
+					let selectDetailSchedule = CompanyScheduleList[e.target.children[0].value - 1];
+
+					document.querySelector('.detail-schedule-content').innerHTML = '';
+
+					// 일정
+					for (i = 0; i < selectDetailSchedule.date.split(',').length; i++) {
+						if (i == 0) {
+							document.querySelector('.detail-schedule-content').innerHTML += '<div class="datail-schedule-txt" style="padding-bottom : 10%">' + selectDetailSchedule.txt + '<a>수정</a></div>'
 						} else if (i < selectDetailSchedule.date.split(',').length) {
 							document.querySelector('.detail-schedule-content').innerHTML += '<div class="datail-schedule-data"><div>' + selectDetailSchedule.year + '.' + selectDetailSchedule.month + '.' + (selectDetailSchedule.date.split(','))[i] + '</div><a class="delete-detail-data">삭제</a></div>';
 						}
@@ -306,11 +351,11 @@ function renderCalender(CompanyScheduleList) {
 		let nextCalenderMonth = (currentMonth + 2 === 13) ? 1 : currentMonth + 2;
 		let prevClanederYear = (nextCalenderMonth == 1) ? (currentYear + 1) : currentYear;
 
-		calendar.innerHTML = calendar.innerHTML + '<div class="day next disable year' + prevClanederYear + ' month' + nextCalenderMonth + '"><div><div class="month-date">' + i + '</div></div>'
+		calendar.innerHTML = calendar.innerHTML + '<div class="day next disable year' + prevClanederYear + ' month' + nextCalenderMonth + ' date' + i + '"><div><div class="month-date">' + i + '</div></div>'
 	}
 
 	// 달력에 표시된 전월 현월 다음월 일 수 만큼 배열리스트 할당
-	arrayDate = new Array(prevDate - (prevDate - prevDay + 1) + (nextDate) + (7 - nextDay == 7 ? 0 : 7 - nextDay));
+	arrayDate = new Array(prevDate - (prevDate - prevDay + 1) + (nextDate + 1) + (7 - nextDay == 7 ? 0 : 7 - nextDay));
 
 	for (let i = 0; i < arrayDate.length; i++) {
 		let divYear = calendar.children[i].className.match(/year(\d+)/);
@@ -332,37 +377,52 @@ function renderCalender(CompanyScheduleList) {
 			if (CompanyScheduleList[j].year == divYear[1] && CompanyScheduleList[j].month == divMonth[1]) {
 				// 해당월 일정안 date를 split
 				let splitDates = CompanyScheduleList[j].date.split(',');
-
 				// split한 데이터의 개수를 돌림	
 				for (let k = 0; k < splitDates.length; k++) {
-
 					// 일과 데이터의 값이 일치할경우 객체에 추가
-					if (splitDates[k] == divDate[1]) {
+					if (splitDates[k] == (divDate && divDate[1])) {
 						dateData.title += CompanyScheduleList[j].no + '.' + CompanyScheduleList[j].title + ',';
 						foldingCnt++;
-						if (calendar.children[i] && calendar.children[i].children.length < 4) {
-
-							// 5글자 이상인경우 폴딩
-							if (CompanyScheduleList[j].title.length >= 5) {
-								calendar.children[i].innerHTML += '<div class="schedule">' + CompanyScheduleList[j].title.split('.') + '...' + '</div>';
-							} else {
-								calendar.children[i].innerHTML += '<div class="schedule">' + CompanyScheduleList[j].title + '</div>';
-							}
-						}
 					}
 				}
 			}
 		}
 
-		// 3개부터 폴딩
-		if (calendar.children[i].children.length > 3) {
-			calendar.children[i].children[3].textContent = '++' + (foldingCnt - 2) + '件';
-		}
 		dateData.titleLength = foldingCnt;
 		dateData.title = dateData.title.slice(0, -1);
 		arrayDate[i] = dateData;
 	}
+
+	writeSchedule();
+
 	console.log(arrayDate)
+}
+
+function writeSchedule() {
+
+	for (let i = 0; i < arrayDate.length; i++) {
+		let splitDates = arrayDate[i].title.split(',');
+
+		for (let j = 0; j < splitDates.length; j++) {
+			if (calendar.children[i] && calendar.children[i].children.length < 4) {
+				if (arrayDate[i].title.split(',')[1] && arrayDate[i].title.split(',')[1].length) {
+
+					// 5글자 이상인경우 폴딩
+					if (splitDates[j].split('.')[1].length >= 5) {
+						calendar.children[i].innerHTML += '<div class="schedule"><input class="detailValue" value=' + splitDates[j].split('.')[0] + ' type="hidden">' + splitDates[j].split('.')[1].slice(0, -1) + '...' + '</div>';
+
+					}
+					else {
+						calendar.children[i].innerHTML += '<div class="schedule"><input class="detailValue" value=' + splitDates[j].split('.')[0] + ' type="hidden">' + splitDates[j].split('.')[1] + '</div>';
+					}
+				}
+			}
+		}
+		// 3개부터 폴딩
+		if (calendar.children[i].children.length > 3) {
+			calendar.children[i].children[3].textContent = '++' + (arrayDate[i].titleLength - 2) + '件';
+		}
+	}
 }
 
 
@@ -375,17 +435,58 @@ window.onload = function() {
 
 
 function toggleSwutch() {
-	toggleList = document.querySelectorAll(".toggleSwitch");
+	toggle = document.querySelectorAll(".toggleSwitch");
+
+	let toggleInfo = {
+		active: ''
+	};
 
 	if (window.location.pathname.includes('CompanyC')) {
-		toggleList[0].classList.toggle('active');
+		toggle[0].classList.toggle('active');
+		toggleInfo.active = true;
+		toggleList[0] = toggleInfo;
 	}
 
-	toggleList.forEach(function($toggle) {
-		$toggle.onclick = function() {
-			$toggle.classList.toggle('active');
-		}
-	});
+	for (let i = 0; i < toggle.length; i++) {
+		toggle[i].onclick = function() {
+			toggle[i].classList.toggle('active');
+
+			if (toggleList[i].active) {
+
+				toggleInfo.active = false;
+				toggleList[i] = toggleInfo;
+
+				// NodeList를 한 번 가져와서 실시간 업데이트를 피하기 위해 배열로 변환
+				let dayElements = Array.from(document.querySelectorAll('.day'));
+
+				for (let j = 0; j < arrayDate.length && (7 + j) < dayElements.length; j++) {
+					let currentDay = dayElements[7 + j];
+
+					// children NodeList를 배열로 변환하여 실시간 업데이트를 피하기
+					let childrenArray = Array.from(currentDay.children);
+
+					for (let k = 0; k < childrenArray.length; k++) {
+						let child = childrenArray[k];
+
+						if (child.className == 'schedule') {
+							// 자식 요소를 제거
+							child.remove();
+						}
+					}
+				}
+
+
+			} else {
+
+				toggleInfo.active = true;
+				toggleList[i] = toggleInfo;
+
+				writeSchedule();
+
+			}
+		};
+	}
+
 }
 
 
