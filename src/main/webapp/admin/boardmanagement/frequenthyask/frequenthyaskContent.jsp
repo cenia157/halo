@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<script src="${pageContext.request.contextPath}/admin/0.js/ckeditor.js"></script>
+<script src="${pageContext.request.contextPath}/admin/_js/ckeditor.js"></script>
 <title>Frequenthyask</title>
 
 
