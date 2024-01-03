@@ -20,7 +20,12 @@ public class Ck_DAO {
 //			System.out.println("saveFnameValues :::" + saveFnameValues[1]);
 			String[] saveFnameValues = request.getParameterValues("saveFname");
 
+			System.out.println("//////////////////////");
+			System.out.println("//////////////////////");
+
 			if (saveFnameValues != null) {
+				// 이미지 중앙정렬
+				txt = txt.replace("<figure", "<figure style=\'display:flex; justify-content:center;\'");
 				int startPos = 0; // 현재 위치를 추적하기 위한 변수
 				for (int i = 0; i < saveFnameValues.length; i++) {
 					// 다음 <img 태그의 시작 위치를 찾습니다.
