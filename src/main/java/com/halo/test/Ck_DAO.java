@@ -28,7 +28,7 @@ public class Ck_DAO {
 			        if (imgPos == -1) break;  // 더 이상 <img 태그가 없으면 반복을 중단합니다.
 
 			        // <img 태그를 대체할 새로운 문자열을 생성합니다.
-			        String toReplace = "<img src=\'" + saveFnameValues[i] + "'";
+			        String toReplace = "<img src=\'" + saveFnameValues[i] + "'>";
 
 			        // 기존의 <img 태그를 새로운 문자열로 대체합니다.
 			        txt = txt.substring(0, imgPos) + toReplace + txt.substring(txt.indexOf(">", imgPos) + 1);

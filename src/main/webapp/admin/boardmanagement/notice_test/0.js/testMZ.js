@@ -85,7 +85,7 @@ class MyUploadAdapter {
       nextInput.value = response.fName;
 
       document.querySelector("figure").lastChild.src = response.fName;
-
+	  document.querySelector('.ck-content').click();
       /*			document.querySelector('figure').lastElementChild.src = response.fName;
 						document.querySelector('#img-url' + 1).value = response.fName;
 			

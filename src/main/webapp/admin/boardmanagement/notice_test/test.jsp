@@ -155,21 +155,136 @@
 	
 	</script>
 
-<script>
-let imgIdx = 0;
-
-$(document).ready(function(){
-	$('.ck-content').on('click', 'figure', function(e){
-		imgIdx = $(this).index();
-	});
+	<script>
+	$(document).ready(function(){
+		
+	   	let figure;
+	   	let saveFname;
+		
+	    $('.ck-content').on('click', function(e){
+	   		figure = $(".ck-content figure img");
+	   		saveFname = $("input[name='saveFname']");
+	    	$(figure).each(function(i) {
+				$(figure[i]).attr('test', i);
+				$(saveFname[i]).attr('test', i);
+			});    
+	    }); // on
+	    
+	    
+	    $('.ck-content').on('keyup', function(e){
+	    
+	        	if(e.key == 'Backspace' || e.key == 'Delete'){
+	        		console.log(e.key);
+			   		figure = $(".ck-content figure img");
+	   				saveFname = $("input[name='saveFname']");
+					let check = [];
+					let check2 = [];
+	   				$(saveFname).each(function(i) {
+						check.push($(saveFname[i]).attr('test'));
+						check2.push($(figure[i]).attr('test'));
+					});   	
+	   				let difference = check.filter(item => !check2.includes(item));
+	   				console.log('삭제될difference 변수 ::: ' + difference);
+	   				
+	   				$(saveFname[difference]).remove();
 	
-	$('.ck-content').on('keydown', function(e){
-		if(e.key === 'Delete'&& $('figure').length > 0){
-			$('[name=saveFname]').eq(imgIdx).attr('disabled', 'disabled');
-			$('[name=saveFname]').eq(imgIdx).hide();
-		}
+	   		        
+	   		    }  // if   
+	    });	// keyup
+	    
+	    
+	//     $('.ck-content').on('keydown', function(e){
+	    	
+	//         let beforeImgIdx = $('.ck-content figure.ck-widget_type-around_show-fake-caret_before').index('figure')
+	//         console.log('Selected beforeImgIdx :::' + beforeImgIdx);
+	//         console.log('-----------------------------------------');
+	//         let afterImgIdx = $('.ck-content figure.ck-widget_type-around_show-fake-caret_after').index('figure')
+	//         console.log('Selected afterImgIdx :::' + afterImgIdx);
+	//         console.log('-----------------------------------------');
+	//         let imgIdx = $('.ck-content figure.ck-widget_selected').index('figure');
+	//         console.log('Selected imgIdx ::: ' + imgIdx);
+	//         console.log('-----------------------------------------');
+	        
+	//         if(imgIdx >= 0 && $('figure > img').length > 0){
+	
+	        	
+	//         	if(e.key == 'Backspace' || e.key == 'Delete'){
+	        		
+	        	
+	        	
+	//         	}
+	        	
+	        	
+	//         	if(e.key == 'Backspace'){
+	//             	let figure = $(".ck-content figure");
+	//             	let saveFname = $("input[name='saveFname']");
+	            	
+	// 				$(figure).each(function(i,fi) {
+	// // 				$('input[name="saveFname"]').eq(figure.length + 1).remove();
+	// 				});	
+	// 				console.log(figure); 
+	// 				console.log(figure.length); 
+	//         	}
+	        	
+	        	
+	        	
+	        	
+	        	
+	        	
+	        	
+	            // 'Delete' 키가 눌렸을 때
+	//             if(e.key === 'Delete'){
+	            	
+	            	
+	            	
+	//                 // 'before' 클래스가 있을 때만 제거
+	//                 if(beforeImgIdx >= 0){
+	//                 	imgIdx = beforeImgIdx;
+	//                     $('input[name="saveFname"]').eq(imgIdx).remove();
+	//                     console.log('Removed index with Delete (before class)::: ' + imgIdx);
+	//                     imgIdx = undefined;
+	//                     e.preventDefault(); 
+	                    
+	                    
+	//                 }
+	//                 // 'before'도 'after'도 없을 때 제거
+	//                 else if(!(afterImgIdx>=0)){
+	//                     $('input[name="saveFname"]').eq(imgIdx).remove();
+	//                     console.log('Removed index with Delete (no specific class)::: ' + imgIdx);
+	//                     imgIdx = undefined; 
+	//                     e.preventDefault(); 
+	//                 }
+	//             }
+	//             // 'Backspace' 키가 눌렸을 때
+	//             if(e.key === 'Backspace'){
+	//                 // 'after' 클래스가 있을 때만 제거
+	//                 if(afterImgIdx >= 0){
+	//                 	imgIdx = afterImgIdx;
+	//                     $('input[name="saveFname"]').eq(imgIdx).remove();
+	//                     console.log('Removed index with Backspace (after class)::: ' + imgIdx);
+	//                     imgIdx = undefined; 
+	//                     e.preventDefault(); 
+	//                 }
+	//                 // 'before'도 'after'도 없을 때 제거
+	//                 else if(!(beforeImgIdx>=0) && !(afterImgIdx>=0)){
+	//                     $('input[name="saveFname"]').eq(imgIdx).remove();
+	//                     console.log('Removed index with Backspace (no specific class)::: ' + imgIdx);
+	//                     imgIdx = undefined; 
+	//                     e.preventDefault(); 
+	//                 }
+	                
+	//                 else if(beforeImgIdx >= 0 && ($(".ck-content figure").length == $("input[name='saveFname']").length)) {
+	//                     imgIdx = beforeImgIdx - 1;
+	//                     $('input[name="saveFname"]').eq(imgIdx).remove();
+	//                     imgIdx = undefined; 
+	//                     e.preventDefault(); 
+	//                 }
+	                
+	//             }
+	//         }
+	//     });
 	});
-});
-</script>
+	</script>
+
 </body>
 </html>
