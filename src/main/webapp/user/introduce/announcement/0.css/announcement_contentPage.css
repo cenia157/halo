@@ -588,6 +588,11 @@
 }
 
 
+/* 여기에 <figure class="image">에 속성을 준다. 왜냐면 DB저장할 때 주면 이미지를 넣을 때마다 45자씩 추가되기 때문이다... 문제 발생시 연락주세요-김진욱- */
 
+.image{
+	display: flex;
+	justify-content: center;
+}
 
 

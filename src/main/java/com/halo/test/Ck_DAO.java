@@ -12,6 +12,10 @@ public class Ck_DAO {
 		request.setCharacterEncoding("utf-8");
 		try {
 			String title = request.getParameter("title");
+
+		
+
+			
 			String select = request.getParameter("select");
 			String txt = request.getParameter("txt");
 			System.out.println("txt 구간(1) :::" + txt);
@@ -20,12 +24,11 @@ public class Ck_DAO {
 //			System.out.println("saveFnameValues :::" + saveFnameValues[1]);
 			String[] saveFnameValues = request.getParameterValues("saveFname");
 
-			System.out.println("//////////////////////");
-			System.out.println("//////////////////////");
+
 
 			if (saveFnameValues != null) {
-				// 이미지 중앙정렬
-				txt = txt.replace("<figure", "<figure style=\'display:flex; justify-content:center;\'");
+				// 이미지 중앙정렬 이건 취소함 왜냐면 이미지 하나를 추가할 때마다 45자씩 추가되기 때문에 차라리 css 파일에 추가하면 상대적으로 더 많은 이미지를 넣을 수 있기 때문이다
+//				txt = txt.replace("<figure", "<figure style=\'display:flex; justify-content:center;\'");
 				int startPos = 0; // 현재 위치를 추적하기 위한 변수
 				for (int i = 0; i < saveFnameValues.length; i++) {
 					// 다음 <img 태그의 시작 위치를 찾습니다.
@@ -52,6 +55,18 @@ public class Ck_DAO {
 //			System.out.println(saveFName);
 //			txt = txt.replace("img", "img src=\'" + saveFName + "\'");
 
+			
+			
+			
+			
+			System.out.println("//////////////////////");
+			int titleLength = title.length();
+			int selectLength = select.length();
+			int txtLength = txt.length();
+			System.out.println("제목 글자 수 : "+ titleLength);
+			System.out.println("카테고리 글자 수 : "+ selectLength);
+			System.out.println("내용 글자 수 : "+ txtLength);
+			
 			
 			
 			Connection con = null;
