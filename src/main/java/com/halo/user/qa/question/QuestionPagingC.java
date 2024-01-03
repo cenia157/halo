@@ -19,6 +19,7 @@ public class QuestionPagingC extends HttpServlet {
 //		List<QuestionNComment> resultList = AskDAO.QuestionsAndComments();
 //		request.setAttribute("resultList", resultList);
 		int p = Integer.parseInt(request.getParameter("p"));
+		System.out.println(p);
 
 		AskDAO.getAllQnC(request, response);
 		AskDAO.Qpaging(p, request);

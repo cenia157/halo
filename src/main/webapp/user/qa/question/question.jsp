@@ -142,7 +142,7 @@
 					    <div class="q_content-box-tr1-td3-1-1-1-2">
 					    		<input hidden="1" name="q_seq" val="${question.q_seq }"/>
 			                    <div class="q_content-box-tr1-td3-1-1-1-2-1 No-width">
-			                      <span>${loop.index + 1}</span>
+			                      <span>${(loop.index + 1) + (curPageNo - 1) * 5}</span>
 			                    </div>
 			                    <div class="q_content-box-tr1-td3-1-1-1-2-2 writer-width">
 			                      <span>${question.q_name}</span>
@@ -199,7 +199,7 @@
                   </c:choose>
 
                   <!-- 페이지 번호 생성 시작 -->
-                  <c:set var="pageSize" value="10" />
+                  <c:set var="pageSize" value="5" />
                   <c:set var="startPage" value="${curPageNo - 2}" />
                   <c:set var="endPage" value="${curPageNo + 2}" />
                   <!-- 시작 페이지와 끝 페이지 계산 -->
@@ -210,27 +210,38 @@
 					    <!-- 시작 페이지가 1보다 작으면 1로 설정하고 끝 페이지를 조정 -->
 					</c:if>
 
-
+<!-- 이부분 문제 -->
                   <c:if test="${endPage > pageCount}">
                     <c:set var="endPage" value="${pageCount}" />
-                    <c:set var="startPage" value="${endPage - 4}" />
+                    <c:choose>
+                    	<c:when test="${endPage - 4}>1">
+                    		<c:set var="startPage" value="${endPage - 4}" />
+                    	</c:when>
+                    	<c:otherwise>
+                    		<c:set var="startPage" value="1" />
+                    	</c:otherwise>
+                    </c:choose>
                     <!-- 끝 페이지가 페이지 수를 넘으면 끝 페이지를 페이지 수로 설정하고 시작 페이지를 조정 -->
                   </c:if>
+<!-- 경고 -->
 
                   <c:forEach
                     var="pageNumber"
                     begin="${startPage}"
                     end="${endPage}"
                   >
+                  
                     <c:set
                       var="currentPageClass"
                       value="${pageNumber == curPageNo ? 'current-page' : ''}"
                     />
+					<!-- 버튼 모양 결정 -->
                     <a
                       href="QuestionPagingC?p=${pageNumber}"
                       class="page-number ${currentPageClass}"
-                      >[${pageNumber}]</a
-                    >
+                      >
+                      ${pageNumber}
+                      </a>
                   </c:forEach>
                   <!-- 페이지 번호 생성 끝 -->
 

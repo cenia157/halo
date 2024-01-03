@@ -610,3 +610,16 @@ a {
 	border-color: #007bff;
 	color: #fff;
 }
+
+/* 페이징 버튼 */
+.paging-div{
+	margin-top: 3%;
+}
+
+.page-number {
+	background-color: #62733D;
+	color: white;
+	border-radius: 80%;
+	padding: 0.5%;
+	margin: 0.5%;
+}

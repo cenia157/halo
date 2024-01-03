@@ -259,13 +259,14 @@ public class AskDAO {
 	public static void Qpaging(int page, HttpServletRequest request) {
 		
 		request.setAttribute("curPageNo", page);
+		System.out.println("page: " + page);
 		
 		int cnt = 5; 
 		int total = QnCs.size(); 
 		System.out.println("total ::: " + total );
 		int pageCount = (int)Math.ceil((double)total / cnt);
-		System.out.println("pageCount ::: " + pageCount );
 		request.setAttribute("pageCount", pageCount);
+		System.out.println("pageCount: "+pageCount);
 		
 		int start = total - (cnt * (page -1));
 		System.out.println("start ::: " + start );
@@ -274,9 +275,11 @@ public class AskDAO {
 		
 		ArrayList<QuestionNComment> items = new ArrayList<QuestionNComment>();
 		
+		
 		for (int i = start-1; i > end; i--) {
 			items.add(QnCs.get(i));
 		}
+		
 		request.setAttribute("QnCs", items);
 		
 	
