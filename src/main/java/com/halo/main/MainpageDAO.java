@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Enumeration;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -201,6 +202,7 @@ public class MainpageDAO {
 			MultipartRequest mr = new MultipartRequest(request, savepath, 1024*1024*20, "utf-8", new DefaultFileRenamePolicy());
 			String[] banner_menus = {mr.getParameter("banner_menu1"),mr.getParameter("banner_menu2"),mr.getParameter("banner_menu3")};
 			//하단베너3개 => for문 i = name뒤에 붙을 인덱스번호, 
+			 Enumeration<String> fileNames = mr.getFileNames();
 			for(int i = 0; i < 3; i++) {
 				if(banner_menus[i].equals("sales")) {
 					sql = "update banner_test \r\n"
@@ -209,8 +211,12 @@ public class MainpageDAO {
 					pstmt = con.prepareStatement(sql);
 					pstmt.setString(1, mr.getParameter("banner_url" + (i+1)));
 					pstmt.setString(2, mr.getParameter("banner_text" + (i+1)));
-					pstmt.setString(3, mr.getFilesystemName("banner_thumbnail" + (i+1)));
+					fileNames.hasMoreElements();
+					String fieldName = fileNames.nextElement();
 					
+					pstmt.setString(3, mr.getFilesystemName(mr.getFilesystemName(fieldName)));
+			
+										
 				} else {
 					sql = "update banner_test \r\n"
 							+ "set b_type = 1, b_m_name = ?, b_url = (select m_servlet from menu_test where m_name = ?), b_m_text = (select m_text from menu_test where m_name = ?) \r\n"
