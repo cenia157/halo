@@ -136,7 +136,7 @@
                   </div>
                   
                   
-             <form id="QuestionDetailC" action="QuestionDetailC" method="post" style="height: 100%; width: 100%;">     
+             <form id="QuestionDetailC" action="QuestionDetailC" method="post">     
                   <!-- 2번째 행 여기는 forEach문이겠죠?-->
 					<c:forEach items="${QnCs}" var="question" varStatus="loop">
 					    <div class="q_content-box-tr1-td3-1-1-1-2">
@@ -165,7 +165,7 @@
 			                    </div>
 					    </div>
 					</c:forEach>
-					
+				</form>	
 <!-- 					페이징처리 해야할 부분 -->
 					                <!--페이징시작 -->
                 <div class="paging-div">
@@ -214,12 +214,12 @@
                   <c:if test="${endPage > pageCount}">
                     <c:set var="endPage" value="${pageCount}" />
                     <c:choose>
-                    	<c:when test="${endPage - 4}>1">
+                    	<c:when test="${endPage - 4}>0">
                     		<c:set var="startPage" value="${endPage - 4}" />
                     	</c:when>
-                    	<c:otherwise>
+                    	<c:when test="${endPage - 4}<=0">
                     		<c:set var="startPage" value="1" />
-                    	</c:otherwise>
+                    	</c:when>
                     </c:choose>
                     <!-- 끝 페이지가 페이지 수를 넘으면 끝 페이지를 페이지 수로 설정하고 시작 페이지를 조정 -->
                   </c:if>
@@ -240,7 +240,7 @@
                       href="QuestionPagingC?p=${pageNumber}"
                       class="page-number ${currentPageClass}"
                       >
-                      ${pageNumber}
+                      [ ${pageNumber} ]
                       </a>
                   </c:forEach>
                   <!-- 페이지 번호 생성 끝 -->
@@ -277,9 +277,7 @@
                   </c:choose>
                 </div>
                 <!-- 페이징끝 -->
-					
-					
-				</form>
+
 
 
 <!-- Bootstrap JS (required for pagination) -->

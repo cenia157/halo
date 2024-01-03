@@ -535,9 +535,14 @@ a {
 	white-space: nowrap; /* 글자가 한 줄로 표시되도록 함 */
 }
 
+#QuestionDetailC{
+	width: 100%;
+	height: 65%;
+}
+
 .q_content-box-tr1-td3-1-1-1-2 {
 	display: flex;
-	height: 13%; /* 조절 */
+	height: 20%; /* 조절 */
 	border-bottom: 1px solid #6e6f4e;
 }
 
@@ -613,13 +618,64 @@ a {
 
 /* 페이징 버튼 */
 .paging-div{
-	margin-top: 3%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10%;
 }
 
-.page-number {
-	background-color: #62733D;
-	color: white;
-	border-radius: 80%;
-	padding: 0.5%;
-	margin: 0.5%;
+.page-number{
+	margin-left: 0.5vw;
+	margin-right: 0.5vw;
 }
+
+.paging-div button,
+.paging-div a {
+  white-space: nowrap;
+  margin: 0 0.3%;
+}
+
+.paging-div button {
+  font-size: 1rem; 
+  width: 3rem;
+  height: 3rem; 
+  font-weight: 700;
+  background: #849461;
+  border:none;
+  border-radius: 15%;
+  cursor: pointer;
+  color: #ffd66c !important;
+}
+
+.current-page {
+  color: #ffd66c !important;
+  font-weight: 700;
+}
+
+.paging-div > a {
+  line-height: 1; /* 1을 주로 사용하여 글자를 세로 중앙 정렬합니다. */
+   align-items: center;
+   font-size: 2rem;
+}
+
+/* .page-number { */
+/* 	background-color: #62733D; */
+/* 	display:flex; */
+/* 	justify-content:center; */
+/* 	align-content: center; */
+/* 	color: white; */
+/* 	border-radius: 100%; */
+/* 	width: 3vw; */
+/* 	height: 3vh; */
+/* 	margin: 0.5%; */
+/* } */
+/* #paging_btn{ */
+/* 	margin-left:0.5%; */
+/* 	margin-right: 0.5%; */
+/* 	background-color: #62733D; */
+/* 	border: #62733D; */
+/* 	color: white; */
+/* 	border-radius: 20%; */
+/* 	width: 5vw; */
+/* 	height: 5vh; */
+/* } */
