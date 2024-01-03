@@ -158,40 +158,51 @@
 	<script>
 	$(document).ready(function(){
 		
-	   	let figure;
-	   	let saveFname;
+	    // 인덱스를 업데이트하는 함수
+	    function updateIndexes() {
+	        let figures = $(".ck-content figure img");
+	        let saveFnames = $("input[name='saveFname']");
+	
+	        figures.each(function(index) {
+	            $(this).data('index', index);
+	        });
+	
+	        saveFnames.each(function(index) {
+	            $(this).data('index', index);
+	        });
+	    }
 		
 	    $('.ck-content').on('click', function(e){
-	   		figure = $(".ck-content figure img");
-	   		saveFname = $("input[name='saveFname']");
-	    	$(figure).each(function(i) {
-				$(figure[i]).attr('test', i);
-				$(saveFname[i]).attr('test', i);
-			});    
-	    }); // on
-	    
-	    
+	   		// 인덱스를 초기화합니다.
+	        updateIndexes();
+	    });	
+		
 	    $('.ck-content').on('keyup', function(e){
-	    
-	        	if(e.key == 'Backspace' || e.key == 'Delete'){
-	        		console.log(e.key);
-			   		figure = $(".ck-content figure img");
-	   				saveFname = $("input[name='saveFname']");
-					let check = [];
-					let check2 = [];
-	   				$(saveFname).each(function(i) {
-						check.push($(saveFname[i]).attr('test'));
-						check2.push($(figure[i]).attr('test'));
-					});   	
-	   				let difference = check.filter(item => !check2.includes(item));
-	   				console.log('삭제될difference 변수 ::: ' + difference);
-	   				
-	   				$(saveFname[difference]).remove();
+	        if(e.key === 'Backspace' || e.key === 'Delete'){
+	        	console.log(e.key);
 	
-	   		        
-	   		    }  // if   
-	    });	// keyup
+	        	// 현재 존재하는 모든 saveFname 입력 필드를 순회합니다.
+	   			$("input[name='saveFname']").each(function() {
+	   				let inputIndex = $(this).data('index');
+	
+	   				// 해당 인덱스를 가진 figure 이미지가 존재하는지 확인합니다.
+	   				let correspondingFigure = $(".ck-content figure img").filter(function() {
+	   					return $(this).data('index') === inputIndex;
+	   				});
+	
+	   				// 대응하는 figure 이미지가 없으면, 해당 입력 필드를 제거합니다.
+	   				if (!correspondingFigure.length) {
+	   					$(this).remove();
+	   					alert('Removed saveFname input at index: ' + inputIndex);
+	   				}
+	   			});
+	
+	   			// 인덱스를 업데이트합니다.
+	            updateIndexes();
+	        }
+	    });		
 	    
+	
 	    
 	//     $('.ck-content').on('keydown', function(e){
 	    	
@@ -225,18 +236,11 @@
 	// 				console.log(figure); 
 	// 				console.log(figure.length); 
 	//         	}
-	        	
-	        	
-	        	
-	        	
-	        	
-	        	
-	        	
+	          	
 	            // 'Delete' 키가 눌렸을 때
 	//             if(e.key === 'Delete'){
 	            	
-	            	
-	            	
+	      	
 	//                 // 'before' 클래스가 있을 때만 제거
 	//                 if(beforeImgIdx >= 0){
 	//                 	imgIdx = beforeImgIdx;
@@ -244,8 +248,7 @@
 	//                     console.log('Removed index with Delete (before class)::: ' + imgIdx);
 	//                     imgIdx = undefined;
 	//                     e.preventDefault(); 
-	                    
-	                    
+	                                  
 	//                 }
 	//                 // 'before'도 'after'도 없을 때 제거
 	//                 else if(!(afterImgIdx>=0)){
@@ -283,7 +286,7 @@
 	//             }
 	//         }
 	//     });
-	});
+	}) // $(document).ready(function(){
 	</script>
 
 </body>

@@ -283,10 +283,17 @@ endInput.addEventListener('focus', function() {
 
 // setDate 초기화 함수
 
+document.getElementById('prev-button').addEventListener('click', function(event) {
+    event.preventDefault(); // 이벤트의 기본 동작을 막음
+    changeMonth(-1); // 기존 기능 실행
+});
 
-
-document.getElementById('prev-button').addEventListener('click', () => changeMonth(-1));
-document.getElementById('next-button').addEventListener('click', () => changeMonth(1));
+document.getElementById('next-button').addEventListener('click', function(event) {
+    event.preventDefault(); // 이벤트의 기본 동작을 막음
+    changeMonth(1); // 기존 기능 실행
+});
+//document.getElementById('prev-button').addEventListener('click', () => changeMonth(-1));
+//document.getElementById('next-button').addEventListener('click', () => changeMonth(1));
 const changeMonth = (change) => {
 	resetSetDate();
 	date.setMonth(date.getMonth() + change);
