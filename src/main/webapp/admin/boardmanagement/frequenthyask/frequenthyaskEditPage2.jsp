@@ -32,7 +32,7 @@
 			<div class="modal-content">
 				<div class="modal-content-txt">
 					<!-- 아래의 코드는 CK Editor를 넣는 부분이다-->
-					<div id="classicNR"></div>
+					<textarea name="txt" id="classicNR" class="classicNR"></textarea>
 					<!-- 아래의 스크립트 코드는 CK Editor를 불러오는 부분이다-->
 					<script>
 						ClassicEditor

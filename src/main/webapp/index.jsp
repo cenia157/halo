@@ -84,8 +84,8 @@
 							</a>
 						</div>
 						<div class="header-opmenu-td">
-							<a class="header-opmenu-a" href="HC?link=8">자주묻는질문</a> <a
-								class="header-opmenu-a" href="HC?link=9">문의게시판</a>
+							<a class="header-opmenu-a" href="FaqC">자주묻는질문</a> <a
+								class="header-opmenu-a" href="QuestionC">문의게시판</a>
 						</div>
 					</div>
 					<div class="header-td-menu">
