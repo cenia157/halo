@@ -422,10 +422,25 @@
 */
 
 
+/* 페이징 부분 */
+.paging-div{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 10%;
+}
+
+.paging-div button,
+.paging-div a {
+  white-space: nowrap;
+  margin: 0 0.3%;
+}
 
 
-
-
+.current-page {
+  color: #4A572E !important;
+  font-weight: 700;
+}
 
 
 

@@ -352,7 +352,6 @@ function statusCheck(){
 	
 	checkbox_result.forEach(function(item) {
 		let YorN = item.querySelector(".ontent-m-td-2-content-txt-kategorie-in");
-		console.log("YorN: ", YorN);
 		
 		let isCompleted = YorN.textContent.trim() === "完";
 		let isUncompleted = YorN.textContent.trim() === "未";

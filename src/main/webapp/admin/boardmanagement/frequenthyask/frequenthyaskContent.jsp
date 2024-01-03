@@ -18,8 +18,8 @@
 <link rel="stylesheet"
 	href="admin/boardmanagement/frequenthyask/0.css/frequenthyask.css" />
 
-<script src="admin/0.js/test2.js"></script>
-<script src="admin/0.js/test.js"></script>
+<script src="admin/_js/test2.js"></script>
+<script src="admin/_js/test.js"></script>
 
 
 

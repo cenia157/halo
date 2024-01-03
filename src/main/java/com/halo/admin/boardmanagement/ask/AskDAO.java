@@ -285,5 +285,34 @@ public class AskDAO {
 	
 	}
 	
+	public static void QpagingAdmin(int page, HttpServletRequest request) {
+		
+		request.setAttribute("curPageNo", page);
+		System.out.println("page: " + page);
+		
+		int cnt = 8; 
+		int total = QnCs.size(); 
+		System.out.println("total ::: " + total );
+		int pageCount = (int)Math.ceil((double)total / cnt);
+		request.setAttribute("pageCount", pageCount);
+		System.out.println("pageCount: "+pageCount);
+		
+		int start = total - (cnt * (page -1));
+		System.out.println("start ::: " + start );
+		
+		int end = (page == pageCount) ? -1 : start - (cnt + 1);
+		
+		ArrayList<QuestionNComment> items = new ArrayList<QuestionNComment>();
+		
+		
+		for (int i = start-1; i > end; i--) {
+			items.add(QnCs.get(i));
+		}
+		
+		request.setAttribute("QnCs", items);
+		
+	
+	}
+	
 }
 
