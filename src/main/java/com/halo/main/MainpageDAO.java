@@ -187,7 +187,7 @@ public class MainpageDAO {
 	}
 	
 	//하단베너 업데이트
-	public void bannerUpdate(HttpServletRequest request) {
+	public void updateBanner(HttpServletRequest request) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		String sql = "";
@@ -202,16 +202,14 @@ public class MainpageDAO {
 			String[] banner_menus = {mr.getParameter("banner_menu1"),mr.getParameter("banner_menu2"),mr.getParameter("banner_menu3")};
 			//하단베너3개 => for문 i = name뒤에 붙을 인덱스번호, 
 			for(int i = 0; i < 3; i++) {
-				if(banner_menus[i] == "sales") {
+				if(banner_menus[i].equals("sales")) {
 					sql = "update banner_test \r\n"
 							+ "set b_type = 2, b_m_name = 'sales', b_url = ?, b_m_text = ?, b_img_url = ? \r\n"
 							+ "where b_index = " + (i+1);
 					pstmt = con.prepareStatement(sql);
 					pstmt.setString(1, mr.getParameter("banner_url" + (i+1)));
-					System.out.println(mr.getParameter("banner_url" + (i+1)));
 					pstmt.setString(2, mr.getParameter("banner_text" + (i+1)));
 					pstmt.setString(3, mr.getFilesystemName("banner_thumbnail" + (i+1)));
-					System.out.println(mr.getFilesystemName("banner_thumbnail" + (i+1)));
 					
 				} else {
 					sql = "update banner_test \r\n"

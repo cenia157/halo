@@ -21,7 +21,11 @@ public class BannerUpdateC extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//업뎃 메소드
-		MainpageDAO.getMdao().bannerUpdate(request);
+		MainpageDAO.getMdao().updateBanner(request);
+		response.sendRedirect("BannerUpdateC");
+		
+	
+	
 	}
 
 }
