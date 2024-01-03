@@ -52,6 +52,8 @@ public class Ck_DAO {
 //			System.out.println(saveFName);
 //			txt = txt.replace("img", "img src=\'" + saveFName + "\'");
 
+			
+			
 			Connection con = null;
 			PreparedStatement pstmt = null;
 			String sql = "INSERT INTO announced_tbl " + "(an_seq, an_title, an_content, an_writer, an_category) "

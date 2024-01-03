@@ -83,9 +83,11 @@ CREATE TABLE announced_tbl (
 	an_title VARCHAR2(50) NOT NULL,
 	an_content VARCHAR2(10000) NOT NULL,    
 	an_writer VARCHAR2(20),    
-    an_reg_date DATE DEFAULT SYSDATE,
+    an_reg_date DATE DEFAULT SYSDATE + (INTERVAL '9' HOUR),
 	an_category VARCHAR2(50) NOT NULL
 );
+
+
 create sequence announced_tbl_seq;
 
 INSERT INTO announced_tbl (an_sql, an_title, an_content, an_writer, an_category) VALUES (announced_tbl_seq.nextval, 'Ÿ��Ʋ', '�ؽ�Ʈ', '������', '�Ϲ�');
