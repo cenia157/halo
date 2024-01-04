@@ -11,14 +11,17 @@ import javax.servlet.http.HttpServletResponse;
 public class AdminFAQC extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		FAQDAO.getAllFAQ(request);
 		
 		request.setAttribute("menu", "/admin/boardmanagement/frequenthyask/frequenthyaskContent.jsp");
 		request.getRequestDispatcher("admin/index.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		FAQDAO.getAllFAQ(request);
+		
+		request.setAttribute("menu", "/admin/boardmanagement/frequenthyask/frequenthyaskContent.jsp");
+		request.getRequestDispatcher("admin/index.jsp").forward(request, response);
 	}
 
 }

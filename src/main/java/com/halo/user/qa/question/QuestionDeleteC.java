@@ -17,8 +17,10 @@ public class QuestionDeleteC extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		QuestionDAO.deleteQuestionNComment(request);
-		List<QuestionNComment> resultList = AskDAO.QuestionsAndComments();
-		request.setAttribute("resultList", resultList);
+//		List<QuestionNComment> resultList = AskDAO.QuestionsAndComments();
+//		request.setAttribute("resultList", resultList);
+		AskDAO.getAllQnC(request, response);
+		AskDAO.Qpaging(1, request);
 		
 		String subMenu = "qa/question/question";
 		request.setAttribute("menu", "user/menu-index.jsp");
@@ -28,8 +30,10 @@ public class QuestionDeleteC extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		QuestionDAO.deleteQuestionNComment(request);
-		List<QuestionNComment> resultList = AskDAO.QuestionsAndComments();
-		request.setAttribute("resultList", resultList);
+//		List<QuestionNComment> resultList = AskDAO.QuestionsAndComments();
+//		request.setAttribute("resultList", resultList);
+		AskDAO.getAllQnC(request, response);
+		AskDAO.Qpaging(1, request);
 		
 		String subMenu = "qa/question/question";
 		request.setAttribute("menu", "user/menu-index.jsp");

@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<script src="admin/0.js/ckeditor.js"></script>
+<script src="admin/_js/ckeditor.js"></script>
 <script src="admin/_js/ckeditor/ckeditor.js"></script>
 
 <title>Frequenthyask</title>
@@ -18,7 +18,7 @@
 
 <link rel="stylesheet" href="admin/0.css/test copy.css" />
 <link rel="stylesheet"
-	href="admin/boardmanagement/frequenthyask/0.css/frequenthyask.css" />
+	href="admin/boardmanagement/frequenthyask/0.css/frequenthyask.css"/>
 
 <script src="admin/_js/test2.js"></script>
 <script src="admin/_js/test2.js"></script>
@@ -39,9 +39,7 @@
 		<div class="ontent-m-td-2-content-container">
 			<div class="ontent-m-td-2-content-txt">
 				<div class="ontent-m-td-2-content-txt-no">No</div>
-				<div class="ontent-m-td-2-content-txt-kategorie">카테고리</div>
 				<div class="ontent-m-td-2-content-txt-title">제목</div>
-				<div class="ontent-m-td-2-content-txt-writer">작성자</div>
 				<div class="ontent-m-td-2-content-txt-date">수정일자</div>
 				<div class="ontent-m-td-2-content-txt-delete"></div>
 			</div>
@@ -49,14 +47,12 @@
 		<div class="ontent-m-td-2-mid">
 			<div class="ontent-m-td-2-content-txt-in">
 				<div class="ontent-m-td-2-content-txt-no-in">8</div>
-				<div class="ontent-m-td-2-content-txt-kategorie-in">8</div>
 				<div class="ontent-m-td-2-content-txt-title-in"> <a onclick="openModalF()">● 이곳을 누르면 모달이 뜬다</a> </div>
-				<div class="ontent-m-td-2-content-txt-writer-in">8</div>
 				<div class="ontent-m-td-2-content-txt-date-in">8</div>
 				<div class="ontent-m-td-2-content-txt-delete-in"></div>
 			</div>
 			<div class="ontent-m-td-2-mid">
-			<c:forEach items="${QA_tbl }" var="qa">
+			<c:forEach items="${FAQs}" var="qa">
 				<div class="ontent-m-td-2-content-txt-in">
 					<div class="ontent-m-td-2-content-txt-no-in"> ${qa.qa_seq } </div>
 					<div class="ontent-m-td-2-content-txt-title-in"> ${qa.qa_title } <a onclick="openModalF()">● 이곳을 누르면 모달이 뜬다</a> </div>
