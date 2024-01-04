@@ -16,7 +16,7 @@
 </head>
 
 <body>
-	<div onclick="closeModalNR()" id="myModalNR" class="modal-background"></div>
+	<div  id="myModalNR" class="modal-background"></div>
 	<form id="ck-form" method="post">
 		<div id="myModal-tblNR" class="modal-tbl">
 			<div class="modal-title-set">

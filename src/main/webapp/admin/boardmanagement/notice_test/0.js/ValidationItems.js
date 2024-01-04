@@ -19,6 +19,8 @@ function noValue() {
 		alert('제목의 길이는 50자를 넘을 수 없습니다.\n현재 글자 수 : ' + titleLengthCheck);
 	} else if (contentLengthCheck > 10000) {
 		alert('내용의 길이는 10,000 넘을 수 없습니다.\n현재 내용의 길이 : ' + contentLengthCheck);
+	} else {
+
 	}
 
 

@@ -15,9 +15,7 @@ public class Ck_DAO {
 			String title = request.getParameter("title");
 			String select = request.getParameter("select");
 			String txt = request.getParameter("txt");
-
 			if (title != "" && txt != "" && select != null) {
-				System.out.println("값 모두 잘 들어갔다");
 
 				System.out.println("txt 구간(1) :::" + txt);
 //			String saveFnameValues[] = request.getParameterValues("saveFname");
@@ -80,10 +78,8 @@ public class Ck_DAO {
 					System.out.println("등록성공");
 					System.out.println("---------------");
 				}
-			} else {
-
-				System.out.println("값이 없는 곳이 있습니다");
 			}
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
