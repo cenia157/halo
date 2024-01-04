@@ -244,13 +244,7 @@ pageEncoding="UTF-8"%>
         $(".ck-content").on("keydown", function (e) {
           console.log("누른키 :::", e.key, e.code);
 
-          let whiteList = [
-            "Enter",
-            "Delete",
-            "Backspace",
-            "ArrowUp",
-            "ArrowDown",
-          ];
+          let whiteList = ["Enter", "Delete", "Backspace", "ArrowUp","ArrowDown"];
           
           console.log("whiteList:", whiteList);
           let allowedKey = whiteList.includes(e.code); // 허용된 키인지 확인
@@ -263,12 +257,7 @@ pageEncoding="UTF-8"%>
           console.log("isBeforeCaretExists:", isBeforeCaretExists);
           console.log("isAfterCaretExists:", isAfterCaretExists);
 
-          if (
-            !allowedKey &&
-            isSelectedFigureExists &&
-            !isBeforeCaretExists &&
-            !isAfterCaretExists
-          ) {
+          if (!whiteList.includes(e.code) && isSelectedFigureExists && !isBeforeCaretExists && !isAfterCaretExists) {
             // 허용되지 않은 키이면
             console.log("not allowed");
             e.preventDefault(); // 입력 방지
@@ -276,6 +265,11 @@ pageEncoding="UTF-8"%>
             console.log("------------------------");
           } // if
         }); // $('.ck-content').on("keydown", function(e) {
+        	
+        $('.ck-content').on('dragstart', 'img', function(e) {
+        	e.preventDefault();  // 드래그를 방지합니다.
+            console.log('드래그 시도가 방지되었습니다.');
+        }); // $('.ck-content').on('dragstart', 'img', function(e) {
 
         // 		 document.querySelector('.ck-content').addEventListener("compositionstart",function handleCompositionStart(e) {
         // 		 	 const self = this;

@@ -28,7 +28,7 @@ class MyUploadAdapter {
 
   _initListeners(resolve, reject, file) {
     const xhr = this.xhr;
-    const genericErrorText = `Couldn't upload file: ${file.name}.`;
+    const genericErrorText = `파일 업로드에 실패했습니다: ${file.name}.`;
 
     xhr.addEventListener("error", () => reject(genericErrorText));
     xhr.addEventListener("abort", () => reject());
@@ -46,7 +46,7 @@ class MyUploadAdapter {
         await this._updateImageSource(response.fName, file.name);
       } catch (error) {
         console.error(error);
-        reject("An error occurred while processing the file.");
+        reject("파일 처리 중 오류가 발생했습니다.");
       }
 
       resolve({ default: response.url });
@@ -69,48 +69,45 @@ class MyUploadAdapter {
   }
 
   async _updateInputField(fName) {
-    const start = new Date().getTime();
-    var newInput = document.createElement("input");
-    var targetDiv = document.getElementById("img-temporary");
-    var nextInput = targetDiv.appendChild(newInput);
+    return new Promise((resolve, reject) => {
+      const newInput = document.createElement("input");
+      const targetDiv = document.getElementById("img-temporary");
 
-    nextInput.name = "saveFname";
-    nextInput.id = "img-url";
-    nextInput.value = fName;
-    const end = new Date().getTime();
-    console.log(`_updateInputField took ${end - start}ms`);
+      newInput.name = "saveFname";
+      newInput.id = "img-url";
+      newInput.value = fName;
+
+      targetDiv.appendChild(newInput); // 입력 필드를 DOM에 추가합니다.
+      console.log(`${fName}에 대한 입력 필드가 추가되었습니다.`);
+      resolve(); // 작업이 완료되면 Promise를 해결(resolve)합니다.
+    });
   }
 
   async _updateImageSource(fName, fileName) {
     const start = new Date().getTime();
     document.querySelector("figure").lastChild.src = fName;
-    document.querySelector(".ck-content").click(); // 클릭 처리를 해야 인덱스 얻을수있음
+    document.querySelector(".ck-content").click(); // 클릭 처리를 해야 인덱스 얻을 수 있음
 
-  // ck-widget_selected 클래스를 가진 첫 번째 요소 찾기
-//  const selectedFigure = document.querySelector(".ck-content .ck-widget_selected");
+    // ck-widget_selected 클래스를 가진 첫 번째 요소 찾기
+    // const selectedFigure = document.querySelector(".ck-content .ck-widget_selected");
 
-  // 해당 요소가 있으면 ck-widget_selected 클래스 제거
-//  if (selectedFigure) {
-//	console.log('진입')
-//	selectedFigure.classList.remove("ck-widget_selected");
-//	// 클래스 제거 확인을 위한 로그
-//	if (selectedFigure.classList.contains("ck-widget_selected")) {
-//	  console.log("Class 'ck-widget_selected' was not removed successfully.");
-//	} else {
-//	  console.log("Class 'ck-widget_selected' has been successfully removed.");
-//	}
-//  }
+    // 해당 요소가 있으면 ck-widget_selected 클래스 제거
+    // if (selectedFigure) {
+    //	console.log('진입')
+    //	selectedFigure.classList.remove("ck-widget_selected");
+    //	// 클래스 제거 확인을 위한 로그
+    //	if (selectedFigure.classList.contains("ck-widget_selected")) {
+    //	  console.log("Class 'ck-widget_selected'가 성공적으로 제거되지 않았습니다.");
+    //	} else {
+    //	  console.log("Class 'ck-widget_selected'가 성공적으로 제거되었습니다.");
+    //	}
+    // }
 
-
-
-
-
-
-    console.log(`File ${fileName} displayed in the content.`);
+    console.log(`${fileName} 파일이 콘텐츠에 표시되었습니다.`);
     const end = new Date().getTime();
-    console.log(`_updateImageSource took ${end - start}ms`);
+    console.log(`_updateImageSource 실행 시간: ${end - start}ms`);
   }
-}
+} // end class
 
 function MyCustomUploadAdapterPlugin(editor) {
   editor.plugins.get("FileRepository").createUploadAdapter = (loader) => {
@@ -118,26 +115,27 @@ function MyCustomUploadAdapterPlugin(editor) {
   };
 }
 
-async function uploadFilesConcurrently(editor, files) {
-  const uploadPromises = [];
-
+async function uploadFilesSequentially(editor, files) {
   for (const file of files) {
-    console.log(`Starting upload for ${file.name} at ${new Date().toLocaleTimeString()}`);
-    const loader = editor.plugins.get("FileRepository").createLoader(file);
+    console.log(
+      `${file.name}의 업로드가 ${new Date().toLocaleTimeString()}에 시작되었습니다.`
+    );
 
+    const loader = editor.plugins.get("FileRepository").createLoader(file);
     if (loader) {
-      const uploadPromise = loader.file.then((file) => {
-        return new Promise((resolve, reject) => {
-          const myUploadAdapter = new MyUploadAdapter(loader);
-          myUploadAdapter.upload().then(resolve).catch(reject);
-        });
-      });
-      uploadPromises.push(uploadPromise);
+      const myUploadAdapter = new MyUploadAdapter(loader);
+      try {
+        await myUploadAdapter.upload(); // 이미지 업로드 비동기 처리
+        console.log(`${file.name} 업로드가 성공적으로 완료되었습니다.`);
+        await myUploadAdapter._updateInputField(response.fName); // _updateInputField 비동기 호출
+      } catch (error) {
+        console.error(`${file.name} 업로드 중 오류가 발생했습니다:`, error);
+      }
     }
   }
-
-  await Promise.all(uploadPromises);
-  console.log("All files have been uploaded concurrently");
+  console.log(
+    "모든 파일이 순차적으로 업로드되고 입력 필드가 순차적으로 업데이트되었습니다."
+  );
 }
 
 ClassicEditor.create(document.querySelector("#classicNR"), {
@@ -146,11 +144,10 @@ ClassicEditor.create(document.querySelector("#classicNR"), {
   .then((editor) => {
     window.editor = editor;
     const files = document.querySelector('input[type="file"]').files;
-    uploadFilesConcurrently(editor, files).then(() => {
-      console.log("All files have been processed concurrently");
+    uploadFilesSequentially(editor, files).then(() => {
+      console.log("모든 파일이 순차적으로 처리되었습니다.");
     });
   })
   .catch((error) => {
-    console.error("Error occurred:", error);
+    console.error("오류 발생:", error);
   });
-
