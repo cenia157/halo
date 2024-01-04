@@ -17,7 +17,7 @@ CREATE TABLE visitors (
   PRIMARY KEY (id)
 );
 
-INSERT INTO visitors (ip, user_agent) VALUES ('asd', 'User Á¤º¸');
+INSERT INTO visitors (ip, user_agent) VALUES ('asd', 'User ï¿½ï¿½ï¿½ï¿½');
 
 select * from visitors;
 
@@ -32,6 +32,7 @@ CREATE TABLE notice (
 
 
 
+update_date TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP AT TIME ZONE 'ASIA/SEOUL'
 
 
 
@@ -47,7 +48,7 @@ CREATE TABLE notice (
 	
 create sequence notice_seq;
 
-INSERT INTO notice (id, title, txt, writer, category, img) VALUES (notice_seq.nextval, 'Å¸ÀÌÆ²', 'ÅØ½ºÆ®', '±èÁø¿í', 'ÀÏ¹Ý', 'ÀÌ¹ÌÁö');
+INSERT INTO notice (id, title, txt, writer, category, img) VALUES (notice_seq.nextval, 'Å¸ï¿½ï¿½Æ²', 'ï¿½Ø½ï¿½Æ®', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', 'ï¿½Ï¹ï¿½', 'ï¿½Ì¹ï¿½ï¿½ï¿½');
 
 select * from notice;
 
@@ -72,7 +73,8 @@ select * from notice;
 
 
 
-// ¿©±â¼­ºÎÅÍ ÁøÂ¥
+
+// ì—¬ê¸°ì„œë¶€í„° ì§„ì§œ
 
 
 
@@ -80,19 +82,18 @@ select * from notice;
 CREATE TABLE announced_tbl (
     an_sql NUMBER PRIMARY KEY,
 	an_title VARCHAR2(50) NOT NULL,
-	an_content VARCHAR2(2000) NOT NULL,    
+	an_content VARCHAR2(10000) NOT NULL,    
 	an_writer VARCHAR2(20),    
     an_reg_date DATE DEFAULT SYSDATE,
-	an_category VARCHAR2(50),
-	an_img VARCHAR2(200)
+	an_category VARCHAR2(50) NOT NULL
 );
 create sequence announced_tbl_seq;
 
-INSERT INTO announced_tbl (an_sql, an_title, an_content, an_writer, an_category, an_img) VALUES (announced_tbl_seq.nextval, 'Å¸ÀÌÆ²', 'ÅØ½ºÆ®', '±èÁø¿í', 'ÀÏ¹Ý', 'ÀÌ¹ÌÁö');
+INSERT INTO announced_tbl (an_sql, an_title, an_content, an_writer, an_category) VALUES (announced_tbl_seq.nextval, 'Å¸ï¿½ï¿½Æ²', 'ï¿½Ø½ï¿½Æ®', 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', 'ï¿½Ï¹ï¿½');
 
 
 
-c
+select * from announced_tbl;
 
 
 

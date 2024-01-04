@@ -29,6 +29,12 @@ function closeModal(modalId, tblId) {
 	var titleInput = document.getElementById("real-title-editor");
 	titleInput.value = "";
 
+	// 사진 input 삭제
+	var imageInputs = document.querySelectorAll("#img-url");
+	imageInputs.forEach(function(input) {
+		input.parentNode.removeChild(input);
+	});
+
 	// #kategorie 안의 input(#select)과 그 안의 텍스트 둘 다 삭제 및 '카테고리' 재설정
 	var kategorieInput = document.querySelector('#kategorie input');
 	if (kategorieInput) {
