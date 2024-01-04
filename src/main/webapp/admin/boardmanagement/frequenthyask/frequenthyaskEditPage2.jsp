@@ -9,19 +9,21 @@
 <link
 	href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular"
 	rel="stylesheet" />
+	<!-- 임시임 -->
+	<link rel="stylesheet"
+	href="admin/boardmanagement/notice_test/0.css/notice.css" />
+	
+	
 </head>
 <body>
-
 	<div onclick="closeModalF()" id="myModalF" class="modal-background"></div>
 	<div id="myModal-tblF" class="modal-tbl">
 		<div class="modal-title-set">
 			<div class="modal-title-tr">
 				<div class="modal-title-td-1">
 					<div class="real-title">
-
 						<input class="real-title-editor"
 							placeholder="● 제공되는 서비스를 이용하려면 어떻게 해야되나요?">
-
 					</div>
 				</div>
 				<div class="modal-title-td-2">
@@ -32,7 +34,7 @@
 			<div class="modal-content">
 				<div class="modal-content-txt">
 					<!-- 아래의 코드는 CK Editor를 넣는 부분이다-->
-					<div id="classicNR"></div>
+						<textarea name="txt" id="classicNR" class="classicNR"></textarea>
 					<!-- 아래의 스크립트 코드는 CK Editor를 불러오는 부분이다-->
 					<script>
 						ClassicEditor

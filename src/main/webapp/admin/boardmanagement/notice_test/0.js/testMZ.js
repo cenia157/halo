@@ -25,7 +25,13 @@ class MyUploadAdapter {
 
 	// Initializes the XMLHttpRequest object using the URL passed to the constructor.
 	_initRequest() {
+
 		const xhr = (this.xhr = new XMLHttpRequest());
+
+
+
+
+
 
 		// Note that your request may look different. It is up to you and your editor
 		// integration to choose the right communication channel. This example uses
@@ -41,10 +47,22 @@ class MyUploadAdapter {
 		const loader = this.loader;
 		const genericErrorText = `Couldn't upload file: ${file.name}.`;
 
+
+
+console.log("AAAAAAAQAAAAAA");
+console.log(xhr);
+console.log("AAAAAAAAAAAAA");
+
+
+
+
 		xhr.addEventListener("error", () => reject(genericErrorText));
 		xhr.addEventListener("abort", () => reject());
 		xhr.addEventListener("load", () => {
 			const response = xhr.response;
+
+
+
 
 			// This example assumes the XHR server's "response" object will come with
 			// an "error" which has its own "message" that can be passed to reject()
@@ -65,43 +83,47 @@ class MyUploadAdapter {
 			resolve({
 				default: response.url,
 			});
+			
 			console.log(response);
 			console.log("~~~~~~~~~ success call!!!");
 
-			/* 
-				  이건 백업용	
-				  document.querySelector('figure').firstChild.src = response.fName;
-				  document.querySelector('#img-url').value = response.fName;
-				  */
 
-			/*			var newInput = document.querySelector('#img-temporary');*/
+
+
+
+
+
+
+
+
+			console.log("BBBBBBBBBBBBBBB");
+			console.log(response.fName);
+			console.log(response);
+			console.log("BBBBBBBBBBBBBBB");
+
+
+
 
 			var newInput = document.createElement("input");
 			var targetDiv = document.getElementById("img-temporary");
 			var nextInput = targetDiv.appendChild(newInput);
 
+
+
 			nextInput.name = "saveFname";
 			nextInput.id = "img-url";
 			nextInput.value = response.fName;
+			/*아래의 코드를 활성화하면 사진의 정보를 담는 input이 사라진다*/
+			/*nextInput.style.display = 'none';*/
 
+
+			/*			document.querySelector(".image-inline").lastChild.src = response.fName;*/
+			console.log('+++++++++++++++++++');
+			console.log(response.fName);
+			console.log('+++++++++++++++++++');
 			document.querySelector("figure").lastChild.src = response.fName;
 
-			/*			document.querySelector('figure').lastElementChild.src = response.fName;
-							  document.querySelector('#img-url' + 1).value = response.fName;
-			  	
-			  	
-			  	
-			  	
-							  targetDiv.appendChild(newInput);
-			  	
-			  	
-							  var last = targetDiv.lastElementChild;
-			  	
-							  console.log(targetDiv);
-							  console.log(newInput);
-							  console.log(last);
-			  	
-				  */
+
 		});
 
 		// Upload progress when it is supported. The file loader has the #uploadTotal and #uploaded

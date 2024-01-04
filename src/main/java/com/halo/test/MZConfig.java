@@ -15,7 +15,7 @@ public class MZConfig {
 
 	public static void uploadFile(HttpServletRequest request, HttpServletResponse response) {
 		try {
-
+			
 			String path = request.getServletContext().getRealPath("admin/_js/ckeditor/file");
 			MultipartRequest mr = new MultipartRequest(request, path, 1024 * 1024 * 20, "utf-8",
 					new DefaultFileRenamePolicy());
@@ -36,8 +36,10 @@ public class MZConfig {
 				System.out.println("--------------------------------");
 				JSONObject jo = new JSONObject();
 				jo.put("fName", "admin/_js/ckeditor/file/" + file.getName());
+				response.setCharacterEncoding("UTF-8");
 				response.setContentType("html/text ");
 				response.getWriter().write(jo.toJSONString());
+
 			}
 
 			
