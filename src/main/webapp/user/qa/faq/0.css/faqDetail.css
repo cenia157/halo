@@ -36,7 +36,8 @@ a {
 
 .faq-content-box-tr2 {
 	width: 90%;
-	height: 130vh;
+	height: auto;
+	min-height: 100vh;
 	border-radius: 35px;
 	background: rgba(255, 233, 155, 0.90);
 	display: inline-block;

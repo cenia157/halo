@@ -412,7 +412,13 @@ function getFAQData(qa_seq, qa_title, qa_content, qa_reg_date){
 				let qa_reg_date = data[0].qa_reg_date;
 				
 				$('#classicNR_Title').val(qa_title);
-				$('#classicNR').val(qa_content);
+				$('#classicNR').html(qa_content);
+				
+				// CKEditor에 데이터 설정
+                window.editor.setData(qa_content);
+                
+//				let classicNR = document.getElementById("classicNR");
+//				classicNR.innerHTML = "나옴?";
 				
 				openModalF();
 			}

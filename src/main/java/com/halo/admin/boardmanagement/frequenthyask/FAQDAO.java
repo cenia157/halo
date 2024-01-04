@@ -155,7 +155,6 @@ public class FAQDAO {
 			ObjectMapper objectMapper = new ObjectMapper();
 			jsonresult = objectMapper.writeValueAsString(FAQList);
 			
-			System.out.println("JSONRESULT확인: "+ jsonresult);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
