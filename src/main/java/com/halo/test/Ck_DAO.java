@@ -63,7 +63,7 @@ public class Ck_DAO {
 
 				Connection con = null;
 				PreparedStatement pstmt = null;
-				String sql = "INSERT INTO announced_tbl " + "(an_seq, an_title, an_content, an_writer, an_category) "
+				String sql = "INSERT INTO announced_tbl (an_seq, an_title, an_content, an_writer, an_category) "
 						+ "VALUES (announced_tbl_seq.nextval, ?, ?, ?, ?)";
 
 				con = DBManagerhalo_JW.connect();
