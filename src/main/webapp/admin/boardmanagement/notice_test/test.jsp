@@ -16,7 +16,7 @@
 </head>
 
 <body>
-	<div  id="myModalNR" class="modal-background"></div>
+	<div id="myModalNR" class="modal-background"></div>
 	<form id="ck-form" method="post">
 		<div id="myModal-tblNR" class="modal-tbl">
 			<div class="modal-title-set">
@@ -89,17 +89,21 @@
 
 						<button class="SubmitButton" type="button" id="reg-btn"
 							onclick="noValue()">등록완료</button>
-						<!-- 여기는 필수 입력값을 안넣었을 때 거부하는 부분이다 (아직 미완성, 마지막에 할 예정)-->
 					</div>
 				</div>
 			</div>
 		</div>
 	</form>
 
-	<!-- 아래의 스크립트는 CKEditor에 올라온 이미지를 ajax로 올리는 역힐이다-->
-	<script src="admin/boardmanagement/notice_test/0.js/testMZ.js" type="module"></script>
+	<!-- 아래의 스크립트는 CKEditor에 올라온 이미지를 ajax로 올리는 역할이다
+	추가로 아마 위의 스크립트의 경로를 다음과 같이 바꿔야 할 것 같다. 이건 단영씨와 합치고 난 뒤에 하자, 이름도 바꾸고...
+	admin/_js/ImageAjax.js -->
+	<script src="admin/boardmanagement/notice_test/0.js/testMZ.js"
+		type="module"></script>
+		
 	<!-- 아래의 스크립트는 오류방지용 -->
 	<script src="admin/boardmanagement/notice_test/0.js/ValidationItems.js"></script>
+
 	<!-- 여기는 CKEditor에 들어간 값을 서버로 보내는 역할이다 -->
 	<script src="admin/boardmanagement/notice_test/0.js/SendCkeditorC.js"></script>
 
