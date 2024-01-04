@@ -7,8 +7,10 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>notice</title>
-<script src="admin/0.js/ckeditor.js"></script>
-<script src="admin/0.js/test2.js"></script>
+<script src="admin/_js/ckeditor/ckeditor.js"></script>
+<script src="admin/_js/test2.js"></script>
+
+
 <link rel="stylesheet"
 	href="admin/boardmanagement/notice/0.css/notice.css" />
 <link
@@ -57,10 +59,18 @@
 			기존의 공지사항을 보기 위한 모달(noticeViewPage.jsp)
 			기존의 공지사항을 수정 위한 모달(이 모달은 noticeViewPage에서 include됨)(noticeRegPage.jsp)
 		-->
-		<jsp:include page="noticeViewPage.jsp"></jsp:include>
-		<jsp:include page="noticeRegPage.jsp"></jsp:include>
-		<jsp:include page="noticeNEWRegPage.jsp"></jsp:include>
+		<jsp:include page="test.jsp"></jsp:include>
 	</div>
 </body>
+
+
+
+
+
+
+
+
+
+
 
 </html>

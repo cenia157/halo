@@ -9,14 +9,14 @@
 <title>noticeEditPage</title>
 
 <link rel="stylesheet"
-	href="admin/boardmanagement/notice_test/0.css/notice.css" />
+	href="admin/boardmanagement/notice/0.css/notice.css" />
 <link
 	href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular"
 	rel="stylesheet" />
 </head>
 
 <body>
-	<div onclick="closeModalNR()" id="myModalNR" class="modal-background"></div>
+	<div id="myModalNR" class="modal-background"></div>
 	<form id="ck-form" method="post">
 		<div id="myModal-tblNR" class="modal-tbl">
 			<div class="modal-title-set">
@@ -71,14 +71,13 @@
 									</div>
 								</div>
 								<script
-									src="admin/boardmanagement/notice_test/0.js/noticeToggle.js"></script>
+									src="admin/boardmanagement/notice/0.js/noticeToggle.js"></script>
 								<!--  -->
 							</div>
 						</div>
 					</div>
 					<div class="modal-title-td-2">
-						<span class="close" id="closeModalBtn"
-							onclick="closeModalNR()">&times;</span>
+						<span class="close" id="closeModalBtn" onclick="closeModalNR()">&times;</span>
 					</div>
 				</div>
 				<div class="modal-content">
@@ -90,78 +89,24 @@
 
 						<button class="SubmitButton" type="button" id="reg-btn"
 							onclick="noValue()">등록완료</button>
-						<!-- 여기는 필수 입력값을 안넣었을 때 거부하는 부분이다 (아직 미완성, 마지막에 할 예정)-->
 					</div>
 				</div>
 			</div>
 		</div>
 	</form>
 
-	<!-- 아래의 스크립트는 CKEditor에 올라온 이미지를 ajax로 올리는 역힐이다-->
+	<!-- 아래의 스크립트는 CKEditor에 올라온 이미지를 ajax로 올리는 역할이다
+	추가로 아마 위의 스크립트의 경로를 다음과 같이 바꿔야 할 것 같다. 이건 단영씨와 합치고 난 뒤에 하자, 이름도 바꾸고...
+	admin/_js/ImageAjax.js -->
+	<script src="admin/boardmanagement/notice/0.js/testMZ.js"
+		type="module"></script>
+		
+	<!-- 아래의 스크립트는 오류방지용 -->
+	<script src="admin/boardmanagement/notice/0.js/ValidationItems.js"></script>
 
-						<script
-							src="admin/boardmanagement/notice_test/0.js/ValidationItems.js"></script>
-	<script type="module"
-		src="admin/boardmanagement/notice_test/0.js/testMZ.js"></script>
-		
-		
-		
 	<!-- 여기는 CKEditor에 들어간 값을 서버로 보내는 역할이다 -->
-	<script type="text/javascript">
-	let regBtn = document.querySelector('#reg-btn');
-	regBtn.addEventListener("click", function(event) {
-		let ckForm = document.querySelector('#ck-form');
-		const content = window.editor.getData();
-		const formData = new FormData(ckForm);
-		formData.set('txt', content);
-		console.log('--------------------')
-		console.log(content)
-		console.log(formData);
-		const payload = new URLSearchParams(formData);
-		console.log(payload)
-		for (var pair of formData.entries()) {
-			console.log(pair[0] + ': ' + pair[1]);
-		}
-		console.log('--------------------')
-		let CkeditorC123 = fetch('CkeditorC', {
-			method: 'POST',
-			body: payload,
-			headers: {
-				'Content-Type': 'application/x-www-form-urlencoded', // 헤더 설정
-			}
-		})
-			.then(response => {
-				if (!response.ok) {
-					throw new Error('Network response was not ok');
-				}
-				return response.text();
-			})
-			.then(data => {
-				console.log('POST 요청 성공:', data);
-				console.log(CkeditorC123);
-			})
-			.catch(error => {
-				console.error('POST 요청 실패:', error);
-			});
-	});
-	
-	</script>
+	<script src="admin/boardmanagement/notice/0.js/SendCkeditorC.js"></script>
 
-	<script>
-let imgIdx = 0;
 
-$(document).ready(function(){
-	$('.ck-content').on('click', 'figure', function(e){
-		imgIdx = $(this).index();
-	});
-	
-	$('.ck-content').on('keydown', function(e){
-		if(e.key === 'Delete'&& $('figure').length > 0){
-			$('[name=saveFname]').eq(imgIdx).attr('disabled', 'disabled');
-			$('[name=saveFname]').eq(imgIdx).hide();
-		}
-	});
-});
-</script>
 </body>
 </html>

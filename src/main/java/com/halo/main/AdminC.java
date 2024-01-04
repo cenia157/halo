@@ -21,7 +21,7 @@ public class AdminC extends HttpServlet {
 				menu = "/admin/homepageSetting/mainpage/mainpageContent";
 			} // 버튼누르면 바로 해당기능C로 ㄱㄱ하도록 인덱스에 박아둠, 해당 페이지 링크부분 삭제함
 			else if (request.getParameter("link").equals("5")) {
-				menu = "/admin/boardmanagement/notice_test/noticeContent";
+				menu = "/admin/boardmanagement/notice/noticeContent";
 			} else if (request.getParameter("link").equals("6")) {
 				menu = "/admin/boardmanagement/ask/askContent";
 			} else if (request.getParameter("link").equals("7")) {
