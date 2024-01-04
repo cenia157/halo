@@ -118,7 +118,6 @@ function closeModalNR() {
 
 //문의사항@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 function getData(q_seq, q_title, q_content, q_reg_date, q_contact_number, q_email, q_name, q_password, q_category) {
-    console.log("q_seq: "+ q_seq);
     
     // 첫 번째 Ajax 요청
     $.ajax({
@@ -381,13 +380,41 @@ function statusCheck(){
 	
 //FAQ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
-function getFAQData(qa_seq){
-
+function getFAQData(qa_seq, qa_title, qa_content, qa_reg_date){
+	console.log("qa_seq: ", qa_seq);
+	
 	$.ajax({
 		url: "getFAQDetailC",
 		method: "post",
 		data:{
-			qa_seq: qa_seq
+			qa_seq: qa_seq,
+			qa_title: qa_title,
+			qa_content: qa_content,
+			qa_reg_date: qa_reg_date
+		},
+		
+		success: function(data){
+		
+			console.log("data: ", data);
+			console.log("FAQ 데이터 가져오기 성공");
+
+			if (Array.isArray(data) && data.length > 0){
+				let qa_seq = data[0].qa_seq;
+				let qa_title = data[0].qa_seq;
+				let qa_content = data[0].qa_seq;
+				let qa_reg_date = data[0].qa_seq;
+				
+				$('#classicNR_Title').html(qa_title);
+				$('#classicNR').html(qa_content);
+				
+				openModalF();
+			}
+							
+			
+		},
+		error: function(xhr, status, error){
+			console.log("FAQ 데이터 가져오기 실패");
+			console.log("error:", xhr, status, error);
 		}
 	})
 

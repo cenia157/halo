@@ -55,8 +55,8 @@
 			<c:forEach items="${FAQs}" var="qa" varStatus="loop">
 				<div class="ontent-m-td-2-content-txt-in">
 					<input hidden="1" name="qa_seq" value="${qa.qa_seq }">
-					<div class="ontent-m-td-2-content-txt-no-in"> ${loop.index + 1 } </div>
-					<div class="ontent-m-td-2-content-txt-title-in" id="Title_css"> <a onclick="openModalF()">● ${qa.qa_title } </a> </div>
+					<div class="ontent-m-td-2-content-txt-no-in"> ${(loop.index + 1) + (curPageNo -1) * 8 } </div>
+					<div class="ontent-m-td-2-content-txt-title-in" id="Title_css"> <a onclick="getFAQData('${qa.qa_seq}')">● ${qa.qa_title } </a> </div>
 					<div class="ontent-m-td-2-content-txt-date-in">${qa.qa_reg_date}</div>
 					<div class="ontent-m-td-2-content-txt-delete-in"> <button>삭제하기</button> </div>
 				</div>
@@ -72,12 +72,12 @@
                   <!-- 처음으로 가는 버튼 -->
                   <c:choose>
                     <c:when test="${curPageNo > 5}">
-                      <a href="AskPagingC?p=${curPageNo - 5}">
+                      <a href="FAQPagingC?p=${curPageNo - 5}">
                         <button><<</button>
                       </a>
                     </c:when>
                     <c:when test="${curPageNo <= 5 && curPageNo > 1}">
-                      <a href="AskPagingC?p=1">
+                      <a href="FAQPagingC?p=1">
                         <button><<</button>
                       </a>
                     </c:when>
@@ -89,7 +89,7 @@
                   <!-- 이전 페이지로 가는 버튼 -->
                   <c:choose>
                     <c:when test="${curPageNo > 1}">
-                      <a href="AskPagingC?p=${curPageNo - 1}">
+                      <a href="FAQPagingC?p=${curPageNo - 1}">
                         <button>이전</button>
                       </a>
                     </c:when>
@@ -137,7 +137,7 @@
                     />
 					<!-- 버튼 모양 결정 -->
                     <a
-                      href="AskPagingC?p=${pageNumber}"
+                      href="FAQPagingC?p=${pageNumber}"
                       class="page-number ${currentPageClass}"
                       >
                       [ ${pageNumber} ]
@@ -148,7 +148,7 @@
                   <!-- 다음 페이지로 가는 버튼 -->
                   <c:choose>
                     <c:when test="${curPageNo < pageCount}">
-                      <a href="AskPagingC?p=${curPageNo + 1}">
+                      <a href="FAQPagingC?p=${curPageNo + 1}">
                         <button>다음</button>
                       </a>
                     </c:when>
@@ -160,14 +160,14 @@
                   <!-- 마지막으로 가는 버튼 -->
                   <c:choose>
                     <c:when test="${curPageNo + 5 <= pageCount}">
-                      <a href="AskPagingC?p=${curPageNo + 5}">
+                      <a href="FAQPagingC?p=${curPageNo + 5}">
                         <button>>></button>
                       </a>
                     </c:when>
                     <c:when
                       test="${curPageNo + 5 > pageCount && curPageNo < pageCount}"
                     >
-                      <a href="AskPagingC?p=${pageCount}">
+                      <a href="FAQPagingC?p=${pageCount}">
                         <button>>></button>
                       </a>
                     </c:when>

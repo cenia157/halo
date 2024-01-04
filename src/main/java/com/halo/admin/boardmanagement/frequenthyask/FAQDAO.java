@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.halo.admin.boardmanagement.ask.QuestionNComment;
 import com.halo.main.DBManagerhalo;
 import com.halo.test.DBManagerhalo_YJ;
@@ -97,16 +98,75 @@ public class FAQDAO {
 			con = DBManagerhalo_YJ.connect();
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, request.getParameter("qa_seq"));
+			System.out.println("QA seq: "+request.getParameter("qa_seq"));
 			rs = pstmt.executeQuery();
 			
-			
-			
+			while (rs.next()) {
+				FAQ FAQ = new FAQ();
+				
+				FAQ.setQa_seq(rs.getInt("qa_seq"));
+				FAQ.setQa_title(rs.getString("qa_title"));
+				FAQ.setQa_content(rs.getString("qa_content"));
+				FAQ.setQa_reg_date(rs.getDate("qa_reg_date"));
+
+				request.setAttribute("FAQ", FAQ );
+				System.out.println("FAQ값 확인: "+ FAQ);
+			}
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			DBManagerhalo_YJ.close(con, pstmt, rs);
+		}
+	}
+	
+	
+	public static String FAQList (HttpServletRequest request, HttpServletResponse response) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		ArrayList<FAQ> FAQList = new ArrayList<FAQ>();
+		String jsonresult = null;
+		
+		int qa_seq = 0;
+		String qa_title = null;
+		String qa_content = null;
+		Date qa_reg_date = null;
+		
+		String sql = "SELECT * FROM QA_tbl WHERE qa_seq = ?";
+		response.setContentType("application/json");
+		
+		try {
+			con = DBManagerhalo_YJ.connect();
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, request.getParameter("qa_seq"));
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+			qa_seq = rs.getInt(1);
+			qa_title = rs.getString(2);
+			qa_content = rs.getString(3);
+			qa_reg_date = rs.getDate(4);
+			
+			FAQ faq = new FAQ(qa_seq, qa_title, qa_content, qa_reg_date);
+			FAQList.add(faq);
+			}
+			
+			ObjectMapper objectMapper = new ObjectMapper();
+			jsonresult = objectMapper.writeValueAsString(FAQList);
+			
+			System.out.println("JSONRESULT확인: "+ jsonresult);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBManagerhalo_YJ.close(con, pstmt, rs);
 		}
 		
+		return jsonresult;
 		
 	}
 	
+	
 }
+	
+	
