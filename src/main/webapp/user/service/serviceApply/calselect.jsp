@@ -18,21 +18,23 @@
 	<!-- step별 페이지 -->
 	<form action="CalselectC" class="content-calbox-td" method="post">
 		<div class="content-date-select-box-td">
-			<div class="date-sel-text">
-				시작일 :<input type="date" required="required" id="start-date-sel" name="selectedStart"
-					class="date-sel" /> ~ 종료일 :<input type="date" id="end-date-sel"
-					name="selectedEnd" class="date-sel" />
-			</div>
-			<br>
+			<div class="date-sel-start-box-td">
+				開始日<br>
+				<input type="date" required="required" id="start-date-sel" name="selectedStart" class="date-sel" />
+					</div>
+					<div class="date-sel-txt-box-td"> <br> ~ </div>
+					<div class="date-sel-end-box-td">
+					 終了日<br>
+					 <input type="date" id="end-date-sel" name="selectedEnd" class="date-sel" />
+					</div>
 		</div>
 		<div class="calendar">
 			<div class="header">
+					<button class="nav-btn go-prev" id="prev-button">&lt;先月</button>
 				<div class="year-month"></div>
-				<div class="nav">
-					<button class="nav-btn go-prev" id="prev-button">&lt;</button>
-					<button class="year-month" onclick="goToday()">today</button>
-					<button class="nav-btn go-next" id="next-button">&gt;</button>
-				</div>
+<!-- 				<div class="nav"> -->
+					<button class="nav-btn go-next" id="next-button">来月&gt;</button>
+<!-- 				</div> -->
 			</div>
 			<div class="main">
 				<div class="days">
@@ -45,6 +47,7 @@
 					<div class="day">土</div>
 				</div>
 				<div class="dates"></div>
+
 			</div>
 		</div>
 		<div class="content-cal-btn-box-td">
