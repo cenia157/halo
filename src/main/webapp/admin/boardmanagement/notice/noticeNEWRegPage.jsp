@@ -1,22 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
-<html lang="kr">
-
+<html>
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>noticeEditPage</title>
+<meta charset="UTF-8">
+<style>
 
-<link rel="stylesheet"
-	href="admin/boardmanagement/notice/0.css/notice.css" />
-<link
-	href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular"
-	rel="stylesheet" />
+</style>
+
+<script src="admin/_js/ckeditor.js"></script>
+
 </head>
-
 <body>
-	<div onclick="closeModalNR()" id="myModalNR" class="modal-background"></div>
+
 	<form class="ck-form" method="post">
 		<div id="myModal-tblNR" class="modal-tbl">
 			<div class="modal-title-set">
@@ -77,7 +81,9 @@
 						<!-- 아래의 코드는 CK Editor를 넣는 부분이다-->
 						<textarea name="txt" id="classicNR"></textarea>
 						<!-- 아래의 스크립트 코드는 CK Editor를 불러오는 부분이다-->
-						<script>
+
+
+					<script>
 						ClassicEditor
 						.create(document.querySelector('#classicNR'))
 						.then(editor => {
@@ -87,7 +93,10 @@
 								console.error(error);
 								});
 						
-				</script>
+					</script>
+
+
+
 					</div>
 					<div class="modal-content-button">
 						<button class="SubmitButton" type="submit" id="reg-btn"
@@ -97,6 +106,8 @@
 			</div>
 		</div>
 	</form>
+
+
 	<script type="text/javascript">
 		 let ckForm = document.querySelector('.ck-form');
 		 console.log(ckForm);
@@ -134,10 +145,6 @@
 	        });
 		});
 </script>
-
-
-
-
 
 
 

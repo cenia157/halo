@@ -9,7 +9,7 @@
 <title>noticeEditPage</title>
 
 <link rel="stylesheet"
-	href="admin/boardmanagement/notice_test/0.css/notice.css" />
+	href="admin/boardmanagement/notice/0.css/notice.css" />
 <link
 	href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular"
 	rel="stylesheet" />
@@ -71,7 +71,7 @@
 									</div>
 								</div>
 								<script
-									src="admin/boardmanagement/notice_test/0.js/noticeToggle.js"></script>
+									src="admin/boardmanagement/notice/0.js/noticeToggle.js"></script>
 								<!--  -->
 							</div>
 						</div>
@@ -98,14 +98,14 @@
 	<!-- 아래의 스크립트는 CKEditor에 올라온 이미지를 ajax로 올리는 역할이다
 	추가로 아마 위의 스크립트의 경로를 다음과 같이 바꿔야 할 것 같다. 이건 단영씨와 합치고 난 뒤에 하자, 이름도 바꾸고...
 	admin/_js/ImageAjax.js -->
-	<script src="admin/boardmanagement/notice_test/0.js/testMZ.js"
+	<script src="admin/boardmanagement/notice/0.js/testMZ.js"
 		type="module"></script>
 		
 	<!-- 아래의 스크립트는 오류방지용 -->
-	<script src="admin/boardmanagement/notice_test/0.js/ValidationItems.js"></script>
+	<script src="admin/boardmanagement/notice/0.js/ValidationItems.js"></script>
 
 	<!-- 여기는 CKEditor에 들어간 값을 서버로 보내는 역할이다 -->
-	<script src="admin/boardmanagement/notice_test/0.js/SendCkeditorC.js"></script>
+	<script src="admin/boardmanagement/notice/0.js/SendCkeditorC.js"></script>
 
 
 </body>
