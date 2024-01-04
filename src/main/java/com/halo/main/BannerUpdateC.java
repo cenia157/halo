@@ -14,8 +14,8 @@ public class BannerUpdateC extends HttpServlet {
 		MainpageDAO.getMdao().getAllHompage_common(request);
 		//AdminC에 있던 menu 어트리뷰트(경로) 정의
 		//Admin page 메뉴(index.jsp) 안고가기 => 디스페쳐
-		request.setAttribute("menu", "/admin/homepageSetting/banner/bannerContent.jsp");
 		request.getRequestDispatcher("admin/index.jsp").forward(request, response);
+		request.setAttribute("menu", "/admin/homepageSetting/banner/bannerContent.jsp");
 		
 	}
 

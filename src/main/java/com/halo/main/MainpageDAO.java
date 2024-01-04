@@ -287,6 +287,11 @@ public class MainpageDAO {
 		}
 		
 	}
+
+	public void uploadBanner(HttpServletRequest request) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 	
