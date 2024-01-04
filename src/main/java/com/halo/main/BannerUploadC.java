@@ -18,7 +18,7 @@ public class BannerUploadC extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		MainpageDAO.getMdao().uploadBanner(request);
+		MainpageDAO.getMdao().uploadBanner(request, response);
 	}
 
 }

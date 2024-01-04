@@ -57,7 +57,7 @@
 						<div class="logo_upload">
 							<!-- 바뀔 이미지 미리보기(Ajax) -->
 									<label for="logo_img">
-								<img id="logo_preview"6
+								<img id="logo_preview"
 									src="${pageContext.request.contextPath}/admin/0.img/logo_upload.png">
 									</label>
 							<!-- 변경할 로고이미지 인풋 -->

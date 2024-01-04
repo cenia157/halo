@@ -89,37 +89,6 @@ public class MainpageDAO {
 		response.getWriter().write(fileName);
     }
 
-    
-	
-	//로고 등록 메소드(처음에만 쓸거임 test용)
-	public void regLogo(HttpServletRequest request) {
-		
-		Connection con = null;
-		PreparedStatement pstmt = null;
-		String sql = "insert into homepage_common(homepage_common_seq, h_logo_img) values(homepage_common_seq.nextval, ?)";
-		String savepath = request.getRealPath("user/upload_imgs");
-		try {
-			con = DBManagerhalo.connect();
-			pstmt = con.prepareStatement(sql);
-			MultipartRequest mr = new MultipartRequest(request, savepath, 1024*1024*20, "utf-8", new DefaultFileRenamePolicy());
-
-			String h_logo_img = mr.getFilesystemName("logo_img");
-			pstmt.setString(1, h_logo_img);
-			
-			if (pstmt.executeUpdate() == 1) {
-				System.out.println("img 등록성공!");
-			}
-			request.setAttribute("imgPath", "/user/upload_imgs/" + h_logo_img);
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-			System.out.println("db server error...");
-		}finally {
-			DBManagerhalo.close(con, pstmt, null);
-		}
-		
-		
-	}
 	
 	//로고 수정 메소드
 	public void updateLogo(HttpServletRequest request) {
@@ -187,6 +156,65 @@ public class MainpageDAO {
 		
 	}
 	
+	
+	//하단베너 DTO
+	public void getAllBanner(HttpServletRequest request) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "select b_index, b_type, b_m_name, b_url, nvl(b_m_text, 'empty') as b_m_text, nvl(b_img_url, 'empty') as b_img_url from banner_test order by b_index";
+		String paramName = "error";
+		String param = "조회 실패";
+		
+		try {
+			con = DBManagerhalo.connect();
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			ArrayList<BannerInformDTO> bannersInform = new ArrayList<BannerInformDTO>();
+			
+			while (rs.next()) {
+				BannerInformDTO tempBannerInform = new BannerInformDTO();
+				tempBannerInform.setB_index(rs.getInt(1));
+				tempBannerInform.setB_type(rs.getInt(2));
+				tempBannerInform.setB_m_name(rs.getString(3));
+				tempBannerInform.setB_url(rs.getString(4));
+				tempBannerInform.setB_m_text(rs.getString(5));
+				tempBannerInform.setB_img_url(rs.getString(6));
+				
+				System.out.println(tempBannerInform);
+				
+				bannersInform.add(tempBannerInform);
+			}
+			
+			request.setAttribute("bannersInform", bannersInform);
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			request.setAttribute("paramName", paramName);
+			request.setAttribute("param", param);
+			DBManagerhalo.close(con, pstmt, null);
+		}
+		
+	}
+	
+	
+	
+	//하단베너 업로드 ajax 미리보기 (멀티파트로 까서 어트리뷰트 넘겨주기만 하는 용도 DB는 변경버튼 누를때 업뎃메서드 사용예정)
+	public void uploadBanner(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		String savepath = request.getServletContext().getRealPath("user/upload_imgs/banner");
+		MultipartRequest mr = new MultipartRequest(request, savepath, 1024*1024*20, "utf-8", new DefaultFileRenamePolicy());
+		
+		 String fileName = mr.getFilesystemName("banner_thumbnail");
+		 System.out.println(fileName);
+		 response.getWriter().write(fileName);
+
+		
+	}
+	
+	
 	//하단베너 업데이트
 	public void updateBanner(HttpServletRequest request) {
 		Connection con = null;
@@ -243,55 +271,6 @@ public class MainpageDAO {
 		}
 	}
 	
-	
-	
-	//하단베너 DTO
-	public void getAllBanner(HttpServletRequest request) {
-		Connection con = null;
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		String sql = "select b_index, b_type, b_m_name, b_url, nvl(b_m_text, 'empty') as b_m_text, nvl(b_img_url, 'empty') as b_img_url from banner_test order by b_index";
-		String paramName = "error";
-		String param = "조회 실패";
-		
-		try {
-			con = DBManagerhalo.connect();
-			pstmt = con.prepareStatement(sql);
-			rs = pstmt.executeQuery();
-			
-			ArrayList<BannerInformDTO> bannersInform = new ArrayList<BannerInformDTO>();
-			
-			while (rs.next()) {
-				BannerInformDTO tempBannerInform = new BannerInformDTO();
-				tempBannerInform.setB_index(rs.getInt(1));
-				tempBannerInform.setB_type(rs.getInt(2));
-				tempBannerInform.setB_m_name(rs.getString(3));
-				tempBannerInform.setB_url(rs.getString(4));
-				tempBannerInform.setB_m_text(rs.getString(5));
-				tempBannerInform.setB_img_url(rs.getString(6));
-				
-				System.out.println(tempBannerInform);
-				
-				bannersInform.add(tempBannerInform);
-			}
-			
-			request.setAttribute("bannersInform", bannersInform);
-			
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		}finally {
-			request.setAttribute("paramName", paramName);
-			request.setAttribute("param", param);
-			DBManagerhalo.close(con, pstmt, null);
-		}
-		
-	}
-
-	public void uploadBanner(HttpServletRequest request) {
-		// TODO Auto-generated method stub
-		
-	}
 	
 	
 	

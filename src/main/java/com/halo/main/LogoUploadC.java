@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/LogoUploadC")
 public class LogoUploadC extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		MainpageDAO.getMdao().getAllHompage_common(request);
 		//지금컨트롤러, 결과 파라미터
+		MainpageDAO.getMdao().getAllHompage_common(request);
 		//Admin page 메뉴(index.jsp) 안고가기 => 디스페쳐
 		request.setAttribute("menu", "/admin/homepageSetting/logo/logoContent.jsp");
 		request.getRequestDispatcher("admin/index.jsp").forward(request, response);
