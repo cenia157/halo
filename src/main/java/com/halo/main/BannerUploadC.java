@@ -18,6 +18,7 @@ public class BannerUploadC extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//바꿀 베너 이미지파일 미리보기
 		MainpageDAO.getMdao().uploadBanner(request, response);
 	}
 

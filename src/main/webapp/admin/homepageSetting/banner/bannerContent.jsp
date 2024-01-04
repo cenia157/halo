@@ -22,7 +22,7 @@
 </head>
 <body>
 	<div class="content-m-td-3">
-	<form action="BannerUpdateC" method="post" enctype="multipart/form-data">
+	<form action="BannerUploadC" id="bannerUploadForm" method="post" enctype="multipart/form-data">
 		<div class="banner-tbl">
 			<div class="banner-tr">
 			<div class="banner-no"><h1>1.box</h1></div>
@@ -59,7 +59,7 @@
 				<label for="thumbnail">
 				<div class="btn-upload">파일업로드</div>
 				</label>
-				<input type="file" name="banner_thumbnail1" id="thumbnail">
+				<input type="file" name="banner_thumbnail1" id="thumbnail1">
 				</div>
 				</div>
 			</div>
@@ -97,7 +97,7 @@
 				<label for="thumbnail">
 				<div class="btn-upload">파일업로드</div>
 				</label>
-				<input type="file" name="banner_thumbnail2" id="thumbnail">
+				<input type="file" name="banner_thumbnail2" id="thumbnail2">
 				</div>
 				</div>
 			</div>
@@ -135,13 +135,13 @@
 				<label for="thumbnail">
 				<div class="btn-upload">파일업로드</div>
 				</label>
-				<input type="file" name="banner_thumbnail3" id="thumbnail">
+				<input type="file" name="banner_thumbnail3" id="thumbnail3">
 				</div>
 				</div>
 			</div>
 		</div>
 		<div class="content-button">
-		<button>변경</button>
+		<button id="banner_btn_submit" type="button" onclick="#">변경</button>
 		</div>
 		</form>
 	</div>

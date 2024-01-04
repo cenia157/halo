@@ -18,7 +18,7 @@ public class LogoUploadC extends HttpServlet {
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//바꿀 로고 이미지파일 미리보기로 보여주기
+		//바꿀 로고 이미지파일 미리보기
 		MainpageDAO.getMdao().uploadLogo(request, response);
 		
 	}

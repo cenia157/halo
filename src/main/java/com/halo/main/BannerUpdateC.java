@@ -11,18 +11,14 @@ import javax.servlet.http.HttpServletResponse;
 public class BannerUpdateC extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//getAll로 DTO깐거 가져옴
-		MainpageDAO.getMdao().getAllHompage_common(request);
-		//AdminC에 있던 menu 어트리뷰트(경로) 정의
-		//Admin page 메뉴(index.jsp) 안고가기 => 디스페쳐
-		request.getRequestDispatcher("admin/index.jsp").forward(request, response);
-		request.setAttribute("menu", "/admin/homepageSetting/banner/bannerContent.jsp");
+//		MainpageDAO.getMdao().getAllHompage_common(request);
+		//업뎃 메소드
+		MainpageDAO.getMdao().updateBanner(request);
+		response.sendRedirect("BannerUploadC");
 		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//업뎃 메소드
-		MainpageDAO.getMdao().updateBanner(request);
-		response.sendRedirect("BannerUpdateC");
 		
 	
 	
