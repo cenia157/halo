@@ -71,9 +71,9 @@ public class MainpageDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
-			DBManagerhalo.close(con, pstmt, rs);
 			//하단베너 출력
 			getAllBanner(request);
+			DBManagerhalo.close(con, pstmt, rs);
 		}
 		
 	}
