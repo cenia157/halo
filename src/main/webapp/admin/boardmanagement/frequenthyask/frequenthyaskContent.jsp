@@ -54,7 +54,7 @@
 <!-- 			<div class="ontent-m-td-2-mid"> -->
 			<c:forEach items="${FAQs}" var="qa" varStatus="loop">
 				<div class="ontent-m-td-2-content-txt-in">
-					<input hidden="1" value="${qa.qa_seq }">
+					<input hidden="1" name="qa_seq" value="${qa.qa_seq }">
 					<div class="ontent-m-td-2-content-txt-no-in"> ${loop.index + 1 } </div>
 					<div class="ontent-m-td-2-content-txt-title-in" id="Title_css"> <a onclick="openModalF()">● ${qa.qa_title } </a> </div>
 					<div class="ontent-m-td-2-content-txt-date-in">${qa.qa_reg_date}</div>

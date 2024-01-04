@@ -8,7 +8,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.security.auth.message.callback.PrivateKeyCallback.Request;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.halo.admin.boardmanagement.ask.QuestionNComment;
@@ -82,6 +84,29 @@ public class FAQDAO {
 		
 		request.setAttribute("FAQs", items);
 		
-	
 	}
+	
+	public static void getFAQDetail(HttpServletRequest request, HttpServletResponse response) {
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "SELECT * FROM QA_tbl WHERE qa_seq = ?";
+		
+		try {
+			con = DBManagerhalo_YJ.connect();
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, request.getParameter("qa_seq"));
+			rs = pstmt.executeQuery();
+			
+			
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+	}
+	
 }

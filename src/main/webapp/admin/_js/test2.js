@@ -382,4 +382,13 @@ function statusCheck(){
 //FAQ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 function getFAQData(qa_seq){
+
+	$.ajax({
+		url: "getFAQDetailC",
+		method: "post",
+		data:{
+			qa_seq: qa_seq
+		}
+	})
+
 }
