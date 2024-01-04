@@ -11,11 +11,14 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import com.halo.admin.boardmanagement.ask.QuestionNComment;
 import com.halo.main.DBManagerhalo;
 import com.halo.test.DBManagerhalo_YJ;
 
 public class FAQDAO {
 
+	private static ArrayList<FAQ> FAQs;
+	
 	public static void getAllFAQ(HttpServletRequest request) {
 		
 		Connection con = null;
@@ -27,12 +30,10 @@ public class FAQDAO {
 			con = DBManagerhalo_YJ.connect();
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
-			System.out.println("DB connected");
 			
-			ArrayList<FAQ> FAQs = new ArrayList<>();
+			FAQs = new ArrayList<>();
 			FAQ faq;
 			
-			System.out.println(rs.next());
 			while (rs.next()) {
 				int qa_seq = rs.getInt("qa_seq");
 				String qa_title = rs.getString("qa_title");
@@ -44,7 +45,6 @@ public class FAQDAO {
 			}
 			
 			request.setAttribute("FAQs", FAQs);
-			System.out.println("faqList: "+FAQs);
 			
 			
 		} catch (Exception e) {
@@ -56,4 +56,32 @@ public class FAQDAO {
 		
 	}
 	
+	public static void FAQpagingAdmin(int page, HttpServletRequest request) {
+		
+		request.setAttribute("curPageNo", page);
+		System.out.println("page: " + page);
+		
+		int cnt = 8; 
+		int total = FAQs.size(); 
+		System.out.println("total ::: " + total );
+		int pageCount = (int)Math.ceil((double)total / cnt);
+		request.setAttribute("pageCount", pageCount);
+		System.out.println("pageCount: "+pageCount);
+		
+		int start = total - (cnt * (page -1));
+		System.out.println("start ::: " + start );
+		
+		int end = (page == pageCount) ? -1 : start - (cnt + 1);
+		
+		ArrayList<FAQ> items = new ArrayList<FAQ>();
+		
+		
+		for (int i = start-1; i > end; i--) {
+			items.add(FAQs.get(i));
+		}
+		
+		request.setAttribute("FAQs", items);
+		
+	
+	}
 }

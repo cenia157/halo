@@ -55,7 +55,10 @@
 			        </div>
 			    </div>
 			</c:forEach>
-			
+		</div>
+	<div class="ontent-m-td-2-bottom">
+		<div class="ontent-m-td-2-page-side"></div>
+		<div class="ontent-m-td-2-page-center">
 			<!-- 					페이징처리 해야할 부분 -->
 					                <!--페이징시작 -->
                 <div class="paging-div">
@@ -167,7 +170,8 @@
                   </c:choose>
                 </div>
                 <!-- 페이징끝 -->
-			
+			</div>
+		<div class="ontent-m-td-2-page-side"></div>
 		</div>
 	</div>
 </body>

@@ -115,7 +115,8 @@ function closeModalNR() {
 	closeModal('myModalNR', 'myModal-tblNR');
 }
 
-//모달창 데이터
+
+//문의사항@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 function getData(q_seq, q_title, q_content, q_reg_date, q_contact_number, q_email, q_name, q_password, q_category) {
     console.log("q_seq: "+ q_seq);
     
@@ -374,3 +375,11 @@ function statusCheck(){
 	
 		})
 	}
+
+	
+	
+	
+//FAQ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+function getFAQData(qa_seq){
+}
