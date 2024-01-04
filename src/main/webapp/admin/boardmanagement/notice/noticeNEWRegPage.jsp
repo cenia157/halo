@@ -1,26 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
-
-
-
-
-
-
-
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <style>
-
 </style>
-
 <script src="admin/_js/ckeditor.js"></script>
-
 </head>
 <body>
-
 	<form class="ck-form" method="post">
 		<div id="myModal-tblNR" class="modal-tbl">
 			<div class="modal-title-set">
@@ -30,16 +18,6 @@
 							<input class="real-title-editor" name="title"
 								id="real-title-editor" placeholder="이곳에 제목을 입력하세요">
 							<div class="real-title-select">
-								<!--  -->
-								<!-- 
-								<select name="select">
-									<option value="announcement">안내</option>
-									<option value="schedule">일정</option>
-									<option value="general">일반</option>
-									<option value="service">서비스</option>
-									<option value="product">상품</option>
-								</select>
- -->
 								<div class="toggle" id="toggle" onclick="toggle()">
 									<div class="kategorie" id="kategorie">카테고리</div>
 									<div class="toggle-down" id="toggle-down">
@@ -81,9 +59,7 @@
 						<!-- 아래의 코드는 CK Editor를 넣는 부분이다-->
 						<textarea name="txt" id="classicNR"></textarea>
 						<!-- 아래의 스크립트 코드는 CK Editor를 불러오는 부분이다-->
-
-
-					<script>
+						<script>
 						ClassicEditor
 						.create(document.querySelector('#classicNR'))
 						.then(editor => {
@@ -92,11 +68,7 @@
 						.catch(error => {
 								console.error(error);
 								});
-						
 					</script>
-
-
-
 					</div>
 					<div class="modal-content-button">
 						<button class="SubmitButton" type="submit" id="reg-btn"
@@ -106,8 +78,6 @@
 			</div>
 		</div>
 	</form>
-
-
 	<script type="text/javascript">
 		 let ckForm = document.querySelector('.ck-form');
 		 console.log(ckForm);
@@ -145,12 +115,5 @@
 	        });
 		});
 </script>
-
-
-
-
-
-
-
 </body>
 </html>
