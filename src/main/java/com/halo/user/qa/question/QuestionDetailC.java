@@ -27,8 +27,6 @@ public class QuestionDetailC extends HttpServlet {
 	    request.setAttribute("resultList", resultList);
 	    request.setAttribute("questionId", questionId); // 현재 글의 ID를 속성에 추가
 
-		System.out.println("제대로 나오나? get: " + resultList);
-		
 		String subMenu = "qa/question/questionDetail";
 		request.setAttribute("menu", "user/menu-index.jsp");
 		request.setAttribute("subMenu", subMenu + ".jsp");

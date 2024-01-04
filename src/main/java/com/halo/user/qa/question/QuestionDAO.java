@@ -189,7 +189,6 @@ public class QuestionDAO {
 				
 				Question question = new Question(q_seq, q_title, q_content, q_reg_date, q_contact_number, q_email, q_name, q_password, q_category);
                 questionList.add(question);
-                
 				
 	            try {
 	            	ObjectMapper objectMapper = new ObjectMapper();

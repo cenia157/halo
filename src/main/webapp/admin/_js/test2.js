@@ -124,6 +124,7 @@ function getData(q_seq, q_title, q_content, q_reg_date, q_contact_number, q_emai
 	// 첫 번째 Ajax 요청
 	$.ajax({
 		url: "GetDataC",
+//		type: "Post",
 		dataType: "json",
 		data: {
 			q_seq: q_seq,
@@ -151,11 +152,20 @@ function getData(q_seq, q_title, q_content, q_reg_date, q_contact_number, q_emai
 					let qName = data[0].q_name;
 					let qPW = data[0].q_password;
 					let qCategory = data[0].q_category;
+					
 
-					$('#QUESTION_TITLE').html(qTitle);
-					$('#QUESTION_DATE').html(formattedDate);
-					$('#QUESTION_NAME').html(qName);
-					$('#QUESTION_CONTENT').html(qContent);
+					$('#N_QUESTION_TITLE').html(qTitle);
+					$('#N_QUESTION_DATE').html(formattedDate);
+					$('#N_QUESTION_NAME').html(qName);
+					$('#N_QUESTION_CONTENT').html(qContent);
+					$('#q_seq').val(qSeq);
+					//확인
+					$('#N_QUESTION_SEQ').html(qSeq);
+
+					$('#A_QUESTION_TITLE').html(qTitle);
+					$('#A_QUESTION_DATE').html(formattedDate);
+					$('#A_QUESTION_NAME').html(qName);
+					$('#A_QUESTION_CONTENT').html(qContent);
 					$('#q_seq').val(qSeq);
 					//확인
 					$('#QUESTION_SEQ').html(qSeq);
@@ -182,6 +192,62 @@ function getData(q_seq, q_title, q_content, q_reg_date, q_contact_number, q_emai
 }
 
 
+
+function submitComments (){
+	
+	let q_seq = $("#q_seq").val();
+	let c_comment_content = $("#c_comment_content").val();
+	
+	console.log("1: ", q_seq);
+	console.log("2: ", c_comment_content);
+	
+	$.ajax({
+	url: "CommentSubmitC",
+	type: "post",
+	data:{
+	 	q_seq: q_seq,
+	 	c_comment_content: c_comment_content
+	},
+	
+		success: function(data){
+			try{
+				location.reload();
+				console.log("submit 완료");
+			
+			} catch (error) {
+				console.error("데이터 처리 오류:", error);
+			}
+		},
+		error: function(xhr, status, error) {
+			console.log("submit 에러");
+			console.log("에러:", xhr, status, error);
+		}
+	});
+}
+
+function deleteQuestion (q_seq){
+	$.ajax({
+	url: "AskDeleteC",
+	type: "post",
+	data:{
+	 	q_seq: q_seq
+	},
+	
+		success: function(data){
+			try{
+				location.reload();
+				console.log("삭제 완료");
+			
+			} catch (error) {
+				console.error("데이터 처리 오류:", error);
+			}
+		},
+		error: function(xhr, status, error) {
+			console.log("삭제 에러");
+			console.log("에러:", xhr, status, error);
+		}
+	});
+}
 
 
 //<<<<<<< HEAD
@@ -213,4 +279,5 @@ function updateModalContent(questionJson) {
 };
 
 //>>>>>>> 36e0fd5048773fd508dc36122a0cc5d8316894cf
+
 
