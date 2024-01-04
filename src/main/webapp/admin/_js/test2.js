@@ -117,137 +117,134 @@ function closeModalNR() {
 
 //모달창 데이터
 function getData(q_seq, q_title, q_content, q_reg_date, q_contact_number, q_email, q_name, q_password, q_category) {
-	console.log("q_seq: " + q_seq);
+    console.log("q_seq: "+ q_seq);
+    
+    // 첫 번째 Ajax 요청
+    $.ajax({
+        url: "GetDataC",
+        type: "post",
+        dataType: "json",
+        data: {
+            q_seq: q_seq,
+            q_title: q_title,
+            q_content: q_content,
+            q_reg_date: q_reg_date,
+            q_contact_number: q_contact_number,
+            q_email: q_email,
+            q_name: q_name,
+            q_password: q_password,
+            q_category: q_category
+        },
+        success: function (data) {
+            try {
+                console.log("Data:", data);
 
-	let c_comment_content = null;
+                if (Array.isArray(data) && data.length > 0) {
+                    let qSeq = data[0].q_seq;
+                    let qTitle = data[0].q_title;
+                    let qContent = data[0].q_content;
+                    let qRegDate = new Date(data[0].q_reg_date);
+                    let formattedDate = formatDate(qRegDate);
+                    let qCN = data[0].q_contact_number;
+                    let qEmail = data[0].q_email;
+                    let qName = data[0].q_name;
+                    let qPW = data[0].q_password;
+                    let qCategory = data[0].q_category;
+                    
+                    console.log("qSeq: ", qSeq);
 
-	// 첫 번째 Ajax 요청
-	$.ajax({
-		url: "GetDataC",
-//		type: "Post",
-		dataType: "json",
-		data: {
-			q_seq: q_seq,
-			q_title: q_title,
-			q_content: q_content,
-			q_reg_date: q_reg_date,
-			q_contact_number: q_contact_number,
-			q_email: q_email,
-			q_name: q_name,
-			q_password: q_password,
-			q_category: q_category
-		},
-		success: function(data) {
-			try {
-				console.log("Data:", data);
+            		
+            		// A questions 데이터 표시
+                    $('#A_QUESTION_TITLE').html(qTitle);
+                    $('#A_QUESTION_DATE').html(formattedDate);
+                    $('#A_QUESTION_NAME').html(qName);
+                    $('#A_QUESTION_CONTENT').html(qContent);
 
-				if (Array.isArray(data) && data.length > 0) {
-					let qSeq = data[0].q_seq;
-					let qTitle = data[0].q_title;
-					let qContent = data[0].q_content;
-					let qRegDate = new Date(data[0].q_reg_date);
-					let formattedDate = formatDate(qRegDate);
-					let qCN = data[0].q_contact_number;
-					let qEmail = data[0].q_email;
-					let qName = data[0].q_name;
-					let qPW = data[0].q_password;
-					let qCategory = data[0].q_category;
-					
+            		// N questions 데이터 표시
+                    $('#N_QUESTION_TITLE').html(qTitle);
+                    $('#N_QUESTION_DATE').html(formattedDate);
+                    $('#N_QUESTION_NAME').html(qName);
+                    $('#N_QUESTION_CONTENT').html(qContent);
+                    $('#q_seq').val(qSeq);
+                    //확인
+                    $('#QUESTION_SEQ').html(qSeq);
+            		
+            		
+                    // comments 데이터를 가져와서 표시
+            		getComments(q_seq);
+            		
+                } else {
+                    console.error("데이터가 비어있거나 배열이 아닙니다.");
+                }
 
-					$('#N_QUESTION_TITLE').html(qTitle);
-					$('#N_QUESTION_DATE').html(formattedDate);
-					$('#N_QUESTION_NAME').html(qName);
-					$('#N_QUESTION_CONTENT').html(qContent);
-					$('#q_seq').val(qSeq);
-					//확인
-					$('#N_QUESTION_SEQ').html(qSeq);
+            } catch (error) {
+                console.error("데이터 처리 오류:", error);
+            }
+        },
+        error: function (xhr, status, error) {
+            console.log("에러:", xhr, status, error);
+        }
+    });
+}
 
-					$('#A_QUESTION_TITLE').html(qTitle);
-					$('#A_QUESTION_DATE').html(formattedDate);
-					$('#A_QUESTION_NAME').html(qName);
-					$('#A_QUESTION_CONTENT').html(qContent);
-					$('#q_seq').val(qSeq);
-					//확인
-					$('#QUESTION_SEQ').html(qSeq);
+// 댓글 불러오기
+function getComments(q_seq, c_commenter_name, c_comment_content, c_reg_date, c_answer, c_seq) {
+    
+    console.log("콘솔: ", q_seq);
+    
+    $.ajax({
+        url: "GetCommentsC",
+        type: "post",
+        dataType: "json",
+        data: {
+            q_seq: q_seq,
+        	c_seq: c_seq,
+        	c_commenter_name: c_commenter_name,
+        	c_comment_content: c_comment_content,
+        	c_reg_date: c_reg_date,
+        	c_answer: c_answer
+        },
+        success: function (commentData) {
+            try {
 
+                if (Array.isArray(commentData) && commentData.length > 0) {
+                    let cSeq = commentData[0].c_seq;
+                    let c_commenter_name = commentData[0].c_commenter_name;
+                    let CRegDate = new Date(commentData[0].c_reg_date);
+                    let formattedDate = formatDate(CRegDate);
+                    let c_comment_content = commentData[0].c_comment_content;
+                    let c_answer = commentData[0].c_answer;
+                    let qSeq = commentData[0].q_seq;
 
-				} else {
-					console.error("데이터가 비어있거나 배열이 아닙니다.");
-				}
-
-				if (c_comment_content != null) {
-					openModalA();
-				} else {
-					openModalN();
-				}
-
-			} catch (error) {
-				console.error("데이터 처리 오류:", error);
-			}
-		},
-		error: function(xhr, status, error) {
-			console.log("에러:", xhr, status, error);
-		}
-	});
+                    $('#COMMENT_CONTENT').val(c_comment_content);
+                    $('#COMMENT_NAME').html(c_commenter_name);
+                    $('#hidden_c_seq').val(cSeq);
+                    
+                    //모달창 열기
+	                if (c_comment_content != null) {
+	                    openModalA();
+	                }
+                    
+                } else {
+                    console.log("댓글이 없습니다.");
+                    console.log("QSEQ: " + q_seq); 
+	                //모달창 열기
+	                if(c_comment_content == null){
+	                openModalN(q_seq);
+	                }
+                }
+            } catch (error) {
+                console.error("댓글 처리 오류:", error);
+            }
+        },
+        error: function (xhr, status, error) {
+            console.log("댓글 불러오기 에러:", xhr, status, error);
+        }
+    });
 }
 
 
 
-function submitComments (){
-	
-	let q_seq = $("#q_seq").val();
-	let c_comment_content = $("#c_comment_content").val();
-	
-	console.log("1: ", q_seq);
-	console.log("2: ", c_comment_content);
-	
-	$.ajax({
-	url: "CommentSubmitC",
-	type: "post",
-	data:{
-	 	q_seq: q_seq,
-	 	c_comment_content: c_comment_content
-	},
-	
-		success: function(data){
-			try{
-				location.reload();
-				console.log("submit 완료");
-			
-			} catch (error) {
-				console.error("데이터 처리 오류:", error);
-			}
-		},
-		error: function(xhr, status, error) {
-			console.log("submit 에러");
-			console.log("에러:", xhr, status, error);
-		}
-	});
-}
-
-function deleteQuestion (q_seq){
-	$.ajax({
-	url: "AskDeleteC",
-	type: "post",
-	data:{
-	 	q_seq: q_seq
-	},
-	
-		success: function(data){
-			try{
-				location.reload();
-				console.log("삭제 완료");
-			
-			} catch (error) {
-				console.error("데이터 처리 오류:", error);
-			}
-		},
-		error: function(xhr, status, error) {
-			console.log("삭제 에러");
-			console.log("에러:", xhr, status, error);
-		}
-	});
-}
 
 
 //<<<<<<< HEAD
@@ -255,29 +252,125 @@ function deleteQuestion (q_seq){
 
 //날짜 바꾸기
 function formatDate(date) {
-	const pad = (num) => (num < 10 ? '0' + num : num);
+    const pad = (num) => (num < 10 ? '0' + num : num);
 
-	const year = date.getFullYear();
-	const month = pad(date.getMonth() + 1);
-	const day = pad(date.getDate());
+    const year = date.getFullYear();
+    const month = pad(date.getMonth() + 1);
+    const day = pad(date.getDate());
 
-	return `${year}-${month}-${day}`;
+    return `${year}-${month}-${day}`;
 }
 //=======
 //};
 
 function updateModalContent(questionJson) {
-	$('#myModal-tblA #q_seq').html(`<div>${questionJson.q_seq}</div>`);
-	$('#myModal-tblA #q_title').html(`<div>${questionJson.q_title}</div>`);
-	$('#myModal-tblA #q_content').html(`<div>${questionJson.q_content}</div>`);
-	$('#myModal-tblA #q_reg_date').html(`<div>${questionJson.q_reg_date}</div>`);
-	$('#myModal-tblA #q_contact_number').html(`<div>${questionJson.q_contact_number}</div>`);
-	$('#myModal-tblA #q_email').html(`<div>${questionJson.q_email}</div>`);
-	$('#myModal-tblA #q_name').html(`<div>${questionJson.q_name}</div>`);
-	$('#myModal-tblA #q_password').html(`<div>${questionJson.q_password}</div>`);
-	$('#myModal-tblA #q_category').html(`<div>${questionJson.q_category}</div>`);
+    $('#myModal-tblA #q_seq').html(`<div>${questionJson.q_seq}</div>`);
+    $('#myModal-tblA #q_title').html(`<div>${questionJson.q_title}</div>`);
+    $('#myModal-tblA #q_content').html(`<div>${questionJson.q_content}</div>`);
+    $('#myModal-tblA #q_reg_date').html(`<div>${questionJson.q_reg_date}</div>`);
+    $('#myModal-tblA #q_contact_number').html(`<div>${questionJson.q_contact_number}</div>`);
+    $('#myModal-tblA #q_email').html(`<div>${questionJson.q_email}</div>`);
+    $('#myModal-tblA #q_name').html(`<div>${questionJson.q_name}</div>`);
+    $('#myModal-tblA #q_password').html(`<div>${questionJson.q_password}</div>`);
+    $('#myModal-tblA #q_category').html(`<div>${questionJson.q_category}</div>`);
 };
 
 //>>>>>>> 36e0fd5048773fd508dc36122a0cc5d8316894cf
 
 
+
+//CRUD: update
+function updateComments(){
+	
+	let c_seq = $('#hidden_c_seq').val();
+	let c_comment_content = $('#COMMENT_CONTENT').val();
+
+	$.ajax({
+		url: 'CommentUpdateC' ,
+		method: 'post',
+		data: {
+		 c_seq: c_seq,
+		 c_comment_content: c_comment_content
+		},
+		
+		success: function(){
+			console.log("업데이트 성공")
+		},
+		error: function(xhr, status, error){
+			console.log("업데이트 실패 에러:", xhr, status, error);
+		}
+	});
+	
+}
+
+//CRUD: insert
+function submitComments(){
+
+	let c_comment_content = $('#c_comment_content').val();
+	let q_seq = $('#q_seq').val();
+	
+	$.ajax({
+		url: 'CommentSubmitC',
+		method: 'post',
+		data: {
+			q_seq: q_seq,
+			c_comment_content: c_comment_content
+		},
+		
+		success: function(){
+			console.log("Submit 성공");
+			location.reload(true);
+		},
+		error: function(xhr, status, error){
+			console.log("Submit 에러: ", xhr, status, error);
+		}
+	
+	});
+}
+
+//CRUD: delete
+function deleteQuestion(q_seq) {
+    let ok = confirm("削除しますか?");
+    if (ok) {
+    $.ajax({
+    		url: 'AskDeleteC',
+    		method: 'post',
+    		data: {
+    			q_seq: q_seq
+    		},
+    		success: function(){
+    			console.log("삭제 성공");
+    			location.reload();
+    		},
+    		error: function(xhr, status, error){
+    			console.log("삭제 에러: ", xhr, status, error);
+    		}
+    		
+    		
+    	});
+	}
+}
+
+
+function statusCheck(){
+	
+	let completed_checkbox = document.getElementById('completed_checkbox');
+	let uncompleted_checkbox = document.getElementById('uncompleted_checkbox');
+	
+	let checkbox_result = document.querySelectorAll(".ontent-m-td-2-content-txt-in")
+	
+	checkbox_result.forEach(function(item) {
+		let YorN = item.querySelector(".ontent-m-td-2-content-txt-kategorie-in");
+		
+		let isCompleted = YorN.textContent.trim() === "完";
+		let isUncompleted = YorN.textContent.trim() === "未";
+		
+		
+            if ((completed_checkbox.checked && isCompleted) || (uncompleted_checkbox.checked && isUncompleted) || (completed_checkbox.checked && uncompleted_checkbox.checked)) {
+                 item.style.display = "flex";
+            } else {
+                 item.style.display = "none";
+            }
+	
+		})
+	}
