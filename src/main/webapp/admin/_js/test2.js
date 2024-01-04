@@ -400,12 +400,13 @@ function getFAQData(qa_seq, qa_title, qa_content, qa_reg_date){
 
 			if (Array.isArray(data) && data.length > 0){
 				let qa_seq = data[0].qa_seq;
-				let qa_title = data[0].qa_seq;
-				let qa_content = data[0].qa_seq;
-				let qa_reg_date = data[0].qa_seq;
+				let qa_title = data[0].qa_title;
+				let qa_content = data[0].qa_content;
+				console.log("qa_content: ", qa_content);
+				let qa_reg_date = data[0].qa_reg_date;
 				
-				$('#classicNR_Title').html(qa_title);
-				$('#classicNR').html(qa_content);
+				$('#classicNR_Title').val(qa_title);
+				$('#classicNR').val(qa_content);
 				
 				openModalF();
 			}

@@ -41,6 +41,7 @@
 						.create(document.querySelector('#classicNR'))
 						.then(editor => {
 								window.editor = editor;
+								editor.getData();
 								})
 						.catch(error => {
 								console.error(error);
