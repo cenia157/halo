@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-
-
+	document.getElementById('thumbnail1').addEventListener('change', handleFileUpload);
 
 	changeInformBox(1);
 	changeInformBox(2);
@@ -24,6 +23,7 @@ function handleFileUpload(event) {
 	const fileInput = event.target;
 	const files = fileInput.files;
 
+
 	if (files.length > 0) {
 		const selectedFile = files[0];
 		console.log('선택된 파일:', selectedFile);
@@ -41,8 +41,10 @@ function handleFileUpload(event) {
 			contentType: false,	// 필수
 			cache: false,
 			success: function(fileName) {
+				alert(11);
 				//미리보기 이미지 띄우기
-				$('.banner-td-img-box').css('background-image', 'url("user/upload_imgs/banner' + fileName + '")');
+				//$('.banner-td-img-box').css('background-image', 'url("user/upload_imgs/banner' + fileName + '")');
+				$('#banner_preview').attr('src', 'user/upload_imgs/banner/' + fileName);
 				//버튼 누를때 파라미터 (수정할 이미지 이름) 넘기기
 				$('#banner_btn_submit').attr('onclick', "location.href='BannerUpdateC?newFileName=" + fileName + "'")
 			},

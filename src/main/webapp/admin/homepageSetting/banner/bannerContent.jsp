@@ -26,7 +26,7 @@
 		<div class="banner-tbl">
 			<div class="banner-tr">
 			<div class="banner-no"><h1>1.box</h1></div>
-				<div class="banner-td-img-box">배너img 미리보기</div>
+				<div class="banner-td-img-box">배너img 미리보기<img id="banner_preview" width="80%" src="${pageContext.request.contextPath}/admin/0.img/logo_upload.png"></div>
 				<!-- 빠른메뉴 설정(셀렉) -->
 				<div class="banner-td-1"> 빠른메뉴 선택 :&nbsp;
 				<select name="banner_menu1" onchange="changeInformBox(1)">
@@ -53,10 +53,10 @@
 				상품명 :<input name="banner_text1" type="text">
 				</div>
 				<!-- 썸네일 이미지 설정 -->
-				<div class="banner-td-2">
+				<div class="banner-td-2 thumbnail">
 				<img src="${pageContext.request.contextPath}/admin/0.img/fileDown.png" alt="이미지준비중">
 				썸네일 :&nbsp;
-				<label for="thumbnail">
+				<label for="thumbnail1">
 				<div class="btn-upload">파일업로드</div>
 				</label>
 				<input type="file" name="banner_thumbnail1" id="thumbnail1">
@@ -65,7 +65,7 @@
 			</div>
 			<div class="banner-tr">
 			<div class="banner-no"><h1>2.box</h1></div>
-				<div class="banner-td-img-box">배너img 미리보기</div>
+				<div class="banner-td-img-box">배너img 미리보기 </div>
 				<div class="banner-td-1">빠른메뉴 선택 :&nbsp;
 					<select name="banner_menu2" onchange="changeInformBox(2)">
 				<option value="info_com">회사소개</option>
@@ -91,10 +91,10 @@
 				상품명 :&nbsp;<input name="banner_text2" type="text">
 				</div>
 				<!-- 썸네일 이미지 설정 -->
-				<div class="banner-td-2">
+				<div class="banner-td-2 thumbnail">
 				<img src="${pageContext.request.contextPath}/admin/0.img/fileDown.png" alt="이미지준비중">
 				썸네일 :&nbsp;
-				<label for="thumbnail">
+				<label for="thumbnail2">
 				<div class="btn-upload">파일업로드</div>
 				</label>
 				<input type="file" name="banner_thumbnail2" id="thumbnail2">
@@ -129,10 +129,10 @@
 				상품명 :&nbsp;<input name="banner_text3" type="text">
 				</div>
 				<!-- 썸네일 이미지 설정 -->
-				<div class="banner-td-2">
+				<div class="banner-td-2 thumbnail">
 				<img id="file-icon" src="${pageContext.request.contextPath}/admin/0.img/fileDown.png" alt="이미지준비중">
 				썸네일 :&nbsp;
-				<label for="thumbnail">
+				<label for="thumbnail3">
 				<div class="btn-upload">파일업로드</div>
 				</label>
 				<input type="file" name="banner_thumbnail3" id="thumbnail3">

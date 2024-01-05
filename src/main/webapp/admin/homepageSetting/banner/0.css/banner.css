@@ -114,7 +114,7 @@ form {
 }
 
 .banner-td-2>input {
-	width: 70%;
+	width: 64%;
 	height: 70%;
 	border-radius: 5px;
 	border-top: solid 1px rgb(209, 209, 209);
@@ -135,6 +135,11 @@ form {
 	font-size: 1.2rem;
 	display: none;
 }
+.thumbnail > input{
+	width: 64%;
+	display: none;
+}
+
 /* 베너 썸네일 제목 옆 아이콘 */
 #file-icon {
 	width: 5.5%;

@@ -41,7 +41,6 @@ public class MainpageDAO {
 			rs = pstmt.executeQuery();
 			HomepageDTO hdto = null;
 			
-			
 			if (rs.next()) {
 				hdto = new HomepageDTO();
 				hdto.setH_seq(rs.getInt("h_seq"));
@@ -63,17 +62,14 @@ public class MainpageDAO {
 				//뷰에 뿌릴 어트리뷰트
 				request.setAttribute("hdto", hdto);
 				
-				
-				
 			}
-			
 			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
+			DBManagerhalo.close(con, pstmt, rs);
 			//하단베너 출력
 			getAllBanner(request);
-			DBManagerhalo.close(con, pstmt, rs);
 		}
 		
 	}
@@ -207,8 +203,8 @@ public class MainpageDAO {
 		String savepath = request.getServletContext().getRealPath("user/upload_imgs/banner");
 		MultipartRequest mr = new MultipartRequest(request, savepath, 1024*1024*20, "utf-8", new DefaultFileRenamePolicy());
 		
-		 String fileName = mr.getFilesystemName("banner_thumbnail");
-		 System.out.println(fileName);
+		 String fileName = mr.getFilesystemName("banner_thumbnail1");
+		 System.out.println("업로드할 파일 :"+fileName);
 		 response.getWriter().write(fileName);
 
 		
@@ -241,9 +237,8 @@ public class MainpageDAO {
 					pstmt.setString(2, mr.getParameter("banner_text" + (i+1)));
 					fileNames.hasMoreElements();
 					String fieldName = fileNames.nextElement();
-					
-					pstmt.setString(3, mr.getFilesystemName(mr.getFilesystemName(fieldName)));
-			
+					pstmt.setString(3, mr.getFilesystemName(fieldName));
+//					System.out.println("업뎃 파일 :" + mr.getFilesystemName(mr.getFilesystemName(fieldName)));
 										
 				} else {
 					sql = "update banner_test \r\n"
