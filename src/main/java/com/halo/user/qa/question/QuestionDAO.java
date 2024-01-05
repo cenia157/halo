@@ -20,6 +20,7 @@ import org.json.simple.JSONObject;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.halo.admin.boardmanagement.ask.QuestionNComment;
 import com.halo.main.DBManagerhalo;
 import com.halo.test.DBManagerhalo_YJ;
 
@@ -32,12 +33,8 @@ public class QuestionDAO {
 		
 		try {
 
-			try {
-				con = DBManagerhalo_YJ.connect();
-				pstmt = con.prepareStatement(sql);
-			} catch (ClassNotFoundException e) {
-				e.printStackTrace();
-			}
+			con = DBManagerhalo_YJ.connect();
+			pstmt = con.prepareStatement(sql);
 			
 			pstmt.setString(1, request.getParameter("q_title"));
 			pstmt.setString(2, request.getParameter("q_content"));
@@ -47,7 +44,6 @@ public class QuestionDAO {
 			pstmt.setString(6, request.getParameter("q_password"));
 			pstmt.setString(7, request.getParameter("q_category"));
 			
-			System.out.println(request.getParameter("q_title"));
 			
 			
 			if (pstmt.executeUpdate() ==1) {
@@ -94,45 +90,60 @@ public class QuestionDAO {
 				}
 				
 				request.setAttribute("questions", questions);
-		} catch (SQLException | ClassNotFoundException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
+		}finally {
+			DBManagerhalo_YJ.close(con, pstmt, rs);
 		}
 		
 		
 	}
 
-	public static void getQuestion(HttpServletRequest request) {
+	public static void getQuestionNComment(HttpServletRequest request) {
 		
 		Connection con = null;
 	    PreparedStatement pstmt = null;
 	    ResultSet rs = null;
-	    String sql = "select * from question_tbl where q_seq=?";
+		String sql = "SELECT q.*, c.*"
+				+ " FROM question_tbl q"
+				+ " LEFT JOIN comment_tbl c"
+				+ " ON q.q_seq = c.q_seq"
+				+ " WHERE q.q_seq = ?";
 
-	    String q_seq = request.getParameter("q_seq"); // 수정된 부분
+	    String q_seq = request.getParameter("q_seq");
+	    System.out.println("q_seq: " + q_seq);
 
 	    try {
 	        con = DBManagerhalo_YJ.connect();
 	        pstmt = con.prepareStatement(sql);
-	        pstmt.setString(1, q_seq);
+	        pstmt.setInt(1, Integer.parseInt(q_seq));
+	        
+	        
 	        rs = pstmt.executeQuery();
 	        
 	        if (rs.next()) {
-	            Question q = new Question();
-	            q.setQ_seq(rs.getInt("q_seq"));
-	            q.setQ_title(rs.getString("q_title"));
-	            q.setQ_content(rs.getString("q_content"));
-	            q.setQ_reg_date(rs.getDate("q_reg_date"));
-	            q.setQ_contact_number(rs.getString("q_contact_number"));
-	            q.setQ_email(rs.getString("q_email"));
-	            q.setQ_name(rs.getString("q_name"));
-	            q.setQ_password(rs.getString("q_password"));
-	            q.setQ_category(rs.getString("q_category"));
+	            QuestionNComment QnC = new QuestionNComment();
+	            QnC.setQ_seq(rs.getInt("q_seq"));
+	            QnC.setQ_title(rs.getString("q_title"));
+	            QnC.setQ_content(rs.getString("q_content"));
+	            QnC.setQ_reg_date(rs.getDate("q_reg_date"));
+	            QnC.setQ_contact_number(rs.getString("q_contact_number"));
+	            QnC.setQ_email(rs.getString("q_email"));
+	            QnC.setQ_name(rs.getString("q_name"));
+	            QnC.setQ_password(rs.getString("q_password"));
+	            QnC.setQ_category(rs.getString("q_category"));
+	            
+	            QnC.setC_seq(rs.getInt("c_seq"));
+	            QnC.setC_commenter_name(rs.getString("c_commenter_name"));
+	            QnC.setC_comment_content(rs.getString("c_comment_content"));
+	            QnC.setC_reg_date(rs.getDate("c_reg_date"));
+	            QnC.setC_answer(rs.getString("c_answer"));
 
-	            request.setAttribute("question", q);
-	            System.out.println("question: " + request.getAttribute("question"));
+	            request.setAttribute("QnC", QnC);
+	            System.out.println("QnC: " + QnC);
 	        }
 
-	    } catch (SQLException | ClassNotFoundException e) {
+	    } catch (SQLException e) {
 	        e.printStackTrace();
 	    } finally {
 	        DBManagerhalo_YJ.close(con, pstmt, rs);
@@ -182,14 +193,13 @@ public class QuestionDAO {
 	            try {
 	            	ObjectMapper objectMapper = new ObjectMapper();
 					jsonResult = objectMapper.writeValueAsString(questionList);
-					System.out.println("JSON: "+jsonResult);
 				} catch (JsonProcessingException e) {
 					e.printStackTrace();
 				}
 				
 			}
 			
-		} catch (ClassNotFoundException | SQLException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			DBManagerhalo_YJ.close(con, pstmt, rs);
@@ -226,8 +236,10 @@ public class QuestionDAO {
 	            questionsArray.add(question);
 			}
 			
-		} catch (SQLException | ClassNotFoundException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			DBManagerhalo_YJ.close(con, pstmt, rs);
 		}
 		return questionsArray;
 		
@@ -237,39 +249,45 @@ public class QuestionDAO {
 
 
 
-	public static void deleteQuestion(HttpServletRequest request) {
+	public static void deleteQuestionNComment(HttpServletRequest request) {
 		Connection con = null;
-		PreparedStatement pstmt = null;
-		String sql = "delete from question_tbl where q_seq=?";
+		PreparedStatement pstmtQ = null;
+		PreparedStatement pstmtC = null;
 		
 		try {
-			try {
-				con = DBManagerhalo_YJ.connect();
-				pstmt = con.prepareStatement(sql);
-			} catch (ClassNotFoundException e) {
-				e.printStackTrace();
-			}
+			con = DBManagerhalo_YJ.connect();
 
-			pstmt.setString(1, request.getParameter("q_seq"));
+			// 먼저 comment_tbl에서 해당 q_seq 값을 가진 레코드 삭제
+			String sqlC = "DELETE FROM comment_tbl WHERE q_seq=?";
+			pstmtC = con.prepareStatement(sqlC);
+			pstmtC.setInt(1, Integer.parseInt(request.getParameter("q_seq")));
+			pstmtC.executeUpdate(); // comment_tbl에서 레코드 삭제
+
+			// 이후 question_tbl에서 q_seq 값을 가진 레코드 삭제
+			String sqlQ = "DELETE FROM question_tbl WHERE q_seq=?";
+			pstmtQ = con.prepareStatement(sqlQ);
+			pstmtQ.setInt(1, Integer.parseInt(request.getParameter("q_seq")));
+			pstmtQ.executeUpdate(); // question_tbl에서 레코드 삭제
+
 			
-			if (pstmt.executeUpdate()==1) {
-				System.out.println("삭제성공");
+			if (pstmtQ.executeUpdate()==1) {
+				System.out.println("Q삭제성공");
+			} if (pstmtC.executeUpdate()==1) {
+				System.out.println("C삭제성공");
 			}
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
 			System.out.println("삭제실패");
+		} finally {
+			DBManagerhalo_YJ.close(con, pstmtC, null);
 		}
 		
 	}
 	
-	public class QuestionComparator implements Comparator<Question> {
-	    @Override
-	    public int compare(Question q1, Question q2) {
-	        // 시퀀스를 기준으로 오름차순 정렬
-	        return Integer.compare(q1.getQ_seq(), q2.getQ_seq());
-	    }
-	}
+	
+//	페이징
+
 
 	
     

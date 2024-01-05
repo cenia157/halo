@@ -1,4 +1,4 @@
-package com.halo.user.qa.faq;
+package com.halo.admin.boardmanagement.ask;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,23 +7,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.halo.admin.boardmanagement.frequenthyask.FAQDAO;
-
-@WebServlet("/FaqC")
-public class FaqC extends HttpServlet {
-
+@WebServlet("/GetCommentsC")
+public class GetCommentsC extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		FAQDAO.getAllFAQ(request);
-		FAQDAO.getFAQDetail(request, response);
-		
-		String subMenu = "qa/faq/faq";
-		request.setAttribute("menu", "user/menu-index.jsp");
-		request.setAttribute("subMenu", subMenu + ".jsp");
-		request.getRequestDispatcher("index.jsp").forward(request, response);
+
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+	    try {
+	        String jsonData = AskDAO.commentList(request, response);
+	        response.setContentType("application/json");
+	        response.getWriter().write(jsonData);
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	        response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+	    }
 	}
 
 }

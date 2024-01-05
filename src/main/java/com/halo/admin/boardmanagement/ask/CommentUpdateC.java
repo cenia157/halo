@@ -1,8 +1,6 @@
 package com.halo.admin.boardmanagement.ask;
 
 import java.io.IOException;
-import java.util.List;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,21 +9,19 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.halo.user.qa.question.QuestionDAO;
 
-@WebServlet("/AskDeleteC")
-public class AskDeleteC extends HttpServlet {
+@WebServlet("/CommentUpdateC")
+public class CommentUpdateC extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		QuestionDAO.getAllQuestions(request);
-		List<QuestionNComment> resultList = AskDAO.QuestionsAndComments();
-		request.setAttribute("resultList", resultList);
-		QuestionDAO.deleteQuestionNComment(request);
+		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		QuestionDAO.getAllQuestions(request);
-		List<QuestionNComment> resultList = AskDAO.QuestionsAndComments();
-		request.setAttribute("resultList", resultList);
-		QuestionDAO.deleteQuestionNComment(request);
+		AskDAO.AskAnswerUpdate(request);
+//		QuestionDAO.getAllQuestions(request);
+		String comments = AskDAO.commentList(request, response);
+		request.setAttribute("comments", comments);
+		System.out.println("comments: "+ comments);
 	}
 
 }

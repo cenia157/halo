@@ -18,22 +18,27 @@
 	rel="stylesheet" />
 
 
-<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.js"
+	integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+	crossorigin="anonymous">
+</script>
 <link rel="stylesheet" href="admin/0.css/test copy.css" />
 
+<script src="admin/_js/test2.js"></script>
+<script src="admin/_js/test.js"></script>
 
 </head>
 <body>
 	<div class="ontent-m-td-2-chackbox">
 		<div class="ontent-m-td-2-chackbox-contain">
-			<div class="ontent-m-td-2-chackbox-contain-input">
-				<input type="checkbox" name="">
-			</div>
-			<div class="ontent-m-td-2-chackbox-contain-txt">답변</div>
-			<div class="ontent-m-td-2-chackbox-contain-input">
-				<input type="checkbox" name="">
-			</div>
-			<div class="ontent-m-td-2-chackbox-contain-txt">미답변</div>
+				<div class="ontent-m-td-2-chackbox-contain-input">
+					<input type="checkbox" id="completed_checkbox" name="status_checkbox" onchange="statusCheck()" checked="checked">
+				</div>
+				<div class="ontent-m-td-2-chackbox-contain-txt">完</div>
+				<div class="ontent-m-td-2-chackbox-contain-input">
+					<input type="checkbox" id="uncompleted_checkbox" name="status_checkbox" onchange="statusCheck()" checked="checked">
+				</div>
+				<div class="ontent-m-td-2-chackbox-contain-txt">未</div>
 			<div class="ontent-m-td-2-chackbox-contain-input"></div>
 			<div class="ontent-m-td-2-chackbox-contain-txt"></div>
 			<div class="ontent-m-td-2-chackbox-contain-input"></div>
@@ -51,8 +56,5 @@
 	
 	
 </body>
-
-<script src="admin/0.js/test2.js"></script>
-<script src="admin/0.js/test.js"></script>
 
 </html>

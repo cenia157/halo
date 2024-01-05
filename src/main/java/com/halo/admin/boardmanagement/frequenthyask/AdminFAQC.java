@@ -1,4 +1,4 @@
-package com.halo.admin.boardmanagement.ask;
+package com.halo.admin.boardmanagement.frequenthyask;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,22 +7,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.halo.user.qa.question.QuestionDAO;
-
-@WebServlet("/AnswerModalOn")
-public class AnswerModalOn extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+@WebServlet("/AdminFAQC")
+public class AdminFAQC extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		QuestionDAO.getQuestionNComment(request);
-		request.setAttribute("menu", "/admin/boardmanagement/ask/.jsp");
+		FAQDAO.getAllFAQ(request);
+		FAQDAO.FAQpagingAdmin(1, request);
 		
+		request.setAttribute("menu", "/admin/boardmanagement/frequenthyask/frequenthyaskContent.jsp");
 		request.getRequestDispatcher("admin/index.jsp").forward(request, response);
-		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		FAQDAO.getAllFAQ(request);
+		
+		request.setAttribute("menu", "/admin/boardmanagement/frequenthyask/frequenthyaskContent.jsp");
+		request.getRequestDispatcher("admin/index.jsp").forward(request, response);
 	}
 
 }

@@ -1,0 +1,63 @@
+diff a/src/main/webapp/admin/_js/test2.js b/src/main/webapp/admin/_js/test2.js	(rejected hunks)
+@@ -342,11 +342,49 @@
+ 	}
+ }
+ 
++//	let completed_checkbox = document.getElementById('completed_checkbox');
++//	let uncompleted_checkbox = document.getElementById('uncompleted_checkbox');
++//	let itemsPerPage = 8;
++//	let currentPage = 1;
++//	
++//	completed_checkbox.addEventListener("change", updateItems);
++//	uncompleted_checkbox.addEventListener("change", updateItems);
++	
++//	updateItems();
++	
++function updateItems(){
++	let completed_checkbox = document.getElementById('completed_checkbox');
++	let uncompleted_checkbox = document.getElementById('uncompleted_checkbox');
++	let itemsPerPage = 8;
++	let currentPage = 1;
++	
++	completed_checkbox.addEventListener("change", updateItems);
++	uncompleted_checkbox.addEventListener("change", updateItems);
+ 
++	let items = document.querySelectorAll(".ontent-m-td-2-content-txt-in");
++	
++	console.log(items);
++	
++	for (var i = 0; i < items.length; i++) {
++	        let item = items[i];
++	        let isCompleted = item.classList.contains("completed");
++	        let isUncompleted = item.classList.contains("uncompleted");
++	
++	        // 체크박스에 따라 필터링
++	        let isVisible = (completed_checkbox.checked && isCompleted) || (uncompleted_checkbox.checked && isUncompleted) || (completed_checkbox.checked && uncompleted_checkbox.checked);
++	
++	        // 페이징에 따라 필터링된 아이템만 보이기
++	        if (isVisible && i >= (currentPage - 1) * itemsPerPage && i < currentPage * itemsPerPage) {
++	            item.style.display = "flex";
++	        } else {
++	            item.style.display = "none";
++	        } 
++}
++	
+ function statusCheck(){
+ 	
+ 	let completed_checkbox = document.getElementById('completed_checkbox');
+-	let uncompleted_checkbox = document.getElementById('uncompleted_checkbox');
++	let uncompleted_checkbox = document.getElementById('uncompleted_checkbox');	
+ 	
+ 	let checkbox_result = document.querySelectorAll(".ontent-m-td-2-content-txt-in")
+ 	
+@@ -365,9 +403,5 @@
+ 	
+ 		})
+ 	}
+-	
+-
+-
+-
+-
+ 
++}
