@@ -18,28 +18,31 @@
 	<form action="SvcselectC" class="content-form-box" method="post" >
 		<div class="content-serviceselect-box-td">
 			<div class="content-serviceoption-td">
-				<input type="radio" name="service" value="nursing" id="nursing">
-				<label for="nursing">방문요양</label>
-			</div>
-
-			<div class="content-serviceoption-td">
-				<input type="radio" name="service" value="texi" id="texi"> <label
-					for="texi">개호택시</label>
-			</div>
-
-			<div class="content-serviceoption-td">
+<!-- 			<label for="nursingTexi" > -->
+			<label >
 				<input type="radio" name="service" value="nursingTexi"
-					id="nursingTexi"> <label for="nursingTexi">방문요양 &
-					개호택시</label><br>
+					id="service" checked> <br> 방문요양 & 개호택시</label><br>
 			</div>
+			<div class="content-serviceoption-td">
+<!-- 				<label for="nursing"> -->
+				<label>
+				<input type="radio" name="service" value="nursing" id="service">
+				<br> 방문요양</label>
+			</div>
+
+			<div class="content-serviceoption-td">
+<!-- 			<label for="texi"> -->
+			<label>
+				<input type="radio" name="service" value="texi" id="service"> <br> 개호택시</label>
+			</div>
+
 		</div>
 		<div class="content-servicebtn-box-td">
-			<div class="content-servicebtn-td">
-				<button>신청 페이지로 가기</button>
-			</div>
+				<button class="content-servicebtn-td">신청 페이지로 가기</button>
 		</div>
 		<div class="content-reference-txt-td">※이용하실 서비스 내용을 선택 후 신청 페이지
 			버튼을 눌러주세요.</div>
 	</form>
 </body>
+
 </html>

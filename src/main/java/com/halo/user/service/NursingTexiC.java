@@ -14,7 +14,8 @@ public class NursingTexiC extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
+	// 문자인코딩형식
+	request.setCharacterEncoding("UTF-8");
 	SeviceApplyDAO.calSelect(request);
 	SeviceApplyDAO.timeSelect(request);
 	SeviceApplyDAO.nursingTexi(request);
