@@ -164,8 +164,40 @@ public class FAQDAO {
 		return jsonresult;
 		
 	}
+
+	//CRUD: 삭제
+
+	public static void deleteFAQ(HttpServletRequest request, HttpServletResponse response) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		String sql = "DELETE FROM QA_tbl WHERE qa_seq = ?";
+		
+		try {
+			con = DBManagerhalo_YJ.connect();
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, request.getParameter("qa_seq"));
+			System.out.println("삭제될 번호: " + request.getParameter("qa_seq"));
+			
+			if (pstmt.executeUpdate() == 1) {
+				System.out.println("FAQ 삭제 완료");
+			}
+			
+		} catch (SQLException e) {
+			System.out.println("FAQ 삭제 실패");
+			e.printStackTrace();
+		} finally {
+			DBManagerhalo_YJ.close(con, pstmt, null);
+		}
+		
+		
+	}
+	
 	
 	
 }
 	
+
+
+
+
 	

@@ -58,7 +58,7 @@
 					<div class="ontent-m-td-2-content-txt-no-in"> ${(loop.index + 1) + (curPageNo -1) * 8 } </div>
 					<div class="ontent-m-td-2-content-txt-title-in" id="Title_css"> <a onclick="getFAQData('${qa.qa_seq}')">● ${qa.qa_title } </a> </div>
 					<div class="ontent-m-td-2-content-txt-date-in">${qa.qa_reg_date}</div>
-					<div class="ontent-m-td-2-content-txt-delete-in"> <button>삭제하기</button> </div>
+					<div class="ontent-m-td-2-content-txt-delete-in"> <button onclick="deleteFAQ('${qa.qa_seq}')" >삭제하기</button> </div>
 				</div>
 			</c:forEach>
 <!-- 			</div> -->
@@ -66,7 +66,7 @@
 		<div class="ontent-m-td-2-bottom">
 			<div class="ontent-m-td-2-page-side"></div>
 			<div class="ontent-m-td-2-page-center">
-<!-- 			페이징 추가 예정 -->
+<!-- 			페이징 -->
 
 				<div class="paging-div">
                   <!-- 처음으로 가는 버튼 -->

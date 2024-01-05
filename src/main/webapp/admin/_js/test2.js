@@ -432,3 +432,24 @@ function getFAQData(qa_seq, qa_title, qa_content, qa_reg_date){
 	})
 
 }
+
+function deleteFAQ(qa_seq){
+    let ok = confirm("削除しますか?");
+    if (ok) {
+		console.log(qa_seq);
+		$.ajax({
+			url: 'DeleteFAQC',
+			method: 'POST',
+			data:{
+				qa_seq: qa_seq
+			},
+			success: function(){
+				console.log("FAQ 삭제성공");
+				location.reload();
+			},
+			error: function(xhr, status, error){
+			console.log("삭제 error: ", xhr, status, error);
+			}
+		});
+	}
+}
