@@ -7,19 +7,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/InsertCompanyC")
-public class InsertCompanyC extends HttpServlet {
+@WebServlet("/CompanyScheduleDeleteDate")
+public class CompanyScheduleDeleteDate extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		CompanyDAO.insertCompanySchedule(request);
-
-		response.sendRedirect("CompanyC");
+		CompanyDAO.deleteScheduleCompanyDate(request, response);
 	}
 
 }
