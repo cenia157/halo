@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
-	document.getElementById('thumbnail1').addEventListener('change', handleFileUpload);
+	document.getElementById('thumbnail1').addEventListener('change', handleFileUpload(1));
+	document.getElementById('thumbnail2').addEventListener('change', handleFileUpload(2));
+	document.getElementById('thumbnail3').addEventListener('change', handleFileUpload(3));
 
 	changeInformBox(1);
 	changeInformBox(2);
@@ -18,14 +20,14 @@ function changeInformBox(indexNo) {
 }
 
 // 파일 선택시 ajax -> 미리보기	
-function handleFileUpload(event) {
+function handleFileUpload(event,idx) {
 	event.preventDefault();
 	const fileInput = event.target;
 	const files = fileInput.files;
-
+	
 
 	if (files.length > 0) {
-		const selectedFile = files[0];
+		const selectedFile = fileis[0];
 		console.log('선택된 파일:', selectedFile);
 
 		var formData = new FormData(document.getElementById('bannerUploadForm'));
@@ -43,8 +45,10 @@ function handleFileUpload(event) {
 			success: function(fileName) {
 				alert(11);
 				//미리보기 이미지 띄우기
-				//$('.banner-td-img-box').css('background-image', 'url("user/upload_imgs/banner' + fileName + '")');
-				$('#banner_preview').attr('src', 'user/upload_imgs/banner/' + fileName);
+				 var bannerPreview = $(fileInput).closest('.banner-tr').find('.banner-td-img-box');
+                bannerPreview.css('backgroundImage', 'url("user/upload_imgs/banner/' + fileName + '")');				
+				//$('#banner_preview').css('background-image', 'url("user/upload_imgs/banner/' + fileName + '")');
+//				$('#banner_preview').attr('src', 'user/upload_imgs/banner/' + fileName);
 				//버튼 누를때 파라미터 (수정할 이미지 이름) 넘기기
 				$('#banner_btn_submit').attr('onclick', "location.href='BannerUpdateC?newFileName=" + fileName + "'")
 			},

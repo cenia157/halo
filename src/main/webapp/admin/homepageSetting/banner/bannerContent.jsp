@@ -20,13 +20,14 @@
 	src="${pageContext.request.contextPath}/admin/homepageSetting/banner/0.js/banner.js"></script>
 
 </head>
-<body>
+<body> 
 	<div class="content-m-td-3">
-	<form action="BannerUploadC" id="bannerUploadForm" method="post" enctype="multipart/form-data">
 		<div class="banner-tbl">
+	<form action="BannerUploadC" id="bannerUploadForm" method="post" enctype="multipart/form-data">
 			<div class="banner-tr">
 			<div class="banner-no"><h1>1.box</h1></div>
-				<div class="banner-td-img-box">배너img 미리보기<img id="banner_preview" width="80%" src="${pageContext.request.contextPath}/admin/0.img/logo_upload.png"></div>
+				<div class="banner-td-img-box" id="banner_preview" style="background-image: url('${pageContext.request.contextPath}/admin/0.img/banner_preview.png');">
+				</div>
 				<!-- 빠른메뉴 설정(셀렉) -->
 				<div class="banner-td-1"> 빠른메뉴 선택 :&nbsp;
 				<select name="banner_menu1" onchange="changeInformBox(1)">
@@ -44,7 +45,7 @@
 				 </div>
 				<!-- url 링크 -->
 				<div class="sales-inform" id="informBox1">
-				<div class="banner-td-2">
+				<div class="banner-td-2" st>
 				<img src="${pageContext.request.contextPath}/admin/0.img/url.png" alt="이미지준비중">
 				url :&nbsp;<input name="banner_url1" type="text">
 				</div>
@@ -63,9 +64,12 @@
 				</div>
 				</div>
 			</div>
+			</form>
+			<form action="BannerUploadC" id="bannerUploadForm" method="post" enctype="multipart/form-data">
 			<div class="banner-tr">
 			<div class="banner-no"><h1>2.box</h1></div>
-				<div class="banner-td-img-box">배너img 미리보기 </div>
+				<div class="banner-td-img-box" id="banner_preview" style="background-image: url('${pageContext.request.contextPath}/admin/0.img/banner_preview.png');">
+				</div>
 				<div class="banner-td-1">빠른메뉴 선택 :&nbsp;
 					<select name="banner_menu2" onchange="changeInformBox(2)">
 				<option value="info_com">회사소개</option>
@@ -101,9 +105,12 @@
 				</div>
 				</div>
 			</div>
+			</form>
+			<form action="BannerUploadC" id="bannerUploadForm" method="post" enctype="multipart/form-data">
 			<div class="banner-tr">
 			<div class="banner-no"><h1>3.box</h1></div>
-				<div class="banner-td-img-box">배너img 미리보기</div>
+				<div class="banner-td-img-box" id="banner_preview" style="background-image: url('${pageContext.request.contextPath}/admin/0.img/banner_preview.png');">
+				</div>
 				<div class="banner-td-1">빠른메뉴 선택 :&nbsp;
 					<select name="banner_menu3" onchange="changeInformBox(3)">
 				<option value="info_com">회사소개</option>
@@ -139,11 +146,12 @@
 				</div>
 				</div>
 			</div>
+			</form>
 		</div>
 		<div class="content-button">
 		<button id="banner_btn_submit" type="button" onclick="#">변경</button>
 		</div>
-		</form>
+		
 	</div>
 </body>
 

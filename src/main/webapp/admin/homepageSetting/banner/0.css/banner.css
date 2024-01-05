@@ -27,8 +27,8 @@
 }
 
 /* 폼태그 범위-> 이미지미리보기, 모든 입풋박스, 버튼까지 */
-form {
-	width: 100%;
+#bannerUploadFormn{
+	width: 33.3%;
 	height: 100%;
 }
 
@@ -66,6 +66,12 @@ form {
 	height: 40%;
 	margin-bottom: 1.5%;
 }
+#banner_preview{
+	background-size: contain; /* 이미지 div에 전체 */
+    background-position: center; 
+    background-repeat: no-repeat;
+}
+
 
 /* (빠른메뉴)주요메뉴 설정 셀렉  */
 .banner-td-1 {
