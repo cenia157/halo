@@ -27,7 +27,7 @@ public class FAQDAO {
 		Connection con = null;
 		PreparedStatement pstmt =null;
 		ResultSet rs = null;
-		String sql = "select * from QA_tbl order by qa_seq DESC";
+		String sql = "select * from QA_tbl order by qa_seq ASC";
 		
 		try {
 			con = DBManagerhalo_YJ.connect();

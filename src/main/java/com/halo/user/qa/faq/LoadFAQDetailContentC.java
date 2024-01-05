@@ -17,7 +17,6 @@ public class LoadFAQDetailContentC extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		FAQDAO.getFAQDetail(request, response);
 		String jsonData = FAQDAO.FAQList(request, response); 
 		FAQDAO.FAQList(request, response);
 		

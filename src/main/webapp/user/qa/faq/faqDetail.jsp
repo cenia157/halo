@@ -12,15 +12,13 @@
 <body>
 
 	<!-- Answer -->
-	<c:forEach items="${FAQ }" var="detail">
 		<div class="faq-content-box-tr2">
 			<div class="faq-content-box-td2-1">-ANSWER-</div>
 			<div class="faq-content-box-td2-2">
-				<span class="faq-content-box-td2-2-content-1">Q. ${detail.qa_title}</span>
-				<span class="faq-content-box-td2-2-content-2">A. ${detail.qa_content}</span>
+					<span class="faq-content-box-td2-2-content-1" id="FAQ_QUESTION">Q. </span>
+					<span class="faq-content-box-td2-2-content-2" id="FAQ_ANSWER">A. </span>
 			</div>
 		</div>
-	</c:forEach>
 
 </body>
 </html>
