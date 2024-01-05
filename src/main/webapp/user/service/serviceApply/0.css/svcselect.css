@@ -240,7 +240,7 @@ letter-spacing: 2px;
   width: 25%;
   height: 50%;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   border-radius: 30px;
   border-radius: 20px;
@@ -286,7 +286,7 @@ letter-spacing: 2px;
   width: 25%;
   height: 100%;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   border-radius: 20px;
   background: #ffdf6c;
@@ -302,14 +302,19 @@ letter-spacing: 2.25px;
 box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.3);
 }
 .content-reference-txt-td {
+
   text-align: right;
   color: #81291d;
-
   font-family: Inter;
-  font-size: 1rem;
+  font-size: 2rem;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
 	padding-right: 10%;
-	
+	margin-top: 3%;	
+}
+
+input[type="radio"] {
+  width: 3vh;
+  height: 3vh;
 }
