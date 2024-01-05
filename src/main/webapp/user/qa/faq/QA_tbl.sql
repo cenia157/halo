@@ -13,5 +13,6 @@ drop table QA_tbl;
 drop sequence QA_tbl_seq;
   
 insert into QA_tbl values (QA_tbl_seq.nextval, 'qa_title', 'qa_content', sysdate);
+delete from QA_tbl where qa_seq =10;
 
 select * from QA_tbl;
