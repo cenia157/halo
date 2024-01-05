@@ -2,7 +2,7 @@
 function noValue() {
 	// 여기에 예외처리를 해야할 것 같다... 아마 값을 입력하지 않을 시 alart을 띄워 다시 입력하게 해야 한다.
 
-	let titleCheck = document.querySelector('#classicNR_Title').value;
+	let titleCheck = document.querySelector('#real-title-editor').value;
 	let contentCheck = window.editor.getData();
 	//	여기에 추가로 제목, 내용의 길이가 최대값을 넘어갈 시 alart을 띄우는 곳이다
 	let titleLengthCheck = titleCheck.length;

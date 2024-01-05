@@ -409,24 +409,12 @@ function getFAQData(qa_seq, qa_title, qa_content, qa_reg_date) {
 				console.log("qa_content: ", qa_content);
 				let qa_reg_date = data[0].qa_reg_date;
 
-				console.log("66666666666666666666666666666666666666666666666666");
-				console.log(qa_title);
-				console.log(qa_content);
-				console.log("66666666666666666666666666666666666666666666666666");
-
-
-
-
-
-
-
-
-
-
-$('#modal-seq').val(qa_seq);
-
-				$('#classicNR_Title').val(qa_title);
+				$('#modal-seq').val(qa_seq);
+//				$('#classicNR_Title').val(qa_title);
+				$('#real-title-editor').val(qa_title);
 				$('#classicNR').html(qa_content);
+
+
 
 				// CKEditor에 데이터 설정
 				window.editor.setData(qa_content);

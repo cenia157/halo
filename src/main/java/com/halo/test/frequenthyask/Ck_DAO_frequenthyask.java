@@ -20,9 +20,11 @@ public class Ck_DAO_frequenthyask {
 
 			String title = request.getParameter("title");
 			String txt = request.getParameter("txt");
+			String seq = request.getParameter("seq");
 			if (title != "" && txt != "") {
 				System.out.println("title 구간(1) :::" + title);
 				System.out.println("txt 구간(1) :::" + txt);
+				System.out.println("수정할 게시글의 번호 : "+ seq);
 //			String saveFnameValues[] = request.getParameterValues("saveFname");
 //			System.out.println("saveFnameValues :::" + saveFnameValues[0]);
 //			System.out.println("saveFnameValues :::" + saveFnameValues[1]);
@@ -67,7 +69,7 @@ public class Ck_DAO_frequenthyask {
 
 				Connection con = null;
 				PreparedStatement pstmt = null;
-				String sql = "UPDATE QA_TBL SET QA_title = ?, QA_content = ? WHERE QA_seq = 2";
+				String sql = "UPDATE QA_TBL SET QA_title = ?, QA_content = ? WHERE QA_seq = ?";
 
 				System.out.println("ddddddddddd");
 
@@ -77,7 +79,13 @@ public class Ck_DAO_frequenthyask {
 
 				pstmt.setString(1, title);
 				pstmt.setString(2, txt);
-
+				pstmt.setString(3, seq);
+				
+				
+				System.out.println(title);
+				System.out.println(txt);				
+				System.out.println(seq);				
+				
 				if (pstmt.executeUpdate() == 1) {
 					System.out.println("수정성공 Ck_DAO FREQUENTHYASK");
 					System.out.println("---------------");

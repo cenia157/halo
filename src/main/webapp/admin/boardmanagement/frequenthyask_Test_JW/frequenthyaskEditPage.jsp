@@ -29,7 +29,7 @@
 
 
 							<input class="real-title-editor" name="title"
-								id="classicNR_Title" placeholder="ㅊㅊㅊㅊㅊㅊㅊㅊㅊㅊ"
+								id="real-title-editor" placeholder="ㅊㅊㅊㅊㅊㅊㅊㅊㅊㅊ"
 								value="${FAQ.qa_title }">
 
 							<!-- <input class="real-title-editor" name="title" id="real-title-editor" placeholder="이곳에 제목을 입력하세요"> -->
@@ -56,8 +56,6 @@
 
 						<button class="SubmitButton" type="button" id="reg-btn"
 							onclick="noValue()">수정완료</button>
-
-
 					</div>
 				</div>
 			</div>
