@@ -1,181 +1,177 @@
 class MyUploadAdapter {
-	constructor(loader) {
-		// The file loader instance to use during the upload.
-		this.loader = loader;
-	}
+  constructor(loader) {
+    this.loader = loader;
+  }
 
-	// Starts the upload process.
-	upload() {
-		return this.loader.file.then(
-			(file) =>
-				new Promise((resolve, reject) => {
-					this._initRequest();
-					this._initListeners(resolve, reject, file);
-					this._sendRequest(file);
-				})
-		);
-	}
+  upload() {
+    return this.loader.file.then(
+      (file) =>
+        new Promise((resolve, reject) => {
+          this._initRequest();
+          this._initListeners(resolve, reject, file);
+          this._sendRequest(file);
+        })
+    );
+  }
 
-	// Aborts the upload process.
-	abort() {
-		if (this.xhr) {
-			this.xhr.abort();
-		}
-	}
+  abort() {
+    if (this.xhr) {
+      this.xhr.abort();
+    }
+  }
 
-	// Initializes the XMLHttpRequest object using the URL passed to the constructor.
-	_initRequest() {
+  _initRequest() {
+    const xhr = (this.xhr = new XMLHttpRequest());
+    xhr.open("POST", "/halo/CKEditorAjax", true);
+    xhr.responseType = "json";
+  }
 
-		const xhr = (this.xhr = new XMLHttpRequest());
+  _initListeners(resolve, reject, file) {
+    const xhr = this.xhr;
+    const genericErrorText = `파일 업로드에 실패했습니다: ${file.name}.`;
 
+    xhr.addEventListener("error", () => reject(genericErrorText));
+    xhr.addEventListener("abort", () => reject());
+    xhr.addEventListener("load",  async () => {
+      const response = xhr.response;
 
+      if (!response || response.error) {
+        return reject(
+          response && response.error ? response.error.message : genericErrorText
+        );
+      }
 
+      try {
+        await this._updateInputField(response.fName);
+        await this._updateImageSource(response.fName, file.name);
+      } catch (error) {
+        console.error(error);
+        reject("파일 처리 중 오류가 발생했습니다.");
+      }
 
+      resolve({ default: response.url });
+    });
 
+    if (xhr.upload) {
+      xhr.upload.addEventListener("progress", (evt) => {
+        if (evt.lengthComputable) {
+          this.loader.uploadTotal = evt.total;
+          this.loader.uploaded = evt.loaded;
+        }
+      });
+    }
+  }
 
-		// Note that your request may look different. It is up to you and your editor
-		// integration to choose the right communication channel. This example uses
-		// a POST request with JSON as a data structure but your configuration
-		// could be different.
-		xhr.open("POST", "/halo/CKEditorAjax", true);
-		xhr.responseType = "json";
-	}
+  _sendRequest(file) {
+    const data = new FormData();
+    data.append("upload", file);
+    this.xhr.send(data);
+  }
 
-	// Initializes XMLHttpRequest listeners.
-	_initListeners(resolve, reject, file) {
-		const xhr = this.xhr;
-		const loader = this.loader;
-		const genericErrorText = `Couldn't upload file: ${file.name}.`;
+  async _updateInputField(fName) {
+    // 기존
+    return new Promise((resolve, reject) => {
+      const newInput = document.createElement("input");
+      const targetDiv = document.getElementById("img-temporary");
 
+      newInput.name = "saveFname";
+      newInput.id = "img-url";
+      newInput.value = fName;
 
+      targetDiv.appendChild(newInput); // 입력 필드를 DOM에 추가합니다.
+      console.log(`${fName}에 대한 입력 필드가 추가되었습니다.`);
+      resolve(); // 작업이 완료되면 Promise를 해결(resolve)합니다.
+    });
+  }
 
-console.log("AAAAAAAQAAAAAA");
-console.log(xhr);
-console.log("AAAAAAAAAAAAA");
+  async _updateImageSource(fName, fileName) {
+    const start = new Date().getTime();
+    document.querySelector("figure").lastChild.src = fName;
+    document.querySelector(".ck-content").click(); // 클릭 처리를 해야 인덱스 얻을 수 있음
 
+    // ck-widget_selected 클래스를 가진 첫 번째 요소 찾기
+    // const selectedFigure = document.querySelector(".ck-content .ck-widget_selected");
 
+    // 해당 요소가 있으면 ck-widget_selected 클래스 제거
+    // if (selectedFigure) {
+    //	console.log('진입')
+    //	selectedFigure.classList.remove("ck-widget_selected");
+    //	// 클래스 제거 확인을 위한 로그
+    //	if (selectedFigure.classList.contains("ck-widget_selected")) {
+    //	  console.log("Class 'ck-widget_selected'가 성공적으로 제거되지 않았습니다.");
+    //	} else {
+    //	  console.log("Class 'ck-widget_selected'가 성공적으로 제거되었습니다.");
+    //	}
+    // }
 
-
-		xhr.addEventListener("error", () => reject(genericErrorText));
-		xhr.addEventListener("abort", () => reject());
-		xhr.addEventListener("load", () => {
-			const response = xhr.response;
-
-
-
-
-			// This example assumes the XHR server's "response" object will come with
-			// an "error" which has its own "message" that can be passed to reject()
-			// in the upload promise.
-			//
-			// Your integration may handle upload errors in a different way so make sure
-			// it is done properly. The reject() function must be called when the upload fails.
-			if (!response || response.error) {
-				return reject(
-					response && response.error ? response.error.message : genericErrorText
-				);
-			}
-
-			// If the upload is successful, resolve the upload promise with an object containing
-			// at least the "default" URL, pointing to the image on the server.
-			// This URL will be used to display the image in the content. Learn more in the
-			// UploadAdapter#upload documentation.
-			resolve({
-				default: response.url,
-			});
-			
-			console.log(response);
-			console.log("~~~~~~~~~ success call!!!");
-
-
-
-
-
-
-
-
-
-
-			console.log("BBBBBBBBBBBBBBB");
-			console.log(response.fName);
-			console.log(response);
-			console.log("BBBBBBBBBBBBBBB");
-
-
-
-
-			var newInput = document.createElement("input");
-			var targetDiv = document.getElementById("img-temporary");
-			var nextInput = targetDiv.appendChild(newInput);
-
-
-
-			nextInput.name = "saveFname";
-			nextInput.id = "img-url";
-			nextInput.value = response.fName;
-			/*아래의 코드를 활성화하면 사진의 정보를 담는 input이 사라진다*/
-			/*nextInput.style.display = 'none';*/
-
-
-			/*			document.querySelector(".image-inline").lastChild.src = response.fName;*/
-			console.log('+++++++++++++++++++');
-			console.log(response.fName);
-			console.log('+++++++++++++++++++');
-			document.querySelector("figure").lastChild.src = response.fName;
-
-
-		});
-
-		// Upload progress when it is supported. The file loader has the #uploadTotal and #uploaded
-		// properties which are used e.g. to display the upload progress bar in the editor
-		// user interface.
-		if (xhr.upload) {
-			xhr.upload.addEventListener("progress", (evt) => {
-				if (evt.lengthComputable) {
-					loader.uploadTotal = evt.total;
-					loader.uploaded = evt.loaded;
-				}
-			});
-		}
-	}
-
-	// Prepares the data and sends the request.
-	_sendRequest(file) {
-		// Prepare the form data.
-		const data = new FormData();
-
-		data.append("upload", file);
-
-		// Important note: This is the right place to implement security mechanisms
-		// like authentication and CSRF protection. For instance, you can use
-		// XMLHttpRequest.setRequestHeader() to set the request headers containing
-		// the CSRF token generated earlier by your application.
-
-		// Send the request.
-		this.xhr.send(data);
-	}
-}
+    console.log(`${fileName} 파일이 콘텐츠에 표시되었습니다.`);
+    const end = new Date().getTime();
+    console.log(`_updateImageSource 실행 시간: ${end - start}ms`);
+  }
+} // end class
 
 function MyCustomUploadAdapterPlugin(editor) {
-	editor.plugins.get("FileRepository").createUploadAdapter = (loader) => {
-		// Configure the URL to the upload script in your back-end here!
-		return new MyUploadAdapter(loader);
-	};
+  editor.plugins.get("FileRepository").createUploadAdapter = (loader) => {
+    return new MyUploadAdapter(loader);
+  };
+}
+
+//async function uploadFilesSequentially(editor, files) {
+//  for (const file of files) {
+//    console.log(
+//      `${
+//        file.name
+//      }의 업로드가 ${new Date().toLocaleTimeString()}에 시작되었습니다.`
+//    );
+//
+//    const loader = editor.plugins.get("FileRepository").createLoader(file);
+//    if (loader) {
+//      const myUploadAdapter = new MyUploadAdapter(loader);
+//      try {
+//        await myUploadAdapter.upload(); // 이미지 업로드 비동기 처리
+//        console.log(`${file.name} 업로드가 성공적으로 완료되었습니다.`);
+//        await myUploadAdapter._updateInputField(response.fName); // _updateInputField 비동기 호출
+//      } catch (error) {
+//        console.error(`${file.name} 업로드 중 오류가 발생했습니다:`, error);
+//      }
+//    }
+//  }
+//  console.log(
+//    "모든 파일이 순차적으로 업로드되고 입력 필드가 순차적으로 업데이트되었습니다."
+//  );
+//}
+
+async function uploadFilesSequentially(editor, files) {
+  for (const file of files) {
+    console.log(`${file.name}의 업로드가 시작되었습니다.`);
+
+    const loader = editor.plugins.get("FileRepository").createLoader(file);
+    if (loader) {
+      const myUploadAdapter = new MyUploadAdapter(loader);
+      try {
+        // 이미지 업로드를 기다립니다.
+        const response = await myUploadAdapter.upload(); // 변경: 업로드의 결과를 response로 받습니다.
+        console.log(`${file.name} 업로드가 성공적으로 완료되었습니다.`);
+        // 입력 필드 업데이트를 기다립니다.
+        await myUploadAdapter._updateInputField(response.default); // 변경: response.fName -> response.default
+      } catch (error) {
+        console.error(`${file.name} 업로드 중 오류가 발생했습니다:`, error);
+      }
+    }
+  }
+  console.log("모든 파일이 순차적으로 업로드되고 입력 필드가 업데이트되었습니다.");
 }
 
 ClassicEditor.create(document.querySelector("#classicNR"), {
-	extraPlugins: [MyCustomUploadAdapterPlugin],
-
-
-
-
-
-
+  extraPlugins: [MyCustomUploadAdapterPlugin],
 })
-	.then((editor) => {
-		window.editor = editor;
-	})
-	.catch((error) => {
-		console.log(error);
-	});
-// 센세 항상 감사합니다ㅠㅠ
+  .then((editor) => {
+    window.editor = editor;
+    const files = document.querySelector('input[type="file"]').files;
+    uploadFilesSequentially(editor, files).then(() => {
+      console.log("모든 파일이 순차적으로 처리되었습니다.");
+    });
+  })
+  .catch((error) => {
+    console.error("오류 발생:", error);
+  });
