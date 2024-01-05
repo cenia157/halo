@@ -9,21 +9,23 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.halo.admin.boardmanagement.frequenthyask.FAQDAO;
 
-@WebServlet("/FaqC")
-public class FaqC extends HttpServlet {
+@WebServlet("/LoadFAQDetailContentC")
+public class LoadFAQDetailContentC extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		FAQDAO.getAllFAQ(request);
-		FAQDAO.getFAQDetail(request, response);
-		
-		String subMenu = "qa/faq/faq";
-		request.setAttribute("menu", "user/menu-index.jsp");
-		request.setAttribute("subMenu", subMenu + ".jsp");
-		request.getRequestDispatcher("index.jsp").forward(request, response);
+
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String jsonData = FAQDAO.FAQList(request, response); 
+		FAQDAO.FAQList(request, response);
+		
+	    // 응답의 Content-Type 설정
+	    response.setContentType("application/json");
 
+	    // 생성한 JSON 데이터를 클라이언트로 전송
+	    response.getWriter().write(jsonData);
+	    System.out.println("LoadFAQDetailContentC:" +jsonData);
 	}
 
 }

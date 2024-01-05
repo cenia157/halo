@@ -5,6 +5,17 @@
 	width: 100%;
 }
 
+.ontent-m-td-2-content-submit-btn{
+	width: 100%;
+	height: 8%;
+	font-size: 0.5rem;
+	display: flex;
+	align-items: center;
+	padding-left: 8%;
+}
+
+
+
 .ontent-m-td-2-chackbox {
 	width: 100%;
 	height: 8%;
@@ -76,7 +87,6 @@
 	font-weight: 700;
 	font-size: 1.5rem;
 	width: 40%;
-	font-size: 1.5rem;
 }
 
 .ontent-m-td-2-content-txt-writer {
@@ -193,7 +203,7 @@
 	width: 50%;
 }
 
-/* ¿©±â¼­ºÎÅÍ´Â  frequenthyaskEditPage.jsp ¿µ¿ª! */
+/* ï¿½ï¿½ï¿½â¼­ï¿½ï¿½ï¿½Í´ï¿½  frequenthyaskEditPage.jsp ï¿½ï¿½ï¿½ï¿½! */
 .modal-background {
 	display: none;
 	position: fixed;
@@ -292,7 +302,7 @@
 }
 
 .ck-editor__editable_inline:not(.ck-comment__input *) {
-	/* ¿©±â¼­ ¾î¶»°Ô CKEditorÀÇ Å©±â¸¦ 100%·Î ¸ÂÃâ ¼ö ÀÖÀ»±î? */
+	/* ï¿½ï¿½ï¿½â¼­ ï¿½î¶»ï¿½ï¿½ CKEditorï¿½ï¿½ Å©ï¿½â¸¦ 100%ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½? */
 	overflow-y: auto;
 	height: 100%;
 }
@@ -326,3 +336,39 @@
 	width: 100%;
 }
 
+/* css ì•ˆ ë¨¹ëŠ” ë¶€ë¶„ ë³„ë„ë¡œ ì¶”ê°€ */
+#Title_css{
+	width: 65%;
+}
+
+/* í˜ì´ì§•ì²˜ë¦¬ css */
+
+.paging-div{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+}
+
+.paging-div button,
+.paging-div a {
+  white-space: nowrap;
+  margin: 0 0.3%;
+}
+
+
+.current-page {
+  color: #4A572E !important;
+  font-weight: 700;
+}
+
+
+
+
+.Edit-textarea {
+	width: 100%;
+	height: 100%;
+	border: none;
+	font-size: 2.5rem;
+	resize: none
+}
