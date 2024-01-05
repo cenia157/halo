@@ -10,16 +10,17 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/getFAQDetailC")
 public class getFAQDetailC extends HttpServlet {
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		String jsonData = FAQDAO.FAQList(request, response);
 		FAQDAO.getFAQDetail(request, response);
 		FAQDAO.FAQList(request, response);
+		response.setCharacterEncoding("UTF-8");
 		response.setContentType("application/json");
 		response.getWriter().write(jsonData);
-
 	}
-
 }

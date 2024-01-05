@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 
 import com.halo.test.DBManagerhalo_JW;
 
+
+
 public class Ck_DAO_frequenthyask {
 
 	public static void regFrequenthyask(HttpServletRequest request) throws IOException {
@@ -19,7 +21,7 @@ public class Ck_DAO_frequenthyask {
 			String title = request.getParameter("title");
 			String txt = request.getParameter("txt");
 			if (title != "" && txt != "") {
-
+				System.out.println("title 구간(1) :::" + title);
 				System.out.println("txt 구간(1) :::" + txt);
 //			String saveFnameValues[] = request.getParameterValues("saveFname");
 //			System.out.println("saveFnameValues :::" + saveFnameValues[0]);
@@ -65,9 +67,9 @@ public class Ck_DAO_frequenthyask {
 
 				Connection con = null;
 				PreparedStatement pstmt = null;
-				String sql = "UPDATE QA_TBL SET QA_title = ?, QA_content = ? WHERE QA_seq = 1";
+				String sql = "UPDATE QA_TBL SET QA_title = ?, QA_content = ? WHERE QA_seq = 2";
 
-				
+				System.out.println("ddddddddddd");
 
 
 				con = DBManagerhalo_JW.connect();

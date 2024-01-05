@@ -5,6 +5,13 @@ regBtn.addEventListener("click", function(event) {
 	const formData = new FormData(ckForm);
 	formData.set('txt', content);
 
+let aaa =  document.querySelector('#modal-seq');
+console.log(aaa)
+
+	formData.set('seq', content);
+console.log('0000000000000')
+console.log(formData)
+console.log('0000000000000')
 	console.log('ckForm : ' + ckForm.value)
 	console.log('content : ' + content)
 	console.log('formData : ' + formData);
@@ -17,7 +24,7 @@ regBtn.addEventListener("click", function(event) {
 		console.log(pair);
 	}
 	console.log('--------------------')
-
+/*
 	var isTitleValid = false;
 	var isTxtValid = false;
 
@@ -42,7 +49,7 @@ regBtn.addEventListener("click", function(event) {
 // 여기서 제목, 내용입력 둘다 만족할 경우 모달창이 닫히도록 함
 	if (isTitleValid && isTxtValid) {
 		closeModalF();
-	}
+	}*/
 
 	let CkeditorC123 = fetch('CkeditorC_Frequenthyask', {
 		method: 'POST',

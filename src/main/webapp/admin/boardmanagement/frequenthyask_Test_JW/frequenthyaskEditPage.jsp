@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>noticeEditPage</title>
+<title>Frequenthyask</title>
 
 <link
 	href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular"
@@ -21,8 +21,23 @@
 				<div class="modal-title-tr">
 					<div class="modal-title-td-1">
 						<div class="real-title">
+
+
+
+
+
+
+
 							<input class="real-title-editor" name="title"
-								id="real-title-editor" placeholder="이곳에 제목을 입력하세요">
+								id="classicNR_Title" placeholder="ㅊㅊㅊㅊㅊㅊㅊㅊㅊㅊ"
+								value="${FAQ.qa_title }">
+
+							<!-- <input class="real-title-editor" name="title" id="real-title-editor" placeholder="이곳에 제목을 입력하세요"> -->
+
+							<input id="modal-seq">
+
+
+
 							<!-- 아래의 input은 ajax로 올라갔던 이미지의 실제 이름을 받기 위한 역할을 한다.
 							type="hidden"을 삭제하고 이미지를 올려놓으면 올린 이미지의 경로+이름이 나온다. -->
 							<div id="img-temporary"></div>
@@ -57,8 +72,9 @@
 		type="module"></script>
 
 	<!-- 아래의 스크립트는 입력하지 않은 값이 나올 시 alert 띄우는 용 -->
-	<script src="admin/boardmanagement/frequenthyask_Test_JW/0.js/ValidationItems.js"></script>
-	
+	<script
+		src="admin/boardmanagement/frequenthyask_Test_JW/0.js/ValidationItems.js"></script>
+
 	<!-- 여기는 CKEditor에 들어간 값을 서버로 보내는 역할이다 -->
 	<script
 		src="admin/boardmanagement/frequenthyask_Test_JW/0.js/SendCkeditorC.js"></script>

@@ -48,6 +48,14 @@
 			</div>
 		</div>
 		<div class="ontent-m-td-2-mid">
+
+
+
+
+
+
+
+
 			<div class="ontent-m-td-2-content-txt-in">
 				<div class="ontent-m-td-2-content-txt-no-in">8</div>
 				<div class="ontent-m-td-2-content-txt-kategorie-in">8</div>
@@ -58,20 +66,58 @@
 				<div class="ontent-m-td-2-content-txt-date-in">8</div>
 				<div class="ontent-m-td-2-content-txt-delete-in"></div>
 			</div>
-			<div class="ontent-m-td-2-mid">
-				<c:forEach items="${QA_tbl }" var="qa">
-					<div class="ontent-m-td-2-content-txt-in">
-						<div class="ontent-m-td-2-content-txt-no-in">${qa.qa_seq }</div>
-						<div class="ontent-m-td-2-content-txt-title-in">
-							${qa.qa_title } <a onclick="openModalF()">● 이곳을 누르면 모달이 뜬다</a>
-						</div>
-						<div class="ontent-m-td-2-content-txt-date-in">${qa.qa_reg_date}</div>
-						<div class="ontent-m-td-2-content-txt-delete-in">
-							<button>삭제하기</button>
-						</div>
+			<!-- 			<div class="ontent-m-td-2-mid">
+ -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			<c:forEach items="${FAQs}" var="qa" varStatus="loop">
+				<div class="ontent-m-td-2-content-txt-in">
+					<input name="qa_seq" value="${qa.qa_seq }">
+					<div class="ontent-m-td-2-content-txt-no-in">${(loop.index + 1) + (curPageNo -1) * 8 }
 					</div>
-				</c:forEach>
-			</div>
+					<div class="ontent-m-td-2-content-txt-title-in" id="Title_css">
+						<a onclick="getFAQData('${qa.qa_seq}')">● ${qa.qa_title } </a>
+					</div>
+					<div class="ontent-m-td-2-content-txt-date-in">${qa.qa_reg_date}</div>
+				</div>
+			</c:forEach>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			<!-- 			</div> -->
+
+
+
+
+
+
+
+
 		</div>
 		<div class="ontent-m-td-2-bottom">
 			<div class="ontent-m-td-2-page-side"></div>
