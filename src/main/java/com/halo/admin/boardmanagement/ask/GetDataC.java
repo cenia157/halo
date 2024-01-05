@@ -15,11 +15,13 @@ public class GetDataC extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String jsonData = QuestionDAO.questionList(request, response);
 		QuestionDAO.questionList(request, response);
+		QuestionDAO.getQuestionNComment(request);
+		
 	    // 응답의 Content-Type 설정
 	    response.setContentType("application/json");
+
 	    // 생성한 JSON 데이터를 클라이언트로 전송
 	    response.getWriter().write(jsonData);
-	    
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
