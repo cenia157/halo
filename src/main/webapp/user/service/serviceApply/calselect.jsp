@@ -51,7 +51,7 @@
 			</div>
 		</div>
 		<div class="content-cal-btn-box-td">
-			<button class="next-btn">다음으로</button>
+			<button class="next-btn">次へ</button>
 		</div>
 	</form>
 </body>
