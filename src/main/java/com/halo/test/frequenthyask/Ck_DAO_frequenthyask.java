@@ -1,21 +1,24 @@
-package com.halo.test;
+package com.halo.test.frequenthyask;
 
 import java.io.IOException;
+
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
 import javax.servlet.http.HttpServletRequest;
 
-public class Ck_DAO {
+import com.halo.test.DBManagerhalo_JW;
 
-	public static void regNotice(HttpServletRequest request) throws IOException {
+public class Ck_DAO_frequenthyask {
+
+	public static void regFrequenthyask(HttpServletRequest request) throws IOException {
 		request.setCharacterEncoding("utf-8");
 		try {
 
 			String title = request.getParameter("title");
-			String select = request.getParameter("select");
 			String txt = request.getParameter("txt");
-			if (title != "" && txt != "" && select != null) {
+			if (title != "" && txt != "") {
 
 				System.out.println("txt 구간(1) :::" + txt);
 //			String saveFnameValues[] = request.getParameterValues("saveFname");
@@ -49,7 +52,6 @@ public class Ck_DAO {
 				}
 
 				System.out.println(title);
-				System.out.println(select);
 //			System.out.println(saveFName);
 //			txt = txt.replace("img", "img src=\'" + saveFName + "\'");
 
@@ -63,19 +65,19 @@ public class Ck_DAO {
 
 				Connection con = null;
 				PreparedStatement pstmt = null;
-				String sql = "INSERT INTO announced_tbl (an_seq, an_title, an_content, an_writer, an_category) "
-						+ "VALUES (announced_tbl_seq.nextval, ?, ?, ?, ?)";
+				String sql = "UPDATE QA_TBL SET QA_title = ?, QA_content = ? WHERE QA_seq = 1";
+
+				
+
 
 				con = DBManagerhalo_JW.connect();
 				pstmt = con.prepareStatement(sql);
 
 				pstmt.setString(1, title);
 				pstmt.setString(2, txt);
-				pstmt.setString(3, "산타");
-				pstmt.setString(4, select);
 
 				if (pstmt.executeUpdate() == 1) {
-					System.out.println("등록성공");
+					System.out.println("수정성공 Ck_DAO FREQUENTHYASK");
 					System.out.println("---------------");
 				}
 			}

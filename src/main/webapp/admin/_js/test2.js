@@ -21,9 +21,6 @@ function closeModal(modalId, tblId) {
 	$('html, body').css({ 'overflow': 'auto', 'height': '100%' }); //scroll hidden 해제
 	$('#element').off('scroll touchmove mousewheel'); // 터치무브 및 마우스휠 스크롤 가능
 
-	// 모달 창을 숨김
-	var modalNR = document.getElementById("myModalNR");
-	modalNR.style.display = "none";
 
 	// input 초기화
 	var titleInput = document.getElementById("real-title-editor");

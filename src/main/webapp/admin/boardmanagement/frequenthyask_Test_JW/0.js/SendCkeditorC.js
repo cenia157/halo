@@ -5,15 +5,11 @@ regBtn.addEventListener("click", function(event) {
 	const formData = new FormData(ckForm);
 	formData.set('txt', content);
 
-
 	console.log('ckForm : ' + ckForm.value)
-
 	console.log('content : ' + content)
 	console.log('formData : ' + formData);
 	const payload = new URLSearchParams(formData);
 	console.log('payload : ' + payload)
-
-
 
 	console.log('--------------------')
 	for (var pair of formData.entries()) {
@@ -22,11 +18,8 @@ regBtn.addEventListener("click", function(event) {
 	}
 	console.log('--------------------')
 
-
-
 	var isTitleValid = false;
 	var isTxtValid = false;
-	var iskategorieValid = false;
 
 	for (var pair of formData.entries()) {
 
@@ -45,18 +38,13 @@ regBtn.addEventListener("click", function(event) {
 				console.log('내용 X');
 			}
 		}
-		if (pair[0] === 'select') {
-			console.log('카테고리 O');
-			var iskategorieValid = true;
-		}
 	}
-// 여기서 제목, 카테고리, 내용입력 둘다 만족할 경우 모달창이 닫히도록 함
-	if (isTitleValid && isTxtValid && iskategorieValid) {
-		closeModalNR();
+// 여기서 제목, 내용입력 둘다 만족할 경우 모달창이 닫히도록 함
+	if (isTitleValid && isTxtValid) {
+		closeModalF();
 	}
 
-
-	let CkeditorC123 = fetch('CkeditorC', {
+	let CkeditorC123 = fetch('CkeditorC_Frequenthyask', {
 		method: 'POST',
 		body: payload,
 		headers: {
@@ -94,6 +82,3 @@ $(document).ready(function() {
 		}
 	});
 });
-
-
-
