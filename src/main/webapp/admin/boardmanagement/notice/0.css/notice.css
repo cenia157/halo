@@ -457,13 +457,6 @@
 	min-height: 200px;
 }
 
-.ck-content .image {
-	/* block images */
-	max-width: 80%;
-	margin: 20px auto;
-	border: 3px solid black;
-}
-
 .close {
 	color: #535353;
 	float: right;
@@ -518,4 +511,12 @@
 
 .toggle-item:hover {
 	border: solid 1px black;
+}
+
+/* img-url 이미지 input 안보이게하는 css */
+#img-url {
+	/* 
+	display: none;
+*/
+	
 }

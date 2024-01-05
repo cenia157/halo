@@ -21,23 +21,9 @@
 				<div class="modal-title-tr">
 					<div class="modal-title-td-1">
 						<div class="real-title">
-
-
-
-
-
-
-
 							<input class="real-title-editor" name="title"
-								id="real-title-editor" placeholder="ㅊㅊㅊㅊㅊㅊㅊㅊㅊㅊ"
-								value="${FAQ.qa_title }">
-
-							<!-- <input class="real-title-editor" name="title" id="real-title-editor" placeholder="이곳에 제목을 입력하세요"> -->
-
-							<input id="modal-seq">
-
-
-
+								id="real-title-editor"> <input id="modal-seq"
+								type="hidden">
 							<!-- 아래의 input은 ajax로 올라갔던 이미지의 실제 이름을 받기 위한 역할을 한다.
 							type="hidden"을 삭제하고 이미지를 올려놓으면 올린 이미지의 경로+이름이 나온다. -->
 							<div id="img-temporary"></div>
@@ -53,7 +39,6 @@
 						<textarea name="txt" id="classicNR" class="classicNR"></textarea>
 					</div>
 					<div class="modal-content-button">
-
 						<button class="SubmitButton" type="button" id="reg-btn"
 							onclick="noValue()">수정완료</button>
 					</div>
@@ -61,14 +46,12 @@
 			</div>
 		</div>
 	</form>
-
 	<!-- 아래의 스크립트는 CKEditor에 올라온 이미지를 ajax로 올리는 역할이다
 	추가로 아마 위의 스크립트의 경로를 다음과 같이 바꿔야 할 것 같다. 이건 단영씨와 합치고 난 뒤에 하자, 이름도 바꾸고...
 	admin/_js/ImageAjax.js -->
 	<script
 		src="admin/boardmanagement/frequenthyask_Test_JW/0.js/testMZ.js"
 		type="module"></script>
-
 	<!-- 아래의 스크립트는 입력하지 않은 값이 나올 시 alert 띄우는 용 -->
 	<script
 		src="admin/boardmanagement/frequenthyask_Test_JW/0.js/ValidationItems.js"></script>

@@ -411,6 +411,8 @@ function getFAQData(qa_seq, qa_title, qa_content, qa_reg_date) {
 
 				$('#modal-seq').val(qa_seq);
 //				$('#classicNR_Title').val(qa_title);
+//				이거 활성화하면 타이틀에 value로 들어가는 대신 placeholder로 들어가게 된다... 옵션
+//				$('#real-title-editor').attr('placeholder', qa_title);	
 				$('#real-title-editor').val(qa_title);
 				$('#classicNR').html(qa_content);
 
