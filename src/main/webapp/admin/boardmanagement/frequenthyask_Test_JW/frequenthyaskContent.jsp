@@ -52,6 +52,6 @@
 			자주묻는 질문의 내용을 변경하기 위한 곳(frequenthyaskEditPage.jsp)-->
 		<jsp:include page="frequenthyaskEditPage.jsp"></jsp:include>
 	</div>
-
+	<!--  여기는 게시글이 업로드되면 자동으로 게시글을 새로고침하기 위한 ajax 적용하는 곳 -->
 </body>
 </html>
