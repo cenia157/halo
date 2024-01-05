@@ -290,7 +290,7 @@ EDIT ON */
 
 .detail-schedule {
 	position: absolute;
-	width: 10%;
+	width: 20%;
 	height: auto;
 	visibility: hidden;
 }
@@ -300,7 +300,7 @@ EDIT ON */
 	width: 100%;
 	height: auto;
 	box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.50);
-	background: #FFF;
+	background: rgb(119, 156, 115, 0.95);
 }
 
 .detail-schedule-title {
@@ -317,7 +317,7 @@ EDIT ON */
 	font-size: 1.5rem;
 	font-weight: 600;
 	line-height: normal;
-	background: #FFF;
+	background: rgb(119, 156, 115, 0.95);
 	box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.50);
 	width: 100%;
 	height: auto;
@@ -333,7 +333,7 @@ EDIT ON */
 	font-size: 1rem;
 	color: #FE2E2E;
 	cursor: pointer;
-	padding-top: 3%;
+	padding-top: 1.5%;
 }
 
 .datail-schedule-data a:hover {
@@ -353,7 +353,7 @@ EDIT ON */
 }
 
 .datail-schedule-txt {
-	display: flex;
+	display: none;
 	justify-content: space-between;
 }
 
@@ -366,6 +366,19 @@ EDIT ON */
 
 .datail-schedule-txt a:hover {
 	text-decoration: underline;
+}
+
+.update-txt-cancel {
+/* 	margin-left: 2.5%; */
+}
+
+.datail-schedule-txt input{
+	font-size: 1.5rem;
+	width : 65%;
+}
+
+.show {
+	display: flex;
 }
 
 /* ********************************************************* */
