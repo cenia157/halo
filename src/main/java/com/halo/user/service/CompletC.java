@@ -8,19 +8,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet("/ApplyC")
-public class ApplyC extends HttpServlet {
+@WebServlet("/CompletC")
+public class CompletC extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setAttribute("serviceStep", "complet.jsp");
+		request.setAttribute("step6Pos", "#ffdf6c");
+		request.setAttribute("menu", "user/menu-index.jsp");
+		request.setAttribute("subMenu", "service/serviceApply/serviceApply.jsp");
+		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-	// 문자인코딩형식
-	request.setCharacterEncoding("UTF-8");
-	SeviceApplyDAO.apply(request);
-		
-	response.sendRedirect("ApplyRedirectC");
-	
 	
 	}
 

@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/user/service/serviceApply/0.css/complet.css" />
 </head>
 <body>
+<form action="ServiceApplyC">
 			<div class="content-step-page-td">
 				<!-- step별 페이지  시작 -->
 
@@ -36,6 +37,6 @@
 					<button class="content-step-page-td-tr3-1">확인</button>
 				</div>
 			</div>
-
+</form>
 </body>
 </html>

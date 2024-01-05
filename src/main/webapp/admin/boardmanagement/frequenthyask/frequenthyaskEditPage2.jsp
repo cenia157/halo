@@ -22,8 +22,8 @@
 			<div class="modal-title-tr">
 				<div class="modal-title-td-1">
 					<div class="real-title">
-						<input class="real-title-editor"
-							placeholder="● 제공되는 서비스를 이용하려면 어떻게 해야되나요?">
+						<input id="classicNR_Title" class="real-title-editor"
+							placeholder="● 제공되는 서비스를 이용하려면 어떻게 해야되나요?" value="${FAQ.qa_title }">
 					</div>
 				</div>
 				<div class="modal-title-td-2">
@@ -41,6 +41,7 @@
 						.create(document.querySelector('#classicNR'))
 						.then(editor => {
 								window.editor = editor;
+								editor.setData();
 								})
 						.catch(error => {
 								console.error(error);

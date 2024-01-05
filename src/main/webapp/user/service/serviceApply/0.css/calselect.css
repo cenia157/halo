@@ -43,6 +43,7 @@
 	justify-content: flex-start;
 	height: auto;
 	margin-top: 3%;
+	width: 100%;
 }
 
 .content-date-select-box-td {
@@ -52,21 +53,39 @@
 	display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.date-sel-text {
-	font-size: 2rem;
+	font-size: 2.5rem;
 	color: #546137;
 	font-family: Inter;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
 }
+.date-sel-start-box-td{
+	width: 40%
+}
+.date-sel-end-box-td{
+	width: 40%
+}
+.date-sel-txt-box-td{
+	width: 10%
+}
+
 
 .date-sel {
-	height: 15vh;
-/* 	width: 95%; */
+	height: 9vh;
+	width: 80%;
 	font-size: 2rem;
+}
+
+input[type="date"] {
+  width: 80%; /* 너비를 크게 조정 */
+  height: 9vh; /* 높이를 조절 */
+  padding: 5px; /* 안쪽 여백 설정 */
+  font-size: 2rem; /* 글꼴 크기 조절 */
+  border-radius: 3%; /* 테두리 모서리를 둥글게 설정 */
+  border: 1px solid #ccc; /* 테두리 추가 */
+  outline: none; /* 포커스 시 기본 아웃라인 제거 */
+  text-align: center;
 }
 
 /* 캘린더 */
