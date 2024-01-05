@@ -69,6 +69,7 @@ class MyUploadAdapter {
   }
 
   async _updateInputField(fName) {
+    // 기존
     return new Promise((resolve, reject) => {
       const newInput = document.createElement("input");
       const targetDiv = document.getElementById("img-temporary");
@@ -115,27 +116,50 @@ function MyCustomUploadAdapterPlugin(editor) {
   };
 }
 
+//async function uploadFilesSequentially(editor, files) {
+//  for (const file of files) {
+//    console.log(
+//      `${
+//        file.name
+//      }의 업로드가 ${new Date().toLocaleTimeString()}에 시작되었습니다.`
+//    );
+//
+//    const loader = editor.plugins.get("FileRepository").createLoader(file);
+//    if (loader) {
+//      const myUploadAdapter = new MyUploadAdapter(loader);
+//      try {
+//        await myUploadAdapter.upload(); // 이미지 업로드 비동기 처리
+//        console.log(`${file.name} 업로드가 성공적으로 완료되었습니다.`);
+//        await myUploadAdapter._updateInputField(response.fName); // _updateInputField 비동기 호출
+//      } catch (error) {
+//        console.error(`${file.name} 업로드 중 오류가 발생했습니다:`, error);
+//      }
+//    }
+//  }
+//  console.log(
+//    "모든 파일이 순차적으로 업로드되고 입력 필드가 순차적으로 업데이트되었습니다."
+//  );
+//}
+
 async function uploadFilesSequentially(editor, files) {
   for (const file of files) {
-    console.log(
-      `${file.name}의 업로드가 ${new Date().toLocaleTimeString()}에 시작되었습니다.`
-    );
+    console.log(`${file.name}의 업로드가 시작되었습니다.`);
 
     const loader = editor.plugins.get("FileRepository").createLoader(file);
     if (loader) {
       const myUploadAdapter = new MyUploadAdapter(loader);
       try {
-        await myUploadAdapter.upload(); // 이미지 업로드 비동기 처리
+        // 이미지 업로드를 기다립니다.
+        const response = await myUploadAdapter.upload(); // 변경: 업로드의 결과를 response로 받습니다.
         console.log(`${file.name} 업로드가 성공적으로 완료되었습니다.`);
-        await myUploadAdapter._updateInputField(response.fName); // _updateInputField 비동기 호출
+        // 입력 필드 업데이트를 기다립니다.
+        await myUploadAdapter._updateInputField(response.default); // 변경: response.fName -> response.default
       } catch (error) {
         console.error(`${file.name} 업로드 중 오류가 발생했습니다:`, error);
       }
     }
   }
-  console.log(
-    "모든 파일이 순차적으로 업로드되고 입력 필드가 순차적으로 업데이트되었습니다."
-  );
+  console.log("모든 파일이 순차적으로 업로드되고 입력 필드가 업데이트되었습니다.");
 }
 
 ClassicEditor.create(document.querySelector("#classicNR"), {

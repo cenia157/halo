@@ -175,6 +175,8 @@ pageEncoding="UTF-8"%>
 	  console.log('-----------------예외처리 시작------------------------- ')
 	   console.log('----------------------------------------------------')
 	   
+	  
+	   
       // 인덱스를 업데이트하는 함수
       function updateIndexes() {
         let figures = $(".ck-content figure img");
@@ -189,40 +191,40 @@ pageEncoding="UTF-8"%>
         });
       } // function updateIndexes() {
 
-      function updateButtonState() {
-        let isSelectedFigureExists =
-          $(".ck-content figure.ck-widget_selected").length > 0;
-        let isBeforeCaretExists =
-          $(".ck-content figure.ck-widget_type-around_show-fake-caret_before")
-            .length > 0;
-        let isAfterCaretExists =
-          $(".ck-content figure.ck-widget_type-around_show-fake-caret_after")
-            .length > 0;
+//       function updateButtonState() {
+//         let isSelectedFigureExists =
+//           $(".ck-content figure.ck-widget_selected").length > 0;
+//         let isBeforeCaretExists =
+//           $(".ck-content figure.ck-widget_type-around_show-fake-caret_before")
+//             .length > 0;
+//         let isAfterCaretExists =
+//           $(".ck-content figure.ck-widget_type-around_show-fake-caret_after")
+//             .length > 0;
 
-        if (
-          isSelectedFigureExists &&
-          !isBeforeCaretExists &&
-          !isAfterCaretExists
-        ) {
-          $(".ck-button[data-cke-tooltip-text='区切り']").addClass(
-            "ck-disabled"
-          );
-          $(".ck-button[data-cke-tooltip-text='区切り']").prop(
-            "disabled",
-            true
-          ); // disabled 속성 설정
-          console.log("추가");
-        } else {
-          $(".ck-button[data-cke-tooltip-text='区切り']").removeClass(
-            "ck-disabled"
-          );
-          $(".ck-button[data-cke-tooltip-text='区切り']").prop(
-            "disabled",
-            false
-          ); // disabled 속성 제거
-          console.log("제거");
-        }
-      } // function updateButtonState() {
+//         if (
+//           isSelectedFigureExists &&
+//           !isBeforeCaretExists &&
+//           !isAfterCaretExists
+//         ) {
+//           $(".ck-button[data-cke-tooltip-text='区切り']").addClass(
+//             "ck-disabled"
+//           );
+//           $(".ck-button[data-cke-tooltip-text='区切り']").prop(
+//             "disabled",
+//             true
+//           ); // disabled 속성 설정
+//           console.log("추가");
+//         } else {
+//           $(".ck-button[data-cke-tooltip-text='区切り']").removeClass(
+//             "ck-disabled"
+//           );
+//           $(".ck-button[data-cke-tooltip-text='区切り']").prop(t
+//             "disabled",
+//             false
+//           ); // disabled 속성 제거
+//           console.log("제거");
+//         }
+//       } // function updateButtonState() {
 
       //-------------------------------------------------- $(document).ready시작--------------------------------------------------
       $(document).ready(function () {
