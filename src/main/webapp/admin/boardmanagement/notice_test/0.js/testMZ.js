@@ -1,23 +1,30 @@
 class MyUploadAdapter {
   constructor(loader) {
     this.loader = loader;
+    this.uploadPromise = null;
   }
 
   upload() {
-    return this.loader.file.then(
-      (file) =>
-        new Promise((resolve, reject) => {
-          this._initRequest();
-          this._initListeners(resolve, reject, file);
-          this._sendRequest(file);
-        })
-    );
+    if (!this.uploadPromise) {
+      this.uploadPromise = this._performUpload();
+    }
+    return this.uploadPromise;
   }
 
   abort() {
     if (this.xhr) {
       this.xhr.abort();
     }
+  }
+
+  async _performUpload() {
+    return new Promise(async (resolve, reject) => {
+      const file = await this.loader.file;
+
+      this._initRequest();
+      this._initListeners(resolve, reject, file);
+      this._sendRequest(file);
+    });
   }
 
   _initRequest() {
@@ -32,7 +39,7 @@ class MyUploadAdapter {
 
     xhr.addEventListener("error", () => reject(genericErrorText));
     xhr.addEventListener("abort", () => reject());
-    xhr.addEventListener("load", async () => {
+    xhr.addEventListener("load", () => {
       const response = xhr.response;
 
       if (!response || response.error) {
@@ -41,13 +48,8 @@ class MyUploadAdapter {
         );
       }
 
-      try {
-        await this._updateInputField(response.fName);
-        await this._updateImageSource(response.fName, file.name);
-      } catch (error) {
-        console.error(error);
-        reject("파일 처리 중 오류가 발생했습니다.");
-      }
+      this._updateInputField(response.fName);
+      document.querySelector(".ck-content").click();
 
       resolve({ default: response.url });
     });
@@ -68,46 +70,48 @@ class MyUploadAdapter {
     this.xhr.send(data);
   }
 
-  async _updateInputField(fName) {
-    // 기존
-    return new Promise((resolve, reject) => {
-      const newInput = document.createElement("input");
-      const targetDiv = document.getElementById("img-temporary");
+  _updateInputField(fName) {
+    const newInput = document.createElement("input");
+    newInput.name = "saveFname";
+    newInput.id = "img-url";
+    newInput.value = fName;
+    newInput.dataset.check = fName;
 
-      newInput.name = "saveFname";
-      newInput.id = "img-url";
-      newInput.value = fName;
+    const targetDiv = document.getElementById("img-temporary");
+    const figures = document.querySelectorAll(".ck-content figure");
 
-      targetDiv.appendChild(newInput); // 입력 필드를 DOM에 추가합니다.
-      console.log(`${fName}에 대한 입력 필드가 추가되었습니다.`);
-      resolve(); // 작업이 완료되면 Promise를 해결(resolve)합니다.
-    });
+    console.log("ck-content 클래스 내 figure 태그 수:", figures.length);
+
+    let matchedFigureIndex = -1; // 삽입할 figure의 인덱스를 저장할 변수
+
+    // 모든 figure 태그를 순회하며 적절한 위치 찾기
+    for (let i = 0; i < figures.length; i++) {
+      const imgTag = figures[i].querySelector("img");
+      if (imgTag && !imgTag.dataset.check) {
+        // dataset.check가 설정되지 않은 첫 번째 img를 찾으면 삽입 위치로 설정
+        imgTag.dataset.check = fName;
+        matchedFigureIndex = i;
+        console.log(`figure 인덱스 ${i}에 dataset.check 설정됨:`, fName);
+        break;
+      }
+    }
+
+    // 삽입할 위치가 결정된 경우
+    if (matchedFigureIndex !== -1) {
+      const inputs = targetDiv.querySelectorAll("input");
+      if (matchedFigureIndex < inputs.length) {
+        targetDiv.insertBefore(newInput, inputs[matchedFigureIndex]);
+      } else {
+        targetDiv.appendChild(newInput);
+      }
+    } else {
+      console.error("적절한 삽입 위치를 찾을 수 없어서 데이터셋을 설정 못 함!");
+    }
   }
 
-  async _updateImageSource(fName, fileName) {
-    const start = new Date().getTime();
-    document.querySelector("figure").lastChild.src = fName;
-    document.querySelector(".ck-content").click(); // 클릭 처리를 해야 인덱스 얻을 수 있음
-
-    // ck-widget_selected 클래스를 가진 첫 번째 요소 찾기
-    // const selectedFigure = document.querySelector(".ck-content .ck-widget_selected");
-
-    // 해당 요소가 있으면 ck-widget_selected 클래스 제거
-    // if (selectedFigure) {
-    //	console.log('진입')
-    //	selectedFigure.classList.remove("ck-widget_selected");
-    //	// 클래스 제거 확인을 위한 로그
-    //	if (selectedFigure.classList.contains("ck-widget_selected")) {
-    //	  console.log("Class 'ck-widget_selected'가 성공적으로 제거되지 않았습니다.");
-    //	} else {
-    //	  console.log("Class 'ck-widget_selected'가 성공적으로 제거되었습니다.");
-    //	}
-    // }
-
-    console.log(`${fileName} 파일이 콘텐츠에 표시되었습니다.`);
-    const end = new Date().getTime();
-    console.log(`_updateImageSource 실행 시간: ${end - start}ms`);
-  }
+  // _updateImageSource(fName, fileName) {
+  //     document.querySelector(".ck-content").click();
+  // }
 } // end class
 
 function MyCustomUploadAdapterPlugin(editor) {
@@ -116,62 +120,12 @@ function MyCustomUploadAdapterPlugin(editor) {
   };
 }
 
-//async function uploadFilesSequentially(editor, files) {
-//  for (const file of files) {
-//    console.log(
-//      `${
-//        file.name
-//      }의 업로드가 ${new Date().toLocaleTimeString()}에 시작되었습니다.`
-//    );
-//
-//    const loader = editor.plugins.get("FileRepository").createLoader(file);
-//    if (loader) {
-//      const myUploadAdapter = new MyUploadAdapter(loader);
-//      try {
-//        await myUploadAdapter.upload(); // 이미지 업로드 비동기 처리
-//        console.log(`${file.name} 업로드가 성공적으로 완료되었습니다.`);
-//        await myUploadAdapter._updateInputField(response.fName); // _updateInputField 비동기 호출
-//      } catch (error) {
-//        console.error(`${file.name} 업로드 중 오류가 발생했습니다:`, error);
-//      }
-//    }
-//  }
-//  console.log(
-//    "모든 파일이 순차적으로 업로드되고 입력 필드가 순차적으로 업데이트되었습니다."
-//  );
-//}
-
-async function uploadFilesSequentially(editor, files) {
-  for (const file of files) {
-    console.log(`${file.name}의 업로드가 시작되었습니다.`);
-
-    const loader = editor.plugins.get("FileRepository").createLoader(file);
-    if (loader) {
-      const myUploadAdapter = new MyUploadAdapter(loader);
-      try {
-        // 이미지 업로드를 기다립니다.
-        const response = await myUploadAdapter.upload(); // 변경: 업로드의 결과를 response로 받습니다.
-        console.log(`${file.name} 업로드가 성공적으로 완료되었습니다.`);
-        // 입력 필드 업데이트를 기다립니다.
-        await myUploadAdapter._updateInputField(response.default); // 변경: response.fName -> response.default
-      } catch (error) {
-        console.error(`${file.name} 업로드 중 오류가 발생했습니다:`, error);
-      }
-    }
-  }
-  console.log("모든 파일이 순차적으로 업로드되고 입력 필드가 업데이트되었습니다.");
-}
-
 ClassicEditor.create(document.querySelector("#classicNR"), {
   extraPlugins: [MyCustomUploadAdapterPlugin],
 })
   .then((editor) => {
     window.editor = editor;
-    const files = document.querySelector('input[type="file"]').files;
-    uploadFilesSequentially(editor, files).then(() => {
-      console.log("모든 파일이 순차적으로 처리되었습니다.");
-    });
   })
   .catch((error) => {
-    console.error("오류 발생:", error);
+    console.log(error);
   });

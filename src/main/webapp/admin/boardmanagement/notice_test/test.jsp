@@ -141,8 +141,8 @@ pageEncoding="UTF-8"%>
         const formData = new FormData(ckForm);
         formData.set("txt", content);
         console.log("--------------------");
-        console.log(content);
-        console.log(formData);
+        console.log("컨텐츠요"+content);
+        console.log("폼데이터요"+formData);
         const payload = new URLSearchParams(formData);
         console.log(payload);
         for (var pair of formData.entries()) {
@@ -173,12 +173,13 @@ pageEncoding="UTF-8"%>
     	  
       console.log('----------------------------------------------------')
 	  console.log('-----------------예외처리 시작------------------------- ')
-	   console.log('----------------------------------------------------')
+	  console.log('----------------------------------------------------')
 	   
-	  
+	  let updateCount = 0;
+      let updateFlag = false;
 	   
-      // 인덱스를 업데이트하는 함수
-      function updateIndexes() {
+      // 이미지 삭제용 인덱스를 업데이트하는 함수
+      function delete_indexes() {
         let figures = $(".ck-content figure img");
         let saveFnames = $("input[name='saveFname']");
 
@@ -189,7 +190,28 @@ pageEncoding="UTF-8"%>
         saveFnames.each(function (index) {
           $(this).data("index", index);
         });
-      } // function updateIndexes() {
+      } // function delete_Indexes() {
+    	  
+//       function update_indexes() {
+//      	  $(".ck-content figure img").each(function (index) {
+     	    
+//      	   if(updateFlag == 'true' && updateCount == 0) {
+//      		  $(this).attr("original_index", index);
+//      	   } 
+//      	   $(this).attr("update_idx", index);
+//    		  });
+
+//    	       $("input[name='saveFname']").each(function (index) {
+//    	    	if(updateFlag == 'true' && updateCount == 0) {
+//        		  $(this).attr("original_index", index);
+//        	   }
+//    		    $(this).attr("update_idx", index);
+//    		  }); 
+   	      
+   		
+//    	    console.log('update_indexes 함수 호출 횟수 ::: ' + updateCount);
+// 	    console.log('update_indexes 함수 호출 횟수 ::: ' + updateFlag);
+//       }
 
 //       function updateButtonState() {
 //         let isSelectedFigureExists =
@@ -228,7 +250,8 @@ pageEncoding="UTF-8"%>
 
       //-------------------------------------------------- $(document).ready시작--------------------------------------------------
       $(document).ready(function () {
-        
+                         
+    	  
     	// 표기능 비활성화
         $(".ck-button[data-cke-tooltip-text='表の挿入']").remove();
    		// 링크 기능 비활성화画像挿入
@@ -238,7 +261,8 @@ pageEncoding="UTF-8"%>
 
         // 다른 js파일에서 모달창에서 파일업로드 후 미리 클릭이벤트를 줬음(인덱스번호값을 위해서)  
         $(".ck-content").on("click", function (e) {
-          updateIndexes();
+        	delete_indexes();
+//         	update_indexes();
         });
 
        // 이미지 다중 업로드 후 인덱스값 맞게 삭제(백스테이스 delte키) 
@@ -264,7 +288,7 @@ pageEncoding="UTF-8"%>
               }
             });
             // **삭제후 인덱스 다시 구해야함**
-            updateIndexes();
+            delete_indexes();
           } // if
         }); // $('.ck-content').on('keyup', function(e){
 
@@ -430,7 +454,7 @@ pageEncoding="UTF-8"%>
         //                     e.preventDefault();
         //                 }
 
-        //                 else if(beforeImgIdx >= 0 && ($(".ck-content figure").length == $("input[name='saveFname']").length)) {
+        //                   else if(beforeImgIdx >= 0 && ($(".ck-content figure").length == $("input[name='saveFname']").length)) {
         //                     imgIdx = beforeImgIdx - 1;
         //                     $('input[name="saveFname"]').eq(imgIdx).remove();
         //                     imgIdx = undefined;
