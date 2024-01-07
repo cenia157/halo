@@ -5,6 +5,7 @@ class MyUploadAdapter {
   }
 
   upload() {
+	// 이미 업로드 작업이 진행 중인지 확인하고, 업로드 작업이 이미 진행 중이지 않을 때에만 "_performUpload()" 함수를 호출
     if (!this.uploadPromise) {
       this.uploadPromise = this._performUpload();
     }
@@ -18,6 +19,7 @@ class MyUploadAdapter {
   }
 
   async _performUpload() {
+	//  Promise는 비동기 작업의 결과 또는 실패를 기다리고 결과를 처리하는 데 사용
     return new Promise(async (resolve, reject) => {
       const file = await this.loader.file;
 
