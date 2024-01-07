@@ -30,7 +30,8 @@
 				<div class="banner-td-img-box" id="banner_preview" style="background-image: url('${pageContext.request.contextPath}/admin/0.img/banner_preview.png');">
 				</div>
 				<!-- 빠른메뉴 설정(셀렉) -->
-				<div class="banner-td-1"> 빠른메뉴 선택 :&nbsp;
+				<div class="banner-td-1"> 
+				<div>빠른메뉴 :&nbsp;</div>
 				<select name="banner_menu1" onchange="changeInformBox(1)">
 				<option value="info_com">회사소개</option>
 				<option value="info_map">오시는길</option>
@@ -46,18 +47,20 @@
 				 </div>
 				<!-- url 링크 -->
 				<div class="sales-inform" id="informBox1">
-				<div class="banner-td-2" st>
+				<div class="banner-td-2">
 				<img src="${pageContext.request.contextPath}/admin/0.img/url.png" alt="이미지준비중">
-				url :&nbsp;<input name="banner_url1" type="text">
+				<div>url :&nbsp;</div>
+				<input name="banner_url1" type="text">
 				</div>
 				<div class="banner-td-2">
 				<img src="${pageContext.request.contextPath}/admin/0.img/sales-icon.png" alt="이미지준비중">
-				상품명 :<input name="banner_text1" type="text">
+				<div>상품명 :</div>
+				<input name="banner_text1" type="text">
 				</div>
 				<!-- 썸네일 이미지 설정 -->
 				<div class="banner-td-2">
 				<img src="${pageContext.request.contextPath}/admin/0.img/fileDown.png" alt="이미지준비중">
-				썸네일 :&nbsp;
+				<div>썸네일 :&nbsp;</div>
 	<form action="BannerUploadC" id="bannerUploadForm" method="post" enctype="multipart/form-data">
 				<label for="thumbnail1">
 				<div class="btn-upload">파일업로드</div>
@@ -71,7 +74,8 @@
 			<div class="banner-no"><h1>2.box</h1></div>
 				<div class="banner-td-img-box" id="banner_preview" style="background-image: url('${pageContext.request.contextPath}/admin/0.img/banner_preview.png');">
 				</div>
-				<div class="banner-td-1">빠른메뉴 선택 :&nbsp;
+				<div class="banner-td-1">
+				빠른메뉴 :&nbsp;
 					<select name="banner_menu2" onchange="changeInformBox(2)">
 				<option value="info_com">회사소개</option>
 				<option value="info_map">오시는길</option>
@@ -89,11 +93,13 @@
 				<div class="sales-inform" id="informBox2">
 				<div class="banner-td-2">
 				<img src="${pageContext.request.contextPath}/admin/0.img/url.png" alt="이미지준비중">
-				url :&nbsp;<input name="banner_url2" type="text">
+				url :&nbsp;
+				<input name="banner_url2" type="text">
 				</div>
 				<div class="banner-td-2">
 				<img src="${pageContext.request.contextPath}/admin/0.img/sales-icon.png" alt="이미지준비중">
-				상품명 :&nbsp;<input name="banner_text2" type="text">
+				상품명 :&nbsp;
+				<input name="banner_text2" type="text">
 				</div>
 				<!-- 썸네일 이미지 설정 -->
 				<div class="banner-td-2">
@@ -112,7 +118,8 @@
 			<div class="banner-no"><h1>3.box</h1></div>
 				<div class="banner-td-img-box" id="banner_preview" style="background-image: url('${pageContext.request.contextPath}/admin/0.img/banner_preview.png');">
 				</div>
-				<div class="banner-td-1">빠른메뉴 선택 :&nbsp;
+				<div class="banner-td-1">
+				빠른메뉴 :&nbsp;
 					<select name="banner_menu3" onchange="changeInformBox(3)">
 				<option value="info_com">회사소개</option>
 				<option value="info_map">오시는길</option>
@@ -130,11 +137,13 @@
 				<div class="sales-inform" id="informBox3">
 				<div class="banner-td-2">
 				<img src="${pageContext.request.contextPath}/admin/0.img/url.png" alt="이미지준비중">
-				url :&nbsp;<input name="banner_url3" type="text">
+				url :&nbsp;
+				<input name="banner_url3" type="text">
 				</div>
 				<div class="banner-td-2">
 				<img src="${pageContext.request.contextPath}/admin/0.img/sales-icon.png" alt="이미지준비중">
-				상품명 :&nbsp;<input name="banner_text3" type="text">
+				상품명 :&nbsp;
+				<input name="banner_text3" type="text">
 				</div>
 				<!-- 썸네일 이미지 설정 -->
 				<div class="banner-td-2">
