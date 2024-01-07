@@ -22,8 +22,9 @@
 </head>
 <body> 
 	<div class="content-m-td-3">
+	<div class="content-banner">
 		<div class="banner-tbl">
-	<form action="BannerUploadC" id="bannerUploadForm" method="post" enctype="multipart/form-data">
+			
 			<div class="banner-tr">
 			<div class="banner-no"><h1>1.box</h1></div>
 				<div class="banner-td-img-box" id="banner_preview" style="background-image: url('${pageContext.request.contextPath}/admin/0.img/banner_preview.png');">
@@ -54,18 +55,18 @@
 				상품명 :<input name="banner_text1" type="text">
 				</div>
 				<!-- 썸네일 이미지 설정 -->
-				<div class="banner-td-2 thumbnail">
+				<div class="banner-td-2">
 				<img src="${pageContext.request.contextPath}/admin/0.img/fileDown.png" alt="이미지준비중">
 				썸네일 :&nbsp;
+	<form action="BannerUploadC" id="bannerUploadForm" method="post" enctype="multipart/form-data">
 				<label for="thumbnail1">
 				<div class="btn-upload">파일업로드</div>
 				</label>
-				<input type="file" name="banner_thumbnail1" id="thumbnail1">
+				<input type="file" class="banner_input" name="banner_thumbnail1" id="thumbnail1">
+			</form>
 				</div>
 				</div>
 			</div>
-			</form>
-			<form action="BannerUploadC" id="bannerUploadForm" method="post" enctype="multipart/form-data">
 			<div class="banner-tr">
 			<div class="banner-no"><h1>2.box</h1></div>
 				<div class="banner-td-img-box" id="banner_preview" style="background-image: url('${pageContext.request.contextPath}/admin/0.img/banner_preview.png');">
@@ -95,18 +96,18 @@
 				상품명 :&nbsp;<input name="banner_text2" type="text">
 				</div>
 				<!-- 썸네일 이미지 설정 -->
-				<div class="banner-td-2 thumbnail">
+				<div class="banner-td-2">
 				<img src="${pageContext.request.contextPath}/admin/0.img/fileDown.png" alt="이미지준비중">
 				썸네일 :&nbsp;
+			<form action="BannerUploadC" id="bannerUploadForm" method="post" enctype="multipart/form-data">
 				<label for="thumbnail2">
 				<div class="btn-upload">파일업로드</div>
 				</label>
-				<input type="file" name="banner_thumbnail2" id="thumbnail2">
+				<input type="file" class="banner_input" name="banner_thumbnail2" id="thumbnail2">
+			</form>
 				</div>
 				</div>
 			</div>
-			</form>
-			<form action="BannerUploadC" id="bannerUploadForm" method="post" enctype="multipart/form-data">
 			<div class="banner-tr">
 			<div class="banner-no"><h1>3.box</h1></div>
 				<div class="banner-td-img-box" id="banner_preview" style="background-image: url('${pageContext.request.contextPath}/admin/0.img/banner_preview.png');">
@@ -136,20 +137,22 @@
 				상품명 :&nbsp;<input name="banner_text3" type="text">
 				</div>
 				<!-- 썸네일 이미지 설정 -->
-				<div class="banner-td-2 thumbnail">
+				<div class="banner-td-2">
 				<img id="file-icon" src="${pageContext.request.contextPath}/admin/0.img/fileDown.png" alt="이미지준비중">
 				썸네일 :&nbsp;
+			<form action="BannerUploadC" id="bannerUploadForm" method="post" enctype="multipart/form-data">
 				<label for="thumbnail3">
 				<div class="btn-upload">파일업로드</div>
 				</label>
-				<input type="file" name="banner_thumbnail3" id="thumbnail3">
+				<input type="file" class="banner_input" name="banner_thumbnail3" id="thumbnail3">
+			</form>
 				</div>
 				</div>
 			</div>
-			</form>
 		</div>
 		<div class="content-button">
 		<button id="banner_btn_submit" type="button" onclick="#">변경</button>
+		</div>
 		</div>
 		
 	</div>

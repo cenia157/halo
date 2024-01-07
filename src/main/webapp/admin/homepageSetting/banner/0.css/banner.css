@@ -26,9 +26,8 @@
 	display: block;
 }
 
-/* 폼태그 범위-> 이미지미리보기, 모든 입풋박스, 버튼까지 */
-#bannerUploadFormn{
-	width: 33.3%;
+.content-banner {
+	width: 100%;
 	height: 100%;
 }
 
@@ -66,12 +65,12 @@
 	height: 40%;
 	margin-bottom: 1.5%;
 }
-#banner_preview{
-	background-size: contain; /* 이미지 div에 전체 */
-    background-position: center; 
-    background-repeat: no-repeat;
-}
 
+#banner_preview {
+	background-size: contain; /* 이미지 div에 전체 */
+	background-position: center;
+	background-repeat: no-repeat;
+}
 
 /* (빠른메뉴)주요메뉴 설정 셀렉  */
 .banner-td-1 {
@@ -141,7 +140,8 @@
 	font-size: 1.2rem;
 	display: none;
 }
-.thumbnail > input{
+
+.banner_input {
 	width: 64%;
 	display: none;
 }
