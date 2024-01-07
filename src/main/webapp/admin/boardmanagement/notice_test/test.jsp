@@ -180,7 +180,8 @@ pageEncoding="UTF-8"%>
                          
     	// 표기능 비활성화
         $(".ck-button[data-cke-tooltip-text='表の挿入']").remove();
-
+        $(".ck-button[data-cke-tooltip-text='画像挿入']").remove();
+    	
         // 다른 js파일에서 모달창에서 파일업로드 후 미리 클릭이벤트를 줬음(인덱스번호값을 위해서)  
         $(".ck-content").on("click", function (e) {
         	
@@ -218,7 +219,16 @@ pageEncoding="UTF-8"%>
               }
             });
             // **삭제후 인덱스 다시 구해야함**
-            delete_indexes();
+            let figures = $(".ck-content figure img");
+        	let saveFnames = $("input[name='saveFname']");
+
+       	    figures.each(function (index) {
+              $(this).data("index", index);
+         	});
+
+ 	       saveFnames.each(function (index) {
+           $(this).data("index", index);
+           });
           } // if
         }); // $('.ck-content').on('keyup', function(e){
 
@@ -253,9 +263,9 @@ pageEncoding="UTF-8"%>
           } // if
         }); // $('.ck-content').on("keydown", function(e) {
 
-        // 이미지 드래그 방지 
+        // 이미지 드래그스타트 방지 
         $(".ck-content").on("dragstart", "img", function (e) {
-          e.preventDefault(); // 드래그를 방지합니다.
+          e.preventDefault(); 
         }); // $('.ck-content').on('dragstart', 'img', function(e) {
 
         $(".ck-content").on("click keydown", function (e) {
@@ -266,7 +276,9 @@ pageEncoding="UTF-8"%>
                 "区切り",
                 "表の挿入",
                 "リンク (Ctrl+K)",
-                "画像挿入"
+                "画像挿入",
+                "パソコンから画像を置換",
+                "パソコンから画像をアップロード"
             ];
 
             buttonsToDisable.forEach(buttonText => {
@@ -279,7 +291,7 @@ pageEncoding="UTF-8"%>
                     $button.prop("disabled", false);
                 }
             });
-        });
+        }); //(".ck-content").on("click keydown", function (e) {
 
 		//      $(".ck-content").on("click keydown", function (e) {
 		//      let isSelectedFigureExists =
@@ -302,6 +314,9 @@ pageEncoding="UTF-8"%>
 		//          $(".ck-button[data-cke-tooltip-text='区切り']").prop("disabled", false);
 		//      }
 		//  });
+		
+		
+
 
       }); // $(document).ready(function(){
     </script>
