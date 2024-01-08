@@ -1,6 +1,8 @@
 package com.halo.admin.boardmanagement.ask;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,21 +15,20 @@ import com.halo.user.qa.question.QuestionDAO;
 public class CommentSubmitC extends HttpServlet {
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		QuestionDAO.getAllQuestions(request);
+//		QuestionDAO.getAllQuestions(request);
+		List<QuestionNComment> resultList = AskDAO.QuestionsAndComments();
+		request.setAttribute("resultList", resultList);
+
 		AskDAO.AskAnswerSubmit(request, response);
 		
-		
-		
-		request.setAttribute("menu", "/admin/boardmanagement/ask/askContent.jsp");
-		request.getRequestDispatcher("admin/index.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		QuestionDAO.getAllQuestions(request);
+//		QuestionDAO.getAllQuestions(request);
+		List<QuestionNComment> resultList = AskDAO.QuestionsAndComments();
+		request.setAttribute("resultList", resultList);
+
 		AskDAO.AskAnswerSubmit(request, response);
-		
-		request.setAttribute("menu", "/admin/boardmanagement/ask/askContent.jsp");
-		request.getRequestDispatcher("admin/index.jsp").forward(request, response);
 		
 	}
 

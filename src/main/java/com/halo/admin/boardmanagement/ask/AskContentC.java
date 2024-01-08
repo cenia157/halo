@@ -2,6 +2,7 @@ package com.halo.admin.boardmanagement.ask;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,14 +16,26 @@ import com.halo.user.qa.question.QuestionDAO;
 public class AskContentC extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		QuestionDAO.getAllQuestions(request);
+//		QuestionDAO.getAllQuestions(request);
+//		List<QuestionNComment> resultList = AskDAO.QuestionsAndComments();
+//		request.setAttribute("resultList", resultList);
+		
+		AskDAO.getAllQnC(request, response);
+		AskDAO.QpagingAdmin(1, request);
+		
 		request.setAttribute("menu", "/admin/boardmanagement/ask/askContent.jsp");
 		request.getRequestDispatcher("admin/index.jsp").forward(request, response);
 		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		QuestionDAO.getAllQuestions(request);
+//		QuestionDAO.getAllQuestions(request);
+		List<QuestionNComment> resultList = AskDAO.QuestionsAndComments();
+		request.setAttribute("resultList", resultList);
+		
+		AskDAO.getAllQnC(request, response);
+		AskDAO.Qpaging(1, request);
+		
 		request.setAttribute("menu", "/admin/boardmanagement/ask/askContent.jsp");
 		request.getRequestDispatcher("admin/index.jsp").forward(request, response);
 	}

@@ -114,7 +114,7 @@ public class AnnouncedDAO {
 		
 		int start = total - (cnt * (page -1));
 		System.out.println("start ::: " + start );
-		
+		System.out.println("AAAAAAAAAA");
 		int end = (page == pageCount) ? -1 : start - (cnt + 1);
 		
 		ArrayList<Announced_tbl_DTO> items = new ArrayList<Announced_tbl_DTO>();

@@ -1,25 +1,3 @@
-/* 컨텐트 H 조정 시작 */
-.container-tbl {
-  width: 100%;
-  max-width: 100vw;
-  height: 340vh;
-}
-
-/* 컨텐트  */
-.content-tbl {
-  background-color: #5b7953;
-  width: 100%;
-  height: 345vh;
-  display: flex;
-  flex-direction: column;
-}
-.content-sec {
-  background-color: rgba(255, 255, 255, 0.8);
-  width: 100%;
-  height: 245vh;
-}
-
-/* 컨텐트 H 끝 */
 
 
 /* 오단영 여기서부터 시작 */
@@ -39,7 +17,7 @@
   margin-top: 1%;
   margin-bottom: 1%;
   color: #333;
-  font-size: 1.1rem;
+  font-size: 2rem;
   text-align: center;
 }
 
@@ -69,7 +47,7 @@
 
 @media (min-width: 1025px) {
   .content-step-page-td p {
-    font-size: 1.1rem; /* 데스크탑 화면에서는 기본 텍스트 크기 */
+    font-size: 2rem; /* 데스크탑 화면에서는 기본 텍스트 크기 */
   }
 }
 
@@ -109,7 +87,7 @@
 }
 
 .checkbox-container label {
-  font-size: 1.3rem;
+  font-size: 2.5rem;
   color: #546137;
 }
 
@@ -118,12 +96,12 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  margin: 2% 0; /* 위아래 여백 추가 */
+  margin: 3% 0; /* 위아래 여백 추가 */
 }
 
-.button-container a {
+.button-container button {
   padding: 1.5% 3%;
-  font-size: 1.4rem;
+  font-size: 2.3rem;
   color: #546137;
   background-color: #ffdf6c;
   border: none;

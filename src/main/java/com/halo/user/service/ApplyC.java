@@ -15,32 +15,12 @@ public class ApplyC extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-
+	// 문자인코딩형식
+	request.setCharacterEncoding("UTF-8");
 	SeviceApplyDAO.apply(request);
+		
+	response.sendRedirect("ApplyRedirectC");
 	
-//	// 세션 객체 가져오기
-//		HttpSession session = request.getSession();
-//
-//		// 세션에서 데이터 불러오기
-//		String selectedService = (String) session.getAttribute("selectedService");
-//		String service = null;
-//		// 불러온 데이터 사용 예시
-//		if (selectedService != null) {
-//			if (selectedService.equals("nursingTexi")) {
-//			}else {
-//			}
-//		    System.out.println("Selected Service: " + selectedService);
-//		} else {
-//		    System.out.println("No selected service found in session.");
-//		}
-	
-	
-	
-	request.setAttribute("serviceStep", "complet.jsp");
-	request.setAttribute("step6Pos", "#ffdf6c");
-	request.setAttribute("menu", "user/menu-index.jsp");
-	request.setAttribute("subMenu", "service/serviceApply/serviceApply.jsp");
-	request.getRequestDispatcher("index.jsp").forward(request, response);
 	
 	}
 

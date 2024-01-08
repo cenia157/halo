@@ -18,28 +18,26 @@
 	<form action="SvcselectC" class="content-form-box" method="post" >
 		<div class="content-serviceselect-box-td">
 			<div class="content-serviceoption-td">
-				<input type="radio" name="service" value="nursing" id="nursing">
-				<label for="nursing">방문요양</label>
-			</div>
-
-			<div class="content-serviceoption-td">
-				<input type="radio" name="service" value="texi" id="texi"> <label
-					for="texi">개호택시</label>
-			</div>
-
-			<div class="content-serviceoption-td">
+			<label >
 				<input type="radio" name="service" value="nursingTexi"
-					id="nursingTexi"> <label for="nursingTexi">방문요양 &
-					개호택시</label><br>
+					id="service" checked> <br> 介護 & 介護タクシーサービス</label><br>
+			</div>
+			<div class="content-serviceoption-td">
+				<label>
+				<input type="radio" name="service" value="nursing" id="service">
+				<br> 介護サービス</label>
+			</div>
+
+			<div class="content-serviceoption-td">
+			<label>
+				<input type="radio" name="service" value="texi" id="service"> <br> 介護タクシーサービス</label>
 			</div>
 		</div>
 		<div class="content-servicebtn-box-td">
-			<div class="content-servicebtn-td">
-				<button>신청 페이지로 가기</button>
-			</div>
+				<button class="content-servicebtn-td">次の申込みページへ</button>
 		</div>
-		<div class="content-reference-txt-td">※이용하실 서비스 내용을 선택 후 신청 페이지
-			버튼을 눌러주세요.</div>
+		<div class="content-reference-txt-td">※ご利用いただくサービス内容をお選びの上、お申し込みページのボタンを押してください。</div>
 	</form>
 </body>
+
 </html>

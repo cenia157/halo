@@ -405,3 +405,26 @@ a {
 	font-weight: 700;
 	line-height: normal;
 }
+
+/* 패스워드 상자 디스플레이 */
+#password_content{
+	display: none;
+}
+#password_input{
+	display: flex;
+	width: 40%;
+}
+#password{
+	width: 50%;
+	font-size: 1.5rem;
+}
+#password_submit_btn{
+	margin-left:5%;
+	font-size: 1rem;
+	height: 100%;
+	padding-left: 3%;
+	padding-right: 3%;
+}
+#wrong_password{
+	font-size: 1.5rem;
+}
