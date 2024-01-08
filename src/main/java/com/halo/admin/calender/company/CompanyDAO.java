@@ -1,5 +1,6 @@
 package com.halo.admin.calender.company;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -46,8 +47,9 @@ public class CompanyDAO {
 				String txt = rs.getString("cs_txt");
 				String date = rs.getString("cs_date");
 				String update = rs.getString("cs_update");
+				String no = rs.getString("cs_no");
 
-				schedule = new CompanyScheduleDTO(year ,month ,title ,txt ,date ,update);
+				schedule = new CompanyScheduleDTO(year, month, title, txt, date, update, no);
 				companySchedule.add(schedule.toJson());
 
 			}
@@ -85,9 +87,9 @@ public class CompanyDAO {
 			// 날짜 파라미터 연 / 월 / 일 로 분할
 			int selectYearMonthPlace = inputDates.indexOf("月") + 1;
 			String inputYear = inputDates.substring(0, inputDates.indexOf("年"));
-			String inputMonth = inputDates.substring(inputDates.indexOf("年")+2, inputDates.indexOf("月"));
+			String inputMonth = inputDates.substring(inputDates.indexOf("年") + 2, inputDates.indexOf("月"));
 			String selectDates = inputDates.substring(selectYearMonthPlace + 1, inputDates.length());
-			
+
 			pstmt.setString(1, inputYear);
 			pstmt.setString(2, inputMonth);
 			pstmt.setString(3, request.getParameter("input-title"));
@@ -111,6 +113,83 @@ public class CompanyDAO {
 	public String toJson() {
 		Gson gson = new Gson();
 		return gson.toJson(this);
+	}
+
+	public static void updateScheduleCompanyTxt(HttpServletRequest request, HttpServletResponse response) {
+		PreparedStatement pstmt = null;
+
+		try {
+			// 문자인코딩형식
+			request.setCharacterEncoding("UTF-8");
+
+			// 데이터베이스 연동
+			String sql = "Update company_schedule set cs_txt = ? where cs_no = ?";
+			con = DBManagerhalo2.connect();
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, request.getParameter("txt"));
+			pstmt.setString(2, request.getParameter("no"));
+			
+			if (pstmt.executeUpdate() == 1) {
+				System.out.println("내용 업데이트 완료");
+				response.getWriter().print(true);
+			}
+			
+			
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("내용 업데이트 실패");
+			
+			try {
+				response.getWriter().print(false);
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
+			
+		} finally {
+			DBManagerhalo.close(con, pstmt, null);
+		}
+
+	}
+
+	public static void deleteScheduleCompanyDate(HttpServletRequest request, HttpServletResponse response) {
+		PreparedStatement pstmt = null;
+
+		try {
+			// 문자인코딩형식
+			request.setCharacterEncoding("UTF-8");
+
+			// 데이터베이스 연동
+			String sql = "Update company_schedule set cs_date = ? where cs_no = ?";
+			con = DBManagerhalo2.connect();
+			pstmt = con.prepareStatement(sql);
+			
+			System.out.println(request.getParameter("remainDate"));
+			
+			pstmt.setString(1, request.getParameter("remainDate"));
+			pstmt.setString(2, request.getParameter("no"));
+			
+			if (pstmt.executeUpdate() == 1) {
+				System.out.println("삭제 완료");
+				response.getWriter().print(true);
+			}
+			
+			
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("삭제 실패");
+			
+			try {
+				response.getWriter().print(false);
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
+			
+		} finally {
+			DBManagerhalo.close(con, pstmt, null);
+		}
 	}
 
 }

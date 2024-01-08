@@ -85,10 +85,10 @@
 										<img src="admin/0.img/admintble-select.png" alt=""><a href="AdminC?link=5">공지사항</a>
 									</div>
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
-										<img src="admin/0.img/admintble-select.png" alt=""><a href="AdminC?link=6">문의사항</a>
+										<img src="admin/0.img/admintble-select.png" alt=""><a href="AskContentC">문의사항</a>
 									</div>
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
-										<img src="admin/0.img/admintble-select.png" alt=""><a href="AdminC?link=7">자주묻는질문</a>
+										<img src="admin/0.img/admintble-select.png" alt=""><a href="AdminFAQC">자주묻는질문</a>
 									</div>
 								</div>
 							</div>

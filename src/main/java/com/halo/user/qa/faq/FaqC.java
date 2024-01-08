@@ -7,11 +7,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.halo.admin.boardmanagement.frequenthyask.FAQDAO;
+
 @WebServlet("/FaqC")
 public class FaqC extends HttpServlet {
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		FAQDAO.getAllFAQ(request);
+		FAQDAO.getFAQDetail(request, response);
+		
+		
+		
 		String subMenu = "qa/faq/faq";
 		request.setAttribute("menu", "user/menu-index.jsp");
 		request.setAttribute("subMenu", subMenu + ".jsp");

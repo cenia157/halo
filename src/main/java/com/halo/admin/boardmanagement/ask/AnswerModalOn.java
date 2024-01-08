@@ -14,7 +14,7 @@ public class AnswerModalOn extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		QuestionDAO.getQuestion(request);
+		QuestionDAO.getQuestionNComment(request);
 		request.setAttribute("menu", "/admin/boardmanagement/ask/.jsp");
 		
 		request.getRequestDispatcher("admin/index.jsp").forward(request, response);

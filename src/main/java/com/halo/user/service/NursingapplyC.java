@@ -14,7 +14,8 @@ public class NursingapplyC extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+	// 문자인코딩형식
+	request.setCharacterEncoding("UTF-8");
 	
 	// 세션 객체 가져오기
 	HttpSession session = request.getSession();
@@ -25,10 +26,10 @@ public class NursingapplyC extends HttpServlet {
 	SeviceApplyDAO.calSelect(request);
 	SeviceApplyDAO.timeSelect(request);
 	SeviceApplyDAO.nursingApply(request);
+	
 	// 불러온 데이터 사용 예시
 	if (selectedService != null) {
 			if (selectedService.equals("nursingTexi")) {
-				request.setAttribute("sevice", "NursingTexiC");
 				service = "taxiapply";
 				request.setAttribute("step4Pos", "#ffdf6c");
 			}else {

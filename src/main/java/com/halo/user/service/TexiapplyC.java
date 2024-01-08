@@ -14,13 +14,31 @@ public class TexiapplyC extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		// 문자인코딩형식
+		request.setCharacterEncoding("UTF-8");
 	SeviceApplyDAO.calSelect(request);
 	SeviceApplyDAO.timeSelect(request);
-	SeviceApplyDAO.nursingApply(request);
+	SeviceApplyDAO.nursingTexi(request);
 	SeviceApplyDAO.texiApply(request);
+//	
+//	// 세션 객체 가져오기
+//		HttpSession session = request.getSession();
+//
+//		// 세션에서 데이터 불러오기
+//		String selectedService = (String) session.getAttribute("selectedService");
+//		String service = null;
+//		// 불러온 데이터 사용 예시
+//		if (selectedService != null) {
+//			if (selectedService.equals("nursingTexi")) {
+//			}else {
+//			}
+//		    System.out.println("Selected Service: " + selectedService);
+//		} else {
+//		    System.out.println("No selected service found in session.");
+//		}
+//	
+//	
 	
-	request.setAttribute("agree", "ApplyTexiC");
 	request.setAttribute("serviceStep", "agree.jsp");
 	request.setAttribute("step5Pos", "#ffdf6c");
 	request.setAttribute("menu", "user/menu-index.jsp");

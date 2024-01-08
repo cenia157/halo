@@ -22,7 +22,8 @@ public class DBManagerhalo {
 		dataSource.setPassword("Soldesk802!!");
 	}
 
-	public static Connection connect() throws SQLException {
+	public static Connection connect() throws Exception {
+		Class.forName("oracle.jdbc.driver.OracleDriver");
 		return dataSource.getConnection();
 	}
 
