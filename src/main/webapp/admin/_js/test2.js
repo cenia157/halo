@@ -410,9 +410,9 @@ function getFAQData(qa_seq, qa_title, qa_content, qa_reg_date) {
 				let qa_reg_date = data[0].qa_reg_date;
 
 				$('#modal-seq').val(qa_seq);
-//				$('#classicNR_Title').val(qa_title);
-//				이거 활성화하면 타이틀에 value로 들어가는 대신 placeholder로 들어가게 된다... 옵션
-//				$('#real-title-editor').attr('placeholder', qa_title);	
+				//				$('#classicNR_Title').val(qa_title);
+				//				이거 활성화하면 타이틀에 value로 들어가는 대신 placeholder로 들어가게 된다... 옵션
+				//				$('#real-title-editor').attr('placeholder', qa_title);	
 				$('#real-title-editor').val(qa_title);
 				$('#classicNR').html(qa_content);
 
@@ -456,4 +456,82 @@ function deleteFAQ(qa_seq) {
 			}
 		});
 	}
+}
+
+
+
+
+
+
+
+
+
+
+// 임시 notice 김진욱
+
+
+function getNOTICEDataV(an_seq, an_title, an_content, an_writer, an_reg_date, an_category) {
+	console.log("an_seq: ", an_seq);
+
+
+
+
+
+	$.ajax({
+		url: "getNOTICEDetailC",
+		method: "post",
+		data: {
+			an_seq: an_seq,
+			an_title: an_title,
+			an_content: an_content,
+			an_writer: an_writer,
+			an_reg_date: an_reg_date,
+			an_categor: an_category
+		},
+
+		success: function(data) {
+
+			console.log("data: ", data);
+			console.log("NOTICE 데이터 가져오기 성공");
+
+
+			if (Array.isArray(data) && data.length > 0) {
+				let an_seq = data[0].an_seq;
+				let an_title = data[0].an_title;
+				let an_content = data[0].an_content;
+				let an_writer = data[0].an_content;
+				console.log('111111111111111111111111111111111111111111');
+				console.log("qa_content: ", an_content);
+				console.log('111111111111111111111111111111111111111111');
+				let an_reg_date = data[0].an_reg_date;
+				let an_category = data[0].an_category;
+
+
+				$('#modal-seq').val(an_seq);
+				//				$('#classicNR_Title').val(qa_title);
+				//				이거 활성화하면 타이틀에 value로 들어가는 대신 placeholder로 들어가게 된다... 옵션
+				//				$('#real-title-editor').attr('placeholder', qa_title);	
+				$('#real-title-V').html(an_title);
+				$('#Display-Category').html(an_category);
+				$('#modal-content-txt-in').html(an_content);
+
+
+				$('#real-title-editor').val(an_title);
+				$('#classicNR').html(an_content);
+
+
+
+				openModalV();
+			} else {
+				console.log("NOTICE 데이터 가져오기 성공");
+			}
+
+
+		},
+		error: function(xhr, status, error) {
+			console.log("NOTICE 데이터 가져오기 실패");
+			console.log("error:", xhr, status, error);
+		}
+	})
+
 }

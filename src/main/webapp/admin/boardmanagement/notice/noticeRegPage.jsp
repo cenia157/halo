@@ -21,7 +21,7 @@
 			<div class="modal-title-tr">
 				<div class="modal-title-td-1">
 					<div class="real-title">
-						<input class="real-title-editor" placeholder="민기해적단 팀인원 대거 탈주 계획">
+						<input class="real-title-editor" id="real-title-editor">
 						<div class="real-title-select">
 							<select>
 								<option value="">안내</option>
@@ -59,6 +59,6 @@
 			</div>
 		</div>
 	</div>
-	
+
 </body>
 </html>
