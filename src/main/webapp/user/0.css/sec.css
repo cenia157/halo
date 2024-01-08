@@ -45,6 +45,7 @@ a {
   height: auto;
 }
 
+
 /* 하단베너ㅓ */
 .bottom-venner-tr {
 	width: 100%;
@@ -58,12 +59,25 @@ a {
 	background-color: rgb(255, 255, 255, 0.84);
 	box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.3);
 	color: #546137;
-	font-size: 2.5rem;
 	font-weight: 700;
 	width: 20%;
 	height: 45%;
 	display: flex;
 	justify-content: space-evenly;
-	align-items: center;
 	border-radius: 30px;
+	cursor: pointer;
+}
+
+/*  하단베너 메뉴칸 */
+.menu-box{
+	align-items: center;
+	font-size: 2.5rem;
+}
+
+/* 하단베너 상품 칸 */
+.sales-box{
+	font-size: 1.5rem;
+	align-items: flex-end;
+	background-size: cover;
+	text-shadow: 3px 4px 5px white;
 }
