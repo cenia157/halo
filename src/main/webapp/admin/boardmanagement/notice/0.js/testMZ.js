@@ -9,7 +9,9 @@ class MyUploadAdapter {
 			(file) =>
 				new Promise((resolve, reject) => {
 					this._initRequest();
+					console.log('1111');
 					this._initListeners(resolve, reject, file);
+					console.log('file' + file);
 					this._sendRequest(file);
 				})
 		);
@@ -62,6 +64,7 @@ class MyUploadAdapter {
 				);
 			}
 
+			console.log('222****');
 			this._updateInputField(response.fName);
 			document.querySelector(".ck-content").click();
 
@@ -85,6 +88,7 @@ class MyUploadAdapter {
 	}
 
 	_updateInputField(fName) {
+		console.log('3333****');
 		const newInput = document.createElement("input");
 		newInput.name = "saveFname";
 		newInput.id = "img-url";

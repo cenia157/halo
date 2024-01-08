@@ -26,13 +26,13 @@ pageEncoding="UTF-8"%>
     <div class="a_content-box-tr1">
       <div class="a_content-box-tr1-td1">
         <div class="a_content-box-tr1-td1-1">
-          <span><a href="Announced_C">공지사항</a></span>
+          <span><a href="Announced_C">お知らせ</a></span>
         </div>
         <div class="a_content-box-tr1-td1-2">
-          <span><a href="Album_insta_api_C">앨범</a></span>
+          <span><a href="Album_insta_api_C">アルバム</a></span>
         </div>
         <div class="a_content-box-tr1-td1-3">
-          <span><a href="Employment_C">채용공고</a></span>
+          <span><a href="Employment_C">スタッフ募集</a></span>
         </div>
       </div>
 
@@ -43,7 +43,7 @@ pageEncoding="UTF-8"%>
             width="1.7%"
             alt=""
           />
-          > 소개 > 앨범
+          > 情報 > アルバム
         </div>
         <a
           class="a_content-box-tr1-td2-2"
@@ -295,6 +295,12 @@ pageEncoding="UTF-8"%>
           } // if (scrollPercentage >= scroll_per_val)
         }); // window.addEventListener('scroll', function()
       }); //  $(document).ready(function () {
+    </script>
+    <script>
+    let contentDiv = document.querySelectorAll('.a_content-box-tr1-td3-1-1-1 .a_content-box-tr1-td3-1-1-1-2');
+    let contentLastDiv = contentDiv[contentDiv.length - 1];
+
+    contentLastDiv.style.borderBottom = '4px solid #6e6f4e'; 
     </script>
   </body>
 </html>
