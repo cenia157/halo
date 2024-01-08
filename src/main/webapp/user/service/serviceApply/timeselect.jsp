@@ -14,20 +14,38 @@
 	href="${pageContext.request.contextPath}/user/service/serviceApply/0.css/seviceapply.css" />
 </head>
 <body>
-	<form action="TimeselectC" method="post">
+	<form action="TimeselectC" method="post" class="content-form-box">
 		<input type="hidden" name="selectedStart" value="${selectedStart }">
 		<input type="hidden" name="selectedEnd" value="${selectedEnd }">
-		<div class="content-step-page-td">
-			<!-- step별 페이지  시작-->
-			<select id="selectedTime" name="selectedTime" required="required">
-				<option value="" disabled selected>시간 선택</option>
-				<option value="AM">오전 : 08:00~12:00</option>
-				<option value="PM">오후 : 14:00~18:00</option>
-			</select>
-			<hr />
+<!-- 		<div class="content-step-page-td"> -->
+<!-- 			<!-- step별 페이지  시작--> -->
+<!-- 			<select id="selectedTime" name="selectedTime" required="required"> -->
+<!-- 				<option value="" disabled selected>시간 선택</option> -->
+<!-- 				<option value="AM">오전 : 08:00~12:00</option> -->
+<!-- 				<option value="PM">오후 : 14:00~18:00</option> -->
+<!-- 			</select> -->
+<!-- 			<hr /> -->
+<!-- 		</div> -->
+		<div class="content-time-select-box-td">
+			<div class="content-time-option-td">
+			<label >
+				<input type="radio" name="selectedTime" value="allday"
+					id="selectedTime" checked> <br> 終日 <br> 08:00~18:00 </label><br>
+			</div>
+			<div class="content-time-option-td">
+				<label>
+				<input type="radio" name="selectedTime" value="nursing" id="selectedTime">
+				<br> 午前 <br> 08:00~12:00</label>
+			</div>
+
+			<div class="content-time-option-td">
+			<label>
+				<input type="radio" name="selectedTime" value="PM" id="selectedTime"> <br> 午後<br> 14:00~18:00</label>
+			</div>
 		</div>
-		<div class="content-time-btn-td">
-			<button class="content-time-btn">다음으로</button>
+
+		<div class="content-time-btn-box-td">
+			<button class="content-time-btn">次へ</button>
 		</div>
 		<!-- step별 페이지  끝-->
 	</form>

@@ -1,55 +1,31 @@
 
-/* 컨텐트 H 조정 시작 */
-.container-tbl {
-  width: 100%;
-  max-width: 100vw;
-  height: 344vh;
-}
-
-/* 컨텐트  */
-.content-tbl {
-  background-color: #5b7953;
-  width: 100%;
-  height: 330vh;
-  display: flex;
-  flex-direction: column;
-}
-.content-sec {
-  background-color: rgba(255, 255, 255, 0.8);
-  width: 100%;
-  height: 230vh;
-}
-
-/* 컨텐트 H 끝 */
-
 
 /* 서비스 완료 */
 .content-step-page-td {
   border-radius: 30px;
   background: rgba(255, 255, 255, 0.8);
-  height: 70vh;
+  height: auto;
 }
 
 .content-step-page-td {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  display: block;
 }
 
 .content-step-page-td > .content-step-page-td-tr1 {
   color: #546137;
   text-align: center;
   text-shadow: 10px 10px 10px #e8d48d;
-  font-size: 1.1rem;
+  font-size: 2.5rem;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+  margin-top: 3%;
 }
 
 .content-step-page-td > .content-step-page-td-tr2 {
   color: #546137;
   text-align: center;
-  font-size: 1rem;
+  font-size: 2.3rem;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
@@ -65,10 +41,13 @@
   > .content-step-page-td-tr3
   > .content-step-page-td-tr3-1 {
   padding: 1.5% 3%;
-  font-size: 1.4rem;
+  font-size: 2.7rem;
   color: #546137;
   background-color: #ffdf6c;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+}
+.content-step-page-td-tr3{
+	padding-bottom: 5%
 }
