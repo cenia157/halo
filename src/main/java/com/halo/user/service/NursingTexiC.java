@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.halo.main.MainpageDAO;
+
 @WebServlet("/NursingTexiC")
 public class NursingTexiC extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -25,6 +27,7 @@ public class NursingTexiC extends HttpServlet {
 	request.setAttribute("step5Pos", "#ffdf6c");
 	request.setAttribute("menu", "user/menu-index.jsp");
 	request.setAttribute("subMenu", "service/serviceApply/serviceApply.jsp");
+//	MainpageDAO.getMdao().getAllHompage_common(request);
 	request.getRequestDispatcher("index.jsp").forward(request, response);
 	
 	}
