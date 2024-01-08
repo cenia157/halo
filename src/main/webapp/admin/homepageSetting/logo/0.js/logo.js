@@ -26,7 +26,7 @@ function handleFileUpload(event) {
 				$('#logo_btn_submit').attr('onclick', "location.href='LogoUpdateC?newFileName=" + fileName +"'")
 			},
 			error: function(e) {
-				console.log('니 머리털이 에러 : ' + e);
+				console.log('에러 : ' + e);
 			}
 		});
 	}
