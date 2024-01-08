@@ -1,4 +1,4 @@
-package com.halo.test;
+package com.halo.test.frequenthyask;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
-@WebServlet("/CkeditorC")
-public class CkeditorC extends HttpServlet {
+@WebServlet("/CkeditorC_Frequenthyask")
+public class CkeditorC_Frequenthyask extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 	}
@@ -19,7 +19,8 @@ public class CkeditorC extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// 이곳은 Notice에서 등록완료를 눌렀을 때 등록하기 위한 곳
-		Ck_DAO.regNotice(request);
+
+		Ck_DAO_frequenthyask.regFrequenthyask(request);
 
 	}
 

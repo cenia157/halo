@@ -12,7 +12,6 @@ import com.halo.main.MainpageDAO;
 @WebServlet("/ServiceApplyC")
 public class ServiceApplyC extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
 	request.setAttribute("serviceStep", "svcselect.jsp");
 	request.setAttribute("step1Pos", "#ffdf6c");
 	request.setAttribute("menu", "user/menu-index.jsp");

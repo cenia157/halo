@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Enumeration;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -40,7 +41,6 @@ public class MainpageDAO {
 			rs = pstmt.executeQuery();
 			HomepageDTO hdto = null;
 			
-			
 			if (rs.next()) {
 				hdto = new HomepageDTO();
 				hdto.setH_seq(rs.getInt("h_seq"));
@@ -62,10 +62,7 @@ public class MainpageDAO {
 				//뷰에 뿌릴 어트리뷰트
 				request.setAttribute("hdto", hdto);
 				
-				
-				
 			}
-			
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -88,37 +85,6 @@ public class MainpageDAO {
 		response.getWriter().write(fileName);
     }
 
-    
-	
-	//로고 등록 메소드(처음에만 쓸거임 test용)
-	public void regLogo(HttpServletRequest request) {
-		
-		Connection con = null;
-		PreparedStatement pstmt = null;
-		String sql = "insert into homepage_common(homepage_common_seq, h_logo_img) values(homepage_common_seq.nextval, ?)";
-		String savepath = request.getRealPath("user/upload_imgs");
-		try {
-			con = DBManagerhalo.connect();
-			pstmt = con.prepareStatement(sql);
-			MultipartRequest mr = new MultipartRequest(request, savepath, 1024*1024*20, "utf-8", new DefaultFileRenamePolicy());
-
-			String h_logo_img = mr.getFilesystemName("logo_img");
-			pstmt.setString(1, h_logo_img);
-			
-			if (pstmt.executeUpdate() == 1) {
-				System.out.println("img 등록성공!");
-			}
-			request.setAttribute("imgPath", "/user/upload_imgs/" + h_logo_img);
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-			System.out.println("db server error...");
-		}finally {
-			DBManagerhalo.close(con, pstmt, null);
-		}
-		
-		
-	}
 	
 	//로고 수정 메소드
 	public void updateLogo(HttpServletRequest request) {
@@ -186,60 +152,6 @@ public class MainpageDAO {
 		
 	}
 	
-	//하단베너 업데이트
-	public void bannerUpdate(HttpServletRequest request) {
-		Connection con = null;
-		PreparedStatement pstmt = null;
-		String sql = "";
-		String paramName = "error";
-		String param = "등록 실패";
-		String savepath = request.getServletContext().getRealPath("user/upload_imgs/banner");
-		
-		try {
-			
-			con = DBManagerhalo.connect();
-			MultipartRequest mr = new MultipartRequest(request, savepath, 1024*1024*20, "utf-8", new DefaultFileRenamePolicy());
-			String[] banner_menus = {mr.getParameter("banner_menu1"),mr.getParameter("banner_menu2"),mr.getParameter("banner_menu3")};
-			//하단베너3개 => for문 i = name뒤에 붙을 인덱스번호, 
-			for(int i = 0; i < 3; i++) {
-				if(banner_menus[i] == "sales") {
-					sql = "update banner_test \r\n"
-							+ "set b_type = 2, b_m_name = 'sales', b_url = ?, b_m_text = ?, b_img_url = ? \r\n"
-							+ "where b_index = " + (i+1);
-					pstmt = con.prepareStatement(sql);
-					pstmt.setString(1, mr.getParameter("banner_url" + (i+1)));
-					System.out.println(mr.getParameter("banner_url" + (i+1)));
-					pstmt.setString(2, mr.getParameter("banner_text" + (i+1)));
-					pstmt.setString(3, mr.getFilesystemName("banner_thumbnail" + (i+1)));
-					System.out.println(mr.getFilesystemName("banner_thumbnail" + (i+1)));
-					
-				} else {
-					sql = "update banner_test \r\n"
-							+ "set b_type = 1, b_m_name = ?, b_url = (select m_servlet from menu_test where m_name = ?), b_m_text = (select m_text from menu_test where m_name = ?) \r\n"
-							+ "where b_index = " + (i+1);
-					pstmt = con.prepareStatement(sql);
-					pstmt.setString(1, banner_menus[i]);
-					pstmt.setString(2, banner_menus[i]);
-					pstmt.setString(3, banner_menus[i]);
-				}
-				if(pstmt.executeUpdate() > 0) {
-					System.out.println("bannerNo: " + i + "update Success");
-				} else {
-					System.out.println("bannerNo: " + i + "update Fail");
-				}
-			}
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-			System.out.println("db server error...");
-		}finally {
-			request.setAttribute("paramName", paramName);
-			request.setAttribute("param", param);
-			DBManagerhalo.close(con, pstmt, null);
-		}
-	}
-	
-	
 	
 	//하단베너 DTO
 	public void getAllBanner(HttpServletRequest request) {
@@ -283,6 +195,77 @@ public class MainpageDAO {
 		}
 		
 	}
+	
+	
+	
+	//하단베너 업로드 ajax 미리보기 (멀티파트로 까서 어트리뷰트 넘겨주기만 하는 용도 DB는 변경버튼 누를때 업뎃메서드 사용예정)
+	public void uploadBanner(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		String savepath = request.getServletContext().getRealPath("user/upload_imgs/banner");
+		MultipartRequest mr = new MultipartRequest(request, savepath, 1024*1024*20, "utf-8", new DefaultFileRenamePolicy());
+		
+		 String fileName = mr.getFilesystemName("banner_thumbnail1");
+		 System.out.println("업로드할 파일 :"+fileName);
+		 response.getWriter().write(fileName);
+
+		
+	}
+	
+	
+	//하단베너 업데이트
+	public void updateBanner(HttpServletRequest request) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		String sql = "";
+		String paramName = "error";
+		String param = "등록 실패";
+		String savepath = request.getServletContext().getRealPath("user/upload_imgs/banner");
+		
+		try {
+			
+			con = DBManagerhalo.connect();
+			MultipartRequest mr = new MultipartRequest(request, savepath, 1024*1024*20, "utf-8", new DefaultFileRenamePolicy());
+			String[] banner_menus = {mr.getParameter("banner_menu1"),mr.getParameter("banner_menu2"),mr.getParameter("banner_menu3")};
+			//하단베너3개 => for문 i = name뒤에 붙을 인덱스번호, 
+			 Enumeration<String> fileNames = mr.getFileNames();
+			for(int i = 0; i < 3; i++) {
+				if(banner_menus[i].equals("sales")) {
+					sql = "update banner_test \r\n"
+							+ "set b_type = 2, b_m_name = 'sales', b_url = ?, b_m_text = ?, b_img_url = ? \r\n"
+							+ "where b_index = " + (i+1);
+					pstmt = con.prepareStatement(sql);
+					pstmt.setString(1, mr.getParameter("banner_url" + (i+1)));
+					pstmt.setString(2, mr.getParameter("banner_text" + (i+1)));
+					fileNames.hasMoreElements();
+					String fieldName = fileNames.nextElement();
+					pstmt.setString(3, mr.getFilesystemName(fieldName));
+//					System.out.println("업뎃 파일 :" + mr.getFilesystemName(mr.getFilesystemName(fieldName)));
+										
+				} else {
+					sql = "update banner_test \r\n"
+							+ "set b_type = 1, b_m_name = ?, b_url = (select m_servlet from menu_test where m_name = ?), b_m_text = (select m_text from menu_test where m_name = ?) \r\n"
+							+ "where b_index = " + (i+1);
+					pstmt = con.prepareStatement(sql);
+					pstmt.setString(1, banner_menus[i]);
+					pstmt.setString(2, banner_menus[i]);
+					pstmt.setString(3, banner_menus[i]);
+				}
+				if(pstmt.executeUpdate() > 0) {
+					System.out.println("bannerNo: " + i + "update Success");
+				} else {
+					System.out.println("bannerNo: " + i + "update Fail");
+				}
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("db server error...");
+		}finally {
+			request.setAttribute("paramName", paramName);
+			request.setAttribute("param", param);
+			DBManagerhalo.close(con, pstmt, null);
+		}
+	}
+	
 	
 	
 	

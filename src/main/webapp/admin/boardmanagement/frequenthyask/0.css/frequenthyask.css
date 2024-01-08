@@ -5,7 +5,7 @@
 	width: 100%;
 }
 
-.ontent-m-td-2-content-submit-btn{
+.ontent-m-td-2-content-submit-btn {
 	width: 100%;
 	height: 8%;
 	font-size: 0.5rem;
@@ -13,8 +13,6 @@
 	align-items: center;
 	padding-left: 8%;
 }
-
-
 
 .ontent-m-td-2-chackbox {
 	width: 100%;
@@ -203,7 +201,7 @@
 	width: 50%;
 }
 
-/* ���⼭���ʹ�  frequenthyaskEditPage.jsp ����! */
+/* �뜝�룞�삕�뜝�뜦�꽌�뜝�룞�삕�뜝�떢�뙋�삕  frequenthyaskEditPage.jsp �뜝�룞�삕�뜝�룞�삕! */
 .modal-background {
 	display: none;
 	position: fixed;
@@ -276,8 +274,6 @@
 	height: 90%;
 }
 
-
-
 .modal-content-button {
 	height: 10%;
 	width: 100%;
@@ -302,7 +298,7 @@
 }
 
 .ck-editor__editable_inline:not(.ck-comment__input *) {
-	/* ���⼭ ��� CKEditor�� ũ�⸦ 100%�� ���� �� ������? */
+	/* �뜝�룞�삕�뜝�뜦�꽌 �뜝�룜�뼸�뜝�룞�삕 CKEditor�뜝�룞�삕 �겕�뜝�뜦瑜� 100%�뜝�룞�삕 �뜝�룞�삕�뜝�룞�삕 �뜝�룞�삕 �뜝�룞�삕�뜝�룞�삕�뜝�룞�삕? */
 	overflow-y: auto;
 	height: 100%;
 }
@@ -336,34 +332,28 @@
 	width: 100%;
 }
 
-/* css 안 먹는 부분 별도로 추가 */
-#Title_css{
+/* css 占쎈툧 �솒諛몃뮉 �겫占썽겫占� 癰귢쑬猷꾣에占� �빊遺쏙옙 */
+#Title_css {
 	width: 65%;
 }
 
-/* 페이징처리 css */
-
-.paging-div{
+/* 占쎈읂占쎌뵠筌욌벡荑귞뵳占� css */
+.paging-div {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	height: 100%;
 }
 
-.paging-div button,
-.paging-div a {
-  white-space: nowrap;
-  margin: 0 0.3%;
+.paging-div button, .paging-div a {
+	white-space: nowrap;
+	margin: 0 0.3%;
 }
-
 
 .current-page {
-  color: #4A572E !important;
-  font-weight: 700;
+	color: #4A572E !important;
+	font-weight: 700;
 }
-
-
-
 
 .Edit-textarea {
 	width: 100%;

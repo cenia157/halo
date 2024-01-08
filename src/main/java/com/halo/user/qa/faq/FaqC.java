@@ -16,6 +16,8 @@ public class FaqC extends HttpServlet {
 		FAQDAO.getAllFAQ(request);
 		FAQDAO.getFAQDetail(request, response);
 		
+		
+		
 		String subMenu = "qa/faq/faq";
 		request.setAttribute("menu", "user/menu-index.jsp");
 		request.setAttribute("subMenu", subMenu + ".jsp");
