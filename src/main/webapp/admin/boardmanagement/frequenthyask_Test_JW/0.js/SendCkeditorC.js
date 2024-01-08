@@ -6,7 +6,7 @@ regBtn.addEventListener("click", function(event) {
 	const seq = document.querySelector('#modal-seq').value;
 	formData.set('txt', content);
 	formData.set('seq', seq);
-	
+
 
 
 
@@ -27,32 +27,32 @@ regBtn.addEventListener("click", function(event) {
 		console.log(pair);
 	}
 	console.log('--------------------')
-	
-		var isTitleValid = false;
-		var isTxtValid = false;
-	
-		for (var pair of formData.entries()) {
-	
-			if (pair[0] === 'title') {
-				if (pair[1] !== '') {
-					console.log('제목 O')
-					isTitleValid = true;
-				} else {
-					console.log('제목 X')
-				}
-			} else if (pair[0] === 'txt') {
-				if (pair[1] !== '') {
-					console.log('내용 O');
-					isTxtValid = true;
-				} else {
-					console.log('내용 X');
-				}
+
+	var isTitleValid = false;
+	var isTxtValid = false;
+
+	for (var pair of formData.entries()) {
+
+		if (pair[0] === 'title') {
+			if (pair[1] !== '') {
+				console.log('제목 O')
+				isTitleValid = true;
+			} else {
+				console.log('제목 X')
+			}
+		} else if (pair[0] === 'txt') {
+			if (pair[1] !== '') {
+				console.log('내용 O');
+				isTxtValid = true;
+			} else {
+				console.log('내용 X');
 			}
 		}
+	}
 	// 여기서 제목, 내용입력 둘다 만족할 경우 모달창이 닫히도록 함
-		if (isTitleValid && isTxtValid) {
-			closeModalF();
-		}
+	if (isTitleValid && isTxtValid) {
+		closeModalF();
+	}
 
 	let CkeditorC123 = fetch('CkeditorC_Frequenthyask', {
 		method: 'POST',
