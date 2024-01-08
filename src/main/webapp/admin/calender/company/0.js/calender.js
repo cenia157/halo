@@ -40,6 +40,8 @@ let arrayDate = new Array();
 // 연, 월 버튼 초기값
 let clickButton = "";
 
+let modalArrayNumber = '';
+
 // 일정 상세 모달창 초기값
 let dateModal = 0;
 
@@ -51,6 +53,9 @@ let prevDateLength = 0;
 
 // 모달생성시 해당날짜
 let modalDivDate = '';
+
+// 회사 일정 디테일창 객체
+let selectDetailSchedule = new Array();
 
 // 토글스위치
 let toggle = '';
@@ -107,14 +112,14 @@ function getAllSchedule() {
 
 			// ++건수 클릭
 			calendar.addEventListener("click", function(e) {
-				if (e.target.textContent.includes('++')) {
+				if (e.target.textContent.includes('++') && e.target.closest('.current')) {
 					expandSchedule(e);
 				}
 			})
 
 			// 달력에서 일정 클릭
 			calendar.addEventListener("click", function(e) {
-				if (e.target.className.includes('schedule') && e.target.children.length > 0) {
+				if (e.target.className.includes('schedule') && e.target.children.length > 0 && e.target.closest('.current')) {
 					let directDetail = true;
 					getScheduleDetailModal(e, directDetail);
 				}
@@ -135,13 +140,20 @@ function getAllSchedule() {
 		});
 }
 
-// 연 월 버튼 클릭
-function moveToCalender() {
-
-}
 
 // 초기 및 클릭 렌더링
 function renderMonth(CompanyScheduleList, clickButton) {
+	if (dateDetailModal == 1) {
+		document.querySelector('.detail-schedule').style.visibility = 'hidden';
+		dateDetailModal = 0;
+	}
+
+	if (dateModal == 1) {
+		document.querySelector('.date-modal').style.visibility = 'hidden';
+		dateModal = 0;
+	}
+
+
 	document.querySelector('.date-modal').style.visibility = 'hidden';
 	dateModal = 0;
 
@@ -301,6 +313,8 @@ function checkDate(e) {
 
 // ++ 건수 펼치기
 function expandSchedule(e) {
+	console.log(e.target);
+	
 	if (dateDetailModal == 1) {
 		document.querySelector('.detail-schedule').style.visibility = 'hidden';
 		dateDetailModal = 0;
@@ -343,11 +357,13 @@ function expandSchedule(e) {
 	}
 }
 
+// 모달 arrayNumber에 i번째 삽입한 값을 가지고 삭제 할 때 이용하기
 // 일정 디테일 모달 출력
 function getScheduleDetailModal(e, directDetail) {
 	let addLeft = '';
 	let dateDivValue = '';
-
+	console.log(e.target);
+	
 	if (directDetail) {
 		addLeft = (e.target.getBoundingClientRect().width / 2);
 		dateDivValue = e.target.children[0].value
@@ -355,11 +371,8 @@ function getScheduleDetailModal(e, directDetail) {
 		addLeft = (document.querySelector('.getScheduleDetail').getBoundingClientRect().width / 2);
 		dateDivValue = e.target.previousSibling.previousSibling.value;
 	}
-
+	
 	document.querySelector('.detail-schedule').style.left = e.target.getBoundingClientRect().left + addLeft + 'px'; //여기 // (document.querySelector('.getScheduleDetail').getBoundingClientRect().width / 2) + 'px'; (e.target.getBoundingClientRect().width / 2)
-
-	// 해당 	디테일 일정 배열
-	let selectDetailSchedule = new Array();
 
 	// 모달 title 해당 일정 표시 설계의 문제가 나타남.
 	for (let i = 0; i < CompanyScheduleList.length; i++) {
@@ -367,6 +380,7 @@ function getScheduleDetailModal(e, directDetail) {
 			document.querySelector('.detail-schedule-title').textContent = CompanyScheduleList[i].title;
 
 			selectDetailSchedule = CompanyScheduleList[i];
+			selectDetailSchedule.arrayNo = i;
 		}
 	}
 
@@ -375,10 +389,11 @@ function getScheduleDetailModal(e, directDetail) {
 	// 일정
 	for (i = 0; i < selectDetailSchedule.date.split(',').length; i++) {
 		if (i == 0) {
-			document.querySelector('.detail-schedule-content').innerHTML += '<div class="datail-schedule-txt" style="padding-bottom : 10%">' + selectDetailSchedule.txt + '<a>수정</a></div>'
+			document.querySelector('.detail-schedule-content').innerHTML += '<div class="datail-schedule-txt show" style="padding-bottom : 10%"><span>' + selectDetailSchedule.txt + '</span><a onclick="updateAtagClick(this)">수정</a></div>'
+			document.querySelector('.detail-schedule-content').innerHTML += '<div class="datail-schedule-txt" style="padding-bottom : 10%"><input value="' + selectDetailSchedule.txt + '"><a onclick="updateTxt(this)" >저장</a><a onclick="updateAtagClick(this)" class="update-txt-cancel">취소</a></div>'
 		}
 
-		document.querySelector('.detail-schedule-content').innerHTML += '<div class="datail-schedule-data"><div>' + selectDetailSchedule.year + '.' + selectDetailSchedule.month + '.' + (selectDetailSchedule.date.split(','))[i] + '</div><a class="delete-detail-data">삭제</a></div>';
+		document.querySelector('.detail-schedule-content').innerHTML += '<div class="datail-schedule-data ' + (selectDetailSchedule.date.split(','))[i] + '"><div>' + selectDetailSchedule.year + '.' + selectDetailSchedule.month + '.' + (selectDetailSchedule.date.split(','))[i] + '</div><a onclick="deleteScheduleDateClick(this)" class="delete-detail-data">삭제</a><a onclick="deleteScheduleDate(this)" class="delete-detail-data">삭제 확인</a><a onclick="deleteScheduleDateClick(this)" class="delete-detail-data">취소</a></div>';
 
 		if (i == selectDetailSchedule.date.split(',').length - 1) {
 			document.querySelector('.detail-schedule-content').innerHTML += '<div class="delete-all-detail-data" style="padding-top : 10%"><a>전체삭제</a></div>'
@@ -391,6 +406,13 @@ function getScheduleDetailModal(e, directDetail) {
 	dateDetailModal = 1;
 
 
+	for (let i = 0; i < document.querySelectorAll('.datail-schedule-data').length; i++) {
+		document.querySelectorAll('.datail-schedule-data')[i].children[1].style.display = 'flex';
+		document.querySelectorAll('.datail-schedule-data')[i].children[2].style.display = 'none';
+		document.querySelectorAll('.datail-schedule-data')[i].children[3].style.display = 'none';
+		document.querySelectorAll('.datail-schedule-data')[i].children[3].style.marginLeft = '-30%';
+	}
+
 	if (dateDetailModal == 1) {
 		document.querySelector('.detail-schedule-close').addEventListener("click", function() {
 			document.querySelector('.detail-schedule').style.visibility = 'hidden';
@@ -398,6 +420,7 @@ function getScheduleDetailModal(e, directDetail) {
 		})
 	}
 }
+
 
 // 일정 렌더링을 위한 
 function writeSchedule() {
@@ -410,11 +433,11 @@ function writeSchedule() {
 				if (calendar.children[i] && calendar.children[i].children.length < 4) {
 					// 5글자 이상인경우 폴딩
 					if (splitDates[j].split('.')[1].length >= 5) {
-						calendar.children[i].innerHTML += '<div class="schedule"><input class="detailValue" value=' + splitDates[j].split('.')[0] + ' type="hidden">' + splitDates[j].split('.')[1].slice(0, -1) + '...' + '</div>';
+						calendar.children[i].innerHTML += '<div class="schedule array'+ i +'"><input class="detailValue" value=' + splitDates[j].split('.')[0] + ' type="hidden">' + splitDates[j].split('.')[1].slice(0, -1) + '...' + '</div>';
 
 					}
 					else {
-						calendar.children[i].innerHTML += '<div class="schedule"><input class="detailValue" value=' + splitDates[j].split('.')[0] + ' type="hidden">' + splitDates[j].split('.')[1] + '</div>';
+						calendar.children[i].innerHTML += '<div class="schedule array'+ i +'"><input class="detailValue" value=' + splitDates[j].split('.')[0] + ' type="hidden">' + splitDates[j].split('.')[1] + '</div>';
 					}
 				}
 			}
@@ -424,6 +447,108 @@ function writeSchedule() {
 			calendar.children[i].children[3].textContent = '++' + (arrayDate[i].titleLength - 2) + '件';
 		}
 	}
+}
+
+// 일정 내용 업데이트 전 클릭
+function updateAtagClick(atag) {
+	const atagParent = atag.parentNode;
+	atagParent.classList.remove('show');
+
+
+	if (atag.innerText == '수정') {
+		atagParent.nextSibling.classList.add('show');
+	} else {
+		atagParent.previousSibling.classList.add('show');
+	}
+}
+
+// 일정 내용 업데이트
+function updateTxt(atag) {
+	let inputUpdateTxt = atag.previousSibling.value;
+
+	let params = {
+		txt: inputUpdateTxt,
+		no: selectDetailSchedule.no
+	}
+
+	fetch('CompanyScheduleTxtUpdate', {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+		},
+		body: new URLSearchParams(params).toString()
+	})
+		.then(response => response.text())
+		.then(data => {
+			if (data) {
+				selectDetailSchedule.txt = atag.previousSibling.value;
+
+				atag.parentNode.previousSibling.children[0].innerText = selectDetailSchedule.txt;
+
+				atag.parentNode.classList.remove('show');
+				atag.parentNode.previousSibling.classList.add('show');
+			} else {
+
+			}
+		})
+}
+
+// 일정 데이터 한개삭제 전 클릭
+function deleteScheduleDateClick(atag) {
+
+	if (atag.innerText == '삭제') {
+		atag.parentNode.children[1].style.display = 'none';
+		atag.parentNode.children[2].style.display = 'flex';
+		atag.parentNode.children[3].style.display = 'flex';
+	} else {
+		atag.parentNode.children[1].style.display = 'flex';
+		atag.parentNode.children[2].style.display = 'none';
+		atag.parentNode.children[3].style.display = 'none';
+	}
+
+}
+
+// 일정 데이터 한개 삭제
+function deleteScheduleDate(atag) {
+	console.log(selectDetailSchedule.date);
+	let remainDate = selectDetailSchedule.date.split(',');
+
+	if (remainDate.indexOf(atag.parentNode.classList[1]) !== -1) {
+		remainDate.splice(remainDate.indexOf(atag.parentNode.classList[1]), 1);
+	}
+
+	remainDate = remainDate.join(',');
+	console.log(remainDate);
+	let params = {
+		remainDate: remainDate,
+		no: selectDetailSchedule.no
+	}
+
+	fetch('CompanyScheduleDeleteDate', {
+		method: 'POST',
+		headers: {
+			'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+		},
+		body: new URLSearchParams(params).toString()
+	})
+		.then(response => response.text())
+		.then(data => {
+			if (data) {
+				console.log(arrayDate.indexOf('date'));
+				
+				console.log(atag.parentNode.remove());
+				selectDetailSchedule.date = remainDate;
+				
+				console.log(selectDetailSchedule);
+				console.log(CompanyScheduleList);
+				
+				
+				
+//				writeSchedule();
+			} else {
+			}
+		})
+
 }
 
 window.onload = function() {
