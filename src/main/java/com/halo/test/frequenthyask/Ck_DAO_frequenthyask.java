@@ -2,15 +2,12 @@ package com.halo.test.frequenthyask;
 
 import java.io.IOException;
 
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
 import javax.servlet.http.HttpServletRequest;
 
 import com.halo.test.DBManagerhalo_JW;
-
-
 
 public class Ck_DAO_frequenthyask {
 
@@ -24,7 +21,7 @@ public class Ck_DAO_frequenthyask {
 			if (title != "" && txt != "") {
 				System.out.println("title 구간(1) :::" + title);
 				System.out.println("txt 구간(1) :::" + txt);
-				System.out.println("수정할 게시글의 번호 : "+ seq);
+				System.out.println("수정할 게시글의 번호 : " + seq);
 //			String saveFnameValues[] = request.getParameterValues("saveFname");
 //			System.out.println("saveFnameValues :::" + saveFnameValues[0]);
 //			System.out.println("saveFnameValues :::" + saveFnameValues[1]);
@@ -69,9 +66,7 @@ public class Ck_DAO_frequenthyask {
 
 				Connection con = null;
 				PreparedStatement pstmt = null;
-				String sql = "UPDATE QA_TBL SET QA_title = ?, QA_content = ? WHERE QA_seq = ?";
-
-				System.out.println("ddddddddddd");
+				String sql = "UPDATE QA_TBL SET QA_title = ?, QA_content = ? QA_REG_DATE = CURRENT_TIMESTAMP AT TIME ZONE 'ASIA/SEOUL'  WHERE QA_seq = ? ";
 
 
 				con = DBManagerhalo_JW.connect();
@@ -79,13 +74,11 @@ public class Ck_DAO_frequenthyask {
 
 				pstmt.setString(1, title);
 				pstmt.setString(2, txt);
-				pstmt.setString(3, seq);
-				
-				
+				pstmt.setString(4, seq);
+
+				System.out.println(seq);
 				System.out.println(title);
-				System.out.println(txt);				
-				System.out.println(seq);				
-				
+				System.out.println(txt);
 				if (pstmt.executeUpdate() == 1) {
 					System.out.println("수정성공 Ck_DAO FREQUENTHYASK");
 					System.out.println("---------------");
