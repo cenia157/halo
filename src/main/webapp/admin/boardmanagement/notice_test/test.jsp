@@ -178,7 +178,7 @@ pageEncoding="UTF-8"%>
       //-------------------------------------------------- $(document).ready시작--------------------------------------------------
       $(document).ready(function () {
                          
-    	// 표기능 비활성화
+    	// 표기능, 외부 주소 첨부기능 비활성화
         $(".ck-button[data-cke-tooltip-text='表の挿入']").remove();
         $(".ck-button[data-cke-tooltip-text='画像挿入']").remove();
     	
@@ -218,7 +218,7 @@ pageEncoding="UTF-8"%>
                 alert("삭제된 이미지 인덱스값: " + inputIndex);
               }
             });
-            // **삭제후 인덱스 다시 구해야함**
+            // **삭제후 인덱스 다시 구하는코드 **
             let figures = $(".ck-content figure img");
         	let saveFnames = $("input[name='saveFname']");
 
@@ -268,6 +268,7 @@ pageEncoding="UTF-8"%>
           e.preventDefault(); 
         }); // $('.ck-content').on('dragstart', 'img', function(e) {
 
+        // UI메뉴 셀렉티드 될때 방어 코드 
         $(".ck-content").on("click keydown", function (e) {
             let isSelectedFigureExists =
                 $(".ck-content figure.ck-widget_selected").length > 0;
@@ -315,9 +316,6 @@ pageEncoding="UTF-8"%>
 		//      }
 		//  });
 		
-		
-
-
       }); // $(document).ready(function(){
     </script>
   </body>
