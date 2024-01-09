@@ -269,7 +269,7 @@ prefix="c" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
         </div>
       </div>
     </div>
-    <!-- 모달끝 -->
+    <!--모달끝-->
 
     <script>
       let modal = document.querySelector("#myModal");
