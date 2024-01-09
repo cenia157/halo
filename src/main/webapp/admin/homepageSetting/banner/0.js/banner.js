@@ -19,33 +19,46 @@ function changeInformBox(indexNo) {
 	}
 }
 
-// 파일 선택시 ajax -> 미리보기	
-function handleFileUpload(event,idx) {
-	event.preventDefault();
-	const fileInput = event.target;
-	const files = fileInput.files;
+// 파일 선택시 ajax -> img 미리보기	
+function handleFileUpload(event, idx) {
+	event.preventDefault(); // 이벤트(파일업로드시) 기본동작 막기
+	const fileInput = event.target; // 이벤트 발생한 대상(파일입력요소)
+	const files = fileInput.files; //파일입력요소에서 '선택된' 파일들
 	
 
-	if (files.length > 0) {
-		const selectedFile = fileis[0];
+	if (files.length > 0) {	// 선택된 파일이 하나 이상일때
+		const selectedFile = fileis[0]; //첫번째 선택된 파일
 		console.log('선택된 파일:', selectedFile);
 
-		var formData = new FormData(document.getElementById('bannerUploadForm'));
-		// 여기에서 파일을 서버로 업로드하거나 다른 작업을 수행할 수 있습니다.
-		// 예: AJAX를 사용하여 서버에 파일 업로드 요청을 보내기
+		// 파일 업로드 위한 form객체 생성, formData 변수에 할당.
+		//서버에 파일 업로드 요청 ↓
+		
+		var formData = new FormData(document.getElementById('#thumbnail1'));
+//		document.getElementById("#thumbnail1").addEventListener('change', function(){
+//			var fileInput = document.getElementById('thumbnail1');
+//            var formData = new FormData();
+//
+//			formData.append('banner_thumbnail1', fileInput.files[0]);
+//			
+//			var jsonData = {};
+//            formData.forEach(function (value, key) {
+//            jsonData[key] = value;
+//            });
+//		});
 
 		$.ajax({
-			type: "POST",
-			enctype: 'multipart/form-data',	// 필수
-			url: 'BannerUploadC',
-			data: formData,		// 필수
-			processData: false,	// 필수
-			contentType: false,	// 필수
-			cache: false,
-			success: function(fileName) {
+			type: "POST", // post 방식 요청
+			enctype: 'multipart/form-data',	// 파일 업로드 위한 인코딩 방식
+			url: 'BannerUploadC', //서버로 요청 보낼 url
+			data: formData,		// 서버로 보낼 데이터로 formData 객체 사용
+			processData: false,	// 데이터 문자열로 변환하지 않도록
+			contentType: false, 
+			cache: false, // 캐시사용X
+			success: function(fileName) { // 성공시 실행되는 콜백함수
 				alert(11);
 				//미리보기 이미지 띄우기
-				 var bannerPreview = $(fileInput).closest('.banner-tr').find('.banner-td-img-box');
+				var bannerPreview = $(fileInput).closest('.banner-tr').find('.banner-td-img-box');
+				console.log('베너미리보기 이미지박스 : ' + bannerPreview)
                 bannerPreview.css('backgroundImage', 'url("user/upload_imgs/banner/' + fileName + '")');				
 				//$('#banner_preview').css('background-image', 'url("user/upload_imgs/banner/' + fileName + '")');
 //				$('#banner_preview').attr('src', 'user/upload_imgs/banner/' + fileName);
