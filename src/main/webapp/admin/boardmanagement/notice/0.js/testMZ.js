@@ -134,6 +134,9 @@ function MyCustomUploadAdapterPlugin(editor) {
 	};
 }
 
+
+
+
 ClassicEditor.create(document.querySelector("#classicNR"), {
 	extraPlugins: [MyCustomUploadAdapterPlugin],
 })
@@ -143,3 +146,31 @@ ClassicEditor.create(document.querySelector("#classicNR"), {
 	.catch((error) => {
 		console.log(error);
 	});
+
+
+ClassicEditor.create(document.querySelector("#classicR"), {
+	extraPlugins: [MyCustomUploadAdapterPlugin],
+})
+	.then((editor) => {
+		window.editor = editor;
+	})
+	.catch((error) => {
+		console.log(error);
+	});
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

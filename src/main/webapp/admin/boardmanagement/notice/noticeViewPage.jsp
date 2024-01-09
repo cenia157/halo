@@ -21,21 +21,7 @@
 				<div class="modal-title-td-1" style="display: block;">
 					<div class="real-title-V" id="real-title-V"
 						style="background-color: aqua;"></div>
-					<div id="Display-Category" style="height: 10%">
-					
-					
-					
-					
-					</div>
-
-
-
-
-
-
-
-
-
+					<div id="Display-Category" style="height: 10%"></div>
 				</div>
 				<div class="modal-title-td-2">
 					<span class="close" id="closeModalBtn" onclick="closeModalV()">&times;</span>
@@ -49,7 +35,9 @@
 					</div>
 				</div>
 				<div class="modal-content-button">
-					<button class="SubmitButton" onclick="getNOTICEDataV('${an.an_seq}');">수정</button>
+					<button class="SubmitButton" id="aaaaaaaaaaaaaaaaaaaaaaaaaa">수정</button>
+
+
 				</div>
 			</div>
 		</div>

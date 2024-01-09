@@ -473,9 +473,81 @@ function deleteFAQ(qa_seq) {
 function getNOTICEDataV(an_seq, an_title, an_content, an_writer, an_reg_date, an_category) {
 	console.log("an_seq: ", an_seq);
 
+	$.ajax({
+		url: "getNOTICEDetailC",
+		method: "post",
+		data: {
+			an_seq: an_seq,
+			an_title: an_title,
+			an_content: an_content,
+			an_writer: an_writer,
+			an_reg_date: an_reg_date,
+			an_categor: an_category
+		},
+
+		success: function(data) {
+
+			console.log("data: ", data);
+			console.log("NOTICE 데이터 가져오기 성공");
+
+
+			if (Array.isArray(data) && data.length > 0) {
+				let an_seq = data[0].an_seq;
+				let an_title = data[0].an_title;
+				let an_content = data[0].an_content;
+				let an_writer = data[0].an_content;
+				console.log('111111111111111111111111111111111111111111');
+				console.log("qa_content: ", an_content);
+				console.log('111111111111111111111111111111111111111111');
+				let an_reg_date = data[0].an_reg_date;
+				let an_category = data[0].an_category;
+
+
+				//				$('#classicNR_Title').val(qa_title);
+				//				이거 활성화하면 타이틀에 value로 들어가는 대신 placeholder로 들어가게 된다... 옵션
+				//				$('#real-title-editor').attr('placeholder', qa_title);	
+				$('#modal-seq').val(an_seq);
+				$('#real-title-V').html(an_title);
+				$('#Display-Category').html(an_category);
+				$('#modal-content-txt-in').html(an_content);
+				$('#real-title-editor').val(an_title);
+
+
+				document.getElementById('aaaaaaaaaaaaaaaaaaaaaaaaaa').onclick = function() {
+
+					//alert(document.getElementById('real-title-editor').innerHTML(an_title))
+					//document.getElementById('real-title-editor').value = an_title;
+
+					$('#real-title-editorAAAAAAAAAAAAA').val(an_title);
+					$('#CCCCCCCCCCCC').html(an_category);
+					// 여기에 CK-editor에 값을 표시하고싶어
+					$('#classicR').html(an_content);
+					window.editor.setData(an_content);
+					openModalR();
+
+				};
+
+
+				openModalV();
+			} else {
+				console.log("NOTICE 데이터 가져오기 성공");
+			}
+
+
+		},
+		error: function(xhr, status, error) {
+			console.log("NOTICE 데이터 가져오기 실패");
+			console.log("error:", xhr, status, error);
+		}
+	})
+
+}
 
 
 
+
+function getNOTICEDataR(an_seq, an_title, an_content, an_writer, an_reg_date, an_category) {
+	console.log("an_seq: ", an_seq);
 
 	$.ajax({
 		url: "getNOTICEDetailC",
@@ -511,17 +583,12 @@ function getNOTICEDataV(an_seq, an_title, an_content, an_writer, an_reg_date, an
 				//				$('#classicNR_Title').val(qa_title);
 				//				이거 활성화하면 타이틀에 value로 들어가는 대신 placeholder로 들어가게 된다... 옵션
 				//				$('#real-title-editor').attr('placeholder', qa_title);	
-				$('#real-title-V').html(an_title);
-				$('#Display-Category').html(an_category);
-				$('#modal-content-txt-in').html(an_content);
-
-
-				$('#real-title-editor').val(an_title);
-				$('#classicNR').html(an_content);
 
 
 
-				openModalV();
+
+
+				openModalR();
 			} else {
 				console.log("NOTICE 데이터 가져오기 성공");
 			}
