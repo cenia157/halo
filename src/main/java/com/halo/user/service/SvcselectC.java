@@ -22,7 +22,7 @@ public class SvcselectC extends HttpServlet {
 	request.setAttribute("step2Pos", "#ffdf6c");
 	request.setAttribute("menu", "user/menu-index.jsp");
 	request.setAttribute("subMenu", "service/serviceApply/serviceApply.jsp");
-//	MainpageDAO.getMdao().getAllHompage_common(request);
+	MainpageDAO.getMdao().getAllHompage_common(request);
 	request.getRequestDispatcher("index.jsp").forward(request, response);
 	
 	}

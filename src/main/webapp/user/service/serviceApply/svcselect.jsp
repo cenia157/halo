@@ -9,8 +9,6 @@
 <link
 	href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular"
 	rel="stylesheet" />
-<script type="text/javascript"
-	src="${pageContext.request.contextPath}/user/service/serviceApply/0.js/cal.js"></script>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/user/service/serviceApply/0.css/svcselect.css" />
 </head>
@@ -39,5 +37,4 @@
 		<div class="content-reference-txt-td">※ご利用いただくサービス内容をお選びの上、お申し込みページのボタンを押してください。</div>
 	</form>
 </body>
-
 </html>

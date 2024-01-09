@@ -22,7 +22,7 @@ public class CalselectC extends HttpServlet {
 	request.setAttribute("step3Pos", "#ffdf6c");
 	request.setAttribute("menu", "user/menu-index.jsp");
 	request.setAttribute("subMenu", "service/serviceApply/serviceApply.jsp");
-//	MainpageDAO.getMdao().getAllHompage_common(request);
+	MainpageDAO.getMdao().getAllHompage_common(request);
 	request.getRequestDispatcher("index.jsp").forward(request, response);
 	
 	}
