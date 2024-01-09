@@ -1,47 +1,127 @@
+// 전역 배열로 파일 순서를 추적
+let fileOrder = [];
+
 class MyUploadAdapter {
+	
+//  기존코드(테스트 후 추후 삭제)
+//	constructor(loader) {
+//		this.loader = loader;
+//		this.uploadPromise = null;
+//		
+//			// loader 객체 전체를 콘솔에 출력
+//		console.log('Loader:', this.loader);
+//		
+//		// loader에서 파일 이름과 파일 크기 정보를 콘솔에 출력
+//		this.loader.file.then(file => {
+//		    console.log('Uploading file:', file.name);
+//		    console.log('File size:', file.size);
+//		});
+//	}
+
 	constructor(loader) {
-		this.loader = loader;
-		this.uploadPromise = null;
+	    this.loader = loader;
+	    this.uploadPromise = null;
+	
+	    // 파일 정보 로드
+	    this.loader.file.then(file => {
+	        // 파일 ID (또는 기타 순서를 나타낼 수 있는 값)를 전역 배열에 추가
+	        fileOrder.push({id: this.loader.id, file: file});
+	
+	        // 파일 정보 콘솔에 출력
+	        console.log('파일 업로드 중:', file.name);
+	        console.log(`파일 업로드 중: ${file.name}, 파일 크기: ${file.size}`);
+	
+	        // fileOrder 배열의 내용을 콘솔에 출력
+	        console.log('현재 파일 순서:', fileOrder.map(item => item.file.name));
+	    });
 	}
+
+
+// 원래 내꺼 
+//	upload() {
+//		return this.loader.file.then(
+//			(file) =>
+//				new Promise((resolve, reject) => {
+//					this._initRequest();
+//					this._initListeners(resolve, reject, file);
+//					console.log('file' + file);
+//					this._sendRequest(file);
+//				})
+//		);
+//	}
+
+//    중간 코드
+//    upload() {
+//        return this.loader.file.then(
+//            (file) => new Promise((resolve, reject) => {
+//                const checkAndUpload = () => {
+//                    // fileOrder 배열에서 현재 파일의 위치를 찾습니다.
+//                    const index = fileOrder.findIndex(item => item.file === file);
+//
+//                    if (index === 0) { // 이 파일이 첫 번째로 업로드 해야 할 파일이면
+//                        console.log('Uploading file:', file.name);
+//                        this._initRequest();
+//                        this._initListeners(resolve, reject, file);
+//                        this._sendRequest(file);
+//
+//                        // 업로드를 시작한 후, fileOrder에서 해당 파일을 제거합니다.
+//                        fileOrder.shift();
+//                    } else {
+//                        // 아직 차례가 아니면 100ms 후에 다시 확인합니다.
+//                        console.log('Waiting for previous files to be uploaded:', file.name);
+//                        setTimeout(checkAndUpload, 100);
+//                    }
+//                };
+//
+//                checkAndUpload();
+//            })
+//        );
+//    }
 
 	upload() {
-		return this.loader.file.then(
-			(file) =>
-				new Promise((resolve, reject) => {
-					this._initRequest();
-					console.log('1111');
-					this._initListeners(resolve, reject, file);
-					console.log('file' + file);
-					this._sendRequest(file);
-				})
-		);
+	    return this.loader.file.then(
+	        (file) => new Promise((resolve, reject) => {
+	            const uploadSequentially = () => {
+	                // fileOrder 배열이 비어있으면 함수 실행을 중단합니다.
+	                if (fileOrder.length === 0) {
+	                    console.log('업로드할 파일이 더 이상 없습니다.');
+	                    return;
+	                }
+	
+	                // fileOrder 배열에서 현재 파일의 위치를 찾습니다.
+	                const index = fileOrder.findIndex(item => item.file === file);
+	
+	                if (index === 0) { // 이 파일이 첫 번째로 업로드 해야 할 파일이면
+	                    console.log('파일 업로드 중:', file.name);
+	                    this._initRequest();
+	                    this._initListeners(resolve, reject, file);
+	                    this._sendRequest(file).then(() => {
+	                        // 업로드를 시작한 후, fileOrder에서 해당 파일을 제거합니다.
+	                        fileOrder.shift();
+	                        console.log('대기열에서 제거된 파일:', file.name); 
+	                        console.log('현재 파일 순서:', fileOrder.map(item => item.file.name)); 
+	
+	                        // 다음 파일이 있으면 그 파일도 업로드합니다.
+	                        if (fileOrder.length > 0) {
+	                            uploadSequentially();
+	                        }
+	                    });
+	                } else {    
+//	                    console.log('이전 파일이 업로드되기를 기다리는 중(여기뭔가 이상하네):', file.name);
+	                    setTimeout(uploadSequentially, 100); 
+	                }
+	            };
+	
+	            uploadSequentially();
+	        })
+	    );
 	}
-
-	//  upload() {
-	//	// 이미 업로드 작업이 진행 중인지 확인하고, 업로드 작업이 이미 진행 중이지 않을 때에만 "_performUpload()" 함수를 호출
-	//    if (!this.uploadPromise) {
-	//      this.uploadPromise = this._performUpload();
-	//    }
-	//    return this.uploadPromise;
-	//  }
 
 	abort() {
 		if (this.xhr) {
 			this.xhr.abort();
 		}
 	}
-
-	//  // 비동기에서 동기처리 효과를 낼수있는 코드 추가 
-	//  async _performUpload() {
-	//	//  Promise는 비동기 작업의 결과 또는 실패를 기다리고 결과를 처리하는 데 사용
-	//    return new Promise(async (resolve, reject) => {
-	//      const file = await this.loader.file;
-	//
-	//      this._initRequest();
-	//      this._initListeners(resolve, reject, file);
-	//      this._sendRequest(file);
-	//    });
-	//  }
 
 	_initRequest() {
 		const xhr = (this.xhr = new XMLHttpRequest());
@@ -64,7 +144,6 @@ class MyUploadAdapter {
 				);
 			}
 
-			console.log('222****');
 			this._updateInputField(response.fName);
 			document.querySelector(".ck-content").click();
 
@@ -80,15 +159,63 @@ class MyUploadAdapter {
 			});
 		}
 	}
+	
+//   원래 코드(안정화 테스트후 삭제하겠음)
+//	_sendRequest(file) {
+//		const data = new FormData();
+//		data.append("upload", file);
+//		this.xhr.send(data);
+//		
+//		// 파일 정보 로그 출력
+//  	    console.log("Appending file:", file.name, "Size:", file.size, "bytes");
+//	}
 
+	// Promise를 반환하도록 수정 -> "TypeError: Cannot read properties of undefined (reading 'then')" 오류가 발생 방지
 	_sendRequest(file) {
-		const data = new FormData();
-		data.append("upload", file);
-		this.xhr.send(data);
+	    return new Promise((resolve, reject) => {
+	        // XMLHttpRequest 객체를 초기화합니다.
+	        const xhr = this.xhr = new XMLHttpRequest();
+	        xhr.open("POST", "/halo/CKEditorAjax", true);
+	        xhr.responseType = "json";
+	
+	        xhr.addEventListener("error", () => reject(`파일 업로드에 실패했습니다: ${file.name}.`));
+	        xhr.addEventListener("abort", () => reject('파일 업로드가 중단되었습니다.'));
+	
+	        // 파일 업로드가 성공 시 resolve를 호출.
+	        xhr.addEventListener("load", () => {
+	            const response = xhr.response;
+	            if (!response || response.error) {
+	                reject(response && response.error ? response.error.message : `파일 업로드에 실패했습니다: ${file.name}.`);
+	            } else {
+	                this._updateInputField(response.fName);
+	                document.querySelector(".ck-content").click();
+	                resolve({ default: response.url });
+	            }
+	        });
+	
+	        // 업로드 진행 상황을 추적.
+	        if (xhr.upload) {
+	            xhr.upload.addEventListener("progress", (evt) => {
+	                if (evt.lengthComputable) {
+	                    this.loader.uploadTotal = evt.total;
+	                    this.loader.uploaded = evt.loaded;
+	                }
+	            });
+	        }
+	
+	        // FormData 객체를 생성하고 파일 데이터를 추가.
+	        const data = new FormData();
+	        data.append("upload", file);
+	
+	        // 서버로 요청을 보냅니다.
+	        xhr.send(data);
+	        
+	        // 파일 정보 로그 출력
+	        console.log("Sending file:", file.name, "Size:", file.size, "bytes");
+	    });
 	}
 
 	_updateInputField(fName) {
-		console.log('3333****');
 		const newInput = document.createElement("input");
 		newInput.name = "saveFname";
 		newInput.id = "img-url";
@@ -98,7 +225,6 @@ class MyUploadAdapter {
 		const targetDiv = document.getElementById("img-temporary");
 		const figures = document.querySelectorAll(".ck-content figure");
 
-		console.log("ck-content 클래스 내 figure 태그 수:", figures.length);
 
 		let matchedFigureIndex = -1; // 삽입할 figure의 인덱스를 저장할 변수
 
@@ -126,24 +252,20 @@ class MyUploadAdapter {
 			console.error("적절한 삽입 위치를 찾을 수 없어서 데이터셋을 설정 못 함!");
 		}
 	}
-
-	// _updateImageSource(fName, fileName) {
-	//     document.querySelector(".ck-content").click();
-	// }
 } // end class
 
-function MyCustomUploadAdapterPlugin(editor) {
-	editor.plugins.get("FileRepository").createUploadAdapter = (loader) => {
-		return new MyUploadAdapter(loader);
-	};
-}
-
-ClassicEditor.create(document.querySelector("#classicNR"), {
-	extraPlugins: [MyCustomUploadAdapterPlugin],
-})
-	.then((editor) => {
-		window.editor = editor;
+	function MyCustomUploadAdapterPlugin(editor) {
+		editor.plugins.get("FileRepository").createUploadAdapter = (loader) => {
+			return new MyUploadAdapter(loader);
+		};
+	}
+	
+	ClassicEditor.create(document.querySelector("#classicNR"), {
+		extraPlugins: [MyCustomUploadAdapterPlugin],
 	})
-	.catch((error) => {
-		console.log(error);
-	});
+		.then((editor) => {
+			window.editor = editor;
+		})
+		.catch((error) => {
+			console.log(error);
+		});
