@@ -14,6 +14,7 @@ pageEncoding="UTF-8"%>
       rel="stylesheet"
       href="${pageContext.request.contextPath}/user/introduce/employment/0.css/employment_contentPage.css"
     />
+    <script src="${pageContext.request.contextPath}/user/introduce/employment/0.js/employment_contentPage.js"></script>
   </head>
   <body>
     <div class="e_content-tbl">
@@ -22,13 +23,13 @@ pageEncoding="UTF-8"%>
       <div class="e_content-box-tr1">
         <div class="e_content-box-tr1-td1">
           <div class="e_content-box-tr1-td1-1">
-            <span><a href="Announced_C">공지사항</a></span>
+            <span><a href="Announced_C">お知らせ</a></span>
           </div>
           <div class="e_content-box-tr1-td1-2">
-            <span><a href="Album_insta_api_C">앨범</a></span>
+            <span><a href="Album_insta_api_C">アルバム</a></span>
           </div>
           <div class="e_content-box-tr1-td1-3">
-            <span><a href="Employment_C">채용공고</a></span>
+            <span><a href="Employment_C">スタッフ募集</a></span>
           </div>
         </div>
 
@@ -39,7 +40,7 @@ pageEncoding="UTF-8"%>
               width="1.7%"
               alt=""
             />
-            > 소개 > 직원모집
+            > 情報 > スタッフ募集
           </div>
         </div>
 
@@ -51,42 +52,39 @@ pageEncoding="UTF-8"%>
               <!--소개부분 -->
               <div class="e_content-box-tr1-td3-1-1-1">
                 <div class="e_content-box-tr1-td3-1-1-1-1">
-                  <span>저희와 함께 행복 나눔 하실 분을 모집합니다.</span>
+                  <span>私たちと共に幸福を分かち合う方を求めています。</span>
                 </div>
                 <div class="e_content-box-tr1-td3-1-1-1-2">
-                  어르신들의 즐거움과 삶의 질 향상에 기여해주실 <br />직원분을
-                  모집합니다.
+                  高齢者の喜びと生活の質の向上に寄与してくださる <br />スタッフを募集しております。
                 </div>
                 <div class="e_content-box-tr1-td3-1-1-1-3">
-                  저희는 방문 요양 서비스를 담당하실 헬퍼님과 예약제 개호
-                  콜텍시를 운임<br />
-                  해주실 직원분, 사무업무 등등 <br />
-                  저희와 함께 뜻을 함께 하실 분은 <br />
-                  하단의 이력서 양식을 기입하시고 <br />
-                  우측 하단의 이메일로 보내주시길 바랍니다. <br />
-                  더 자세한 문의는 문의게시판을 용해주세요. <br />
-                  많은 지원 바랍니다. 감사합니다.
+                  私たちは訪問介護サービスや予約制の介護タクシー運行を担う<br />
+                  スタッフ、そして事務作業を担う方々を探しています。 <br />
+                  私たちの理念に共感し、共に歩む方は <br />
+                  以下の履歴書フォームにご記入の上、 <br />
+                  指定のメールアドレスまでお送りください。 <br />
+                  さらなるお問い合わせは、問い合わせフォームをご利用いただければ幸いです <br />
+                  数多くのご応募を心よりお待ちしております。ありがとうございます。
                 </div>
                 <div class="e_content-box-tr1-td3-1-1-1-4">
                   <div class="e_content-box-tr1-td3-1-1-4-1">
-                    ●모집대상 : 모집 시기 및 근무시간
+                    ●募集対象：募集時期及び勤務時間&nbsp&nbsp
                     <ul>
                       <li>
-                        •연중
-                        가능&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        •年中無休での勤務が可能な方&nbsp&nbsp&nbsp&nbsp
                       </li>
-                      <li>•주중 및 주말 탄력근무제(シフト制)</li>
+                      <li>•週中及び週末のシフト制勤務&nbsp&nbsp&nbsp&nbsp&nbsp</li>
                     </ul>
                   </div>
                   <!-- 구분 -->
                   <div class="e_content-box-tr1-td3-1-1-4-2">
-                    ●근무내용&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    &nbsp●勤務内容&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                     <ul>
                       <li>
-                        •방문요향&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                      &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp•訪問介護&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                       </li>
                       <li>
-                        •개호콜택시&nbsp&nbsp운임&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp•介護タクシー運営&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                       </li>
                     </ul>
                   </div>
@@ -107,7 +105,7 @@ pageEncoding="UTF-8"%>
                           </div>
                           <!-- 다운로드 아이콘 -->
                           <div class="e_content-box-tr1-td3-1-1-1-5-1-1-1-3">
-                            <a href=""
+                            <a
                               ><img
                                 src="${pageContext.request.contextPath}/user/introduce/employment/0.img/download_icon.png"
                                 alt=""
@@ -119,20 +117,20 @@ pageEncoding="UTF-8"%>
                     <div class="e_content-box-tr1-td3-1-1-1-5-1-2">
                       <div class="e_content-box-tr1-td3-1-1-1-5-1-2-1">
                         <div class="e_content-box-tr1-td3-1-1-1-5-1-2-1-1">
-                          <span>연락처</span>
+                          <span>連絡先</span>
                         </div>
                       </div>
                       <div class="e_content-box-tr1-td3-1-1-1-5-1-2-2">
-                        <span>전화번호&nbsp:&nbsp06-6997-6531</span>
+                        <span>電話番号&nbsp:&nbsp06-6997-6531</span>
                       </div>
                       <div class="e_content-box-tr1-td3-1-1-1-5-1-2-3">
                         <span>FAX&nbsp:&nbsp06-6997-6520</span>
                       </div>
                       <div class="e_content-box-tr1-td3-1-1-1-5-1-2-4">
-                        <span>휴대전화&nbsp:&nbsp090-8799-3855</span>
+                        <span>携帯電話&nbsp:&nbsp090-8799-3855</span>
                       </div>
                       <div class="e_content-box-tr1-td3-1-1-1-5-1-2-5">
-                        <span>이메일&nbsp:&nbsphello20201110@gmail.com</span>
+                        <span>メール&nbsp:&nbsphello20201110@gmail.com</span>
                       </div>
                     </div>
                   </div>
@@ -145,4 +143,5 @@ pageEncoding="UTF-8"%>
     </div>
     <!--ody 구분선 1-->
   </body>
+  <input type="hidden" value="${pageContext.request.contextPath}" id="contextPath_val">
 </html>
