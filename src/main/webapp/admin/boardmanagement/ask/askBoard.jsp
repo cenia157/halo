@@ -30,7 +30,7 @@
 <!-- 			foreach문 추가 -->
 
 			<c:forEach items="${QnCs}" var="item" varStatus="loop">
-			    <div class="ontent-m-td-2-content-txt-in">
+			    <div class="ontent-m-td-2-content-txt-in" id="FOREACH_ASK">
 			    	<input hidden="1" name="q_seq" value="${item.q_seq}">
 				        <div class="ontent-m-td-2-content-txt-no-in">
 				        	${(loop.index + 1) + (curPageNo - 1) * 8}

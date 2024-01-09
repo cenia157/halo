@@ -355,30 +355,39 @@ function deleteQuestion(q_seq) {
 }
 
 
-function statusCheck() {
+//체크박스 제출
+$(document).ready(function() {
+    // 체크박스의 change 이벤트를 감지
+    $('input[type="checkbox"]').change(function() {
+        // 체크박스가 변경되면 바로 폼을 제출
+        $('#checkbox').submit();
+    });
 
-	let completed_checkbox = document.getElementById('completed_checkbox');
-	let uncompleted_checkbox = document.getElementById('uncompleted_checkbox');
+    // 폼 제출 시의 동작을 처리하는 함수
+    $('#checkbox').submit(function() {
+        // 폼이 제출될 때 수행할 동작 추가
+        console.log('Form submitted!');
+        // 추가로 필요한 로직을 여기에 작성
+        var checkboxData = [];
+        $('input[type="checkbox"]').each(function() {
+            checkboxData.push({
+                value: $(this).val(),
+                checked: $(this).prop('checked')
+            });
+        });
+        
+        filterByCheckbox(checkboxData);
+        
+        return true;
+    });
+});
 
-	let checkbox_result = document.querySelectorAll(".ontent-m-td-2-content-txt-in")
-
-	checkbox_result.forEach(function(item) {
-		let YorN = item.querySelector(".ontent-m-td-2-content-txt-kategorie-in");
-
-		let isCompleted = YorN.textContent.trim() === "完";
-		let isUncompleted = YorN.textContent.trim() === "未";
-
-
-		if ((completed_checkbox.checked && isCompleted) || (uncompleted_checkbox.checked && isUncompleted) || (completed_checkbox.checked && uncompleted_checkbox.checked)) {
-			item.style.display = "flex";
-		} else {
-			item.style.display = "none";
-		}
-
-	})
+function filterByCheckbox(data){
+	console.log(data);
+	console.log("---------");
+	
+	
 }
-
-
 
 
 //FAQ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
