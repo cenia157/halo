@@ -30,7 +30,7 @@
 
 .a_content-box-tr1 {
 	border-radius: 35px;
-	background-color: #fffcf0; /* 추후 투명도 조절 필요 */
+	background-color: #fffcf0; 
 	width: 95%;
 	height: 100%;
 }
@@ -496,7 +496,7 @@
 	border: none;
 	border-radius: 15%;
 	cursor: pointer;
-	color: #ffd66c !important;
+	color: #ffd66c ;
 }
 
 .current-page {

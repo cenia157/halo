@@ -1,9 +1,7 @@
   $(document).ready(function () {
 	
 	let modal = document.querySelector("#myModal");
-	let closeModalButtons = document.querySelectorAll(".qd-content-box-td2-2-button");
-    let headerTbl = document.querySelector(".header-tbl");
-	
+
     //모달 조회
     $(".ancTitleDiv").on("click", function () {
       let aidx = $(this).data("anseq");

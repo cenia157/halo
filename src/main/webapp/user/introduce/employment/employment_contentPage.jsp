@@ -12,14 +12,13 @@ pageEncoding="UTF-8"%>
     />
     <link
       rel="stylesheet"
-      href="${pageContext.request.contextPath}/user/introduce/employment/0.css/employment_contentPage.css"
+      href="user/introduce/employment/0.css/employment_contentPage.css"
     />
-    <script src="${pageContext.request.contextPath}/user/introduce/employment/0.js/employment_contentPage.js"></script>
+    <script src="user/introduce/employment/0.js/employment_contentPage.js"></script>
   </head>
   <body>
     <div class="e_content-tbl">
       <!--ody 구분선 1-->
-
       <div class="e_content-box-tr1">
         <div class="e_content-box-tr1-td1">
           <div class="e_content-box-tr1-td1-1">
@@ -81,10 +80,10 @@ pageEncoding="UTF-8"%>
                     &nbsp●勤務内容&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                     <ul>
                       <li>
-                      &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp•訪問介護&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                     •訪問介護&nbsp•介護タクシー運営&nbsp&nbsp&nbsp&nbsp
                       </li>
                       <li>
-                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp•介護タクシー運営&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                         display none처리
                       </li>
                     </ul>
                   </div>

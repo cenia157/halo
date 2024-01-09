@@ -106,7 +106,7 @@ prefix="c" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 	                      </a>
 	                    </c:when>
 	                    <c:otherwise>
-	                      <button disabled><<</button>
+	                      <button disabled style="cursor: default; background:white; visibility: hidden;"><<</button>
 	                    </c:otherwise>
 	                  </c:choose>
 	
@@ -118,7 +118,8 @@ prefix="c" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 	                      </a>
 	                    </c:when>
 	                    <c:otherwise>
-	                      <button disabled>前の</button>
+	                      <button disabled style="cursor: default; background:white; visibility: hidden;">前の</button>
+	                      
 	                    </c:otherwise>
 	                  </c:choose>
 	
@@ -165,7 +166,7 @@ prefix="c" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 	                      </a>
 	                    </c:when>
 	                    <c:otherwise>
-	                      <button disabled>次の</button>
+	                      <button disabled style="cursor: default; background:white; visibility: hidden;">次の</button>
 	                    </c:otherwise>
 	                  </c:choose>
 	
@@ -184,7 +185,7 @@ prefix="c" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 	                      </a>
 	                    </c:when>
 	                    <c:otherwise>
-	                      <button disabled>>></button>
+	                      <button disabled style="cursor: default; background:white; visibility: hidden;">>></button>
 	                    </c:otherwise>
 	                  </c:choose>
 	                </div>
