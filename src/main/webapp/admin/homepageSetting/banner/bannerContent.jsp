@@ -66,7 +66,7 @@
 				<label for="thumbnail1">
 				<div class="btn-upload">파일업로드</div>
 				</label>
-				<input type="file" class="banner_input" name="banner_thumbnail1" id="thumbnail1">
+				<input onchange="handleFileUpload('1')" type="file" class="banner_input" name="banner_thumbnail1" id="thumbnail1">
 			</form>
 				</div>
 				</div>
@@ -112,7 +112,7 @@
 				<label for="thumbnail2">
 				<div class="btn-upload">파일업로드</div>
 				</label>
-				<input type="file" class="banner_input" name="banner_thumbnail2" id="thumbnail2">
+				<input onchange="handleFileUpload(2)" type="file" class="banner_input" name="banner_thumbnail2" id="thumbnail2">
 			</form>
 				</div>
 				</div>
@@ -158,7 +158,7 @@
 				<label for="thumbnail3">
 				<div class="btn-upload">파일업로드</div>
 				</label>
-				<input type="file" class="banner_input" name="banner_thumbnail3" id="thumbnail3">
+				<input onchange="handleFileUpload(3)" type="file" class="banner_input" name="banner_thumbnail3" id="thumbnail3">
 			</form>
 				</div>
 				</div>

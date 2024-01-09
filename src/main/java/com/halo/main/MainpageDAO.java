@@ -12,7 +12,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
+import com.google.gson.Gson;
 import com.oreilly.servlet.MultipartRequest;import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 public class MainpageDAO {
@@ -204,8 +204,11 @@ public class MainpageDAO {
 		MultipartRequest mr = new MultipartRequest(request, savepath, 1024*1024*20, "utf-8", new DefaultFileRenamePolicy());
 		
 		 String fileName = mr.getFilesystemName("banner_thumbnail1");
-		 System.out.println("업로드할 파일 :"+fileName);
-		 response.getWriter().write(fileName);
+		 System.out.println("업로드할 파일 :" + fileName);
+		 Gson gson = new Gson();
+		 String fileName2 = gson.toJson(fileName);
+		 System.out.println(fileName2);
+		 response.getWriter().print(fileName2);
 
 		
 	}
