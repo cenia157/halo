@@ -7,15 +7,9 @@ prefix="c" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link
-      href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="${pageContext.request.contextPath}/user/introduce/announcement/0.css/announcement_contentPage.css"
-    />
-    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <link rel="stylesheet href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular""/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/user/introduce/announcement/0.css/announcement_contentPage.css"/>
+    <script src="${pageContext.request.contextPath}/user/introduce/employment/0.js/employment_contentPage.js"></script>
   </head>
   <body>
     <!--     <div class="a_container"> -->
@@ -235,7 +229,7 @@ prefix="c" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
           </div>
         </div>
 
-        <!-- 본문 -->
+        <!-- 본문 예시 !!-->
         <div class="qd-content-box-td2-1">
           <div class="qd-content-box-td2-1-content" id="modalContent">
             안녕하세요, 운영자입니다. <br />
@@ -346,14 +340,6 @@ prefix="c" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
           modal.style.display = "none";
         });
       });
-    </script>
-    
-    <script>
-    let contentDiv = document.querySelectorAll('.a_content-box-tr1-td3-1-1-1 .a_content-box-tr1-td3-1-1-1-2');
-    let contentLastDiv = contentDiv[contentDiv.length - 1];
-
-    contentLastDiv.style.borderBottom = '4px solid #6e6f4e'; 
-    </script>
-    
+    </script>  
   </body>
 </html>

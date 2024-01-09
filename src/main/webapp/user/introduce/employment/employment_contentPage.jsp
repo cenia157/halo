@@ -14,7 +14,7 @@ pageEncoding="UTF-8"%>
       rel="stylesheet"
       href="${pageContext.request.contextPath}/user/introduce/employment/0.css/employment_contentPage.css"
     />
-    <script src="경로/파일.js"></script>
+    <script src="${pageContext.request.contextPath}/user/introduce/employment/0.js/employment_contentPage.js"></script>
   </head>
   <body>
     <div class="e_content-tbl">
@@ -143,13 +143,5 @@ pageEncoding="UTF-8"%>
     </div>
     <!--ody 구분선 1-->
   </body>
-  <script type="text/javascript">
-  let resume_div = document.querySelector('.e_content-box-tr1-td3-1-1-1-5-1-1-1-1');
-
-  resume_div.addEventListener('click', function() {
-    console.log('클릭 이벤트 발생');
-    let resume_link = '${pageContext.request.contextPath}/user/introduce/employment/0.file/resume.docx'; 
-    window.location.href = resume_link;
-  });
-</script>
+  <input type="hidden" value="${pageContext.request.contextPath}" id="contextPath_val">
 </html>
