@@ -253,7 +253,7 @@ class MyUploadAdapter {
 		}
 	}
 } // end class
-
+//test
 	function MyCustomUploadAdapterPlugin(editor) {
 		editor.plugins.get("FileRepository").createUploadAdapter = (loader) => {
 			return new MyUploadAdapter(loader);
