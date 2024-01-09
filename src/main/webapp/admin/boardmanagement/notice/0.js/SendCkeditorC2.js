@@ -1,16 +1,17 @@
 
-let regBtn = document.querySelector("#reg-btn");
-regBtn.addEventListener("click", function(event) {
-	let ckForm = document.querySelector("#ck-form");
-	const content = window.editor.getData();
-	const formData = new FormData(ckForm);
-	formData.set("txt", content);
+
+let regBtnR = document.querySelector("#reg-btnR");
+regBtnR.addEventListener("click", function(event) {
+	let ckFormR = document.querySelector("#ck-formR");
+	const content = window.editorR.getData();
+	const formDataR = new FormData(ckFormR);
+	formDataR.set("txt", content);
 	console.log("--------------------");
 	console.log(content);
-	console.log(formData);
-	const payload = new URLSearchParams(formData);
+	console.log(formDataR);
+	const payload = new URLSearchParams(formDataR);
 	console.log(payload);
-	for (var pair of formData.entries()) {
+	for (var pair of formDataR.entries()) {
 		console.log(pair[0] + ": " + pair[1]);
 	}
 
@@ -18,7 +19,7 @@ regBtn.addEventListener("click", function(event) {
 	var isTxtValid = false;
 	var iskategorieValid = false;
 
-	for (var pair of formData.entries()) {
+	for (var pair of formDataR.entries()) {
 
 		if (pair[0] === 'title') {
 			if (pair[1] !== '') {
@@ -46,7 +47,7 @@ regBtn.addEventListener("click", function(event) {
 	}
 
 	console.log("--------------------");
-	let CkeditorC123 = fetch("CkeditorC", {
+	let CkeditorC123 = fetch("NoticeDeleteC", {
 		method: "POST",
 		body: payload,
 		headers: {
@@ -67,6 +68,7 @@ regBtn.addEventListener("click", function(event) {
 			console.error("POST 요청 실패:", error);
 		});
 }); // regBtn.addEventListener("click", function(event) {
+
 
 
 

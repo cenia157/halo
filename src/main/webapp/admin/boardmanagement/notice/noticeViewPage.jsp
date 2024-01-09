@@ -34,6 +34,7 @@
 						결성하여 솔데스크<br> 802호를 폭파시킬것으로 하루빨리 임금을 지불해 주기바람.
 					</div>
 				</div>
+				
 				<div class="modal-content-button">
 					<button class="SubmitButton" id="aaaaaaaaaaaaaaaaaaaaaaaaaa">수정</button>
 

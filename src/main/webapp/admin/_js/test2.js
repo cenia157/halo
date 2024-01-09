@@ -518,12 +518,43 @@ function getNOTICEDataV(an_seq, an_title, an_content, an_writer, an_reg_date, an
 					//alert(document.getElementById('real-title-editor').innerHTML(an_title))
 					//document.getElementById('real-title-editor').value = an_title;
 
-					$('#real-title-editorAAAAAAAAAAAAA').val(an_title);
+					$('#real-title-editorN').val(an_title);
 					$('#CCCCCCCCCCCC').html(an_category);
 					// 여기에 CK-editor에 값을 표시하고싶어
 					$('#classicR').html(an_content);
+					window.editorR.setData(an_content);
+					$('#kategorieR').html(an_category);
+					/*
+										if (an_category = 'announcement') {
+											alert('안내 성공' + an_category)
+											$('#kategorieR').html('안내');
+										} else if (an_category = 'schedule') {
+											alert('일정 성공' + an_category)
+											$('#kategorieR').html('일정');
+										} else if (an_category = 'general') {
+											alert('일반 성공' + an_category)
+											$('#kategorieR').html('일반');
+										} else if (an_category = 'service') {
+											alert('서비스 성공' + an_category)
+											$('#kategorieR').html('서비스');
+										} else if (an_category = 'product') {
+											alert('상품 성공' + an_category)
+											$('#kategorieR').html('상품');
+										} else {
+											alert('실패')
+										}*/
+
+
+
+
+
+
+
+
+
 					window.editor.setData(an_content);
 					openModalR();
+
 
 				};
 

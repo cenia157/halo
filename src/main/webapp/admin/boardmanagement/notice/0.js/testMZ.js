@@ -152,7 +152,7 @@ ClassicEditor.create(document.querySelector("#classicR"), {
 	extraPlugins: [MyCustomUploadAdapterPlugin],
 })
 	.then((editor) => {
-		window.editor = editor;
+		window.editorR = editor;
 	})
 	.catch((error) => {
 		console.log(error);
