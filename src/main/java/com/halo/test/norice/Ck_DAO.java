@@ -1,7 +1,7 @@
 package com.halo.test.norice;
 
 import java.io.IOException;
-
+import java.io.UnsupportedEncodingException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
@@ -90,8 +90,7 @@ public class Ck_DAO {
 
 	}
 
-
-	public static void deleteNotice(HttpServletRequest request) {
+	public static void deleteNotice(HttpServletRequest request) throws UnsupportedEncodingException {
 
 		request.setCharacterEncoding("utf-8");
 		try {
@@ -99,7 +98,9 @@ public class Ck_DAO {
 			String title = request.getParameter("title");
 			String select = request.getParameter("select");
 			String txt = request.getParameter("txt");
-			if (title != "" && txt != "" && select != null) {
+			String seq = request.getParameter("seq");
+			System.out.println( "seq : !!!!!!!!" + seq);
+			if (title != "" && txt != "" && select != null ) {
 
 				System.out.println("txt 구간(1) :::" + txt);
 //			String saveFnameValues[] = request.getParameterValues("saveFname");
@@ -132,8 +133,9 @@ public class Ck_DAO {
 					}
 				}
 
-				System.out.println(title);
-				System.out.println(select);
+				System.out.println("title : " + title);
+				System.out.println("select : " + select);
+				System.out.println("seq : " + seq);
 //			System.out.println(saveFName);
 //			txt = txt.replace("img", "img src=\'" + saveFName + "\'");
 
@@ -154,11 +156,11 @@ public class Ck_DAO {
 
 				pstmt.setString(1, title);
 				pstmt.setString(2, txt);
-				pstmt.setString(3, "산타");
-				pstmt.setString(4, select);
+				pstmt.setString(3, select);
+				pstmt.setString(4, seq);
 
 				if (pstmt.executeUpdate() == 1) {
-					System.out.println("등록성공 Ck_DAO NOTICE");
+					System.out.println("수정성공 Ck_DAO NOTICE");
 					System.out.println("---------------");
 				}
 			}
@@ -166,8 +168,6 @@ public class Ck_DAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
-	}
 
 	}
 

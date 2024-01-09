@@ -524,29 +524,35 @@ function getNOTICEDataV(an_seq, an_title, an_content, an_writer, an_reg_date, an
 					$('#classicR').html(an_content);
 					window.editorR.setData(an_content);
 					$('#kategorieR').html(an_category);
-					/*
-										if (an_category = 'announcement') {
-											alert('안내 성공' + an_category)
-											$('#kategorieR').html('안내');
-										} else if (an_category = 'schedule') {
-											alert('일정 성공' + an_category)
-											$('#kategorieR').html('일정');
-										} else if (an_category = 'general') {
-											alert('일반 성공' + an_category)
-											$('#kategorieR').html('일반');
-										} else if (an_category = 'service') {
-											alert('서비스 성공' + an_category)
-											$('#kategorieR').html('서비스');
-										} else if (an_category = 'product') {
-											alert('상품 성공' + an_category)
-											$('#kategorieR').html('상품');
-										} else {
-											alert('실패')
-										}*/
+					$('#seq').val(an_seq);
+
+					if (an_category == 'announcement') {
+						alert('안내 성공' + an_category)
+						$('#kategorieR').html('안내');
+					} else if (an_category == 'schedule') {
+						alert('안내 성공' + an_category)
+						$('#kategorieR').html('스케줄');
+					} else if (an_category == 'general') {
+						alert('안내 성공' + an_category)
+						$('#kategorieR').html('일반');
+					} else if (an_category == 'service') {
+						alert('안내 성공' + an_category)
+						$('#kategorieR').html('서비스');
+					} else if (an_category == 'product') {
+						alert('안내 성공' + an_category)
+						$('#kategorieR').html('상품');
+					}
 
 
 
+					let mmmmmmmm = document.getElementById('kategorieR');
+					let newInput = document.createElement("input");
 
+					alert(an_category)
+
+					// newInput.type = "hidden";
+					newInput.value = an_category;
+					mmmmmmmm.appendChild(newInput);
 
 
 
