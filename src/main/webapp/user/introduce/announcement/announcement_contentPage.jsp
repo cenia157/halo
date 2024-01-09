@@ -347,5 +347,13 @@ prefix="c" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
         });
       });
     </script>
+    
+    <script>
+    let contentDiv = document.querySelectorAll('.a_content-box-tr1-td3-1-1-1 .a_content-box-tr1-td3-1-1-1-2');
+    let contentLastDiv = contentDiv[contentDiv.length - 1];
+
+    contentLastDiv.style.borderBottom = '4px solid #6e6f4e'; 
+    </script>
+    
   </body>
 </html>

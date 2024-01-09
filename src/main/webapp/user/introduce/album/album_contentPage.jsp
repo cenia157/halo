@@ -296,11 +296,6 @@ pageEncoding="UTF-8"%>
         }); // window.addEventListener('scroll', function()
       }); //  $(document).ready(function () {
     </script>
-    <script>
-    let contentDiv = document.querySelectorAll('.a_content-box-tr1-td3-1-1-1 .a_content-box-tr1-td3-1-1-1-2');
-    let contentLastDiv = contentDiv[contentDiv.length - 1];
 
-    contentLastDiv.style.borderBottom = '4px solid #6e6f4e'; 
-    </script>
   </body>
 </html>
