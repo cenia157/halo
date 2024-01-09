@@ -7,15 +7,9 @@ prefix="c" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link
-      href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="${pageContext.request.contextPath}/user/introduce/announcement/0.css/announcement_contentPage.css"
-    />
-    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <link rel="stylesheet href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular""/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/user/introduce/announcement/0.css/announcement_contentPage.css"/>
+    <script src="${pageContext.request.contextPath}/user/introduce/employment/0.js/employment_contentPage.js"></script>
   </head>
   <body>
     <!--     <div class="a_container"> -->
@@ -25,13 +19,13 @@ prefix="c" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
       <div class="a_content-box-tr1">
         <div class="a_content-box-tr1-td1">
           <div class="a_content-box-tr1-td1-1">
-            <span><a href="Announced_C">공지사항</a></span>
+            <span><a href="Announced_C">お知らせ</a></span>
           </div>
           <div class="a_content-box-tr1-td1-2">
-            <span><a href="Album_insta_api_C">앨범</a></span>
+            <span><a href="Album_insta_api_C">アルバム</a></span>
           </div>
           <div class="a_content-box-tr1-td1-3">
-            <span><a href="Employment_C">채용공고</a></span>
+            <span><a href="Employment_C">スタッフ募集</a></span>
           </div>
         </div>
 
@@ -42,7 +36,7 @@ prefix="c" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
               width="1.7%"
               alt=""
             />
-            > 소개 > 회사소개
+            > 情報 > お知らせ
           </div>
         </div>
 
@@ -59,16 +53,16 @@ prefix="c" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
                     <span>No</span>
                   </div>
                   <div class="a_content-box-tr1-td3-1-1-1-1-2 writer-width">
-                    <span>글쓴이</span>
+                    <span>投稿者</span>
                   </div>
                   <div class="a_content-box-tr1-td3-1-1-1-1-3 title-width">
-                    <span>제목</span>
+                    <span>タイトル</span>
                   </div>
                   <div class="a_content-box-tr1-td3-1-1-1-1-4 category-width">
-                    <span>카테고리</span>
+                    <span>カテゴリー</span>
                   </div>
                   <div class="a_content-box-tr1-td3-1-1-1-1-5 reg-width">
-                    <span>작성일</span>
+                    <span>投稿日</span>
                   </div>
                 </div>
                 <!-- 2번째 행 여기는 forEach문이겠죠?-->
@@ -121,11 +115,11 @@ prefix="c" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
                   <c:choose>
                     <c:when test="${curPageNo > 1}">
                       <a href="Announced_paging_C?p=${curPageNo - 1}">
-                        <button>이전</button>
+                        <button>前の</button>
                       </a>
                     </c:when>
                     <c:otherwise>
-                      <button disabled>이전</button>
+                      <button disabled>前の</button>
                     </c:otherwise>
                   </c:choose>
 
@@ -168,11 +162,11 @@ prefix="c" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
                   <c:choose>
                     <c:when test="${curPageNo < pageCount}">
                       <a href="Announced_paging_C?p=${curPageNo + 1}">
-                        <button>다음</button>
+                        <button>次の</button>
                       </a>
                     </c:when>
                     <c:otherwise>
-                      <button disabled>다음</button>
+                      <button disabled>次の</button>
                     </c:otherwise>
                   </c:choose>
 
@@ -215,12 +209,12 @@ prefix="c" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
           <span> お知らせ</span>
         </div>
         <div class="qd-content-box-td1-2">
-          <div class="qd-content-box-td1-2-1">제목</div>
+          <div class="qd-content-box-td1-2-1">タイトル</div>
           <div class="qd-content-box-td1-2-2" id="modalTitle">일정공지</div>
         </div>
 
         <div class="qd-content-box-td1-3">
-          <div class="qd-content-box-td1-3-1">작성자</div>
+          <div class="qd-content-box-td1-3-1">投稿者</div>
           <div class="qd-content-box-td1-3-2" id="modalWriter">
             오오데아키코
           </div>
@@ -228,14 +222,14 @@ prefix="c" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
         <div class="qd-content-box-td1-4">
           <div class="qd-content-box-td1-4-content">
-            <span class="qd-content-box-td1-4-1">작성일: </span>
+            <span class="qd-content-box-td1-4-1">投稿日&nbsp:&nbsp</span>
             <span class="qd-content-box-td1-4-2" id="modalregDate"
               >23-12-15</span
             >
           </div>
         </div>
 
-        <!-- 본문 -->
+        <!-- 본문 예시 !!-->
         <div class="qd-content-box-td2-1">
           <div class="qd-content-box-td2-1-content" id="modalContent">
             안녕하세요, 운영자입니다. <br />
@@ -270,12 +264,12 @@ prefix="c" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
         <div class="qd-content-box-td2-2">
           <button class="qd-content-box-td2-2-button" id="closeModalBtn">
-            닫기
+            閉じる
           </button>
         </div>
       </div>
     </div>
-    <!-- 모달끝 -->
+    <!--모달끝-->
 
     <script>
       let modal = document.querySelector("#myModal");
@@ -283,24 +277,23 @@ prefix="c" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
         ".qd-content-box-td2-2-button"
       );
       window.onload = function () {
-        let modalContent = document.querySelector(".modal-content"); // 모달 내용 요소
-        let ancTitleDiv = document.querySelector(".ancTitleDiv"); //모달 제목
+        let modalContent = document.querySelector(".modal-content"); 
+        let ancTitleDiv = document.querySelector(".ancTitleDiv"); 
         let headerTbl = document.querySelector(".header-tbl");
-        let contentBox = document.querySelector(
-          ".qd-content-box-td2-1-content"
-        ); // 스크롤 위치 조정을 위한 요소
+        let contentBox = document.querySelector(".qd-content-box-td2-1-content"); 
 
+         // ESC키로 닫기 
         $(document).keydown(function (e) {
           if (e.key === "Escape") {
-            // 'Escape'는 ESC 키를 나타냄
-            // 'click' 이벤트 생성
-            var event = new Event("click");
+         
+            let event = new Event("click");
             closeModalButtons[0].dispatchEvent(event);
           }
         });
+         
         // 모달 외부 클릭 시 모달 닫기 이벤트 리스너
         window.addEventListener("click", function (e) {
-          // 모달 내용이 아닌 부분을 클릭했는지 확인
+          // 모달 내용이 아닌 부분 확인
           if (e.target === modal && !modalContent.contains(e.target)) {
             modal.style.display = "none";
             if (headerTbl) {
@@ -310,31 +303,31 @@ prefix="c" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
         });
       };
     </script>
-
     <script>
       $(document).ready(function () {
         //모달 조회
         $(".ancTitleDiv").on("click", function () {
-          var aidx = $(this).data("anseq");
+          let aidx = $(this).data("anseq");
 
           $.ajax({
             type: "post",
             url: "/halo/Announced_C",
             data: { an_seq: aidx },
             success: function (result) {
-              var dataArr = result.split("|");
-              var writer = dataArr[0];
-              var title = dataArr[1];
-              var content = dataArr[2];
-              var regdate = dataArr[3];
+              let dataArr = result.split("|");
+              let writer = dataArr[0];
+              let title = dataArr[1];
+              let content = dataArr[2];
+              let regdate = dataArr[3];
 
               $("#modalWriter").text(writer);
               $("#modalTitle").text(title);
               $("#modalContent").html(content);
               $("#modalregDate").text(regdate);
 
-              //DB조회 -> 화면 그려주고 -> 모달 노출
+              //DB조회 -> 화면 그려주고 -> 모달 노출 및 헤더 가리기 
               modal.style.display = "flex";
+              document.querySelector(".header-tbl").style.display = "none"; 
             },
             error: function () {
               alert("error!!!");
@@ -347,6 +340,6 @@ prefix="c" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
           modal.style.display = "none";
         });
       });
-    </script>
+    </script>  
   </body>
 </html>
