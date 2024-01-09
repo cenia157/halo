@@ -17,7 +17,7 @@ public class Announced_C extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		AnnouncedDAO.getAllAnnouncements(request);
 		AnnouncedDAO.paging(1, request);
-//		MainpageDAO.getMdao().getAllHompage_common(request);
+		MainpageDAO.getMdao().getAllHompage_common(request);
 		request.setAttribute("menu", "user/menu-index.jsp");
 		request.setAttribute("subMenu", "/user/introduce/announcement/announcement_contentPage.jsp");
 		request.getRequestDispatcher("index.jsp").forward(request, response);

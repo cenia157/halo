@@ -13,7 +13,7 @@ public class HC extends HttpServlet {
 			throws ServletException, IOException {
 		String contentPage = null;
 		String subMenu = null;
-		//DB에 업뎃된 모든 homepage_common 정보
+		// DB에 업뎃된 모든 homepage_common 정보
 		MainpageDAO.getMdao().getAllHompage_common(request);
 		if (request.getParameter("link") != null) {
 			if (request.getParameter("link").equals("1")) {
@@ -36,27 +36,24 @@ public class HC extends HttpServlet {
 				subMenu = "qa/question/question";
 			} else if (request.getParameter("link").equals("10")) {
 				subMenu = "qa/question/questionDetail";
-			} 
+			}
 			request.setAttribute("menu", "user/menu-index.jsp");
 			request.setAttribute("subMenu", subMenu + ".jsp");
 			request.getRequestDispatcher("index.jsp").forward(request, response);
-			
+
 		} else {
 			request.setAttribute("menu", "home.jsp");
 			request.getRequestDispatcher("index.jsp").forward(request, response);
 		}
-		
-		 if (request.getParameter("link").equals("7")) {
-			 contentPage = "service/serviceApply/serviceApply";
+
+		if (request.getParameter("link").equals("7")) {
+			contentPage = "service/serviceApply/serviceApply";
 			request.setAttribute("step1Pos", "#ffdf6c");
 			request.setAttribute("serviceStep", "svcselect.jsp");
 		}
 
-
 		String link = request.getParameter("link");
 		System.out.println(link);
-
-		
 
 	}
 
