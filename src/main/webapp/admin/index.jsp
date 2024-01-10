@@ -82,7 +82,7 @@
 							<div class="menu-td-3-td-open-td-2-con">
 								<div class="menu-td-3-td-open-td-2-con-td-2">
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
-										<img src="admin/0.img/admintble-select.png" alt=""><a href="AdminC?link=5">공지사항</a>
+										<img src="admin/0.img/admintble-select.png" alt=""><a href="AdminNOTICEC">공지사항</a>
 									</div>
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
 										<img src="admin/0.img/admintble-select.png" alt=""><a href="AskContentC">문의사항</a>
