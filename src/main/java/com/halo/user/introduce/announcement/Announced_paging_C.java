@@ -13,7 +13,6 @@ public class Announced_paging_C extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		AnnouncedDAO.getAllAnnouncements(request);
-//		request.setAttribute("menu", "/user/introduce/announcement/announcement_contentPage_db_test.jsp");
 		int p = Integer.parseInt(request.getParameter("p"));
 		AnnouncedDAO.paging(p, request);
 		request.setAttribute("menu", "user/menu-index.jsp");
