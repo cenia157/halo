@@ -68,6 +68,21 @@ regBtn.addEventListener("click", function(event) {
 		});
 }); // regBtn.addEventListener("click", function(event) {
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	  console.log('-----------------오단영 예외처리 시작------------------------- ')
 	      
     	  
