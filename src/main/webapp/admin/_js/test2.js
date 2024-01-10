@@ -40,6 +40,14 @@ function closeModal(modalId, tblId) {
 	}
 	// CKEditor 초기화
 	window.editor.setData(""); // CKEditor의 내용을 빈 문자열로 설정합니다.
+
+
+
+
+
+
+
+
 }
 
 // 공통 함수: 모달 외부 클릭 시 닫기
@@ -527,19 +535,14 @@ function getNOTICEDataV(an_seq, an_title, an_content, an_writer, an_reg_date, an
 					$('#seq').val(an_seq);
 
 					if (an_category == 'announcement') {
-						alert('안내 성공' + an_category)
 						$('#kategorieR').html('안내');
 					} else if (an_category == 'schedule') {
-						alert('안내 성공' + an_category)
 						$('#kategorieR').html('스케줄');
 					} else if (an_category == 'general') {
-						alert('안내 성공' + an_category)
 						$('#kategorieR').html('일반');
 					} else if (an_category == 'service') {
-						alert('안내 성공' + an_category)
 						$('#kategorieR').html('서비스');
 					} else if (an_category == 'product') {
-						alert('안내 성공' + an_category)
 						$('#kategorieR').html('상품');
 					}
 
@@ -550,8 +553,10 @@ function getNOTICEDataV(an_seq, an_title, an_content, an_writer, an_reg_date, an
 
 					alert(an_category)
 
-					// newInput.type = "hidden";
+					newInput.type = "hidden";
 					newInput.value = an_category;
+					newInput.name = 'select';
+					newInput.id = 'myInputR';
 					mmmmmmmm.appendChild(newInput);
 
 
