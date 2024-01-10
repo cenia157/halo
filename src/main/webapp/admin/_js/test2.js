@@ -385,6 +385,20 @@ $(document).ready(function() {
 function filterByCheckbox(data){
 	console.log(data);
 	console.log("---------");
+	$.ajax({
+		url: "CheckboxC",
+		method: "GET",
+		data: {
+			completed: data.some(item => item.value === 'completed' && item.checked),
+			uncompleted: data.some(item => item.value === 'uncompleted' && item.checked)
+		},
+		success: function(data){
+			console.log("넘겨받는 data: ", data);
+		},
+		error: function(xhr, status, error){
+			console.log("에러발생: ", xhr, status, error)
+		}
+	});
 	
 	
 }
