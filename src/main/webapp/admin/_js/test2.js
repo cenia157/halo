@@ -402,6 +402,8 @@ function deleteQuestion(q_seq) {
 
 //체크박스 제출
 $(document).ready(function() {
+    // 기존의 이벤트 언바인딩
+    $('input[type="checkbox"]').off('change');
     // 체크박스의 change 이벤트를 감지
     $('input[type="checkbox"]').change(function() {
         // 체크박스가 변경되면 바로 폼을 제출
@@ -420,8 +422,6 @@ $(document).ready(function() {
                 checked: $(this).prop('checked')
             });
         });
-        filterByCheckbox(checkboxData);
-        
         return true;
     });
 });
