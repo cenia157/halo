@@ -27,12 +27,10 @@ public class MZConfig {
 				String fileName = fileNames.nextElement();
 				File file = mr.getFile(fileName);
 				
-				
-				System.out.println("이곳은 CKeditor에 올라온 이미지를 ajax로 보낸 곳");
-				System.out.println();
-				System.out.println("파일경로 : " + file.getAbsolutePath());
-				System.out.println();
-				System.out.println("파일이름 : " + file.getName());
+				System.out.println("--------------------------------");
+				System.out.println("MZConfig.java진입");
+				System.out.println("파일경로 ::: " + file.getAbsolutePath());
+				System.out.println("파일이름 :::: " + file.getName());
 				System.out.println("--------------------------------");
 				JSONObject jo = new JSONObject();
 				jo.put("fName", "admin/_js/ckeditor/file/" + file.getName());
@@ -50,7 +48,7 @@ public class MZConfig {
 
 	}
 
-}
+} // end class
 
 
 

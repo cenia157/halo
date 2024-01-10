@@ -49,6 +49,7 @@
 					</div>
 					<div class="date-modal-content"></div>
 				</div>
+
 				<div class="detail-schedule">
 					<div class="detail-schedule-header">
 						<div class="detail-schedule-title"></div>
@@ -56,6 +57,17 @@
 					</div>
 					<div class="detail-schedule-content"></div>
 				</div>
+
+				<div class="confirm-delete">
+					<div class="confirm-delete-content">
+						<div class="confirm-delete-content-announce">해당일정을 삭제하시겠습니까?</div>
+						<div class="confirm-delete-content-accept">
+						<div class="confirm-delete-agree" onclick="rowScheduleDelete('agree')">확인</div>
+						<div class="confirm-delete-disagree" onclick="rowScheduleDelete('disagree')">취소</div>
+						</div>
+					</div>
+				</div>
+
 			</div>
 			<form class="company-form" action="InsertCompanyC" method="post">
 				<div class="sec-ins">
@@ -69,7 +81,7 @@
 							</div>
 						</div>
 						<div class="ins-tr-td">
-							<div class="ins-tr-td-btn" >
+							<div class="ins-tr-td-btn">
 								예약 <input type="checkbox" class="toggle" hidden> <label
 									for="toggle" class="toggleSwitch"> <span
 									class="toggleButton"></span>
@@ -97,7 +109,7 @@
 									name="input-title">
 							</div>
 						</div>
-						
+
 						<div class="ins-tr-3-date">
 							<div class="ins-tr-3-date-tr">
 								<div class="ins-tr-title-title">날짜</div>
