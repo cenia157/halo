@@ -34,7 +34,7 @@ function handleFileUpload(idx) {
 		console.log('선택된 파일:', selectedFile);
 
 		// 파일 업로드 위한 form객체 생성, formData 변수에 할당.
-	const formData = new FormData(document.querySelector("#bannerUploadForm" + idx));
+	let formData = new FormData(document.querySelector("#bannerUploadForm" + idx));
 //	formData.append('thumbnail' + idx, selectedFile[0]);
 
 		//서버에 파일 업로드 요청 ↓
@@ -66,3 +66,11 @@ function handleFileUpload(idx) {
 
 
 //버튼 클릭했을때, 전체 폼 데이터 들고 컨트롤러로 가기
+function submitBannerData(idx){
+	let formData = new FormData(document.querySelector("#bannerUploadForm" + idx));
+	
+	
+	
+}
+
+

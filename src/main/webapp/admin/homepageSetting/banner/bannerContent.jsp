@@ -171,7 +171,7 @@
 			</div>
 		</div>
 		<div class="content-button">
-		<button id="banner_btn_submit" type="button" onclick="#">변경</button>
+		<button id="banner_btn_submit" type="button" onclick="location.href='BannerUpdateC'">변경</button>
 		</div>
 		</div>
 		
