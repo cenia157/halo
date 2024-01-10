@@ -48,6 +48,9 @@ let dateModal = 0;
 // 디테일 모달 초기
 let dateDetailModal = 0;
 
+// 디테일 모달 생성 해당 pk
+let dateDivValue = '';
+
 // 일정 렌더링을 위한 이전달 개수
 let prevDateLength = 0;
 
@@ -57,11 +60,18 @@ let modalDivDate = '';
 // 회사 일정 디테일창 객체
 let selectDetailSchedule = new Array();
 
+// 일정 삭제 이후 렌더시 필요 날짜
+let prevDate = '';
+let prevDay = '';
+
 // 토글스위치
 let toggle = '';
 
 // 토글 리스트
 let toggleList = [0, 1, 2];
+
+// 일정 전체삭제 확인 모달
+let confirmDeleteModal = 0;
 
 function getAllSchedule() {
 
@@ -186,8 +196,8 @@ function renderCalender(CompanyScheduleList) {
 
 	// 이전 달의 마지막 날 날짜와 요일 구하기
 	let startDay = new Date(currentYear, currentMonth, 0);
-	let prevDate = startDay.getDate();
-	let prevDay = startDay.getDay();
+	prevDate = startDay.getDate();
+	prevDay = startDay.getDay();
 
 	// 이번 달의 마지막날 날짜와 요일 구하기
 	let endDay = new Date(currentYear, currentMonth + 1, 0);
@@ -243,6 +253,17 @@ function renderCalender(CompanyScheduleList) {
 	// 달력에 표시된 전월 현월 다음월 일 수 만큼 배열리스트 할당
 	arrayDate = new Array(prevDate - (prevDate - prevDay + 1) + (nextDate + 1) + (7 - nextDay == 7 ? 0 : 7 - nextDay));
 
+
+
+	renderSchedule();
+
+	writeSchedule();
+
+	console.log(arrayDate)
+}
+
+// 달력 일정 렌더링
+function renderSchedule() {
 	for (let i = 0; i < arrayDate.length; i++) {
 		let divYear = calendar.children[i].className.match(/year(\d+)/);
 		let divMonth = calendar.children[i].className.match(/month(\d+)/);
@@ -278,12 +299,7 @@ function renderCalender(CompanyScheduleList) {
 		dateData.title = dateData.title.slice(0, -1);
 		arrayDate[i] = dateData;
 	}
-
-	writeSchedule();
-
-	console.log(arrayDate)
 }
-
 
 // 일정 추가를 위한 체크
 function checkDate(e) {
@@ -313,8 +329,7 @@ function checkDate(e) {
 
 // ++ 건수 펼치기
 function expandSchedule(e) {
-	console.log(e.target);
-	
+
 	if (dateDetailModal == 1) {
 		document.querySelector('.detail-schedule').style.visibility = 'hidden';
 		dateDetailModal = 0;
@@ -323,13 +338,16 @@ function expandSchedule(e) {
 
 	if (dateModal == 0 || dateModal == 1) {
 		// 클릭시 마우스 좌표에 모달창 visible
+		document.querySelector('.date-modal').classList.add(e.target.classList[1]);
 		document.querySelector('.date-modal').style.visibility = 'visible';
 		document.querySelector('.date-modal').style.left = e.clientX + 'px';
+
 
 		modalDivDate = e.target.closest('.current').className.match(/date(\d+)/);
 
 		// 모달 title 해당 달력 연 월 표시
-		document.querySelector('.date-modal-title').textContent = arrayDate[parseInt(modalDivDate[1]) + prevDateLength].date;
+		document.querySelector('.date-modal-title').innerHTML = '<div>' + arrayDate[parseInt(modalDivDate[1]) + prevDateLength].date + '</div>';
+
 
 		// 모달 title 표시
 		document.querySelector('.date-modal-content').innerHTML = '';
@@ -357,21 +375,22 @@ function expandSchedule(e) {
 	}
 }
 
-// 모달 arrayNumber에 i번째 삽입한 값을 가지고 삭제 할 때 이용하기
 // 일정 디테일 모달 출력
 function getScheduleDetailModal(e, directDetail) {
 	let addLeft = '';
-	let dateDivValue = '';
-	console.log(e.target);
-	
+
 	if (directDetail) {
 		addLeft = (e.target.getBoundingClientRect().width / 2);
 		dateDivValue = e.target.children[0].value
+		console.log(dateDivValue);
+		arrayNumber = e.target.className.match(/array(\d+)/)[1];
 	} else {
 		addLeft = (document.querySelector('.getScheduleDetail').getBoundingClientRect().width / 2);
 		dateDivValue = e.target.previousSibling.previousSibling.value;
+		console.log(dateDivValue);
+		arrayNumber = e.target.closest('.date-modal').className.match(/array(\d+)/)[1];
 	}
-	
+
 	document.querySelector('.detail-schedule').style.left = e.target.getBoundingClientRect().left + addLeft + 'px'; //여기 // (document.querySelector('.getScheduleDetail').getBoundingClientRect().width / 2) + 'px'; (e.target.getBoundingClientRect().width / 2)
 
 	// 모달 title 해당 일정 표시 설계의 문제가 나타남.
@@ -396,7 +415,7 @@ function getScheduleDetailModal(e, directDetail) {
 		document.querySelector('.detail-schedule-content').innerHTML += '<div class="datail-schedule-data ' + (selectDetailSchedule.date.split(','))[i] + '"><div>' + selectDetailSchedule.year + '.' + selectDetailSchedule.month + '.' + (selectDetailSchedule.date.split(','))[i] + '</div><a onclick="deleteScheduleDateClick(this)" class="delete-detail-data">삭제</a><a onclick="deleteScheduleDate(this)" class="delete-detail-data">삭제 확인</a><a onclick="deleteScheduleDateClick(this)" class="delete-detail-data">취소</a></div>';
 
 		if (i == selectDetailSchedule.date.split(',').length - 1) {
-			document.querySelector('.detail-schedule-content').innerHTML += '<div class="delete-all-detail-data" style="padding-top : 10%"><a>전체삭제</a></div>'
+			document.querySelector('.detail-schedule-content').innerHTML += '<div class="delete-all-detail-data" style="padding-top : 10%"><a onclick="rowScheduleDeleteClick(this)">전체삭제</a></div>'
 		}
 	}
 
@@ -433,11 +452,11 @@ function writeSchedule() {
 				if (calendar.children[i] && calendar.children[i].children.length < 4) {
 					// 5글자 이상인경우 폴딩
 					if (splitDates[j].split('.')[1].length >= 5) {
-						calendar.children[i].innerHTML += '<div class="schedule array'+ i +'"><input class="detailValue" value=' + splitDates[j].split('.')[0] + ' type="hidden">' + splitDates[j].split('.')[1].slice(0, -1) + '...' + '</div>';
+						calendar.children[i].innerHTML += '<div class="schedule array' + i + '"><input class="detailValue" value=' + splitDates[j].split('.')[0] + ' type="hidden">' + splitDates[j].split('.')[1].slice(0, -1) + '...' + '</div>';
 
 					}
 					else {
-						calendar.children[i].innerHTML += '<div class="schedule array'+ i +'"><input class="detailValue" value=' + splitDates[j].split('.')[0] + ' type="hidden">' + splitDates[j].split('.')[1] + '</div>';
+						calendar.children[i].innerHTML += '<div class="schedule array' + i + '"><input class="detailValue" value=' + splitDates[j].split('.')[0] + ' type="hidden">' + splitDates[j].split('.')[1] + '</div>';
 					}
 				}
 			}
@@ -497,9 +516,15 @@ function updateTxt(atag) {
 function deleteScheduleDateClick(atag) {
 
 	if (atag.innerText == '삭제') {
-		atag.parentNode.children[1].style.display = 'none';
-		atag.parentNode.children[2].style.display = 'flex';
-		atag.parentNode.children[3].style.display = 'flex';
+		if (document.querySelectorAll('.datail-schedule-data').length == 1) {
+			rowScheduleDeleteClick(atag);
+		} else {
+			atag.parentNode.children[1].style.display = 'none';
+			atag.parentNode.children[2].style.display = 'flex';
+			atag.parentNode.children[3].style.display = 'flex';
+		}
+
+		console.log(document.querySelectorAll('.datail-schedule-data').length);
 	} else {
 		atag.parentNode.children[1].style.display = 'flex';
 		atag.parentNode.children[2].style.display = 'none';
@@ -510,10 +535,13 @@ function deleteScheduleDateClick(atag) {
 
 // 일정 데이터 한개 삭제
 function deleteScheduleDate(atag) {
+		
 	console.log(selectDetailSchedule.date);
 	let remainDate = selectDetailSchedule.date.split(',');
+	console.log(document.querySelector('.detail-schedule-title').innerText)
 
-	if (remainDate.indexOf(atag.parentNode.classList[1]) !== -1) {
+	if (remainDate.indexOf(atag.parentNode.classList[1]) != -1) {
+		console.log(remainDate.indexOf(atag.parentNode.classList[1]));
 		remainDate.splice(remainDate.indexOf(atag.parentNode.classList[1]), 1);
 	}
 
@@ -534,20 +562,86 @@ function deleteScheduleDate(atag) {
 		.then(response => response.text())
 		.then(data => {
 			if (data) {
-				console.log(arrayDate.indexOf('date'));
-				
-				console.log(atag.parentNode.remove());
+				atag.parentNode.remove();
 				selectDetailSchedule.date = remainDate;
-				
-				console.log(selectDetailSchedule);
+
+				console.log(arrayDate);
 				console.log(CompanyScheduleList);
 				
+				arrayDate = '';
 				
-				
-//				writeSchedule();
+				renderSchedule();
+
+				writeSchedule();
 			} else {
 			}
 		})
+}
+
+// 일정데이터 삭제 모달 오픈
+function rowScheduleDeleteClick(atag) {
+	if (confirmDeleteModal == 0) {
+		document.querySelector('.confirm-delete').style.top = (document.querySelector('.detail-schedule').getBoundingClientRect().top) + document.querySelector('.detail-schedule').getBoundingClientRect().height / 7 + 'px';
+		document.querySelector('.confirm-delete').style.left = atag.getBoundingClientRect().left + atag.getBoundingClientRect().width / 9 + 'px';
+		document.querySelector('.confirm-delete').style.display = "flex";
+
+
+		confirmDeleteModal = 1;
+	} else {
+		document.querySelector('.confirm-delete').style.display = "none";
+		confirmDeleteModal = 0;
+	}
+}
+
+// 일정데이터 삭제
+function rowScheduleDelete(a) {
+	if (a == 'disagree') {
+		document.querySelector('.confirm-delete').style.display = "none";
+		confirmDeleteModal = 0;
+	} else {
+		console.log(dateDivValue);
+
+		let params = {
+			no: dateDivValue
+		}
+
+		fetch('CompanyScheduleDeleteRowDate', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+			},
+			body: new URLSearchParams(params).toString()
+		})
+			.then(response => response.text())
+			.then(data => {
+				if (data) {
+
+					for (let i = 0; i < CompanyScheduleList.length; i++) {
+						if (CompanyScheduleList[i].no == dateDivValue) {
+							CompanyScheduleList.splice(CompanyScheduleList[i].arrayNo, 1);
+						}
+					}
+
+					document.querySelectorAll('.schedule').forEach(function(scheduleElement) {
+						scheduleElement.remove();
+					});
+
+					renderSchedule();
+
+					writeSchedule();
+
+					document.querySelector('.confirm-delete').style.display = "none";
+					confirmDeleteModal = 0;
+
+					document.querySelector('.detail-schedule').style.visibility = 'hidden';
+					dateDetailModal = 0;
+
+					document.querySelector('.date-modal').style.visibility = 'hidden';
+					dateModal = 0;
+				} else {
+				}
+			})
+	}
 
 }
 
@@ -578,20 +672,9 @@ function toggleSwutch() {
 
 			if (toggleList[i].active) {
 
-				for (let j = 0; j < arrayDate.length && (7 + j) < document.querySelectorAll('.day').length; j++) {
-
-					// children NodeList를 배열로 변환하여 실시간 업데이트를 피하기
-					let childrenArray = Array.from(document.querySelectorAll('.day')[7 + j].children);
-
-					for (let k = 0; k < childrenArray.length; k++) {
-						let child = childrenArray[k];
-
-						if (child.className == 'schedule') {
-							// 자식 요소를 제거
-							child.remove();
-						}
-					}
-				}
+				document.querySelectorAll('.schedule').forEach(function(scheduleElement) {
+					scheduleElement.style.display = 'none';
+				});
 
 				toggleInfo.active = false;
 				toggleList[i] = toggleInfo;
@@ -601,8 +684,9 @@ function toggleSwutch() {
 				toggleInfo.active = true;
 				toggleList[i] = toggleInfo;
 
-				writeSchedule();
-
+				document.querySelectorAll('.schedule').forEach(function(scheduleElement) {
+					scheduleElement.style.display = 'flex';
+				});
 			}
 		};
 	}
