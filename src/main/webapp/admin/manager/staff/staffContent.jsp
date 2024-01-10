@@ -25,86 +25,100 @@
 <body>
 	<div class="staff-padding">
 		<div class="staff-con">
-			<div class="sec_cal">
-				<div class="ins-tr-1">
-					<div id="staffList" class="staff-table">
-						<div class="table-header">
-							<div class="cell steff-num">No.</div>
-							<div class="cell steff-pos">직급</div>
-							<div class="cell steff-name">이름</div>
-							<div class="cell steff-callnum">전화번호</div>
-							<div class="cell steff-addr">주소</div>
-							<div class="cell steff-entryDate">입사일자</div>
-						</div>
-
-						<c:forEach var="emp" items="${employeeList}">
-							<div class="table-row">
-								<div class="cell steff-num"></div>
-								<div class="cell steff-pos"></div>
-								<div class="cell steff-name"></div>
-								<div class="cell steff-callnum"></div>
-								<div class="cell steff-addr"></div>
-								<div class="cell steff-entryDate"></div>
-								<input class="cell steff-color" type="hidden">
-							</div>
-						</c:forEach>
+			<!-- 			<div class="sec_cal"> -->
+			<div class="ins-tr-1">
+				<div id="staffList" class="staff-list">
+					<div class="table-header">
+						<div class="cell steff-num">No.</div>
+						<div class="cell steff-pos">役職</div>
+						<div class="cell steff-name">姓名</div>
+						<div class="cell steff-callnum">電話番号</div>
+						<div class="cell steff-addr">住所</div>
+						<div class="cell steff-entryDate">入社日</div>
 					</div>
+					<div class="staff-table"></div>
+
 				</div>
 			</div>
+			<!-- 			</div> -->
 			<form class="staff-form" action="StaffRegC" method="post">
 				<div class="sec-ins">
 
 					<div class="ins-tr-2">
-						<div>職員登録</div>
+						<div id="reg-title">職員登録</div>
+						<div style="display: none" id="update-title">情報変更</div>
 					</div>
 					<div class="ins-tr-3">
 						<div class="ins-tr-3-title">
-							<div class="ins-tr-title-title">이름</div>
+							<div class="ins-tr-title-title">姓名</div>
 							<input type="text" class="ins-tr-3-td-input input-title"
-								name="input-staff-name">
+								name="input-staff-name" id="input-staff-name"
+								required="required">
 						</div>
 						<div class="ins-tr-3-title">
-							<div class="ins-tr-title-title">직급</div>
+							<div class="ins-tr-title-title">役職</div>
 							<input type="text" class="ins-tr-3-td-input input-title"
-								name="input-staff-pos">
+								name="input-staff-pos" id="input-staff-pos" required="required">
 						</div>
 						<div class="ins-tr-3-title">
-							<div class="ins-tr-title-title">전화번호</div>
+							<div class="ins-tr-title-title">電話番号</div>
 							<input type="text" class="ins-tr-3-td-input input-title"
-								name="input-staff-callNum">
+								name="input-staff-callNum" id="input-staff-callNum"
+								required="required">
 						</div>
 						<div class="ins-tr-3-title">
-							<div class="ins-tr-title-title">입사일자</div>
+							<div class="ins-tr-title-title">入社日</div>
 							<input type="date" class="ins-tr-3-td-input input-title"
-								name="input-staff-entryDate">
+								name="input-staff-entryDate" id="input-staff-entryDate"
+								required="required">
 						</div>
 
 						<div class="ins-tr-3-title">
-							<div class="ins-tr-title-color">캘린더색상</div>
+							<div class="ins-tr-title-color">カレンダー</div>
 							<input type="color" list="colors"
-								class="ins-tr-3-td-input input-color" name="input-staff-color">
+								class="ins-tr-3-td-input input-color" name="input-staff-color"
+								id="input-staff-color" value="#FFD700">
 							<datalist id="colors">
-								<option>#FF0000</option>
-								<option>#00FF00</option>
+								<option>#FFD700</option>
+								<option>#DAA520</option>
+								<option>#FF6347</option>
+								<option>#FF4500</option>
+								<option>#FF69B4</option>
+								<option>#8A2BE2</option>
+								<option>#4B0082</option>
+								<option>#483D8B</option>
 								<option>#0000FF</option>
-								<!-- 원하는 색상을 추가할 수 있습니다. -->
+								<option>#00BFFF</option>
+								<option>#00FFFF</option>
+								<option>#32CD32</option>
+								<option>#008000</option>
+								<option>#ADFF2F</option>
+								<option>#FFC0CB</option>
+								<option>#800000</option>
+								<option>#F5DEB3</option>
 							</datalist>
-							<!-- 							<input type="color" class="ins-tr-3-td-input input-color" -->
-							<!-- 								name="input-date" readonly="readonly"> -->
+
 						</div>
 						<div class="ins-tr-3-txt">
-							<div class="ins-tr-txt-tr-title">주소</div>
-							<textarea class="ins-tr-3-td-txt" name="input-steff-addr"></textarea>
+							<div class="ins-tr-txt-tr-title">住所</div>
+							<textarea class="ins-tr-3-td-txt" name="input-steff-addr"
+								id="input-steff-addr" required="required"></textarea>
 						</div>
-						<div></div>
+						<input type="hidden" id="staff-seq">
 						<div class="ins-tr-3-btn">
-							<button type="button" class="company-button"
-								onclick="StaffRegC()">등록하기</button>
+							<button class="staff-button" id="staff-reg">登録</button>
+							<button style="display: none;" type="button"
+								class="staff-click-button" id="staff-update">変更</button>
+							<button style="display: none;" type="button"
+								class="staff-click-button" id="staff-update-c">帰る</button>
+							<button style="display: none;" type="button"
+								class="staff-click-button" id="staff-delete">削除</button>
 						</div>
 					</div>
 				</div>
 			</form>
 		</div>
+	</div>
 </body>
 
 </html>
