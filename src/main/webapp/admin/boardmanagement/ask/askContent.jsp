@@ -11,17 +11,6 @@
 <title>Ask</title>
 <link rel="stylesheet"
 	href="admin/boardmanagement/ask/0.css/ask.css" />
-
-
-<link
-	href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular"
-	rel="stylesheet" />
-
-
-<script src="https://code.jquery.com/jquery-3.7.1.js"
-	integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
-	crossorigin="anonymous">
-</script>
 <link rel="stylesheet" href="admin/0.css/test copy.css" />
 
 <script src="admin/_js/test2.js"></script>

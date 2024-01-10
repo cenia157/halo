@@ -450,8 +450,7 @@ function fetchData(data){
 function refreshData(QnCs) {
     var container = document.getElementById("FOREACH_ASK");
     container.innerHTML = ""; // 기존 내용 비우기
-    let curPageNo =1;
-    
+    let curPageNo = 1;
 
     // JSON 데이터 파싱
     var QnCs = JSON.parse(QnCs);
@@ -463,6 +462,12 @@ function refreshData(QnCs) {
 
     // QnCs 데이터를 이용하여 화면 갱신
     QnCs.forEach(function (item, index) {
+        // Date 객체로 변환
+        let qRegDate = new Date(item.q_reg_date);
+
+        // 날짜를 'YYYY-MM-DD' 형식으로 포맷
+        let formattedDate = qRegDate.toLocaleDateString('ja-JP', {year: 'numeric' , month: '2-digit', day: '2-digit'}).replace(/\//g, '-');
+
         var newElement = document.createElement("div");
         newElement.className = "ontent-m-td-2-content-txt-in";
 
@@ -478,17 +483,38 @@ function refreshData(QnCs) {
                 <a href="#" onclick="getData('${item.q_seq}');">${item.q_title}</a>
             </div>
             <div class="ontent-m-td-2-content-txt-writer-in">${item.q_name}</div>
-            <div class="ontent-m-td-2-content-txt-date-in">${item.q_reg_date}</div>
+            <div class="ontent-m-td-2-content-txt-date-in">${formattedDate}</div>
             <div class="ontent-m-td-2-content-txt-delete-in">
                 <a href="#" onclick="deleteQuestion('${item.q_seq}')">削除</a>
             </div>
-            `;
+        `;
 
         container.appendChild(newElement);
         console.log("html 확인: ", newElement.outerHTML);
     });
     
-    curPageNo++;
+	CheckboxPaging(QnCs);
+}
+
+function CheckboxPaging(p, completed, uncompleted){
+	$.ajax({
+		url: "CheckboxPagingC",
+		method: "GET",
+		data:{
+			p: p,
+			completed: completed,
+			uncompleted: uncompleted
+		},
+		success: function(data){
+			console.log("AJAX check box paging 성공: ",data);
+			
+		},
+		error: function(xhr, status, error){
+			console.log("페이징 Error: " , xhr, status, error);
+		}
+		
+	});
+
 }
 
 
