@@ -400,52 +400,12 @@ function deleteQuestion(q_seq) {
 }
 
 
-//체크박스 제출
-$(document).ready(function() {
-    // 기존의 이벤트 언바인딩
-    $('input[type="checkbox"]').off('change');
-    // 체크박스의 change 이벤트를 감지
-    $('input[type="checkbox"]').change(function() {
-        // 체크박스가 변경되면 바로 폼을 제출
-        $('#checkbox').submit();
-    });
 
-    // 폼 제출 시의 동작을 처리하는 함수
-    $('#checkbox').submit(function() {
-        // 폼이 제출될 때 수행할 동작 추가
-        console.log('Form submitted!');
-        // 추가로 필요한 로직을 여기에 작성
-        var checkboxData = [];
-        $('input[type="checkbox"]').each(function() {
-            checkboxData.push({
-                value: $(this).val(),
-                checked: $(this).prop('checked')
-            });
-        });
-        return true;
-    });
-});
 
-function filterByCheckbox(data){
-	$.ajax({
-		url: "CheckboxC",
-		method: "POST",
-		dataType: "json",
-		data: {
-			completed: data.some(item => item.value === 'completed' && item.checked),
-			uncompleted: data.some(item => item.value === 'uncompleted' && item.checked)
-		},
-		success: function(data){
-			console.log("newQnCs: ", data);
-			eval(data); // 업데이트된 QnCs를 처리하는 스크립트 실행
-		},
-		error: function(xhr, status, error){
-			console.log("에러발생: ", xhr, status, error)
-		}
-	});
-	
-	
-}
+
+
+
+
 
 
 //FAQ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
