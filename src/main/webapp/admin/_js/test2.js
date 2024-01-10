@@ -41,13 +41,50 @@ function closeModal(modalId, tblId) {
 	// CKEditor 초기화
 	window.editor.setData(""); // CKEditor의 내용을 빈 문자열로 설정합니다.
 
+}
+
+
+function closeModalR2(modalId, tblId) {
+	document.getElementById(modalId).style.display = 'none';
+	document.getElementById(tblId).style.display = 'none';
+
+	// 아래 2줄은 모달창 닫을 때 스크롤 보여주기 & 터치, 휠 가능
+	$('html, body').css({ 'overflow': 'auto', 'height': '100%' }); //scroll hidden 해제
+	$('#element').off('scroll touchmove mousewheel'); // 터치무브 및 마우스휠 스크롤 가능
+
+	
+
+	// input 초기화
+	var titleInputR = document.getElementById("real-title-editorN");
+	titleInputR.value = "";
+
+	// 사진 input 삭제
+	var imageInputsR = document.querySelectorAll("#img-url");
+	imageInputsR.forEach(function(input) {
+		input.parentNode.removeChild(input);
+	});
+
+	// #kategorie 안의 input(#select)과 그 안의 텍스트 둘 다 삭제 및 '카테고리' 재설정
+	var kategorieInputR = document.querySelector('#kategorieR input');
+	if (kategorieInputR) {
+		kategorieInputR.remove();
+		document.querySelector('#kategorieR').textContent = '카테고리';
+	}
+	// CKEditor 초기화
+	window.editor.setData(""); // CKEditor의 내용을 빈 문자열로 설정합니다.
 
 
 
 
-
-
-
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
 
 // 공통 함수: 모달 외부 클릭 시 닫기
@@ -113,7 +150,7 @@ function openModalR() {
 }
 
 function closeModalR() {
-	closeModal('myModalR', 'myModal-tblR');
+	closeModalR2('myModalR', 'myModal-tblR');
 }
 
 // NEWRegPage를 띄우기 위한 모달

@@ -273,20 +273,6 @@ ClassicEditor.create(document.querySelector("#classicNR"), {
 		console.log(error);
 	});
 
-
-ClassicEditor.create(document.querySelector("#classicR"), {
-	extraPlugins: [MyCustomUploadAdapterPlugin],
-})
-	.then((editor) => {
-		window.editorR = editor;
-	})
-	.catch((error) => {
-		console.log(error);
-	});
-	
-
-	
-	
 	
 	
 	
