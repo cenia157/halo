@@ -25,4 +25,9 @@ window.onload = function() {
 				console.error('There was a problem with the fetch operation:', error);
 			});
 //	}
+
+
+}
+function StaffRegC() {
+	document.querySelector('.staff-form').submit();
 }

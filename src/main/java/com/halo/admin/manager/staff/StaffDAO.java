@@ -43,12 +43,13 @@ public class StaffDAO {
 			    String color = rs.getString("s_color");
 			    String addr = rs.getString("s_addr");
 
-			    System.out.println("123" + no);
+			    System.out.println(no);
 			    System.out.println(name);
 			    System.out.println(phoneNum);
 			    System.out.println(entryDate);
 			    System.out.println(color);
 			    System.out.println(addr);
+			    System.out.println("------------");
 
 			    staff = new StaffDTO(no, pos, name, phoneNum, entryDate, color, addr);
 			    staffInfo.add(staff.toJson());
@@ -72,10 +73,23 @@ public class StaffDAO {
 			// 문자인코딩형식
 			request.setCharacterEncoding("UTF-8");
 
-			String sql = "insert into staff_info values(staff_num_seq.nextval, ?, ?, ?, ?, ?, ?)";
+			String sql = "insert into staff_info values(staff_info_seq.nextval, ?, ?, ?, TO_DATE(?, 'YYYY-MM-DD'), ?, ?)";
 			con = DBManagerhalo.connect();
 			pstmt = con.prepareStatement(sql);
 
+			
+			String inputDate = request.getParameter("input-staff-entryDate");
+			
+			System.out.println(request.getParameter("input-staff-name"));
+			System.out.println(request.getParameter("input-staff-pos"));
+			System.out.println(request.getParameter("input-staff-callNum"));
+			System.out.println(request.getParameter("input-steff-addr"));
+			System.out.println("request.getParameter(\"input-staff-entryDate\") : "+request.getParameter("input-staff-entryDate"));
+			System.out.println(request.getParameter("input-staff-color"));
+			
+			
+			
+			
 			pstmt.setString(1, request.getParameter("input-staff-name"));
 			pstmt.setString(2, request.getParameter("input-staff-pos"));
 			pstmt.setString(3, request.getParameter("input-staff-callNum"));
@@ -83,8 +97,15 @@ public class StaffDAO {
 			pstmt.setString(5, request.getParameter("input-staff-color"));
 			pstmt.setString(6, request.getParameter("input-steff-addr"));
 
+			if (pstmt.executeUpdate() == 1) {
+				System.out.println("직원 정보 추가 성공");
+			}
+
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
+			System.out.println("직원 정보 추가 실패");
+		} finally {
+			DBManagerhalo.close(con, pstmt, null);
 		}
 
 	}
