@@ -402,8 +402,136 @@ function deleteQuestion(q_seq) {
 
 
 
+//체크박스 제출
+$(document).ready(function() {
+	
+    // 체크박스의 change 이벤트를 감지
+    $('input[type="checkbox"]').change(function() {
+        // 체크박스가 변경되면 바로 폼을 제출
+        $('#checkbox').submit();
+    });
+
+    // 폼 제출 시의 동작을 처리하는 함수
+    $('#checkbox').submit(function() {
+        // 폼이 제출될 때 수행할 동작 추가
+        console.log('Form submitted!');
+        // 추가로 필요한 로직을 여기에 작성
+        var checkboxData = [];
+        $('input[type="checkbox"]').each(function() {
+            checkboxData.push({
+                value: $(this).val(),
+                checked: $(this).prop('checked')
+            });
+        });
+        fetchData(checkboxData);
+    });
+});
 
 
+function fetchData(data){
+	$.ajax({
+		url: "CheckboxC",
+		method: "POST",
+		data: {
+			completed: data.some(item => item.value === 'completed' && item.checked),
+			uncompleted: data.some(item => item.value === 'uncompleted' && item.checked),
+			pageNo: curPageNo,
+			itemsPerPage: itemsPerPage
+		},
+		success: function(curPageNo, responseData){
+			refreshData(curPageNo, responseData);
+			
+			//페이징 처리
+			createPagination(curPageNo, pageCount);
+			
+		},
+		error: function(xhr, status, error){
+			console.log("에러발생: ", xhr, status, error)
+		}
+	});	
+	
+}
+
+function refreshData(curPageNo, QnCs) {
+    var container = document.getElementById("FOREACH_ASK");
+    container.innerHTML = ""; // 기존 내용 비우기
+
+    // JSON 데이터 파싱
+    var QnCs = JSON.parse(QnCs);
+
+    // QnCs가 배열이 아니면 배열로 변환
+    if (!Array.isArray(QnCs)) {
+        QnCs = [];
+    }
+
+    // QnCs 데이터를 이용하여 화면 갱신
+    QnCs.forEach(function (item, index) {
+        var newElement = document.createElement("div");
+        newElement.className = "ontent-m-td-2-content-txt-in";
+
+        newElement.innerHTML = `
+            <input type="hidden" name="q_seq" value="${item.q_seq}">
+            <div class="ontent-m-td-2-content-txt-no-in">
+                ${(index + 1) + (curPageNo - 1) * 8}
+            </div>
+            <div class="ontent-m-td-2-content-txt-kategorie-in">
+                ${item.c_answer === '1' ? '完' : '未'}
+            </div>
+            <div class="ontent-m-td-2-content-txt-title-in">
+                <a href="#" onclick="getData('${item.q_seq}');">${item.q_title}</a>
+            </div>
+            <div class="ontent-m-td-2-content-txt-writer-in">${item.q_name}</div>
+            <div class="ontent-m-td-2-content-txt-date-in">${item.q_reg_date}</div>
+            <div class="ontent-m-td-2-content-txt-delete-in">
+                <a href="#" onclick="deleteQuestion('${item.q_seq}')">削除</a>
+            </div>
+            `;
+
+        container.appendChild(newElement);
+        console.log("html 확인: ", newElement.outerHTML);
+    });
+    
+    curPageNo++;
+}
+
+
+// 페이징 부분을 업데이트하는 함수
+function createPagination(curPageNo, pageCount) {
+    // 새로운 div 엘리먼트를 생성하고 클래스를 지정합니다.
+    var paginationDiv = document.createElement("div");
+    paginationDiv.className = "paging-div";
+
+    // 페이지 번호 생성 로직 시작
+    // 이 부분에서는 현재 페이지 번호와 전체 페이지 수를 이용하여 페이지 번호를 생성합니다.
+    // 이 부분은 여러 방식으로 구현될 수 있습니다.
+    // 예를 들어 for 문을 사용하여 간단한 페이지 번호 생성을 할 수 있습니다.
+
+    for (var i = 1; i <= pageCount; i++) {
+        var pageNumberDiv = document.createElement("div");
+        pageNumberDiv.className = "page-number";
+
+        // 현재 페이지와 같은 경우에는 특별한 클래스를 추가하여 스타일을 적용할 수 있습니다.
+        if (i === curPageNo) {
+            pageNumberDiv.classList.add("current-page");
+        }
+
+        // 페이지 번호를 클릭할 때 해당 페이지로 이동하는 링크를 생성합니다.
+        var pageLink = document.createElement("a");
+        pageLink.href = "AskPagingC?p=" + i;
+        pageLink.textContent = "[" + i + "]";
+
+        // 생성된 페이지 번호 엘리먼트를 추가합니다.
+        pageNumberDiv.appendChild(pageLink);
+        paginationDiv.appendChild(pageNumberDiv);
+    }
+
+    // 페이지 번호 생성 로직 끝
+
+    // 생성된 paginationDiv를 실제 페이징 부분에 추가합니다.
+    var pageCenterDiv = document.getElementById("FOREACH_ASK").getElementsByClassName("ontent-m-td-2-page-center")[0];
+    pageCenterDiv.innerHTML = ""; // 기존 내용 비우기
+    pageCenterDiv.appendChild(paginationDiv);
+}
 
 
 
