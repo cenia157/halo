@@ -521,9 +521,10 @@ EDIT ON */
 	font-weight: 600;
 	line-height: normal;
 	border-radius: 4px 4px 0 0;
-	border: 1px solid rgba(255, 255, 255, 0.00);
+	border-right: 1px solid rgba(165, 165, 165, 0.35);
+	border-top: 1px solid rgba(165, 165, 165, 0.35);
+	border-left: 1px solid rgba(165, 165, 165, 0.35);
 	background: #FFF;
-	box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.50);
 	align-items: center;
 	padding-left: 2%;
 	padding-right: 2%;
@@ -534,79 +535,84 @@ EDIT ON */
 	height: 80%;
 	display: flex;
 	flex-direction: column;
+	justify-content: space-between;
 	color: #363636;
-	font-size: 2rem;
+	font-size: 1.5rem;
 	font-weight: 600;
 	line-height: normal;
 	border-radius: 0 0 4px 4px;
-	border: 1px solid rgba(255, 255, 255, 0.00);
+	border-right: 1px solid rgba(165, 165, 165, 0.35);
+	border-bottom: 1px solid rgba(165, 165, 165, 0.35);
+	border-left: 1px solid rgba(165, 165, 165, 0.35);
 	background: #FFF;
-	box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.50);
-	padding-left: 2%;
-	padding-right: 2%;
+	padding: 2%;
+	color: #363636;
 }
 
-.ins-tr-3-title {
-	/* 	border: 1px solid black; */
+.ins-tr-3-reservation-header {
+	display: flex;
 	width: 100%;
-	height: 20%;
-	padding-top: 2%;
-	padding-bottom: 2%;
-	font-size: 1.5rem;
 }
 
-.ins-tr-3-date {
-	/* 	border: 1px solid black; */
-	width: 100%;
-	height: 20%;
-	padding-top: 2%;
-	padding-bottom: 2%;
-	font-size: 1.5rem;
-}
-
-.ins-tr-3-td-input {
-	width: 100%;
-	font-size: 2rem;
-	border-radius: 8px;
-	border: 1px solid #E5E7EB;
+.ins-tr-3-reservation-header div {
+	font-size: 1.25rem;
+	display: flex;
+	justify-content: center;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.00);
 	background: #FFF;
-	/* tremor-input */
-	box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+	box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.10);
 }
 
-.ins-tr-3-txt {
-	/* 	border: 1px solid black; */
-	width: 100%;
-	height: 55%;
-	padding-top: 2%;
-	padding-bottom: 2%;
-	width: 100%;
-	font-size: 1.5rem;
+.ins-tr-3-reservation-header div:first-child {
+	width: 30%;
 }
 
-.ins-tr-3-txt-tr {
-	/* 	border: 1px solid black; */
+.ins-tr-3-reservation-header div:nth-child(2) {
+	width: 30%;
+}
+
+.ins-tr-3-reservation-header div:nth-child(3) {
+	width: 30%;
+}
+
+.ins-tr-3-reservation-header div:nth-child(4) {
+	width: 10%;
+}
+
+.ins-tr-3-reservation-content {
 	width: 100%;
 	height: 100%;
-	font-size: 2rem;
+	overflow: scroll;
 }
 
-.ins-tr-txt-tr-title {
+.reservation-data {
+	display: flex;
 	width: 100%;
-	height: 10%;
-	font-size: 1.5rem;
 }
 
-.ins-tr-3-td-txt {
-	width: 100%;
-	font-size: 2rem;
-	height: 90%;
-	width: 100%;
-	border-radius: 8px;
-	border: 1px solid #E5E7EB;
+.reservation-data div {
+	font-size: 1.25rem;
+	display: flex;
+	justify-content: center;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.00);
 	background: #FFF;
-	/* tremor-input */
-	box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+	box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.10);
+}
+
+.reservation-data div:first-child {
+	width: 30%;
+}
+
+.reservation-data div:nth-child(2) {
+	width: 30%;
+}
+
+.reservation-data div:nth-child(3) {
+	width: 30%;
+}
+
+.reservation-data div:nth-child(4) {
+	width: 10%;
 }
 
 .ins-tr-3-btn {
