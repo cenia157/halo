@@ -200,16 +200,16 @@ public class MainpageDAO {
 	
 	//하단베너 업로드 ajax 미리보기 (멀티파트로 까서 어트리뷰트 넘겨주기만 하는 용도 DB는 변경버튼 누를때 업뎃메서드 사용예정)
 	public void uploadBanner(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		String savepath = request.getServletContext().getRealPath("user/upload_imgs/banner");
+		String savepath = request.getServletContext().getRealPath("user/upload_imgs/banner/");
 		MultipartRequest mr = new MultipartRequest(request, savepath, 1024*1024*20, "utf-8", new DefaultFileRenamePolicy());
-		
-		 String fileName = mr.getFilesystemName("banner_thumbnail1");
+		 
+		String fileName = mr.getFilesystemName("banner_thumbnail");
 		 System.out.println("업로드할 파일 :" + fileName);
 		 Gson gson = new Gson();
-		 String fileName2 = gson.toJson(fileName);
-		 System.out.println(fileName2);
-		 response.getWriter().print(fileName2);
-
+		 gson.toJson(fileName);
+		 response.getWriter().print(fileName);
+		 System.out.println(fileName);
+		 
 		
 	}
 	
@@ -226,21 +226,22 @@ public class MainpageDAO {
 		try {
 			
 			con = DBManagerhalo.connect();
-			MultipartRequest mr = new MultipartRequest(request, savepath, 1024*1024*20, "utf-8", new DefaultFileRenamePolicy());
-			String[] banner_menus = {mr.getParameter("banner_menu1"),mr.getParameter("banner_menu2"),mr.getParameter("banner_menu3")};
+//			MultipartRequest mr = new MultipartRequest(request, savepath, 1024*1024*20, "utf-8", new DefaultFileRenamePolicy());
+//			String[] banner_menus = {mr.getParameter("banner_menu1"),mr.getParameter("banner_menu2"),mr.getParameter("banner_menu3")};
+			String[] banner_menus = {request.getParameter("banner_menu1"),request.getParameter("banner_menu2"),request.getParameter("banner_menu3")};
 			//하단베너3개 => for문 i = name뒤에 붙을 인덱스번호, 
-			 Enumeration<String> fileNames = mr.getFileNames();
 			for(int i = 0; i < 3; i++) {
 				if(banner_menus[i].equals("sales")) {
 					sql = "update banner_test \r\n"
 							+ "set b_type = 2, b_m_name = 'sales', b_url = ?, b_m_text = ?, b_img_url = ? \r\n"
 							+ "where b_index = " + (i+1);
 					pstmt = con.prepareStatement(sql);
-					pstmt.setString(1, mr.getParameter("banner_url" + (i+1)));
-					pstmt.setString(2, mr.getParameter("banner_text" + (i+1)));
-					fileNames.hasMoreElements();
-					String fieldName = fileNames.nextElement();
-					pstmt.setString(3, mr.getFilesystemName(fieldName));
+					pstmt.setString(1, request.getParameter("banner_url" + (i+1)));
+					pstmt.setString(2, request.getParameter("banner_text" + (i+1)));
+//					fileNames.hasMoreElements();
+//					String fieldName = fileNames.nextElement();
+					pstmt.setString(3, request.getParameterValues("banner_thumbnail")[i]);
+					
 //					System.out.println("업뎃 파일 :" + mr.getFilesystemName(mr.getFilesystemName(fieldName)));
 										
 				} else {

@@ -19,6 +19,11 @@
 	<script type="text/javascript"
 	src="${pageContext.request.contextPath}/admin/homepageSetting/banner/0.js/banner.js"></script>
 
+<!-- 제이쿼리 -->
+<script src="https://code.jquery.com/jquery-3.7.1.js"
+	integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+	crossorigin="anonymous"></script>
+
 </head>
 <body> 
 	<div class="content-m-td-3">
@@ -27,7 +32,7 @@
 			<div class="banner-tr">
 			<div class="banner-no"><h1>1.box</h1></div>
 				<!-- 미리보기 이미지 박스 -->
-				<div class="banner-td-img-box" id="banner_preview" style="background-image: url('${pageContext.request.contextPath}/admin/0.img/banner_preview_img.png');">
+				<div class="banner-td-img-box" id="banner_preview1" style="background-image: url('${pageContext.request.contextPath}/admin/0.img/banner_preview_img.png');">
 				</div>
 				<!-- 빠른메뉴 설정(셀렉) -->
 				<div class="banner-td-1">
@@ -66,7 +71,7 @@
 				<label for="thumbnail1">
 				<div class="btn-upload">파일업로드</div>
 				</label>
-				<input onchange="handleFileUpload('1')" type="file" class="banner_input" name="banner_thumbnail1" id="thumbnail1">
+				<input onchange="handleFileUpload('1')" type="file" class="banner_input" name="banner_thumbnail" id="thumbnail1">
 			</form>
 				</div>
 				</div>
@@ -74,7 +79,7 @@
 			<div class="banner-tr">
 			<div class="banner-no"><h1>2.box</h1></div>
 				<!-- 미리보기 이미지 박스 -->
-				<div class="banner-td-img-box" id="banner_preview" style="background-image: url('${pageContext.request.contextPath}/admin/0.img/banner_preview_img.png');">
+				<div class="banner-td-img-box" id="banner_preview2" style="background-image: url('${pageContext.request.contextPath}/admin/0.img/banner_preview_img.png');">
 				</div>
 				<div class="banner-td-1">
 				<img src="${pageContext.request.contextPath}/admin/0.img/banner_icon.png">
@@ -90,6 +95,7 @@
 				<option value="faq">자주묻는질문</option>
 				<option value="question">문의게시판</option>
 				<option value="sales">상품판매</option>
+				
 				</select>
 				</div>
 				<!-- url 링크 -->
@@ -112,7 +118,7 @@
 				<label for="thumbnail2">
 				<div class="btn-upload">파일업로드</div>
 				</label>
-				<input onchange="handleFileUpload(2)" type="file" class="banner_input" name="banner_thumbnail2" id="thumbnail2">
+				<input onchange="handleFileUpload(2)" type="file" class="banner_input" name="banner_thumbnail" id="thumbnail2">
 			</form>
 				</div>
 				</div>
@@ -120,7 +126,7 @@
 			<div class="banner-tr">
 			<div class="banner-no"><h1>3.box</h1></div>
 				<!-- 미리보기 이미지 박스 -->
-				<div class="banner-td-img-box" id="banner_preview" style="background-image: url('${pageContext.request.contextPath}/admin/0.img/banner_preview_img.png');">
+				<div class="banner-td-img-box" id="banner_preview3" style="background-image: url('${pageContext.request.contextPath}/admin/0.img/banner_preview_img.png');">
 				</div>
 				<div class="banner-td-1">
 				<img src="${pageContext.request.contextPath}/admin/0.img/banner_icon.png">
@@ -158,7 +164,7 @@
 				<label for="thumbnail3">
 				<div class="btn-upload">파일업로드</div>
 				</label>
-				<input onchange="handleFileUpload(3)" type="file" class="banner_input" name="banner_thumbnail3" id="thumbnail3">
+				<input onchange="handleFileUpload(3)" type="file" class="banner_input" name="banner_thumbnail" id="thumbnail3">
 			</form>
 				</div>
 				</div>
