@@ -126,27 +126,25 @@ public class CompanyDAO {
 			String sql = "Update company_schedule set cs_txt = ? where cs_no = ?";
 			con = DBManagerhalo2.connect();
 			pstmt = con.prepareStatement(sql);
-			
+
 			pstmt.setString(1, request.getParameter("txt"));
 			pstmt.setString(2, request.getParameter("no"));
-			
+
 			if (pstmt.executeUpdate() == 1) {
 				System.out.println("내용 업데이트 완료");
 				response.getWriter().print(true);
 			}
-			
-			
 
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("내용 업데이트 실패");
-			
+
 			try {
 				response.getWriter().print(false);
 			} catch (IOException e1) {
 				e1.printStackTrace();
 			}
-			
+
 		} finally {
 			DBManagerhalo.close(con, pstmt, null);
 		}
@@ -164,29 +162,63 @@ public class CompanyDAO {
 			String sql = "Update company_schedule set cs_date = ? where cs_no = ?";
 			con = DBManagerhalo2.connect();
 			pstmt = con.prepareStatement(sql);
-			
+
 			System.out.println(request.getParameter("remainDate"));
-			
+
 			pstmt.setString(1, request.getParameter("remainDate"));
 			pstmt.setString(2, request.getParameter("no"));
-			
+
 			if (pstmt.executeUpdate() == 1) {
 				System.out.println("삭제 완료");
 				response.getWriter().print(true);
 			}
-			
-			
 
 		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("삭제 실패");
-			
+
 			try {
 				response.getWriter().print(false);
 			} catch (IOException e1) {
 				e1.printStackTrace();
 			}
-			
+
+		} finally {
+			DBManagerhalo.close(con, pstmt, null);
+		}
+	}
+
+	public static void deleteRowScheduleCompanyDate(HttpServletRequest request, HttpServletResponse response) {
+		PreparedStatement pstmt = null;
+
+		try {
+			// 문자인코딩형식
+			request.setCharacterEncoding("UTF-8");
+
+			// 데이터베이스 연동
+			String sql = "delete from company_schedule where cs_no = ?";
+			con = DBManagerhalo2.connect();
+			pstmt = con.prepareStatement(sql);
+
+			System.out.println(request.getParameter("no"));
+
+			pstmt.setString(1, request.getParameter("no"));
+
+			if (pstmt.executeUpdate() == 1) {
+				System.out.println("삭제 완료");
+				response.getWriter().print(true);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("삭제 실패");
+
+			try {
+				response.getWriter().print(false);
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
+
 		} finally {
 			DBManagerhalo.close(con, pstmt, null);
 		}
