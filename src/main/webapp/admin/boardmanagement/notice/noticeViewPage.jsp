@@ -18,8 +18,10 @@
 	<div id="myModal-tblV" class="modal-tbl">
 		<div class="modal-title-set">
 			<div class="modal-title-tr">
-				<div class="modal-title-td-1">
-					<div class="real-title-V">민기해적단 팀인원 대거 탈주 계획</div>
+				<div class="modal-title-td-1" style="display: block;">
+					<div class="real-title-V" id="real-title-V"
+						style="background-color: aqua;"></div>
+					<div id="Display-Category" style="height: 10%"></div>
 				</div>
 				<div class="modal-title-td-2">
 					<span class="close" id="closeModalBtn" onclick="closeModalV()">&times;</span>
@@ -27,13 +29,16 @@
 			</div>
 			<div class="modal-content">
 				<div class="modal-content-txt">
-					<div class="modal-content-txt-in">
+					<div class="modal-content-txt-in" id="modal-content-txt-in">
 						민기해적단 팀인원 대거 탈주 계획입니다. <br> 앞으로 민기해적단은 임금 미 지급시 12월 25일 노조연합을
 						결성하여 솔데스크<br> 802호를 폭파시킬것으로 하루빨리 임금을 지불해 주기바람.
 					</div>
 				</div>
+				
 				<div class="modal-content-button">
-					<button class="SubmitButton" onclick="openModalR()">수정</button>
+					<button class="SubmitButton" id="aaaaaaaaaaaaaaaaaaaaaaaaaa">수정</button>
+
+
 				</div>
 			</div>
 		</div>

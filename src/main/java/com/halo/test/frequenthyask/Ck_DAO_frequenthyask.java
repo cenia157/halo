@@ -66,15 +66,14 @@ public class Ck_DAO_frequenthyask {
 
 				Connection con = null;
 				PreparedStatement pstmt = null;
-				String sql = "UPDATE QA_TBL SET QA_title = ?, QA_content = ? QA_REG_DATE = CURRENT_TIMESTAMP AT TIME ZONE 'ASIA/SEOUL'  WHERE QA_seq = ? ";
-
+				String sql = "UPDATE QA_TBL SET QA_title = ?, QA_content = ?, QA_REG_DATE = SYSTIMESTAMP AT TIME ZONE 'Asia/Seoul' WHERE QA_seq = ? ";
 
 				con = DBManagerhalo_JW.connect();
 				pstmt = con.prepareStatement(sql);
 
 				pstmt.setString(1, title);
 				pstmt.setString(2, txt);
-				pstmt.setString(4, seq);
+				pstmt.setString(3, seq);
 
 				System.out.println(seq);
 				System.out.println(title);
