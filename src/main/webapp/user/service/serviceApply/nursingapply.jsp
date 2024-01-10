@@ -18,118 +18,93 @@
 		<input type="hidden" name="selectedTime" value="${selectedTime }">
 		<div class="na-content-applyform-td">
 			<div class="na-content-applyform-tr-1">
-				<div class="categotyselect" name="category" id="category">신청에
-					필요한 정보를 입력해주세요.</div>
+				<div class="categotyselect" name="category" id="category">介護申請に必要な情報を入力してください。</div>
 			</div>
 			<div class="na-content-applyform-td2">
 				<div class="na-content-applyform-tr-2">
-					<span class="na-content-applyform-tr-2-1">신청자 이름* :</span> <input
-						name="applicant" class="na-content-applyform-tr-2-2" type="text" required="required">
+					<span class="na-content-applyform-tr-2-1">申込者の姓名* :</span> <input
+						name="applicant" class="na-content-applyform-tr-2-2" type="text"
+						required="required">
 				</div>
 				<div class="na-content-applyform-tr-2">
-					<span class="na-content-applyform-tr-2-1">연락처* :</span> <input
-						name="phoneNum" class="na-content-applyform-tr-2-2" type="text" pattern="[0-9]+" required="required">
+					<span class="na-content-applyform-tr-2-1">連絡先* :</span> <input
+						name="phoneNum" class="na-content-applyform-tr-2-2" type="text"
+						pattern="[0-9]+" required="required">
 				</div>
 				<div class="na-content-applyform-tr-2">
-					<span class="na-content-applyform-tr-2-1">간호 대상자 성함* :</span> <input
-						name="userName" class="na-content-applyform-tr-2-2" type="text" required="required">
+					<span class="na-content-applyform-tr-2-1">介護対象者の姓名* :</span> <input
+						name="userName" class="na-content-applyform-tr-2-2" type="text"
+						required="required">
 				</div>
 				<div class="na-content-applyform-tr-2">
-					<span class="na-content-applyform-tr-2-1">간호 대상자 성별* : </span>
+					<span class="na-content-applyform-tr-2-1">介護対象者の性別* : </span>
 					<div class="na-content-applyform-tr-2-2">
-						<div class="na-content-applyform-tr-2-3">
-							<input name="userGender" type="radio" value="m" checked>男
-						</div>
-						<div class="na-content-applyform-tr-2-3">
-							<input name="userGender" class="na-content-applyform-tr-2-3"
-								type="radio" value="w">女
-						</div>
+						<input class="na-content-applyform-tr-2-3" id="man"
+							name="userGender" type="radio" value="m" checked> <label
+							for="man"> 男 </label> <input class="na-content-applyform-tr-2-3"
+							id="woman" name="userGender" type="radio" value="w"> <label
+							for="woman"> 女 </label>
 					</div>
 				</div>
 				<div class="na-content-applyform-tr-2">
-					<span class="na-content-applyform-tr-2-1">간호 대상자 생년월일 * :</span>
-					<div class="na-content-applyform-tr-2-2">
-					 <label for="userYear">年:</label>
-					<select id="userYear" name="userYear" ></select>
-
-					<label for="userMonth">月:</label>
-					<select id="userMonth" name="userMonth"></select>
-
-					<label for="userDay">日:</label>
-					<select id="userDay" name="userDay"></select>
+					<span class="na-content-applyform-tr-2-1">介護対象者の生年月日 * :</span>
+					<div class="na-content-applyform-tr-2-4">
+						<label for="userYear"> <select id="userYear"
+							name="userYear" required="required">
+								<option disabled selected>年</option>
+						</select>年
+						</label> <label for="userMonth"> <select id="userMonth"
+							name="userMonth" required="required"><option disabled
+									selected>月</option></select>月
+						</label> <label for="userDay"> <select id="userDay" name="userDay"
+							required="required"><option disabled selected>日</option></select>日
+						</label>
 					</div>
 				</div>
 				<div class="na-content-applyform-tr-2">
-					<span class="na-content-applyform-tr-2-1">지역 (방문할 주소)* :</span> <input
-						name="addr" class="na-content-applyform-tr-2-2" type="text" required="required">
+					<span class="na-content-applyform-tr-2-1">地域(訪問する住所)* :</span> <input
+						name="addr" class="na-content-applyform-tr-2-2" type="text"
+						required="required">
 				</div>
 				<div class="na-content-applyform-tr-2">
-					<span class="na-content-applyform-tr-2-1">비고란(요청사항)* :</span>
+					<span class="na-content-applyform-tr-2-1">特異事項* :</span>
 					<textarea name="niText" class="na-content-applyform-tr-2-2"></textarea>
 				</div>
 			</div>
-			<div class="na-content-cal-btn-box-td">
-				<button class="na-content-cal-btn-td">다음으로</button>
+			<div class="na-content-next-btn-box-td">
+				<button class="na-content-next-btn-td">次へ</button>
 				>
 			</div>
 		</div>
 	</form>
 </body>
 <script type="text/javascript">
-// 년도 선택 옵션 생성
-var yearSelect = document.getElementById("userYear");
-var currentYear = new Date().getFullYear();
-for (var year = currentYear; year >= 1900; year--) {
-  var option = document.createElement("option");
-  option.text = year;
-  option.value = year;
-  yearSelect.appendChild(option);
-}
+	// 년도 선택 옵션 생성
+	var yearSelect = document.getElementById("userYear");
+	var currentYear = new Date().getFullYear();
+	for (var year = currentYear; year >= 1900; year--) {
+		var option = document.createElement("option");
+		option.text = year;
+		option.value = year;
+		yearSelect.appendChild(option);
+	}
 
-// 월 선택 옵션 생성
-var monthSelect = document.getElementById("userMonth");
-for (var month = 1; month <= 12; month++) {
-  var option = document.createElement("option");
-  option.text = month;
-  option.value = month;
-  monthSelect.appendChild(option);
-}
+	// 월 선택 옵션 생성
+	var monthSelect = document.getElementById("userMonth");
+	for (var month = 1; month <= 12; month++) {
+		var option = document.createElement("option");
+		option.text = month;
+		option.value = month;
+		monthSelect.appendChild(option);
+	}
 
-// 일 선택 옵션 생성 (1일부터 31일까지)
-var daySelect = document.getElementById("userDay");
-for (var day = 1; day <= 31; day++) {
-  var option = document.createElement("option");
-  option.text = day;
-  option.value = day;
-  daySelect.appendChild(option);
-}
-
-// //사용자가 선택한 값 가져오기
-// var selectedYear = document.getElementById("userYear").value;
-// var selectedMonth = document.getElementById("userMonth").value;
-// var selectedDay = document.getElementById("userDay").value;
-
-// // JSON 객체 생성
-// var jsonData = {
-//     userYear: selectedYear,
-//     userMonth: selectedMonth,
-//     userDay: selectedDay
-// };
-
-// fetch('UserDate', {
-//     method: 'POST',
-//     headers: {
-//         'Content-Type': 'application/json'
-//     },
-//     body: JSON.stringify(jsonData)
-// })
-// .then(response => {
-//     if (!response.ok) {
-//         throw new Error('서버 응답 실패');
-//     }
-//     return response.json(); // JSON 형태의 데이터로 변환
-// })
-
-
+	// 일 선택 옵션 생성 (1일부터 31일까지)
+	var daySelect = document.getElementById("userDay");
+	for (var day = 1; day <= 31; day++) {
+		var option = document.createElement("option");
+		option.text = day;
+		option.value = day;
+		daySelect.appendChild(option);
+	}
 </script>
 </html>

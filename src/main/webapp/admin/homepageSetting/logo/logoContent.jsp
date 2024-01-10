@@ -74,12 +74,9 @@
 						<!-- 변경완료버튼, 실제DB에 업뎃되면서 대기이미지로 바뀜 -->
 						<button type="button" class="content-button" id="logo_btn_submit"
 							onclick="#">변경완료</button>
-
 					</div>
-
 				</div>
 			</div>
-
 	</div>
 </body>
 </html>

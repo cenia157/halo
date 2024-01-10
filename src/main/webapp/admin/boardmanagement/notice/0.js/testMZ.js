@@ -1,181 +1,271 @@
+// 전역 배열로 파일 순서를 추적
+let fileOrder = [];
+
 class MyUploadAdapter {
+	
+//  기존코드(테스트 후 추후 삭제)
+//	constructor(loader) {
+//		this.loader = loader;
+//		this.uploadPromise = null;
+//		
+//			// loader 객체 전체를 콘솔에 출력
+//		console.log('Loader:', this.loader);
+//		
+//		// loader에서 파일 이름과 파일 크기 정보를 콘솔에 출력
+//		this.loader.file.then(file => {
+//		    console.log('Uploading file:', file.name);
+//		    console.log('File size:', file.size);
+//		});
+//	}
+
 	constructor(loader) {
-		// The file loader instance to use during the upload.
-		this.loader = loader;
+	    this.loader = loader;
+	    this.uploadPromise = null;
+	
+	    // 파일 정보 로드
+	    this.loader.file.then(file => {
+	        // 파일 ID (또는 기타 순서를 나타낼 수 있는 값)를 전역 배열에 추가
+	        fileOrder.push({id: this.loader.id, file: file});
+	
+	        // 파일 정보 콘솔에 출력
+	        console.log('파일 업로드 중:', file.name);
+	        console.log(`파일 업로드 중: ${file.name}, 파일 크기: ${file.size}`);
+	
+	        // fileOrder 배열의 내용을 콘솔에 출력
+	        console.log('현재 파일 순서:', fileOrder.map(item => item.file.name));
+	    });
 	}
 
-	// Starts the upload process.
+
+// 원래 내꺼 
+//	upload() {
+//		return this.loader.file.then(
+//			(file) =>
+//				new Promise((resolve, reject) => {
+//					this._initRequest();
+//					this._initListeners(resolve, reject, file);
+//					console.log('file' + file);
+//					this._sendRequest(file);
+//				})
+//		);
+//	}
+
+//    중간 코드
+//    upload() {
+//        return this.loader.file.then(
+//            (file) => new Promise((resolve, reject) => {
+//                const checkAndUpload = () => {
+//                    // fileOrder 배열에서 현재 파일의 위치를 찾습니다.
+//                    const index = fileOrder.findIndex(item => item.file === file);
+//
+//                    if (index === 0) { // 이 파일이 첫 번째로 업로드 해야 할 파일이면
+//                        console.log('Uploading file:', file.name);
+//                        this._initRequest();
+//                        this._initListeners(resolve, reject, file);
+//                        this._sendRequest(file);
+//
+//                        // 업로드를 시작한 후, fileOrder에서 해당 파일을 제거합니다.
+//                        fileOrder.shift();
+//                    } else {
+//                        // 아직 차례가 아니면 100ms 후에 다시 확인합니다.
+//                        console.log('Waiting for previous files to be uploaded:', file.name);
+//                        setTimeout(checkAndUpload, 100);
+//                    }
+//                };
+//
+//                checkAndUpload();
+//            })
+//        );
+//    }
+
 	upload() {
-		return this.loader.file.then(
-			(file) =>
-				new Promise((resolve, reject) => {
-					this._initRequest();
-					this._initListeners(resolve, reject, file);
-					this._sendRequest(file);
-				})
-		);
+	    return this.loader.file.then(
+	        (file) => new Promise((resolve, reject) => {
+	            const uploadSequentially = () => {
+	                // fileOrder 배열이 비어있으면 함수 실행을 중단합니다.
+	                if (fileOrder.length === 0) {
+	                    console.log('업로드할 파일이 더 이상 없습니다.');
+	                    return;
+	                }
+	
+	                // fileOrder 배열에서 현재 파일의 위치를 찾습니다.
+	                const index = fileOrder.findIndex(item => item.file === file);
+	
+	                if (index === 0) { // 이 파일이 첫 번째로 업로드 해야 할 파일이면
+	                    console.log('파일 업로드 중:', file.name);
+	                    this._initRequest();
+	                    this._initListeners(resolve, reject, file);
+	                    this._sendRequest(file).then(() => {
+	                        // 업로드를 시작한 후, fileOrder에서 해당 파일을 제거합니다.
+	                        fileOrder.shift();
+	                        console.log('대기열에서 제거된 파일:', file.name); 
+	                        console.log('현재 파일 순서:', fileOrder.map(item => item.file.name)); 
+	
+	                        // 다음 파일이 있으면 그 파일도 업로드합니다.
+	                        if (fileOrder.length > 0) {
+	                            uploadSequentially();
+	                        }
+	                    });
+	                } else {    
+//	                    console.log('이전 파일이 업로드되기를 기다리는 중(여기뭔가 이상하네):', file.name);
+	                    setTimeout(uploadSequentially, 100); 
+	                }
+	            };
+	
+	            uploadSequentially();
+	        })
+	    );
 	}
 
-	// Aborts the upload process.
 	abort() {
 		if (this.xhr) {
 			this.xhr.abort();
 		}
 	}
 
-	// Initializes the XMLHttpRequest object using the URL passed to the constructor.
 	_initRequest() {
-
 		const xhr = (this.xhr = new XMLHttpRequest());
-
-
-
-
-
-
-		// Note that your request may look different. It is up to you and your editor
-		// integration to choose the right communication channel. This example uses
-		// a POST request with JSON as a data structure but your configuration
-		// could be different.
 		xhr.open("POST", "/halo/CKEditorAjax", true);
 		xhr.responseType = "json";
 	}
 
-	// Initializes XMLHttpRequest listeners.
 	_initListeners(resolve, reject, file) {
 		const xhr = this.xhr;
-		const loader = this.loader;
-		const genericErrorText = `Couldn't upload file: ${file.name}.`;
-
-
-
-console.log("AAAAAAAQAAAAAA");
-console.log(xhr);
-console.log("AAAAAAAAAAAAA");
-
-
-
+		const genericErrorText = `파일 업로드에 실패했습니다: ${file.name}.`;
 
 		xhr.addEventListener("error", () => reject(genericErrorText));
 		xhr.addEventListener("abort", () => reject());
 		xhr.addEventListener("load", () => {
 			const response = xhr.response;
 
-
-
-
-			// This example assumes the XHR server's "response" object will come with
-			// an "error" which has its own "message" that can be passed to reject()
-			// in the upload promise.
-			//
-			// Your integration may handle upload errors in a different way so make sure
-			// it is done properly. The reject() function must be called when the upload fails.
 			if (!response || response.error) {
 				return reject(
 					response && response.error ? response.error.message : genericErrorText
 				);
 			}
 
-			// If the upload is successful, resolve the upload promise with an object containing
-			// at least the "default" URL, pointing to the image on the server.
-			// This URL will be used to display the image in the content. Learn more in the
-			// UploadAdapter#upload documentation.
-			resolve({
-				default: response.url,
-			});
-			
-			console.log(response);
-			console.log("~~~~~~~~~ success call!!!");
+			this._updateInputField(response.fName);
+			document.querySelector(".ck-content").click();
 
-
-
-
-
-
-
-
-
-
-			console.log("BBBBBBBBBBBBBBB");
-			console.log(response.fName);
-			console.log(response);
-			console.log("BBBBBBBBBBBBBBB");
-
-
-
-
-			var newInput = document.createElement("input");
-			var targetDiv = document.getElementById("img-temporary");
-			var nextInput = targetDiv.appendChild(newInput);
-
-
-
-			nextInput.name = "saveFname";
-			nextInput.id = "img-url";
-			nextInput.value = response.fName;
-			/*아래의 코드를 활성화하면 사진의 정보를 담는 input이 사라진다*/
-			/*nextInput.style.display = 'none';*/
-
-
-			/*			document.querySelector(".image-inline").lastChild.src = response.fName;*/
-			console.log('+++++++++++++++++++');
-			console.log(response.fName);
-			console.log('+++++++++++++++++++');
-			document.querySelector("figure").lastChild.src = response.fName;
-
-
+			resolve({ default: response.url });
 		});
 
-		// Upload progress when it is supported. The file loader has the #uploadTotal and #uploaded
-		// properties which are used e.g. to display the upload progress bar in the editor
-		// user interface.
 		if (xhr.upload) {
 			xhr.upload.addEventListener("progress", (evt) => {
 				if (evt.lengthComputable) {
-					loader.uploadTotal = evt.total;
-					loader.uploaded = evt.loaded;
+					this.loader.uploadTotal = evt.total;
+					this.loader.uploaded = evt.loaded;
 				}
 			});
 		}
 	}
+	
+//   원래 코드(안정화 테스트후 삭제하겠음)
+//	_sendRequest(file) {
+//		const data = new FormData();
+//		data.append("upload", file);
+//		this.xhr.send(data);
+//		
+//		// 파일 정보 로그 출력
+//  	    console.log("Appending file:", file.name, "Size:", file.size, "bytes");
+//	}
 
-	// Prepares the data and sends the request.
+	// Promise를 반환하도록 수정 -> "TypeError: Cannot read properties of undefined (reading 'then')" 오류가 발생 방지
 	_sendRequest(file) {
-		// Prepare the form data.
-		const data = new FormData();
-
-		data.append("upload", file);
-
-		// Important note: This is the right place to implement security mechanisms
-		// like authentication and CSRF protection. For instance, you can use
-		// XMLHttpRequest.setRequestHeader() to set the request headers containing
-		// the CSRF token generated earlier by your application.
-
-		// Send the request.
-		this.xhr.send(data);
+	    return new Promise((resolve, reject) => {
+	        // XMLHttpRequest 객체를 초기화합니다.
+	        const xhr = this.xhr = new XMLHttpRequest();
+	        xhr.open("POST", "/halo/CKEditorAjax", true);
+	        xhr.responseType = "json";
+	
+	        xhr.addEventListener("error", () => reject(`파일 업로드에 실패했습니다: ${file.name}.`));
+	        xhr.addEventListener("abort", () => reject('파일 업로드가 중단되었습니다.'));
+	
+	        // 파일 업로드가 성공 시 resolve를 호출.
+	        xhr.addEventListener("load", () => {
+	            const response = xhr.response;
+	            if (!response || response.error) {
+	                reject(response && response.error ? response.error.message : `파일 업로드에 실패했습니다: ${file.name}.`);
+	            } else {
+	                this._updateInputField(response.fName);
+	                document.querySelector(".ck-content").click();
+	                resolve({ default: response.url });
+	            }
+	        });
+	
+	        // 업로드 진행 상황을 추적.
+	        if (xhr.upload) {
+	            xhr.upload.addEventListener("progress", (evt) => {
+	                if (evt.lengthComputable) {
+	                    this.loader.uploadTotal = evt.total;
+	                    this.loader.uploaded = evt.loaded;
+	                }
+	            });
+	        }
+	
+	        // FormData 객체를 생성하고 파일 데이터를 추가.
+	        const data = new FormData();
+	        data.append("upload", file);
+	
+	        // 서버로 요청을 보냅니다.
+	        xhr.send(data);
+	        
+	        // 파일 정보 로그 출력
+	        console.log("Sending file:", file.name, "Size:", file.size, "bytes");
+	    });
 	}
-}
 
-function MyCustomUploadAdapterPlugin(editor) {
-	editor.plugins.get("FileRepository").createUploadAdapter = (loader) => {
-		// Configure the URL to the upload script in your back-end here!
-		return new MyUploadAdapter(loader);
-	};
-}
+	_updateInputField(fName) {
+		const newInput = document.createElement("input");
+		newInput.name = "saveFname";
+		newInput.id = "img-url";
+		newInput.value = fName;
+		newInput.dataset.check = fName;
 
-ClassicEditor.create(document.querySelector("#classicNR"), {
-	extraPlugins: [MyCustomUploadAdapterPlugin],
-
+		const targetDiv = document.getElementById("img-temporary");
+		const figures = document.querySelectorAll(".ck-content figure");
 
 
+		let matchedFigureIndex = -1; // 삽입할 figure의 인덱스를 저장할 변수
 
+		// 모든 figure 태그를 순회하며 적절한 위치 찾기
+		for (let i = 0; i < figures.length; i++) {
+			const imgTag = figures[i].querySelector("img");
+			if (imgTag && !imgTag.dataset.check) {
+				// dataset.check가 설정되지 않은 첫 번째 img를 찾으면 삽입 위치로 설정
+				imgTag.dataset.check = fName;
+				matchedFigureIndex = i;
+				console.log(`figure 인덱스 ${i}에 dataset.check 설정됨:`, fName);
+				break;
+			}
+		}
 
+		// 삽입할 위치가 결정된 경우
+		if (matchedFigureIndex !== -1) {
+			const inputs = targetDiv.querySelectorAll("input");
+			if (matchedFigureIndex < inputs.length) {
+				targetDiv.insertBefore(newInput, inputs[matchedFigureIndex]);
+			} else {
+				targetDiv.appendChild(newInput);
+			}
+		} else {
+			console.error("적절한 삽입 위치를 찾을 수 없어서 데이터셋을 설정 못 함!");
+		}
+	}
+} // end class
 
-})
-	.then((editor) => {
-		window.editor = editor;
+	function MyCustomUploadAdapterPlugin(editor) {
+		editor.plugins.get("FileRepository").createUploadAdapter = (loader) => {
+			return new MyUploadAdapter(loader);
+		};
+	}
+	
+	ClassicEditor.create(document.querySelector("#classicNR"), {
+		extraPlugins: [MyCustomUploadAdapterPlugin],
 	})
-	.catch((error) => {
-		console.log(error);
-	});
-// 센세 항상 감사합니다ㅠㅠ
+		.then((editor) => {
+			window.editor = editor;
+		})
+		.catch((error) => {
+			console.log(error);
+		});

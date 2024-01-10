@@ -59,18 +59,7 @@
 			기존의 공지사항을 보기 위한 모달(noticeViewPage.jsp)
 			기존의 공지사항을 수정 위한 모달(이 모달은 noticeViewPage에서 include됨)(noticeRegPage.jsp)
 		-->
-		<jsp:include page="test.jsp"></jsp:include>
+		<jsp:include page="noticeNEWRegPage.jsp"></jsp:include>
 	</div>
 </body>
-
-
-
-
-
-
-
-
-
-
-
 </html>
