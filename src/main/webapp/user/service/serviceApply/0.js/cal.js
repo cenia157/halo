@@ -56,8 +56,6 @@ const renderCalendar = () => {
 		let condition;
 		let formattedDay = day < 10 ? `0${day}` : day;
 		if (i >= firstDateIndex && i < lastDateIndex + 1) {
-
-			
 	condition = `<div class="date" id="${viewYear}-${formattedMonth}-${formattedDay}" style="cursor:pointer">
   <span class="this">${formattedDay}</span> </div>`;
 		}else {
