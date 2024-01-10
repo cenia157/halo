@@ -7,16 +7,25 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 @WebServlet("/CheckboxC")
 public class CheckboxC extends HttpServlet {
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+	}
+
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		boolean completed = Boolean.parseBoolean(request.getParameter("completed"));
 		boolean uncompleted = Boolean.parseBoolean(request.getParameter("uncompleted"));
 		AskDAO.getAllQnCcheckbox(completed, uncompleted, request, response);
-	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// QnCs를 JSON으로 변환
+		ObjectMapper objectMapper = new ObjectMapper();
+		String jsonQnCs = objectMapper.writeValueAsString(request.getAttribute("QnCs"));
+		
+		System.out.println("new QnCs (JSON): " + jsonQnCs);
+		response.getWriter().write(jsonQnCs);
 
 	}
 

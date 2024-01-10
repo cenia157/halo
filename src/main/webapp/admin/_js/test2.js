@@ -375,7 +375,6 @@ $(document).ready(function() {
                 checked: $(this).prop('checked')
             });
         });
-        
         filterByCheckbox(checkboxData);
         
         return true;
@@ -383,17 +382,17 @@ $(document).ready(function() {
 });
 
 function filterByCheckbox(data){
-	console.log(data);
-	console.log("---------");
 	$.ajax({
 		url: "CheckboxC",
-		method: "GET",
+		method: "POST",
+		dataType: "json",
 		data: {
 			completed: data.some(item => item.value === 'completed' && item.checked),
 			uncompleted: data.some(item => item.value === 'uncompleted' && item.checked)
 		},
 		success: function(data){
-			console.log("넘겨받는 data: ", data);
+			console.log("newQnCs: ", data);
+			eval(data); // 업데이트된 QnCs를 처리하는 스크립트 실행
 		},
 		error: function(xhr, status, error){
 			console.log("에러발생: ", xhr, status, error)
