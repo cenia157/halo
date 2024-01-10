@@ -120,7 +120,7 @@
 	
 	    let innerDivWord = $("<div></div>").addClass("innerDiv_word");
 	
-	    innerDivWord.html("Instagram&nbsp;でフォロー");
+	    innerDivWord.html("Instagramでフォロー");
 	
 	    innerDiv.append(innerDivIcon);
 	    innerDiv.append(innerDivWord);

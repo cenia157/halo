@@ -71,7 +71,7 @@
                                         •訪問介護&nbsp•介護タクシー運営&nbsp&nbsp&nbsp&nbsp
                                         </li>
                                         <li>
-                                            display none처리
+                                            display none처리용 텍스트
                                         </li>
                                     </ul>
                                 </div>

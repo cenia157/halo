@@ -49,15 +49,12 @@ public class Album_insta_api_C extends HttpServlet {
             String urlString = "https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url,permalink,thumbnail_url&access_token="+apiToken;
             URL url = new URL(urlString);
 
-            // HttpURLConnection 객체 생성
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
-            // GET 메서드를 사용하도록 설정
             connection.setRequestMethod("GET");
 
-            // 응답 코드 확인 (200은 성공을 의미)
             int responseCode = connection.getResponseCode();
-            System.out.println("응답 코드: " + responseCode);
+//          System.out.println("응답 코드: " + responseCode);
 
             // 응답 내용 읽기
             BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
@@ -70,7 +67,7 @@ public class Album_insta_api_C extends HttpServlet {
             reader.close();
 
             // 응답 내용 출력
-            System.out.println("응답 내용: " + responseBuilder.toString());
+//          System.out.println("응답 내용: " + responseBuilder.toString());
             
             response.getWriter().write(responseBuilder.toString());
 
