@@ -434,16 +434,11 @@ function fetchData(data){
 		method: "POST",
 		data: {
 			completed: data.some(item => item.value === 'completed' && item.checked),
-			uncompleted: data.some(item => item.value === 'uncompleted' && item.checked),
-			pageNo: curPageNo,
-			itemsPerPage: itemsPerPage
+			uncompleted: data.some(item => item.value === 'uncompleted' && item.checked)
 		},
-		success: function(curPageNo, responseData){
-			refreshData(curPageNo, responseData);
-			
-			//페이징 처리
-			createPagination(curPageNo, pageCount);
-			
+		success: function(responseData){
+			console.log("responseData: ",responseData);
+			refreshData(responseData);
 		},
 		error: function(xhr, status, error){
 			console.log("에러발생: ", xhr, status, error)
@@ -452,9 +447,11 @@ function fetchData(data){
 	
 }
 
-function refreshData(curPageNo, QnCs) {
+function refreshData(QnCs) {
     var container = document.getElementById("FOREACH_ASK");
     container.innerHTML = ""; // 기존 내용 비우기
+    let curPageNo =1;
+    
 
     // JSON 데이터 파싱
     var QnCs = JSON.parse(QnCs);
@@ -492,45 +489,6 @@ function refreshData(curPageNo, QnCs) {
     });
     
     curPageNo++;
-}
-
-
-// 페이징 부분을 업데이트하는 함수
-function createPagination(curPageNo, pageCount) {
-    // 새로운 div 엘리먼트를 생성하고 클래스를 지정합니다.
-    var paginationDiv = document.createElement("div");
-    paginationDiv.className = "paging-div";
-
-    // 페이지 번호 생성 로직 시작
-    // 이 부분에서는 현재 페이지 번호와 전체 페이지 수를 이용하여 페이지 번호를 생성합니다.
-    // 이 부분은 여러 방식으로 구현될 수 있습니다.
-    // 예를 들어 for 문을 사용하여 간단한 페이지 번호 생성을 할 수 있습니다.
-
-    for (var i = 1; i <= pageCount; i++) {
-        var pageNumberDiv = document.createElement("div");
-        pageNumberDiv.className = "page-number";
-
-        // 현재 페이지와 같은 경우에는 특별한 클래스를 추가하여 스타일을 적용할 수 있습니다.
-        if (i === curPageNo) {
-            pageNumberDiv.classList.add("current-page");
-        }
-
-        // 페이지 번호를 클릭할 때 해당 페이지로 이동하는 링크를 생성합니다.
-        var pageLink = document.createElement("a");
-        pageLink.href = "AskPagingC?p=" + i;
-        pageLink.textContent = "[" + i + "]";
-
-        // 생성된 페이지 번호 엘리먼트를 추가합니다.
-        pageNumberDiv.appendChild(pageLink);
-        paginationDiv.appendChild(pageNumberDiv);
-    }
-
-    // 페이지 번호 생성 로직 끝
-
-    // 생성된 paginationDiv를 실제 페이징 부분에 추가합니다.
-    var pageCenterDiv = document.getElementById("FOREACH_ASK").getElementsByClassName("ontent-m-td-2-page-center")[0];
-    pageCenterDiv.innerHTML = ""; // 기존 내용 비우기
-    pageCenterDiv.appendChild(paginationDiv);
 }
 
 
