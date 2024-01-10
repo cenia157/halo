@@ -70,7 +70,7 @@ public class AnnouncedDAO {
     	Connection con = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
-        String sql = "SELECT * FROM announced_tbl WHERE an_seq =?";
+        String sql = "SELECT * FROM announced_tbl WHERE an_seq = ? ORDER BY an_seq DESC";
 
         int anSeq = Integer.parseInt(request.getParameter("an_seq"));
         

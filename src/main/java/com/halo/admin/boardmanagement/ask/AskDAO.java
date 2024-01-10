@@ -1,5 +1,6 @@
 package com.halo.admin.boardmanagement.ask;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -13,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
 import com.halo.test.DBManagerhalo_YJ;
 import com.halo.user.introduce.announcement.Announced_tbl_DTO;
 
@@ -255,21 +257,82 @@ public class AskDAO {
 		}
 		
 	}
+
+//true false 가져와서 넣기
+	public static void getAllQnCcheckbox(boolean completed, boolean uncompleted, HttpServletRequest request, HttpServletResponse response) {
+		Connection con = null;
+		PreparedStatement pstmt =null;
+		ResultSet rs = null;
+		StringBuilder sqlBuilder = new StringBuilder();
+		sqlBuilder.append("SELECT q.*, c.*");
+		sqlBuilder.append(" FROM question_tbl q");
+		sqlBuilder.append(" LEFT JOIN comment_tbl c");
+		sqlBuilder.append(" ON q.q_seq = c.q_seq");
+		if (completed == true || uncompleted == true) {
+				if (completed == true && uncompleted == true) {
+				}else if (completed == true) {
+		            sqlBuilder.append(" WHERE c.c_answer = 1");
+		        } else {
+		            sqlBuilder.append(" WHERE c.c_answer IS NULL");
+		        }
+		}
+		sqlBuilder.append(" ORDER BY q.q_seq ASC");
+
+		String sql = sqlBuilder.toString();
+		
+		try {
+			con = DBManagerhalo_YJ.connect();
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			QnCs = new ArrayList<QuestionNComment>();
+			QuestionNComment QnC;
+			
+			while (rs.next()) {
+				int c_seq = rs.getInt("c_seq");
+				String c_commenter_name = rs.getString("c_commenter_name");
+				String c_comment_content = rs.getString("c_comment_content");
+				Date c_reg_date = rs.getDate("c_reg_date");
+				String c_answer = rs.getString("c_answer");
+				
+				int q_seq = rs.getInt("q_seq");
+				String q_title = rs.getString("q_title");
+				String q_content = rs.getString("q_content");
+				Date q_reg_date = rs.getDate("q_reg_date");
+				String q_contact_number = rs.getString("q_contact_number");
+				String q_email = rs.getString("q_email");
+				String q_name = rs.getString("q_name");
+				String q_password = rs.getString("q_password");
+				String q_category = rs.getString("q_category");
+				
+				QnC = new QuestionNComment(c_seq, c_commenter_name, c_comment_content, c_reg_date, c_answer, q_seq, q_title, q_content, q_reg_date, q_contact_number, q_email, q_name, q_password, q_category);
+				QnCs.add(QnC);
+			}
+			
+	        // 업데이트된 QnCs를 JavaScript 함수에 전달
+	        String updateScript = "updateQnCs(" + new Gson().toJson(QnCs) + ");";
+	        response.getWriter().write("<script>" + updateScript + "</script>");
+
+	        // request.setAttribute("QnCs", QnCs); // 이 부분은 더이상 필요하지 않음
+
+		} catch (SQLException | IOException e) {
+			e.printStackTrace();
+		}finally {
+			DBManagerhalo_YJ.close(con, pstmt, rs);
+		}
+		
+	}
 	
 	public static void Qpaging(int page, HttpServletRequest request) {
 		
 		request.setAttribute("curPageNo", page);
-		System.out.println("page: " + page);
 		
 		int cnt = 5; 
 		int total = QnCs.size(); 
-		System.out.println("total ::: " + total );
 		int pageCount = (int)Math.ceil((double)total / cnt);
 		request.setAttribute("pageCount", pageCount);
-		System.out.println("pageCount: "+pageCount);
 		
 		int start = total - (cnt * (page -1));
-		System.out.println("start ::: " + start );
 		
 		int end = (page == pageCount) ? -1 : start - (cnt + 1);
 		
@@ -314,5 +377,72 @@ public class AskDAO {
 	
 	}
 	
+	
+	// getAllQnCchecked 메소드 수정
+	public static void getAllQnCchecked(boolean checkbox1, boolean checkbox2, HttpServletRequest request, HttpServletResponse response) {
+	    Connection con = null;
+	    PreparedStatement pstmt = null;
+	    ResultSet rs = null;
+	    StringBuilder sqlBuilder = new StringBuilder("SELECT q.*, c.* FROM question_tbl q LEFT JOIN comment_tbl c ON q.q_seq = c.q_seq");
+	    
+	    System.out.println();
+	    if (checkbox1 || checkbox2) {
+	        sqlBuilder.append(" WHERE");
+	        if (checkbox1) {
+	            sqlBuilder.append(" c.c_answer = 1");
+	        }
+	        if (checkbox2) {
+	            if (checkbox1) {
+	                sqlBuilder.append(" OR");
+	            }
+	            sqlBuilder.append(" c.c_answer IS NULL");
+	        }
+	    }
+
+	    sqlBuilder.append(" ORDER BY q.q_seq DESC");
+
+	    try {
+	        con = DBManagerhalo_YJ.connect();
+	        pstmt = con.prepareStatement(sqlBuilder.toString());
+	        rs = pstmt.executeQuery();  // executeQuery로 변경
+
+	        QnCs = new ArrayList<QuestionNComment>();
+	        QuestionNComment QnC;
+
+	        while (rs.next()) {
+	            int c_seq = rs.getInt("c_seq");
+	            String c_commenter_name = rs.getString("c_commenter_name");
+	            String c_comment_content = rs.getString("c_comment_content");
+	            Date c_reg_date = rs.getDate("c_reg_date");
+	            String c_answer = rs.getString("c_answer");
+
+	            int q_seq = rs.getInt("q_seq");
+	            String q_title = rs.getString("q_title");
+	            String q_content = rs.getString("q_content");
+	            Date q_reg_date = rs.getDate("q_reg_date");
+	            String q_contact_number = rs.getString("q_contact_number");
+	            String q_email = rs.getString("q_email");
+	            String q_name = rs.getString("q_name");
+	            String q_password = rs.getString("q_password");
+	            String q_category = rs.getString("q_category");
+
+	            QnC = new QuestionNComment(c_seq, c_commenter_name, c_comment_content, c_reg_date, c_answer, q_seq, q_title, q_content, q_reg_date, q_contact_number, q_email, q_name, q_password, q_category);
+	            QnCs.add(QnC);
+	        }
+
+	        request.setAttribute("QnCs", QnCs);
+	        System.out.println("체크박스 결과 확인:" + QnCs);
+
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    } finally {
+	        DBManagerhalo_YJ.close(con, pstmt, rs);
+	    }
+	}
+	
+	
 }
+	
+
+
 

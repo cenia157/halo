@@ -40,6 +40,51 @@ function closeModal(modalId, tblId) {
 	}
 	// CKEditor 초기화
 	window.editor.setData(""); // CKEditor의 내용을 빈 문자열로 설정합니다.
+
+}
+
+
+function closeModalR2(modalId, tblId) {
+	document.getElementById(modalId).style.display = 'none';
+	document.getElementById(tblId).style.display = 'none';
+
+	// 아래 2줄은 모달창 닫을 때 스크롤 보여주기 & 터치, 휠 가능
+	$('html, body').css({ 'overflow': 'auto', 'height': '100%' }); //scroll hidden 해제
+	$('#element').off('scroll touchmove mousewheel'); // 터치무브 및 마우스휠 스크롤 가능
+
+	
+
+	// input 초기화
+	var titleInputR = document.getElementById("real-title-editorN");
+	titleInputR.value = "";
+
+	// 사진 input 삭제
+	var imageInputsR = document.querySelectorAll("#img-url");
+	imageInputsR.forEach(function(input) {
+		input.parentNode.removeChild(input);
+	});
+
+	// #kategorie 안의 input(#select)과 그 안의 텍스트 둘 다 삭제 및 '카테고리' 재설정
+	var kategorieInputR = document.querySelector('#kategorieR input');
+	if (kategorieInputR) {
+		kategorieInputR.remove();
+		document.querySelector('#kategorieR').textContent = '카테고리';
+	}
+	// CKEditor 초기화
+	window.editor.setData(""); // CKEditor의 내용을 빈 문자열로 설정합니다.
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
 
 // 공통 함수: 모달 외부 클릭 시 닫기
@@ -105,7 +150,7 @@ function openModalR() {
 }
 
 function closeModalR() {
-	closeModal('myModalR', 'myModal-tblR');
+	closeModalR2('myModalR', 'myModal-tblR');
 }
 
 // NEWRegPage를 띄우기 위한 모달
@@ -355,30 +400,52 @@ function deleteQuestion(q_seq) {
 }
 
 
-function statusCheck() {
+//체크박스 제출
+$(document).ready(function() {
+    // 체크박스의 change 이벤트를 감지
+    $('input[type="checkbox"]').change(function() {
+        // 체크박스가 변경되면 바로 폼을 제출
+        $('#checkbox').submit();
+    });
 
-	let completed_checkbox = document.getElementById('completed_checkbox');
-	let uncompleted_checkbox = document.getElementById('uncompleted_checkbox');
+    // 폼 제출 시의 동작을 처리하는 함수
+    $('#checkbox').submit(function() {
+        // 폼이 제출될 때 수행할 동작 추가
+        console.log('Form submitted!');
+        // 추가로 필요한 로직을 여기에 작성
+        var checkboxData = [];
+        $('input[type="checkbox"]').each(function() {
+            checkboxData.push({
+                value: $(this).val(),
+                checked: $(this).prop('checked')
+            });
+        });
+        filterByCheckbox(checkboxData);
+        
+        return true;
+    });
+});
 
-	let checkbox_result = document.querySelectorAll(".ontent-m-td-2-content-txt-in")
-
-	checkbox_result.forEach(function(item) {
-		let YorN = item.querySelector(".ontent-m-td-2-content-txt-kategorie-in");
-
-		let isCompleted = YorN.textContent.trim() === "完";
-		let isUncompleted = YorN.textContent.trim() === "未";
-
-
-		if ((completed_checkbox.checked && isCompleted) || (uncompleted_checkbox.checked && isUncompleted) || (completed_checkbox.checked && uncompleted_checkbox.checked)) {
-			item.style.display = "flex";
-		} else {
-			item.style.display = "none";
+function filterByCheckbox(data){
+	$.ajax({
+		url: "CheckboxC",
+		method: "POST",
+		dataType: "json",
+		data: {
+			completed: data.some(item => item.value === 'completed' && item.checked),
+			uncompleted: data.some(item => item.value === 'uncompleted' && item.checked)
+		},
+		success: function(data){
+			console.log("newQnCs: ", data);
+			eval(data); // 업데이트된 QnCs를 처리하는 스크립트 실행
+		},
+		error: function(xhr, status, error){
+			console.log("에러발생: ", xhr, status, error)
 		}
-
-	})
+	});
+	
+	
 }
-
-
 
 
 //FAQ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -410,9 +477,9 @@ function getFAQData(qa_seq, qa_title, qa_content, qa_reg_date) {
 				let qa_reg_date = data[0].qa_reg_date;
 
 				$('#modal-seq').val(qa_seq);
-//				$('#classicNR_Title').val(qa_title);
-//				이거 활성화하면 타이틀에 value로 들어가는 대신 placeholder로 들어가게 된다... 옵션
-//				$('#real-title-editor').attr('placeholder', qa_title);	
+				//				$('#classicNR_Title').val(qa_title);
+				//				이거 활성화하면 타이틀에 value로 들어가는 대신 placeholder로 들어가게 된다... 옵션
+				//				$('#real-title-editor').attr('placeholder', qa_title);	
 				$('#real-title-editor').val(qa_title);
 				$('#classicNR').html(qa_content);
 
@@ -456,4 +523,183 @@ function deleteFAQ(qa_seq) {
 			}
 		});
 	}
+}
+
+
+
+
+
+
+
+
+
+
+// 임시 notice 김진욱
+
+
+function getNOTICEDataV(an_seq, an_title, an_content, an_writer, an_reg_date, an_category) {
+	console.log("an_seq: ", an_seq);
+
+	$.ajax({
+		url: "getNOTICEDetailC",
+		method: "post",
+		data: {
+			an_seq: an_seq,
+			an_title: an_title,
+			an_content: an_content,
+			an_writer: an_writer,
+			an_reg_date: an_reg_date,
+			an_categor: an_category
+		},
+
+		success: function(data) {
+
+			console.log("data: ", data);
+			console.log("NOTICE 데이터 가져오기 성공");
+
+
+			if (Array.isArray(data) && data.length > 0) {
+				let an_seq = data[0].an_seq;
+				let an_title = data[0].an_title;
+				let an_content = data[0].an_content;
+				let an_writer = data[0].an_content;
+				console.log('111111111111111111111111111111111111111111');
+				console.log("qa_content: ", an_content);
+				console.log('111111111111111111111111111111111111111111');
+				let an_reg_date = data[0].an_reg_date;
+				let an_category = data[0].an_category;
+
+
+				//				$('#classicNR_Title').val(qa_title);
+				//				이거 활성화하면 타이틀에 value로 들어가는 대신 placeholder로 들어가게 된다... 옵션
+				//				$('#real-title-editor').attr('placeholder', qa_title);	
+				$('#modal-seq').val(an_seq);
+				$('#real-title-V').html(an_title);
+				$('#Display-Category').html(an_category);
+				$('#modal-content-txt-in').html(an_content);
+				$('#real-title-editor').val(an_title);
+
+
+				document.getElementById('aaaaaaaaaaaaaaaaaaaaaaaaaa').onclick = function() {
+
+					//alert(document.getElementById('real-title-editor').innerHTML(an_title))
+					//document.getElementById('real-title-editor').value = an_title;
+
+					$('#real-title-editorN').val(an_title);
+					$('#CCCCCCCCCCCC').html(an_category);
+					// 여기에 CK-editor에 값을 표시하고싶어
+					$('#classicR').html(an_content);
+					window.editorR.setData(an_content);
+					$('#kategorieR').html(an_category);
+					$('#seq').val(an_seq);
+
+					if (an_category == 'announcement') {
+						$('#kategorieR').html('안내');
+					} else if (an_category == 'schedule') {
+						$('#kategorieR').html('스케줄');
+					} else if (an_category == 'general') {
+						$('#kategorieR').html('일반');
+					} else if (an_category == 'service') {
+						$('#kategorieR').html('서비스');
+					} else if (an_category == 'product') {
+						$('#kategorieR').html('상품');
+					}
+
+
+
+					let mmmmmmmm = document.getElementById('kategorieR');
+					let newInput = document.createElement("input");
+
+					alert(an_category)
+
+					newInput.type = "hidden";
+					newInput.value = an_category;
+					newInput.name = 'select';
+					newInput.id = 'myInputR';
+					mmmmmmmm.appendChild(newInput);
+
+
+
+
+
+					window.editor.setData(an_content);
+					openModalR();
+
+
+				};
+
+
+				openModalV();
+			} else {
+				console.log("NOTICE 데이터 가져오기 성공");
+			}
+
+
+		},
+		error: function(xhr, status, error) {
+			console.log("NOTICE 데이터 가져오기 실패");
+			console.log("error:", xhr, status, error);
+		}
+	})
+
+}
+
+
+
+
+function getNOTICEDataR(an_seq, an_title, an_content, an_writer, an_reg_date, an_category) {
+	console.log("an_seq: ", an_seq);
+
+	$.ajax({
+		url: "getNOTICEDetailC",
+		method: "post",
+		data: {
+			an_seq: an_seq,
+			an_title: an_title,
+			an_content: an_content,
+			an_writer: an_writer,
+			an_reg_date: an_reg_date,
+			an_categor: an_category
+		},
+
+		success: function(data) {
+
+			console.log("data: ", data);
+			console.log("NOTICE 데이터 가져오기 성공");
+
+
+			if (Array.isArray(data) && data.length > 0) {
+				let an_seq = data[0].an_seq;
+				let an_title = data[0].an_title;
+				let an_content = data[0].an_content;
+				let an_writer = data[0].an_content;
+				console.log('111111111111111111111111111111111111111111');
+				console.log("qa_content: ", an_content);
+				console.log('111111111111111111111111111111111111111111');
+				let an_reg_date = data[0].an_reg_date;
+				let an_category = data[0].an_category;
+
+
+				$('#modal-seq').val(an_seq);
+				//				$('#classicNR_Title').val(qa_title);
+				//				이거 활성화하면 타이틀에 value로 들어가는 대신 placeholder로 들어가게 된다... 옵션
+				//				$('#real-title-editor').attr('placeholder', qa_title);	
+
+
+
+
+
+				openModalR();
+			} else {
+				console.log("NOTICE 데이터 가져오기 성공");
+			}
+
+
+		},
+		error: function(xhr, status, error) {
+			console.log("NOTICE 데이터 가져오기 실패");
+			console.log("error:", xhr, status, error);
+		}
+	})
+
 }

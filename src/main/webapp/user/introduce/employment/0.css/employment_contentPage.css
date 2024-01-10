@@ -250,6 +250,10 @@
   white-space: nowrap;
 }
 
+.e_content-box-tr1-td3-1-1-4-2 ul li:nth-child(2) {
+  visibility: hidden;
+}
+
 .e_content-box-tr1-td3-1-1-1-5 {
   height: 30%;
   display: flex;
