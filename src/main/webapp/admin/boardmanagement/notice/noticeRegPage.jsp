@@ -15,50 +15,81 @@
 </head>
 
 <body>
-	<div onclick="closeModalE()" id="myModalR"></div>
-	<div id="myModal-tblR" class="modal-tbl">
-		<div class="modal-title-set">
-			<div class="modal-title-tr">
-				<div class="modal-title-td-1">
-					<div class="real-title">
-						<input class="real-title-editor" placeholder="민기해적단 팀인원 대거 탈주 계획">
-						<div class="real-title-select">
-							<select>
-								<option value="">안내</option>
-								<option value="">일정</option>
-								<option value="">일반</option>
-								<option value="">서비스</option>
-								<option value="">상품</option>
-							</select>
+	<div onclick="closeModalR()" id="myModalR"></div>
+	<form id="ck-formR" method="post">
+		<div id="myModal-tblR" class="modal-tbl">
+			<div class="modal-title-set">
+				<div class="modal-title-tr">
+					<div class="modal-title-td-1">
+						<input id="seq">
+						<div class="real-title">
+							<input class="real-title-editor" name="title"
+								id="real-title-editorN" placeholder="이곳에 제목을 입력하세요">
+							<!-- 아래의 input은 ajax로 올라갔던 이미지의 실제 이름을 받기 위한 역할을 한다.
+							type="hidden"을 삭제하고 이미지를 올려놓으면 올린 이미지의 경로+이름이 나온다. -->
+							<div id="img-temporaryR" style="background-color: aqua;"> durl</div>
+							<div class="real-title-select">
+								<div class="toggle" id="toggleR" onclick="toggleR()">
+									<div class="kategorie" id="kategorieR">카테고리</div>
+									<div class="toggle-down" id="toggle-downR">
+										<div class="toggle-down-block">
+											<div class="toggle-item" id="announcement">
+												<input name="announcement" type="hidden" id="myInputR"
+													value="announcement"> 안내
+											</div>
+											<div class="toggle-item" id="schedule">
+												<input name="schedule" type="hidden" id="myInputR"
+													value="schedule"> 일정
+											</div>
+											<div class="toggle-item" id="general">
+												<input name="general" type="hidden" id="myInputR"
+													value="general"> 일반
+											</div>
+											<div class="toggle-item" id="service">
+												<input name="service" type="hidden" id="myInputR"
+													value="service"> 서비스
+											</div>
+											<div class="toggle-item" id="product">
+												<input name="product" type="hidden" id="myInputR"
+													value="product"> 상품
+											</div>
+										</div>
+									</div>
+								</div>
+								<script src="admin/boardmanagement/notice/0.js/noticeToggleR.js"></script>
+								<!--  -->
+							</div>
 						</div>
 					</div>
+					<div class="modal-title-td-2">
+						<span class="close" id="closeModalBtn" onclick="closeModalNR()">&times;</span>
+					</div>
 				</div>
-				<div class="modal-title-td-2">
-					<span class="close" id="closeModalBtn" onclick="closeModalR()">&times;</span>
-				</div>
-			</div>
-			<div class="modal-content">
-				<div class="modal-content-txt">
-					<!-- 아래의 코드는 CK Editor를 넣는 부분이다-->
-					<div id="classicR"></div>
-					<!-- 아래의 스크립트 코드는 CK Editor를 불러오는 부분이다-->
-					<script>
-						ClassicEditor
-						.create(document.querySelector('#classicR'))
-						.then(editor => {
-								window.editor = editor;
-								})
-						.catch(error => {
-								console.error(error);
-								});
-				</script>
-				</div>
-				<div class="modal-content-button">
-					<button class="SubmitButton" onclick="closeModalR()">수정완료</button>
+				<div class="modal-content">
+					<div class="modal-content-txt">
+						<!-- 아래의 코드는 CK Editor를 넣는 부분이다-->
+						<textarea name="txt" id="classicR" class="classicR"></textarea>
+					</div>
+					<div class="modal-content-button">
+
+						<button class="SubmitButton" type="button" id="reg-btnR">수정완료</button>
+
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	
+	</form>
+	<!-- 아래의 스크립트는 CKEditor에 올라온 이미지를 ajax로 올리는 역할이다
+	추가로 아마 위의 스크립트의 경로를 다음과 같이 바꿔야 할 것 같다. 이건 단영씨와 합치고 난 뒤에 하자, 이름도 바꾸고...
+	admin/_js/ImageAjax.js -->
+	<script src="admin/boardmanagement/notice/0.js/testMZ2.js" type="module"></script>
+
+	<!-- 아래의 스크립트는 입력하지 않은 값이 나올 시 alert 띄우는 용 -->
+	<script src="admin/boardmanagement/notice/0.js/ValidationItems.js"></script>
+
+	<!-- 여기는 CKEditor에 들어간 값을 서버로 보내는 역할이다 -->
+	<script src="admin/boardmanagement/notice/0.js/SendCkeditorC2.js"></script>
+
+
 </body>
 </html>
