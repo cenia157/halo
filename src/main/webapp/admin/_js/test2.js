@@ -424,6 +424,7 @@ $(document).ready(function() {
             });
         });
         fetchData(checkboxData);
+        handleCheckBoxData(checkboxData);
     });
 });
 
@@ -437,14 +438,13 @@ function fetchData(data){
 			uncompleted: data.some(item => item.value === 'uncompleted' && item.checked)
 		},
 		success: function(responseData){
-			console.log("responseData: ",responseData);
+//			console.log("responseData: ",responseData);
 			refreshData(responseData);
 		},
 		error: function(xhr, status, error){
 			console.log("에러발생: ", xhr, status, error)
 		}
 	});	
-	
 }
 
 function refreshData(QnCs) {
@@ -490,13 +490,19 @@ function refreshData(QnCs) {
         `;
 
         container.appendChild(newElement);
-        console.log("html 확인: ", newElement.outerHTML);
+//        console.log("html 확인: ", newElement.outerHTML);
     });
-    
-	CheckboxPaging(QnCs);
+}
+
+function handleCheckBoxData(data){
+	let newData = fetchData(data);
+	console.log("newData값: ", newData);
+	CheckboxPaging(newData.page, newData.completed, newData.uncompleted);
+	
 }
 
 function CheckboxPaging(p, completed, uncompleted){
+
 	$.ajax({
 		url: "CheckboxPagingC",
 		method: "GET",
