@@ -96,7 +96,6 @@
 }
 
 /*스크롤바 숨김용*/
-/*스크롤바 숨김용*/
 .content-dataOneRowDiv-innerDiv::-webkit-scrollbar{
 	display: none;
 }
