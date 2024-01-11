@@ -516,7 +516,7 @@ function refreshData(QnCs) {
 
     // 페이지 번호 생성
     for (var i = Math.max(1, curPageNo - 2); i <= Math.min(curPageNo + 2, pageCount); i++) {
-        var pageButton = createPageButton("[" + i + "]", i, i === curPageNo);
+        var pageButton = createPageNoBtn("[" + i + "]", i, i === curPageNo);
         pagingElement.appendChild(pageButton);
     }
 
@@ -544,3 +544,19 @@ function createPageButton(text, pageNo, isEnabled) {
     }
     return button;
 }
+function createPageNoBtn(text, pageNo, isEnabled) {
+    var button = document.createElement("a");
+    var link = document.createElement("a");
+
+    link.href = "CheckboxPagingC?p=" + pageNo;
+    link.textContent = text;
+    button.appendChild(link);
+    if (!isEnabled) {
+        button.disabled = true;
+    }
+    return button;
+}
+
+//체크박스 값 그대로 남기기 시도
+
+
