@@ -1,3 +1,5 @@
+
+
 let date = new Date();
 let viewYear, viewMonth;
 let isStartDateSelected = false;
@@ -197,6 +199,7 @@ startDateInput.addEventListener('change', function(select) {
 	
 	if(startDateCal){
 	startDateCal.style.backgroundColor = 'red';
+
 	startDateCal.style.color = 'white';
 	startDateCal.querySelector('.this').insertAdjacentHTML('beforeend', '<br>開始日');
 	startOldDate = selectedDate;
@@ -510,11 +513,6 @@ console.log('endDateInput' + endDateInput.value);
 
 
 
-
-
-
-
-
 const resetSetDate = () => {
 	console.log('~~~~~~ reset called')
 	const dates = document.querySelectorAll('.date');
@@ -533,21 +531,7 @@ const resetSetDate = () => {
 	document.getElementById('prev-button').removeEventListener('click', changeMonth);
 	document.getElementById('next-button').removeEventListener('click', changeMonth);
 };
-//// 이동 버튼 이벤트 리스너 설정
-//document.getElementById('prev-button').addEventListener('click', () => changeMonth(-1));
-//document.getElementById('next-button').addEventListener('click', () => changeMonth(1));
-//
-//// 날짜 이동 함수
-//const changeMonth = (change) => {
-////	document.querySelector("#start-date-sel").value = "";
-////	document.querySelector("#end-date-sel").value = "";
-//	
-//    date.setMonth(date.getMonth() + change);
-//    viewYear = date.getFullYear();
-//    viewMonth = date.getMonth() + 1;
-//    const formattedMonth = viewMonth < 10 ? `${viewMonth}` : viewMonth;
-//    isStartDateSelected = false; // 달 변경 시 선택 상태 초기화
-//	console.log('~~~~~~~~~~')
+
 
 window.onload = function() {
 	renderCalendar();
@@ -555,35 +539,4 @@ window.onload = function() {
 	// 이동 버튼 이벤트 리스너 설정
 
 }
-
-//    // 이후에 날짜를 렌더링하거나 필요한 처리를 수행할 수 있습니다.
-//    // ...
-//};
-
-//renderCalendar();
-
-
-
-
-
-//const resetSelectedDates = (start, end) => {
-//    const dates = document.querySelectorAll('.date');
-//    dates.forEach(dateElement => {
-//        const dateContent = dateElement.textContent.trim();
-//        if (dateContent === start.split('-')[2]) {
-//            dateElement.classList.remove('start-date');
-//            dateElement.style.backgroundColor = '';
-//        } else if (dateContent === end.split('-')[2]) {
-//            dateElement.classList.remove('end-date');
-//            dateElement.style.backgroundColor = '';
-//        }
-//    });
-//};
-
-//
-//
-//
-//// 여기에 추가된 부분입니다.
-//document.getElementById('prev-button').addEventListener('click', () => changeMonth(-1));
-//document.getElementById('next-button').addEventListener('click', () => changeMonth(1));
 
