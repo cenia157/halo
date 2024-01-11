@@ -35,39 +35,110 @@
 		    <div class="content-columnNameDiv columnName-customer">顧客</div>
 		    <div class="content-columnNameDiv columnName-address">住所</div>
 		    <div class="content-columnNameDiv columnName-number">連絡先</div>
-		    <div class="content-columnNameDiv columnName-service">サービス</div>
+		    <div class="content-columnNameDiv columnName-service columnName-service2">サービス</div>
 		    <div class="content-columnNameDiv columnName-note">内容</div>
 		</div>
 		<div class="content-dataWrapDiv">
 			<!--  -->
 			<div class="content-dataOneRowDiv">
-				<div class="content-dataOneRowDiv-innerDiv columnName-no">1</div>
-				<div class="content-dataOneRowDiv-innerDiv columnName-customer">오단영</div>
-				<div class="content-dataOneRowDiv-innerDiv columnName-address">인천 서구 연희동 강진빌라 101호  12312312312312asdlkfjaskldjf;lsjdflkjsdk;lfjas;kldfj</div>
-				<div class="content-dataOneRowDiv-innerDiv columnName-number">010-3672-1668</div>
-				<div class="content-dataOneRowDiv-innerDiv columnName-service">개호택시</div>
-				<div class="content-dataOneRowDiv-innerDiv columnName-note">이사람은 33살이고 ..어쩌구 저쩌구 ~~@!!@#!@#!@#!@#sdjkfhasjkdfhsjkdhfklajsdhfljkdfasdfasdfasdfasdf</div>
+				<div class="content-dataOneRowDiv-innerDiv columnName-no"><span>1</span></div>
+				<div class="content-dataOneRowDiv-innerDiv columnName-customer"><span>오단영</span></div>
+				<div class="content-dataOneRowDiv-innerDiv columnName-address"><span>인천 서구 연희동 강진빌라 101호  12312312312312asdlkfjaskldjf;lsjdflkjsdk;lfjas;kldfj</span></div>
+				<div class="content-dataOneRowDiv-innerDiv columnName-number"><span>010-3672-1668</span></div>
+				<div class="content-dataOneRowDiv-innerDiv columnName-service"><span>개호택시</span></div>
+				<div class="content-dataOneRowDiv-innerDiv columnName-note"><span>이사람은 33살이고 ..어쩌구 저쩌구 ~~@!!@#!@#!@#!@#sdjkfhasjkdfhsjkdhfklajsdhfljkdfasdfasdfasdfasdf</span></div>
 			</div>
 			<!--  -->
-			<div class="content-dataOneRowDiv"></div>
+			<div class="content-dataOneRowDiv">
+				<div class="content-dataOneRowDiv-innerDiv columnName-no"><span>2</span></div>
+				<div class="content-dataOneRowDiv-innerDiv columnName-customer"><span>오단영</span></div>
+				<div class="content-dataOneRowDiv-innerDiv columnName-address"><span>인천 서구 연희동 강진빌라 101호  12312312312312asdlkfjaskldjf;lsjdflkjsdk;lfjas;kldfj</span></div>
+				<div class="content-dataOneRowDiv-innerDiv columnName-number"><span>010-3672-1668</span></div>
+				<div class="content-dataOneRowDiv-innerDiv columnName-service"><span>개호택시</span></div>
+				<div class="content-dataOneRowDiv-innerDiv columnName-note"><span>이사람은 33살이고 ..어쩌구 저쩌구 ~~@!!@#!@#!@#!@#sdjkfhasjkdfhsjkdhfklajsdhfljkdfasdfasdfasdfasdf</span></div>
+			</div>
 			<!--  -->
-			<div class="content-dataOneRowDiv"></div>
+			<div class="content-dataOneRowDiv">
+				<div class="content-dataOneRowDiv-innerDiv columnName-no"><span>3</span></div>
+				<div class="content-dataOneRowDiv-innerDiv columnName-customer"><span>오단영</span></div>
+				<div class="content-dataOneRowDiv-innerDiv columnName-address"><span>인천 서구 연희동 강진빌라 101호  12312312312312asdlkfjaskldjf;lsjdflkjsdk;lfjas;kldfj</span></div>
+				<div class="content-dataOneRowDiv-innerDiv columnName-number"><span>010-3672-1668</span></div>
+				<div class="content-dataOneRowDiv-innerDiv columnName-service"><span>개호택시</span></div>
+				<div class="content-dataOneRowDiv-innerDiv columnName-note"><span>이사람은 33살이고 ..어쩌구 저쩌구 ~~@!!@#!@#!@#!@#sdjkfhasjkdfhsjkdhfklajsdhfljkdfasdfasdfasdfasdf</span></div>
+			</div>
 			<!--  -->
-			<div class="content-dataOneRowDiv"></div>
+			<div class="content-dataOneRowDiv">
+				<div class="content-dataOneRowDiv-innerDiv columnName-no"><span>4</span></div>
+				<div class="content-dataOneRowDiv-innerDiv columnName-customer"><span>오단영</span></div>
+				<div class="content-dataOneRowDiv-innerDiv columnName-address"><span>인천 서구 연희동 강진빌라 101호  12312312312312asdlkfjaskldjf;lsjdflkjsdk;lfjas;kldfj</span></div>
+				<div class="content-dataOneRowDiv-innerDiv columnName-number"><span>010-3672-1668</span></div>
+				<div class="content-dataOneRowDiv-innerDiv columnName-service"><span>개호택시</span></div>
+				<div class="content-dataOneRowDiv-innerDiv columnName-note"><span>이사람은 33살이고 ..어쩌구 저쩌구 ~~@!!@#!@#!@#!@#sdjkfhasjkdfhsjkdhfklajsdhfljkdfasdfasdfasdfasdf</span></div>
+			</div>
 			<!--  -->
-			<div class="content-dataOneRowDiv"></div>
+			<div class="content-dataOneRowDiv">
+				<div class="content-dataOneRowDiv-innerDiv columnName-no"><span>5</span></div>
+				<div class="content-dataOneRowDiv-innerDiv columnName-customer"><span>오단영</span></div>
+				<div class="content-dataOneRowDiv-innerDiv columnName-address"><span>인천 서구 연희동 강진빌라 101호  12312312312312asdlkfjaskldjf;lsjdflkjsdk;lfjas;kldfj</span></div>
+				<div class="content-dataOneRowDiv-innerDiv columnName-number"><span>010-3672-1668</span></div>
+				<div class="content-dataOneRowDiv-innerDiv columnName-service"><span>개호택시</span></div>
+				<div class="content-dataOneRowDiv-innerDiv columnName-note"><span>이사람은 33살이고 ..어쩌구 저쩌구 ~~@!!@#!@#!@#!@#sdjkfhasjkdfhsjkdhfklajsdhfljkdfasdfasdfasdfasdf</span></div>
+			</div>
 			<!--  -->
-			<div class="content-dataOneRowDiv"></div>
+			<div class="content-dataOneRowDiv">
+				<div class="content-dataOneRowDiv-innerDiv columnName-no"><span>6</span></div>
+				<div class="content-dataOneRowDiv-innerDiv columnName-customer"><span>오단영</span></div>
+				<div class="content-dataOneRowDiv-innerDiv columnName-address"><span>인천 서구 연희동 강진빌라 101호  12312312312312asdlkfjaskldjf;lsjdflkjsdk;lfjas;kldfj</span></div>
+				<div class="content-dataOneRowDiv-innerDiv columnName-number"><span>010-3672-1668</span></div>
+				<div class="content-dataOneRowDiv-innerDiv columnName-service"><span>개호택시</span></div>
+				<div class="content-dataOneRowDiv-innerDiv columnName-note"><span>이사람은 33살이고 ..어쩌구 저쩌구 ~~@!!@#!@#!@#!@#sdjkfhasjkdfhsjkdhfklajsdhfljkdfasdfasdfasdfasdf</span></div>
+			</div>
 			<!--  -->
-			<div class="content-dataOneRowDiv"></div>
+			<div class="content-dataOneRowDiv">
+				<div class="content-dataOneRowDiv-innerDiv columnName-no"><span>7</span></div>
+				<div class="content-dataOneRowDiv-innerDiv columnName-customer"><span>오단영</span></div>
+				<div class="content-dataOneRowDiv-innerDiv columnName-address"><span>인천 서구 연희동 강진빌라 101호  12312312312312asdlkfjaskldjf;lsjdflkjsdk;lfjas;kldfj</span></div>
+				<div class="content-dataOneRowDiv-innerDiv columnName-number"><span>010-3672-1668</span></div>
+				<div class="content-dataOneRowDiv-innerDiv columnName-service"><span>개호택시</span></div>
+				<div class="content-dataOneRowDiv-innerDiv columnName-note"><span>이사람은 33살이고 ..어쩌구 저쩌구 ~~@!!@#!@#!@#!@#sdjkfhasjkdfhsjkdhfklajsdhfljkdfasdfasdfasdfasdf</span></div>
+			</div>
 			<!--  -->
-			<div class="content-dataOneRowDiv"></div>
+			<div class="content-dataOneRowDiv">
+				<div class="content-dataOneRowDiv-innerDiv columnName-no"><span>8</span></div>
+				<div class="content-dataOneRowDiv-innerDiv columnName-customer"><span>오단영</span></div>
+				<div class="content-dataOneRowDiv-innerDiv columnName-address"><span>인천 서구 연희동 강진빌라 101호  12312312312312asdlkfjaskldjf;lsjdflkjsdk;lfjas;kldfj</span></div>
+				<div class="content-dataOneRowDiv-innerDiv columnName-number"><span>010-3672-1668</span></div>
+				<div class="content-dataOneRowDiv-innerDiv columnName-service"><span>개호택시</span></div>
+				<div class="content-dataOneRowDiv-innerDiv columnName-note"><span>이사람은 33살이고 ..어쩌구 저쩌구 ~~@!!@#!@#!@#!@#sdjkfhasjkdfhsjkdhfklajsdhfljkdfasdfasdfasdfasdf</span></div>
+			</div>
 			<!--  -->
-			<div class="content-dataOneRowDiv"></div>
+			<div class="content-dataOneRowDiv">
+				<div class="content-dataOneRowDiv-innerDiv columnName-no"><span>9</span></div>
+				<div class="content-dataOneRowDiv-innerDiv columnName-customer"><span>오단영</span></div>
+				<div class="content-dataOneRowDiv-innerDiv columnName-address"><span>인천 서구 연희동 강진빌라 101호  12312312312312asdlkfjaskldjf;lsjdflkjsdk;lfjas;kldfj</span></div>
+				<div class="content-dataOneRowDiv-innerDiv columnName-number"><span>010-3672-1668</span></div>
+				<div class="content-dataOneRowDiv-innerDiv columnName-service"><span>개호택시</span></div>
+				<div class="content-dataOneRowDiv-innerDiv columnName-note"><span>이사람은 33살이고 ..어쩌구 저쩌구 ~~@!!@#!@#!@#!@#sdjkfhasjkdfhsjkdhfklajsdhfljkdfasdfasdfasdfasdf</span></div>
+			</div>
 			<!--  -->
-			<div class="content-dataOneRowDiv"></div>
+			<div class="content-dataOneRowDiv">
+				<div class="content-dataOneRowDiv-innerDiv columnName-no"><span>10</span></div>
+				<div class="content-dataOneRowDiv-innerDiv columnName-customer"><span>오단영</span></div>
+				<div class="content-dataOneRowDiv-innerDiv columnName-address"><span>인천 서구 연희동 강진빌라 101호  12312312312312asdlkfjaskldjf;lsjdflkjsdk;lfjas;kldfj</span></div>
+				<div class="content-dataOneRowDiv-innerDiv columnName-number"><span>010-3672-1668</span></div>
+				<div class="content-dataOneRowDiv-innerDiv columnName-service"><span>개호택시</span></div>
+				<div class="content-dataOneRowDiv-innerDiv columnName-note"><span>이사람은 33살이고 ..어쩌구 저쩌구 ~~@!!@#!@#!@#!@#sdjkfhasjkdfhsjkdhfklajsdhfljkdfasdfasdfasdfasdf</span></div>
+			</div>
 			<!--  -->
-			<div class="content-dataOneRowDiv"></div>
+			<div class="content-dataOneRowDiv">
+				<div class="content-dataOneRowDiv-innerDiv columnName-no"><span>11</span></div>
+				<div class="content-dataOneRowDiv-innerDiv columnName-customer"><span>오단영</span></div>
+				<div class="content-dataOneRowDiv-innerDiv columnName-address"><span>인천 서구 연희동 강진빌라 101호  12312312312312asdlkfjaskldjf;lsjdflkjsdk;lfjas;kldfj</span></div>
+				<div class="content-dataOneRowDiv-innerDiv columnName-number"><span>010-3672-1668</span></div>
+				<div class="content-dataOneRowDiv-innerDiv columnName-service"><span>개호택시</span></div>
+				<div class="content-dataOneRowDiv-innerDiv columnName-note"><span>이사람은 33살이고 ..어쩌구 저쩌구 ~~@!!@#!@#!@#!@#sdjkfhasjkdfhsjkdhfklajsdhfljkdfasdfasdfasdfasdf</span></div>
+			</div>
+			<!--  -->
 		</div>
 		<!--  -->
 	</div>
@@ -77,17 +148,17 @@
 let titleDiv = document.querySelector('.content-m-td-title');
 titleDiv.innerText = '顧客データ管理';
 
-window.addEventListener('load', function () {
-	  const dataWrapDiv = document.querySelector('.content-dataWrapDiv');
-	  const columnNameWrapDiv = document.querySelector('.content-columnNameWrapDiv');
+// window.addEventListener('load', function () {
+// 	  const dataWrapDiv = document.querySelector('.content-dataWrapDiv');
+// 	  const columnNameWrapDiv = document.querySelector('.content-columnNameWrapDiv');
 
-	  if (dataWrapDiv.scrollHeight > dataWrapDiv.clientHeight) {
-	    // 스크롤바가 존재하는 경우
-	    columnNameWrapDiv.style.width = '98.8%';
-	  } else {
-	    // 스크롤바가 없는 경우
-	    columnNameWrapDiv.style.width = '100%';
-	  }
-	});
+// 	  if (dataWrapDiv.scrollHeight > dataWrapDiv.clientHeight) {
+// 	    // 스크롤바가 존재하는 경우
+// 	    columnNameWrapDiv.style.width = '98.85%';
+// 	  } else {
+// 	    // 스크롤바가 없는 경우
+// 	    columnNameWrapDiv.style.width = '100%';
+// 	  }
+// 	});
 </script>
 </html>
