@@ -17,10 +17,7 @@ public class getNOTICEDetailC extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String jsonData = NOTICEDAO.NOTICEList(request, response);
-		NOTICEDAO.getAllNOTICE(request, response);
-		NOTICEDAO.NOTICEList(request, response);
 
-		// 이거 iso-8859-1로 저장된 값을 utf-8로 불러오는 코드다. 지우면 ?????가 나온다
 		response.setCharacterEncoding("UTF-8");
 
 		response.setContentType("application/json");

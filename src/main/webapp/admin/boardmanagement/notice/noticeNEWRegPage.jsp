@@ -17,6 +17,7 @@
 <body>
 	<div id="myModalNR" class="modal-background"></div>
 	<form action="AdminNOTICEC" id="ck-form" method="get">
+		<input type="hidden" name="checkVal" value="${param.checkVal}">
 		<div id="myModal-tblNR" class="modal-tbl">
 			<div class="modal-title-set">
 				<div class="modal-title-tr">

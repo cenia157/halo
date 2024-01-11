@@ -526,8 +526,8 @@ function deleteFAQ(qa_seq) {
 }
 
 
-	
-	function getNOTICEDataV(an_seq) {
+
+function getNOTICEDataV(an_seq) {
 	console.log("an_seq: ", an_seq);
 
 	$.ajax({
@@ -721,14 +721,71 @@ function getNOTICEDataUpdateView(an_seq) {
 	})
 }
 
-	let updateSEQ = document.querySelector('#updateSEQ');
-	console.log('수정 안하면 이건 뭐가되냐?'+updateSEQ.value);
-	if(updateSEQ.value != null){
+let updateSEQ = document.querySelector('#updateSEQ');
+console.log('수정 안하면 이건 뭐가되냐?' + updateSEQ.value);
+if (updateSEQ.value != '') {
 	getNOTICEDataUpdateView(updateSEQ.value);
+}
+
+
+function deleteNotice(seq) {
+
+	let pageVal = document.querySelector('#pageNum').value;
+
+	if (confirm('정말 삭제 합니까?')) {
+		location.href = "deleteNoticeC?an_seq=" + seq + "&p=" + pageVal;
+	} else {
+		return;
+	}
+};
+
+function searchCheckBoxVal() {
+	let checkBoxArr = document.querySelectorAll('.noticeCheck');
+	let checkVal = '';
+	for (let i = 0; i < checkBoxArr.length; i++) {
+		console.log(checkBoxArr[i]);
+		console.log(checkBoxArr[i].checked);
+		if (checkBoxArr[i].checked == true) {
+			checkVal += checkBoxArr[i].value;
+		}
+	}
+	console.log("써치체크박스벨류");
+	return checkVal;
+}
+
+function noticeSearch() {
+	
+	let pageVal = document.querySelector('#pageNum').value;
+	if(pageVal == ''){
+		pageVal = 1;
 	}
 
+	console.log("노티스써치");
+	if(searchCheckBoxVal()){
+		location.href = 'NoticePagingC?p=' + pageVal + '&checkVal=' + searchCheckBoxVal();
+	}else{
+		alert('하나이상의 체크박스에 체크를 해야합니다.');
+		history.go(0);
+	}
 
+}
 
+function noticeSearchCheckBoxCheck() {
+	let url = new URL(window.location.href);
+
+	let searchParams = new URLSearchParams(url.search);
+
+	let checkVal = searchParams.get("checkVal");
+	
+	for(let i=0; i<checkVal.length; i++){
+		let check = checkVal.charAt(i);
+		document.querySelectorAll('.noticeCheck')[check].checked = true;
+		
+	}
+	console.log("노티스써치체크박스체크시키는기능");
+	
+}
+noticeSearchCheckBoxCheck();
 
 
 
