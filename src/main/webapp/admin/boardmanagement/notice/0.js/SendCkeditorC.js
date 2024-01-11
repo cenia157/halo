@@ -61,6 +61,7 @@ regBtn.addEventListener("click", function(event) {
 		})
 		.then((data) => {
 			console.log("POST 요청 성공:", data);
+			ckForm.submit();
 			console.log(CkeditorC123);
 		})
 		.catch((error) => {
@@ -144,7 +145,7 @@ regBtn.addEventListener("click", function(event) {
 
         // 이미지 추가후 seleted 즉 자동으로 선택될때 방어하는 코드	
         $(".ck-content").on("keydown", function (e) {
-          console.log("누른키 :::", e.key, e.code);
+          console.log("누른키 :::test", e.key, e.code);
 
           let whiteList = [
             "Enter", "Delete", "Backspace", "ArrowUp", "ArrowDown"];
