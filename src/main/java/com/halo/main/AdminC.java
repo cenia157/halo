@@ -29,7 +29,7 @@ public class AdminC extends HttpServlet {
 			} else if (request.getParameter("link").equals("8")) {
 				menu = "/admin/calender/company/companyContent";
 			} else if (request.getParameter("link").equals("9")) {
-				menu = "qa/question/question";
+				menu = "/admin/calender/reservation/reservationContent";
 			} else if (request.getParameter("link").equals("10")) {
 				menu = "qa/question/questionDetail";
 			} else if (request.getParameter("link").equals("11")) {
