@@ -58,7 +58,7 @@
 		</div>
 	<div class="ontent-m-td-2-bottom">
 		<div class="ontent-m-td-2-page-side"></div>
-		<div class="ontent-m-td-2-page-center">
+		<div class="ontent-m-td-2-page-center" id="PAGING_ASK">
 			<!-- 					페이징처리 해야할 부분 -->
 					                <!--페이징시작 -->
                 <div class="paging-div">
@@ -176,7 +176,7 @@
 	</div>
 </body>
 
-<script src="admin/_js/test2.js"></script>
+<script src="admin/ask/0.js/ask.js"></script>
 <script src="admin/_js/test.js"></script>
 
 </html>

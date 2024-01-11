@@ -49,17 +49,22 @@
 						<div class="reservation-modal-close"></div>
 					</div>
 					<div class="reservation-modal-content">
-						<div>이름</div>
-						<div>주소</div>
-						<div>날짜</div>
-						<div>출발지</div>
-						<div>출발주소</div>
-						<div>목적지</div>
-						<div>목적주소</div>
-						<div>예약내용</div>
-						<div>담당자</div>
+						<div class="reservation-modal-content-name">이름</div>
+						<div class="reservation-modal-content-addr">주소</div>
+						<div class="reservation-modal-content-book">날짜</div>
+						<div class="reservation-modal-content-start">출발지</div>
+						<div class="reservation-modal-content-startpoint">출발주소</div>
+						<div class="reservation-modal-content-end">목적지</div>
+						<div class="reservation-modal-content-endpoint">목적주소</div>
+						<div class="reservation-modal-content-notice">예약내용</div>
+						<div class="reservation-modal-content-manager">담당자</div>
 					</div>
-					<div class="reservation-modal-btn"></div>
+					<div class="reservation-modal-btn">
+						<div class="reservation-modal-agree"
+							onclick="rowScheduleDelete('agree')">승인</div>
+						<div class="reservation-modal-disagree"
+							onclick="rowScheduleDelete('disagree')">거절</div>
+					</div>
 				</div>
 
 				<div class="date-modal">

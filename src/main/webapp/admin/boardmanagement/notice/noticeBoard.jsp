@@ -24,7 +24,6 @@
 		</div>
 	</div>
 	<div class="ontent-m-td-2-mid">
-
 		<c:forEach items="${NOTICEs}" var="an" varStatus="loop">
 			<div class="ontent-m-td-2-content-txt-in">
 				<input hidden="1" name="aq_seq" value="${an.an_seq }">
@@ -32,18 +31,13 @@
 				</div>
 				<div class="ontent-m-td-2-content-txt-kategorie-in">a</div>
 				<div class="ontent-m-td-2-content-txt-title-in">
-					<a onclick="getNOTICEDataV('${an.an_seq}');">${an.an_title }</a>
+					<a onclick="getNOTICEDataV('${an.an_seq}')">${an.an_title }</a>
 				</div>
 				<div class="ontent-m-td-2-content-txt-writer-in">${an.an_writer }</div>
 				<div class="ontent-m-td-2-content-txt-date-in">${an.an_reg_date}</div>
 				<div class="ontent-m-td-2-content-txt-delete-in"></div>
 			</div>
 		</c:forEach>
-
-
-
-
-
 	</div>
 </body>
 </html>
