@@ -1,6 +1,5 @@
 package com.halo.admin.boardmanagement.ask;
 
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -14,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.gson.Gson;
 import com.halo.test.DBManagerhalo_YJ;
 import com.halo.user.introduce.announcement.Announced_tbl_DTO;
 
@@ -270,6 +268,7 @@ public class AskDAO {
 		sqlBuilder.append(" ON q.q_seq = c.q_seq");
 		if (completed == true || uncompleted == true) {
 				if (completed == true && uncompleted == true) {
+					
 				}else if (completed == true) {
 		            sqlBuilder.append(" WHERE c.c_answer = 1");
 		        } else {
@@ -309,13 +308,10 @@ public class AskDAO {
 				QnCs.add(QnC);
 			}
 			
-	        // 업데이트된 QnCs를 JavaScript 함수에 전달
-	        String updateScript = "updateQnCs(" + new Gson().toJson(QnCs) + ");";
-	        response.getWriter().write("<script>" + updateScript + "</script>");
-
-	        // request.setAttribute("QnCs", QnCs); // 이 부분은 더이상 필요하지 않음
-
-		} catch (SQLException | IOException e) {
+			request.setAttribute("QnCs", QnCs);
+			System.out.println("QnCs: "+ QnCs);
+			
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
 			DBManagerhalo_YJ.close(con, pstmt, rs);
