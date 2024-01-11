@@ -10,11 +10,11 @@
 	rel="stylesheet" />
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/user/service/serviceApply/0.css/taxiapply.css" />
+	<script src="${pageContext.request.contextPath}/user/service/serviceApply/0.js/texiDateOption.js">
+    </script>
 </head>
 <body>
 
-
-	<!-- 신청폼 -->
 		<form action="TexiapplyC" method="post">
 		<input type="hidden" name="selectedStart" value="${selectedStart }">
 		<input type="hidden" name="selectedEnd" value="${selectedEnd }">
@@ -89,48 +89,5 @@
 	</form>
 
 </body>
-<script type="text/javascript">
-var selectedYear = document.getElementById("getYear").value;
-var selectedMonth = document.getElementById("getMonth").value;
-var selectedDay = document.getElementById("getDay").value;
 
-console.log(selectedYear);
-console.log(selectedMonth);
-console.log(selectedDay);
-
-var yearSelect = document.getElementById("userYear");
-var currentYear = new Date().getFullYear();
-for (var year = currentYear; year >= 1900; year--) {
-    var option = document.createElement("option");
-    option.text = year;
-    option.value = year;
-    if (year === parseInt(selectedYear)) {
-        option.selected = true;
-    }
-    yearSelect.appendChild(option);
-}
-
-var monthSelect = document.getElementById("userMonth");
-for (var month = 1; month <= 12; month++) {
-    var option = document.createElement("option");
-    option.text = month;
-    option.value = month;
-    if (month === parseInt(selectedMonth)) {
-        option.selected = true;
-    }
-    monthSelect.appendChild(option);
-}
-
-var daySelect = document.getElementById("userDay");
-for (var day = 1; day <= 31; day++) {
-    var option = document.createElement("option");
-    option.text = day;
-    option.value = day;
-    if (day === parseInt(selectedDay)) {
-        option.selected = true;
-    }
-    daySelect.appendChild(option);
-}
-
-</script>
 </html>
