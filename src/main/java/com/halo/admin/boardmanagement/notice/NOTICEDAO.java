@@ -37,7 +37,7 @@ public class NOTICEDAO {
 			rs = pstmt.executeQuery();
 
 			NOTICEs = new ArrayList<Notice>();
-			Notice notice;
+			Notice notice = null;
 
 			while (rs.next()) {
 				int an_seq = rs.getInt("an_seq");
@@ -47,15 +47,6 @@ public class NOTICEDAO {
 				Date an_reg_date = rs.getDate("an_reg_date");
 				String an_category = rs.getString("an_category");
 
-				/*
-				 * System.out.println(
-				 * "////////////////////////////////////////////////////////////////");
-				 * System.out.println(an_seq); System.out.println(an_title);
-				 * System.out.println(an_content); System.out.println(an_writer);
-				 * System.out.println(an_reg_date); System.out.println(an_category);
-				 * System.out.println(
-				 * "////////////////////////////////////////////////////////////////");
-				 */
 				notice = new Notice(an_seq, an_title, an_content, an_writer, an_reg_date, an_category);
 				NOTICEs.add(notice);
 			}
@@ -121,18 +112,13 @@ public class NOTICEDAO {
 
 	public static void NOTICEpagingAdmin(int page, HttpServletRequest request) {
 
-		request.setAttribute("curPageNo", page);
-		System.out.println("page: " + page);
 
 		int cnt = 8;
 		int total = NOTICEs.size();
-		System.out.println("total ::: " + total);
 		int pageCount = (int) Math.ceil((double) total / cnt);
 		request.setAttribute("pageCount", pageCount);
-		System.out.println("pageCount: " + pageCount);
 
 		int start = total - (cnt * (page - 1));
-		System.out.println("start ::: " + start);
 
 		int end = (page == pageCount) ? -1 : start - (cnt + 1);
 
@@ -141,6 +127,7 @@ public class NOTICEDAO {
 		for (int i = start - 1; i > end; i--) {
 			items.add(NOTICEs.get(i));
 		}
+		request.setAttribute("curPageNo", page);
 		request.setAttribute("NOTICEs", items);
 
 	}

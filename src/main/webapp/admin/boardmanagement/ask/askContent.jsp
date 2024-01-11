@@ -21,11 +21,11 @@
 	<div class="ontent-m-td-2-chackbox">
 		<div class="ontent-m-td-2-chackbox-contain">
 				<div class="ontent-m-td-2-chackbox-contain-input">
-					<input type="checkbox" class="filter" id="checkbox" name="status_checkbox" value="completed">
+					<input type="checkbox" class="filter" id="checkbox" name="completed" value="completed" checked="checked">
 				</div>
 				<div class="ontent-m-td-2-chackbox-contain-txt">完</div>
 				<div class="ontent-m-td-2-chackbox-contain-input">
-					<input type="checkbox" class="filter" id="checkbox" name="status_checkbox" value="uncompleted">
+					<input type="checkbox" class="filter" id="checkbox" name="uncompleted" value="uncompleted" checked="checked">
 				</div>
 				<div class="ontent-m-td-2-chackbox-contain-txt">未</div>
 			<div class="ontent-m-td-2-chackbox-contain-input"></div>
@@ -48,6 +48,5 @@
 	
 </body>
 <script type="text/javascript">
-
 </script>
 </html>

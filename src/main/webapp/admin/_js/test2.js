@@ -52,7 +52,7 @@ function closeModalR2(modalId, tblId) {
 	$('html, body').css({ 'overflow': 'auto', 'height': '100%' }); //scroll hidden 해제
 	$('#element').off('scroll touchmove mousewheel'); // 터치무브 및 마우스휠 스크롤 가능
 
-	
+
 
 	// input 초기화
 	var titleInputR = document.getElementById("real-title-editorN");
@@ -76,15 +76,15 @@ function closeModalR2(modalId, tblId) {
 
 
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
+
+
+
 }
 
 // 공통 함수: 모달 외부 클릭 시 닫기
@@ -400,17 +400,15 @@ function deleteQuestion(q_seq) {
 }
 
 
-
-
 //체크박스 제출
 $(document).ready(function() {
-	
-    // 체크박스의 change 이벤트를 감지
-    $('input[type="checkbox"]').change(function() {
-        // 체크박스가 변경되면 바로 폼을 제출
-        $('#checkbox').submit();
-    });
+	// 체크박스의 change 이벤트를 감지
+	$('input[type="checkbox"]').change(function() {
+		// 체크박스가 변경되면 바로 폼을 제출
+		$('#checkbox').submit();
+	});
 
+<<<<<<< HEAD
     // 폼 제출 시의 동작을 처리하는 함수
     $('#checkbox').submit(function() {
         // 폼이 제출될 때 수행할 동작 추가
@@ -425,24 +423,49 @@ $(document).ready(function() {
         });
         fetchData(checkboxData);
     });
+=======
+	// 폼 제출 시의 동작을 처리하는 함수
+	$('#checkbox').submit(function() {
+		// 폼이 제출될 때 수행할 동작 추가
+		console.log('Form submitted!');
+		// 추가로 필요한 로직을 여기에 작성
+		var checkboxData = [];
+		$('input[type="checkbox"]').each(function() {
+			checkboxData.push({
+				value: $(this).val(),
+				checked: $(this).prop('checked')
+			});
+		});
+		filterByCheckbox(checkboxData);
+
+		return true;
+	});
+>>>>>>> 17befa328a5fac4763ee04904196b873d7f434a5
 });
 
-
-function fetchData(data){
+function filterByCheckbox(data) {
 	$.ajax({
 		url: "CheckboxC",
 		method: "POST",
+		dataType: "json",
 		data: {
 			completed: data.some(item => item.value === 'completed' && item.checked),
 			uncompleted: data.some(item => item.value === 'uncompleted' && item.checked)
 		},
+<<<<<<< HEAD
 		success: function(responseData){
 			console.log("responseData: ",responseData);
 			refreshData(responseData);
+=======
+		success: function(data) {
+			console.log("newQnCs: ", data);
+			eval(data); // 업데이트된 QnCs를 처리하는 스크립트 실행
+>>>>>>> 17befa328a5fac4763ee04904196b873d7f434a5
 		},
-		error: function(xhr, status, error){
+		error: function(xhr, status, error) {
 			console.log("에러발생: ", xhr, status, error)
 		}
+<<<<<<< HEAD
 	});	
 }
 
@@ -575,8 +598,12 @@ function refreshData(QnCs) {
     });
 }
 
+=======
+	});
 
 
+}
+>>>>>>> 17befa328a5fac4763ee04904196b873d7f434a5
 
 
 //FAQ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -657,30 +684,15 @@ function deleteFAQ(qa_seq) {
 }
 
 
-
-
-
-
-
-
-
-
-// 임시 notice 김진욱
-
-
-function getNOTICEDataV(an_seq, an_title, an_content, an_writer, an_reg_date, an_category) {
+	
+	function getNOTICEDataV(an_seq) {
 	console.log("an_seq: ", an_seq);
 
 	$.ajax({
 		url: "getNOTICEDetailC",
 		method: "post",
 		data: {
-			an_seq: an_seq,
-			an_title: an_title,
-			an_content: an_content,
-			an_writer: an_writer,
-			an_reg_date: an_reg_date,
-			an_categor: an_category
+			an_seq: an_seq
 		},
 
 		success: function(data) {
@@ -736,22 +748,14 @@ function getNOTICEDataV(an_seq, an_title, an_content, an_writer, an_reg_date, an
 						$('#kategorieR').html('상품');
 					}
 
-
-
 					let mmmmmmmm = document.getElementById('kategorieR');
 					let newInput = document.createElement("input");
-
-					alert(an_category)
 
 					newInput.type = "hidden";
 					newInput.value = an_category;
 					newInput.name = 'select';
 					newInput.id = 'myInputR';
 					mmmmmmmm.appendChild(newInput);
-
-
-
-
 
 					window.editor.setData(an_content);
 					openModalR();
@@ -834,3 +838,58 @@ function getNOTICEDataR(an_seq, an_title, an_content, an_writer, an_reg_date, an
 	})
 
 }
+
+function getNOTICEDataUpdateView(an_seq) {
+	console.log("an_seq: ", an_seq);
+
+	$.ajax({
+		url: "getNOTICEDetailC",
+		method: "post",
+		data: {
+			an_seq: an_seq
+		},
+
+		success: function(data) {
+
+			console.log("data: ", data);
+			console.log('수정후 이게 실행되야됨');
+			console.log("NOTICE 데이터 가져오기 성공");
+
+			if (Array.isArray(data) && data.length > 0) {
+				let an_seq = data[0].an_seq;
+				let an_title = data[0].an_title;
+				let an_content = data[0].an_content;
+				let an_writer = data[0].an_content;
+				console.log('111111111111111111111111111111111111111111');
+				console.log("qa_content: ", an_content);
+				console.log('111111111111111111111111111111111111111111');
+				let an_reg_date = data[0].an_reg_date;
+				let an_category = data[0].an_category;
+
+				$('#modal-seq').val(an_seq);
+				$('#real-title-V').html(an_title);
+				$('#Display-Category').html(an_category);
+				$('#modal-content-txt-in').html(an_content);
+				$('#real-title-editor').val(an_title);
+
+				openModalV();
+
+			}
+		}
+	})
+}
+
+	let updateSEQ = document.querySelector('#updateSEQ');
+	console.log('수정 안하면 이건 뭐가되냐?'+updateSEQ.value);
+	if(updateSEQ.value != null){
+	getNOTICEDataUpdateView(updateSEQ.value);
+	}
+
+
+
+
+
+
+
+
+// 임시 notice 김진욱

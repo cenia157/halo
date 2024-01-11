@@ -202,8 +202,6 @@ function getData(q_seq, q_title, q_content, q_reg_date, q_contact_number, q_emai
 					let qPW = data[0].q_password;
 					let qCategory = data[0].q_category;
 
-					console.log("qSeq: ", qSeq);
-
 
 					// A questions 데이터 표시
 					$('#A_QUESTION_TITLE').html(qTitle);
@@ -241,8 +239,6 @@ function getData(q_seq, q_title, q_content, q_reg_date, q_contact_number, q_emai
 // 댓글 불러오기
 function getComments(q_seq, c_commenter_name, c_comment_content, c_reg_date, c_answer, c_seq) {
 
-	console.log("콘솔: ", q_seq);
-
 	$.ajax({
 		url: "GetCommentsC",
 		type: "post",
@@ -278,7 +274,6 @@ function getComments(q_seq, c_commenter_name, c_comment_content, c_reg_date, c_a
 
 				} else {
 					console.log("댓글이 없습니다.");
-					console.log("QSEQ: " + q_seq);
 					//모달창 열기
 					if (c_comment_content == null) {
 						openModalN(q_seq);
@@ -405,7 +400,8 @@ function deleteQuestion(q_seq) {
 
 
 
-//체크박스 제출
+
+// 체크박스 제출
 $(document).ready(function() {
 	
     // 체크박스의 change 이벤트를 감지
@@ -417,8 +413,6 @@ $(document).ready(function() {
     // 폼 제출 시의 동작을 처리하는 함수
     $('#checkbox').submit(function() {
         // 폼이 제출될 때 수행할 동작 추가
-        console.log('Form submitted!');
-        // 추가로 필요한 로직을 여기에 작성
         var checkboxData = [];
         $('input[type="checkbox"]').each(function() {
             checkboxData.push({
@@ -427,9 +421,41 @@ $(document).ready(function() {
             });
         });
         fetchData(checkboxData);
+        saveCheckBoxData();
     });
 });
 
+// 체크박스 상태 저장 함수
+function saveCheckBoxData() {
+    var checkboxData = {};
+    
+    // 각 체크박스의 상태를 checkboxData에 저장
+    $('input[type="checkbox"]').each(function() {
+        checkboxData[$(this).attr('name')] = $(this).prop('checked');
+    });
+
+    // checkboxData를 문자열로 변환하여 localStorage에 저장
+    localStorage.setItem('checkboxData', JSON.stringify(checkboxData));
+}
+
+// 페이지 로딩 시 저장된 체크박스 상태 불러오기
+$(document).ready(function() {
+    var storedData = localStorage.getItem('checkboxData');
+    
+    if (storedData) {
+        // 저장된 데이터가 있다면 파싱하여 체크박스 상태 설정
+        storedData = JSON.parse(storedData);
+        for (var key in storedData) {
+            var checkbox = $('input[name="' + key + '"]');
+            if (checkbox.length > 0) {
+                checkbox.prop('checked', storedData[key]);
+				
+				console.log("체크박스 상태 불러오기 확인용: ",storedData);
+				fetchData(storedData);
+            }
+        }
+    }
+});
 
 function fetchData(data){
 	$.ajax({
@@ -440,7 +466,23 @@ function fetchData(data){
 			uncompleted: data.some(item => item.value === 'uncompleted' && item.checked)
 		},
 		success: function(responseData){
-			console.log("responseData: ",responseData);
+			refreshData(responseData);
+		},
+		error: function(xhr, status, error){
+			console.log("에러발생: ", xhr, status, error)
+		}
+	});	
+}
+//저장된 storedData의 값을 가져오도록 하는 function
+function storedfetchData(data){
+	$.ajax({
+		url: "CheckboxC",
+		method: "POST",
+		data: {
+			completed: data.some(item => item.value === 'completed' && item.checked),
+			uncompleted: data.some(item => item.value === 'uncompleted' && item.checked)
+		},
+		success: function(responseData){
 			refreshData(responseData);
 		},
 		error: function(xhr, status, error){
@@ -452,7 +494,9 @@ function fetchData(data){
 function refreshData(QnCs) {
     var container = document.getElementById("FOREACH_ASK");
     container.innerHTML = ""; // 기존 내용 비우기
-    let curPageNo = 1;
+	const urlParams = new URL(location.href).searchParams;
+	const page = urlParams.get("p");
+    let curPageNo = page;
     let itemsPerPage = 8;
 
     // JSON 데이터 파싱
@@ -516,7 +560,7 @@ function refreshData(QnCs) {
 
     // 페이지 번호 생성
     for (var i = Math.max(1, curPageNo - 2); i <= Math.min(curPageNo + 2, pageCount); i++) {
-        var pageButton = createPageNoBtn("[" + i + "]", i, i === curPageNo);
+        var pageButton = createPageNoBtn("[ " + i + " ]", i, i === curPageNo);
         pagingElement.appendChild(pageButton);
     }
 
@@ -535,7 +579,6 @@ function refreshData(QnCs) {
 }
 
 function CheckboxPaging(QnCs){
-	console.log("checkboxPaging 전 콘솔: ",QnCs);
 	$.ajax({
 		url:"CheckboxPagingC",
 		method:"GET",
