@@ -70,6 +70,9 @@ let reservationClickArray = '';
 // 예약리스트 클릭시 날짜
 let reservationClickDate = '';
 
+// 예약리스트 선택 어레이번호
+let reservationSelectArray = '';
+
 // 토글스위치
 let toggle = '';
 
@@ -149,10 +152,17 @@ function getAllSchedule() {
 				}
 			})
 
-			//
+			// 예약 리스트 클릭
 			document.querySelector('.ins-tr-3-reservation-content').addEventListener("click", function(e) {
 				if (e.target.parentNode.className.includes('reservation-data')) {
 					reservationClick(e);
+				}
+			})
+
+			// 예약 리스트 선택
+			document.querySelector('.ins-tr-3-reservation-content').addEventListener("click", function(e) {
+				if (e.target.className == 'reservation-select') {
+					reservationSelect(e);
 				}
 			})
 		})
@@ -275,7 +285,6 @@ function renderCalender(reservationScheduleList) {
 }
 
 // 예약 일정 렌더링
-// 
 function renderReservationSchedule() {
 	let arrayCnt = 0;
 
@@ -285,7 +294,7 @@ function renderReservationSchedule() {
 			let datesLength = reservationScheduleList[i].dates.split(',').length;
 			if (datesLength > 1) {
 				document.querySelector('.ins-tr-3-reservation-content').innerHTML += '<input type="hidden" value="' + i + '"><div class="reservation-data array' + arrayCnt + '"><div>' + reservationScheduleList[i].userName + '</div><div>' + reservationScheduleList[i].service
-					+ '</div><div><input type="hidden" value="' + reservationScheduleList[i].dates + '">' + reservationScheduleList[i].year.slice(2) + '-' + reservationScheduleList[i].month + '-' + reservationScheduleList[i].dates.split(',')[0] + '...' + '</div><div><a>선택</a></div></div>'
+					+ '</div><div><input type="hidden" value="' + reservationScheduleList[i].dates + '">' + reservationScheduleList[i].year.slice(2) + '-' + reservationScheduleList[i].month + '-' + reservationScheduleList[i].dates.split(',')[0] + '...' + '</div><div><a class="reservation-select">선택</a></div></div>'
 				arrayCnt++;
 			} else {
 				document.querySelector('.ins-tr-3-reservation-content').innerHTML += '<input type="hidden" value="' + i + '"><div class="reservation-data array' + arrayCnt + '"><div>' + reservationScheduleList[i].userName + '</div><div>' + reservationScheduleList[i].service
@@ -296,28 +305,60 @@ function renderReservationSchedule() {
 	}
 }
 
+// 예약 리스트 클릭
 function reservationClick(e) {
 
 	if (reservationClickArray != '') {
-		document.querySelector('.'+reservationClickArray).style.backgroundColor = '#FFF';
+		document.querySelector('.' + reservationClickArray).children[3].children[0].style.display = 'none';
+		document.querySelector('.' + reservationClickArray).style.backgroundColor = '#FFF';
 		for (let i = 0; i < reservationClickDate.length; i++) {
-		document.querySelector('.current.date' + reservationClickDate[i]).children[0].style.backgroundColor = '#FFF';
-		document.querySelector('.current.date' + reservationClickDate[i]).children[0].children[1].checked = false;
+			document.querySelector('.current.date' + reservationClickDate[i]).children[0].style.backgroundColor = '#FFF';
+			document.querySelector('.current.date' + reservationClickDate[i]).children[0].children[1].checked = false;
 		}
 	}
 
-	e.target.parentNode.style.backgroundColor = 'rgb(172, 246, 179)';
+	e.target.parentNode.children[3].children[0].style.display = 'flex';
+	e.target.parentNode.style.backgroundColor = 'rgba(138, 182, 255, 1)';
 	reservationClickArray = e.target.parentNode.classList[1];
 
 	for (let i = 0; i < reservationScheduleList[e.target.parentNode.previousSibling.value].dates.split(',').length; i++) {
-		document.querySelector('.current.date' + reservationScheduleList[e.target.parentNode.previousSibling.value].dates.split(',')[i]).children[0].style.backgroundColor = 'rgb(172, 246, 179)';
+		document.querySelector('.current.date' + reservationScheduleList[e.target.parentNode.previousSibling.value].dates.split(',')[i]).children[0].style.backgroundColor = 'rgba(138, 182, 255, 1)';
 		document.querySelector('.current.date' + reservationScheduleList[e.target.parentNode.previousSibling.value].dates.split(',')[i]).children[0].children[1].checked = true;
-		
+
 		reservationClickDate = reservationScheduleList[e.target.parentNode.previousSibling.value].dates.split(',')
 	}
 
 }
 
+// 예약리스트 선택
+function reservationSelect(e) {
+	reservationSelectArray = e.target.closest('.reservation-data').previousSibling.value
+
+	console.log(reservationScheduleList[reservationSelectArray]);
+
+	document.querySelector('.reservation-modal-title').innerHTML = reservationScheduleList[reservationSelectArray].userName + ' - ' + reservationScheduleList[reservationSelectArray].service;
+	document.querySelector('.reservation-modal-content-name').innerHTML = reservationScheduleList[reservationSelectArray].userName;
+	document.querySelector('.reservation-modal-content-addr').innerHTML = reservationScheduleList[reservationSelectArray].addr;
+
+	let datesFolding = '';
+	if (reservationScheduleList[reservationSelectArray].dates.split(',').length > 15) {
+		for (let i = 0; i < reservationScheduleList[reservationSelectArray].dates.split(',').length; i++) {
+			datesFolding += reservationScheduleList[reservationSelectArray].dates.split(',')[i] + ',';
+			if (i == 14) {
+				datesFolding += '<br>';
+			}
+		}
+		document.querySelector('.reservation-modal-content-book').innerHTML = reservationScheduleList[reservationSelectArray].year + '-' + reservationScheduleList[reservationSelectArray].month + '-' + datesFolding.slice(0, -1);
+	} else {
+		document.querySelector('.reservation-modal-content-book').innerHTML = reservationScheduleList[reservationSelectArray].year + '-' + reservationScheduleList[reservationSelectArray].month + '-' + reservationScheduleList[reservationSelectArray].dates;
+	}
+
+	document.querySelector('.reservation-modal-content-startpoint').innerHTML = reservationScheduleList[reservationSelectArray].startPlace;
+	document.querySelector('.reservation-modal-content-endpoint').innerHTML = reservationScheduleList[reservationSelectArray].endPlace;
+	document.querySelector('.reservation-modal-content-notice').innerHTML = reservationScheduleList[reservationSelectArray].applicant;
+
+
+}
 
 // 달력 일정 렌더링
 function renderSchedule() {
@@ -724,6 +765,9 @@ function rowScheduleDelete(a) {
 }
 
 window.onload = function() {
+	// 모달창 이동 추후 펑션화
+	document.querySelector('.reservation-modal').style.top = document.querySelector('.content-main-td').getBoundingClientRect().top + document.querySelector('.content-m-td-1').getBoundingClientRect().height / 2 + 'px';
+	document.querySelector('.reservation-modal').style.left = document.querySelector('.content-main-td').getBoundingClientRect().left + document.querySelector('.content-m-td-1').getBoundingClientRect().width / 4 + 'px';
 
 	getAllSchedule();
 
