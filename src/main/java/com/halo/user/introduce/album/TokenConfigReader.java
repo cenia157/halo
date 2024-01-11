@@ -1,6 +1,5 @@
 package com.halo.user.introduce.album;
 
-import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
@@ -23,7 +22,7 @@ public class TokenConfigReader {
                 System.out.println("프로퍼티 파일 경로 확인: " + configPath);
                 System.out.println("프로퍼티 파일이 존재하지 않거나 열 수 없습니다.");
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return apiToken;

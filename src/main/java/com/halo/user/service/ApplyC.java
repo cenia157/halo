@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.halo.main.MainpageDAO;
+
 @WebServlet("/ApplyC")
 public class ApplyC extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -18,7 +20,7 @@ public class ApplyC extends HttpServlet {
 	// 문자인코딩형식
 	request.setCharacterEncoding("UTF-8");
 	SeviceApplyDAO.apply(request);
-		
+//	MainpageDAO.getMdao().getAllHompage_common(request);
 	response.sendRedirect("ApplyRedirectC");
 	
 	

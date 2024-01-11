@@ -10,17 +10,19 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/AdminFAQC")
 public class AdminFAQC extends HttpServlet {
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		FAQDAO.getAllFAQ(request);
 		FAQDAO.FAQpagingAdmin(1, request);
-		
+
 		request.setAttribute("menu", "/admin/boardmanagement/frequenthyask_Test_JW/frequenthyaskContent.jsp");
 		request.getRequestDispatcher("admin/index.jsp").forward(request, response);
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		FAQDAO.getAllFAQ(request);
-		
+
 		request.setAttribute("menu", "/admin/boardmanagement/frequenthyask_Test_JW/frequenthyaskContent.jsp");
 		request.getRequestDispatcher("admin/index.jsp").forward(request, response);
 	}

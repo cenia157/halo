@@ -20,9 +20,14 @@ public class LoadFAQDetailContentC extends HttpServlet {
 		String jsonData = FAQDAO.FAQList(request, response); 
 		FAQDAO.FAQList(request, response);
 		
-	    // 응답의 Content-Type 설정
+
+		// UTF-8로 설정
+		response.setCharacterEncoding("utf-8");
+		// 응답의 Content-Type 설정
 	    response.setContentType("application/json");
 
+	    
+	    
 	    // 생성한 JSON 데이터를 클라이언트로 전송
 	    response.getWriter().write(jsonData);
 	    System.out.println("LoadFAQDetailContentC:" +jsonData);

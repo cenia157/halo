@@ -254,18 +254,35 @@ class MyUploadAdapter {
 	}
 } // end class
 
-	function MyCustomUploadAdapterPlugin(editor) {
-		editor.plugins.get("FileRepository").createUploadAdapter = (loader) => {
-			return new MyUploadAdapter(loader);
-		};
-	}
-	
-	ClassicEditor.create(document.querySelector("#classicNR"), {
-		extraPlugins: [MyCustomUploadAdapterPlugin],
+function MyCustomUploadAdapterPlugin(editor) {
+	editor.plugins.get("FileRepository").createUploadAdapter = (loader) => {
+		return new MyUploadAdapter(loader);
+	};
+}
+
+
+
+
+ClassicEditor.create(document.querySelector("#classicNR"), {
+	extraPlugins: [MyCustomUploadAdapterPlugin],
+})
+	.then((editor) => {
+		window.editor = editor;
 	})
-		.then((editor) => {
-			window.editor = editor;
-		})
-		.catch((error) => {
-			console.log(error);
-		});
+	.catch((error) => {
+		console.log(error);
+	});
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

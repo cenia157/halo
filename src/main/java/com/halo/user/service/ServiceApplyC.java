@@ -16,6 +16,7 @@ public class ServiceApplyC extends HttpServlet {
 	request.setAttribute("step1Pos", "#ffdf6c");
 	request.setAttribute("menu", "user/menu-index.jsp");
 	request.setAttribute("subMenu", "service/serviceApply/serviceApply.jsp");
+	MainpageDAO.getMdao().getAllHompage_common(request);
 	request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 
