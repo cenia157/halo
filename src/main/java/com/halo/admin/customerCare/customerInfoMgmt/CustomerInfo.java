@@ -9,16 +9,19 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.halo.admin.calender.reservation.ReservationDAO;
 
-@WebServlet("/CustomerInfoMgmtC")
-public class CustomerInfoMgmtC extends HttpServlet {
+@WebServlet("/CustomerInfo")
+public class CustomerInfo extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setAttribute("menu", "/admin/customerCare/customerInfoMgmt/customerInfoMgmt.jsp");
-		request.getRequestDispatcher("admin/index.jsp").forward(request, response);
+		
+		
+		CustomerInfoMgmtDAO.getAllCustomerInfo(request, response);
 	}
 
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+	
+	
 	}
 
 }
