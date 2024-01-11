@@ -42,6 +42,26 @@
 					<div class="day">SUN</div>
 				</div>
 				<div class="dates"></div>
+
+				<div class="reservation-modal">
+					<div class="reservation-modal-header">
+						<div class="reservation-modal-title">서비스유형</div>
+						<div class="reservation-modal-close"></div>
+					</div>
+					<div class="reservation-modal-content">
+						<div>이름</div>
+						<div>주소</div>
+						<div>날짜</div>
+						<div>출발지</div>
+						<div>출발주소</div>
+						<div>목적지</div>
+						<div>목적주소</div>
+						<div>예약내용</div>
+						<div>담당자</div>
+					</div>
+					<div class="reservation-modal-btn"></div>
+				</div>
+
 				<div class="date-modal">
 					<div class="date-modal-header">
 						<div class="date-modal-title"></div>
@@ -62,11 +82,14 @@
 					<div class="confirm-delete-content">
 						<div class="confirm-delete-content-announce">해당일정을 삭제하시겠습니까?</div>
 						<div class="confirm-delete-content-accept">
-						<div class="confirm-delete-agree" onclick="rowScheduleDelete('agree')">확인</div>
-						<div class="confirm-delete-disagree" onclick="rowScheduleDelete('disagree')">취소</div>
+							<div class="confirm-delete-agree"
+								onclick="rowScheduleDelete('agree')">확인</div>
+							<div class="confirm-delete-disagree"
+								onclick="rowScheduleDelete('disagree')">취소</div>
 						</div>
 					</div>
 				</div>
+
 			</div>
 			<form class="company-form" action="InsertCompanyC" method="post">
 				<div class="sec-ins">
@@ -107,8 +130,7 @@
 							<div>날짜</div>
 							<div></div>
 						</div>
-						<div class="ins-tr-3-reservation-content">
-						</div>
+						<div class="ins-tr-3-reservation-content"></div>
 						<div class="ins-tr-3-btn">
 							<button type="button" class="company-button"
 								onclick="insertCompanyC()">등록하기</button>

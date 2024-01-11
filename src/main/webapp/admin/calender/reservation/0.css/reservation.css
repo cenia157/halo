@@ -290,6 +290,14 @@ EDIT ON */
 	text-decoration: underline;
 }
 
+.reservation-modal {
+	position: absolute;
+	border-radius: 8px;
+	background: #fff;
+	box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.2), 0px 32px 64px 0px
+		rgba(0, 0, 0, 0.24);
+}
+
 .detail-schedule {
 	position: absolute;
 	width: 20%;
@@ -561,6 +569,7 @@ EDIT ON */
 	border-bottom: 1px solid rgba(255, 255, 255, 0.00);
 	background: #FFF;
 	box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.10);
+	display: flex;
 }
 
 .ins-tr-3-reservation-header div:first-child {
@@ -588,6 +597,8 @@ EDIT ON */
 .reservation-data {
 	display: flex;
 	width: 100%;
+	margin: 2% 0 2% 0;
+	background-color: #FFF;
 }
 
 .reservation-data div {
@@ -595,7 +606,7 @@ EDIT ON */
 	display: flex;
 	justify-content: center;
 	border-bottom: 1px solid rgba(255, 255, 255, 0.00);
-	background: #FFF;
+	/* 	background: #FFF; */
 	box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.10);
 }
 

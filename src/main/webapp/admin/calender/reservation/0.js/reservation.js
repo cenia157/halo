@@ -64,6 +64,12 @@ let selectDetailSchedule = new Array();
 let prevDate = '';
 let prevDay = '';
 
+// 예약리스트 클릭
+let reservationClickArray = '';
+
+// 예약리스트 클릭시 날짜
+let reservationClickDate = '';
+
 // 토글스위치
 let toggle = '';
 
@@ -145,7 +151,7 @@ function getAllSchedule() {
 
 			//
 			document.querySelector('.ins-tr-3-reservation-content').addEventListener("click", function(e) {
-				if (e.target.parentNode.className == 'reservation-data') {
+				if (e.target.parentNode.className.includes('reservation-data')) {
 					reservationClick(e);
 				}
 			})
@@ -271,25 +277,45 @@ function renderCalender(reservationScheduleList) {
 // 예약 일정 렌더링
 // 
 function renderReservationSchedule() {
+	let arrayCnt = 0;
 
 	for (let i = 0; i < reservationScheduleList.length; i++) {
 		if (reservationScheduleList[i].year == currentYear && reservationScheduleList[i].month == currentMonth + 1) {
 
 			let datesLength = reservationScheduleList[i].dates.split(',').length;
 			if (datesLength > 1) {
-				document.querySelector('.ins-tr-3-reservation-content').innerHTML += '<input type="hidden" value="' + i + '"><div class="reservation-data"><div>' + reservationScheduleList[i].userName + '</div><div>' + reservationScheduleList[i].service
+				document.querySelector('.ins-tr-3-reservation-content').innerHTML += '<input type="hidden" value="' + i + '"><div class="reservation-data array' + arrayCnt + '"><div>' + reservationScheduleList[i].userName + '</div><div>' + reservationScheduleList[i].service
 					+ '</div><div><input type="hidden" value="' + reservationScheduleList[i].dates + '">' + reservationScheduleList[i].year.slice(2) + '-' + reservationScheduleList[i].month + '-' + reservationScheduleList[i].dates.split(',')[0] + '...' + '</div><div><a>선택</a></div></div>'
+				arrayCnt++;
 			} else {
-				document.querySelector('.ins-tr-3-reservation-content').innerHTML += '<input type="hidden" value="' + i + '"><div class="reservation-data"><div>' + reservationScheduleList[i].userName + '</div><div>' + reservationScheduleList[i].service
+				document.querySelector('.ins-tr-3-reservation-content').innerHTML += '<input type="hidden" value="' + i + '"><div class="reservation-data array' + arrayCnt + '"><div>' + reservationScheduleList[i].userName + '</div><div>' + reservationScheduleList[i].service
 					+ '</div><div><input type="hidden" value="' + reservationScheduleList[i].dates + '">' + reservationScheduleList[i].year.slice(2) + '-' + reservationScheduleList[i].month + '-' + reservationScheduleList[i].dates + '</div><div><a>선택</a></div></div>'
+				arrayCnt++;
 			}
 		}
 	}
 }
 
 function reservationClick(e) {
-	reservationData = document.querySelector('.ins-tr-3-reservation-content');
-	console.log(document.querySelector('.ins-tr-3-reservation-content')); s
+
+	if (reservationClickArray != '') {
+		document.querySelector('.'+reservationClickArray).style.backgroundColor = '#FFF';
+		for (let i = 0; i < reservationClickDate.length; i++) {
+		document.querySelector('.current.date' + reservationClickDate[i]).children[0].style.backgroundColor = '#FFF';
+		document.querySelector('.current.date' + reservationClickDate[i]).children[0].children[1].checked = false;
+		}
+	}
+
+	e.target.parentNode.style.backgroundColor = 'rgb(172, 246, 179)';
+	reservationClickArray = e.target.parentNode.classList[1];
+
+	for (let i = 0; i < reservationScheduleList[e.target.parentNode.previousSibling.value].dates.split(',').length; i++) {
+		document.querySelector('.current.date' + reservationScheduleList[e.target.parentNode.previousSibling.value].dates.split(',')[i]).children[0].style.backgroundColor = 'rgb(172, 246, 179)';
+		document.querySelector('.current.date' + reservationScheduleList[e.target.parentNode.previousSibling.value].dates.split(',')[i]).children[0].children[1].checked = true;
+		
+		reservationClickDate = reservationScheduleList[e.target.parentNode.previousSibling.value].dates.split(',')
+	}
+
 }
 
 
