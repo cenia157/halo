@@ -13,10 +13,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class CheckboxPagingC extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		boolean completed = Boolean.parseBoolean(request.getParameter("completed"));
-		boolean uncompleted = Boolean.parseBoolean(request.getParameter("uncompleted"));
-		AskDAO.getAllQnCcheckbox(completed, uncompleted, request, response);
-		
 		int p = Integer.parseInt(request.getParameter("p"));
 		System.out.println("paging 결과: "+ p);
 		

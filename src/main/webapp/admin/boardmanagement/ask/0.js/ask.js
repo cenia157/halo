@@ -530,13 +530,35 @@ function refreshData(QnCs) {
 
     // 페이징 끝에 추가
     pagingcontainer.appendChild(pagingElement);
+
+	CheckboxPaging(QnCs);
 }
+
+function CheckboxPaging(QnCs){
+	console.log("checkboxPaging 전 콘솔: ",QnCs);
+	$.ajax({
+		url:"CheckboxPagingC",
+		method:"GET",
+		data:{
+			QnCs: QnCs
+		},
+		success:function(QnCs){
+			console.log("checkBoxPaging Success: ",QnCs);
+		},
+		error: function(xhr,status,error){
+			console.log("CheckboxPaging Error: ", xhr,status,error);
+		}
+		
+	});
+	
+}
+
 
 // 페이지 버튼 생성 함수
 function createPageButton(text, pageNo, isEnabled) {
     var button = document.createElement("button");
     var link = document.createElement("a");
-    link.href = "CheckboxPagingC?p=" + pageNo;
+    link.href = "CheckboxPagingC?p=" + pageNo; // 페이지 번호에 해당하는 URL 설정
     link.textContent = text;
     button.appendChild(link);
     if (!isEnabled) {
