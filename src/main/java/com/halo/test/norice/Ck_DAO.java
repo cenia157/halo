@@ -99,7 +99,7 @@ public class Ck_DAO {
 			String select = request.getParameter("select");
 			String txt = request.getParameter("txt");
 			String seq = request.getParameter("seq");
-			System.out.println( "seq : !!!!!!!!" + seq);
+			System.out.println( "seq : !!!!!!!!이게 딜리트c라고 되있긴한데 업데이트를 하고있음" + seq);
 			if (title != "" && txt != "" && select != null ) {
 
 				System.out.println("txt 구간(1) :::" + txt);

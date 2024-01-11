@@ -52,7 +52,7 @@ function closeModalR2(modalId, tblId) {
 	$('html, body').css({ 'overflow': 'auto', 'height': '100%' }); //scroll hidden 해제
 	$('#element').off('scroll touchmove mousewheel'); // 터치무브 및 마우스휠 스크롤 가능
 
-	
+
 
 	// input 초기화
 	var titleInputR = document.getElementById("real-title-editorN");
@@ -76,15 +76,15 @@ function closeModalR2(modalId, tblId) {
 
 
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
+
+
+
 }
 
 // 공통 함수: 모달 외부 클릭 시 닫기
@@ -400,130 +400,52 @@ function deleteQuestion(q_seq) {
 }
 
 
-
-
 //체크박스 제출
 $(document).ready(function() {
-	
-    // 체크박스의 change 이벤트를 감지
-    $('input[type="checkbox"]').change(function() {
-        // 체크박스가 변경되면 바로 폼을 제출
-        $('#checkbox').submit();
-    });
+	// 체크박스의 change 이벤트를 감지
+	$('input[type="checkbox"]').change(function() {
+		// 체크박스가 변경되면 바로 폼을 제출
+		$('#checkbox').submit();
+	});
 
-    // 폼 제출 시의 동작을 처리하는 함수
-    $('#checkbox').submit(function() {
-        // 폼이 제출될 때 수행할 동작 추가
-        console.log('Form submitted!');
-        // 추가로 필요한 로직을 여기에 작성
-        var checkboxData = [];
-        $('input[type="checkbox"]').each(function() {
-            checkboxData.push({
-                value: $(this).val(),
-                checked: $(this).prop('checked')
-            });
-        });
-        fetchData(checkboxData);
-        handleCheckBoxData(checkboxData);
-    });
+	// 폼 제출 시의 동작을 처리하는 함수
+	$('#checkbox').submit(function() {
+		// 폼이 제출될 때 수행할 동작 추가
+		console.log('Form submitted!');
+		// 추가로 필요한 로직을 여기에 작성
+		var checkboxData = [];
+		$('input[type="checkbox"]').each(function() {
+			checkboxData.push({
+				value: $(this).val(),
+				checked: $(this).prop('checked')
+			});
+		});
+		filterByCheckbox(checkboxData);
+
+		return true;
+	});
 });
 
-
-function fetchData(data){
+function filterByCheckbox(data) {
 	$.ajax({
 		url: "CheckboxC",
 		method: "POST",
+		dataType: "json",
 		data: {
 			completed: data.some(item => item.value === 'completed' && item.checked),
 			uncompleted: data.some(item => item.value === 'uncompleted' && item.checked)
 		},
-		success: function(responseData){
-//			console.log("responseData: ",responseData);
-			refreshData(responseData);
+		success: function(data) {
+			console.log("newQnCs: ", data);
+			eval(data); // 업데이트된 QnCs를 처리하는 스크립트 실행
 		},
-		error: function(xhr, status, error){
+		error: function(xhr, status, error) {
 			console.log("에러발생: ", xhr, status, error)
 		}
-	});	
-}
-
-function refreshData(QnCs) {
-    var container = document.getElementById("FOREACH_ASK");
-    container.innerHTML = ""; // 기존 내용 비우기
-    let curPageNo = 1;
-
-    // JSON 데이터 파싱
-    var QnCs = JSON.parse(QnCs);
-
-    // QnCs가 배열이 아니면 배열로 변환
-    if (!Array.isArray(QnCs)) {
-        QnCs = [];
-    }
-
-    // QnCs 데이터를 이용하여 화면 갱신
-    QnCs.forEach(function (item, index) {
-        // Date 객체로 변환
-        let qRegDate = new Date(item.q_reg_date);
-
-        // 날짜를 'YYYY-MM-DD' 형식으로 포맷
-        let formattedDate = qRegDate.toLocaleDateString('ja-JP', {year: 'numeric' , month: '2-digit', day: '2-digit'}).replace(/\//g, '-');
-
-        var newElement = document.createElement("div");
-        newElement.className = "ontent-m-td-2-content-txt-in";
-
-        newElement.innerHTML = `
-            <input type="hidden" name="q_seq" value="${item.q_seq}">
-            <div class="ontent-m-td-2-content-txt-no-in">
-                ${(index + 1) + (curPageNo - 1) * 8}
-            </div>
-            <div class="ontent-m-td-2-content-txt-kategorie-in">
-                ${item.c_answer === '1' ? '完' : '未'}
-            </div>
-            <div class="ontent-m-td-2-content-txt-title-in">
-                <a href="#" onclick="getData('${item.q_seq}');">${item.q_title}</a>
-            </div>
-            <div class="ontent-m-td-2-content-txt-writer-in">${item.q_name}</div>
-            <div class="ontent-m-td-2-content-txt-date-in">${formattedDate}</div>
-            <div class="ontent-m-td-2-content-txt-delete-in">
-                <a href="#" onclick="deleteQuestion('${item.q_seq}')">削除</a>
-            </div>
-        `;
-
-        container.appendChild(newElement);
-//        console.log("html 확인: ", newElement.outerHTML);
-    });
-}
-
-function handleCheckBoxData(data){
-	let newData = fetchData(data);
-	console.log("newData값: ", newData);
-	CheckboxPaging(newData.page, newData.completed, newData.uncompleted);
-	
-}
-
-function CheckboxPaging(p, completed, uncompleted){
-
-	$.ajax({
-		url: "CheckboxPagingC",
-		method: "GET",
-		data:{
-			p: p,
-			completed: completed,
-			uncompleted: uncompleted
-		},
-		success: function(data){
-			console.log("AJAX check box paging 성공: ",data);
-			
-		},
-		error: function(xhr, status, error){
-			console.log("페이징 Error: " , xhr, status, error);
-		}
-		
 	});
 
+
 }
-
-
 
 
 //FAQ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -604,30 +526,15 @@ function deleteFAQ(qa_seq) {
 }
 
 
-
-
-
-
-
-
-
-
-// 임시 notice 김진욱
-
-
-function getNOTICEDataV(an_seq, an_title, an_content, an_writer, an_reg_date, an_category) {
+	
+	function getNOTICEDataV(an_seq) {
 	console.log("an_seq: ", an_seq);
 
 	$.ajax({
 		url: "getNOTICEDetailC",
 		method: "post",
 		data: {
-			an_seq: an_seq,
-			an_title: an_title,
-			an_content: an_content,
-			an_writer: an_writer,
-			an_reg_date: an_reg_date,
-			an_categor: an_category
+			an_seq: an_seq
 		},
 
 		success: function(data) {
@@ -683,22 +590,14 @@ function getNOTICEDataV(an_seq, an_title, an_content, an_writer, an_reg_date, an
 						$('#kategorieR').html('상품');
 					}
 
-
-
 					let mmmmmmmm = document.getElementById('kategorieR');
 					let newInput = document.createElement("input");
-
-					alert(an_category)
 
 					newInput.type = "hidden";
 					newInput.value = an_category;
 					newInput.name = 'select';
 					newInput.id = 'myInputR';
 					mmmmmmmm.appendChild(newInput);
-
-
-
-
 
 					window.editor.setData(an_content);
 					openModalR();
@@ -781,3 +680,58 @@ function getNOTICEDataR(an_seq, an_title, an_content, an_writer, an_reg_date, an
 	})
 
 }
+
+function getNOTICEDataUpdateView(an_seq) {
+	console.log("an_seq: ", an_seq);
+
+	$.ajax({
+		url: "getNOTICEDetailC",
+		method: "post",
+		data: {
+			an_seq: an_seq
+		},
+
+		success: function(data) {
+
+			console.log("data: ", data);
+			console.log('수정후 이게 실행되야됨');
+			console.log("NOTICE 데이터 가져오기 성공");
+
+			if (Array.isArray(data) && data.length > 0) {
+				let an_seq = data[0].an_seq;
+				let an_title = data[0].an_title;
+				let an_content = data[0].an_content;
+				let an_writer = data[0].an_content;
+				console.log('111111111111111111111111111111111111111111');
+				console.log("qa_content: ", an_content);
+				console.log('111111111111111111111111111111111111111111');
+				let an_reg_date = data[0].an_reg_date;
+				let an_category = data[0].an_category;
+
+				$('#modal-seq').val(an_seq);
+				$('#real-title-V').html(an_title);
+				$('#Display-Category').html(an_category);
+				$('#modal-content-txt-in').html(an_content);
+				$('#real-title-editor').val(an_title);
+
+				openModalV();
+
+			}
+		}
+	})
+}
+
+	let updateSEQ = document.querySelector('#updateSEQ');
+	console.log('수정 안하면 이건 뭐가되냐?'+updateSEQ.value);
+	if(updateSEQ.value != null){
+	getNOTICEDataUpdateView(updateSEQ.value);
+	}
+
+
+
+
+
+
+
+
+// 임시 notice 김진욱
