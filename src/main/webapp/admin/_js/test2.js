@@ -400,8 +400,11 @@ function deleteQuestion(q_seq) {
 }
 
 
+
+
 //체크박스 제출
 $(document).ready(function() {
+	
     // 체크박스의 change 이벤트를 감지
     $('input[type="checkbox"]').change(function() {
         // 체크박스가 변경되면 바로 폼을 제출
@@ -420,32 +423,107 @@ $(document).ready(function() {
                 checked: $(this).prop('checked')
             });
         });
-        filterByCheckbox(checkboxData);
-        
-        return true;
+        fetchData(checkboxData);
+        handleCheckBoxData(checkboxData);
     });
 });
 
-function filterByCheckbox(data){
+
+function fetchData(data){
 	$.ajax({
 		url: "CheckboxC",
 		method: "POST",
-		dataType: "json",
 		data: {
 			completed: data.some(item => item.value === 'completed' && item.checked),
 			uncompleted: data.some(item => item.value === 'uncompleted' && item.checked)
 		},
-		success: function(data){
-			console.log("newQnCs: ", data);
-			eval(data); // 업데이트된 QnCs를 처리하는 스크립트 실행
+		success: function(responseData){
+//			console.log("responseData: ",responseData);
+			refreshData(responseData);
 		},
 		error: function(xhr, status, error){
 			console.log("에러발생: ", xhr, status, error)
 		}
-	});
-	
+	});	
+}
+
+function refreshData(QnCs) {
+    var container = document.getElementById("FOREACH_ASK");
+    container.innerHTML = ""; // 기존 내용 비우기
+    let curPageNo = 1;
+
+    // JSON 데이터 파싱
+    var QnCs = JSON.parse(QnCs);
+
+    // QnCs가 배열이 아니면 배열로 변환
+    if (!Array.isArray(QnCs)) {
+        QnCs = [];
+    }
+
+    // QnCs 데이터를 이용하여 화면 갱신
+    QnCs.forEach(function (item, index) {
+        // Date 객체로 변환
+        let qRegDate = new Date(item.q_reg_date);
+
+        // 날짜를 'YYYY-MM-DD' 형식으로 포맷
+        let formattedDate = qRegDate.toLocaleDateString('ja-JP', {year: 'numeric' , month: '2-digit', day: '2-digit'}).replace(/\//g, '-');
+
+        var newElement = document.createElement("div");
+        newElement.className = "ontent-m-td-2-content-txt-in";
+
+        newElement.innerHTML = `
+            <input type="hidden" name="q_seq" value="${item.q_seq}">
+            <div class="ontent-m-td-2-content-txt-no-in">
+                ${(index + 1) + (curPageNo - 1) * 8}
+            </div>
+            <div class="ontent-m-td-2-content-txt-kategorie-in">
+                ${item.c_answer === '1' ? '完' : '未'}
+            </div>
+            <div class="ontent-m-td-2-content-txt-title-in">
+                <a href="#" onclick="getData('${item.q_seq}');">${item.q_title}</a>
+            </div>
+            <div class="ontent-m-td-2-content-txt-writer-in">${item.q_name}</div>
+            <div class="ontent-m-td-2-content-txt-date-in">${formattedDate}</div>
+            <div class="ontent-m-td-2-content-txt-delete-in">
+                <a href="#" onclick="deleteQuestion('${item.q_seq}')">削除</a>
+            </div>
+        `;
+
+        container.appendChild(newElement);
+//        console.log("html 확인: ", newElement.outerHTML);
+    });
+}
+
+function handleCheckBoxData(data){
+	let newData = fetchData(data);
+	console.log("newData값: ", newData);
+	CheckboxPaging(newData.page, newData.completed, newData.uncompleted);
 	
 }
+
+function CheckboxPaging(p, completed, uncompleted){
+
+	$.ajax({
+		url: "CheckboxPagingC",
+		method: "GET",
+		data:{
+			p: p,
+			completed: completed,
+			uncompleted: uncompleted
+		},
+		success: function(data){
+			console.log("AJAX check box paging 성공: ",data);
+			
+		},
+		error: function(xhr, status, error){
+			console.log("페이징 Error: " , xhr, status, error);
+		}
+		
+	});
+
+}
+
+
 
 
 //FAQ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
