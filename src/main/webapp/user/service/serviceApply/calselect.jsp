@@ -32,9 +32,7 @@
 			<div class="header">
 					<button class="nav-btn go-prev" id="prev-button">&lt;先月</button>
 				<div class="year-month"></div>
-<!-- 				<div class="nav"> -->
 					<button class="nav-btn go-next" id="next-button">来月&gt;</button>
-<!-- 				</div> -->
 			</div>
 			<div class="main">
 				<div class="days">
@@ -55,25 +53,6 @@
 		</div>
 	</form>
 </body>
-<script>
-	// 페이지를 벗어났을 때 실행되는 이벤트 처리
-	window.onbeforeunload = function() {
-		// 'selectedService' 키에 해당하는 세션 스토리지 데이터 제거
-		sessionStorage.removeItem('selectedService');
-	}
-
-	function saveData() {
-		// 사용자가 입력한 데이터를 가져와서 Session Storage에 저장
-		var selectedService = sessionStorage.getItem('selectedService');
-
-		if (!selectedService) {
-			// 데이터가 없을 때 에러 메시지 표시
-			alert('데이터가 없습니다. 다시 입력해주세요!');
-			return; // 함수 종료
-		}
-
-		// 다음 페이지로 이동
-		window.location.href = 'CalselectC';
-	}
-</script>
+<script src="${pageContext.request.contextPath}/user/service/serviceApply/0.js/cal.js">
+          </script>
 </html>
