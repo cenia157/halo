@@ -12,7 +12,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
+import com.google.gson.Gson;
 import com.oreilly.servlet.MultipartRequest;import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 public class MainpageDAO {
@@ -200,13 +200,16 @@ public class MainpageDAO {
 	
 	//하단베너 업로드 ajax 미리보기 (멀티파트로 까서 어트리뷰트 넘겨주기만 하는 용도 DB는 변경버튼 누를때 업뎃메서드 사용예정)
 	public void uploadBanner(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		String savepath = request.getServletContext().getRealPath("user/upload_imgs/banner");
+		String savepath = request.getServletContext().getRealPath("user/upload_imgs/banner/");
 		MultipartRequest mr = new MultipartRequest(request, savepath, 1024*1024*20, "utf-8", new DefaultFileRenamePolicy());
-		
-		 String fileName = mr.getFilesystemName("banner_thumbnail1");
-		 System.out.println("업로드할 파일 :"+fileName);
-		 response.getWriter().write(fileName);
-
+		 
+		String fileName = mr.getFilesystemName("banner_thumbnail");
+		 System.out.println("업로드할 파일 :" + fileName);
+		 Gson gson = new Gson();
+		 gson.toJson(fileName);
+		 response.getWriter().print(fileName);
+		 System.out.println(fileName);
+		 
 		
 	}
 	
@@ -218,41 +221,47 @@ public class MainpageDAO {
 		String sql = "";
 		String paramName = "error";
 		String param = "등록 실패";
-		String savepath = request.getServletContext().getRealPath("user/upload_imgs/banner");
+//		String savepath = request.getServletContext().getRealPath("user/upload_imgs/banner");
 		
 		try {
-			
 			con = DBManagerhalo.connect();
-			MultipartRequest mr = new MultipartRequest(request, savepath, 1024*1024*20, "utf-8", new DefaultFileRenamePolicy());
-			String[] banner_menus = {mr.getParameter("banner_menu1"),mr.getParameter("banner_menu2"),mr.getParameter("banner_menu3")};
+			String[] banner_menus = {request.getParameter("banner_menu1"),request.getParameter("banner_menu2"),request.getParameter("banner_menu3")};
 			//하단베너3개 => for문 i = name뒤에 붙을 인덱스번호, 
-			 Enumeration<String> fileNames = mr.getFileNames();
 			for(int i = 0; i < 3; i++) {
-				if(banner_menus[i].equals("sales")) {
+				if( banner_menus[i] != null && banner_menus[i].equals("sales")) {
+					System.out.println("banner_menus[i] : " + banner_menus[i]);
 					sql = "update banner_test \r\n"
 							+ "set b_type = 2, b_m_name = 'sales', b_url = ?, b_m_text = ?, b_img_url = ? \r\n"
 							+ "where b_index = " + (i+1);
 					pstmt = con.prepareStatement(sql);
-					pstmt.setString(1, mr.getParameter("banner_url" + (i+1)));
-					pstmt.setString(2, mr.getParameter("banner_text" + (i+1)));
-					fileNames.hasMoreElements();
-					String fieldName = fileNames.nextElement();
-					pstmt.setString(3, mr.getFilesystemName(fieldName));
+					//상품사이트 url
+					pstmt.setString(1, request.getParameter("banner_url" + (i+1)));
+					System.out.println("배너url 파람 : " + request.getParameter("banner_url" + (i+1)));
+					
+					//상품명:ㅁㅁ
+					pstmt.setString(2, request.getParameter("banner_text" + (i+1)));
+					System.out.println("상품명 파람 : " + request.getParameter("banner_text" + (i+1)));
+					
+					//배너 썸네일 이미지 이름
+					pstmt.setString(3, request.getParameterValues("banner_thumbnail")[i]);
+					System.out.println("업뎃파일 : "+ request.getParameterValues("banner_thumbnail")[i]);
 //					System.out.println("업뎃 파일 :" + mr.getFilesystemName(mr.getFilesystemName(fieldName)));
 										
 				} else {
 					sql = "update banner_test \r\n"
 							+ "set b_type = 1, b_m_name = ?, b_url = (select m_servlet from menu_test where m_name = ?), b_m_text = (select m_text from menu_test where m_name = ?) \r\n"
 							+ "where b_index = " + (i+1);
+					
 					pstmt = con.prepareStatement(sql);
 					pstmt.setString(1, banner_menus[i]);
 					pstmt.setString(2, banner_menus[i]);
 					pstmt.setString(3, banner_menus[i]);
+					System.out.println("banner_menus[i] : " + banner_menus[i]);
 				}
 				if(pstmt.executeUpdate() > 0) {
-					System.out.println("bannerNo: " + i + "update Success");
+					System.out.println("bannerNo: " + i + "업뎃 성공");
 				} else {
-					System.out.println("bannerNo: " + i + "update Fail");
+					System.out.println("bannerNo: " + i + "업뎃 실패");
 				}
 			}
 			

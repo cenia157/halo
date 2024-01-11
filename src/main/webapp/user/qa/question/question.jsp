@@ -182,7 +182,7 @@
                       </a>
                     </c:when>
                     <c:otherwise>
-                      <button disabled><<</button>
+                      <button disabled style="cursor: default; background:white; visibility: hidden;"><<</button>
                     </c:otherwise>
                   </c:choose>
 
@@ -194,7 +194,7 @@
                       </a>
                     </c:when>
                     <c:otherwise>
-                      <button disabled>이전</button>
+                      <button disabled style="cursor: default; background:white; visibility: hidden;">前の</button>
                     </c:otherwise>
                   </c:choose>
 
@@ -253,7 +253,7 @@
                       </a>
                     </c:when>
                     <c:otherwise>
-                      <button disabled>다음</button>
+                      <button disabled style="cursor: default; background:white; visibility: hidden;">次の</button>
                     </c:otherwise>
                   </c:choose>
 
@@ -272,7 +272,7 @@
                       </a>
                     </c:when>
                     <c:otherwise>
-                      <button disabled>>></button>
+                      <button disabled style="cursor: default; background:white; visibility: hidden;">>></button>
                     </c:otherwise>
                   </c:choose>
                 </div>

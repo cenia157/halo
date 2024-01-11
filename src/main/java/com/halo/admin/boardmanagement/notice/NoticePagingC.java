@@ -17,7 +17,9 @@ public class NoticePagingC extends HttpServlet {
 		System.out.println(p);
 
 		NOTICEDAO.NOTICEpagingAdmin(p, request);
-		
+		 
+		request.setAttribute("seq", request.getParameter("seq"));
+		request.setAttribute("pageNum", p);
 		request.setAttribute("menu", "/admin/boardmanagement/notice/noticeContent.jsp");
 		request.getRequestDispatcher("admin/index.jsp").forward(request, response);
 	}
