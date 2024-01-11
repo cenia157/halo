@@ -60,7 +60,6 @@
 						<div class="content-service-txt-box-td">情報を入力してください。</div>
 
 					</li>
-					</li>
 
 					<li class="content-box-li" style="background-color: ${step5Pos}">
 
@@ -78,11 +77,9 @@
 				</ul>
 			</div>
 			<jsp:include page="${serviceStep }"></jsp:include>
-			
-<%-- 			<jsp:include page="calselect.jsp"></jsp:include> --%>
 		</div>
 	</div>
 </body>
-<script src="${pageContext.request.contextPath}/user/service/serviceApply/0.js/cal.js">
-          </script>
+<%-- <script src="${pageContext.request.contextPath}/user/service/serviceApply/0.js/cal.js"> --%>
+<!--           </script> -->
 </html>
