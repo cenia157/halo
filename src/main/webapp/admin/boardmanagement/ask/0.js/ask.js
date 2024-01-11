@@ -163,6 +163,9 @@ function closeModalNR() {
 	closeModal('myModalNR', 'myModal-tblNR');
 }
 
+//여기까지 모달 관련 function
+
+//여기부터 ask 관련 function
 
 //문의사항@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 function getData(q_seq, q_title, q_content, q_reg_date, q_contact_number, q_email, q_name, q_password, q_category) {
@@ -450,6 +453,7 @@ function refreshData(QnCs) {
     var container = document.getElementById("FOREACH_ASK");
     container.innerHTML = ""; // 기존 내용 비우기
     let curPageNo = 1;
+    let itemsPerPage = 8;
 
     // JSON 데이터 파싱
     var QnCs = JSON.parse(QnCs);
@@ -459,13 +463,19 @@ function refreshData(QnCs) {
         QnCs = [];
     }
 
-    // QnCs 데이터를 이용하여 화면 갱신
-    QnCs.forEach(function (item, index) {
-        // Date 객체로 변환
-        let qRegDate = new Date(item.q_reg_date);
+    // 페이징을 위한 변수 계산
+    let totalItems = QnCs.length;
+    let pageCount = Math.ceil(totalItems / itemsPerPage);
 
-        // 날짜를 'YYYY-MM-DD' 형식으로 포맷
-        let formattedDate = qRegDate.toLocaleDateString('ja-JP', {year: 'numeric' , month: '2-digit', day: '2-digit'}).replace(/\//g, '-');
+    // 현재 페이지에 표시할 아이템들을 가져옴
+    let startIndex = (curPageNo - 1) * itemsPerPage;
+    let endIndex = Math.min(startIndex + itemsPerPage, totalItems);
+    let displayedItems = QnCs.slice(startIndex, endIndex);
+
+    // QnCs 데이터를 이용하여 화면 갱신
+    displayedItems.forEach(function (item, index) {
+        let qRegDate = new Date(item.q_reg_date);
+        let formattedDate = qRegDate.toLocaleDateString('ja-JP', { year: 'numeric', month: '2-digit', day: '2-digit' }).replace(/\//g, '-');
 
         var newElement = document.createElement("div");
         newElement.className = "ontent-m-td-2-content-txt-in";
@@ -473,7 +483,7 @@ function refreshData(QnCs) {
         newElement.innerHTML = `
             <input type="hidden" name="q_seq" value="${item.q_seq}">
             <div class="ontent-m-td-2-content-txt-no-in">
-                ${(index + 1) + (curPageNo - 1) * 8}
+                ${(index + 1) + (curPageNo - 1) * itemsPerPage}
             </div>
             <div class="ontent-m-td-2-content-txt-kategorie-in">
                 ${item.c_answer === '1' ? '完' : '未'}
@@ -488,349 +498,49 @@ function refreshData(QnCs) {
             </div>
         `;
         container.appendChild(newElement);
-
-
-        //페이징 추가 시도
-        var pagingElement = document.createElement("div");
-    	pagingElement.className = "paging-div";
-        pagingElement.innerHTML =`
-		    var firstButton = document.createElement("button");
-		    if (curPageNo > 5) {
-		        var firstLink = document.createElement("a");
-		        firstLink.href = "AskPagingC?p=" + (curPageNo - 5);
-		        firstLink.appendChild(firstButton);
-		        pagingDiv.appendChild(firstLink);
-		    } else if (curPageNo <= 5 && curPageNo > 1) {
-		        var firstLink = document.createElement("a");
-		        firstLink.href = "AskPagingC?p=1";
-		        firstLink.appendChild(firstButton);
-		        pagingDiv.appendChild(firstLink);
-		    } else {
-		        firstButton.disabled = true;
-		        pagingDiv.appendChild(firstButton);
-		    }
-		
-		    // 이전 페이지로 가는 버튼
-		    var prevButton = document.createElement("button");
-		    if (curPageNo > 1) {
-		        var prevLink = document.createElement("a");
-		        prevLink.href = "AskPagingC?p=" + (curPageNo - 1);
-		        prevLink.appendChild(prevButton);
-		        pagingDiv.appendChild(prevLink);
-		    } else {
-		        prevButton.disabled = true;
-		        pagingDiv.appendChild(prevButton);
-		    }
-		
-		    // 페이지 번호 생성
-		    var startPage = Math.max(1, curPageNo - 2);
-		    var endPage = Math.min(curPageNo + 2, pageCount);
-		
-		    for (var i = startPage; i <= endPage; i++) {
-		        var pageButton = document.createElement("button");
-		        var pageLink = document.createElement("a");
-		        pageLink.href = "AskPagingC?p=" + i;
-		        pageLink.className = i === curPageNo ? 'page-number current-page' : 'page-number';
-		        pageLink.textContent = "[" + i + "]";
-		        pageLink.appendChild(pageButton);
-		        pagingDiv.appendChild(pageLink);
-		    }
-		
-		    // 다음 페이지로 가는 버튼
-		    var nextButton = document.createElement("button");
-		    if (curPageNo < pageCount) {
-		        var nextLink = document.createElement("a");
-		        nextLink.href = "AskPagingC?p=" + (curPageNo + 1);
-		        nextLink.appendChild(nextButton);
-		        pagingDiv.appendChild(nextLink);
-		    } else {
-		        nextButton.disabled = true;
-		        pagingDiv.appendChild(nextButton);
-		    }
-		
-		    // 마지막으로 가는 버튼
-		    var lastButton = document.createElement("button");
-		    if (curPageNo + 5 <= pageCount) {
-		        var lastLink = document.createElement("a");
-		        lastLink.href = "AskPagingC?p=" + (curPageNo + 5);
-		        lastLink.appendChild(lastButton);
-		        pagingDiv.appendChild(lastLink);
-		    } else if (curPageNo + 5 > pageCount && curPageNo < pageCount) {
-		        var lastLink = document.createElement("a");
-		        lastLink.href = "AskPagingC?p=" + pageCount;
-		        lastLink.appendChild(lastButton);
-		        pagingDiv.appendChild(lastLink);
-		    } else {
-		        lastButton.disabled = true;
-		        pagingDiv.appendChild(lastButton);
-		    }
-		
-		    // 페이징 끝에 추가
-		    document.body.appendChild(pagingDiv);
-		}
-        `;
-
-        container.appendChild(pagingElement);
-//        console.log("html 확인: ", newElement.outerHTML);
     });
+
+    // 페이징 추가 시도
+    var pagingElement = document.createElement("div");
+    pagingElement.className = "paging-div";
+    var pagingcontainer = document.getElementById("PAGING_ASK");
+    pagingcontainer.innerHTML = ""; // 기존 내용 비우기			
+
+    // 처음으로 가는 버튼
+    var firstButton = createPageButton("<<", curPageNo - 5, curPageNo > 5);
+    pagingElement.appendChild(firstButton);
+
+    // 이전 페이지로 가는 버튼
+    var prevButton = createPageButton("이전", curPageNo - 1, curPageNo > 1);
+    pagingElement.appendChild(prevButton);
+
+    // 페이지 번호 생성
+    for (var i = Math.max(1, curPageNo - 2); i <= Math.min(curPageNo + 2, pageCount); i++) {
+        var pageButton = createPageButton("[" + i + "]", i, i === curPageNo);
+        pagingElement.appendChild(pageButton);
+    }
+
+    // 다음 페이지로 가는 버튼
+    var nextButton = createPageButton("다음", curPageNo + 1, curPageNo < pageCount);
+    pagingElement.appendChild(nextButton);
+
+    // 마지막으로 가는 버튼
+    var lastButton = createPageButton(">>", curPageNo + 5, curPageNo + 5 <= pageCount);
+    pagingElement.appendChild(lastButton);
+
+    // 페이징 끝에 추가
+    pagingcontainer.appendChild(pagingElement);
 }
 
-
-
-
-
-//FAQ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-
-function getFAQData(qa_seq, qa_title, qa_content, qa_reg_date) {
-	console.log("qa_seq: ", qa_seq);
-
-	$.ajax({
-		url: "getFAQDetailC",
-		method: "post",
-		data: {
-			qa_seq: qa_seq,
-			qa_title: qa_title,
-			qa_content: qa_content,
-			qa_reg_date: qa_reg_date
-		},
-
-		success: function(data) {
-
-			console.log("data: ", data);
-			console.log("FAQ 데이터 가져오기 성공");
-
-
-			if (Array.isArray(data) && data.length > 0) {
-				let qa_seq = data[0].qa_seq;
-				let qa_title = data[0].qa_title;
-				let qa_content = data[0].qa_content;
-				console.log("qa_content: ", qa_content);
-				let qa_reg_date = data[0].qa_reg_date;
-
-				$('#modal-seq').val(qa_seq);
-				//				$('#classicNR_Title').val(qa_title);
-				//				이거 활성화하면 타이틀에 value로 들어가는 대신 placeholder로 들어가게 된다... 옵션
-				//				$('#real-title-editor').attr('placeholder', qa_title);	
-				$('#real-title-editor').val(qa_title);
-				$('#classicNR').html(qa_content);
-
-
-
-				// CKEditor에 데이터 설정
-				window.editor.setData(qa_content);
-
-				//				let classicNR = document.getElementById("classicNR");
-				//				classicNR.innerHTML = "나옴?";
-
-				openModalF();
-			}
-
-
-		},
-		error: function(xhr, status, error) {
-			console.log("FAQ 데이터 가져오기 실패");
-			console.log("error:", xhr, status, error);
-		}
-	})
-
-}
-
-function deleteFAQ(qa_seq) {
-	let ok = confirm("削除しますか?");
-	if (ok) {
-		console.log(qa_seq);
-		$.ajax({
-			url: 'DeleteFAQC',
-			method: 'POST',
-			data: {
-				qa_seq: qa_seq
-			},
-			success: function() {
-				console.log("FAQ 삭제성공");
-				location.reload();
-			},
-			error: function(xhr, status, error) {
-				console.log("삭제 error: ", xhr, status, error);
-			}
-		});
-	}
-}
-
-
-
-
-
-
-
-
-
-
-// 임시 notice 김진욱
-
-
-function getNOTICEDataV(an_seq, an_title, an_content, an_writer, an_reg_date, an_category) {
-	console.log("an_seq: ", an_seq);
-
-	$.ajax({
-		url: "getNOTICEDetailC",
-		method: "post",
-		data: {
-			an_seq: an_seq,
-			an_title: an_title,
-			an_content: an_content,
-			an_writer: an_writer,
-			an_reg_date: an_reg_date,
-			an_categor: an_category
-		},
-
-		success: function(data) {
-
-			console.log("data: ", data);
-			console.log("NOTICE 데이터 가져오기 성공");
-
-
-			if (Array.isArray(data) && data.length > 0) {
-				let an_seq = data[0].an_seq;
-				let an_title = data[0].an_title;
-				let an_content = data[0].an_content;
-				let an_writer = data[0].an_content;
-				console.log('111111111111111111111111111111111111111111');
-				console.log("qa_content: ", an_content);
-				console.log('111111111111111111111111111111111111111111');
-				let an_reg_date = data[0].an_reg_date;
-				let an_category = data[0].an_category;
-
-
-				//				$('#classicNR_Title').val(qa_title);
-				//				이거 활성화하면 타이틀에 value로 들어가는 대신 placeholder로 들어가게 된다... 옵션
-				//				$('#real-title-editor').attr('placeholder', qa_title);	
-				$('#modal-seq').val(an_seq);
-				$('#real-title-V').html(an_title);
-				$('#Display-Category').html(an_category);
-				$('#modal-content-txt-in').html(an_content);
-				$('#real-title-editor').val(an_title);
-
-
-				document.getElementById('aaaaaaaaaaaaaaaaaaaaaaaaaa').onclick = function() {
-
-					//alert(document.getElementById('real-title-editor').innerHTML(an_title))
-					//document.getElementById('real-title-editor').value = an_title;
-
-					$('#real-title-editorN').val(an_title);
-					$('#CCCCCCCCCCCC').html(an_category);
-					// 여기에 CK-editor에 값을 표시하고싶어
-					$('#classicR').html(an_content);
-					window.editorR.setData(an_content);
-					$('#kategorieR').html(an_category);
-					$('#seq').val(an_seq);
-
-					if (an_category == 'announcement') {
-						$('#kategorieR').html('안내');
-					} else if (an_category == 'schedule') {
-						$('#kategorieR').html('스케줄');
-					} else if (an_category == 'general') {
-						$('#kategorieR').html('일반');
-					} else if (an_category == 'service') {
-						$('#kategorieR').html('서비스');
-					} else if (an_category == 'product') {
-						$('#kategorieR').html('상품');
-					}
-
-
-
-					let mmmmmmmm = document.getElementById('kategorieR');
-					let newInput = document.createElement("input");
-
-					alert(an_category)
-
-					newInput.type = "hidden";
-					newInput.value = an_category;
-					newInput.name = 'select';
-					newInput.id = 'myInputR';
-					mmmmmmmm.appendChild(newInput);
-
-
-
-
-
-					window.editor.setData(an_content);
-					openModalR();
-
-
-				};
-
-
-				openModalV();
-			} else {
-				console.log("NOTICE 데이터 가져오기 성공");
-			}
-
-
-		},
-		error: function(xhr, status, error) {
-			console.log("NOTICE 데이터 가져오기 실패");
-			console.log("error:", xhr, status, error);
-		}
-	})
-
-}
-
-
-
-
-function getNOTICEDataR(an_seq, an_title, an_content, an_writer, an_reg_date, an_category) {
-	console.log("an_seq: ", an_seq);
-
-	$.ajax({
-		url: "getNOTICEDetailC",
-		method: "post",
-		data: {
-			an_seq: an_seq,
-			an_title: an_title,
-			an_content: an_content,
-			an_writer: an_writer,
-			an_reg_date: an_reg_date,
-			an_categor: an_category
-		},
-
-		success: function(data) {
-
-			console.log("data: ", data);
-			console.log("NOTICE 데이터 가져오기 성공");
-
-
-			if (Array.isArray(data) && data.length > 0) {
-				let an_seq = data[0].an_seq;
-				let an_title = data[0].an_title;
-				let an_content = data[0].an_content;
-				let an_writer = data[0].an_content;
-				console.log('111111111111111111111111111111111111111111');
-				console.log("qa_content: ", an_content);
-				console.log('111111111111111111111111111111111111111111');
-				let an_reg_date = data[0].an_reg_date;
-				let an_category = data[0].an_category;
-
-
-				$('#modal-seq').val(an_seq);
-				//				$('#classicNR_Title').val(qa_title);
-				//				이거 활성화하면 타이틀에 value로 들어가는 대신 placeholder로 들어가게 된다... 옵션
-				//				$('#real-title-editor').attr('placeholder', qa_title);	
-
-
-
-
-
-				openModalR();
-			} else {
-				console.log("NOTICE 데이터 가져오기 성공");
-			}
-
-
-		},
-		error: function(xhr, status, error) {
-			console.log("NOTICE 데이터 가져오기 실패");
-			console.log("error:", xhr, status, error);
-		}
-	})
-
+// 페이지 버튼 생성 함수
+function createPageButton(text, pageNo, isEnabled) {
+    var button = document.createElement("button");
+    var link = document.createElement("a");
+    link.href = "CheckboxPagingC?p=" + pageNo;
+    link.textContent = text;
+    button.appendChild(link);
+    if (!isEnabled) {
+        button.disabled = true;
+    }
+    return button;
 }

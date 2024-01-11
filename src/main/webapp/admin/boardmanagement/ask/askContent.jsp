@@ -13,7 +13,7 @@
 	href="admin/boardmanagement/ask/0.css/ask.css" />
 <link rel="stylesheet" href="admin/0.css/test copy.css" />
 
-<script src="admin/_js/test2.js"></script>
+<script src="admin/boardmanagement/ask/0.js/ask.js"></script>
 <script src="admin/_js/test.js"></script>
 
 </head>

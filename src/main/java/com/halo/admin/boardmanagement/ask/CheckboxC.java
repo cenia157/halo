@@ -20,7 +20,7 @@ public class CheckboxC extends HttpServlet {
 		boolean completed = Boolean.parseBoolean(request.getParameter("completed"));
 		boolean uncompleted = Boolean.parseBoolean(request.getParameter("uncompleted"));
 		AskDAO.getAllQnCcheckbox(completed, uncompleted, request, response);
-		AskDAO.QpagingAdmin(1, request);
+//		AskDAO.QpagingAdmin(1, request);
 		// QnCs를 JSON으로 변환
 		ObjectMapper objectMapper = new ObjectMapper();
 		String jsonQnCs = objectMapper.writeValueAsString(request.getAttribute("QnCs"));
