@@ -18,7 +18,6 @@
 <script type="text/javascript">
 function deleteQuestion(n) {
 	let password = prompt("削除しますか?\n パスワードを入力してください。");
-	document.getElementById("prompt").title = "削除確認";
 	if (password === "${QnC.q_password}") {
 		location.href= "QuestionDeleteC?q_seq=" + n;
 	} else {
