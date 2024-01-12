@@ -16,6 +16,9 @@ public class BannerUpdateC extends HttpServlet {
 		//getAll로 DTO깐거 가져옴
 		MainpageDAO.getMdao().getAllHompage_common(request);
 		//업뎃 메소드
+		request.getParameter("selectedOption");
+		request.getParameter("url");
+		request.getParameter("pdName");
 		MainpageDAO.getMdao().updateBanner(request);
 		response.sendRedirect("BannerUploadC");
 		System.out.println("업뎃 지나감~~");

@@ -169,7 +169,7 @@
 			</div>
 		</div>
 		<div class="content-button">
-		<button id="banner_btn_submit" onclick="submitBannerData()">변경</button>
+		<button id="banner_btn_submit" onclick="submitBannerData(1)">변경</button>
 		</div>
 		</div>
 		
