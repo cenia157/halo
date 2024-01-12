@@ -40,9 +40,9 @@ regBtn.addEventListener("click", function(event) {
 			var iskategorieValid = true;
 		}
 	}
-	// 여기서 제목, 카테고리, 내용입력 둘다 만족할 경우 모달창이 닫히도록 함
+
 	if (isTitleValid && isTxtValid && iskategorieValid) {
-		closeModalNR();
+		closeModal('.modal-background ', '#myModal-tblNR');
 	}
 
 	console.log("--------------------");
@@ -67,7 +67,7 @@ regBtn.addEventListener("click", function(event) {
 		.catch((error) => {
 			console.error("POST 요청 실패:", error);
 		});
-}); // regBtn.addEventListener("click", function(event) {
+}); 
 
 
 
@@ -205,15 +205,5 @@ regBtn.addEventListener("click", function(event) {
             });
         }); //(".ck-content").on("click keydown", function (e) {
 
-//		$('.real-title-editor').on('keydown', function(e) {
-//		  console.log('ㅋㅋㅋㅋ');
-//		  let inputText = e.target.value;
-//		  
-//		  inputText = inputText.replace(/</g, '&lt;');
-//		 
-//		  inputText = inputText.replace(/>/g, '&gt;');
-//		  
-//		  e.target.value = inputText;
-//		});
-		
+	
       }); // $(document).ready(function(){

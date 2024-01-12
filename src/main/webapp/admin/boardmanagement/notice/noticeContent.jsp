@@ -51,8 +51,6 @@
 		<div class="ontent-m-td-2-bottom">
 			<div class="ontent-m-td-2-page-side"></div>
 			<div class="ontent-m-td-2-page-center">
-
-				<!-- 					페이징처리 해야할 부분 -->
 				<!--페이징시작 -->
 				<div class="paging-div">
 					<!-- 처음으로 가는 버튼 -->
@@ -153,11 +151,6 @@
 					</c:choose>
 				</div>
 				<!-- 페이징끝 -->
-
-
-
-
-
 			</div>
 			<div class="ontent-m-td-2-page-side">
 				<button class="SubmitButton-content" onclick="openModalNR()">등록하기</button>
