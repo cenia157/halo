@@ -14,20 +14,7 @@
 	<div class="content-checkBoxDiv">
 		<div class="content-monthSelectDiv">
 			<input type="month" id="monthSelect">
-<!-- 			<select id="monthSelect"> -->
-<!-- 				<option value="2024-01">2024-01</option> -->
-<!-- 				<option value="2024-02">2024-02</option> -->
-<!-- 				<option value="2024-03">2024-03</option> -->
-<!-- 				<option value="2024-04">2024-04</option> -->
-<!-- 				<option value="2024-05">2024-05</option> -->
-<!-- 				<option value="2024-06">2024-06</option> -->
-<!-- 				<option value="2024-07">2024-07</option> -->
-<!-- 				<option value="2024-08">2024-08</option> -->
-<!-- 				<option value="2024-09">2024-09</option> -->
-<!-- 				<option value="2024-10">2024-10</option> -->
-<!-- 				<option value="2024-11">2024-11</option> -->
-<!-- 				<option value="2024-12">2024-12</option> -->
-<!-- 			</select> -->
+
 		</div>
 
 	</div>
@@ -51,21 +38,5 @@
 	</div>
 	<!--  -->
 </body>
-<script type="text/javascript">
-	let titleDiv = document.querySelector('.content-m-td-title');
-	titleDiv.innerText = '顧客データ管理';
 
-	// window.addEventListener('load', function () {
-	// 	  const dataWrapDiv = document.querySelector('.content-dataWrapDiv');
-	// 	  const columnNameWrapDiv = document.querySelector('.content-columnNameWrapDiv');
-
-	// 	  if (dataWrapDiv.scrollHeight > dataWrapDiv.clientHeight) {
-	// 	    // 스크롤바가 존재하는 경우
-	// 	    columnNameWrapDiv.style.width = '98.85%';
-	// 	  } else {
-	// 	    // 스크롤바가 없는 경우
-	// 	    columnNameWrapDiv.style.width = '100%';
-	// 	  }
-	// 	});
-</script>
 </html>

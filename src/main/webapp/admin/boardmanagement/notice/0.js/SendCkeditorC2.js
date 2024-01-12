@@ -5,6 +5,7 @@ regBtnR.addEventListener("click", function(event) {
 	let ckFormR = document.querySelector("#ck-formR");
 	let seq = document.querySelector('#seq').value;
 	let pageNum = document.querySelector('#pageNum');
+	var checkVal = document.getElementsByName('checkVal')[0];
 	const content = window.editorR.getData();
 	const formDataR = new FormData(ckFormR);
 	formDataR.set("txt", content);
@@ -66,7 +67,7 @@ regBtnR.addEventListener("click", function(event) {
 		.then((data) => {
 			console.log("POST 요청 성공:", data);
 			console.log(CkeditorC123);
-			location.href ='NoticePagingC?p='+pageNum.value+'&seq='+seq;
+			location.href ='NoticePagingC?p='+pageNum.value+'&seq='+seq+"&checkVal="+checkVal.value;
 		})
 		.catch((error) => {
 			console.error("POST 요청 실패:", error);

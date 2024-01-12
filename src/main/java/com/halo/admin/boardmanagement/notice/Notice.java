@@ -11,10 +11,6 @@ public class Notice {
 	private Date an_reg_date;
 	private String an_category;
 
-	public Notice() {
-		// TODO Auto-generated constructor stub
-	}
-
 	public Notice(int an_seq, String an_title, String an_content, String an_writer, Date an_reg_date,
 			String an_category) {
 		super();

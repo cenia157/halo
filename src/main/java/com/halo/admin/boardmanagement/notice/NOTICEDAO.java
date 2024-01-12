@@ -4,33 +4,38 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Iterator;
 
-import javax.security.auth.message.callback.PrivateKeyCallback.Request;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.halo.admin.boardmanagement.ask.QuestionNComment;
-import com.halo.admin.boardmanagement.frequenthyask.FAQ;
-import com.halo.main.DBManagerhalo;
 import com.halo.test.DBManagerhalo_JW;
-import com.halo.test.DBManagerhalo_YJ;
 
 public class NOTICEDAO {
 
 	private static ArrayList<Notice> NOTICEs;
 
 	public static void getAllNOTICE(HttpServletRequest request, HttpServletResponse response) {
-
+		// 체크박스 벨류
+		String checkBoxVal[] = {"announcement","schedule","general","service","product"};
+		String checkVal = request.getParameter("checkVal");
+		System.out.println(checkVal+"체크벨이요");
+		
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "select * from ANNOUNCED_TBL order by an_seq ASC";
-
+		String sql = "select * from ANNOUNCED_TBL where ";
+		for (int i = 0; i < checkVal.length(); i++) {
+			int checkValIndex = Integer.parseInt(Character.toString(checkVal.charAt(i)));
+			sql += "an_category = '" + checkBoxVal[checkValIndex]+"' ";
+			if(i != checkVal.length()-1) {
+				sql += " or ";
+			}
+		}
+		sql += " order by an_seq ASC";
+		System.out.println(sql);
 		try {
 			con = DBManagerhalo_JW.connect();
 			pstmt = con.prepareStatement(sql);
@@ -52,7 +57,6 @@ public class NOTICEDAO {
 			}
 
 			request.setAttribute("NOTICEs", NOTICEs);
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -96,7 +100,6 @@ public class NOTICEDAO {
 
 				NOTICEList.add(notice);
 			}
-
 			ObjectMapper objectMapper = new ObjectMapper();
 			jsonresult = objectMapper.writeValueAsString(NOTICEList);
 
@@ -105,7 +108,6 @@ public class NOTICEDAO {
 		} finally {
 			DBManagerhalo_JW.close(con, pstmt, rs);
 		}
-
 		return jsonresult;
 
 	}
@@ -116,26 +118,50 @@ public class NOTICEDAO {
 		int cnt = 8;
 		int total = NOTICEs.size();
 		int pageCount = (int) Math.ceil((double) total / cnt);
-		request.setAttribute("pageCount", pageCount);
-
+		if(pageCount < page ) {
+			page = pageCount;
+		}
+			
+			request.setAttribute("pageCount", pageCount);
+		
+		
 		int start = total - (cnt * (page - 1));
 
 		int end = (page == pageCount) ? -1 : start - (cnt + 1);
 
 		ArrayList<Notice> items = new ArrayList<Notice>();
-
-		for (int i = start - 1; i > end; i--) {
-			items.add(NOTICEs.get(i));
+		if(NOTICEs.size() != 0) {
+			for (int i = start - 1; i > end; i--) {
+				items.add(NOTICEs.get(i));
+			}
 		}
 		request.setAttribute("curPageNo", page);
 		request.setAttribute("NOTICEs", items);
 
 	}
 
-	
-	
-	
-	
-	
-	
+	public static void realDeleteNotice(HttpServletRequest request) {
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		String sql = "delete announced_tbl where an_seq = ?"; 
+		
+		try {
+			con = DBManagerhalo_JW.connect();
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, request.getParameter("an_seq"));
+			
+			if(pstmt.executeUpdate() == 1) {
+				System.out.println("realDeleteNotice() 삭제 성공!!!");
+			}
+
+		} catch (Exception e) {
+			System.out.println("realDeleteNotice() 삭제 실패");
+			e.printStackTrace();
+		} finally {
+			DBManagerhalo_JW.close(con, pstmt, null);
+	    } // finally
+		
+		
+	}
 }
