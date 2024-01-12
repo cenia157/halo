@@ -1,5 +1,5 @@
 CREATE TABLE reservation_information (
-    sa_seq number(5) NOT NULL,
+    sa_seq number(5) PRIMARY KEY,
     sa_applicant varchar2(20 char) NULL,
     sa_phone_number VARCHAR2(20 char) NOT NULL,
     sa_user_name varchar2(20 char) NOT NULL,

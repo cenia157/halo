@@ -9,8 +9,7 @@
 <link
 	href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular"
 	rel="stylesheet" />
-<!-- <script type="text/javascript" -->
-<%-- 	src="${pageContext.request.contextPath}/user/service/serviceApply/0.js/cal.js"></script> --%>
+
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/user/service/serviceApply/0.css/seviceapply.css" />
 </head>
@@ -60,7 +59,6 @@
 						<div class="content-service-txt-box-td">情報を入力してください。</div>
 
 					</li>
-					</li>
 
 					<li class="content-box-li" style="background-color: ${step5Pos}">
 
@@ -78,11 +76,8 @@
 				</ul>
 			</div>
 			<jsp:include page="${serviceStep }"></jsp:include>
-			
-<%-- 			<jsp:include page="calselect.jsp"></jsp:include> --%>
 		</div>
 	</div>
 </body>
-<script src="${pageContext.request.contextPath}/user/service/serviceApply/0.js/cal.js">
-          </script>
+
 </html>

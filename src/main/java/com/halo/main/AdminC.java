@@ -29,12 +29,14 @@ public class AdminC extends HttpServlet {
 			} else if (request.getParameter("link").equals("8")) {
 				menu = "/admin/calender/company/companyContent";
 			} else if (request.getParameter("link").equals("9")) {
-				menu = "qa/question/question";
+				menu = "/admin/calender/reservation/reservationContent";
 			} else if (request.getParameter("link").equals("10")) {
 				menu = "qa/question/questionDetail";
 			} else if (request.getParameter("link").equals("11")) {
 				menu = "/admin/customerCare/stats/stats2";
-			}
+			}else if (request.getParameter("link").equals("13")) {
+			menu = "/admin/manager/staff/staffContent";
+			} 
 			request.setAttribute("menu", menu + ".jsp");
 			request.getRequestDispatcher("admin/index.jsp").forward(request, response);
 

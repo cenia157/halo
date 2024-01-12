@@ -135,10 +135,6 @@ function MyCustomUploadAdapterPlugin(editor) {
 }
 
 
-
-
-
-
 ClassicEditor.create(document.querySelector("#classicR"), {
 	extraPlugins: [MyCustomUploadAdapterPlugin],
 })

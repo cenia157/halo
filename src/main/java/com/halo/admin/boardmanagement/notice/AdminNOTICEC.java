@@ -14,7 +14,7 @@ public class AdminNOTICEC extends HttpServlet {
 			throws ServletException, IOException {
 		NOTICEDAO.getAllNOTICE(request, response);
 		NOTICEDAO.NOTICEpagingAdmin(1, request);
-
+		
 		request.setAttribute("menu", "/admin/boardmanagement/notice/noticeContent.jsp");
 		request.getRequestDispatcher("admin/index.jsp").forward(request, response);
 	}

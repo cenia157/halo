@@ -14,7 +14,7 @@ public class AskPagingC extends HttpServlet {
 		AskDAO.getAllQnC(request, response);
 
 		int p = Integer.parseInt(request.getParameter("p"));
-		System.out.println(p);
+		System.out.println("ASK paging: " + p);
 
 		AskDAO.QpagingAdmin(p, request);
 		

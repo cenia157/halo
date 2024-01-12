@@ -58,19 +58,19 @@
 		</div>
 	<div class="ontent-m-td-2-bottom">
 		<div class="ontent-m-td-2-page-side"></div>
-		<div class="ontent-m-td-2-page-center">
+		<div class="ontent-m-td-2-page-center" id="PAGING_ASK">
 			<!-- 					페이징처리 해야할 부분 -->
 					                <!--페이징시작 -->
                 <div class="paging-div">
                   <!-- 처음으로 가는 버튼 -->
                   <c:choose>
                     <c:when test="${curPageNo > 5}">
-                      <a href="AskPagingC?p=${curPageNo - 5}">
+                      <a href="CheckboxPagingC?p=${curPageNo - 5}">
                         <button><<</button>
                       </a>
                     </c:when>
                     <c:when test="${curPageNo <= 5 && curPageNo > 1}">
-                      <a href="AskPagingC?p=1">
+                      <a href="CheckboxPagingC?p=1">
                         <button><<</button>
                       </a>
                     </c:when>
@@ -82,7 +82,7 @@
                   <!-- 이전 페이지로 가는 버튼 -->
                   <c:choose>
                     <c:when test="${curPageNo > 1}">
-                      <a href="AskPagingC?p=${curPageNo - 1}">
+                      <a href="CheckboxPagingC?p=${curPageNo - 1}">
                         <button>이전</button>
                       </a>
                     </c:when>
@@ -130,7 +130,7 @@
                     />
 					<!-- 버튼 모양 결정 -->
                     <a
-                      href="AskPagingC?p=${pageNumber}"
+                      href="CheckboxPagingC?p=${pageNumber}"
                       class="page-number ${currentPageClass}"
                       >
                       [ ${pageNumber} ]
@@ -141,7 +141,7 @@
                   <!-- 다음 페이지로 가는 버튼 -->
                   <c:choose>
                     <c:when test="${curPageNo < pageCount}">
-                      <a href="AskPagingC?p=${curPageNo + 1}">
+                      <a href="CheckboxPagingC?p=${curPageNo + 1}">
                         <button>다음</button>
                       </a>
                     </c:when>
@@ -153,14 +153,14 @@
                   <!-- 마지막으로 가는 버튼 -->
                   <c:choose>
                     <c:when test="${curPageNo + 5 <= pageCount}">
-                      <a href="AskPagingC?p=${curPageNo + 5}">
+                      <a href="CheckboxPagingC?p=${curPageNo + 5}">
                         <button>>></button>
                       </a>
                     </c:when>
                     <c:when
                       test="${curPageNo + 5 > pageCount && curPageNo < pageCount}"
                     >
-                      <a href="AskPagingC?p=${pageCount}">
+                      <a href="CheckboxPagingC?p=${pageCount}">
                         <button>>></button>
                       </a>
                     </c:when>
@@ -176,55 +176,7 @@
 	</div>
 </body>
 
-<script src="admin/_js/test2.js"></script>
+<script src="admin/ask/0.js/ask.js"></script>
 <script src="admin/_js/test.js"></script>
-<script>
-    // QnCs를 업데이트하는 함수
-    function updateQnCs(data) {
-        // QnCs 업데이트
-        QnCs = data;
 
-        // HTML 컨테이너 업데이트
-        var container = document.getElementById("FOREACH_ASK");
-        container.innerHTML = ""; // 컨테이너 비우기
-
-        // 데이터를 순회하면서 HTML 엘리먼트 추가
-        data.forEach(function(item, index) {
-            var newElement = document.createElement("div");
-            newElement.className = "ontent-m-td-2-content-txt-in";
-
-            // 데이터를 HTML에 추가하는 로직 작성
-            newElement.innerHTML = `
-                <input hidden="1" name="q_seq" value="${item.q_seq}">
-                <div class="ontent-m-td-2-content-txt-no-in">
-                    ${(index + 1) + (curPageNo - 1) * 8}
-                </div>
-                <div class="ontent-m-td-2-content-txt-kategorie-in">
-                    <c:choose>
-                        <c:when test="${item.c_answer eq '1'}">
-                            完
-                        </c:when>
-                        <c:otherwise>
-                            未
-                        </c:otherwise>
-                    </c:choose>
-                </div>
-                <div class="ontent-m-td-2-content-txt-title-in">
-                    <a onclick="getData('${item.q_seq}');">${item.q_title}</a>
-                </div>
-                <div class="ontent-m-td-2-content-txt-writer-in">${item.q_name}</div>
-                <div class="ontent-m-td-2-content-txt-date-in">${item.q_reg_date}</div>
-                <div class="ontent-m-td-2-content-txt-delete-in">
-                    <a onclick="deleteQuestion(${item.q_seq})">削除</a>
-                </div>`;
-
-            container.appendChild(newElement);
-        });
-
-        console.log("QnCs 업데이트 완료:", QnCs);
-
-        // 추가로 필요한 로직 추가
-        // 예: 특정 동작 수행, 화면 갱신 등
-    }
-</script>
 </html>

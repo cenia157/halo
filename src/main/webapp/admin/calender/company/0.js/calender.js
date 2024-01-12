@@ -378,21 +378,29 @@ function expandSchedule(e) {
 // 일정 디테일 모달 출력
 function getScheduleDetailModal(e, directDetail) {
 	let addLeft = '';
-
+	let zIndex = 0;
+	
 	if (directDetail) {
 		addLeft = (e.target.getBoundingClientRect().width / 2);
 		dateDivValue = e.target.children[0].value
-		console.log(dateDivValue);
 		arrayNumber = e.target.className.match(/array(\d+)/)[1];
 	} else {
 		addLeft = (document.querySelector('.getScheduleDetail').getBoundingClientRect().width / 2);
 		dateDivValue = e.target.previousSibling.previousSibling.value;
-		console.log(dateDivValue);
 		arrayNumber = e.target.closest('.date-modal').className.match(/array(\d+)/)[1];
 	}
 
-	document.querySelector('.detail-schedule').style.left = e.target.getBoundingClientRect().left + addLeft + 'px'; //여기 // (document.querySelector('.getScheduleDetail').getBoundingClientRect().width / 2) + 'px'; (e.target.getBoundingClientRect().width / 2)
 
+	document.querySelector('.detail-schedule').style.left = e.target.getBoundingClientRect().left + addLeft + 'px';
+	
+	if (document.querySelector('.detail-schedule').getBoundingClientRect().x > window.innerWidth * 0.65 && zIndex == 0) {
+		document.querySelector('.detail-schedule').style.zIndex = 2;
+		zIndex = 1;
+	} else {
+		document.querySelector('.detail-schedule').style.zIndex = 0;
+		zIndex = 0;
+	}
+	
 	// 모달 title 해당 일정 표시 설계의 문제가 나타남.
 	for (let i = 0; i < CompanyScheduleList.length; i++) {
 		if (CompanyScheduleList[i].no == dateDivValue) {
@@ -517,14 +525,15 @@ function deleteScheduleDateClick(atag) {
 
 	if (atag.innerText == '삭제') {
 		if (document.querySelectorAll('.datail-schedule-data').length == 1) {
+
 			rowScheduleDeleteClick(atag);
+
 		} else {
 			atag.parentNode.children[1].style.display = 'none';
 			atag.parentNode.children[2].style.display = 'flex';
 			atag.parentNode.children[3].style.display = 'flex';
 		}
 
-		console.log(document.querySelectorAll('.datail-schedule-data').length);
 	} else {
 		atag.parentNode.children[1].style.display = 'flex';
 		atag.parentNode.children[2].style.display = 'none';
@@ -535,7 +544,7 @@ function deleteScheduleDateClick(atag) {
 
 // 일정 데이터 한개 삭제
 function deleteScheduleDate(atag) {
-		
+
 	console.log(selectDetailSchedule.date);
 	let remainDate = selectDetailSchedule.date.split(',');
 	console.log(document.querySelector('.detail-schedule-title').innerText)
@@ -562,15 +571,28 @@ function deleteScheduleDate(atag) {
 		.then(response => response.text())
 		.then(data => {
 			if (data) {
+
+				let remainDates = '';
+
+				for (let i = 0; i < arrayDate.length; i++) {
+					if (arrayDate[i].date == atag.parentNode.children[0].innerText) {
+						remainDates = arrayDate[i].title.split(',');
+						for (let j = 0; j < arrayDate[i].title.split(',').length; j++) {
+							if (arrayDate[i].title.split(',')[j].split('.')[0] == selectDetailSchedule.no) {
+								remainDates.splice(j, 1);
+							}
+						}
+						remainDates = remainDates.join(',');
+						arrayDate[i].title = remainDates;
+					}
+				}
+
 				atag.parentNode.remove();
 				selectDetailSchedule.date = remainDate;
 
-				console.log(arrayDate);
-				console.log(CompanyScheduleList);
-				
-				arrayDate = '';
-				
-				renderSchedule();
+				document.querySelectorAll('.schedule').forEach(function(scheduleElement) {
+					scheduleElement.remove();
+				});
 
 				writeSchedule();
 			} else {
@@ -582,7 +604,7 @@ function deleteScheduleDate(atag) {
 function rowScheduleDeleteClick(atag) {
 	if (confirmDeleteModal == 0) {
 		document.querySelector('.confirm-delete').style.top = (document.querySelector('.detail-schedule').getBoundingClientRect().top) + document.querySelector('.detail-schedule').getBoundingClientRect().height / 7 + 'px';
-		document.querySelector('.confirm-delete').style.left = atag.getBoundingClientRect().left + atag.getBoundingClientRect().width / 9 + 'px';
+		document.querySelector('.confirm-delete').style.left = document.querySelector('.detail-schedule').getBoundingClientRect().left + document.querySelector('.detail-schedule').getBoundingClientRect().width / 8 + 'px';
 		document.querySelector('.confirm-delete').style.display = "flex";
 
 
@@ -599,7 +621,6 @@ function rowScheduleDelete(a) {
 		document.querySelector('.confirm-delete').style.display = "none";
 		confirmDeleteModal = 0;
 	} else {
-		console.log(dateDivValue);
 
 		let params = {
 			no: dateDivValue

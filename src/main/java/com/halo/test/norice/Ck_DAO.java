@@ -22,9 +22,6 @@ public class Ck_DAO {
 			if (title != "" && txt != "" && select != null) {
 
 				System.out.println("txt 구간(1) :::" + txt);
-//			String saveFnameValues[] = request.getParameterValues("saveFname");
-//			System.out.println("saveFnameValues :::" + saveFnameValues[0]);
-//			System.out.println("saveFnameValues :::" + saveFnameValues[1]);
 				String[] saveFnameValues = request.getParameterValues("saveFname");
 
 				if (saveFnameValues != null) {
@@ -90,6 +87,7 @@ public class Ck_DAO {
 
 	}
 
+	// 사실은 업데이트문임 ^@^
 	public static void deleteNotice(HttpServletRequest request) throws UnsupportedEncodingException {
 
 		request.setCharacterEncoding("utf-8");
@@ -99,39 +97,30 @@ public class Ck_DAO {
 			String select = request.getParameter("select");
 			String txt = request.getParameter("txt");
 			String seq = request.getParameter("seq");
-			System.out.println( "seq : !!!!!!!!" + seq);
+			System.out.println( "seq : !!!!!!!!이게 딜리트c라고 되있긴한데 업데이트를 하고있음" + seq);
 			if (title != "" && txt != "" && select != null ) {
 
 				System.out.println("txt 구간(1) :::" + txt);
-//			String saveFnameValues[] = request.getParameterValues("saveFname");
-//			System.out.println("saveFnameValues :::" + saveFnameValues[0]);
-//			System.out.println("saveFnameValues :::" + saveFnameValues[1]);
 				String[] saveFnameValues = request.getParameterValues("saveFname");
 
 				if (saveFnameValues != null) {
-					// 이미지 중앙정렬 이건 취소함 왜냐면 이미지 하나를 추가할 때마다 45자씩 추가되기 때문에 차라리 css 파일에 추가하면 상대적으로 더 많은
-					// 이미지를 넣을 수 있기 때문이다
-//				txt = txt.replace("<figure", "<figure style=\'display:flex; justify-content:center;\'");
-					int startPos = 0; // 현재 위치를 추적하기 위한 변수
+
+					int startPos = 0; 
 					for (int i = 0; i < saveFnameValues.length; i++) {
-						// 다음 <img 태그의 시작 위치를 찾습니다.
 						int imgPos = txt.indexOf("<img", startPos);
 						if (imgPos == -1)
-							break; // 더 이상 <img 태그가 없으면 반복을 중단합니다.
+							break; 
 
-						// <img 태그를 대체할 새로운 문자열을 생성합니다.
 						String toReplace = "<img src=\'" + saveFnameValues[i] + "'>";
 
-						// 기존의 <img 태그를 새로운 문자열로 대체합니다.
 						txt = txt.substring(0, imgPos) + toReplace + txt.substring(txt.indexOf(">", imgPos) + 1);
 
-						// 현재 위치를 업데이트합니다.
 						startPos = imgPos + toReplace.length();
 						System.out.println();
 						System.out.println("txt 구간(2) :::" + txt);
 						System.out.println("saveFName: " + saveFnameValues[i]);
 					}
-				}
+				} // if
 
 				System.out.println("title : " + title);
 				System.out.println("select : " + select);
@@ -171,4 +160,4 @@ public class Ck_DAO {
 
 	}
 
-}
+} // end class

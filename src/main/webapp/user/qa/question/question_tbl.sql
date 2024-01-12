@@ -5,7 +5,7 @@ create table question_tbl(
     q_reg_date date null,
     q_contact_number varchar2(20 char) not null,
     q_email varchar2(50 char) null,
-    q_name varchar2(20 char) not null,
+    q_name varchar2(50 char) not null,
     q_password varchar2(20 char) not null,
     q_category varchar2(20 char) null
 );
