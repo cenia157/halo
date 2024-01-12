@@ -346,12 +346,17 @@ public class AskDAO {
 	
 	public static void QpagingAdmin(int page, HttpServletRequest request) {
 		
-		request.setAttribute("curPageNo", page);
-		System.out.println("page: " + page);
 		
 		int cnt = 8; 
 		int total = QnCs.size(); 
 		int pageCount = (int)Math.ceil((double)total / cnt);
+		if(pageCount < page) {
+			page = pageCount;
+		}
+		
+		request.setAttribute("curPageNo", page);
+		System.out.println("page: " + page);
+		
 		request.setAttribute("pageCount", pageCount);
 		
 		int start = total - (cnt * (page -1));

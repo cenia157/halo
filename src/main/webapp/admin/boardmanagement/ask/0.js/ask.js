@@ -400,9 +400,13 @@ function deleteQuestion(q_seq) {
 
 
 $(document).ready(function() {
-    setInterval(function() {
-        $('#checkbox').submit();
-    }, 1000); // 1초마다 제출
+  // 다른 페이지로 넘어갈 때만 적용
+  if (window.location.href === "/other-page") {
+    // 페이지가 로드될 때마다 제출
+    $(document).on("pageshow", function() {
+      $('#checkbox').submit();
+    });
+  }
 });
 
 // 체크박스 제출
@@ -514,6 +518,9 @@ function refreshData(QnCs) {
     // 페이징을 위한 변수 계산
     let totalItems = QnCs.length;
     let pageCount = Math.ceil(totalItems / itemsPerPage);
+	if(curPageNo > pageCount){
+		curPageNo = pageCount;
+	}
 
     // 현재 페이지에 표시할 아이템들을 가져옴
     let startIndex = (curPageNo - 1) * itemsPerPage;

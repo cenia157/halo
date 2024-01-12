@@ -21,6 +21,8 @@ public class QuestionC extends HttpServlet {
 //		List<QuestionNComment> resultList = AskDAO.QuestionsAndComments();
 //		request.setAttribute("resultList", resultList);
 		
+		request.setCharacterEncoding("UTF-8");
+		
 		String subMenu = "qa/question/question";
 		request.setAttribute("menu", "user/menu-index.jsp");
 		request.setAttribute("subMenu", subMenu + ".jsp");
@@ -33,6 +35,8 @@ public class QuestionC extends HttpServlet {
 		AskDAO.Qpaging(1, request);
 //		List<QuestionNComment> resultList = AskDAO.QuestionsAndComments();
 //		request.setAttribute("resultList", resultList);
+		
+		request.setCharacterEncoding("UTF-8");
 		
 		String subMenu = "qa/question/question";
 		request.setAttribute("menu", "user/menu-index.jsp");
