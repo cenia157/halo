@@ -399,11 +399,15 @@ function deleteQuestion(q_seq) {
 
 
 
-
+$(document).ready(function() {
+    // 페이지 로드 후 5초마다 폼을 제출
+    setInterval(function() {
+        $('#checkbox').submit();
+    }, 3000); // 5000밀리초(5초)마다 제출
+});
 
 // 체크박스 제출
 $(document).ready(function() {
-	
     // 체크박스의 change 이벤트를 감지
     $('input[type="checkbox"]').change(function() {
         // 체크박스가 변경되면 바로 폼을 제출
@@ -424,6 +428,7 @@ $(document).ready(function() {
         saveCheckBoxData();
     });
 });
+
 
 // 체크박스 상태 저장 함수
 function saveCheckBoxData() {
@@ -451,7 +456,7 @@ $(document).ready(function() {
                 checkbox.prop('checked', storedData[key]);
 				
 				console.log("체크박스 상태 불러오기 확인용: ",storedData);
-				fetchData(storedData);
+//				fetchData(storedData);
             }
         }
     }
@@ -575,7 +580,7 @@ function refreshData(QnCs) {
     // 페이징 끝에 추가
     pagingcontainer.appendChild(pagingElement);
 
-	CheckboxPaging(QnCs);
+//	CheckboxPaging(QnCs);
 }
 
 function CheckboxPaging(QnCs){
@@ -589,7 +594,7 @@ function CheckboxPaging(QnCs){
 			console.log("checkBoxPaging Success: ",QnCs);
 		},
 		error: function(xhr,status,error){
-			console.log("CheckboxPaging Error: ", xhr,status,error);
+//			console.log("CheckboxPaging Error: ", xhr,status,error);
 		}
 		
 	});
@@ -622,6 +627,5 @@ function createPageNoBtn(text, pageNo, isEnabled) {
     return button;
 }
 
-//체크박스 값 그대로 남기기 시도
 
 
