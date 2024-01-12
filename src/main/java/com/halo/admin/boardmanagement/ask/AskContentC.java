@@ -19,9 +19,12 @@ public class AskContentC extends HttpServlet {
 //		QuestionDAO.getAllQuestions(request);
 //		List<QuestionNComment> resultList = AskDAO.QuestionsAndComments();
 //		request.setAttribute("resultList", resultList);
+		// UTF-8로 설정
+		response.setCharacterEncoding("utf-8");
 		
 		AskDAO.getAllQnC(request, response);
 		AskDAO.QpagingAdmin(1, request);
+		
 		
 		request.setAttribute("menu", "/admin/boardmanagement/ask/askContent.jsp");
 		request.getRequestDispatcher("admin/index.jsp").forward(request, response);
@@ -32,6 +35,9 @@ public class AskContentC extends HttpServlet {
 //		QuestionDAO.getAllQuestions(request);
 		List<QuestionNComment> resultList = AskDAO.QuestionsAndComments();
 		request.setAttribute("resultList", resultList);
+		
+		// UTF-8로 설정
+		response.setCharacterEncoding("utf-8");
 		
 		AskDAO.getAllQnC(request, response);
 		AskDAO.Qpaging(1, request);

@@ -14,6 +14,9 @@ public class AnswerModalOn extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// UTF-8로 설정
+		response.setCharacterEncoding("utf-8");
+		
 		QuestionDAO.getQuestionNComment(request);
 		request.setAttribute("menu", "/admin/boardmanagement/ask/.jsp");
 		

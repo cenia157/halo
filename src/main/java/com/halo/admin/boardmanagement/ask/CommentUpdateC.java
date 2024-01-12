@@ -17,6 +17,15 @@ public class CommentUpdateC extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// request의 인코딩 확인
+		String encoding = request.getCharacterEncoding();
+		if (encoding != "UTF-8") {
+		  request.setCharacterEncoding("UTF-8");
+		}
+		// UTF-8로 설정
+		response.setCharacterEncoding("utf-8");
+
+		
 		AskDAO.AskAnswerUpdate(request);
 //		QuestionDAO.getAllQuestions(request);
 		String comments = AskDAO.commentList(request, response);
