@@ -173,7 +173,7 @@
 					</div>
 					<div class="header-td-button">
 						<div>
-							<a href="">나가기</a>
+							<a onclick="location.href='LogoutC'" >나가기</a>
 						</div>
 						<div>
 							<a href="">시간연장</a>

@@ -17,7 +17,7 @@ public class LoginC extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		LoginDAO.login(request);
 		
-		adminDTO account = (adminDTO) request.getSession().getAttribute("login_session");
+		AdminDTO account = (AdminDTO) request.getSession().getAttribute("login_session");
 		System.out.println(account);
 		if (request.getAttribute("result").equals("成功")) {
 			response.sendRedirect("AdminC");

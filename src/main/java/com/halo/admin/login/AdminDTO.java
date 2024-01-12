@@ -1,18 +1,18 @@
 package com.halo.admin.login;
 
-public class adminDTO {
+public class AdminDTO {
 	
 	private String a_id;
 	private String a_pw;
 	private String a_name;
 	
 	
-	public adminDTO() {
+	public AdminDTO() {
 		// TODO Auto-generated constructor stub
 	}
 
 
-	public adminDTO(String a_id, String a_pw, String a_name) {
+	public AdminDTO(String a_id, String a_pw, String a_name) {
 		super();
 		this.a_id = a_id;
 		this.a_pw = a_pw;
