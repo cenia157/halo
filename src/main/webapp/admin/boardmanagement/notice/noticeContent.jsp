@@ -23,23 +23,23 @@
 	<div class="ontent-m-td-2-chackbox">
 		<div class="ontent-m-td-2-chackbox-contain">
 			<div class="ontent-m-td-2-chackbox-contain-input">
-				<input type="checkbox" name="">
+				<input type="checkbox" name="noticeCheck" class="noticeCheck" value="0" onclick="noticeSearch()">
 			</div>
 			<div class="ontent-m-td-2-chackbox-contain-txt">안내</div>
 			<div class="ontent-m-td-2-chackbox-contain-input">
-				<input type="checkbox" name="">
+				<input type="checkbox" name="noticeCheck" class="noticeCheck" value="1" onclick="noticeSearch()">
 			</div>
 			<div class="ontent-m-td-2-chackbox-contain-txt">일정</div>
 			<div class="ontent-m-td-2-chackbox-contain-input">
-				<input type="checkbox" name="">
+				<input type="checkbox" name="noticeCheck" class="noticeCheck" value="2" onclick="noticeSearch()">
 			</div>
 			<div class="ontent-m-td-2-chackbox-contain-txt">일반</div>
 			<div class="ontent-m-td-2-chackbox-contain-input">
-				<input type="checkbox" name="">
+				<input type="checkbox" name="noticeCheck" class="noticeCheck" value="3" onclick="noticeSearch()">
 			</div>
 			<div class="ontent-m-td-2-chackbox-contain-txt">서비스</div>
 			<div class="ontent-m-td-2-chackbox-contain-input">
-				<input type="checkbox" name="">
+				<input type="checkbox" name="noticeCheck" class="noticeCheck" value="4" onclick="noticeSearch()">
 			</div>
 			<div class="ontent-m-td-2-chackbox-contain-txt">상품</div>
 		</div>
@@ -57,12 +57,12 @@
 					<!-- 처음으로 가는 버튼 -->
 					<c:choose>
 						<c:when test="${curPageNo > 5}">
-							<a href="NoticePagingC?p=${curPageNo - 5}">
+							<a href="NoticePagingC?p=${curPageNo - 5}&checkVal=${param.checkVal}">
 								<button>&lt;&lt;</button>
 							</a>
 						</c:when>
 						<c:when test="${curPageNo <= 5 && curPageNo > 1}">
-							<a href="NoticePagingC?p=1">
+							<a href="NoticePagingC?p=1&checkVal=${param.checkVal}">
 								<button>&lt;&lt;</button>
 							</a>
 						</c:when>
@@ -74,7 +74,7 @@
 					<!-- 이전 페이지로 가는 버튼 -->
 					<c:choose>
 						<c:when test="${curPageNo > 1}">
-							<a href="NoticePagingC?p=${curPageNo - 1}">
+							<a href="NoticePagingC?p=${curPageNo - 1}&checkVal=${param.checkVal}">
 								<button>이전</button>
 							</a>
 						</c:when>
@@ -115,7 +115,7 @@
 						<c:set var="currentPageClass"
 							value="${pageNumber == curPageNo ? 'current-page' : ''}" />
 						<!-- 버튼 모양 결정 -->
-						<a href="NoticePagingC?p=${pageNumber}"
+						<a href="NoticePagingC?p=${pageNumber}&checkVal=${param.checkVal}"
 							class="page-number ${currentPageClass}">
 							[ ${pageNumber} ] </a>
 					</c:forEach>
@@ -124,7 +124,7 @@
 					<!-- 다음 페이지로 가는 버튼 -->
 					<c:choose>
 						<c:when test="${curPageNo < pageCount}">
-							<a href="NoticePagingC?p=${curPageNo + 1}">
+							<a href="NoticePagingC?p=${curPageNo + 1}&checkVal=${param.checkVal}">
 								<button>다음</button>
 							</a>
 						</c:when>
@@ -136,13 +136,13 @@
 					<!-- 마지막으로 가는 버튼 -->
 					<c:choose>
 						<c:when test="${curPageNo + 5 <= pageCount}">
-							<a href="NoticePagingC?p=${curPageNo + 5}">
+							<a href="NoticePagingC?p=${curPageNo + 5}&checkVal=${param.checkVal}">
 								<button>&gt;&gt;</button>
 							</a>
 						</c:when>
 						<c:when
 							test="${curPageNo + 5 > pageCount && curPageNo < pageCount}">
-							<a href="NoticePagingC?p=${pageCount}">
+							<a href="NoticePagingC?p=${pageCount}&checkVal=${param.checkVal}">
 								<button>&gt;&gt;</button>
 							</a>
 						</c:when>
