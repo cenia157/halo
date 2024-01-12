@@ -400,14 +400,22 @@ function deleteQuestion(q_seq) {
 
 
 $(document).ready(function() {
-  // 다른 페이지로 넘어갈 때만 적용
-  if (window.location.href === "/other-page") {
-    // 페이지가 로드될 때마다 제출
-    $(document).on("pageshow", function() {
-      $('#checkbox').submit();
-    });
-  }
+  // 페이지가 로드되면 체크박스의 값을 저장합니다.
+  var checked = $('#checkbox').is(':checked');
+
+  // 폼 제출 이벤트 리스너를 추가합니다.
+  $('#checkbox').submit(function() {
+    // 폼이 제출되기 전에 체크박스의 값을 검사합니다.
+    if (checked) {
+      // 체크박스가 체크되어 있으면 폼을 제출합니다.
+      return true;
+    } else {
+      // 체크박스가 체크되어 있지 않으면 폼을 제출하지 않습니다.
+      return false;
+    }
+  });
 });
+
 
 // 체크박스 제출
 $(document).ready(function() {
@@ -601,23 +609,7 @@ function refreshData(QnCs) {
 //	CheckboxPaging(QnCs);
 }
 
-function CheckboxPaging(QnCs){
-	$.ajax({
-		url:"CheckboxPagingC",
-		method:"GET",
-		data:{
-			QnCs: QnCs
-		},
-		success:function(QnCs){
-			console.log("checkBoxPaging Success: ",QnCs);
-		},
-		error: function(xhr,status,error){
-//			console.log("CheckboxPaging Error: ", xhr,status,error);
-		}
-		
-	});
-	
-}
+
 
 
 // 페이지 버튼 생성 함수

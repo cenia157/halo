@@ -215,7 +215,7 @@ public class AskDAO {
 				+ " FROM question_tbl q"
 				+ " LEFT JOIN comment_tbl c"
 				+ " ON q.q_seq = c.q_seq"
-				+ " ORDER BY q.q_reg_date ASC";
+				+ " ORDER BY q.q_reg_date DESC";
 		
 		try {
 			con = DBManagerhalo_YJ.connect();
@@ -353,10 +353,8 @@ public class AskDAO {
 		if(pageCount < page) {
 			page = pageCount;
 		}
-		
 		request.setAttribute("curPageNo", page);
 		System.out.println("page: " + page);
-		
 		request.setAttribute("pageCount", pageCount);
 		
 		int start = total - (cnt * (page -1));
