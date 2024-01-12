@@ -499,7 +499,7 @@ function refreshData(QnCs) {
     var container = document.getElementById("FOREACH_ASK");
     container.innerHTML = ""; // 기존 내용 비우기
 	const urlParams = new URL(location.href).searchParams;
-	const page = urlParams.get("p");
+	const page = parseInt(urlParams.get("p"));
     let curPageNo = page;
     let itemsPerPage = 8;
 
@@ -554,27 +554,39 @@ function refreshData(QnCs) {
     var pagingcontainer = document.getElementById("PAGING_ASK");
     pagingcontainer.innerHTML = ""; // 기존 내용 비우기			
 
-    // 처음으로 가는 버튼
-    var firstButton = createPageButton("<<", 1, curPageNo > 5);
-    pagingElement.appendChild(firstButton);
-
-    // 이전 페이지로 가는 버튼
-    var prevButton = createPageButton("이전", curPageNo - 1, curPageNo > 1);
-    pagingElement.appendChild(prevButton);
-
-    // 페이지 번호 생성
-    for (var i = Math.max(1, curPageNo - 2); i <= Math.min(curPageNo + 2, pageCount); i++) {
-        var pageButton = createPageNoBtn("[ " + i + " ]", i, i === curPageNo);
-        pagingElement.appendChild(pageButton);
-    }
-
-    // 다음 페이지로 가는 버튼
-    var nextButton = createPageButton("다음", curPageNo + 1, curPageNo < pageCount);
-    pagingElement.appendChild(nextButton);
-
-    // 마지막으로 가는 버튼
-    var lastButton = createPageButton(">>", pageCount, curPageNo < pageCount);
-    pagingElement.appendChild(lastButton);
+	// 처음으로 가는 버튼
+	var firstButton = createPageButton("<<", 1, curPageNo > 1);
+	if(curPageNo <= 1){
+		firstButton.disabled = !firstButton.enabled; // disabled 속성 추가
+	}
+	pagingElement.appendChild(firstButton);
+	
+	// 이전 페이지로 가는 버튼
+	var prevButton = createPageButton("이전", curPageNo - 1, curPageNo > 1);
+	if(curPageNo <= 1){
+		prevButton.disabled = !prevButton.enabled; // disabled 속성 추가
+	}
+	pagingElement.appendChild(prevButton);
+	
+	// 페이지 번호 생성
+	for (var i = Math.max(1, curPageNo - 2); i <= Math.min(curPageNo + 2, pageCount); i++) {
+	    var pageButton = createPageNoBtn("[ " + i + " ]", i, i === curPageNo);
+	    pagingElement.appendChild(pageButton);
+	}
+	
+	// 다음 페이지로 가는 버튼
+	var nextButton = createPageButton("다음", curPageNo + 1, curPageNo < pageCount);
+	if(curPageNo >= pageCount){
+		nextButton.disabled = !nextButton.enabled; // disabled 속성 추가
+	}
+	pagingElement.appendChild(nextButton);
+	
+	// 마지막으로 가는 버튼
+	var lastButton = createPageButton(">>", pageCount, curPageNo < pageCount);
+	if(curPageNo >= pageCount){
+		lastButton.disabled = !lastButton.enabled; // disabled 속성 추가
+	}
+	pagingElement.appendChild(lastButton);
 
     // 페이징 끝에 추가
     pagingcontainer.appendChild(pagingElement);
@@ -603,16 +615,18 @@ function CheckboxPaging(QnCs){
 
 // 페이지 버튼 생성 함수
 function createPageButton(text, pageNo, isEnabled) {
-    var button = document.createElement("button");
-    var link = document.createElement("a");
-    link.href = "CheckboxPagingC?p=" + pageNo; // 페이지 번호에 해당하는 URL 설정
-    link.textContent = text;
-    button.appendChild(link);
-    if (!isEnabled) {
-        button.disabled = true;
-    }
-    return button;
+  var button = document.createElement("button");
+  button.textContent = text;
+  button.addEventListener("click", function() {
+    // 페이지 번호에 해당하는 URL로 이동
+    window.location.href = "CheckboxPagingC?p=" + pageNo;
+  });
+  if (!isEnabled) {
+    button.disabled = true;
+  }
+  return button;
 }
+
 function createPageNoBtn(text, pageNo, isEnabled) {
     var button = document.createElement("a");
     var link = document.createElement("a");
@@ -622,6 +636,7 @@ function createPageNoBtn(text, pageNo, isEnabled) {
     button.appendChild(link);
     if (!isEnabled) {
         button.disabled = true;
+		link.disabled = true;
     }
     return button;
 }
