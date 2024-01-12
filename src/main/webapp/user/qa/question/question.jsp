@@ -7,6 +7,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 
 <%@ page import="java.util.Collections" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
 
 
@@ -46,7 +47,7 @@
 			
 			<div class="q-content-box-td2">
 				<span class="q-content-box-td-content2-1">作成者* </span>
-				<input class="q-content-box-td-content2-2" type="text" name="q_name"/>
+				<input class="q-content-box-td-content2-2" type="text" name="q_name"  value="${fn:escapeXml(param.q_name)}"/>
 			</div>
 
 <!-- tel -->
