@@ -523,6 +523,9 @@ function refreshData(QnCs) {
         QnCs = [];
     }
 
+	// q_reg_date에서 DESC로 정렬
+	QnCs = QnCs.sort((a, b) => b.q_reg_date - a.q_reg_date);
+
     // 페이징을 위한 변수 계산
     let totalItems = QnCs.length;
     let pageCount = Math.ceil(totalItems / itemsPerPage);

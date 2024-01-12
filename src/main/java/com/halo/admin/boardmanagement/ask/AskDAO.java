@@ -215,7 +215,7 @@ public class AskDAO {
 				+ " FROM question_tbl q"
 				+ " LEFT JOIN comment_tbl c"
 				+ " ON q.q_seq = c.q_seq"
-				+ " ORDER BY q.q_reg_date DESC";
+				+ " ORDER BY q.q_reg_date ASC";
 		
 		try {
 			con = DBManagerhalo_YJ.connect();
