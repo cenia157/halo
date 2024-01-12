@@ -400,10 +400,9 @@ function deleteQuestion(q_seq) {
 
 
 $(document).ready(function() {
-    // 페이지 로드 후 5초마다 폼을 제출
     setInterval(function() {
         $('#checkbox').submit();
-    }, 3000); // 5000밀리초(5초)마다 제출
+    }, 1000); // 1초마다 제출
 });
 
 // 체크박스 제출
@@ -556,7 +555,7 @@ function refreshData(QnCs) {
     pagingcontainer.innerHTML = ""; // 기존 내용 비우기			
 
     // 처음으로 가는 버튼
-    var firstButton = createPageButton("<<", curPageNo - 5, curPageNo > 5);
+    var firstButton = createPageButton("<<", 1, curPageNo > 5);
     pagingElement.appendChild(firstButton);
 
     // 이전 페이지로 가는 버튼
@@ -574,7 +573,7 @@ function refreshData(QnCs) {
     pagingElement.appendChild(nextButton);
 
     // 마지막으로 가는 버튼
-    var lastButton = createPageButton(">>", curPageNo + 5, curPageNo + 5 <= pageCount);
+    var lastButton = createPageButton(">>", pageCount, curPageNo < pageCount);
     pagingElement.appendChild(lastButton);
 
     // 페이징 끝에 추가
