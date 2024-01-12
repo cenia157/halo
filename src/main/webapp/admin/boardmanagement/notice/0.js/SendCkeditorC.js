@@ -205,26 +205,15 @@ regBtn.addEventListener("click", function(event) {
             });
         }); //(".ck-content").on("click keydown", function (e) {
 
-		//      $(".ck-content").on("click keydown", function (e) {
-		//      let isSelectedFigureExists =
-		//          $(".ck-content figure.ck-widget_selected").length > 0;
-		     
-		//      if (isSelectedFigureExists) {
-		//          // 엔터 키 예외 조건 확인
-		//          if (e.type === "keydown" && e.key === "Enter") {
-		//              console.log('예외 조건 - 엔터 키 이벤트에서 "isSelectedFigureExists" 상태입니다.');
-		//              $(".ck-button[data-cke-tooltip-text='区切り']").removeClass("ck-disabled");
-		//              $(".ck-button[data-cke-tooltip-text='区切り']").prop("disabled", false);
-		//          } else {
-		//              console.log('반대 조건 - 클릭 또는 키 다운 이벤트에서 "isSelectedFigureExists" 상태입니다.');
-		//              $(".ck-button[data-cke-tooltip-text='区切り']").addClass("ck-disabled");
-		//              $(".ck-button[data-cke-tooltip-text='区切り']").prop("disabled", true);
-		//          }
-		//      } else {
-		//          console.log('클릭 또는 키 다운 이벤트에서 "isSelectedFigureExists" 상태가 아닙니다.');
-		//          $(".ck-button[data-cke-tooltip-text='区切り']").removeClass("ck-disabled");
-		//          $(".ck-button[data-cke-tooltip-text='区切り']").prop("disabled", false);
-		//      }
-		//  });
+//		$('.real-title-editor').on('keydown', function(e) {
+//		  console.log('ㅋㅋㅋㅋ');
+//		  let inputText = e.target.value;
+//		  
+//		  inputText = inputText.replace(/</g, '&lt;');
+//		 
+//		  inputText = inputText.replace(/>/g, '&gt;');
+//		  
+//		  e.target.value = inputText;
+//		});
 		
       }); // $(document).ready(function(){

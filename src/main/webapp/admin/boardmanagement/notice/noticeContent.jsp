@@ -15,6 +15,7 @@
 <link
 	href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular"
 	rel="stylesheet" />
+<!-- <link rel="stylesheet" href="admin/boardmanagement/notice/0.css/notice_selectModal.css"/> -->
 
 </head>
 <body>
@@ -175,5 +176,6 @@
 	<script src="admin/_js/ckeditor/ckeditor.js"></script>
 	<script src="admin/_js/test2.js"></script>
 	<script src="admin/_js/noticeUpdateAndOpenView.js"></script>
+
 </body>
 </html>

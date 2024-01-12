@@ -19,6 +19,7 @@
 
           $("#modalWriter").text(writer);
           $("#modalTitle").text(title);
+//		  $("#modalTitle").textContent = title;
           $("#modalContent").html(content);
           $("#modalregDate").text(regdate);
 

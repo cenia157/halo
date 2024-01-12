@@ -1,7 +1,10 @@
 // 공통 함수: 모달 열기
 function openModal(modalId, tblId) {
-	document.getElementById(modalId).style.display = 'flex';
-	document.getElementById(tblId).style.display = 'flex';
+	console.log('이거 작동되나봄');
+	console.log(modalId);
+	console.log(tblId);
+	document.querySelector(modalId).style.display = 'flex';
+	document.querySelector(tblId).style.display = 'flex';
 
 	// 아래 6줄은 모달창 열 때 스크롤 감추기 & 터치, 휠 불가
 	$('html, body').css({ 'overflow': 'hidden', 'height': '100%' }); // 모달팝업 중 html,body의 scroll을 hidden시킴
@@ -11,11 +14,35 @@ function openModal(modalId, tblId) {
 		return false;
 	});
 }
+//
+//function openModal2(modalId, tblId) {
+//	console.log('이거 작동되나봄');
+//	console.log(modalId);
+//	console.log(tblId);
+//	document.querySelector(modalId).style.display = 'flex';
+//	document.querySelector(tblId).style.display = 'flex';
+//
+//	// 아래 6줄은 모달창 열 때 스크롤 감추기 & 터치, 휠 불가
+//	$('html, body').css({ 'overflow': 'hidden', 'height': '100%' }); // 모달팝업 중 html,body의 scroll을 hidden시킴
+//	$('#element').on('scroll touchmove mousewheel', function(event) { // 터치무브와 마우스휠 스크롤 방지
+//		event.preventDefault();
+//		event.stopPropagation();
+//		return false;
+//	});
+//}
 
 // 공통 함수: 모달 닫기
 function closeModal(modalId, tblId) {
-	document.getElementById(modalId).style.display = 'none';
-	document.getElementById(tblId).style.display = 'none';
+
+	
+	console.log(document.querySelector(modalId));
+	console.log('여기 sdfsdf?')
+	console.log(document.querySelector(tblId));
+	
+	document.querySelector(modalId).style.display = 'none';
+	document.querySelector(tblId).style.display = 'none';
+	
+
 
 	// 아래 2줄은 모달창 닫을 때 스크롤 보여주기 & 터치, 휠 가능
 	$('html, body').css({ 'overflow': 'auto', 'height': '100%' }); //scroll hidden 해제
@@ -75,17 +102,12 @@ function closeModalR2(modalId, tblId) {
 }
 
 // 공통 함수: 모달 외부 클릭 시 닫기
-function closeModalOnOutsideClick(modalId) {
+function closeModalOnOutsideClick(modalId, myModalBackground) {
 	window.onclick = function(event) {
-		if (event.target == document.getElementById(modalId)) {
-			closeModal(modalId, getTblId(modalId));
+		if (event.target == document.querySelector(modalId)) {
+			closeModal(modalId, myModalBackground);
 		}
 	};
-}
-
-// 공통 함수: 모달의 tbl 아이디 가져오기
-function getTblId(modalId) {
-	return modalId.replace('myModal', 'myModal-tbl');
 }
 
 // 자주묻는질문(frequenthyask) 모달
@@ -122,8 +144,8 @@ function closeModalA() {
 // 공지사항(notice) 모달
 // ViewPage를 띄우기 위한 모달
 function openModalV() {
-	openModal('myModalV', 'myModal-tblV');
-	closeModalOnOutsideClick('myModalV');
+	openModal('.selectModal', '.selectModal-tbl');
+	closeModalOnOutsideClick('.selectModal', '.selectModal-tbl');
 }
 
 function closeModalV() {
@@ -140,15 +162,28 @@ function closeModalR() {
 	closeModalR2('myModalR', 'myModal-tblR');
 }
 
-// NEWRegPage를 띄우기 위한 모달
-function openModalNR() {
-	openModal('myModalNR', 'myModal-tblNR');
-	closeModalOnOutsideClick('myModalNR');
+function closeModalNR() {
+	closeModal('.modal-background ', '.myModal-tblNR');
 }
 
-function closeModalNR() {
-	closeModal('myModalNR', 'myModal-tblNR');
+function closeSelectModal() {
+	closeModal('.selectModal ', '.selectModal-tbl');
 }
+
+function closeRegModal() {
+		
+	closeModal('.regModal-background', '.regModal-tbl');
+}
+
+// NEWRegPage를 띄우기 위한 모달
+function openModalNR() {
+	openModal('#myModalNR', '#myModal-tblNR');
+	closeModalOnOutsideClick('#myModalNR', '#myModal-tblNR');
+}
+
+
+
+
 
 
 //문의사항@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -535,16 +570,12 @@ function getNOTICEDataV(an_seq) {
 				let an_title = data[0].an_title;
 				let an_content = data[0].an_content;
 				let an_writer = data[0].an_content;
-				console.log('111111111111111111111111111111111111111111');
-				console.log("qa_content: ", an_content);
-				console.log('111111111111111111111111111111111111111111');
 				let an_reg_date = data[0].an_reg_date;
 				let an_category = data[0].an_category;
+				
+				console.log("qa_content: ", an_content);
 
 
-				//				$('#classicNR_Title').val(qa_title);
-				//				이거 활성화하면 타이틀에 value로 들어가는 대신 placeholder로 들어가게 된다... 옵션
-				//				$('#real-title-editor').attr('placeholder', qa_title);	
 				$('#modal-seq').val(an_seq);
 				$('#real-title-V').html(an_title);
 				$('#Display-Category').html(an_category);
@@ -554,12 +585,8 @@ function getNOTICEDataV(an_seq) {
 
 				document.getElementById('aaaaaaaaaaaaaaaaaaaaaaaaaa').onclick = function() {
 
-					//alert(document.getElementById('real-title-editor').innerHTML(an_title))
-					//document.getElementById('real-title-editor').value = an_title;
-
 					$('#real-title-editorN').val(an_title);
 					$('#CCCCCCCCCCCC').html(an_category);
-					// 여기에 CK-editor에 값을 표시하고싶어
 					$('#classicR').html(an_content);
 					window.editorR.setData(an_content);
 					$('#kategorieR').html(an_category);
@@ -597,6 +624,9 @@ function getNOTICEDataV(an_seq) {
 			} else {
 				console.log("NOTICE 데이터 가져오기 성공");
 			}
+
+		
+		openModalV();
 
 
 		},
@@ -718,9 +748,12 @@ if (updateSEQ.value != '') {
 function deleteNotice(seq) {
 
 	let pageVal = document.querySelector('#pageNum').value;
+	let checkVal = document.getElementsByName('checkVal')[0];
+	console.log(checkVal + "체크벨류");
+	console.log(checkVal.value + "체크벨류값");
 
 	if (confirm('정말 삭제 합니까?')) {
-		location.href = "deleteNoticeC?an_seq=" + seq + "&p=" + pageVal;
+		location.href = "deleteNoticeC?an_seq=" + seq + "&p=" + pageVal +"&checkVal=" + checkVal.value;
 	} else {
 		return;
 	}
