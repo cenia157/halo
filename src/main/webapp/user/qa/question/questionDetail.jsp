@@ -21,7 +21,7 @@ function deleteQuestion(n) {
 	if (password === "${QnC.q_password}") {
 		location.href= "QuestionDeleteC?q_seq=" + n;
 	} else {
-		alert("비밀번호 오류");
+		alert("パスワードをご確認ください");
 	}
 }
 
