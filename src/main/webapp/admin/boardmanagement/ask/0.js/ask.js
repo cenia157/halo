@@ -523,8 +523,10 @@ function refreshData(QnCs) {
         QnCs = [];
     }
 
-	// q_reg_date에서 DESC로 정렬
-	QnCs = QnCs.sort((a, b) => b.q_reg_date - a.q_reg_date);
+	// q_seq를 기준으로 DESC로 정렬
+	QnCs.sort((a, b) => {
+	  return b.q_seq - a.q_seq;
+	});
 
     // 페이징을 위한 변수 계산
     let totalItems = QnCs.length;
@@ -609,7 +611,6 @@ function refreshData(QnCs) {
     // 페이징 끝에 추가
     pagingcontainer.appendChild(pagingElement);
 
-//	CheckboxPaging(QnCs);
 }
 
 

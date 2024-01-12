@@ -162,7 +162,7 @@ public class AskDAO {
 				+ " FROM question_tbl q"
 				+ " LEFT JOIN comment_tbl c"
 				+ " ON q.q_seq = c.q_seq"
-				+ " ORDER BY q.q_reg_date DESC";
+				+ " ORDER BY q.q_seq";
 		
 		List<QuestionNComment> resultList = new ArrayList<QuestionNComment>();
 		
@@ -215,7 +215,7 @@ public class AskDAO {
 				+ " FROM question_tbl q"
 				+ " LEFT JOIN comment_tbl c"
 				+ " ON q.q_seq = c.q_seq"
-				+ " ORDER BY q.q_reg_date ASC";
+				+ " ORDER BY q.q_seq";
 		
 		try {
 			con = DBManagerhalo_YJ.connect();
@@ -275,7 +275,7 @@ public class AskDAO {
 		            sqlBuilder.append(" WHERE c.c_answer IS NULL");
 		        }
 		}
-		sqlBuilder.append(" ORDER BY q.q_reg_date DESC");
+		sqlBuilder.append(" ORDER BY q.q_seq");
 
 		String sql = sqlBuilder.toString();
 		
@@ -395,7 +395,7 @@ public class AskDAO {
 	        }
 	    }
 
-	    sqlBuilder.append(" ORDER BY q.q_reg_date DESC");
+	    sqlBuilder.append(" ORDER BY q.q_seq");
 
 	    try {
 	        con = DBManagerhalo_YJ.connect();
