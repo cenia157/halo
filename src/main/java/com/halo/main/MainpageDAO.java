@@ -226,6 +226,8 @@ public class MainpageDAO {
 		try {
 			con = DBManagerhalo.connect();
 			String[] banner_menus = {request.getParameter("banner_menu1"),request.getParameter("banner_menu2"),request.getParameter("banner_menu3")};
+			
+			
 			//하단베너3개 => for문 i = name뒤에 붙을 인덱스번호, 
 			for(int i = 0; i < 3; i++) {
 				if( banner_menus[i] != null && banner_menus[i].equals("sales")) {

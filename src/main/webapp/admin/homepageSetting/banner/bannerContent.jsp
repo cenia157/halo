@@ -10,8 +10,6 @@
 
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/admin/homepageSetting/banner/0.css/banner.css" />
-
-
 <link
 	href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular"
 	rel="stylesheet" />
@@ -38,7 +36,7 @@
 				<div class="banner-td-1">
 				<img src="${pageContext.request.contextPath}/admin/0.img/banner_icon.png">
 				<div>빠른메뉴 :&nbsp;</div>
-				<select name="banner_menu1" onchange="changeInformBox(1)">
+				<select name="banner_menu1" id="banner_menu1" onchange="changeInformBox(1)">
 				<option value="info_com">회사소개</option>
 				<option value="info_map">오시는길</option>
 				<option value="intro_announce">공지사항</option>
@@ -56,12 +54,12 @@
 				<div class="banner-td-2">
 				<img src="${pageContext.request.contextPath}/admin/0.img/url_icon.png" alt="이미지준비중">
 				<div>url :&nbsp;</div>
-				<input name="banner_url1" type="text">
+				<input id="banner_url1" name="banner_url1" type="text">
 				</div>
 				<div class="banner-td-2">
 				<img src="${pageContext.request.contextPath}/admin/0.img/sales-icon.png" alt="이미지준비중">
 				<div>상품명 :</div>
-				<input name="banner_text1" type="text">
+				<input id="banner_text1" name="banner_text1" type="text">
 				</div>
 				<!-- 썸네일 이미지 설정 -->
 				<div class="banner-td-2">
@@ -84,7 +82,7 @@
 				<div class="banner-td-1">
 				<img src="${pageContext.request.contextPath}/admin/0.img/banner_icon.png">
 				<div>빠른메뉴 :&nbsp;</div>
-					<select name="banner_menu2" onchange="changeInformBox(2)">
+					<select name="banner_menu2" id="banner_menu2" onchange="changeInformBox(2)">
 				<option value="info_com">회사소개</option>
 				<option value="info_map">오시는길</option>
 				<option value="intro_announce">공지사항</option>
@@ -103,12 +101,12 @@
 				<div class="banner-td-2">
 				<img src="${pageContext.request.contextPath}/admin/0.img/url_icon.png" alt="이미지준비중">
 				url :&nbsp;
-				<input name="banner_url2" type="text">
+				<input id="banner_url2" name="banner_url2" type="text">
 				</div>
 				<div class="banner-td-2">
 				<img src="${pageContext.request.contextPath}/admin/0.img/sales-icon.png" alt="이미지준비중">
 				상품명 :&nbsp;
-				<input name="banner_text2" type="text">
+				<input id="banner_text2" name="banner_text2" type="text">
 				</div>
 				<!-- 썸네일 이미지 설정 -->
 				<div class="banner-td-2">
@@ -131,7 +129,7 @@
 				<div class="banner-td-1">
 				<img src="${pageContext.request.contextPath}/admin/0.img/banner_icon.png">
 				<div>빠른메뉴 :&nbsp;</div>
-					<select name="banner_menu3" onchange="changeInformBox(3)">
+					<select name="banner_menu3" id="banner_menu3" onchange="changeInformBox(3)">
 				<option value="info_com">회사소개</option>
 				<option value="info_map">오시는길</option>
 				<option value="intro_announce">공지사항</option>
@@ -149,12 +147,12 @@
 				<div class="banner-td-2">
 				<img src="${pageContext.request.contextPath}/admin/0.img/url_icon.png" alt="이미지준비중">
 				url :&nbsp;
-				<input name="banner_url3" type="text">
+				<input id="banner_url3" name="banner_url3" type="text">
 				</div>
 				<div class="banner-td-2">
 				<img src="${pageContext.request.contextPath}/admin/0.img/sales-icon.png" alt="이미지준비중">
 				상품명 :&nbsp;
-				<input name="banner_text3" type="text">
+				<input id="banner_text3" name="banner_text3" type="text">
 				</div>
 				<!-- 썸네일 이미지 설정 -->
 				<div class="banner-td-2">
@@ -171,7 +169,7 @@
 			</div>
 		</div>
 		<div class="content-button">
-		<button id="banner_btn_submit" type="button" onclick="location.href='BannerUpdateC'">변경</button>
+		<button id="banner_btn_submit" onclick="submitBannerData()">변경</button>
 		</div>
 		</div>
 		
