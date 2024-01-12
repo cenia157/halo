@@ -72,19 +72,6 @@ function closeModalR2(modalId, tblId) {
 	}
 	// CKEditor 초기화
 	window.editor.setData(""); // CKEditor의 내용을 빈 문자열로 설정합니다.
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
 
 // 공통 함수: 모달 외부 클릭 시 닫기
@@ -408,22 +395,6 @@ $(document).ready(function() {
 		$('#checkbox').submit();
 	});
 
-<<<<<<< HEAD
-    // 폼 제출 시의 동작을 처리하는 함수
-    $('#checkbox').submit(function() {
-        // 폼이 제출될 때 수행할 동작 추가
-        console.log('Form submitted!');
-        // 추가로 필요한 로직을 여기에 작성
-        var checkboxData = [];
-        $('input[type="checkbox"]').each(function() {
-            checkboxData.push({
-                value: $(this).val(),
-                checked: $(this).prop('checked')
-            });
-        });
-        fetchData(checkboxData);
-    });
-=======
 	// 폼 제출 시의 동작을 처리하는 함수
 	$('#checkbox').submit(function() {
 		// 폼이 제출될 때 수행할 동작 추가
@@ -440,7 +411,6 @@ $(document).ready(function() {
 
 		return true;
 	});
->>>>>>> 17befa328a5fac4763ee04904196b873d7f434a5
 });
 
 function filterByCheckbox(data) {
@@ -452,158 +422,17 @@ function filterByCheckbox(data) {
 			completed: data.some(item => item.value === 'completed' && item.checked),
 			uncompleted: data.some(item => item.value === 'uncompleted' && item.checked)
 		},
-<<<<<<< HEAD
-		success: function(responseData){
-			console.log("responseData: ",responseData);
-			refreshData(responseData);
-=======
 		success: function(data) {
 			console.log("newQnCs: ", data);
 			eval(data); // 업데이트된 QnCs를 처리하는 스크립트 실행
->>>>>>> 17befa328a5fac4763ee04904196b873d7f434a5
 		},
 		error: function(xhr, status, error) {
 			console.log("에러발생: ", xhr, status, error)
 		}
-<<<<<<< HEAD
-	});	
-}
-
-function refreshData(QnCs) {
-    var container = document.getElementById("FOREACH_ASK");
-    container.innerHTML = ""; // 기존 내용 비우기
-    let curPageNo = 1;
-
-    // JSON 데이터 파싱
-    var QnCs = JSON.parse(QnCs);
-
-    // QnCs가 배열이 아니면 배열로 변환
-    if (!Array.isArray(QnCs)) {
-        QnCs = [];
-    }
-
-    // QnCs 데이터를 이용하여 화면 갱신
-    QnCs.forEach(function (item, index) {
-        // Date 객체로 변환
-        let qRegDate = new Date(item.q_reg_date);
-
-        // 날짜를 'YYYY-MM-DD' 형식으로 포맷
-        let formattedDate = qRegDate.toLocaleDateString('ja-JP', {year: 'numeric' , month: '2-digit', day: '2-digit'}).replace(/\//g, '-');
-
-        var newElement = document.createElement("div");
-        newElement.className = "ontent-m-td-2-content-txt-in";
-
-        newElement.innerHTML = `
-            <input type="hidden" name="q_seq" value="${item.q_seq}">
-            <div class="ontent-m-td-2-content-txt-no-in">
-                ${(index + 1) + (curPageNo - 1) * 8}
-            </div>
-            <div class="ontent-m-td-2-content-txt-kategorie-in">
-                ${item.c_answer === '1' ? '完' : '未'}
-            </div>
-            <div class="ontent-m-td-2-content-txt-title-in">
-                <a href="#" onclick="getData('${item.q_seq}');">${item.q_title}</a>
-            </div>
-            <div class="ontent-m-td-2-content-txt-writer-in">${item.q_name}</div>
-            <div class="ontent-m-td-2-content-txt-date-in">${formattedDate}</div>
-            <div class="ontent-m-td-2-content-txt-delete-in">
-                <a href="#" onclick="deleteQuestion('${item.q_seq}')">削除</a>
-            </div>
-        `;
-        container.appendChild(newElement);
-
-
-        //페이징 추가 시도
-        var pagingElement = document.createElement("div");
-    	pagingElement.className = "paging-div";
-        pagingElement.innerHTML =`
-		    var firstButton = document.createElement("button");
-		    if (curPageNo > 5) {
-		        var firstLink = document.createElement("a");
-		        firstLink.href = "AskPagingC?p=" + (curPageNo - 5);
-		        firstLink.appendChild(firstButton);
-		        pagingDiv.appendChild(firstLink);
-		    } else if (curPageNo <= 5 && curPageNo > 1) {
-		        var firstLink = document.createElement("a");
-		        firstLink.href = "AskPagingC?p=1";
-		        firstLink.appendChild(firstButton);
-		        pagingDiv.appendChild(firstLink);
-		    } else {
-		        firstButton.disabled = true;
-		        pagingDiv.appendChild(firstButton);
-		    }
-		
-		    // 이전 페이지로 가는 버튼
-		    var prevButton = document.createElement("button");
-		    if (curPageNo > 1) {
-		        var prevLink = document.createElement("a");
-		        prevLink.href = "AskPagingC?p=" + (curPageNo - 1);
-		        prevLink.appendChild(prevButton);
-		        pagingDiv.appendChild(prevLink);
-		    } else {
-		        prevButton.disabled = true;
-		        pagingDiv.appendChild(prevButton);
-		    }
-		
-		    // 페이지 번호 생성
-		    var startPage = Math.max(1, curPageNo - 2);
-		    var endPage = Math.min(curPageNo + 2, pageCount);
-		
-		    for (var i = startPage; i <= endPage; i++) {
-		        var pageButton = document.createElement("button");
-		        var pageLink = document.createElement("a");
-		        pageLink.href = "AskPagingC?p=" + i;
-		        pageLink.className = i === curPageNo ? 'page-number current-page' : 'page-number';
-		        pageLink.textContent = "[" + i + "]";
-		        pageLink.appendChild(pageButton);
-		        pagingDiv.appendChild(pageLink);
-		    }
-		
-		    // 다음 페이지로 가는 버튼
-		    var nextButton = document.createElement("button");
-		    if (curPageNo < pageCount) {
-		        var nextLink = document.createElement("a");
-		        nextLink.href = "AskPagingC?p=" + (curPageNo + 1);
-		        nextLink.appendChild(nextButton);
-		        pagingDiv.appendChild(nextLink);
-		    } else {
-		        nextButton.disabled = true;
-		        pagingDiv.appendChild(nextButton);
-		    }
-		
-		    // 마지막으로 가는 버튼
-		    var lastButton = document.createElement("button");
-		    if (curPageNo + 5 <= pageCount) {
-		        var lastLink = document.createElement("a");
-		        lastLink.href = "AskPagingC?p=" + (curPageNo + 5);
-		        lastLink.appendChild(lastButton);
-		        pagingDiv.appendChild(lastLink);
-		    } else if (curPageNo + 5 > pageCount && curPageNo < pageCount) {
-		        var lastLink = document.createElement("a");
-		        lastLink.href = "AskPagingC?p=" + pageCount;
-		        lastLink.appendChild(lastButton);
-		        pagingDiv.appendChild(lastLink);
-		    } else {
-		        lastButton.disabled = true;
-		        pagingDiv.appendChild(lastButton);
-		    }
-		
-		    // 페이징 끝에 추가
-		    document.body.appendChild(pagingDiv);
-		}
-        `;
-
-        container.appendChild(pagingElement);
-//        console.log("html 확인: ", newElement.outerHTML);
-    });
-}
-
-=======
 	});
 
 
 }
->>>>>>> 17befa328a5fac4763ee04904196b873d7f434a5
 
 
 //FAQ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
