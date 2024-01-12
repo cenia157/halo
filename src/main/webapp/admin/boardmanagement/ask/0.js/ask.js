@@ -572,7 +572,7 @@ function refreshData(QnCs) {
     var pagingElement = document.createElement("div");
     pagingElement.className = "paging-div";
     var pagingcontainer = document.getElementById("PAGING_ASK");
-    pagingcontainer.innerHTML = ""; // 기존 내용 비우기			
+    pagingcontainer.innerHTML = ""; // 기존 내용 비우기	
 
 	// 처음으로 가는 버튼
 	var firstButton = createPageButton("<<", 1, curPageNo > 1);
@@ -611,7 +611,7 @@ function refreshData(QnCs) {
     // 페이징 끝에 추가
     pagingcontainer.appendChild(pagingElement);
 	//reload 추가해서 새로고침 되긴 하는데, current-page에 준 css가 먹게 됨
-	location.reload();
+	  location.reload();
 }
 
 
