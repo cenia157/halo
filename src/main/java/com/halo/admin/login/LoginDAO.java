@@ -41,7 +41,7 @@ public class LoginDAO {
 				if (pw.equals(dbPW)) {
 					result = "成功";
 					System.out.println("result ::: " + result);
-					adminDTO adminDTO = new adminDTO();
+					AdminDTO adminDTO = new AdminDTO();
 					adminDTO.setA_id(id);
 					adminDTO.setA_pw(dbPW);
 					adminDTO.setA_name(rs.getString("a_name"));
