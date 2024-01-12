@@ -36,13 +36,13 @@ public class QuestionDAO {
 			con = DBManagerhalo_YJ.connect();
 			pstmt = con.prepareStatement(sql);
 			
-			pstmt.setString(1, request.getParameter("q_title"));
-			pstmt.setString(2, request.getParameter("q_content"));
-			pstmt.setString(3, request.getParameter("q_contact_number"));
-			pstmt.setString(4, request.getParameter("q_email"));
-			pstmt.setString(5, request.getParameter("q_name"));
-			pstmt.setString(6, request.getParameter("q_password"));
-			pstmt.setString(7, request.getParameter("q_category"));
+			pstmt.setString(1, Utility.escapeHtml(request.getParameter("q_title")));
+			pstmt.setString(2, Utility.escapeHtml(request.getParameter("q_content")));
+			pstmt.setString(3, Utility.escapeHtml(request.getParameter("q_contact_number")));
+			pstmt.setString(4, Utility.escapeHtml(request.getParameter("q_email")));
+			pstmt.setString(5, Utility.escapeHtml(request.getParameter("q_name")));
+			pstmt.setString(6, Utility.escapeHtml(request.getParameter("q_password")));
+			pstmt.setString(7, Utility.escapeHtml(request.getParameter("q_category")));
 			
 			
 			

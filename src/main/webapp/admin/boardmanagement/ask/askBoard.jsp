@@ -58,19 +58,19 @@
 		</div>
 	<div class="ontent-m-td-2-bottom">
 		<div class="ontent-m-td-2-page-side"></div>
-		<div class="ontent-m-td-2-page-center">
+		<div class="ontent-m-td-2-page-center" id="PAGING_ASK">
 			<!-- 					페이징처리 해야할 부분 -->
 					                <!--페이징시작 -->
                 <div class="paging-div">
                   <!-- 처음으로 가는 버튼 -->
                   <c:choose>
                     <c:when test="${curPageNo > 5}">
-                      <a href="AskPagingC?p=${curPageNo - 5}">
+                      <a href="CheckboxPagingC?p=${curPageNo - 5}">
                         <button><<</button>
                       </a>
                     </c:when>
                     <c:when test="${curPageNo <= 5 && curPageNo > 1}">
-                      <a href="AskPagingC?p=1">
+                      <a href="CheckboxPagingC?p=1">
                         <button><<</button>
                       </a>
                     </c:when>
@@ -82,7 +82,7 @@
                   <!-- 이전 페이지로 가는 버튼 -->
                   <c:choose>
                     <c:when test="${curPageNo > 1}">
-                      <a href="AskPagingC?p=${curPageNo - 1}">
+                      <a href="CheckboxPagingC?p=${curPageNo - 1}">
                         <button>이전</button>
                       </a>
                     </c:when>
@@ -130,7 +130,7 @@
                     />
 					<!-- 버튼 모양 결정 -->
                     <a
-                      href="AskPagingC?p=${pageNumber}"
+                      href="CheckboxPagingC?p=${pageNumber}"
                       class="page-number ${currentPageClass}"
                       >
                       [ ${pageNumber} ]
@@ -141,7 +141,7 @@
                   <!-- 다음 페이지로 가는 버튼 -->
                   <c:choose>
                     <c:when test="${curPageNo < pageCount}">
-                      <a href="AskPagingC?p=${curPageNo + 1}">
+                      <a href="CheckboxPagingC?p=${curPageNo + 1}">
                         <button>다음</button>
                       </a>
                     </c:when>
@@ -153,14 +153,14 @@
                   <!-- 마지막으로 가는 버튼 -->
                   <c:choose>
                     <c:when test="${curPageNo + 5 <= pageCount}">
-                      <a href="AskPagingC?p=${curPageNo + 5}">
+                      <a href="CheckboxPagingC?p=${curPageNo + 5}">
                         <button>>></button>
                       </a>
                     </c:when>
                     <c:when
                       test="${curPageNo + 5 > pageCount && curPageNo < pageCount}"
                     >
-                      <a href="AskPagingC?p=${pageCount}">
+                      <a href="CheckboxPagingC?p=${pageCount}">
                         <button>>></button>
                       </a>
                     </c:when>
@@ -176,7 +176,7 @@
 	</div>
 </body>
 
-<script src="admin/_js/test2.js"></script>
+<script src="admin/ask/0.js/ask.js"></script>
 <script src="admin/_js/test.js"></script>
 
 </html>

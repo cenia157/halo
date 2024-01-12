@@ -13,6 +13,7 @@
 <title>notice</title>
 </head>
 <body>
+<button onclick="searchCheckBoxVal()">test용 버튼임다</button>
 	<div class="ontent-m-td-2-content-container">
 		<div class="ontent-m-td-2-content-txt">
 			<div class="ontent-m-td-2-content-txt-no">No</div>
@@ -29,13 +30,15 @@
 				<input hidden="1" name="aq_seq" value="${an.an_seq }">
 				<div class="ontent-m-td-2-content-txt-no-in">${(loop.index + 1) + (curPageNo - 1) * 8}
 				</div>
-				<div class="ontent-m-td-2-content-txt-kategorie-in">a</div>
+				<div class="ontent-m-td-2-content-txt-kategorie-in">${an.an_category }</div>
 				<div class="ontent-m-td-2-content-txt-title-in">
 					<a onclick="getNOTICEDataV('${an.an_seq}')">${an.an_title }</a>
 				</div>
 				<div class="ontent-m-td-2-content-txt-writer-in">${an.an_writer }</div>
 				<div class="ontent-m-td-2-content-txt-date-in">${an.an_reg_date}</div>
-				<div class="ontent-m-td-2-content-txt-delete-in"></div>
+				<div class="ontent-m-td-2-content-txt-delete-in">
+					<button onclick="deleteNotice('${an.an_seq}')">삭제</button>
+				</div>
 			</div>
 		</c:forEach>
 	</div>
