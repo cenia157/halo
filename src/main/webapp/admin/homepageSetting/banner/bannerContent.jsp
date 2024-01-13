@@ -10,6 +10,7 @@
 
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/admin/homepageSetting/banner/0.css/banner.css" />
+<!-- font font font font font  -->
 <link
 	href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular"
 	rel="stylesheet" />
@@ -169,7 +170,7 @@
 			</div>
 		</div>
 		<div class="content-button">
-		<button id="banner_btn_submit" onclick="submitBannerData(1)">변경</button>
+		<button id="banner_btn_submit" onclick="submitBannerData()">변경</button>
 		</div>
 		</div>
 		

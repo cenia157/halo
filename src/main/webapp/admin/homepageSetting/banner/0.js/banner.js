@@ -60,32 +60,14 @@ function handleFileUpload(idx) {
 
 
 //버튼 클릭했을때, 전체 폼 데이터 들고 컨트롤러로 가기
-function submitBannerData(idx){
+function submitBannerData(){
 	alert(11);
-	let formData = new FormData(document.querySelector(".banner-select"));
-	console.log("폼:" + formData);
+	let selectData = document.querySelectorAll(".banner-select");
+	console.log("폼:" + selectData[0].value);
 	
-	let selectElement = document.querySelector("#banner_menu" + idx)[0];
-	let selectedOption = selectElement.options[selectElement.selectedIndex].value;
-	formData.append("selectedOption", selectedOption);
-	console.log("셀렉:" + selectedOption);
 	
-	let urlValue = document.querySelector("#banner_url" + idx)[0].value
-	formData.append("url", urlValue);
-	console.log("url:" + urlValue);
 	
-	let pdNameValue = document.querySelector("#banner_text" + idx)[0].value
-	formData.append("pdName", pdNameValue);
-	console.log("상품명 :" + pdNameValue);
-	
-	let xhr = new XMLHttpRequest();
-	xhr.open("POST", "/BannerUpdateC");
-	xhr.onreadystatechange = function(){
-		if(xhr.readyState === 4 && xhr.status === 200){
-			console.log("xhr.responseText : " + xhr.responseText);
-		}
-	};
-	xhr.send(formData);
+//	location.href = 'BannerUpdateC?selectData='+selectData;
 }
 
 
