@@ -20,6 +20,7 @@ function handleFileUpload(idx) {
 //	const fileInput = event.target; // 이벤트 발생한 대상(파일입력요소)
 	let fileInput = document.getElementById("thumbnail" + idx);
 	let selectedFile = fileInput.files; //파일입력요소에서 '선택된' 파일들
+	let serverFileName = document.querySelectorAll(".serverFileName");
 	console.log('선택된 파일:', selectedFile);
 	
 	if(selectedFile.length === 0){
@@ -50,6 +51,7 @@ function handleFileUpload(idx) {
 				let bannetPreview = document.querySelector("#banner_preview" + idx);
 				let url = "url(\'user/upload_imgs/banner/"+ fileName + "\')";
 				bannetPreview.style.backgroundImage = url;
+				serverFileName[idx-1].value = fileName;
 			},
 			error: function(e) {
 				console.log('에러 : ' + e);
@@ -65,23 +67,39 @@ function submitBannerData(){
 	let selectData = document.querySelectorAll(".banner-select");
 	let urlData = document.querySelectorAll(".banner-url");
 	let pdNameData = document.querySelectorAll(".banner-pdNameData");
-	let fileNameData = document.querySelectorAll(".banner_input");
-	console.log("셀렉:" + selectData[0].value);
-	console.log("셀렉:" + selectData[1].value);
-	console.log("셀렉:" + selectData[2].value);
-	console.log("url:" + urlData[0].value);
-	console.log("url:" + urlData[1].value);
-	console.log("url:" + urlData[2].value);
-	console.log("pdNameData:" + pdNameData[0].value);
-	console.log("pdNameData:" + pdNameData[1].value);
-	console.log("pdNameData:" + pdNameData[2].value);
-	console.log("fileNameData:" + fileNameData[0].value);
-	console.log("fileNameData:" + fileNameData[1].value);
-	console.log("fileNameData:" + fileNameData[2].value);
+	let serverFileNameData = document.querySelectorAll(".serverFileName");
+	let selectValues="";
+	let urlValues="";
+	let pdNameValues="";
+	let fileNameValues="";
+	for(let i = 0; i < 3; i++){
+		if(selectData[i].value==null || selectData[i].value== '' ){
+			selectData[i].value="empty";
+		}
+		if(urlData[i].value==null || urlData[i].value== '' ){
+			urlData[i].value="empty";
+		}
+		if(pdNameData[i].value==null || pdNameData[i].value== '' ){
+			pdNameData[i].value="empty";
+		}
+		if(serverFileNameData[i].value==null || serverFileNameData[i].value== '' ){
+			serverFileNameData[i].value="empty";
+		}
+	}	
 	
 	
+	for(let i = 0; i < 3; i++){
+		selectValues += 'selectValues='+encodeURIComponent(selectData[i].value)+'&';
+		urlValues += 'urlValues='+encodeURIComponent(urlData[i].value)+'&';
+		pdNameValues += 'pdNameValues='+encodeURIComponent(pdNameData[i].value)+'&';
+		fileNameValues += 'fileNameValues=' + encodeURIComponent(serverFileNameData[i].value) + '&';		
+	}
 	
-//	location.href = 'BannerUpdateC?selectData='+selectData;
+	let url = 'BannerUpdateC?'+ selectValues + urlValues + pdNameValues + fileNameValues;
+	
+	console.log(url);
+	
+    location.href = url;
 }
 
 

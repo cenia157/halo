@@ -7,21 +7,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/BannerUpdateC")
-public class BannerUpdateC extends HttpServlet {
+@WebServlet("/MainBannerUpdateC")
+public class MainBannerUpdateC extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		//getAll로 DTO깐거 가져옴
+		//지금컨트롤러, 결과 파라미터
 		MainpageDAO.getMdao().getAllHompage_common(request);
-		//업뎃 메소드
-		MainpageDAO.getMdao().updateBanner(request);
-		System.out.println("업뎃 지나감~~");
-		response.sendRedirect("BannerUploadC");
+		//Admin page 메뉴(index.jsp) 안고가기 
+		request.setAttribute("menu", "/admin/homepageSetting/mainpage/mainpageContent.jsp");
+		request.getRequestDispatcher("admin/index.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-	
+		MainpageDAO.getMdao().updateMainBanner(request, response);
 	}
 
 }
