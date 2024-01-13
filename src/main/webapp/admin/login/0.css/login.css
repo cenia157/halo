@@ -11,11 +11,17 @@
 	font-family: 'Poppins', sans-serif;
 }
 
-.login-img-box {
+.close-img-box {
+	text-align:right;
+	right: 5%;
+}
+.close-img-box>a>img{
+	height: 2rem;
+	
+}
+
+.logo-img-box {
 	position: relative;
-	display: flex;
-	justify-content: center;
-	align-items: center;
 	padding-right: 5%;
 }
 
@@ -53,7 +59,7 @@
 	position: absolute;
 	max-width: 430px;
 	width: 100%;
-	padding: 30px;
+	padding: 2%;
 	border-radius: 6px;
 	background: #FFF;
 }
