@@ -63,7 +63,9 @@ function handleFileUpload(idx) {
 function submitBannerData(){
 	alert(11);
 	let selectData = document.querySelectorAll(".banner-select");
-	console.log("폼:" + selectData[0].value);
+	console.log("셀렉:" + selectData[0].value);
+	console.log("셀렉:" + selectData[1].value);
+	console.log("셀렉:" + selectData[2].value);
 	
 	
 	
