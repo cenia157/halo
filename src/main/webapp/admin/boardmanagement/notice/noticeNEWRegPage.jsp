@@ -20,8 +20,6 @@
 						<div class="real-title">
 							<input class="real-title-editor" name="title"
 								id="real-title-editor" placeholder="이곳에 제목을 입력하세요">
-							<!-- 아래의 input은 ajax로 올라갔던 이미지의 실제 이름을 받기 위한 역할을 한다.
-							type="hidden"을 삭제하고 이미지를 올려놓으면 올린 이미지의 경로+이름이 나온다. -->
 							<div id="img-temporary"></div>
 							<div class="real-title-select">
 								<div class="toggle" id="toggle" onclick="toggle()">
@@ -62,8 +60,8 @@
 				</div>
 				<div class="modal-content">
 					<div class="modal-content-txt">
-						<!-- 아래의 코드는 CK Editor를 넣는 부분이다-->
-						<textarea name="txt" id="classicNR" class="classicNR"></textarea>
+						<!-- CK Editor 연동-->
+						<textarea name="txt" id="classicNR" class=connect_regModal_ckEditor></textarea>
 					</div>
 					<div class="modal-content-button">
 
@@ -126,8 +124,8 @@
 				</div>
 				<div class="modal-content">
 					<div class="modal-content-txt">
-						<!-- 아래의 코드는 CK Editor를 넣는 부분이다-->
-						<textarea name="txt" id="classicNR" class="classicNR"></textarea>
+						<!-- CK Editor 연동-->
+						<textarea name="txt" class="connect_viewmodal_ckEditor"></textarea>
 					</div>
 					<div class="modal-content-button">
 

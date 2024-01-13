@@ -390,8 +390,6 @@ function getNOTICEDataV(an_seq) {
 }
 
 
-
-
 function getNOTICEDataR(an_seq, an_title, an_content, an_writer, an_reg_date, an_category) {
 	console.log("an_seq: ", an_seq);
 
@@ -418,21 +416,10 @@ function getNOTICEDataR(an_seq, an_title, an_content, an_writer, an_reg_date, an
 				let an_title = data[0].an_title;
 				let an_content = data[0].an_content;
 				let an_writer = data[0].an_content;
-				console.log('111111111111111111111111111111111111111111');
-				console.log("qa_content: ", an_content);
-				console.log('111111111111111111111111111111111111111111');
 				let an_reg_date = data[0].an_reg_date;
 				let an_category = data[0].an_category;
 
-
 				$('#modal-seq').val(an_seq);
-				//				$('#classicNR_Title').val(qa_title);
-				//				이거 활성화하면 타이틀에 value로 들어가는 대신 placeholder로 들어가게 된다... 옵션
-				//				$('#real-title-editor').attr('placeholder', qa_title);	
-
-
-
-
 
 				openModalR();
 			} else {
