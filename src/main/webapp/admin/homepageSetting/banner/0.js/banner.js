@@ -63,9 +63,21 @@ function handleFileUpload(idx) {
 function submitBannerData(){
 	alert(11);
 	let selectData = document.querySelectorAll(".banner-select");
+	let urlData = document.querySelectorAll(".banner-url");
+	let pdNameData = document.querySelectorAll(".banner-pdNameData");
+	let fileNameData = document.querySelectorAll(".banner_input");
 	console.log("셀렉:" + selectData[0].value);
 	console.log("셀렉:" + selectData[1].value);
 	console.log("셀렉:" + selectData[2].value);
+	console.log("url:" + urlData[0].value);
+	console.log("url:" + urlData[1].value);
+	console.log("url:" + urlData[2].value);
+	console.log("pdNameData:" + pdNameData[0].value);
+	console.log("pdNameData:" + pdNameData[1].value);
+	console.log("pdNameData:" + pdNameData[2].value);
+	console.log("fileNameData:" + fileNameData[0].value);
+	console.log("fileNameData:" + fileNameData[1].value);
+	console.log("fileNameData:" + fileNameData[2].value);
 	
 	
 	
