@@ -27,7 +27,7 @@
 
 <body>
 	<div class="content-m-td-3">
-<form action="MainBannerUpdateC" method="get">
+<form action="MainBannerUpdateC" method="post">
 		<div class="content-m-td-3-up">
 			<!-- 여긴 공간채움용 빈공간 -->
 		</div>
@@ -51,41 +51,41 @@
 
 				<div class="content-m-td-3-mid-2-tr-underbar">
 					<select class="main-banner-select" name="main_banner_box1">
-						<option value="info_com">회사소개</option>
-						<option value="info_map">오시는길</option>
-						<option value="intro_announce">공지사항</option>
-						<option value="intro_album">앨범</option>
-						<option value="intro_employ">채용공고</option>
-						<option value="service_info">서비스안내</option>
-						<option value="service_apply">서비스신청</option>
-						<option value="faq">자주묻는질문</option>
-						<option value="question">문의게시판</option>
+						<option value="link=1">회사소개</option>
+						<option value="link=2">오시는길</option>
+						<option value="Announced_C">공지사항</option>
+						<option value="Album_insta_api_C">앨범</option>
+						<option value="Employment_C">채용공고</option>
+						<option value="link=6">서비스안내</option>
+						<option value="ServiceApplyC">서비스신청</option>
+						<option value="FaqC">자주묻는질문</option>
+						<option value="QuestionC">문의게시판</option>
 					</select>
 				</div>
 				<div class="content-m-td-3-mid-2-tr-underbar">
 					<select class="main-banner-select" name="main_banner_box2">
-						<option value="info_com">회사소개</option>
-						<option value="info_map">오시는길</option>
-						<option value="intro_announce">공지사항</option>
-						<option value="intro_album">앨범</option>
-						<option value="intro_employ">채용공고</option>
-						<option value="service_info">서비스안내</option>
-						<option value="service_apply">서비스신청</option>
-						<option value="faq">자주묻는질문</option>
-						<option value="question">문의게시판</option>
+						<option value="link=1">회사소개</option>
+						<option value="link=2">오시는길</option>
+						<option value="Announced_C">공지사항</option>
+						<option value="Album_insta_api_C">앨범</option>
+						<option value="Employment_C">채용공고</option>
+						<option value="link=6">서비스안내</option>
+						<option value="ServiceApplyC">서비스신청</option>
+						<option value="FaqC">자주묻는질문</option>
+						<option value="QuestionC">문의게시판</option>
 					</select>
 				</div>
 				<div class="content-m-td-3-mid-2-tr-underbar">
 					<select class="main-banner-select" name="main_banner_box3">
-						<option value="info_com">회사소개</option>
-						<option value="info_map">오시는길</option>
-						<option value="intro_announce">공지사항</option>
-						<option value="intro_album">앨범</option>
-						<option value="intro_employ">채용공고</option>
-						<option value="service_info">서비스안내</option>
-						<option value="service_apply">서비스신청</option>
-						<option value="faq">자주묻는질문</option>
-						<option value="question">문의게시판</option>
+						<option value="link=1">회사소개</option>
+						<option value="link=2">오시는길</option>
+						<option value="Announced_C">공지사항</option>
+						<option value="Album_insta_api_C">앨범</option>
+						<option value="Employment_C">채용공고</option>
+						<option value="link=6">서비스안내</option>
+						<option value="ServiceApplyC">서비스신청</option>
+						<option value="FaqC">자주묻는질문</option>
+						<option value="QuestionC">문의게시판</option>
 					</select>
 				</div>
 			</div>

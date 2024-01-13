@@ -15,9 +15,9 @@
       </div>
 	<!-- TODO 서효원 메인페이지 - 주요메뉴 3칸 변경 가능하도록 연결 -->
       <div class="quick-menu-tbl">
-        <div class="quick-menu-tr" onclick="location.href=''">채용공고</div>
-        <div class="quick-menu-tr" onclick="location.href=''">신청</div>
-        <div class="quick-menu-tr" onclick="location.href=''">문의</div>
+        <div class="quick-menu-tr" onclick="location.href='${hdto.h_left_banner_title}'">채용공고</div>
+        <div class="quick-menu-tr" onclick="location.href='${hdto.h_center_banner_title}'">신청</div>
+        <div class="quick-menu-tr" onclick="location.href='${hdto.h_right_banner_title}'">문의</div>
       </div>
       <div class="main-notice-tbl" id="page1">
       <!--  TODO 서효원 메인페이지에 공지사항 최신순으로 뿌리기 (공지사항 제목, 내용/클릭시 해당 공지 디테일페이지 연결) -->

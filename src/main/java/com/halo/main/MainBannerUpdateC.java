@@ -19,6 +19,7 @@ public class MainBannerUpdateC extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		MainpageDAO.getMdao().updateMainBanner(request, response);
+		response.sendRedirect("MainBannerUpdateC");
 	}
 
 }

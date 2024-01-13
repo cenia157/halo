@@ -30,7 +30,7 @@ public class MainpageDAO {
 		return MDAO;
 	}
 		
-
+	
 	public void getAllHompage_common(HttpServletRequest request) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -47,12 +47,15 @@ public class MainpageDAO {
 				hdto.setH_seq(rs.getInt("h_seq"));
 				hdto.setH_logo_img(rs.getString("h_logo_img"));
 				hdto.setH_slogan(rs.getString("h_slogan"));
+				//메인(메인베너)빠른메뉴 url 컬럼으로 씀, 컬럼명 바꿀 예정
 				hdto.setH_left_banner_title(rs.getString("h_left_banner_title"));
 				hdto.setH_center_banner_title(rs.getString("h_center_banner_title"));
 				hdto.setH_right_banner_title(rs.getString("h_right_banner_title"));
+				//메인(메인베너)빠른메뉴 text(title) 컬럼으로 쓸 예정, 컬럼명 바꿀 예정
 				hdto.setH_left_banner_img(rs.getString("h_left_banner_img"));
 				hdto.setH_center_banner_img(rs.getString("h_center_banner_img"));
 				hdto.setH_right_banner_img(rs.getString("h_right_banner_img"));
+				//푸터 업뎃용--------------
 				hdto.setH_tel_no(rs.getString("h_tel_no"));
 				hdto.setH_fax_no(rs.getString("h_fax_no"));
 				hdto.setH_phone_no(rs.getString("h_phone_no"));
@@ -87,7 +90,7 @@ public class MainpageDAO {
     }
 
 	
-	//로고 수정 메소드
+	//로고 업데이트
 	public void updateLogo(HttpServletRequest request) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -118,7 +121,7 @@ public class MainpageDAO {
 	}
 	
 	
-
+	//Footer업데이트
 	public void updateFooter(HttpServletRequest request) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -285,18 +288,27 @@ public class MainpageDAO {
 	public void updateMainBanner(HttpServletRequest request, HttpServletResponse response) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
-		String sql = "";
 		String paramName = "error";
 		String param = "등록 실패";
-		sql = "update banner_test \r\n"
-				+ "b_m_name = ?, b_url = (select m_servlet from menu_test where m_name = ?), b_m_text = (select m_text from menu_test where m_name = ?) \r\n"
-				+ "where b_index = " + (i+1);
+		String sql = "";
 		
 		try {
 			con = DBManagerhalo.connect();
 			String[] mainBannerValues = {request.getParameter("main_banner_box1"),request.getParameter("main_banner_box2"),request.getParameter("main_banner_box3")};
+			System.out.println("mainBannerValues:" + mainBannerValues);
 			for(int i = 0; i < 3; i++){
+				sql = "update homepage_common set h_left_banner_title = ?, h_center_banner_title = ?, h_right_banner_title = ? where h_seq= 1";
+				System.out.println("mainBannerValues:["+i+"]" + mainBannerValues[i]);
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, mainBannerValues[i]);
+				pstmt.setString(2, mainBannerValues[i]);
+				pstmt.setString(3, mainBannerValues[i]);
 				
+				if(pstmt.executeUpdate() > 0) {
+					System.out.println("메인bannerNo: " + i + "업뎃 성공");
+				} else {
+					System.out.println("메인bannerNo: " + i + "업뎃 실패");
+				}
 			}
 			
 		} catch (Exception e) {
