@@ -1,5 +1,5 @@
 package com.halo.main;
-
+               
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -46,11 +46,11 @@ public class HC extends HttpServlet {
 			request.getRequestDispatcher("index.jsp").forward(request, response);
 		}
 
-		if (request.getParameter("link").equals("7")) {
-			contentPage = "service/serviceApply/serviceApply";
-			request.setAttribute("step1Pos", "#ffdf6c");
-			request.setAttribute("serviceStep", "svcselect.jsp");
-		}
+//		if (request.getParameter("link").equals("7")) {
+//			contentPage = "service/serviceApply/serviceApply";
+//			request.setAttribute("step1Pos", "#ffdf6c");
+//			request.setAttribute("serviceStep", "svcselect.jsp");
+//		}
 
 		String link = request.getParameter("link");
 		System.out.println(link);

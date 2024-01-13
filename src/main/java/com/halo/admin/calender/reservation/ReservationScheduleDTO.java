@@ -4,44 +4,48 @@ import com.google.gson.Gson;
 
 public class ReservationScheduleDTO {
 	private String no;
-	private String service;
 	private String applicant;
 	private String phoneNumber;
 	private String userName;
 	private String gender;
-	private String birthDate;
+	private String birthDates;
 	private String year;
 	private String month;
 	private String dates;
 	private String time;
 	private String addr;
-	private String startPlace;
-	private String endPlace;
+	private String startPoint;
+	private String endPoint;
+	private String nurssingInfo;
+	private String texiInfo;
 	private String registrationDate;
-	
+	private String service;
+
 	public ReservationScheduleDTO() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public ReservationScheduleDTO(String no, String service, String applicant, String phoneNumber, String userName,
-			String gender, String birthDate, String year, String month, String dates, String time, String addr,
-			String startPlace, String endPlace, String registrationDate) {
+	public ReservationScheduleDTO(String no, String applicant, String phoneNumber, String userName, String gender,
+			String birthDates, String year, String month, String dates, String time, String addr, String startPoint,
+			String endPoint, String nurssingInfo, String texiInfo, String registrationDate, String service) {
 		super();
 		this.no = no;
-		this.service = service;
 		this.applicant = applicant;
 		this.phoneNumber = phoneNumber;
 		this.userName = userName;
 		this.gender = gender;
-		this.birthDate = birthDate;
+		this.birthDates = birthDates;
 		this.year = year;
 		this.month = month;
 		this.dates = dates;
 		this.time = time;
 		this.addr = addr;
-		this.startPlace = startPlace;
-		this.endPlace = endPlace;
+		this.startPoint = startPoint;
+		this.endPoint = endPoint;
+		this.nurssingInfo = nurssingInfo;
+		this.texiInfo = texiInfo;
 		this.registrationDate = registrationDate;
+		this.service = service;
 	}
 
 	public String getNo() {
@@ -50,14 +54,6 @@ public class ReservationScheduleDTO {
 
 	public void setNo(String no) {
 		this.no = no;
-	}
-
-	public String getService() {
-		return service;
-	}
-
-	public void setService(String service) {
-		this.service = service;
 	}
 
 	public String getApplicant() {
@@ -92,12 +88,12 @@ public class ReservationScheduleDTO {
 		this.gender = gender;
 	}
 
-	public String getBirthDate() {
-		return birthDate;
+	public String getBirthDates() {
+		return birthDates;
 	}
 
-	public void setBirthDate(String birthDate) {
-		this.birthDate = birthDate;
+	public void setBirthDates(String birthDates) {
+		this.birthDates = birthDates;
 	}
 
 	public String getYear() {
@@ -116,11 +112,11 @@ public class ReservationScheduleDTO {
 		this.month = month;
 	}
 
-	public String getDate() {
+	public String getDates() {
 		return dates;
 	}
 
-	public void setDate(String dates) {
+	public void setDates(String dates) {
 		this.dates = dates;
 	}
 
@@ -140,30 +136,54 @@ public class ReservationScheduleDTO {
 		this.addr = addr;
 	}
 
-	public String getStartPlace() {
-		return startPlace;
+	public String getStartPoint() {
+		return startPoint;
 	}
 
-	public void setStartPlace(String startPlace) {
-		this.startPlace = startPlace;
+	public void setStartPoint(String startPoint) {
+		this.startPoint = startPoint;
 	}
 
-	public String getEndPlace() {
-		return endPlace;
+	public String getEndPoint() {
+		return endPoint;
 	}
 
-	public void setEndPlace(String endPlace) {
-		this.endPlace = endPlace;
+	public void setEndPoint(String endPoint) {
+		this.endPoint = endPoint;
+	}
+
+	public String getNurssingInfo() {
+		return nurssingInfo;
+	}
+
+	public void setNurssingInfo(String nurssingInfo) {
+		this.nurssingInfo = nurssingInfo;
+	}
+
+	public String getTexiInfo() {
+		return texiInfo;
+	}
+
+	public void setTexiInfo(String texiInfo) {
+		this.texiInfo = texiInfo;
 	}
 
 	public String getRegistrationDate() {
 		return registrationDate;
 	}
 
-	public void setRegistRationDate(String registrationDate) {
+	public void setRegistrationDate(String registrationDate) {
 		this.registrationDate = registrationDate;
 	}
-	
+
+	public String getService() {
+		return service;
+	}
+
+	public void setService(String service) {
+		this.service = service;
+	}
+
 	public String toJson() {
 		Gson gson = new Gson();
 		return gson.toJson(this);

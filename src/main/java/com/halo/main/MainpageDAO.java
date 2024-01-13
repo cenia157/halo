@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Enumeration;
+import java.util.Iterator;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -29,7 +30,7 @@ public class MainpageDAO {
 		return MDAO;
 	}
 		
-
+	
 	public void getAllHompage_common(HttpServletRequest request) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -46,12 +47,15 @@ public class MainpageDAO {
 				hdto.setH_seq(rs.getInt("h_seq"));
 				hdto.setH_logo_img(rs.getString("h_logo_img"));
 				hdto.setH_slogan(rs.getString("h_slogan"));
+				//메인(메인베너)빠른메뉴 url 컬럼으로 씀, 컬럼명 바꿀 예정
 				hdto.setH_left_banner_title(rs.getString("h_left_banner_title"));
 				hdto.setH_center_banner_title(rs.getString("h_center_banner_title"));
 				hdto.setH_right_banner_title(rs.getString("h_right_banner_title"));
+				//메인(메인베너)빠른메뉴 text(title) 컬럼으로 쓸 예정, 컬럼명 바꿀 예정
 				hdto.setH_left_banner_img(rs.getString("h_left_banner_img"));
 				hdto.setH_center_banner_img(rs.getString("h_center_banner_img"));
 				hdto.setH_right_banner_img(rs.getString("h_right_banner_img"));
+				//푸터 업뎃용--------------
 				hdto.setH_tel_no(rs.getString("h_tel_no"));
 				hdto.setH_fax_no(rs.getString("h_fax_no"));
 				hdto.setH_phone_no(rs.getString("h_phone_no"));
@@ -86,7 +90,7 @@ public class MainpageDAO {
     }
 
 	
-	//로고 수정 메소드
+	//로고 업데이트
 	public void updateLogo(HttpServletRequest request) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -117,7 +121,7 @@ public class MainpageDAO {
 	}
 	
 	
-
+	//Footer업데이트
 	public void updateFooter(HttpServletRequest request) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -221,31 +225,37 @@ public class MainpageDAO {
 		String sql = "";
 		String paramName = "error";
 		String param = "등록 실패";
-//		String savepath = request.getServletContext().getRealPath("user/upload_imgs/banner");
 		
 		try {
 			con = DBManagerhalo.connect();
-			String[] banner_menus = {request.getParameter("banner_menu1"),request.getParameter("banner_menu2"),request.getParameter("banner_menu3")};
+			
+			String[][] bannerValues = {request.getParameterValues("selectValues"), 
+					request.getParameterValues("urlValues"),
+					request.getParameterValues("pdNameValues"),
+					request.getParameterValues("fileNameValues")};
+			
+			System.out.println(bannerValues.length);
+			System.out.println(bannerValues[0].length);
+			
 			//하단베너3개 => for문 i = name뒤에 붙을 인덱스번호, 
 			for(int i = 0; i < 3; i++) {
-				if( banner_menus[i] != null && banner_menus[i].equals("sales")) {
-					System.out.println("banner_menus[i] : " + banner_menus[i]);
+				if( bannerValues[0][i] != null && bannerValues[0][i].equals("sales")) {
+					System.out.println("banner_menus[" + i + "] : " + bannerValues[0][i]);
 					sql = "update banner_test \r\n"
 							+ "set b_type = 2, b_m_name = 'sales', b_url = ?, b_m_text = ?, b_img_url = ? \r\n"
 							+ "where b_index = " + (i+1);
 					pstmt = con.prepareStatement(sql);
 					//상품사이트 url
-					pstmt.setString(1, request.getParameter("banner_url" + (i+1)));
-					System.out.println("배너url 파람 : " + request.getParameter("banner_url" + (i+1)));
+					pstmt.setString(1, bannerValues[1][i]);
+					System.out.println("배너url 파람 : " + bannerValues[1][i]);
 					
 					//상품명:ㅁㅁ
-					pstmt.setString(2, request.getParameter("banner_text" + (i+1)));
-					System.out.println("상품명 파람 : " + request.getParameter("banner_text" + (i+1)));
+					pstmt.setString(2, bannerValues[2][i]);
+					System.out.println("상품명 파람 : " + bannerValues[2][i]);
 					
 					//배너 썸네일 이미지 이름
-					pstmt.setString(3, request.getParameterValues("banner_thumbnail")[i]);
-					System.out.println("업뎃파일 : "+ request.getParameterValues("banner_thumbnail")[i]);
-//					System.out.println("업뎃 파일 :" + mr.getFilesystemName(mr.getFilesystemName(fieldName)));
+					pstmt.setString(3,bannerValues[3][i]);
+					System.out.println("업뎃파일 : "+ bannerValues[3][i]);
 										
 				} else {
 					sql = "update banner_test \r\n"
@@ -253,10 +263,9 @@ public class MainpageDAO {
 							+ "where b_index = " + (i+1);
 					
 					pstmt = con.prepareStatement(sql);
-					pstmt.setString(1, banner_menus[i]);
-					pstmt.setString(2, banner_menus[i]);
-					pstmt.setString(3, banner_menus[i]);
-					System.out.println("banner_menus[i] : " + banner_menus[i]);
+					pstmt.setString(1, bannerValues[0][i]);
+					pstmt.setString(2, bannerValues[0][i]);
+					pstmt.setString(3, bannerValues[0][i]);
 				}
 				if(pstmt.executeUpdate() > 0) {
 					System.out.println("bannerNo: " + i + "업뎃 성공");
@@ -273,6 +282,44 @@ public class MainpageDAO {
 			request.setAttribute("param", param);
 			DBManagerhalo.close(con, pstmt, null);
 		}
+	}
+	
+	//메인페이지 베너 (빠른메뉴) 업뎃
+	public void updateMainBanner(HttpServletRequest request, HttpServletResponse response) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		String paramName = "error";
+		String param = "등록 실패";
+		String sql = "";
+		
+		try {
+			con = DBManagerhalo.connect();
+			String[] mainBannerValues = {request.getParameter("main_banner_box1"),request.getParameter("main_banner_box2"),request.getParameter("main_banner_box3")};
+			System.out.println("mainBannerValues:" + mainBannerValues);
+			for(int i = 0; i < 3; i++){
+				sql = "update homepage_common set h_left_banner_title = ?, h_center_banner_title = ?, h_right_banner_title = ? where h_seq= 1";
+				System.out.println("mainBannerValues:["+i+"]" + mainBannerValues[i]);
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, mainBannerValues[i]);
+				pstmt.setString(2, mainBannerValues[i]);
+				pstmt.setString(3, mainBannerValues[i]);
+				
+				if(pstmt.executeUpdate() > 0) {
+					System.out.println("메인bannerNo: " + i + "업뎃 성공");
+				} else {
+					System.out.println("메인bannerNo: " + i + "업뎃 실패");
+				}
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("db server error...");
+		}finally {
+			request.setAttribute("paramName", paramName);
+			request.setAttribute("param", param);
+			DBManagerhalo.close(con, pstmt, null);
+		}
+		
 	}
 	
 	

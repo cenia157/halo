@@ -43,7 +43,7 @@
 				</div>
 				<div class="header-br-space"></div>
 <!-- 				전화번호 수정 가능하도록, 회사정보(footer 변경 어트리뷰트 재활용) -->
-				<div class="header-br-call">Tel. 06-6997-6531</div>
+				<div class="header-br-call">Tel. ${hdto.h_tel_no}</div>
 			</div>
 			<div class="header-tr-2">
 				<div class="header-td">
