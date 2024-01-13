@@ -64,6 +64,7 @@ function submitBannerData(idx){
 	alert(11);
 	let formData = new FormData(document.querySelector("#bannerUploadForm" + idx));
 	console.log("폼:" + formData);
+	
 	let selectElement = document.querySelector("#banner_menu" + idx)[0];
 	let selectedOption = selectElement.options[selectElement.selectedIndex].value;
 	formData.append("selectedOption", selectedOption);

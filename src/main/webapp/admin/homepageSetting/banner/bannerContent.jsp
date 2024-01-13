@@ -36,7 +36,7 @@
 				<div class="banner-td-1">
 				<img src="${pageContext.request.contextPath}/admin/0.img/banner_icon.png">
 				<div>빠른메뉴 :&nbsp;</div>
-				<select name="banner_menu1" id="banner_menu1" onchange="changeInformBox(1)">
+				<select class="banner-select" name="banner_menu1" id="banner_menu1" onchange="changeInformBox(1)">
 				<option value="info_com">회사소개</option>
 				<option value="info_map">오시는길</option>
 				<option value="intro_announce">공지사항</option>
@@ -82,7 +82,7 @@
 				<div class="banner-td-1">
 				<img src="${pageContext.request.contextPath}/admin/0.img/banner_icon.png">
 				<div>빠른메뉴 :&nbsp;</div>
-					<select name="banner_menu2" id="banner_menu2" onchange="changeInformBox(2)">
+					<select class="banner-select" name="banner_menu2" id="banner_menu2" onchange="changeInformBox(2)">
 				<option value="info_com">회사소개</option>
 				<option value="info_map">오시는길</option>
 				<option value="intro_announce">공지사항</option>
@@ -129,7 +129,7 @@
 				<div class="banner-td-1">
 				<img src="${pageContext.request.contextPath}/admin/0.img/banner_icon.png">
 				<div>빠른메뉴 :&nbsp;</div>
-					<select name="banner_menu3" id="banner_menu3" onchange="changeInformBox(3)">
+					<select class="banner-select" name="banner_menu3" id="banner_menu3" onchange="changeInformBox(3)">
 				<option value="info_com">회사소개</option>
 				<option value="info_map">오시는길</option>
 				<option value="intro_announce">공지사항</option>
