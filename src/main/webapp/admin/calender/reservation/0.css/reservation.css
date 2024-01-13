@@ -290,6 +290,16 @@ EDIT ON */
 	text-decoration: underline;
 }
 
+.backrop {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 2;
+	display: none;
+}
+
 .reservation-modal {
 	position: absolute;
 	border-radius: 8px;
@@ -298,7 +308,8 @@ EDIT ON */
 		rgba(0, 0, 0, 0.24);
 	width: 30%;
 	height: 75%;
-	z-index: 2;
+	flex-direction: column;
+	z-index: -1;
 }
 
 .reservation-modal-header {
@@ -312,14 +323,14 @@ EDIT ON */
 
 .reservation-modal-title {
 	font-size: 2rem;
-	width: 80%;
+	width: 90%;
 	height: 100%;
 	display: flex;
 	align-items: center;
 }
 
 .reservation-modal-close {
-	width: 20%;
+	width: 10%;
 	height: 100%;
 	display: flex;
 	justify-content: end;
@@ -332,6 +343,11 @@ EDIT ON */
 	width: 7%;
 	height: 1%;
 	background-color: #333;
+}
+
+.reservation-modal-close::before:hover, .reservation-modal-close::hover
+	{
+	cursor: pointer;
 }
 
 .reservation-modal-close::after {
@@ -380,7 +396,7 @@ EDIT ON */
 
 .reservation-modal-content-startpoint {
 	width: 100%;
-	height: 15%;
+	height: 12.5%;
 }
 
 .reservation-modal-content-end {
@@ -390,7 +406,7 @@ EDIT ON */
 
 .reservation-modal-content-endpoint {
 	width: 100%;
-	height: 15%;
+	height: 12.5%;
 }
 
 .reservation-modal-content-notice {
@@ -403,9 +419,106 @@ EDIT ON */
 	align-items: center;
 }
 
-.reservation-modal-content-manger {
+.reservation-modal-content-notice > textarea{
 	width: 100%;
-	height: 5%;
+	height: 100%;
+	font-size: 1.5rem;
+}
+
+.reservation-modal-content-manager {
+	width: 100%;
+	height: 10%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	position: relative;
+}
+
+.reservation-modal-content-manager-select {
+	border: 1px solid black;
+	display: flex;
+	width: 40%;
+	height: 100%;
+	border-radius: 8px;
+	border: 3px solid #e5e5e5;
+	align-items: center;
+}
+
+.default-manager {
+	display: flex;
+	width: 80%;
+	height: 80%;
+	justify-content: center;
+	align-items: center;
+}
+
+.manager-select-arrow {
+	display: flex;
+	width: 20%;
+	height: 100%;
+	position: relative;
+	justify-content: center;
+}
+
+.manager-select-arrowdown {
+	display: flex;
+	width: 20%;
+	height: 100%;
+	position: relative;
+	justify-content: center;
+}
+
+.manager-select-arrow::after {
+	position: absolute;
+	top: 35%;
+	content: '';
+	width: 10px; /* 사이즈 */
+	height: 10px; /* 사이즈 */
+	border-top: 0.5vh solid #616161; /* 선 두께 */
+	border-right: 0.5vh solid #616161; /* 선 두께 */
+	transform: rotate(315deg);
+	/* 	transform: rotate(135deg); */
+	content: '';
+}
+
+.manager-select-arrowdown::after {
+	position: absolute;
+	top: 25%;
+	content: '';
+	width: 10px; /* 사이즈 */
+	height: 10px; /* 사이즈 */
+	border-top: 0.5vh solid #616161; /* 선 두께 */
+	border-right: 0.5vh solid #616161; /* 선 두께 */
+	/* 	transform: rotate(315deg); */
+	transform: rotate(135deg);
+	content: '';
+}
+
+.manager-select-option {
+	height: auto;
+	width: 40%;
+	border-radius: 8px;
+	border: 2px solid #bababa;
+	font-size: 1.5rem;
+	position: absolute;
+	/* 	bottom: 0; */
+	/* 	top : 10%; */
+	background-color: #FFF;
+	overflow-y: scroll;
+	bottom: 0;
+	flex-direction: column;
+	display: none;
+}
+
+.manager-list {
+	display: flex;
+	justify-content: center;
+	border-bottom: 1px solid #bababa;
+}
+
+.manager-list:hover {
+	background-color: rgb(138, 182, 255);
 }
 
 .reservation-modal-btn {
@@ -610,7 +723,7 @@ EDIT ON */
 	font-size: 1.5rem;
 	font-weight: 600;
 	line-height: normal;
-	z-index : 1;
+	z-index: 1;
 }
 
 .ins-tr-td {
@@ -740,7 +853,7 @@ EDIT ON */
 .ins-tr-3-reservation-content {
 	width: 100%;
 	height: 100%;
-	overflow: scroll;
+	overflow-y: scroll;
 }
 
 .reservation-data {
@@ -751,7 +864,7 @@ EDIT ON */
 }
 
 .reservation-data a {
-	color : #FFF;
+	color: #FFF;
 	cursor: pointer;
 	display: none;
 }
@@ -759,7 +872,6 @@ EDIT ON */
 .reservation-data a:hover {
 	text-decoration: underline;
 }
-
 
 .reservation-data div {
 	font-size: 1.25rem;
