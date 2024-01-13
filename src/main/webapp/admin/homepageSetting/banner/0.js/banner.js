@@ -62,7 +62,7 @@ function handleFileUpload(idx) {
 //버튼 클릭했을때, 전체 폼 데이터 들고 컨트롤러로 가기
 function submitBannerData(idx){
 	alert(11);
-	let formData = new FormData(document.querySelector("#bannerUploadForm" + idx));
+	let formData = new FormData(document.querySelector(".banner-select"));
 	console.log("폼:" + formData);
 	
 	let selectElement = document.querySelector("#banner_menu" + idx)[0];
