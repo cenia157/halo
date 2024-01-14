@@ -57,8 +57,7 @@ form{
 	border: 1px solid
 		var(- -neutral-stroke-transparent-rest, rgba(255, 255, 255, 0.00));
 	background: var(- -neutral-background-1-rest, #FFF);
-	box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.50);
-	justify-content: center;
+ㄴ	justify-content: center;
 	align-items: center;
 	display: flex;
 	width: 32%;
@@ -100,7 +99,6 @@ form{
 }
 
 .content-m-td-3-mid-2-tr-underbar {
-	border: solid 1px black;
 	width: 20%;
 	height: 100%;
 	display: flex;
