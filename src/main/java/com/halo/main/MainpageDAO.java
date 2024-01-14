@@ -225,7 +225,7 @@ public class MainpageDAO {
 				tempBannerInform.setB_m_text(rs.getString(5));
 				tempBannerInform.setB_img_url(rs.getString(6));
 				
-				System.out.println(tempBannerInform);
+//				System.out.println(tempBannerInform);
 				
 				bannersInform.add(tempBannerInform);
 			}
@@ -251,11 +251,11 @@ public class MainpageDAO {
 		MultipartRequest mr = new MultipartRequest(request, savepath, 1024*1024*20, "utf-8", new DefaultFileRenamePolicy());
 		 
 		String fileName = mr.getFilesystemName("banner_thumbnail");
-		 System.out.println("업로드할 파일 :" + fileName);
+//		 System.out.println("업로드할 파일 :" + fileName);
 		 Gson gson = new Gson();
 		 gson.toJson(fileName);
 		 response.getWriter().print(fileName);
-		 System.out.println(fileName);
+//		 System.out.println(fileName);
 		 
 		
 	}
@@ -290,15 +290,15 @@ public class MainpageDAO {
 					pstmt = con.prepareStatement(sql);
 					//상품사이트 url
 					pstmt.setString(1, bannerValues[1][i]);
-					System.out.println("배너url 파람 : " + bannerValues[1][i]);
+//					System.out.println("배너url 파람 : " + bannerValues[1][i]);
 					
 					//상품명:ㅁㅁ
 					pstmt.setString(2, bannerValues[2][i]);
-					System.out.println("상품명 파람 : " + bannerValues[2][i]);
+//					System.out.println("상품명 파람 : " + bannerValues[2][i]);
 					
 					//배너 썸네일 이미지 이름
 					pstmt.setString(3,bannerValues[3][i]);
-					System.out.println("업뎃파일 : "+ bannerValues[3][i]);
+//					System.out.println("업뎃파일 : "+ bannerValues[3][i]);
 										
 				} else {
 					sql = "update banner_test \r\n"
@@ -311,9 +311,9 @@ public class MainpageDAO {
 					pstmt.setString(3, bannerValues[0][i]);
 				}
 				if(pstmt.executeUpdate() > 0) {
-					System.out.println("bannerNo: " + i + "업뎃 성공");
+//					System.out.println("bannerNo: " + i + "업뎃 성공");
 				} else {
-					System.out.println("bannerNo: " + i + "업뎃 실패");
+//					System.out.println("bannerNo: " + i + "업뎃 실패");
 				}
 			}
 			
@@ -354,9 +354,9 @@ public class MainpageDAO {
 				pstmt.setInt(4, i+4);
 				
 				if(pstmt.executeUpdate() > 0) {
-					System.out.println("메인bannerNo: " + (i+4) + "업뎃 성공");
+//					System.out.println("메인bannerNo: " + (i+4) + "업뎃 성공");
 				} else {
-					System.out.println("메인bannerNo: " + (i+4) + "업뎃 실패");
+//					System.out.println("메인bannerNo: " + (i+4) + "업뎃 실패");
 				}
 			}
 			
