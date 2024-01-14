@@ -54,7 +54,6 @@ public class HC extends HttpServlet {
 //			request.setAttribute("step1Pos", "#ffdf6c");
 //			request.setAttribute("serviceStep", "svcselect.jsp");
 //		}
-
 		String link = request.getParameter("link");
 		System.out.println(link);
 

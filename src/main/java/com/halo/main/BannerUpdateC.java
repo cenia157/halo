@@ -15,7 +15,6 @@ public class BannerUpdateC extends HttpServlet {
 		MainpageDAO.getMdao().getAllHompage_common(request);
 		//업뎃 메소드
 		MainpageDAO.getMdao().updateBanner(request);
-		System.out.println("업뎃 지나감~~");
 		response.sendRedirect("BannerUploadC");
 	}
 
