@@ -19,8 +19,9 @@
 <body>
 	<section class="container forms">
 		<div class="form login">
+		<div class="close-img-box"> <a href="HC"> <img alt="" src="admin/login/0.img/close.png"></a></div>
 			<div class="form-content">
-				<div class="login-img-box">
+				<div class="logo-img-box">
 				 <img alt="" src="admin/login/0.img/logo.png" class="logo-img">
 				 <div class="logo-txt">ハロー</div>
 				 </div>
