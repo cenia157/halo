@@ -72,8 +72,9 @@ public class MainpageDAO {
 			e.printStackTrace();
 		}finally {
 			DBManagerhalo.close(con, pstmt, rs);
-			//하단베너 출력
-			getAllBanner(request);
+			//빠른메뉴 메인상단베너, 하단베너 출력
+			getTopBanner(request);
+			getBottomBanner(request);
 		}
 		
 	}
@@ -158,11 +159,11 @@ public class MainpageDAO {
 	
 	
 	//하단베너 DTO
-	public void getAllBanner(HttpServletRequest request) {
+	public void getBottomBanner(HttpServletRequest request) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "select b_index, b_type, b_m_name, b_url, nvl(b_m_text, 'empty') as b_m_text, nvl(b_img_url, 'empty') as b_img_url from banner_test order by b_index";
+		String sql = "select b_index, b_type, b_m_name, b_url, nvl(b_m_text, 'empty') as b_m_text, nvl(b_img_url, 'empty') as b_img_url from banner_test where b_index < 4 order by b_index";
 		String paramName = "error";
 		String param = "조회 실패";
 		
@@ -187,7 +188,49 @@ public class MainpageDAO {
 				bannersInform.add(tempBannerInform);
 			}
 			
-			request.setAttribute("bannersInform", bannersInform);
+			request.setAttribute("bottomBanners", bannersInform);
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			request.setAttribute("paramName", paramName);
+			request.setAttribute("param", param);
+			DBManagerhalo.close(con, pstmt, null);
+		}
+		
+	}
+	
+	public void getTopBanner(HttpServletRequest request) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "select b_index, b_type, b_m_name, b_url, nvl(b_m_text, 'empty') as b_m_text, nvl(b_img_url, 'empty') as b_img_url from banner_test where b_index > 3 order by b_index";
+		String paramName = "error";
+		String param = "조회 실패";
+		
+		try {
+			con = DBManagerhalo.connect();
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			ArrayList<BannerInformDTO> bannersInform = new ArrayList<BannerInformDTO>();
+			
+			while (rs.next()) {
+				BannerInformDTO tempBannerInform = new BannerInformDTO();
+				tempBannerInform.setB_index(rs.getInt(1));
+				tempBannerInform.setB_type(rs.getInt(2));
+				tempBannerInform.setB_m_name(rs.getString(3));
+				tempBannerInform.setB_url(rs.getString(4));
+				tempBannerInform.setB_m_text(rs.getString(5));
+				tempBannerInform.setB_img_url(rs.getString(6));
+				
+				System.out.println(tempBannerInform);
+				
+				bannersInform.add(tempBannerInform);
+			}
+			
+			request.setAttribute("topBanners", bannersInform);
 			
 			
 		} catch (Exception e) {
@@ -297,17 +340,23 @@ public class MainpageDAO {
 			String[] mainBannerValues = {request.getParameter("main_banner_box1"),request.getParameter("main_banner_box2"),request.getParameter("main_banner_box3")};
 			System.out.println("mainBannerValues:" + mainBannerValues);
 			for(int i = 0; i < 3; i++){
-				sql = "update homepage_common set h_left_banner_title = ?, h_center_banner_title = ?, h_right_banner_title = ? where h_seq= 1";
+				sql = "update banner_test \r\n"
+						+ "set b_m_name=?, \r\n"
+						+ "b_url=(select m_servlet from menu_test where m_name =?), \r\n"
+						+ "b_m_text = (select m_text from menu_test where m_name=?)\r\n"
+						+ "where b_index=?";
 				System.out.println("mainBannerValues:["+i+"]" + mainBannerValues[i]);
 				pstmt = con.prepareStatement(sql);
 				pstmt.setString(1, mainBannerValues[i]);
 				pstmt.setString(2, mainBannerValues[i]);
 				pstmt.setString(3, mainBannerValues[i]);
 				
+				pstmt.setInt(4, i+4);
+				
 				if(pstmt.executeUpdate() > 0) {
-					System.out.println("메인bannerNo: " + i + "업뎃 성공");
+					System.out.println("메인bannerNo: " + (i+4) + "업뎃 성공");
 				} else {
-					System.out.println("메인bannerNo: " + i + "업뎃 실패");
+					System.out.println("메인bannerNo: " + (i+4) + "업뎃 실패");
 				}
 			}
 			
@@ -321,8 +370,6 @@ public class MainpageDAO {
 		}
 		
 	}
-	
-	
 	
 	
 	

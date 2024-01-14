@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.halo.user.introduce.announcement.AnnouncedDAO;
+
 @WebServlet("/HC")
 public class HC extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -15,6 +17,7 @@ public class HC extends HttpServlet {
 		String subMenu = null;
 		// DB에 업뎃된 모든 homepage_common 정보
 		MainpageDAO.getMdao().getAllHompage_common(request);
+		AnnouncedDAO.getMainAnnouncements(request);
 		if (request.getParameter("link") != null) {
 			if (request.getParameter("link").equals("1")) {
 				subMenu = "information/company/inform";
