@@ -19,7 +19,7 @@ public class Ck_DAO {
 
 			String title = CommonUtility.escapeHtml(request.getParameter("title"));
 			String select = CommonUtility.escapeHtml(request.getParameter("select"));
-			String txt = CommonUtility.escapeHtml(request.getParameter("txt"));
+			String txt = request.getParameter("txt");
 
 			if (title != "" && txt != "" && select != null) {
 

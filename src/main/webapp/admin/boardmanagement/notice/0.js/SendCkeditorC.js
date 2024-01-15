@@ -14,6 +14,7 @@ regBtn.addEventListener("click", function(event) {
 		console.log(pair[0] + ": " + pair[1]);
 	}
 
+
 	var isTitleValid = false;
 	var isTxtValid = false;
 	var iskategorieValid = false;
@@ -70,23 +71,6 @@ regBtn.addEventListener("click", function(event) {
 }); 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	  console.log('-----------------오단영 예외처리 시작------------------------- ')
-	      
-    	  
       //-------------------------------------------------- $(document).ready시작--------------------------------------------------
       $(document).ready(function () {
                          

@@ -332,13 +332,15 @@ function getNOTICEDataV(an_seq) {
 				console.log('an_reg_date :' + an_reg_date);
 				console.log('an_category :' + an_category);
 
-			
 				$('.showModalTitleColum').val(an_title);
 				$('.showCategoryColum').text(an_category);
-				$('.classicNR').html(an_content);
-//				$('#real-title-editor').val(an_title);
+				console.log(an_content + 'an_content');
+//				console.log($('.classic2'));
+//				window.editorR.setData(an_content);
+				window.editorRR.setData(an_content);
 
 
+// 			    따로 뺴놓기 
 //				document.getElementById('aaaaaaaaaaaaaaaaaaaaaaaaaa').onclick = function() {
 //
 //					$('#real-title-editorN').val(an_title);
@@ -374,11 +376,11 @@ function getNOTICEDataV(an_seq) {
 //				}; 
 
 				openModalV();
+				$('.ck-content').html(an_content);
 			} else {
 				console.log("NOTICE 데이터 가져오기 성공");
 			}
 
-//		openModalV();
 
 		},
 		error: function(xhr, status, error) {

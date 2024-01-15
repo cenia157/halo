@@ -61,12 +61,12 @@
 				<div class="modal-content">
 					<div class="modal-content-txt">
 						<!-- CK Editor 연동-->
-						<textarea name="txt" id="classicNR" class=connect_regModal_ckEditor></textarea>
+						<textarea name="txt" id="classicNR" class="classicNR"></textarea>
 					</div>
 					<div class="modal-content-button">
 
 						<button class="SubmitButton" type="button" id="reg-btn"
-							onclick="noValue()">등록완료</button>
+							onclick="noValue_ckEditor()">등록완료</button>
 					</div>
 				</div>
 			</div>
@@ -75,7 +75,7 @@
 	<!-- 기존 등록 모달 끝 -->
 	<!-- 추가 조회 모달 시작-->
 	<div id="myModalNR2" class="modal-background selectModal"></div>
-	<form action="AdminNOTICEC" id="ck-form" method="get">
+	<form action="" id="view_ck-form" method="get">
 		<input type="hidden" name="checkVal" value="${param.checkVal}">
 		<div id="myModal-tblNR2" class="modal-tbl selectModal-tbl">
 			<div class="modal-title-set">
@@ -83,11 +83,11 @@
 					<div class="modal-title-td-1">
 						<div class="real-title">
 							<input class="real-title-editor showModalTitleColum" name="title"
-								id="real-title-editor" placeholder="이곳에 제목을 입력하세요">
+								id="real-title-editor2" placeholder="이곳에 제목을 입력하세요">
 							<div id="img-temporary"></div>
 							<div class="real-title-select">
 								<div class="toggle" id="toggle" onclick="toggle()">
-									<div class="kategorie showCategoryColum" id="kategorie">카테고리</div>
+									<div class="kategorie showCategoryColum" id="kategorie2">카테고리</div>
 									<div class="toggle-down" id="toggle-down">
 										<div class="toggle-down-block">
 											<div class="toggle-item" id="announcement">
@@ -114,7 +114,7 @@
 									</div>
 								</div>
 								<script src="admin/boardmanagement/notice/0.js/noticeToggle.js"></script>
-								<!--  -->
+								
 							</div>
 						</div>
 					</div>
@@ -124,13 +124,9 @@
 				</div>
 				<div class="modal-content">
 					<div class="modal-content-txt">
-						<!-- CK Editor 연동-->
-						<textarea name="txt" class="connect_viewmodal_ckEditor"></textarea>
+						<textarea name="txt" id="classic2_test232" class="classic2"></textarea>
 					</div>
 					<div class="modal-content-button">
-
-						<button class="SubmitButton" type="button" id="reg-btn"
-							onclick="noValue()">등록완료</button>
 					</div>
 				</div>
 			</div>
@@ -138,7 +134,9 @@
 	</form>
 	<!-- 추가 조회 모달 끝-->
 	<script src="admin/boardmanagement/notice/0.js/testMZ.js" type="module"></script>
+	<script src="admin/boardmanagement/notice/0.js/testMZ3.js" type="module"></script>
 	<script src="admin/boardmanagement/notice/0.js/ValidationItems.js"></script>
 	<script src="admin/boardmanagement/notice/0.js/SendCkeditorC.js"></script>
+	<script src="admin/boardmanagement/notice/0.js/SendCkeditorC3.js"></script>
 </body>
 </html>
