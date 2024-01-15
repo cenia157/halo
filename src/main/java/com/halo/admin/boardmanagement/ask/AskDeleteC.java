@@ -22,6 +22,7 @@ public class AskDeleteC extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("삭제시도");
 		QuestionDAO.getAllQuestions(request);
 		List<QuestionNComment> resultList = AskDAO.QuestionsAndComments();
 		request.setAttribute("resultList", resultList);

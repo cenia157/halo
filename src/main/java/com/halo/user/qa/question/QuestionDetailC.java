@@ -16,6 +16,14 @@ import com.halo.admin.boardmanagement.ask.QuestionNComment;
 public class QuestionDetailC extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// request의 인코딩 확인
+		String encoding = request.getCharacterEncoding();
+		if (encoding != "UTF-8") {
+			request.setCharacterEncoding("UTF-8");
+		}
+		// UTF-8로 설정
+		response.setCharacterEncoding("utf-8");
+
 		QuestionDAO.getQuestionNComment(request);
 		List<QuestionNComment> resultList = AskDAO.QuestionsAndComments();
 		request.setAttribute("resultList", resultList);
@@ -36,6 +44,14 @@ public class QuestionDetailC extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// request의 인코딩 확인
+		String encoding = request.getCharacterEncoding();
+		if (encoding != "UTF-8") {
+			request.setCharacterEncoding("UTF-8");
+		}
+		// UTF-8로 설정
+		response.setCharacterEncoding("utf-8");
+
 		QuestionDAO.getQuestionNComment(request);
 		List<QuestionNComment> resultList = AskDAO.QuestionsAndComments();
 		request.setAttribute("resultList", resultList);

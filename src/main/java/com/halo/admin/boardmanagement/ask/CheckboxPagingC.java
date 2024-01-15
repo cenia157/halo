@@ -13,6 +13,14 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class CheckboxPagingC extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// request의 인코딩 확인
+		String encoding = request.getCharacterEncoding();
+		if (encoding != "UTF-8") {
+			request.setCharacterEncoding("UTF-8");
+		}
+		// UTF-8로 설정
+		response.setCharacterEncoding("utf-8");
+
 		int p = Integer.parseInt(request.getParameter("p"));
 		System.out.println("paging 결과: "+ p);
 		
@@ -21,10 +29,6 @@ public class CheckboxPagingC extends HttpServlet {
 		ObjectMapper objectMapper = new ObjectMapper();
 		String jsonQnCs = objectMapper.writeValueAsString(request.getAttribute("QnCs"));
 		
-        // 응답의 문자 인코딩을 UTF-8로 설정
-        response.setCharacterEncoding("UTF-8");
-		
-		System.out.println("new QnCs (JSON): " + jsonQnCs);
 		response.getWriter().write(jsonQnCs);
 		
 		request.setAttribute("menu", "/admin/boardmanagement/ask/askContent.jsp");
