@@ -473,6 +473,18 @@ $(document).ready(function() {
     }
 });
 
+//AskContentC가 들어가면 무조건 둘다 체크된 상태로 만들기
+$(document).ready(function() {
+  // 현재 페이지의 URL을 가져옵니다.
+  const currentUrl = window.location.href;
+
+  // 현재 페이지의 URL에 AskContentC가 포함되어 있으면 체크박스를 모두 체크합니다.
+  if (currentUrl.includes("AskContentC")) {
+    $('input[type="checkbox"]').prop('checked', true);
+  }
+});
+
+
 function fetchData(data){
 	$.ajax({
 		url: "CheckboxC",
@@ -612,7 +624,7 @@ function refreshData(QnCs) {
     pagingcontainer.appendChild(pagingElement);
 	
 	//reload 추가해서 새로고침 되긴 하는데, current-page에 준 css가 먹게 됨
-	//location의 url을 바꾸는 것을 통해서 AskContent의 오류를 잡음
+	//location의 url을 바꾸는 것을 통해서 AskContent의 오류를 잡아냄
 	if(window.location.href.includes("AskContent")){
 		window.location.replace(window.location.href.replace("AskContentC", "CheckboxPagingC"));
 	} else{
