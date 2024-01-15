@@ -16,6 +16,15 @@ public class CommentSubmitC extends HttpServlet {
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 //		QuestionDAO.getAllQuestions(request);
+		// request의 인코딩 확인
+		String encoding = request.getCharacterEncoding();
+		if (encoding != "UTF-8") {
+		  request.setCharacterEncoding("UTF-8");
+		}
+		// UTF-8로 설정
+		response.setCharacterEncoding("utf-8");
+
+		
 		List<QuestionNComment> resultList = AskDAO.QuestionsAndComments();
 		request.setAttribute("resultList", resultList);
 
@@ -25,8 +34,18 @@ public class CommentSubmitC extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 //		QuestionDAO.getAllQuestions(request);
+		// request의 인코딩 확인
+		String encoding = request.getCharacterEncoding();
+		if (encoding != "UTF-8") {
+		  request.setCharacterEncoding("UTF-8");
+		}
+		// UTF-8로 설정
+		response.setCharacterEncoding("utf-8");
+
+
 		List<QuestionNComment> resultList = AskDAO.QuestionsAndComments();
 		request.setAttribute("resultList", resultList);
+		
 
 		AskDAO.AskAnswerSubmit(request, response);
 		

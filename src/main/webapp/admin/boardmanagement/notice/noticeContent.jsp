@@ -15,6 +15,7 @@
 <link
 	href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular"
 	rel="stylesheet" />
+<!-- <link rel="stylesheet" href="admin/boardmanagement/notice/0.css/notice_selectModal.css"/> -->
 
 </head>
 <body>
@@ -50,8 +51,6 @@
 		<div class="ontent-m-td-2-bottom">
 			<div class="ontent-m-td-2-page-side"></div>
 			<div class="ontent-m-td-2-page-center">
-
-				<!-- 					페이징처리 해야할 부분 -->
 				<!--페이징시작 -->
 				<div class="paging-div">
 					<!-- 처음으로 가는 버튼 -->
@@ -152,11 +151,6 @@
 					</c:choose>
 				</div>
 				<!-- 페이징끝 -->
-
-
-
-
-
 			</div>
 			<div class="ontent-m-td-2-page-side">
 				<button class="SubmitButton-content" onclick="openModalNR()">등록하기</button>
@@ -175,5 +169,6 @@
 	<script src="admin/_js/ckeditor/ckeditor.js"></script>
 	<script src="admin/_js/test2.js"></script>
 	<script src="admin/_js/noticeUpdateAndOpenView.js"></script>
+
 </body>
 </html>

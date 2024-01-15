@@ -397,7 +397,7 @@ function deleteQuestion(q_seq) {
 	}
 }
 
-
+//체크박스 시작@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 $(document).ready(function() {
   // 페이지가 로드되면 체크박스의 값을 저장합니다.
@@ -472,6 +472,19 @@ $(document).ready(function() {
         }
     }
 });
+
+//AskContentC가 들어가면 무조건 둘다 체크된 상태로 만들기
+$(document).ready(function() {
+  // 현재 페이지의 URL을 가져옵니다.
+  const currentUrl = window.location.href;
+
+  // 현재 페이지의 URL에 AskContentC가 포함되어 있으면 체크박스를 모두 체크합니다.
+  if (currentUrl.includes("AskContentC")) {
+    $('input[type="checkbox"]').prop('checked', true);
+	saveCheckBoxData();
+  }
+});
+
 
 function fetchData(data){
 	$.ajax({
@@ -572,7 +585,7 @@ function refreshData(QnCs) {
     var pagingElement = document.createElement("div");
     pagingElement.className = "paging-div";
     var pagingcontainer = document.getElementById("PAGING_ASK");
-    pagingcontainer.innerHTML = ""; // 기존 내용 비우기			
+    pagingcontainer.innerHTML = ""; // 기존 내용 비우기	
 
 	// 처음으로 가는 버튼
 	var firstButton = createPageButton("<<", 1, curPageNo > 1);
@@ -610,7 +623,14 @@ function refreshData(QnCs) {
 
     // 페이징 끝에 추가
     pagingcontainer.appendChild(pagingElement);
-
+	
+	//reload 추가해서 새로고침 되긴 하는데, current-page에 준 css가 먹게 됨
+	//location의 url을 바꾸는 것을 통해서 AskContent의 오류를 잡아냄
+	if(window.location.href.includes("AskContent")){
+		window.location.replace(window.location.href.replace("AskContentC", "CheckboxPagingC"));
+	} else{
+	location.reload();
+	}
 }
 
 

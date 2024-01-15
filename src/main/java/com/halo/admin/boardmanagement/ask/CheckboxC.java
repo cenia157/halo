@@ -24,7 +24,6 @@ public class CheckboxC extends HttpServlet {
 		ObjectMapper objectMapper = new ObjectMapper();
 		String jsonQnCs = objectMapper.writeValueAsString(request.getAttribute("QnCs"));
 		
-		System.out.println("new QnCs (JSON): " + jsonQnCs);
 		response.getWriter().write(jsonQnCs);
 
 	}
