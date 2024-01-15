@@ -17,6 +17,15 @@ public class GetDataC extends HttpServlet {
 		QuestionDAO.questionList(request, response);
 		QuestionDAO.getQuestionNComment(request);
 		
+		// request의 인코딩 확인
+		String encoding = request.getCharacterEncoding();
+		if (encoding != "UTF-8") {
+		  request.setCharacterEncoding("UTF-8");
+		}
+		// UTF-8로 설정
+		response.setCharacterEncoding("utf-8");
+
+		
 	    // 응답의 Content-Type 설정
 	    response.setContentType("application/json");
 
@@ -27,6 +36,16 @@ public class GetDataC extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String jsonData = QuestionDAO.questionList(request, response);
 		QuestionDAO.questionList(request, response);
+		
+		// request의 인코딩 확인
+		String encoding = request.getCharacterEncoding();
+		if (encoding != "UTF-8") {
+		  request.setCharacterEncoding("UTF-8");
+		}
+		// UTF-8로 설정
+		response.setCharacterEncoding("utf-8");
+
+		
 	    // 응답의 Content-Type 설정
 	    response.setContentType("application/json");
 

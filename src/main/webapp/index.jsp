@@ -35,15 +35,12 @@
 		<div class="header-tbl">
 			<div class="header-opmenu-back"></div>
 			<div class="header-tr-1">
-				<div class="header-br-logo">
-					<!-- 로고 이미지 경로 확인, 텍스트까지 이미지로 업로드, <a>홈으로 연결 -->
-					<a href="HC">
-					<img src="user/upload_imgs/${hdto.h_logo_img}">
-					</a>
+				<div class="header-br-logo btn-pointer" onclick="location.href='HC'" style="background-image: url('user/upload_imgs/${hdto.h_logo_img}');">
+<%-- 					<img src="user/upload_imgs/${hdto.h_logo_img}"> --%>
 				</div>
 				<div class="header-br-space"></div>
 <!-- 				전화번호 수정 가능하도록, 회사정보(footer 변경 어트리뷰트 재활용) -->
-				<div class="header-br-call">Tel. 06-6997-6531</div>
+				<div class="header-br-call">Tel. ${hdto.h_tel_no}</div>
 			</div>
 			<div class="header-tr-2">
 				<div class="header-td">
@@ -53,8 +50,8 @@
 							</a>
 						</div>
 						<div class="header-opmenu-td">
-							<a class="header-opmenu-a" href="HC?link=1">회사소개</a> <a
-								class="header-opmenu-a" href="HC?link=2">오시는길</a>
+							<a class="header-opmenu-a" href="InfoCompanyC">회사소개</a> <a
+								class="header-opmenu-a" href="InfoMapC">오시는길</a>
 						</div>
 					</div>
 					<div class="header-td-menu">

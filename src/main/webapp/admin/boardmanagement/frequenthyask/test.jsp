@@ -114,9 +114,6 @@
 		const content = window.editor.getData();
 		const formData = new FormData(ckForm);
 		formData.set('txt', content);
-		console.log('--------------------')
-		console.log(content)
-		console.log(formData);
 		const payload = new URLSearchParams(formData);
 		console.log(payload)
 		for (var pair of formData.entries()) {

@@ -16,6 +16,8 @@ CREATE SEQUENCE question_tbl_seq
   
 drop table question_tbl;
 drop sequence question_tbl_seq;
+
+ALTER TABLE question_tbl MODIFY q_password VARCHAR2(50 char);
   
 
 insert into question_tbl values (question_tbl_seq.nextval, 'q_title', 'q_content', sysdate, '00000000000', 'q_email', 'q_name', 'q_password', 'Q1'); 
