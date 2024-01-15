@@ -10,10 +10,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Ask</title>
 <link rel="stylesheet"
-	href="admin/boardmanagement/ask/0.css/ask.css" />
+	href="admin/boardmanagement/ask/_css/ask.css" />
 <link rel="stylesheet" href="admin/0.css/test copy.css" />
 
-<script src="admin/boardmanagement/ask/0.js/ask.js"></script>
+<script src="admin/boardmanagement/ask/_js/ask.js"></script>
 <script src="admin/_js/test.js"></script>
 
 </head>
