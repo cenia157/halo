@@ -68,9 +68,9 @@
 					</div>
 					<div class="reservation-modal-btn">
 						<div class="reservation-modal-agree"
-							onclick="rowScheduleDelete('agree')">승인</div>
+							onclick="reservationAccept(this)">승인</div>
 						<div class="reservation-modal-disagree"
-							onclick="rowScheduleDelete('disagree')">거절</div>
+							onclick="reservationAccept(this)">거절</div>
 					</div>
 				</div>
 
