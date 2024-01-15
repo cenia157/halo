@@ -1,4 +1,6 @@
 // 공통 함수: 모달 열기
+// view 조회후 뽑은 값
+let viewData = null;
 function openModal(modalId, tblId) {
 	document.getElementById(modalId).style.display = 'flex';
 	document.getElementById(tblId).style.display = 'flex';
@@ -408,22 +410,20 @@ $(document).ready(function() {
 		$('#checkbox').submit();
 	});
 
-<<<<<<< HEAD
-    // 폼 제출 시의 동작을 처리하는 함수
-    $('#checkbox').submit(function() {
-        // 폼이 제출될 때 수행할 동작 추가
-        console.log('Form submitted!');
-        // 추가로 필요한 로직을 여기에 작성
-        var checkboxData = [];
-        $('input[type="checkbox"]').each(function() {
-            checkboxData.push({
-                value: $(this).val(),
-                checked: $(this).prop('checked')
-            });
-        });
-        fetchData(checkboxData);
-    });
-=======
+	// 폼 제출 시의 동작을 처리하는 함수
+	$('#checkbox').submit(function() {
+		// 폼이 제출될 때 수행할 동작 추가
+		console.log('Form submitted!');
+		// 추가로 필요한 로직을 여기에 작성
+		var checkboxData = [];
+		$('input[type="checkbox"]').each(function() {
+			checkboxData.push({
+				value: $(this).val(),
+				checked: $(this).prop('checked')
+			});
+		});
+		fetchData(checkboxData);
+	});
 	// 폼 제출 시의 동작을 처리하는 함수
 	$('#checkbox').submit(function() {
 		// 폼이 제출될 때 수행할 동작 추가
@@ -440,7 +440,6 @@ $(document).ready(function() {
 
 		return true;
 	});
->>>>>>> 17befa328a5fac4763ee04904196b873d7f434a5
 });
 
 function filterByCheckbox(data) {
@@ -452,48 +451,45 @@ function filterByCheckbox(data) {
 			completed: data.some(item => item.value === 'completed' && item.checked),
 			uncompleted: data.some(item => item.value === 'uncompleted' && item.checked)
 		},
-<<<<<<< HEAD
-		success: function(responseData){
-			console.log("responseData: ",responseData);
+		success: function(responseData) {
+			console.log("responseData: ", responseData);
 			refreshData(responseData);
-=======
+		},
 		success: function(data) {
 			console.log("newQnCs: ", data);
 			eval(data); // 업데이트된 QnCs를 처리하는 스크립트 실행
->>>>>>> 17befa328a5fac4763ee04904196b873d7f434a5
 		},
 		error: function(xhr, status, error) {
 			console.log("에러발생: ", xhr, status, error)
 		}
-<<<<<<< HEAD
-	});	
+	});
 }
 
 function refreshData(QnCs) {
-    var container = document.getElementById("FOREACH_ASK");
-    container.innerHTML = ""; // 기존 내용 비우기
-    let curPageNo = 1;
+	var container = document.getElementById("FOREACH_ASK");
+	container.innerHTML = ""; // 기존 내용 비우기
+	let curPageNo = 1;
 
-    // JSON 데이터 파싱
-    var QnCs = JSON.parse(QnCs);
+	// JSON 데이터 파싱
+	var QnCs = JSON.parse(QnCs);
 
-    // QnCs가 배열이 아니면 배열로 변환
-    if (!Array.isArray(QnCs)) {
-        QnCs = [];
-    }
+	// QnCs가 배열이 아니면 배열로 변환
+	if (!Array.isArray(QnCs)) {
+		QnCs = [];
+	}
 
-    // QnCs 데이터를 이용하여 화면 갱신
-    QnCs.forEach(function (item, index) {
-        // Date 객체로 변환
-        let qRegDate = new Date(item.q_reg_date);
+	// QnCs 데이터를 이용하여 화면 갱신
+	QnCs.forEach(function(item, index) {
+		// Date 객체로 변환
+		let qRegDate = new Date(item.q_reg_date);
 
-        // 날짜를 'YYYY-MM-DD' 형식으로 포맷
-        let formattedDate = qRegDate.toLocaleDateString('ja-JP', {year: 'numeric' , month: '2-digit', day: '2-digit'}).replace(/\//g, '-');
+		// 날짜를 'YYYY-MM-DD' 형식으로 포맷
+		let formattedDate = qRegDate.toLocaleDateString('ja-JP', { year: 'numeric', month: '2-digit', day: '2-digit' }).replace(/\//g, '-');
 
-        var newElement = document.createElement("div");
-        newElement.className = "ontent-m-td-2-content-txt-in";
+		var newElement = document.createElement("div");
+		newElement.className = "ontent-m-td-2-content-txt-in";
 
-        newElement.innerHTML = `
+		newElement.innerHTML = `
             <input type="hidden" name="q_seq" value="${item.q_seq}">
             <div class="ontent-m-td-2-content-txt-no-in">
                 ${(index + 1) + (curPageNo - 1) * 8}
@@ -510,13 +506,13 @@ function refreshData(QnCs) {
                 <a href="#" onclick="deleteQuestion('${item.q_seq}')">削除</a>
             </div>
         `;
-        container.appendChild(newElement);
+		container.appendChild(newElement);
 
 
-        //페이징 추가 시도
-        var pagingElement = document.createElement("div");
-    	pagingElement.className = "paging-div";
-        pagingElement.innerHTML =`
+		//페이징 추가 시도
+		var pagingElement = document.createElement("div");
+		pagingElement.className = "paging-div";
+		pagingElement.innerHTML = `
 		    var firstButton = document.createElement("button");
 		    if (curPageNo > 5) {
 		        var firstLink = document.createElement("a");
@@ -593,18 +589,10 @@ function refreshData(QnCs) {
 		}
         `;
 
-        container.appendChild(pagingElement);
-//        console.log("html 확인: ", newElement.outerHTML);
-    });
-}
-
-=======
+		container.appendChild(pagingElement);
+		//        console.log("html 확인: ", newElement.outerHTML);
 	});
-
-
 }
->>>>>>> 17befa328a5fac4763ee04904196b873d7f434a5
-
 
 //FAQ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
@@ -702,13 +690,11 @@ function getNOTICEDataV(an_seq) {
 
 
 			if (Array.isArray(data) && data.length > 0) {
+				viewData = data;
 				let an_seq = data[0].an_seq;
 				let an_title = data[0].an_title;
 				let an_content = data[0].an_content;
 				let an_writer = data[0].an_content;
-				console.log('111111111111111111111111111111111111111111');
-				console.log("qa_content: ", an_content);
-				console.log('111111111111111111111111111111111111111111');
 				let an_reg_date = data[0].an_reg_date;
 				let an_category = data[0].an_category;
 
@@ -721,48 +707,6 @@ function getNOTICEDataV(an_seq) {
 				$('#Display-Category').html(an_category);
 				$('#modal-content-txt-in').html(an_content);
 				$('#real-title-editor').val(an_title);
-
-
-				document.getElementById('aaaaaaaaaaaaaaaaaaaaaaaaaa').onclick = function() {
-
-					//alert(document.getElementById('real-title-editor').innerHTML(an_title))
-					//document.getElementById('real-title-editor').value = an_title;
-
-					$('#real-title-editorN').val(an_title);
-					$('#CCCCCCCCCCCC').html(an_category);
-					// 여기에 CK-editor에 값을 표시하고싶어
-					$('#classicR').html(an_content);
-					window.editorR.setData(an_content);
-					$('#kategorieR').html(an_category);
-					$('#seq').val(an_seq);
-
-					if (an_category == 'announcement') {
-						$('#kategorieR').html('안내');
-					} else if (an_category == 'schedule') {
-						$('#kategorieR').html('스케줄');
-					} else if (an_category == 'general') {
-						$('#kategorieR').html('일반');
-					} else if (an_category == 'service') {
-						$('#kategorieR').html('서비스');
-					} else if (an_category == 'product') {
-						$('#kategorieR').html('상품');
-					}
-
-					let mmmmmmmm = document.getElementById('kategorieR');
-					let newInput = document.createElement("input");
-
-					newInput.type = "hidden";
-					newInput.value = an_category;
-					newInput.name = 'select';
-					newInput.id = 'myInputR';
-					mmmmmmmm.appendChild(newInput);
-
-					window.editor.setData(an_content);
-					openModalR();
-
-
-				};
-
 
 				openModalV();
 			} else {
@@ -779,6 +723,51 @@ function getNOTICEDataV(an_seq) {
 
 }
 
+document.getElementById('aaaaaaaaaaaaaaaaaaaaaaaaaa').addEventListener("click",function() {
+
+	//alert(document.getElementById('real-title-editor').innerHTML(an_title))
+	//document.getElementById('real-title-editor').value = an_title;
+	let an_seq = viewData[0].an_seq;
+	let an_title = viewData[0].an_title;
+	let an_content = viewData[0].an_content;
+	let an_writer = viewData[0].an_content;
+	let an_reg_date = viewData[0].an_reg_date;
+	let an_category = viewData[0].an_category;
+	
+	$('#real-title-editorN').val(an_title);
+	$('#CCCCCCCCCCCC').html(an_category);
+	// 여기에 CK-editor에 값을 표시하고싶어
+	$('#classicR').html(an_content);
+	window.editorR.setData(an_content);
+	$('#kategorieR').html(an_category);
+	$('#seq').val(an_seq);
+
+	if (an_category == 'announcement') {
+		$('#kategorieR').html('안내');
+	} else if (an_category == 'schedule') {
+		$('#kategorieR').html('스케줄');
+	} else if (an_category == 'general') {
+		$('#kategorieR').html('일반');
+	} else if (an_category == 'service') {
+		$('#kategorieR').html('서비스');
+	} else if (an_category == 'product') {
+		$('#kategorieR').html('상품');
+	}
+
+	let mmmmmmmm = document.getElementById('kategorieR');
+	let newInput = document.createElement("input");
+
+	newInput.type = "hidden";
+	newInput.value = an_category;
+	newInput.name = 'select';
+	newInput.id = 'myInputR';
+	mmmmmmmm.appendChild(newInput);
+
+	window.editor.setData(an_content);
+	openModalR();
+
+
+});
 
 
 
@@ -850,7 +839,7 @@ function getNOTICEDataUpdateView(an_seq) {
 		},
 
 		success: function(data) {
-
+			viewData = data;
 			console.log("data: ", data);
 			console.log('수정후 이게 실행되야됨');
 			console.log("NOTICE 데이터 가져오기 성공");
@@ -891,7 +880,7 @@ function deleteNotice(seq) {
 	let pageVal = document.querySelector('#pageNum').value;
 
 	if (confirm('정말 삭제 합니까?')) {
-		location.href = "deleteNoticeC?an_seq=" + seq + "&p=" + pageVal;
+		location.href = "deleteNoticeC?an_seq=" + seq + "&p=" + pageVal +"&checkVal="+searchCheckBoxVal();
 	} else {
 		return;
 	}
@@ -912,16 +901,16 @@ function searchCheckBoxVal() {
 }
 
 function noticeSearch() {
-	
+
 	let pageVal = document.querySelector('#pageNum').value;
-	if(pageVal == ''){
+	if (pageVal == '') {
 		pageVal = 1;
 	}
 
 	console.log("노티스써치");
-	if(searchCheckBoxVal()){
+	if (searchCheckBoxVal()) {
 		location.href = 'NoticePagingC?p=' + pageVal + '&checkVal=' + searchCheckBoxVal();
-	}else{
+	} else {
 		alert('하나이상의 체크박스에 체크를 해야합니다.');
 		history.go(0);
 	}
@@ -934,14 +923,14 @@ function noticeSearchCheckBoxCheck() {
 	let searchParams = new URLSearchParams(url.search);
 
 	let checkVal = searchParams.get("checkVal");
-	
-	for(let i=0; i<checkVal.length; i++){
+
+	for (let i = 0; i < checkVal.length; i++) {
 		let check = checkVal.charAt(i);
 		document.querySelectorAll('.noticeCheck')[check].checked = true;
-		
+
 	}
 	console.log("노티스써치체크박스체크시키는기능");
-	
+
 }
 noticeSearchCheckBoxCheck();
 

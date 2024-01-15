@@ -172,8 +172,5 @@
 		<jsp:include page="noticeViewPage.jsp"></jsp:include>
 		<jsp:include page="noticeRegPage.jsp"></jsp:include>
 	</div>
-	<script src="admin/_js/ckeditor/ckeditor.js"></script>
-	<script src="admin/_js/test2.js"></script>
-	<script src="admin/_js/noticeUpdateAndOpenView.js"></script>
 </body>
 </html>
