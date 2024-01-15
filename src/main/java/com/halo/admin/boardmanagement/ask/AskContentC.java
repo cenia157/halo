@@ -40,7 +40,7 @@ public class AskContentC extends HttpServlet {
 		response.setCharacterEncoding("utf-8");
 		
 		AskDAO.getAllQnC(request, response);
-		AskDAO.Qpaging(1, request);
+		AskDAO.QpagingAdmin(1, request);
 		
 		request.setAttribute("menu", "/admin/boardmanagement/ask/askContent.jsp");
 		request.getRequestDispatcher("admin/index.jsp").forward(request, response);
