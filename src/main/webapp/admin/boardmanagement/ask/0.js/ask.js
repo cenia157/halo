@@ -610,7 +610,9 @@ function refreshData(QnCs) {
 
     // 페이징 끝에 추가
     pagingcontainer.appendChild(pagingElement);
+	
 	//reload 추가해서 새로고침 되긴 하는데, current-page에 준 css가 먹게 됨
+	//location의 url을 바꾸는 것을 통해서 AskContent의 오류를 잡음
 	if(window.location.href.includes("AskContent")){
 		window.location.replace(window.location.href.replace("AskContentC", "CheckboxPagingC"));
 	} else{
