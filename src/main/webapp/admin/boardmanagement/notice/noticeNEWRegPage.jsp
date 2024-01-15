@@ -15,9 +15,11 @@
 </head>
 
 <body>
+
+<!-- AdminNOTICEC 지움 -->
 	<div id="myModalNR" class="modal-background"></div>
 	<form action="AdminNOTICEC" id="ck-form" method="get">
-		<input type="hidden" name="checkVal" value="${param.checkVal}">
+		<input type="hidden" name="checkVal" value="{param.checkVal}">
 		<div id="myModal-tblNR" class="modal-tbl">
 			<div class="modal-title-set">
 				<div class="modal-title-tr">
@@ -71,7 +73,7 @@
 						<textarea name="txt" id="classicNR" class="classicNR"></textarea>
 					</div>
 					<div class="modal-content-button">
-
+						<input type="hidden" id="regBtnHiddenInput" value="">
 						<button class="SubmitButton" type="button" id="reg-btn">등록완료</button>
 					</div>
 				</div>

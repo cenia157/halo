@@ -126,6 +126,7 @@
 		let CkeditorC123 = fetch('CkeditorC', {
 			method: 'POST',
 			body: payload,
+			console.log(payload + '::: payload');
 			headers: {
 				'Content-Type': 'application/x-www-form-urlencoded', // 헤더 설정
 			}

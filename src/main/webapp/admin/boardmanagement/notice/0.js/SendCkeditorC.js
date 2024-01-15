@@ -1,4 +1,4 @@
-
+ㅣ
 let regBtn = document.querySelector("#reg-btn");
 regBtn.addEventListener("click", function(event) {
 	if(!noValue()){
@@ -6,14 +6,16 @@ regBtn.addEventListener("click", function(event) {
 	}
 	
 	let ckForm = document.querySelector("#ck-form");
+	let writer = document.querySelector("#regBtnHiddenInput");
 	const content = window.editor.getData();
 	const formData = new FormData(ckForm);
 	formData.set("txt", content);
+	formData.set("writer", writer )
 	console.log("--------------------");
 	console.log(content);
 	console.log(formData);
 	const payload = new URLSearchParams(formData); 
-	console.log(payload);
+	console.log("payload확인용"+payload);
 	for (var pair of formData.entries()) {
 		console.log(pair[0] + ": " + pair[1]);
 	}
@@ -65,7 +67,7 @@ regBtn.addEventListener("click", function(event) {
 		})
 		.then((data) => {
 			console.log("POST 요청 성공: 이거맞음?????", data);
-			ckForm.submit();
+			//ckForm.submit();
 			console.log(CkeditorC123);
 		})
 		.catch((error) => {

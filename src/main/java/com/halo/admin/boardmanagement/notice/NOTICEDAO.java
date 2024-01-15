@@ -51,7 +51,7 @@ public class NOTICEDAO {
 				String an_writer = rs.getString("an_writer");
 				Date an_reg_date = rs.getDate("an_reg_date");
 				String an_category = rs.getString("an_category");
-
+				
 				notice = new Notice(an_seq, an_title, an_content, an_writer, an_reg_date, an_category);
 				NOTICEs.add(notice);
 			}
