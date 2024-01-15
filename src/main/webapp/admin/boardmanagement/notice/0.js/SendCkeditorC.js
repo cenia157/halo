@@ -1,6 +1,10 @@
 
 let regBtn = document.querySelector("#reg-btn");
 regBtn.addEventListener("click", function(event) {
+	if(!noValue()){
+		return false;
+	}
+	
 	let ckForm = document.querySelector("#ck-form");
 	const content = window.editor.getData();
 	const formData = new FormData(ckForm);

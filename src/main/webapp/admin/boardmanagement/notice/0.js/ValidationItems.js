@@ -11,16 +11,21 @@ function noValue() {
 
 	if (!titleCheck) {
 		alert("제목의 값을 입력하세요");
+		return false;
 	} else if (kategorieCheck == null) {
 		alert("카테고리의 값을 입력하세요");
+		return false;
 	} else if (contentCheck == "") {
 		alert("내용을 입력하세요");
+		return false;
 	} else if (titleLengthCheck > 50) {
 //		alert('제목의 길이는 50자를 넘을 수 없습니다.\n현재 글자 수 : ' + titleLengthCheck);
+	return false;
 	} else if (contentLengthCheck > 10000) {
 		alert('내용의 길이는 10,000 넘을 수 없습니다.\n현재 내용의 길이 : ' + contentLengthCheck);
+		return false;
 	} else {
-
+		return true;
 	}
 
 

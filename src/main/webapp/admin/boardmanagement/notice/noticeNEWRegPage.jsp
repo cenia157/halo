@@ -72,8 +72,7 @@
 					</div>
 					<div class="modal-content-button">
 
-						<button class="SubmitButton" type="button" id="reg-btn"
-							onclick="noValue()">등록완료</button>
+						<button class="SubmitButton" type="button" id="reg-btn">등록완료</button>
 					</div>
 				</div>
 			</div>
