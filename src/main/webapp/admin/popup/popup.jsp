@@ -1,34 +1,29 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="kr">
 
 <head>
 <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Document</title>
-<!-- font -->
 <link
 	href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular"
 	rel="stylesheet" />
-	
-	<!-- jquery 라이브러리 -->
 <script src="https://code.jquery.com/jquery-3.7.1.js"
 	integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
 	crossorigin="anonymous">
 </script>
-
-	<!-- 메뉴 js -->
-<script src="admin/_js/test.js"></script>
-
-	<!-- 메뉴 css -->
-<link rel="stylesheet" href="admin/0.css/test copy.css" />
-
+<script src="${pageContext.request.contextPath}/admin/0.js/test.js"></script>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/admin/0.css/test copy.css" />
 <body>
+<!--
+본 파일은 임시로 만든 파일이며 /admin/index.jsp 의 인클루드를 테스트하기 위해 임시로 만든 페이지다
+따라서 나중에 본 파일은 삭제해도 무방하며 인클루드를 통해 해당폴더의 /admin/XXXXX/XXXXXContent.jsp를 연결하면 된다
+ -->
 	<!-- 최상위 콘테이너 -->
 	<div class="container">
-	
 		<!-- 왼쪽 테이블 -->
 		<div class="left-tbl">
 			<div class="menu-tr">
@@ -38,11 +33,10 @@
 				<div class="menu-td-2">
 					<div class="menu-td-2-td">
 						<div>
-							<img src="admin/0.img/admintble2-1.png" alt="">大出 昭子
+							<img src="${pageContext.request.contextPath}/admin/0.img/admintble2-1.png" alt="">大出 昭子
 						</div>
-						<!-- 메인홈페이지 바로가기 -->
 						<div>
-							<img src="admin/0.img/admintble2-2.png" alt=""><a href="HC">사이트
+							<img src="${pageContext.request.contextPath}/admin/0.img/admintble2-2.png" alt=""><a href="">사이트
 								바로가기</a>
 						</div>
 					</div>
@@ -51,101 +45,100 @@
 					<div class="menu-td-3-td-1">사이트관리</div>
 					<div class="menu-td-3-td-2">
 						<div class="menu-td-3-td-open-td-1">
-							<img src="admin/0.img/admintble3-1.png" alt=""><a href="adminC">대시보드</a>
+							<img src="${pageContext.request.contextPath}/admin/0.img/admintble3-1.png" alt=""><a href="">대시보드</a>
 						</div>
 						<div class="menu-td-3-td-open-td-2">
 							<div class="menu-td-3-td-open-td-2-td-1">
-								<img src="admin/0.img/admintble3-2.png" alt=""><span>홈페이지수정</span>
+								<img src="${pageContext.request.contextPath}/admin/0.img/admintble3-2.png" alt=""><span>홈페이지수정</span>
 							</div>
 							<div class="menu-td-3-td-open-td-2-con">
 								<div class="menu-td-3-td-open-td-2-con-td-2">
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
-									<!-- TODO 서효원 기능 서블렛 만들때마다 연결시키고 컨트롤러 if문 지우기! -->
-										<img src="admin/0.img/admintble-select.png" alt=""><a href="LogoUploadC">로고변경</a>
+										<img src="${pageContext.request.contextPath}/admin/0.img/admintble-select.png" alt=""><a href="">로고변경</a>
 									</div>
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
-										<img src="admin/0.img/admintble-select.png" alt=""><a href="MainBannerUpdateC">주요메뉴설정</a>
+										<img src="${pageContext.request.contextPath}/admin/0.img/admintble-select.png" alt=""><a href="">주요메뉴설정</a>
 									</div>
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
-										<img src="admin/0.img/admintble-select.png" alt=""><a href="BannerUploadC">하단배너설정</a>
+										<img src="${pageContext.request.contextPath}/admin/0.img/admintble-select.png" alt=""><a href="">하단배너설정</a>
 									</div>
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
-										<img src="admin/0.img/admintble-select.png" alt=""><a href="InformUpdateC">회사정보변경</a>
+										<img src="${pageContext.request.contextPath}/admin/0.img/admintble-select.png" alt=""><a href="">회사정보변경</a>
 									</div>
 								</div>
 							</div>
 						</div>
 						<div class="menu-td-3-td-open-td-2">
 							<div class="menu-td-3-td-open-td-2-td-1">
-								<img src="admin/0.img/admintble3-3.png" alt=""><span>게시판관리</span>
+								<img src="${pageContext.request.contextPath}/admin/0.img/admintble3-3.png" alt=""><span>게시판관리</span>
 							</div>
 							<div class="menu-td-3-td-open-td-2-con">
 								<div class="menu-td-3-td-open-td-2-con-td-2">
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
-										<img src="admin/0.img/admintble-select.png" alt=""><a href="AdminNOTICEC?checkVal=01234">공지사항</a>
+										<img src="${pageContext.request.contextPath}/admin/0.img/admintble-select.png" alt=""><a href="">공지사항</a>
 									</div>
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
-										<img src="admin/0.img/admintble-select.png" alt=""><a href="AskContentC?p=1">문의사항</a>
+										<img src="${pageContext.request.contextPath}/admin/0.img/admintble-select.png" alt=""><a href="">문의사항</a>
 									</div>
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
-										<img src="admin/0.img/admintble-select.png" alt=""><a href="AdminFAQC">자주묻는질문</a>
+										<img src="${pageContext.request.contextPath}/admin/0.img/admintble-select.png" alt=""><a href="">자주묻는질문</a>
 									</div>
 								</div>
 							</div>
 						</div>
 						<div class="menu-td-3-td-open-td-2">
 							<div class="menu-td-3-td-open-td-2-td-1">
-								<img src="admin/0.img/admintble3-4.png" alt=""><span>일정</span>
+								<img src="${pageContext.request.contextPath}/admin/0.img/admintble3-4.png" alt=""><span>일정</span>
 							</div>
 							<div class="menu-td-3-td-open-td-2-con">
 								<div class="menu-td-3-td-open-td-2-con-td-2">
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
-										<img src="admin/0.img/admintble-select.png" alt=""><a href="CompanyC">회사의일정</a>
+										<img src="${pageContext.request.contextPath}/admin/0.img/admintble-select.png" alt=""><a href="">회사의일정</a>
 									</div>
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
-										<img src="admin/0.img/admintble-select.png" alt=""><a href="AdminC?link=9">고객의예약</a>
+										<img src="${pageContext.request.contextPath}/admin/0.img/admintble-select.png" alt=""><a href="">고객의예약</a>
 									</div>
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
-										<img src="admin/0.img/admintble-select.png" alt=""><a href="AdminC?link=10">직원근무일정</a>
+										<img src="${pageContext.request.contextPath}/admin/0.img/admintble-select.png" alt=""><a href="">직원근무일정</a>
 									</div>
 								</div>
 							</div>
 						</div>
 						<div class="menu-td-3-td-open-td-2">
 							<div class="menu-td-3-td-open-td-2-td-1">
-								<img src="admin/0.img/admintble3-5.png" alt=""><span>고객관리</span>
+								<img src="${pageContext.request.contextPath}/admin/0.img/admintble3-5.png" alt=""><span>고객관리</span>
 							</div>
 							<div class="menu-td-3-td-open-td-2-con">
 								<div class="menu-td-3-td-open-td-2-con-td-2">
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
-										<img src="admin/0.img/admintble-select.png" alt=""><a href="AdminC?link=11">통계</a>
+										<img src="${pageContext.request.contextPath}/admin/0.img/admintble-select.png" alt=""><a href="">통계</a>
 									</div>
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
-										<img src="admin/0.img/admintble-select.png" alt=""><a href="CustomerInfoMgmtC">고객정보관리</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="menu-td-3-td-open-td-2">
-							<div class="menu-td-3-td-open-td-2-td-1">
-								<img src="admin/0.img/admintble3-6.png" alt=""><span>관리자전용</span>
-							</div>
-							<div class="menu-td-3-td-open-td-2-con">
-								<div class="menu-td-3-td-open-td-2-con-td-2">
-									<div class="menu-td-3-td-open-td-2-con-td-2-select">
-										<img src="admin/0.img/admintble-select.png" alt=""><a href="AdminC?link=13">직원등록</a>
+										<img src="${pageContext.request.contextPath}/admin/0.img/admintble-select.png" alt=""><a href="">고객정보관리</a>
 									</div>
 								</div>
 							</div>
 						</div>
 						<div class="menu-td-3-td-open-td-2">
 							<div class="menu-td-3-td-open-td-2-td-1">
-								<img src="admin/0.img/admintble3-7.png" alt=""><span>팝업관리</span>
+								<img src="${pageContext.request.contextPath}/admin/0.img/admintble3-6.png" alt=""><span>관리자전용</span>
 							</div>
 							<div class="menu-td-3-td-open-td-2-con">
 								<div class="menu-td-3-td-open-td-2-con-td-2">
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
-										<img src="admin/0.img/admintble-select.png" alt=""><a href="PopupC">팝업설정</a>
+										<img src="${pageContext.request.contextPath}/admin/0.img/admintble-select.png" alt=""><a href="">직원등록</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="menu-td-3-td-open-td-2">
+							<div class="menu-td-3-td-open-td-2-td-1">
+								<img src="${pageContext.request.contextPath}/admin/0.img/admintble3-7.png" alt=""><span>팝업관리</span>
+							</div>
+							<div class="menu-td-3-td-open-td-2-con">
+								<div class="menu-td-3-td-open-td-2-con-td-2">
+									<div class="menu-td-3-td-open-td-2-con-td-2-select">
+										<img src="${pageContext.request.contextPath}/admin/0.img/admintble-select.png" alt=""><a href="">팝업설정</a>
 									</div>
 								</div>
 							</div>
@@ -155,17 +148,14 @@
 				<div class="menu-td-4">
 					<div class="menu-td-4-td">
 						<div>
-							<img src="admin/0.img/adminfootericon.png" alt="">日本語
+							<img src="${pageContext.request.contextPath}/admin/0.img/adminfootericon.png" alt="">日本語
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		
-		<!-- 오른쪽테이블 -->
 		<div class="right-tbl">
-			
-			<!-- 헤더 -->
+			<!-- 오른쪽 테이블 open -->
 			<div class="header-tr">
 				<div class="header-td">
 					<div class="header-td-user">
@@ -173,7 +163,7 @@
 					</div>
 					<div class="header-td-button">
 						<div>
-							<a onclick="location.href='LogoutC'" >나가기</a>
+							<a href="">나가기</a>
 						</div>
 						<div>
 							<a href="">시간연장</a>
@@ -181,23 +171,22 @@
 					</div>
 				</div>
 			</div>
-			
-			<!-- 오른쪽 테이블 컨텐츠 -->
 			<div class="content-tr">
 				<div class="content-main-td">
 					<div class="content-m-td-1">
-						<div class="content-m-td-title">공지사항</div>
+						<!-- *************** 수정 *************** -->
+						<div class="content-m-td-title">팝업설정</div>
 					</div>
 					<div class="content-m-td-2">
-						<jsp:include page="${menu }"></jsp:include>
+						<jsp:include page="/admin/homepageSetting/banner/bannerContent.jsp"></jsp:include>
 					</div>
 				</div>
+				<!-- *************** 수정 *************** -->
 			</div>
-			
-			
 		</div>
-
+		<!-- 오른쪽 테이블 close -->
 	</div>
+	<!-- 최상위 콘테이너 close-->
 </body>
 
 </html>

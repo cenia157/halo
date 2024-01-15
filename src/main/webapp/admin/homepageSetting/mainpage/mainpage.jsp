@@ -180,7 +180,7 @@
 				<div class="content-main-td">
 					<div class="content-m-td-1">
 						<!-- *************** 수정 *************** -->
-						<div class="content-m-td-title">공지사항</div>
+						<div class="content-m-td-title">로고변경</div>
 					</div>
 					<div class="content-m-td-2">
 						<jsp:include page="/admin/homepageSetting/mainpage/mainpageContent.jsp"></jsp:include>
