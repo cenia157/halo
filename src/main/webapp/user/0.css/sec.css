@@ -78,6 +78,8 @@ a {
 .sales-box{
 	font-size: 1.5rem;
 	align-items: flex-end;
-	background-size: cover;
-	text-shadow: 3px 4px 5px white;
+	background-size: contain; /* 이미지 div에 전체 */
+	background-position: center;
+	background-repeat: no-repeat;
+	text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 }

@@ -62,6 +62,45 @@ public class AnnouncedDAO {
         }
     }
     
+    // Seo's method
+    public static void getMainAnnouncements(HttpServletRequest request) {
+        PreparedStatement pstmt = null;
+        ResultSet rs = null;
+
+        String sql = "select * from (SELECT * FROM announced_tbl ORDER BY an_seq desc) where rownum<4";
+        
+        System.out.println("DB 연결 확인1");
+
+        try {
+            con = DBManagerhalo_ody.connect();
+            pstmt = con.prepareStatement(sql);
+            rs = pstmt.executeQuery();
+            System.out.println("DB 연결 확인2");
+
+            ArrayList<Announced_tbl_DTO> announceArr = new ArrayList<Announced_tbl_DTO>();
+            Announced_tbl_DTO announcement;
+
+            while (rs.next()) {
+                int an_seq = rs.getInt("an_seq");
+                String an_title = rs.getString("an_title");
+                String an_content = rs.getString("an_content");
+                String an_writer = rs.getString("an_writer");
+                Date an_reg_date = rs.getDate("an_reg_date");
+                String an_category = rs.getString("an_category");
+                String an_img = "default_image_path"; // 임시로 설정된 이미지 경로, 실제 이미지 경로로 변경 필요
+
+                announcement = new Announced_tbl_DTO(an_seq, an_title, an_content, an_writer, an_reg_date, an_category, an_img);
+                announceArr.add(announcement);
+            }
+
+            request.setAttribute("announcements", announceArr);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+        	DBManagerhalo_ody.close(con,pstmt, rs);
+        }
+    }
+    
     /**
      * 모달을 보여줄 한건의 데이터 조회
      * @param request

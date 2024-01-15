@@ -57,7 +57,14 @@
 						<div class="reservation-modal-content-end">목적지</div>
 						<div class="reservation-modal-content-endpoint">목적주소</div>
 						<div class="reservation-modal-content-notice">예약내용</div>
-						<div class="reservation-modal-content-manager">담당자</div>
+						<div class="reservation-modal-content-manager">
+							<div class="reservation-modal-content-manager-select">
+								<div class="default-manager">직원 선택</div>
+								<div class="manager-select-arrow"></div>
+							</div>
+							<div class="manager-select-option">
+							</div>
+						</div>
 					</div>
 					<div class="reservation-modal-btn">
 						<div class="reservation-modal-agree"
@@ -74,6 +81,7 @@
 					</div>
 					<div class="date-modal-content"></div>
 				</div>
+				<div class="backrop"></div>
 
 				<div class="detail-schedule">
 					<div class="detail-schedule-header">
