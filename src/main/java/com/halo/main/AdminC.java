@@ -7,12 +7,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.halo.admin.login.LoginDAO;
 import com.halo.user.qa.question.QuestionDAO;
 
 @WebServlet("/AdminC")
 public class AdminC extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+//		if (request.getSession().getAttribute("login_session") == null) {
+//			response.sendRedirect("LoginPageC");
+//		} else {
 		String menu = null;
 		//DB에 업뎃된(저장된) homepage_common 모든 어트리뷰트
 		MainpageDAO.getMdao().getAllHompage_common(request);
@@ -47,6 +51,7 @@ public class AdminC extends HttpServlet {
 
 		String link = request.getParameter("link");
 		System.out.println(link);
+//		}
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

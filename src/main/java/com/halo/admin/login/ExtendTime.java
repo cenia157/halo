@@ -1,4 +1,4 @@
-package com.halo.admin.boardmanagement.ask;
+package com.halo.admin.login;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,15 +7,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/CheckboxDataC")
-public class CheckboxDataC extends HttpServlet {
-
+@WebServlet("/ExtendTime")
+public class ExtendTime extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String[] statusCheckboxes = request.getParameterValues("status_checkbox");
+		LoginDAO.extendTime(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
 	}
 
 }
