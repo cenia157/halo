@@ -481,6 +481,7 @@ $(document).ready(function() {
   // 현재 페이지의 URL에 AskContentC가 포함되어 있으면 체크박스를 모두 체크합니다.
   if (currentUrl.includes("AskContentC")) {
     $('input[type="checkbox"]').prop('checked', true);
+	saveCheckBoxData();
   }
 });
 
