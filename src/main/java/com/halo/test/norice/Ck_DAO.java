@@ -16,12 +16,16 @@ public class Ck_DAO {
 
 		request.setCharacterEncoding("utf-8");
 		try {
-
+			String writer;
 			String title = CommonUtility.escapeHtml(request.getParameter("title"));
 			String select = CommonUtility.escapeHtml(request.getParameter("select"));
 			String txt = request.getParameter("txt");
-			String writer = request.getParameter("writer");
 			
+			if(request.getParameter("writer").equals("")) {
+				writer = "세션없음";
+			} else {
+				writer = request.getParameter("writer");
+			}
 			
 			if (title != "" && txt != "" && select != null) {
 

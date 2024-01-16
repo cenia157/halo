@@ -7,16 +7,12 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>notice</title>
-
-
-<link rel="stylesheet"
-	href="admin/boardmanagement/notice/0.css/notice.css" />
-<link
-	href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular"
-	rel="stylesheet" />
+<title>noticeMain</title>
+<link rel="stylesheet" href="admin/boardmanagement/notice/0.css/notice.css" />
+<link href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular" rel="stylesheet" />
 
 </head>
+
 <body>
 	<input type="hidden" id="pageNum" value="${pageNum }">
 	<input type="hidden" id="updateSEQ" value="${seq }">
@@ -132,7 +128,6 @@
 							<button disabled>다음</button>
 						</c:otherwise>
 					</c:choose>
-
 					<!-- 마지막으로 가는 버튼 -->
 					<c:choose>
 						<c:when test="${curPageNo + 5 <= pageCount}">
@@ -152,22 +147,12 @@
 					</c:choose>
 				</div>
 				<!-- 페이징끝 -->
-
-
-
-
-
 			</div>
 			<div class="ontent-m-td-2-page-side">
 				<button class="SubmitButton-content" onclick="openModalNR()">등록하기</button>
 			</div>
 		</div>
-		<!-- 
-			여기는 모달을 띄워주는 곳, 
-			새로운 공지사항을 등록하기 위한 모달(noticeNEWRegPage.jsp)			
-			기존의 공지사항을 보기 위한 모달(noticeViewPage.jsp)
-			기존의 공지사항을 수정 위한 모달(이 모달은 noticeViewPage에서 include됨)(noticeRegPage.jsp)
-		-->
+
 		<jsp:include page="noticeNEWRegPage.jsp"></jsp:include>
 		<jsp:include page="noticeViewPage.jsp"></jsp:include>
 		<jsp:include page="noticeRegPage.jsp"></jsp:include>

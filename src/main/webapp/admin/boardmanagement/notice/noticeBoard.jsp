@@ -13,7 +13,7 @@
 <title>notice</title>
 </head>
 <body>
-<button onclick="searchCheckBoxVal()">test용 버튼임다</button>
+<!-- <button onclick="searchCheckBoxVal()">test용 버튼임다</button> -->
 	<div class="ontent-m-td-2-content-container">
 		<div class="ontent-m-td-2-content-txt">
 			<div class="ontent-m-td-2-content-txt-no">No</div>
@@ -37,7 +37,7 @@
 				<div class="ontent-m-td-2-content-txt-writer-in">${an.an_writer }</div>
 				<div class="ontent-m-td-2-content-txt-date-in">${an.an_reg_date}</div>
 				<div class="ontent-m-td-2-content-txt-delete-in">
-					<button onclick="deleteNotice('${an.an_seq}')">삭제qqqqqqqqqqqq</button>
+					<button onclick="deleteNotice('${an.an_seq}')">削除</button>
 				</div>
 			</div>
 		</c:forEach>
