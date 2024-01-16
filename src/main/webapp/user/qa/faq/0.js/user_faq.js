@@ -1,5 +1,4 @@
 function loadFAQDetailContent(qa_seq, qa_title, qa_content, qa_reg_date){
-    console.log("qa_seq: ", qa_seq);
     $.ajax({
         url: "LoadFAQDetailContentC",
         dataType: "json",
@@ -15,8 +14,6 @@ function loadFAQDetailContent(qa_seq, qa_title, qa_content, qa_reg_date){
             let qa_title = data[0].qa_title;
             let qa_content = data[0].qa_content;
             let qa_reg_date = data[0].qa_reg_date;
-            console.log("타이틀: ",qa_title);
-            console.log("컨텐츠: ",qa_content);
 
             $('#FAQ_QUESTION').html("Q. " + qa_title);
             $('#FAQ_ANSWER').html("A. " + qa_content);

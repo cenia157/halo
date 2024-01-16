@@ -199,6 +199,11 @@
 	width: 10%;
 }
 
+.ontent-m-td-2-content-txt-delete-in:hover {
+	cursor: pointer;
+	text-decoration: underline;
+}
+
 /*
 ����� askBoard.jsp�� ���������� ��
 */

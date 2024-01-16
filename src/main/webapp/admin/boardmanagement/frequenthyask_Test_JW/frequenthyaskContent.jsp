@@ -12,7 +12,8 @@
 <link rel="stylesheet" href="admin/0.css/test copy.css" />
 <link rel="stylesheet"
 	href="admin/boardmanagement/frequenthyask_Test_JW/0.css/frequenthyask.css" />
-<script src="admin/_js/test2.js"></script>
+
+<script src="admin/boardmanagement/frequenthyask_Test_JW/0.js/faq.js"></script>
 <script src="admin/_js/test.js"></script>
 <link
 	href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular"
@@ -20,7 +21,6 @@
 </head>
 <body>
 	<div class="ontent-m-td-2-chackbox"></div>
-	<!-- 아래의 div는 No부터 버튼을 포함함 구조는 (No 카테고리 제목 ...) (8888... 7777.... ) (버튼) 이 세개가 블록으로 쌓여있다 -->
 	<div class="ontent-m-td-2-content">
 		<div class="ontent-m-td-2-content-container">
 			<div class="ontent-m-td-2-content-txt">
