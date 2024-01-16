@@ -13,7 +13,7 @@ public class deleteNoticeC extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			
 			NOTICEDAO.realDeleteNotice(request);
-			response.sendRedirect("NoticePagingC?p="+request.getParameter("p")+ "&checkVal=" + request.getParameter("checkVal"));
+			response.sendRedirect("NoticePagingC?p="+request.getParameter("p")+"&checkVal="+request.getParameter("checkVal"));
 	}
 
 

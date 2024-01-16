@@ -73,17 +73,6 @@ function closeModalR2(modalId, tblId) {
 	}
 	// CKEditor 초기화
 	window.editor.setData(""); // CKEditor의 내용을 빈 문자열로 설정합니다.
-
-
-
-
-	
-	
-	
-	
-	
-	
-	
 	
 	
 }
@@ -245,4 +234,3 @@ function deleteFAQ(qa_seq) {
 		});
 	}
 }
-

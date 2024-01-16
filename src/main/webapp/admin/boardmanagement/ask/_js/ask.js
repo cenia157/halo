@@ -24,7 +24,9 @@ function closeModal(modalId, tblId) {
 
 	// input 초기화
 	var titleInput = document.getElementById("real-title-editor");
-	titleInput.value = "";
+	if(titleInput != null){
+		titleInput.value = null;
+	}
 
 	// 사진 input 삭제
 	var imageInputs = document.querySelectorAll("#img-url");
@@ -39,7 +41,9 @@ function closeModal(modalId, tblId) {
 		document.querySelector('#kategorie').textContent = '카테고리';
 	}
 	// CKEditor 초기화
-	window.editor.setData(""); // CKEditor의 내용을 빈 문자열로 설정합니다.
+	if(window.editor != null){
+		window.editor.setData(""); // CKEditor의 내용을 빈 문자열로 설정합니다.
+	}
 
 }
 
@@ -629,6 +633,7 @@ function refreshData(QnCs) {
 	if(window.location.href.includes("AskContent")){
 		window.location.replace(window.location.href.replace("AskContentC", "CheckboxPagingC"));
 	} else{
+//리로드
 	location.reload();
 	}
 }

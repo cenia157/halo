@@ -13,7 +13,7 @@ public class CkeditorC extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 	}
-
+    //
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// 이곳은 Notice에서 등록완료를 눌렀을 때 등록하기 위한 곳
