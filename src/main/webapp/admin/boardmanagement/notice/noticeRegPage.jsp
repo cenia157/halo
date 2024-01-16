@@ -5,20 +5,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>noticeEditPage</title>
-<style type="text/css">
-.modal-title-td-1 {
-	outline: 1px solid red;
-}
-
-.real-title-V, #Display-Category {
-	outline: 1px solid brown;
-}
-</style>
-
+<title>noticeEditPage</title> 
 </head>
-
-
 
 <body>
 	<div onclick="closeModalR()" id="myModalR"></div>
