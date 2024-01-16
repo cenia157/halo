@@ -5,11 +5,11 @@ regBtn.addEventListener("click", function(event) {
 	}
 	
 	let ckForm = document.querySelector("#ck-form");
-	let writer = document.querySelector("#regBtnHiddenInput");
+	let writer = document.querySelector("#regBtnHiddenInput").value;
 	const content = window.editor.getData();
 	const formData = new FormData(ckForm);
 	formData.set("txt", content);
-	formData.set("writer", writer )
+	formData.set("writer", writer)
 	console.log("--------------------");
 	console.log(content);
 	console.log(formData);

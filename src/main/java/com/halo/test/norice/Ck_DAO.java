@@ -20,7 +20,9 @@ public class Ck_DAO {
 			String title = CommonUtility.escapeHtml(request.getParameter("title"));
 			String select = CommonUtility.escapeHtml(request.getParameter("select"));
 			String txt = request.getParameter("txt");
-
+			String writer = request.getParameter("writer");
+			
+			
 			if (title != "" && txt != "" && select != null) {
 
 				System.out.println("txt 구간(1) :::" + txt);
@@ -72,7 +74,7 @@ public class Ck_DAO {
 
 				pstmt.setString(1, title);
 				pstmt.setString(2, txt);
-				pstmt.setString(3, "산타");
+				pstmt.setString(3, writer);
 				pstmt.setString(4, select);
 
 				if (pstmt.executeUpdate() == 1) {
