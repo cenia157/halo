@@ -12,9 +12,10 @@ public class NoticePagingC extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		NOTICEDAO.getAllNOTICE(request, response);
-
-		int p = Integer.parseInt(request.getParameter("p"));
-		System.out.println(p);
+		int p = 1;
+		if(!request.getParameter("p").equals("")) {
+			p = Integer.parseInt(request.getParameter("p"));
+		}
 
 		NOTICEDAO.NOTICEpagingAdmin(p, request);
 		 

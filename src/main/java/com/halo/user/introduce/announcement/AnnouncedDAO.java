@@ -83,14 +83,23 @@ public class AnnouncedDAO {
             while (rs.next()) {
                 int an_seq = rs.getInt("an_seq");
                 String an_title = rs.getString("an_title");
-                String an_content = rs.getString("an_content");
+                StringBuilder an_content = new StringBuilder();
+                an_content.append(rs.getString("an_content"));
+                
+                while (an_content.indexOf("<figure") != -1) {
+                	an_content.replace(an_content.indexOf("<figure"), an_content.indexOf("</figure>") + 9, "");
+                }
+                
                 String an_writer = rs.getString("an_writer");
                 Date an_reg_date = rs.getDate("an_reg_date");
                 String an_category = rs.getString("an_category");
                 String an_img = "default_image_path"; // 임시로 설정된 이미지 경로, 실제 이미지 경로로 변경 필요
 
-                announcement = new Announced_tbl_DTO(an_seq, an_title, an_content, an_writer, an_reg_date, an_category, an_img);
+                announcement = new Announced_tbl_DTO(an_seq, an_title, an_content.toString().trim(), an_writer, an_reg_date, an_category, an_img);
                 announceArr.add(announcement);
+                System.out.println("모달컨텐트: "+an_content);
+                
+                
             }
 
             request.setAttribute("announcements", announceArr);

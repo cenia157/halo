@@ -1,4 +1,4 @@
-package com.halo.admin.boardmanagement.frequenthyask;
+package com.halo.admin.popup;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,15 +7,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/DeleteFAQC")
-public class DeleteFAQC extends HttpServlet {
+import com.halo.main.MainpageDAO;
 
+@WebServlet("/PopupC")
+public class PopupC extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		//지금컨트롤러, 결과 파라미터
+		MainpageDAO.getMdao().getAllHompage_common(request);
+		//Admin page 메뉴(index.jsp) 안고가기 => 디스페쳐
+		request.setAttribute("menu", "/admin/popup/popupContent.jsp");
+		request.getRequestDispatcher("admin/index.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		FAQDAO.deleteFAQ(request, response);
+	
 	}
 
 }
