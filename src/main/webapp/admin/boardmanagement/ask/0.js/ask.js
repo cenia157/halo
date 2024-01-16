@@ -397,13 +397,28 @@ function deleteQuestion(q_seq) {
 	}
 }
 
+//체크박스 시작@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
+$(document).ready(function() {
+  // 페이지가 로드되면 체크박스의 값을 저장합니다.
+  var checked = $('#checkbox').is(':checked');
 
+  // 폼 제출 이벤트 리스너를 추가합니다.
+  $('#checkbox').submit(function() {
+    // 폼이 제출되기 전에 체크박스의 값을 검사합니다.
+    if (checked) {
+      // 체크박스가 체크되어 있으면 폼을 제출합니다.
+      return true;
+    } else {
+      // 체크박스가 체크되어 있지 않으면 폼을 제출하지 않습니다.
+      return false;
+    }
+  });
+});
 
 
 // 체크박스 제출
 $(document).ready(function() {
-	
     // 체크박스의 change 이벤트를 감지
     $('input[type="checkbox"]').change(function() {
         // 체크박스가 변경되면 바로 폼을 제출
@@ -424,6 +439,7 @@ $(document).ready(function() {
         saveCheckBoxData();
     });
 });
+
 
 // 체크박스 상태 저장 함수
 function saveCheckBoxData() {
@@ -451,11 +467,24 @@ $(document).ready(function() {
                 checkbox.prop('checked', storedData[key]);
 				
 				console.log("체크박스 상태 불러오기 확인용: ",storedData);
-				fetchData(storedData);
+//				fetchData(storedData);
             }
         }
     }
 });
+
+//AskContentC가 들어가면 무조건 둘다 체크된 상태로 만들기
+$(document).ready(function() {
+  // 현재 페이지의 URL을 가져옵니다.
+  const currentUrl = window.location.href;
+
+  // 현재 페이지의 URL에 AskContentC가 포함되어 있으면 체크박스를 모두 체크합니다.
+  if (currentUrl.includes("AskContentC")) {
+    $('input[type="checkbox"]').prop('checked', true);
+	saveCheckBoxData();
+  }
+});
+
 
 function fetchData(data){
 	$.ajax({
@@ -495,7 +524,7 @@ function refreshData(QnCs) {
     var container = document.getElementById("FOREACH_ASK");
     container.innerHTML = ""; // 기존 내용 비우기
 	const urlParams = new URL(location.href).searchParams;
-	const page = urlParams.get("p");
+	const page = parseInt(urlParams.get("p"));
     let curPageNo = page;
     let itemsPerPage = 8;
 
@@ -507,9 +536,17 @@ function refreshData(QnCs) {
         QnCs = [];
     }
 
+	// q_seq를 기준으로 DESC로 정렬
+	QnCs.sort((a, b) => {
+	  return b.q_seq - a.q_seq;
+	});
+
     // 페이징을 위한 변수 계산
     let totalItems = QnCs.length;
     let pageCount = Math.ceil(totalItems / itemsPerPage);
+	if(curPageNo > pageCount){
+		curPageNo = pageCount;
+	}
 
     // 현재 페이지에 표시할 아이템들을 가져옴
     let startIndex = (curPageNo - 1) * itemsPerPage;
@@ -548,67 +585,71 @@ function refreshData(QnCs) {
     var pagingElement = document.createElement("div");
     pagingElement.className = "paging-div";
     var pagingcontainer = document.getElementById("PAGING_ASK");
-    pagingcontainer.innerHTML = ""; // 기존 내용 비우기			
+    pagingcontainer.innerHTML = ""; // 기존 내용 비우기	
 
-    // 처음으로 가는 버튼
-    var firstButton = createPageButton("<<", curPageNo - 5, curPageNo > 5);
-    pagingElement.appendChild(firstButton);
-
-    // 이전 페이지로 가는 버튼
-    var prevButton = createPageButton("이전", curPageNo - 1, curPageNo > 1);
-    pagingElement.appendChild(prevButton);
-
-    // 페이지 번호 생성
-    for (var i = Math.max(1, curPageNo - 2); i <= Math.min(curPageNo + 2, pageCount); i++) {
-        var pageButton = createPageNoBtn("[ " + i + " ]", i, i === curPageNo);
-        pagingElement.appendChild(pageButton);
-    }
-
-    // 다음 페이지로 가는 버튼
-    var nextButton = createPageButton("다음", curPageNo + 1, curPageNo < pageCount);
-    pagingElement.appendChild(nextButton);
-
-    // 마지막으로 가는 버튼
-    var lastButton = createPageButton(">>", curPageNo + 5, curPageNo + 5 <= pageCount);
-    pagingElement.appendChild(lastButton);
+	// 처음으로 가는 버튼
+	var firstButton = createPageButton("<<", 1, curPageNo > 1);
+	if(curPageNo <= 1){
+		firstButton.disabled = !firstButton.enabled; // disabled 속성 추가
+	}
+	pagingElement.appendChild(firstButton);
+	
+	// 이전 페이지로 가는 버튼
+	var prevButton = createPageButton("이전", curPageNo - 1, curPageNo > 1);
+	if(curPageNo <= 1){
+		prevButton.disabled = !prevButton.enabled; // disabled 속성 추가
+	}
+	pagingElement.appendChild(prevButton);
+	
+	// 페이지 번호 생성
+	for (var i = Math.max(1, curPageNo - 2); i <= Math.min(curPageNo + 2, pageCount); i++) {
+	    var pageButton = createPageNoBtn("[ " + i + " ]", i, i === curPageNo);
+	    pagingElement.appendChild(pageButton);
+	}
+	
+	// 다음 페이지로 가는 버튼
+	var nextButton = createPageButton("다음", curPageNo + 1, curPageNo < pageCount);
+	if(curPageNo >= pageCount){
+		nextButton.disabled = !nextButton.enabled; // disabled 속성 추가
+	}
+	pagingElement.appendChild(nextButton);
+	
+	// 마지막으로 가는 버튼
+	var lastButton = createPageButton(">>", pageCount, curPageNo < pageCount);
+	if(curPageNo >= pageCount){
+		lastButton.disabled = !lastButton.enabled; // disabled 속성 추가
+	}
+	pagingElement.appendChild(lastButton);
 
     // 페이징 끝에 추가
     pagingcontainer.appendChild(pagingElement);
-
-	CheckboxPaging(QnCs);
-}
-
-function CheckboxPaging(QnCs){
-	$.ajax({
-		url:"CheckboxPagingC",
-		method:"GET",
-		data:{
-			QnCs: QnCs
-		},
-		success:function(QnCs){
-			console.log("checkBoxPaging Success: ",QnCs);
-		},
-		error: function(xhr,status,error){
-			console.log("CheckboxPaging Error: ", xhr,status,error);
-		}
-		
-	});
 	
+	//reload 추가해서 새로고침 되긴 하는데, current-page에 준 css가 먹게 됨
+	//location의 url을 바꾸는 것을 통해서 AskContent의 오류를 잡아냄
+	if(window.location.href.includes("AskContent")){
+		window.location.replace(window.location.href.replace("AskContentC", "CheckboxPagingC"));
+	} else{
+	location.reload();
+	}
 }
+
+
 
 
 // 페이지 버튼 생성 함수
 function createPageButton(text, pageNo, isEnabled) {
-    var button = document.createElement("button");
-    var link = document.createElement("a");
-    link.href = "CheckboxPagingC?p=" + pageNo; // 페이지 번호에 해당하는 URL 설정
-    link.textContent = text;
-    button.appendChild(link);
-    if (!isEnabled) {
-        button.disabled = true;
-    }
-    return button;
+  var button = document.createElement("button");
+  button.textContent = text;
+  button.addEventListener("click", function() {
+    // 페이지 번호에 해당하는 URL로 이동
+    window.location.href = "CheckboxPagingC?p=" + pageNo;
+  });
+  if (!isEnabled) {
+    button.disabled = true;
+  }
+  return button;
 }
+
 function createPageNoBtn(text, pageNo, isEnabled) {
     var button = document.createElement("a");
     var link = document.createElement("a");
@@ -618,10 +659,10 @@ function createPageNoBtn(text, pageNo, isEnabled) {
     button.appendChild(link);
     if (!isEnabled) {
         button.disabled = true;
+		link.disabled = true;
     }
     return button;
 }
 
-//체크박스 값 그대로 남기기 시도
 
 

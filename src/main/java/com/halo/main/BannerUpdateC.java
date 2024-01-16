@@ -10,18 +10,15 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/BannerUpdateC")
 public class BannerUpdateC extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		//getAll로 DTO깐거 가져옴
 		MainpageDAO.getMdao().getAllHompage_common(request);
 		//업뎃 메소드
-		System.out.println("과연 업뎃?");
 		MainpageDAO.getMdao().updateBanner(request);
 		response.sendRedirect("BannerUploadC");
-		
-		System.out.println("업뎃 지나감~~");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 	
 	
 	}

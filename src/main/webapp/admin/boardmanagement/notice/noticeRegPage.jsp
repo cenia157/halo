@@ -17,7 +17,7 @@
 <body>
 	<div onclick="closeModalR()" id="myModalR"></div>
 	<form id="ck-formR" method="post">
-		<div id="myModal-tblR" class="modal-tbl">
+		<div id="myModal-tblR" class="modal-tbl closeRegModal">
 			<div class="modal-title-set">
 				<div class="modal-title-tr">
 					<div class="modal-title-td-1">
@@ -27,7 +27,7 @@
 								id="real-title-editorN" placeholder="이곳에 제목을 입력하세요">
 							<!-- 아래의 input은 ajax로 올라갔던 이미지의 실제 이름을 받기 위한 역할을 한다.
 							type="hidden"을 삭제하고 이미지를 올려놓으면 올린 이미지의 경로+이름이 나온다. -->
-							<div id="img-temporaryR" style="background-color: aqua;"> durl</div>
+							<div id="img-temporaryR" style="background-color: aqua;"></div>
 							<div class="real-title-select">
 								<div class="toggle" id="toggleR" onclick="toggleR()">
 									<div class="kategorie" id="kategorieR">카테고리</div>

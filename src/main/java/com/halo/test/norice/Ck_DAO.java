@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.halo.admin.boardmanagement.notice.CommonUtility;
 import com.halo.test.DBManagerhalo_JW;
 
 public class Ck_DAO {
@@ -16,18 +17,17 @@ public class Ck_DAO {
 		request.setCharacterEncoding("utf-8");
 		try {
 
-			String title = request.getParameter("title");
-			String select = request.getParameter("select");
+			String title = CommonUtility.escapeHtml(request.getParameter("title"));
+			String select = CommonUtility.escapeHtml(request.getParameter("select"));
 			String txt = request.getParameter("txt");
+
 			if (title != "" && txt != "" && select != null) {
 
 				System.out.println("txt 구간(1) :::" + txt);
 				String[] saveFnameValues = request.getParameterValues("saveFname");
 
 				if (saveFnameValues != null) {
-					// 이미지 중앙정렬 이건 취소함 왜냐면 이미지 하나를 추가할 때마다 45자씩 추가되기 때문에 차라리 css 파일에 추가하면 상대적으로 더 많은
-					// 이미지를 넣을 수 있기 때문이다
-//				txt = txt.replace("<figure", "<figure style=\'display:flex; justify-content:center;\'");
+
 					int startPos = 0; // 현재 위치를 추적하기 위한 변수
 					for (int i = 0; i < saveFnameValues.length; i++) {
 						// 다음 <img 태그의 시작 위치를 찾습니다.

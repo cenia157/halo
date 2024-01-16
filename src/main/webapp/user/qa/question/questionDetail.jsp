@@ -17,9 +17,11 @@
 <%-- <script type="text/javascript" src="${pageContext.request.contextPath}/user/qa/question/0.js/questionDetails.js"></script> --%>
 <script type="text/javascript">
 function deleteQuestion(n) {
-	let ok = confirm("削除しますか?");
-	if (ok) {
+	let password = prompt("削除しますか?\n パスワードを入力してください。");
+	if (password === "${QnC.q_password}") {
 		location.href= "QuestionDeleteC?q_seq=" + n;
+	} else {
+		alert("パスワードをご確認ください");
 	}
 }
 

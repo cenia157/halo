@@ -28,6 +28,12 @@ let currentDate = thisMonth.getDate(); // 달력에서 표기하는 일
 // 전체 일정 배열리스트
 let reservationScheduleList = new Array;
 
+// 일정 스태프 리스트
+let reservationStaffList = new Array;
+
+// 예약 승인 리스트
+let reservationAcceptList = new Array;
+
 // 날짜 체크박스 클릭 배열
 let dateArr = new Array(32).fill(0);
 
@@ -35,7 +41,7 @@ let dateArr = new Array(32).fill(0);
 let arrayCalenderList = new Array();
 
 // 일별 일정 배열
-let arrayDate = new Array();
+let reservationArrayDate = new Array();
 
 // 연, 월 버튼 초기값
 let clickButton = "";
@@ -72,6 +78,12 @@ let reservationClickDate = '';
 
 // 예약리스트 선택 어레이번호
 let reservationSelectArray = '';
+
+// 예약리스트 모달 상태
+let reservationModalStatus = 0;
+
+// 예약리스트 셀렉트박스
+let managerSelectValue = 0;
 
 // 토글스위치
 let toggle = '';
@@ -165,8 +177,50 @@ function getAllSchedule() {
 					reservationSelect(e);
 				}
 			})
+
+			// 예약 모달 닫기
+			document.querySelector('.reservation-modal-close').addEventListener("click", function(e) {
+				if (reservationModalStatus == 1) {
+					reservationModalClose(e);
+				}
+			})
+
 		})
 
+		.catch(error => {
+			console.error('데이터를 가져오는 중 오류 발생:', error);
+		});
+}
+
+// 스태프 조회
+function getAllStaff() {
+	fetch('ReservationStaffList')
+		.then(response => response.json())
+		.then(data => {
+			// javascript배열에 ajax로 가져온 배열 입력
+			reservationStaffList = reservationStaffList.concat(data);
+
+			// 전체데이터 출력
+			console.log(reservationStaffList);
+
+		})
+		.catch(error => {
+			console.error('데이터를 가져오는 중 오류 발생:', error);
+		});
+}
+
+// 수락일정 조회
+function getAllReservationAccept() {
+	fetch('ReservationScheduleAccept')
+		.then(response => response.json())
+		.then(data => {
+			// javascript배열에 ajax로 가져온 배열 입력
+			reservationAcceptList = reservationAcceptList.concat(data);
+
+			// 전체데이터 출력
+			console.log(reservationAcceptList);
+
+		})
 		.catch(error => {
 			console.error('데이터를 가져오는 중 오류 발생:', error);
 		});
@@ -184,7 +238,6 @@ function renderMonth(reservationScheduleList, clickButton) {
 		document.querySelector('.date-modal').style.visibility = 'hidden';
 		dateModal = 0;
 	}
-
 
 	document.querySelector('.date-modal').style.visibility = 'hidden';
 	dateModal = 0;
@@ -273,19 +326,19 @@ function renderCalender(reservationScheduleList) {
 	}
 
 	// 달력에 표시된 전월 현월 다음월 일 수 만큼 배열리스트 할당
-	arrayDate = new Array(prevDate - (prevDate - prevDay + 1) + (nextDate + 1) + (7 - nextDay == 7 ? 0 : 7 - nextDay));
+	reservationArrayDate = new Array(prevDate - (prevDate - prevDay + 1) + (nextDate + 1) + (7 - nextDay == 7 ? 0 : 7 - nextDay));
 
 
 
-	renderReservationSchedule();
+	renderReservationScheduleList();
 
 	//	writeSchedule();
 
-	//	console.log(arrayDate)
+	//	console.log(reservationArrayDate)
 }
 
 // 예약 일정 렌더링
-function renderReservationSchedule() {
+function renderReservationScheduleList() {
 	let arrayCnt = 0;
 
 	for (let i = 0; i < reservationScheduleList.length; i++) {
@@ -298,7 +351,7 @@ function renderReservationSchedule() {
 				arrayCnt++;
 			} else {
 				document.querySelector('.ins-tr-3-reservation-content').innerHTML += '<input type="hidden" value="' + i + '"><div class="reservation-data array' + arrayCnt + '"><div>' + reservationScheduleList[i].userName + '</div><div>' + reservationScheduleList[i].service
-					+ '</div><div><input type="hidden" value="' + reservationScheduleList[i].dates + '">' + reservationScheduleList[i].year.slice(2) + '-' + reservationScheduleList[i].month + '-' + reservationScheduleList[i].dates + '</div><div><a>선택</a></div></div>'
+					+ '</div><div><input type="hidden" value="' + reservationScheduleList[i].dates + '">' + reservationScheduleList[i].year.slice(2) + '-' + reservationScheduleList[i].month + '-' + reservationScheduleList[i].dates + '</div><div><a class="reservation-select">선택</a></div></div>'
 				arrayCnt++;
 			}
 		}
@@ -332,9 +385,17 @@ function reservationClick(e) {
 
 // 예약리스트 선택
 function reservationSelect(e) {
-	reservationSelectArray = e.target.closest('.reservation-data').previousSibling.value
+	document.querySelector('.manager-select-option').innerHTML = '<div class="manager-list" onclick="managerSelect(this)">선택안함</div>';
+	document.querySelector('.reservation-modal-content-manager-select').children[0].innerText = '직원 선택';
 
-	console.log(reservationScheduleList[reservationSelectArray]);
+	// 직원 리스트 생성
+	for (let i = 0; i < reservationStaffList.length; i++) {
+		document.querySelector('.manager-select-option').innerHTML += '<input type="hidden" value="' + i + '"><div class="manager-list" onclick="managerSelect(this)">' + reservationStaffList[i].name + '</div>';
+	}
+
+	document.querySelector('.backrop').style.display = 'flex';
+
+	reservationSelectArray = e.target.closest('.reservation-data').previousSibling.value;
 
 	document.querySelector('.reservation-modal-title').innerHTML = reservationScheduleList[reservationSelectArray].userName + ' - ' + reservationScheduleList[reservationSelectArray].service;
 	document.querySelector('.reservation-modal-content-name').innerHTML = reservationScheduleList[reservationSelectArray].userName;
@@ -353,16 +414,136 @@ function reservationSelect(e) {
 		document.querySelector('.reservation-modal-content-book').innerHTML = reservationScheduleList[reservationSelectArray].year + '-' + reservationScheduleList[reservationSelectArray].month + '-' + reservationScheduleList[reservationSelectArray].dates;
 	}
 
-	document.querySelector('.reservation-modal-content-startpoint').innerHTML = reservationScheduleList[reservationSelectArray].startPlace;
-	document.querySelector('.reservation-modal-content-endpoint').innerHTML = reservationScheduleList[reservationSelectArray].endPlace;
-	document.querySelector('.reservation-modal-content-notice').innerHTML = reservationScheduleList[reservationSelectArray].applicant;
+	document.querySelector('.reservation-modal-content-startpoint').innerHTML = reservationScheduleList[reservationSelectArray].startPoint;
+	document.querySelector('.reservation-modal-content-endpoint').innerHTML = reservationScheduleList[reservationSelectArray].endPoint;
+	document.querySelector('.reservation-modal-content-notice').innerHTML = '<textarea>' + '간호 요청사항 : ' + reservationScheduleList[reservationSelectArray].nurssingInfo + '\n택시 요청사항 : ' + reservationScheduleList[reservationSelectArray].texiInfo + '</textarea>';
+
+	document.querySelector('.reservation-modal').style.zIndex = '3';
+
+
+	console.log(reservationSelectArray);
+
+	reservationModalStatus = 1;
+
+	document.querySelector('.reservation-modal-content-manager-select').addEventListener("click", managerSelectBoxClick);
+
+}
+
+// 스태프 배정 셀렉트박스
+function managerSelectBoxClick() {
+
+	if (managerSelectValue == 0) {
+		document.querySelector('.manager-select-option').style.display = 'flex';
+		document.querySelector('.manager-select-option').style.height = document.querySelector('.manager-list').getBoundingClientRect().height * 4 + 'px';
+		document.querySelector('.manager-select-option').style.bottom = '-' + document.querySelector('.manager-select-option').getBoundingClientRect().height + 'px';
+		document.querySelector('.reservation-modal-content-manager-select').style.border = '3px solid rgb(138, 182, 255)';
+		document.querySelector('.manager-select-arrow').classList.add('manager-select-arrowdown');
+
+		managerSelectValue = 1;
+	} else {
+		document.querySelector('.manager-select-option').style.display = 'none';
+		document.querySelector('.manager-select-option').style.bottom = 0 + 'px';
+		document.querySelector('.reservation-modal-content-manager-select').style.border = '3px solid #e5e5e5';
+		document.querySelector('.manager-select-arrow').classList.remove('manager-select-arrowdown');
+
+		managerSelectValue = 0;
+	}
+	document.querySelector('.manager-select-option').style.width = document.querySelector('.reservation-modal-content-manager-select').getBoundingClientRect().width + 'px';
+}
+
+function managerSelect(e) {
+	document.querySelector('.reservation-modal-content-manager-select').children[0].innerText = e.innerText;
+
+	managerSelectBoxClick();
+}
+
+// 예약 디테일 승인
+function reservationAccept(e) {
+
+	if (e.innerText == '승인') {
+		reservationScheduleList[reservationSelectArray].feedBack = document.querySelector('.reservation-modal-content-notice').children[0].value;
+		reservationScheduleList[reservationSelectArray].staff = document.querySelector('.default-manager').innerText;
+
+		let params = {
+			array: JSON.stringify(reservationScheduleList[reservationSelectArray]),
+			no: reservationScheduleList[reservationSelectArray].no,
+			status : "accept"
+		}
+
+		fetch('ReservationAgree', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+			},
+			body: new URLSearchParams(params).toString()
+		})
+			.then(response => response.text())
+			.then(data => {
+				if (data) {
+					reservationScheduleList.splice(reservationSelectArray, 1);
+
+					document.querySelectorAll('.reservation-data').forEach(function(reservationElement) {
+						reservationElement.remove();
+					});
+
+
+					renderReservationSchedule()
+					reservationModalClose(e)
+					
+				} else {
+
+				}
+			});
+	} else {
+		let params = {
+			array: JSON.stringify(reservationScheduleList[reservationSelectArray]),
+			no: reservationScheduleList[reservationSelectArray].no,
+			status : "decline"
+		}
+
+		fetch('ReservationAgree', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+			},
+			body: new URLSearchParams(params).toString()
+		})
+			.then(response => response.text())
+			.then(data => {
+				if (data) {
+
+					reservationScheduleList.splice(reservationSelectArray, 1);
+
+					document.querySelectorAll('.reservation-data').forEach(function(reservationElement) {
+						reservationElement.remove();
+					});
+
+
+					renderReservationSchedule()
+					reservationModalClose(e)
+				} else {
+
+				}
+			});
+	}
 
 
 }
 
+
+// 예약 디테일 모달 닫기
+function reservationModalClose(e) {
+	document.querySelector('.reservation-modal').style.zIndex = '-1';
+	document.querySelector('.backrop').style.display = 'none';
+
+	if (managerSelectValue == 1) {
+		managerSelectBoxClick();
+	}
+}
+
 // 달력 일정 렌더링
-function renderSchedule() {
-	for (let i = 0; i < arrayDate.length; i++) {
+function renderReservationSchedule() {
+	for (let i = 0; i < reservationArrayDate.length; i++) {
 		let divYear = calendar.children[i].className.match(/year(\d+)/);
 		let divMonth = calendar.children[i].className.match(/month(\d+)/);
 		let divDate = calendar.children[i].className.match(/date(\d+)/);
@@ -381,7 +562,7 @@ function renderSchedule() {
 		for (let j = 0; j < reservationScheduleList.length; j++) {
 			if (reservationScheduleList[j].year == divYear[1] && reservationScheduleList[j].month == divMonth[1]) {
 				// 해당월 일정안 date를 split
-				let splitDates = reservationScheduleList[j].date.split(',');
+				let splitDates = reservationScheduleList[j].dates.split(',');
 				// split한 데이터의 개수를 돌림	
 				for (let k = 0; k < splitDates.length; k++) {
 					// 일과 데이터의 값이 일치할경우 객체에 추가
@@ -395,7 +576,7 @@ function renderSchedule() {
 
 		dateData.titleLength = foldingCnt;
 		dateData.title = dateData.title.slice(0, -1);
-		arrayDate[i] = dateData;
+		reservationArrayDate[i] = dateData;
 	}
 }
 
@@ -449,7 +630,7 @@ function expandSchedule(e) {
 
 		// 모달 title 표시
 		document.querySelector('.date-modal-content').innerHTML = '';
-		let modalTitleData = arrayDate[parseInt(modalDivDate[1]) + prevDateLength].title.split(',');
+		let modalTitleData = reservationArrayDate[parseInt(modalDivDate[1]) + prevDateLength].title.split(',');
 		for (i = 2; i < modalTitleData.length; i++) {
 			if (modalTitleData[0] != '') {
 				document.querySelector('.date-modal-content').innerHTML += '<div class="modalTitleData"><input class="detailValue" value="' + (modalTitleData[i].split('.'))[0]
@@ -550,8 +731,8 @@ function getScheduleDetailModal(e, directDetail) {
 // 일정 렌더링을 위한 
 function writeSchedule() {
 
-	for (let i = 0; i < arrayDate.length; i++) {
-		let splitDates = arrayDate[i].title.split(',');
+	for (let i = 0; i < reservationArrayDate.length; i++) {
+		let splitDates = reservationArrayDate[i].title.split(',');
 
 		for (let j = 0; j < splitDates.length; j++) {
 			if (splitDates[j].split('.')[1]) {
@@ -569,7 +750,7 @@ function writeSchedule() {
 		}
 		// 3개부터 폴딩
 		if (calendar.children[i].children.length > 3) {
-			calendar.children[i].children[3].textContent = '++' + (arrayDate[i].titleLength - 2) + '件';
+			calendar.children[i].children[3].textContent = '++' + (reservationArrayDate[i].titleLength - 2) + '件';
 		}
 	}
 }
@@ -672,16 +853,16 @@ function deleteScheduleDate(atag) {
 
 				let remainDates = '';
 
-				for (let i = 0; i < arrayDate.length; i++) {
-					if (arrayDate[i].date == atag.parentNode.children[0].innerText) {
-						remainDates = arrayDate[i].title.split(',');
-						for (let j = 0; j < arrayDate[i].title.split(',').length; j++) {
-							if (arrayDate[i].title.split(',')[j].split('.')[0] == selectDetailSchedule.no) {
+				for (let i = 0; i < reservationArrayDate.length; i++) {
+					if (reservationArrayDate[i].date == atag.parentNode.children[0].innerText) {
+						remainDates = reservationArrayDate[i].title.split(',');
+						for (let j = 0; j < reservationArrayDate[i].title.split(',').length; j++) {
+							if (reservationArrayDate[i].title.split(',')[j].split('.')[0] == selectDetailSchedule.no) {
 								remainDates.splice(j, 1);
 							}
 						}
 						remainDates = remainDates.join(',');
-						arrayDate[i].title = remainDates;
+						reservationArrayDate[i].title = remainDates;
 					}
 				}
 
@@ -771,7 +952,12 @@ window.onload = function() {
 
 	getAllSchedule();
 
+	getAllReservationAccept();
+
+	getAllStaff()
+
 	toggleSwutch();
+
 };
 
 

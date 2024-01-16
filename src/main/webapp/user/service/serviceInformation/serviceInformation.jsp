@@ -17,22 +17,18 @@
 	<div class="content-box-tr">
 		<div class="content-box-td">
 			<div class="content-tabbox-td">
-				<div class="content-tab1-td tab1-pos">서비스 안내</div>
-				<div class="content-tab2-td tab2-pos">서비스 신청</div>
+				<div class="content-tab1-td tab1-pos">サービスの案内</div>
+				<div class="content-tab2-td tab2-pos">サービスの申込み</div>
 			</div>
 			<div class="content-subtab-td">
-				<img
-					src="${pageContext.request.contextPath}/user/service/serviceInformation/0.img/home.png"
-					alt=""> > 서비스 > 서비스안내
+						<img src="${pageContext.request.contextPath}/user/0.img//home.png"
+						width="1.7%" alt="" /> > サービス > サービスの申込み
 			</div>
 			<div class="content-coment-td coment-pos">
-				저희 ハロー 는 <br> 방문요양서비스와 개호 콜택시 서비스를 운영하고 있습니다 아래의 내용을 참고해주세요 :)
+				 弊社 ハロー は <br> 訪問介護サービスおよび個別呼び出しタクシーサービスを提供しています。以下の内容をご参照ください :)
 			</div>
-			<div class="content-title-td tit1-pos">방문요양 서비스</div>
-			<div class="content-subtxt-td subtxt1-pos">저희는 거동이 불편하신 어르신들을
-				위해 타 센터와는 달리, 직접 자택에 방문하여 요양보호서비스를 제공해드리고 있습니다. 방문 요양 서비스는 전문적인 케어
-				교육을 받은 헬퍼분들이 정성스럽게 어르신분들을 간호해드리고 가벼운 실내 산책이나 그림그리기 와 같은 교육 서비스도
-				제공해드리고있습니다.</div>
+			<div class="content-title-td tit1-pos">介護サービス</div>
+			<div class="content-subtxt-td subtxt1-pos">弊社は、移動が不便なお年寄りの方々に対して、他のセンターとは異なり、直接ご自宅に訪問して介護保護サービスを提供しています。訪問介護サービスは、専門的なケア教育を受けたヘルパーが丁寧にお年寄りを看護し、軽い屋内散歩や絵画などの教育サービスも提供しています。</div>
 			<div class="content-title-td tit2-pos">개호 택시</div>
 			<div class="content-subtxt-td subtxt2-pos">저희는 거동이 불편하신 어르신들을
 				위해 개호 택시 서비스를 제공해드리고 있습니다. 예약된 날짜와 시간에 맞추어 목적지까지 안전하게 모셔다 드립니다. 뿐만
