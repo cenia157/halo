@@ -66,6 +66,8 @@ regBtn.addEventListener("click", function(event) {
 		.then(data => {
 			console.log('POST 요청 성공:', data);
 			console.log(CkeditorC123);
+			//리로드 추가
+			location.reload();
 
 		})
 		.catch(error => {
