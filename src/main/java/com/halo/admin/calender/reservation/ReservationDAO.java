@@ -122,6 +122,8 @@ public class ReservationDAO {
 						registrationDate, staff, joinNo);
 				reservationAccpectSchedule.add(schedule.toJson());
 			}
+			
+			System.out.println(reservationAccpectSchedule);
 
 			System.out.println("예약 확인 조회 성공");
 			response.getWriter().print(reservationAccpectSchedule);
@@ -248,7 +250,7 @@ public class ReservationDAO {
 			pstmt.setString(14, dataMap.get("carNum"));
 			pstmt.setString(15, dataMap.get("feedBack"));
 			pstmt.setString(16, dataMap.get("registrationDate"));
-			pstmt.setString(17, dataMap.get("feedBack"));
+			pstmt.setString(17, dataMap.get("staff"));
 			pstmt.setInt(18, Integer.parseInt(dataMap.get("no")));
 
 			if (pstmt.executeUpdate() == 1) {
