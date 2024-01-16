@@ -125,7 +125,7 @@ function closeModalA() {
 // 공지사항(notice) 모달
 // ViewPage를 띄우기 위한 모달
 function openModalV() {
-	openModal('myModalV', 'myModal-tblV');
+	openModal('myModal', 'myModal-tblV');
 	closeModalOnOutsideClick('myModalV');
 }
 
