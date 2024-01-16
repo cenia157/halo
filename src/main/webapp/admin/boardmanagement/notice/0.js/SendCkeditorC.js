@@ -1,4 +1,3 @@
-ㅣ
 let regBtn = document.querySelector("#reg-btn");
 regBtn.addEventListener("click", function(event) {
 	if(!noValue()){
@@ -67,7 +66,7 @@ regBtn.addEventListener("click", function(event) {
 		})
 		.then((data) => {
 			console.log("POST 요청 성공: 이거맞음?????", data);
-			//ckForm.submit();
+			ckForm.submit();
 			console.log(CkeditorC123);
 		})
 		.catch((error) => {

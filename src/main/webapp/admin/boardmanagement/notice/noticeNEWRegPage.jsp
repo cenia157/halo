@@ -8,18 +8,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>noticeEditPage</title>
 
-
-<link
-	href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular"
-	rel="stylesheet" />
-</head>
-
 <body>
-
-<!-- AdminNOTICEC 지움 -->
 	<div id="myModalNR" class="modal-background"></div>
-	<form action="AdminNOTICEC" id="ck-form" method="get">
-		<input type="hidden" name="checkVal" value="{param.checkVal}">
+	<form action="AdminNOTICEC" id="ck-form" method="get"> 
+		<input  type="hidden" name="checkVal" value="${param.checkVal}">
 		<div id="myModal-tblNR" class="modal-tbl">
 			<div class="modal-title-set">
 				<div class="modal-title-tr">
@@ -59,7 +51,6 @@
 									</div>
 								</div>
 								<script src="admin/boardmanagement/notice/0.js/noticeToggle.js"></script>
-								<!--  -->
 							</div>
 						</div>
 					</div>

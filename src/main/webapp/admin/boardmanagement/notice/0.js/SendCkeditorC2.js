@@ -1,5 +1,3 @@
-
-
 let regBtnR = document.querySelector("#reg-btnR");
 regBtnR.addEventListener("click", function(event) {
 	let ckFormR = document.querySelector("#ck-formR");

@@ -8,10 +8,6 @@ regBtn.addEventListener("click", function(event) {
 	formData.set('seq', seq);
 
 
-
-
-
-
 	console.log('0000000000000')
 	console.log(formData)
 	console.log('0000000000000')

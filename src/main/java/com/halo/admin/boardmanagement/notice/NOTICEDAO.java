@@ -21,7 +21,7 @@ public class NOTICEDAO {
 		// 체크박스 벨류
 		String checkBoxVal[] = {"announcement","schedule","general","service","product"};
 		String checkVal = request.getParameter("checkVal");
-		System.out.println(checkVal+"체크벨이요");
+		System.out.println(checkVal +"체크벨이요");
 		
 		Connection con = null;
 		PreparedStatement pstmt = null;
