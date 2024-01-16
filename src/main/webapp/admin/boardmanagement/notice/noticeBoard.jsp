@@ -37,7 +37,7 @@
 				<div class="ontent-m-td-2-content-txt-writer-in">${an.an_writer }</div>
 				<div class="ontent-m-td-2-content-txt-date-in">${an.an_reg_date}</div>
 				<div class="ontent-m-td-2-content-txt-delete-in">
-					<button onclick="deleteNotice('${an.an_seq}')">삭제</button>
+					<button onclick="deleteNotice('${an.an_seq}')">삭제qqqqqqqqqqqq</button>
 				</div>
 			</div>
 		</c:forEach>
