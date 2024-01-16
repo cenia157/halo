@@ -159,12 +159,8 @@
 							<div class="menu-td-3-td-open-td-2-con">
 								<div class="menu-td-3-td-open-td-2-con-td-2">
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
-<<<<<<< HEAD
-										<img src="admin/0.img/admintble-select.png" alt=""><a href="PopupC">팝업설정</a>
-=======
-										<img src="admin/0.img/admintble-select.png" alt=""><a
-											href="AdminC?link=14">팝업설정</a>
->>>>>>> 6599439aecefbd3d86a2d5d4c06f31a6cfc26faf
+										<img src="admin/0.img/admintble-select.png" alt="">
+										<a href="PopupC">팝업설정</a>
 									</div>
 								</div>
 							</div>
