@@ -90,6 +90,8 @@
 	<!-- 여기는 CKEditor에 들어간 값을 서버로 보내는 역할이다 -->
 	<script src="admin/boardmanagement/notice/0.js/SendCkeditorC2.js"></script>
 
-
+	<script src="admin/_js/test2.js"></script>
+	<script src="admin/_js/ckeditor/ckeditor.js"></script>
+	<script src="admin/_js/noticeUpdateAndOpenView.js"></script>
 </body>
 </html>
