@@ -151,8 +151,8 @@ function getAllSchedule() {
 			// 달력에서 일정 클릭
 			calendar.addEventListener("click", function(e) {
 				if (e.target.className.includes('schedule') && e.target.children.length > 0 && e.target.closest('.current')) {
-					let directDetail = true;
-					getScheduleDetailModal(e, directDetail);
+					reservationSelectArray = e.target.children[0].value;
+					getReservationDetailModal(e);
 				}
 			})
 
@@ -174,6 +174,7 @@ function getAllSchedule() {
 			// 예약 리스트 선택
 			document.querySelector('.ins-tr-3-reservation-content').addEventListener("click", function(e) {
 				if (e.target.className == 'reservation-select') {
+					reservationSelectArray = e.target.closest('.reservation-data').previousSibling.value;
 					reservationSelect(e);
 				}
 			})
@@ -198,16 +199,20 @@ function getAllStaff() {
 		.then(response => response.json())
 		.then(data => {
 			// javascript배열에 ajax로 가져온 배열 입력
-			reservationStaffList = reservationStaffList.concat(data);
-
+			reservationStaffList = data;
+			
 			// 전체데이터 출력
 			console.log(reservationStaffList);
+			
 
 		})
 		.catch(error => {
+			getAllStaff()
+
 			console.error('데이터를 가져오는 중 오류 발생:', error);
 		});
 }
+
 
 // 수락일정 조회
 function getAllReservationAccept() {
@@ -215,13 +220,15 @@ function getAllReservationAccept() {
 		.then(response => response.json())
 		.then(data => {
 			// javascript배열에 ajax로 가져온 배열 입력
-			reservationAcceptList = reservationAcceptList.concat(data);
-
+			reservationAcceptList = data;
+			
 			// 전체데이터 출력
 			console.log(reservationAcceptList);
 
 		})
 		.catch(error => {
+			getAllReservationAccept();
+
 			console.error('데이터를 가져오는 중 오류 발생:', error);
 		});
 }
@@ -229,6 +236,10 @@ function getAllReservationAccept() {
 
 // 초기 및 클릭 렌더링
 function renderMonth(reservationScheduleList, clickButton) {
+	document.querySelectorAll('.reservation-data').forEach(function(reservationElement) {
+		reservationElement.remove();
+	});
+
 	if (dateDetailModal == 1) {
 		document.querySelector('.detail-schedule').style.visibility = 'hidden';
 		dateDetailModal = 0;
@@ -329,12 +340,13 @@ function renderCalender(reservationScheduleList) {
 	reservationArrayDate = new Array(prevDate - (prevDate - prevDay + 1) + (nextDate + 1) + (7 - nextDay == 7 ? 0 : 7 - nextDay));
 
 
-
 	renderReservationScheduleList();
 
-	//	writeSchedule();
+	renderReservationSchedule();
 
-	//	console.log(reservationArrayDate)
+	writeReservationSchedule();
+
+	console.log(reservationArrayDate)
 }
 
 // 예약 일정 렌더링
@@ -343,7 +355,6 @@ function renderReservationScheduleList() {
 
 	for (let i = 0; i < reservationScheduleList.length; i++) {
 		if (reservationScheduleList[i].year == currentYear && reservationScheduleList[i].month == currentMonth + 1) {
-
 			let datesLength = reservationScheduleList[i].dates.split(',').length;
 			if (datesLength > 1) {
 				document.querySelector('.ins-tr-3-reservation-content').innerHTML += '<input type="hidden" value="' + i + '"><div class="reservation-data array' + arrayCnt + '"><div>' + reservationScheduleList[i].userName + '</div><div>' + reservationScheduleList[i].service
@@ -356,14 +367,16 @@ function renderReservationScheduleList() {
 			}
 		}
 	}
+
 }
 
 // 예약 리스트 클릭
 function reservationClick(e) {
 
+
 	if (reservationClickArray != '') {
-		document.querySelector('.' + reservationClickArray).children[3].children[0].style.display = 'none';
-		document.querySelector('.' + reservationClickArray).style.backgroundColor = '#FFF';
+		document.querySelector('.reservation-data.' + reservationClickArray).children[3].children[0].style.display = 'none';
+		document.querySelector('.reservation-data.' + reservationClickArray).style.backgroundColor = '#FFF';
 		for (let i = 0; i < reservationClickDate.length; i++) {
 			document.querySelector('.current.date' + reservationClickDate[i]).children[0].style.backgroundColor = '#FFF';
 			document.querySelector('.current.date' + reservationClickDate[i]).children[0].children[1].checked = false;
@@ -372,7 +385,7 @@ function reservationClick(e) {
 
 	e.target.parentNode.children[3].children[0].style.display = 'flex';
 	e.target.parentNode.style.backgroundColor = 'rgba(138, 182, 255, 1)';
-	reservationClickArray = e.target.parentNode.classList[1];
+
 
 	for (let i = 0; i < reservationScheduleList[e.target.parentNode.previousSibling.value].dates.split(',').length; i++) {
 		document.querySelector('.current.date' + reservationScheduleList[e.target.parentNode.previousSibling.value].dates.split(',')[i]).children[0].style.backgroundColor = 'rgba(138, 182, 255, 1)';
@@ -381,12 +394,18 @@ function reservationClick(e) {
 		reservationClickDate = reservationScheduleList[e.target.parentNode.previousSibling.value].dates.split(',')
 	}
 
+	reservationClickArray = e.target.parentNode.classList[1];
+
 }
 
 // 예약리스트 선택
 function reservationSelect(e) {
+	document.querySelector('.reservation-modal-agree-btn').style.display = "flex";
+	document.querySelector('.reservation-modal-update-btn').style.display = "none";
+
 	document.querySelector('.manager-select-option').innerHTML = '<div class="manager-list" onclick="managerSelect(this)">선택안함</div>';
 	document.querySelector('.reservation-modal-content-manager-select').children[0].innerText = '직원 선택';
+	document.querySelector('.manager-select-arrow').style.display = "flex";
 
 	// 직원 리스트 생성
 	for (let i = 0; i < reservationStaffList.length; i++) {
@@ -394,8 +413,6 @@ function reservationSelect(e) {
 	}
 
 	document.querySelector('.backrop').style.display = 'flex';
-
-	reservationSelectArray = e.target.closest('.reservation-data').previousSibling.value;
 
 	document.querySelector('.reservation-modal-title').innerHTML = reservationScheduleList[reservationSelectArray].userName + ' - ' + reservationScheduleList[reservationSelectArray].service;
 	document.querySelector('.reservation-modal-content-name').innerHTML = reservationScheduleList[reservationSelectArray].userName;
@@ -467,7 +484,7 @@ function reservationAccept(e) {
 		let params = {
 			array: JSON.stringify(reservationScheduleList[reservationSelectArray]),
 			no: reservationScheduleList[reservationSelectArray].no,
-			status : "accept"
+			status: "accept"
 		}
 
 		fetch('ReservationAgree', {
@@ -486,10 +503,28 @@ function reservationAccept(e) {
 						reservationElement.remove();
 					});
 
+					reservationArrayDate = '';
 
-					renderReservationSchedule()
-					reservationModalClose(e)
+					document.querySelectorAll('.schedule').forEach(function(scheduleElement) {
+						scheduleElement.remove();
+					});
+
+					renderReservationScheduleList();
+
+					getAllReservationAccept();
 					
+					console.log(reservationAcceptList);
+					
+					//					ren derReservationSchedule();
+					//
+					//					console.log(reservationArrayDate);
+
+					//					writeReservationSchedule();
+					//
+					//					reservationModalClose(e);
+
+					//					console.log(reservationScheduleList);
+
 				} else {
 
 				}
@@ -498,7 +533,7 @@ function reservationAccept(e) {
 		let params = {
 			array: JSON.stringify(reservationScheduleList[reservationSelectArray]),
 			no: reservationScheduleList[reservationSelectArray].no,
-			status : "decline"
+			status: "decline"
 		}
 
 		fetch('ReservationAgree', {
@@ -518,9 +553,11 @@ function reservationAccept(e) {
 						reservationElement.remove();
 					});
 
+					renderReservationScheduleList()
 
-					renderReservationSchedule()
+
 					reservationModalClose(e)
+
 				} else {
 
 				}
@@ -541,8 +578,9 @@ function reservationModalClose(e) {
 	}
 }
 
-// 달력 일정 렌더링
+// 예약 일정 객체리스트화
 function renderReservationSchedule() {
+
 	for (let i = 0; i < reservationArrayDate.length; i++) {
 		let divYear = calendar.children[i].className.match(/year(\d+)/);
 		let divMonth = calendar.children[i].className.match(/month(\d+)/);
@@ -553,29 +591,30 @@ function renderReservationSchedule() {
 		// 일별 데이터에 해당 일 추가
 		let dateData = {
 			date: (divYear && divYear[1]) + '.' + (divMonth && divMonth[1]) + '.' + (divDate && divDate[1]),
-			title: '',
-			titleLength: ''
+			userName: '',
+			userNameLength: ''
 		};
+
 
 		let foldingCnt = '';
 
-		for (let j = 0; j < reservationScheduleList.length; j++) {
-			if (reservationScheduleList[j].year == divYear[1] && reservationScheduleList[j].month == divMonth[1]) {
+		for (let j = 0; j < reservationAcceptList.length; j++) {
+			if (reservationAcceptList[j].year == divYear[1] && reservationAcceptList[j].month == divMonth[1]) {
 				// 해당월 일정안 date를 split
-				let splitDates = reservationScheduleList[j].dates.split(',');
+				let splitDates = reservationAcceptList[j].dates.split(',');
 				// split한 데이터의 개수를 돌림	
 				for (let k = 0; k < splitDates.length; k++) {
 					// 일과 데이터의 값이 일치할경우 객체에 추가
 					if (splitDates[k] == (divDate && divDate[1])) {
-						dateData.title += reservationScheduleList[j].no + '.' + reservationScheduleList[j].title + ',';
+						dateData.userName += j + '.' + reservationAcceptList[j].userName + ',';
 						foldingCnt++;
 					}
 				}
 			}
 		}
 
-		dateData.titleLength = foldingCnt;
-		dateData.title = dateData.title.slice(0, -1);
+		dateData.userNameLength = foldingCnt;
+		dateData.userName = dateData.userName.slice(0, -1);
 		reservationArrayDate[i] = dateData;
 	}
 }
@@ -655,84 +694,59 @@ function expandSchedule(e) {
 }
 
 // 일정 디테일 모달 출력
-function getScheduleDetailModal(e, directDetail) {
-	let addLeft = '';
-	let zIndex = 0;
+function getReservationDetailModal(e) {
+	document.querySelector('.reservation-modal-agree-btn').style.display = "none";
+	document.querySelector('.reservation-modal-update-btn').style.display = "flex";
 
-	if (directDetail) {
-		addLeft = (e.target.getBoundingClientRect().width / 2);
-		dateDivValue = e.target.children[0].value
-		arrayNumber = e.target.className.match(/array(\d+)/)[1];
+	document.querySelector('.manager-select-option').innerHTML = '<div class="manager-list" onclick="managerSelect(this)">선택안함</div>';
+
+	// 직원 리스트 생성
+	for (let i = 0; i < reservationStaffList.length; i++) {
+		document.querySelector('.manager-select-option').innerHTML += '<input type="hidden" value="' + i + '"><div class="manager-list" onclick="managerSelect(this)">' + reservationStaffList[i].name + '</div>';
+	}
+
+	document.querySelector('.backrop').style.display = 'flex';
+
+	document.querySelector('.reservation-modal-title').innerHTML = reservationAcceptList[reservationSelectArray].userName + ' - ' + reservationAcceptList[reservationSelectArray].service;
+	document.querySelector('.reservation-modal-content-name').innerHTML = reservationAcceptList[reservationSelectArray].userName;
+	document.querySelector('.reservation-modal-content-addr').innerHTML = reservationAcceptList[reservationSelectArray].addr;
+
+	let datesFolding = '';
+	if (reservationAcceptList[reservationSelectArray].dates.split(',').length > 15) {
+		for (let i = 0; i < reservationAcceptList[reservationSelectArray].dates.split(',').length; i++) {
+			datesFolding += reservationAcceptList[reservationSelectArray].dates.split(',')[i] + ',';
+			if (i == 14) {
+				datesFolding += '<br>';
+			}
+		}
+		document.querySelector('.reservation-modal-content-book').innerHTML = reservationAcceptList[reservationSelectArray].year + '-' + reservationAcceptList[reservationSelectArray].month + '-' + datesFolding.slice(0, -1);
 	} else {
-		addLeft = (document.querySelector('.getScheduleDetail').getBoundingClientRect().width / 2);
-		dateDivValue = e.target.previousSibling.previousSibling.value;
-		arrayNumber = e.target.closest('.date-modal').className.match(/array(\d+)/)[1];
+		document.querySelector('.reservation-modal-content-book').innerHTML = reservationAcceptList[reservationSelectArray].year + '-' + reservationAcceptList[reservationSelectArray].month + '-' + reservationAcceptList[reservationSelectArray].dates;
 	}
 
+	document.querySelector('.reservation-modal-content-startpoint').innerHTML = reservationAcceptList[reservationSelectArray].startPoint;
+	document.querySelector('.reservation-modal-content-endpoint').innerHTML = reservationAcceptList[reservationSelectArray].endPoint;
+	document.querySelector('.reservation-modal-content-notice').innerHTML = reservationAcceptList[reservationSelectArray].feedBack;
 
-	document.querySelector('.detail-schedule').style.left = e.target.getBoundingClientRect().left + addLeft + 'px';
-
-	if (document.querySelector('.detail-schedule').getBoundingClientRect().x > window.innerWidth * 0.6 && zIndex == 0) {
-		document.querySelector('.detail-schedule').style.zIndex = 2;
-		zIndex = 1;
-	} else {
-		document.querySelector('.detail-schedule').style.zIndex = 0;
-		zIndex = 0;
-	}
-
-	// 모달 title 해당 일정 표시 설계의 문제가 나타남.
-	for (let i = 0; i < reservationScheduleList.length; i++) {
-		if (reservationScheduleList[i].no == dateDivValue) {
-			document.querySelector('.detail-schedule-title').textContent = reservationScheduleList[i].title;
-
-			selectDetailSchedule = reservationScheduleList[i];
-			selectDetailSchedule.arrayNo = i;
-		}
-	}
-
-	document.querySelector('.detail-schedule-content').innerHTML = '';
-
-	// 일정
-	for (i = 0; i < selectDetailSchedule.date.split(',').length; i++) {
-		if (i == 0) {
-			document.querySelector('.detail-schedule-content').innerHTML += '<div class="datail-schedule-txt show" style="padding-bottom : 10%"><span>' + selectDetailSchedule.txt + '</span><a onclick="updateAtagClick(this)">수정</a></div>'
-			document.querySelector('.detail-schedule-content').innerHTML += '<div class="datail-schedule-txt" style="padding-bottom : 10%"><input value="' + selectDetailSchedule.txt + '"><a onclick="updateTxt(this)" >저장</a><a onclick="updateAtagClick(this)" class="update-txt-cancel">취소</a></div>'
-		}
-
-		document.querySelector('.detail-schedule-content').innerHTML += '<div class="datail-schedule-data ' + (selectDetailSchedule.date.split(','))[i] + '"><div>' + selectDetailSchedule.year + '.' + selectDetailSchedule.month + '.' + (selectDetailSchedule.date.split(','))[i] + '</div><a onclick="deleteScheduleDateClick(this)" class="delete-detail-data">삭제</a><a onclick="deleteScheduleDate(this)" class="delete-detail-data">삭제 확인</a><a onclick="deleteScheduleDateClick(this)" class="delete-detail-data">취소</a></div>';
-
-		if (i == selectDetailSchedule.date.split(',').length - 1) {
-			document.querySelector('.detail-schedule-content').innerHTML += '<div class="delete-all-detail-data" style="padding-top : 10%"><a onclick="rowScheduleDeleteClick(this)">전체삭제</a></div>'
-		}
-	}
+	document.querySelector('.default-manager').innerHTML = reservationAcceptList[reservationSelectArray].staff;
+	document.querySelector('.manager-select-arrow').style.display = "none";
 
 
-	document.querySelector('.detail-schedule').style.top = e.target.getBoundingClientRect().top - document.querySelector('.detail-schedule').getBoundingClientRect().height + (e.target.getBoundingClientRect().height / 2) + 'px';
-	document.querySelector('.detail-schedule').style.visibility = 'visible';
-	dateDetailModal = 1;
+
+	document.querySelector('.reservation-modal').style.zIndex = '3';
 
 
-	for (let i = 0; i < document.querySelectorAll('.datail-schedule-data').length; i++) {
-		document.querySelectorAll('.datail-schedule-data')[i].children[1].style.display = 'flex';
-		document.querySelectorAll('.datail-schedule-data')[i].children[2].style.display = 'none';
-		document.querySelectorAll('.datail-schedule-data')[i].children[3].style.display = 'none';
-		document.querySelectorAll('.datail-schedule-data')[i].children[3].style.marginLeft = '-30%';
-	}
+	console.log(reservationSelectArray);
 
-	if (dateDetailModal == 1) {
-		document.querySelector('.detail-schedule-close').addEventListener("click", function() {
-			document.querySelector('.detail-schedule').style.visibility = 'hidden';
-			dateDetailModal = 0;
-		})
-	}
+	reservationModalStatus = 1;
 }
 
 
 // 일정 렌더링을 위한 
-function writeSchedule() {
+function writeReservationSchedule() {
 
 	for (let i = 0; i < reservationArrayDate.length; i++) {
-		let splitDates = reservationArrayDate[i].title.split(',');
+		let splitDates = reservationArrayDate[i].userName.split(',');
 
 		for (let j = 0; j < splitDates.length; j++) {
 			if (splitDates[j].split('.')[1]) {
@@ -750,7 +764,7 @@ function writeSchedule() {
 		}
 		// 3개부터 폴딩
 		if (calendar.children[i].children.length > 3) {
-			calendar.children[i].children[3].textContent = '++' + (reservationArrayDate[i].titleLength - 2) + '件';
+			calendar.children[i].children[3].textContent = '++' + (reservationArrayDate[i].userNameLength - 2) + '件';
 		}
 	}
 }
@@ -949,10 +963,9 @@ window.onload = function() {
 	// 모달창 이동 추후 펑션화
 	document.querySelector('.reservation-modal').style.top = document.querySelector('.content-main-td').getBoundingClientRect().top + document.querySelector('.content-m-td-1').getBoundingClientRect().height / 2 + 'px';
 	document.querySelector('.reservation-modal').style.left = document.querySelector('.content-main-td').getBoundingClientRect().left + document.querySelector('.content-m-td-1').getBoundingClientRect().width / 4 + 'px';
+	getAllReservationAccept();
 
 	getAllSchedule();
-
-	getAllReservationAccept();
 
 	getAllStaff()
 
