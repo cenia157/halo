@@ -1,3 +1,4 @@
+//
 // 공통 함수: 모달 열기
 // view 조회후 뽑은 값
 let viewData = null;

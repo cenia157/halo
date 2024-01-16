@@ -1,83 +1,17 @@
 //나중에지우기
-// 전역 배열로 파일 순서를 추적
-let fileOrder = [];
+let fileOrder2 = [];
 
 class MyUploadAdapter {
 	
-//  기존코드(테스트 후 추후 삭제)
-//	constructor(loader) {
-//		this.loader = loader;
-//		this.uploadPromise = null;
-//		
-//			// loader 객체 전체를 콘솔에 출력
-//		console.log('Loader:', this.loader);
-//		
-//		// loader에서 파일 이름과 파일 크기 정보를 콘솔에 출력
-//		this.loader.file.then(file => {
-//		    console.log('Uploading file:', file.name);
-//		    console.log('File size:', file.size);
-//		});
-//	}
-
 	constructor(loader) {
 	    this.loader = loader;
 	    this.uploadPromise = null;
 	
-	    // 파일 정보 로드
 	    this.loader.file.then(file => {
-	        // 파일 ID (또는 기타 순서를 나타낼 수 있는 값)를 전역 배열에 추가
-	        fileOrder.push({id: this.loader.id, file: file});
+	        fileOrder2.push({id: this.loader.id, file: file});
 	
-	        // 파일 정보 콘솔에 출력
-	        console.log('파일 업로드 중:', file.name);
-	        console.log(`파일 업로드 중: ${file.name}, 파일 크기: ${file.size}`);
-	
-	        // fileOrder 배열의 내용을 콘솔에 출력
-	        console.log('현재 파일 순서:', fileOrder.map(item => item.file.name));
 	    });
 	}
-
-
-// 원래 내꺼 
-//	upload() {
-//		return this.loader.file.then(
-//			(file) =>
-//				new Promise((resolve, reject) => {
-//					this._initRequest();
-//					this._initListeners(resolve, reject, file);
-//					console.log('file' + file);
-//					this._sendRequest(file);
-//				})
-//		);
-//	}
-
-//    중간 코드
-//    upload() {
-//        return this.loader.file.then(
-//            (file) => new Promise((resolve, reject) => {
-//                const checkAndUpload = () => {
-//                    // fileOrder 배열에서 현재 파일의 위치를 찾습니다.
-//                    const index = fileOrder.findIndex(item => item.file === file);
-//
-//                    if (index === 0) { // 이 파일이 첫 번째로 업로드 해야 할 파일이면
-//                        console.log('Uploading file:', file.name);
-//                        this._initRequest();
-//                        this._initListeners(resolve, reject, file);
-//                        this._sendRequest(file);
-//
-//                        // 업로드를 시작한 후, fileOrder에서 해당 파일을 제거합니다.
-//                        fileOrder.shift();
-//                    } else {
-//                        // 아직 차례가 아니면 100ms 후에 다시 확인합니다.
-//                        console.log('Waiting for previous files to be uploaded:', file.name);
-//                        setTimeout(checkAndUpload, 100);
-//                    }
-//                };
-//
-//                checkAndUpload();
-//            })
-//        );
-//    }
 
 	upload() {
 	    return this.loader.file.then(
@@ -90,7 +24,7 @@ class MyUploadAdapter {
 	                }
 	
 	                // fileOrder 배열에서 현재 파일의 위치를 찾습니다.
-	                const index = fileOrder.findIndex(item => item.file === file);
+	                const index = fileOrder2.findIndex(item => item.file === file);
 	
 	                if (index === 0) { // 이 파일이 첫 번째로 업로드 해야 할 파일이면
 	                    console.log('파일 업로드 중:', file.name);
@@ -98,17 +32,16 @@ class MyUploadAdapter {
 	                    this._initListeners(resolve, reject, file);
 	                    this._sendRequest(file).then(() => {
 	                        // 업로드를 시작한 후, fileOrder에서 해당 파일을 제거합니다.
-	                        fileOrder.shift();
+	                        fileOrder2.shift();
 	                        console.log('대기열에서 제거된 파일:', file.name); 
-	                        console.log('현재 파일 순서:', fileOrder.map(item => item.file.name)); 
+	                        console.log('현재 파일 순서:', fileOrder2.map(item => item.file.name)); 
 	
 	                        // 다음 파일이 있으면 그 파일도 업로드합니다.
-	                        if (fileOrder.length > 0) {
+	                        if (fileOrder2.length > 0) {
 	                            uploadSequentially();
 	                        }
 	                    });
 	                } else {    
-//	                    console.log('이전 파일이 업로드되기를 기다리는 중(여기뭔가 이상하네):', file.name);
 	                    setTimeout(uploadSequentially, 100); 
 	                }
 	            };
@@ -161,15 +94,6 @@ class MyUploadAdapter {
 		}
 	}
 	
-//   원래 코드(안정화 테스트후 삭제하겠음)
-//	_sendRequest(file) {
-//		const data = new FormData();
-//		data.append("upload", file);
-//		this.xhr.send(data);
-//		
-//		// 파일 정보 로그 출력
-//  	    console.log("Appending file:", file.name, "Size:", file.size, "bytes");
-//	}
 
 	// Promise를 반환하도록 수정 -> "TypeError: Cannot read properties of undefined (reading 'then')" 오류가 발생 방지
 	_sendRequest(file) {
@@ -262,17 +186,19 @@ function MyCustomUploadAdapterPlugin(editor) {
 }
 
 
-
-
-ClassicEditor.create(document.querySelector("#classicNR"), {
+ClassicEditor.create(document.querySelector("#classic2_test232"), {
 	extraPlugins: [MyCustomUploadAdapterPlugin],
 })
 	.then((editor) => {
-		window.editor = editor;
+		console.log('진입확인111111111');
+		window.editorRR = editor;
 	})
 	.catch((error) => {
 		console.log(error);
 	});
+
+	
+
 
 	
 	

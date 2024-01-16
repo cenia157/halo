@@ -1,3 +1,4 @@
+//나중에지우기
 let regBtn = document.querySelector("#reg-btn");
 regBtn.addEventListener("click", function(event) {
 	if(!noValue()){

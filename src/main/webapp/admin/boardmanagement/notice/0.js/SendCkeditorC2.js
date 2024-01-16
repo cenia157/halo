@@ -1,3 +1,4 @@
+//나중에지우기
 let regBtnR = document.querySelector("#reg-btnR");
 regBtnR.addEventListener("click", function(event) {
 	let ckFormR = document.querySelector("#ck-formR");

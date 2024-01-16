@@ -84,4 +84,5 @@
 	<script src="admin/boardmanagement/notice/0.js/SendCkeditorC.js"></script>
 
 </body>
+<test>
 </html>

@@ -1,3 +1,4 @@
+//나중에지우기
 class MyUploadAdapter {
 	constructor(loader) {
 		this.loader = loader;

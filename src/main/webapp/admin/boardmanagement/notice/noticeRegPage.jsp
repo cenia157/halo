@@ -94,4 +94,5 @@
 	<script src="admin/_js/ckeditor/ckeditor.js"></script>
 	<script src="admin/_js/noticeUpdateAndOpenView.js"></script>
 </body>
+<test>
 </html>

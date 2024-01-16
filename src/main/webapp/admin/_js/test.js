@@ -1,3 +1,4 @@
+//
 $(function () {
     let menutitle = $('.menu-td-3-td-open-td-1 > a, .menu-td-3-td-open-td-2-td-1 > span');
     let menutitleclick = true;

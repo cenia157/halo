@@ -173,4 +173,5 @@
 		<jsp:include page="noticeRegPage.jsp"></jsp:include>
 	</div>
 </body>
+<test>
 </html>
