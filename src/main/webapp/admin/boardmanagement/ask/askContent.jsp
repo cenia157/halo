@@ -13,9 +13,6 @@
 	href="admin/boardmanagement/ask/_css/ask.css" />
 <link rel="stylesheet" href="admin/0.css/test copy.css" />
 
-<script src="admin/boardmanagement/ask/_js/ask.js"></script>
-<script src="admin/_js/test.js"></script>
-
 </head>
 <body>
 	<div class="ontent-m-td-2-chackbox">

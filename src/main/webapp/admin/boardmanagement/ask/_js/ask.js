@@ -633,6 +633,7 @@ function refreshData(QnCs) {
 	if(window.location.href.includes("AskContent")){
 		window.location.replace(window.location.href.replace("AskContentC", "CheckboxPagingC"));
 	} else{
+//리로드
 	location.reload();
 	}
 }
