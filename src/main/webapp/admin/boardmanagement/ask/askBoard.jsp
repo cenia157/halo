@@ -176,7 +176,7 @@
 	</div>
 </body>
 
-<script src="admin/ask/0.js/ask.js"></script>
+<script src="admin/boardmanagement/ask/_js/ask.js"></script>
 <script src="admin/_js/test.js"></script>
 
 </html>

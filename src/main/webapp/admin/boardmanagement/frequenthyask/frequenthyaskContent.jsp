@@ -16,12 +16,12 @@
 
 
 
-<link rel="stylesheet" href="admin/0.css/test copy.css" />
+<link rel="stylesheet" href="/admin/0.css/test copy.css" />
 <link rel="stylesheet"
-	href="admin/boardmanagement/frequenthyask/0.css/frequenthyask.css"/>
+	href="/admin/boardmanagement/frequenthyask/_css/frequenthyask.css"/>
 
-<script src="admin/frequenthyask/0.js/faq.js"></script>
-<script src="admin/_js/test.js"></script>
+<script src="/admin/boardmanagement/frequenthyask/_js/faq.js"></script>
+<script src="/admin/_js/test.js"></script>
 
 
 
@@ -44,13 +44,6 @@
 			</div>
 		</div>
 		<div class="ontent-m-td-2-mid">
-<!-- 			<div class="ontent-m-td-2-content-txt-in"> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-no-in">8</div> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-title-in"> <a onclick="openModalF()">● 이곳을 누르면 모달이 뜬다</a> </div> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-date-in">8</div> -->
-<!-- 				<div class="ontent-m-td-2-content-txt-delete-in"></div> -->
-<!-- 			</div> -->
-<!-- 			<div class="ontent-m-td-2-mid"> -->
 			<c:forEach items="${FAQs}" var="qa" varStatus="loop">
 				<div class="ontent-m-td-2-content-txt-in">
 					<input hidden="1" name="qa_seq" value="${qa.qa_seq }">
@@ -59,7 +52,6 @@
 					<div class="ontent-m-td-2-content-txt-date-in">${qa.qa_reg_date}</div>
 				</div>
 			</c:forEach>
-<!-- 			</div> -->
 		</div>
 		<div class="ontent-m-td-2-bottom">
 			<div class="ontent-m-td-2-page-side"></div>

@@ -12,6 +12,7 @@ public class AdminNOTICEC extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		System.out.println("진입확인 get");
 		NOTICEDAO.getAllNOTICE(request, response);
 		NOTICEDAO.NOTICEpagingAdmin(1, request);
 		
@@ -21,6 +22,7 @@ public class AdminNOTICEC extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		System.out.println("진입확인 post");
 		NOTICEDAO.getAllNOTICE(request, response);
 
 		request.setAttribute("menu", "/admin/boardmanagement/notice/noticeContent.jsp");

@@ -11,7 +11,7 @@
 	rel="stylesheet" />
 	<!-- 임시임 -->
 	<link rel="stylesheet"
-	href="admin/boardmanagement/notice_test/0.css/notice.css" />
+	href="/admin/boardmanagement/notice_test/0.css/notice.css" />
 	
 	
 </head>
