@@ -1,29 +1,25 @@
 
-
-let regBtnR = document.querySelector("#reg-btnR");
-regBtnR.addEventListener("click", function(event) {
-	let ckFormR = document.querySelector("#ck-formR");
-	let seq = document.querySelector('#seq').value;
-	let pageNum = document.querySelector('#pageNum');
-	var checkVal = document.getElementsByName('checkVal')[0];
-	const content = window.editorR.getData();
-	const formDataR = new FormData(ckFormR);
-	formDataR.set("txt", content);
-	formDataR.set("seq", seq);
+let update_start_btn = document.querySelector("#update_start_btn");
+update_start_btn.addEventListener("click", function(event) {
+	let view_ckForm = document.querySelector("#view_ck-form");
+	const content = window.editor.getData();
+	const view_formData = new FormData(view_ckForm);
+	view_formData.set("txt", content);
 	console.log("--------------------");
 	console.log(content);
-	console.log(formDataR);
-	const payload = new URLSearchParams(formDataR);
+	console.log(view_formData);
+	const payload = new URLSearchParams(view_formData); 
 	console.log(payload);
-	for (var pair of formDataR.entries()) {
+	for (var pair of formData.entries()) {
 		console.log(pair[0] + ": " + pair[1]);
 	}
+
 
 	var isTitleValid = false;
 	var isTxtValid = false;
 	var iskategorieValid = false;
 
-	for (var pair of formDataR.entries()) {
+	for (var pair of view_formData.entries()) {
 
 		if (pair[0] === 'title') {
 			if (pair[1] !== '') {
@@ -45,13 +41,13 @@ regBtnR.addEventListener("click", function(event) {
 			var iskategorieValid = true;
 		}
 	}
-	// 여기서 제목, 카테고리, 내용입력 둘다 만족할 경우 모달창이 닫히도록 함
+
 	if (isTitleValid && isTxtValid && iskategorieValid) {
-		closeModalNR();
+		closeModal('.modal-background ', '#myModal-tblNR');
 	}
 
 	console.log("--------------------");
-	let CkeditorC123 = fetch("NoticeDeleteC", {
+	let CkeditorC123 = fetch("CkeditorC", {
 		method: "POST",
 		body: payload,
 		headers: {
@@ -65,12 +61,12 @@ regBtnR.addEventListener("click", function(event) {
 			return response.text();
 		})
 		.then((data) => {
-			console.log("POST 요청 성공:", data);
+			console.log("POST 요청 성공: 이거맞음?????", data);
+			ckForm.submit();
 			console.log(CkeditorC123);
-			location.href ='NoticePagingC?p='+pageNum.value+'&seq='+seq+"&checkVal="+checkVal.value;
 		})
 		.catch((error) => {
 			console.error("POST 요청 실패:", error);
 		});
-}); // regBtn.addEventListener("click", function(event) {
-	
+}); 
+

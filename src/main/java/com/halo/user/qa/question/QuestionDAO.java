@@ -64,7 +64,7 @@ public class QuestionDAO {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "select * from question_tbl order by q_seq desc";
+		String sql = "select * from question_tbl order by q_reg_date desc";
 		
 		
 		try {
@@ -111,7 +111,6 @@ public class QuestionDAO {
 				+ " WHERE q.q_seq = ?";
 
 	    String q_seq = request.getParameter("q_seq");
-	    System.out.println("q_seq: " + q_seq);
 
 	    try {
 	        con = DBManagerhalo_YJ.connect();
@@ -140,7 +139,6 @@ public class QuestionDAO {
 	            QnC.setC_answer(rs.getString("c_answer"));
 
 	            request.setAttribute("QnC", QnC);
-	            System.out.println("QnC: " + QnC);
 	        }
 
 	    } catch (SQLException e) {

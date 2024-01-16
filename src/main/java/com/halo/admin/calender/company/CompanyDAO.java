@@ -110,11 +110,6 @@ public class CompanyDAO {
 
 	}
 
-	public String toJson() {
-		Gson gson = new Gson();
-		return gson.toJson(this);
-	}
-
 	public static void updateScheduleCompanyTxt(HttpServletRequest request, HttpServletResponse response) {
 		PreparedStatement pstmt = null;
 
