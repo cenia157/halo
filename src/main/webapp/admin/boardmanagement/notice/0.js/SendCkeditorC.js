@@ -19,7 +19,6 @@ regBtn.addEventListener("click", function(event) {
 		console.log(pair[0] + ": " + pair[1]);
 	}
 
-
 	var isTitleValid = false;
 	var isTxtValid = false;
 	var iskategorieValid = false;
@@ -46,9 +45,9 @@ regBtn.addEventListener("click", function(event) {
 			var iskategorieValid = true;
 		}
 	}
-
+	// 여기서 제목, 카테고리, 내용입력 둘다 만족할 경우 모달창이 닫히도록 함
 	if (isTitleValid && isTxtValid && iskategorieValid) {
-		closeModal('.modal-background ', '#myModal-tblNR');
+		closeModalNR();
 	}
 
 	console.log("--------------------");
@@ -73,9 +72,26 @@ regBtn.addEventListener("click", function(event) {
 		.catch((error) => {
 			console.error("POST 요청 실패:", error);
 		});
-}); 
+}); // regBtn.addEventListener("click", function(event) {
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	  console.log('-----------------오단영 예외처리 시작------------------------- ')
+	      
+    	  
       //-------------------------------------------------- $(document).ready시작--------------------------------------------------
       $(document).ready(function () {
                          
@@ -194,5 +210,26 @@ regBtn.addEventListener("click", function(event) {
             });
         }); //(".ck-content").on("click keydown", function (e) {
 
-	
+		//      $(".ck-content").on("click keydown", function (e) {
+		//      let isSelectedFigureExists =
+		//          $(".ck-content figure.ck-widget_selected").length > 0;
+		     
+		//      if (isSelectedFigureExists) {
+		//          // 엔터 키 예외 조건 확인
+		//          if (e.type === "keydown" && e.key === "Enter") {
+		//              console.log('예외 조건 - 엔터 키 이벤트에서 "isSelectedFigureExists" 상태입니다.');
+		//              $(".ck-button[data-cke-tooltip-text='区切り']").removeClass("ck-disabled");
+		//              $(".ck-button[data-cke-tooltip-text='区切り']").prop("disabled", false);
+		//          } else {
+		//              console.log('반대 조건 - 클릭 또는 키 다운 이벤트에서 "isSelectedFigureExists" 상태입니다.');
+		//              $(".ck-button[data-cke-tooltip-text='区切り']").addClass("ck-disabled");
+		//              $(".ck-button[data-cke-tooltip-text='区切り']").prop("disabled", true);
+		//          }
+		//      } else {
+		//          console.log('클릭 또는 키 다운 이벤트에서 "isSelectedFigureExists" 상태가 아닙니다.');
+		//          $(".ck-button[data-cke-tooltip-text='区切り']").removeClass("ck-disabled");
+		//          $(".ck-button[data-cke-tooltip-text='区切り']").prop("disabled", false);
+		//      }
+		//  });
+		
       }); // $(document).ready(function(){
