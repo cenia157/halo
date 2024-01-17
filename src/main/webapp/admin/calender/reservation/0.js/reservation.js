@@ -200,11 +200,11 @@ function getAllStaff() {
 		.then(data => {
 			// javascript배열에 ajax로 가져온 배열 입력
 			reservationStaffList = data;
-			
+
 			// 전체데이터 출력
 			console.log(reservationStaffList);
-			
 
+			
 		})
 		.catch(error => {
 			getAllStaff()
@@ -221,10 +221,12 @@ function getAllReservationAccept() {
 		.then(data => {
 			// javascript배열에 ajax로 가져온 배열 입력
 			reservationAcceptList = data;
-			
+
 			// 전체데이터 출력
 			console.log(reservationAcceptList);
-
+			
+			// 객체화
+			renderReservationSchedule();
 		})
 		.catch(error => {
 			getAllReservationAccept();
@@ -235,7 +237,7 @@ function getAllReservationAccept() {
 
 
 // 초기 및 클릭 렌더링
-function renderMonth(reservationScheduleList, clickButton) {
+function renderMonth(clickButton) {
 	document.querySelectorAll('.reservation-data').forEach(function(reservationElement) {
 		reservationElement.remove();
 	});
@@ -273,7 +275,7 @@ function renderMonth(reservationScheduleList, clickButton) {
 }
 
 
-function renderCalender(reservationScheduleList) {
+function renderCalender() {
 
 	// 렌더링을 위한 데이터 정리
 	currentYear = thisMonth.getFullYear();
@@ -342,9 +344,7 @@ function renderCalender(reservationScheduleList) {
 
 	renderReservationScheduleList();
 
-	renderReservationSchedule();
-
-	writeReservationSchedule();
+	getAllReservationAccept();
 
 	console.log(reservationArrayDate)
 }
@@ -481,90 +481,59 @@ function reservationAccept(e) {
 		reservationScheduleList[reservationSelectArray].feedBack = document.querySelector('.reservation-modal-content-notice').children[0].value;
 		reservationScheduleList[reservationSelectArray].staff = document.querySelector('.default-manager').innerText;
 
-		let params = {
-			array: JSON.stringify(reservationScheduleList[reservationSelectArray]),
-			no: reservationScheduleList[reservationSelectArray].no,
-			status: "accept"
-		}
+		var form = document.createElement('form');
+		form.method = 'post'; // POST 방식 설정
+		form.action = 'ReservationAgree'; // 서블릿의 URL로 설정
 
-		fetch('ReservationAgree', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
-			},
-			body: new URLSearchParams(params).toString()
-		})
-			.then(response => response.text())
-			.then(data => {
-				if (data) {
-					reservationScheduleList.splice(reservationSelectArray, 1);
+		// 입력 필드 생성 및 설정
+		var input1 = document.createElement('input');
+		input1.name = 'array'; // 서블릿에서 읽을 파라미터 이름
+		input1.value = JSON.stringify(reservationScheduleList[reservationSelectArray]); // 전송할 값
 
-					document.querySelectorAll('.reservation-data').forEach(function(reservationElement) {
-						reservationElement.remove();
-					});
+		var input2 = document.createElement('input');
+		input2.name = 'no';
+		input2.value = reservationScheduleList[reservationSelectArray].no;
 
-					reservationArrayDate = '';
+		var input3 = document.createElement('input');
+		input2.name = 'status';
+		input2.value = "agree";
 
-					document.querySelectorAll('.schedule').forEach(function(scheduleElement) {
-						scheduleElement.remove();
-					});
+		// 폼에 입력 필드 추가
+		form.appendChild(input1);
+		form.appendChild(input2);
+		form.appendChild(input3);
 
-					renderReservationScheduleList();
+		// 폼을 body에 추가하고 자동으로 제출
+		document.body.appendChild(form);
+		form.submit();
 
-					getAllReservationAccept();
-					
-					console.log(reservationAcceptList);
-					
-					//					ren derReservationSchedule();
-					//
-					//					console.log(reservationArrayDate);
-
-					//					writeReservationSchedule();
-					//
-					//					reservationModalClose(e);
-
-					//					console.log(reservationScheduleList);
-
-				} else {
-
-				}
-			});
 	} else {
-		let params = {
-			array: JSON.stringify(reservationScheduleList[reservationSelectArray]),
-			no: reservationScheduleList[reservationSelectArray].no,
-			status: "decline"
-		}
+		var form = document.createElement('form');
+		form.method = 'post'; // POST 방식 설정
+		form.action = 'ReservationAgree'; // 서블릿의 URL로 설정
 
-		fetch('ReservationAgree', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
-			},
-			body: new URLSearchParams(params).toString()
-		})
-			.then(response => response.text())
-			.then(data => {
-				if (data) {
+		// 입력 필드 생성 및 설정
+		var input1 = document.createElement('input');
+		input1.name = 'array'; // 서블릿에서 읽을 파라미터 이름
+		input1.value = JSON.stringify(reservationScheduleList[reservationSelectArray]); // 전송할 값
 
-					reservationScheduleList.splice(reservationSelectArray, 1);
+		var input2 = document.createElement('input');
+		input2.name = 'no';
+		input2.value = reservationScheduleList[reservationSelectArray].no;
 
-					document.querySelectorAll('.reservation-data').forEach(function(reservationElement) {
-						reservationElement.remove();
-					});
+		var input3 = document.createElement('input');
+		input2.name = 'status';
+		input2.value = "decline";
 
-					renderReservationScheduleList()
+		// 폼에 입력 필드 추가
+		form.appendChild(input1);
+		form.appendChild(input2);
+		form.appendChild(input3);
 
-
-					reservationModalClose(e)
-
-				} else {
-
-				}
-			});
+		// 폼을 body에 추가하고 자동으로 제출
+		document.body.appendChild(form);
+		form.submit();
 	}
-
-
 }
 
 
@@ -617,6 +586,8 @@ function renderReservationSchedule() {
 		dateData.userName = dateData.userName.slice(0, -1);
 		reservationArrayDate[i] = dateData;
 	}
+	
+	writeReservationSchedule();
 }
 
 // 일정 추가를 위한 체크
@@ -698,8 +669,6 @@ function getReservationDetailModal(e) {
 	document.querySelector('.reservation-modal-agree-btn').style.display = "none";
 	document.querySelector('.reservation-modal-update-btn').style.display = "flex";
 
-	document.querySelector('.manager-select-option').innerHTML = '<div class="manager-list" onclick="managerSelect(this)">선택안함</div>';
-
 	// 직원 리스트 생성
 	for (let i = 0; i < reservationStaffList.length; i++) {
 		document.querySelector('.manager-select-option').innerHTML += '<input type="hidden" value="' + i + '"><div class="manager-list" onclick="managerSelect(this)">' + reservationStaffList[i].name + '</div>';
@@ -739,6 +708,63 @@ function getReservationDetailModal(e) {
 	console.log(reservationSelectArray);
 
 	reservationModalStatus = 1;
+	
+}
+
+function reservationUpdate(e) {
+	document.querySelector('.manager-select-option').innerHTML = '<div class="manager-list" onclick="managerSelect(this)">선택안함</div>';
+	document.querySelector('.reservation-modal-content-manager-select').children[0].innerText = '직원 선택';
+	document.querySelector('.manager-select-arrow').style.display = "flex";
+
+	// 직원 리스트 생성
+	for (let i = 0; i < reservationStaffList.length; i++) {
+		document.querySelector('.manager-select-option').innerHTML += '<input type="hidden" value="' + i + '"><div class="manager-list" onclick="managerSelect(this)">' + reservationStaffList[i].name + '</div>';
+	}
+
+	document.querySelector('.backrop').style.display = 'flex';
+
+	document.querySelector('.reservation-modal-title').innerHTML = reservationScheduleList[reservationSelectArray].userName + ' - ' + reservationScheduleList[reservationSelectArray].service;
+	document.querySelector('.reservation-modal-content-name').innerHTML = reservationScheduleList[reservationSelectArray].userName;
+	document.querySelector('.reservation-modal-content-addr').innerHTML = reservationScheduleList[reservationSelectArray].addr;
+
+	let datesFolding = '';
+	if (reservationScheduleList[reservationSelectArray].dates.split(',').length > 15) {
+		for (let i = 0; i < reservationScheduleList[reservationSelectArray].dates.split(',').length; i++) {
+			datesFolding += reservationScheduleList[reservationSelectArray].dates.split(',')[i] + ',';
+			if (i == 14) {
+				datesFolding += '<br>';
+			}
+		}
+		document.querySelector('.reservation-modal-content-book').innerHTML = reservationScheduleList[reservationSelectArray].year + '-' + reservationScheduleList[reservationSelectArray].month + '-' + datesFolding.slice(0, -1);
+	} else {
+		document.querySelector('.reservation-modal-content-book').innerHTML = reservationScheduleList[reservationSelectArray].year + '-' + reservationScheduleList[reservationSelectArray].month + '-' + reservationScheduleList[reservationSelectArray].dates;
+	}
+
+	document.querySelector('.reservation-modal-content-startpoint').innerHTML = reservationScheduleList[reservationSelectArray].startPoint;
+	document.querySelector('.reservation-modal-content-endpoint').innerHTML = reservationScheduleList[reservationSelectArray].endPoint;
+	document.querySelector('.reservation-modal-content-notice').innerHTML = '<textarea>' + '간호 요청사항 : ' + reservationScheduleList[reservationSelectArray].nurssingInfo + '\n택시 요청사항 : ' + reservationScheduleList[reservationSelectArray].texiInfo + '</textarea>';
+	
+	console.log(reservationSelectArray);
+
+	reservationModalStatus = 1;
+}
+
+function reservationDelete(e) {
+		var form = document.createElement('form');
+		form.method = 'post'; // POST 방식 설정
+		form.action = 'ReservationDelete'; // 서블릿의 URL로 설정
+
+		// 입력 필드 생성 및 설정
+		var input1 = document.createElement('input');
+		input1.name = 'no'; // 서블릿에서 읽을 파라미터 이름
+		input1.value = reservationScheduleList[reservationSelectArray].no; // 전송할 값
+
+		// 폼에 입력 필드 추가
+		form.appendChild(input1);
+
+		// 폼을 body에 추가하고 자동으로 제출
+		document.body.appendChild(form);
+		form.submit();
 }
 
 
@@ -963,11 +989,8 @@ window.onload = function() {
 	// 모달창 이동 추후 펑션화
 	document.querySelector('.reservation-modal').style.top = document.querySelector('.content-main-td').getBoundingClientRect().top + document.querySelector('.content-m-td-1').getBoundingClientRect().height / 2 + 'px';
 	document.querySelector('.reservation-modal').style.left = document.querySelector('.content-main-td').getBoundingClientRect().left + document.querySelector('.content-m-td-1').getBoundingClientRect().width / 4 + 'px';
-	getAllReservationAccept();
-
+	
 	getAllSchedule();
-
-	getAllStaff()
 
 	toggleSwutch();
 

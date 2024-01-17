@@ -123,8 +123,6 @@ public class ReservationDAO {
 				reservationAccpectSchedule.add(schedule.toJson());
 			}
 			
-			System.out.println(reservationAccpectSchedule);
-
 			System.out.println("예약 확인 조회 성공");
 			response.getWriter().print(reservationAccpectSchedule);
 
@@ -153,7 +151,6 @@ public class ReservationDAO {
 			
 			if(pstmt.executeUpdate() == 1) {
 				System.out.println("예약 삭제 성공");
-				response.getWriter().print("true");
 			}
 
 		} catch (Exception e) {
@@ -230,8 +227,6 @@ public class ReservationDAO {
 			// Jackson ObjectMapper를 사용하여 JSON 문자열을 Map으로 변환
 			ObjectMapper objectMapper = new ObjectMapper();
 			Map<String, String> dataMap = objectMapper.readValue(request.getParameter("array"), Map.class);
-
-			System.out.println(dataMap);
 
 			// 데이터 입력
 			pstmt.setString(1, dataMap.get("applicant"));
