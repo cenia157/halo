@@ -8,10 +8,17 @@
 <title>Insert title here</title>
 <link rel="stylesheet"
 	href="user/introduce/announcement/0.css/announcement_contentPage.css" />
+	<!-- 제이쿼리 -->
+<script src="https://code.jquery.com/jquery-3.7.1.js"
+	integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+	crossorigin="anonymous"></script>
 <script
 	src="user/introduce/announcement/0.js/announcement_contentPage_modal.js"></script>
 <script
 	src="user/introduce/announcement/0.js/announcement_contentPage_ajax.js"></script>
+<!-- 팝업창 js -->
+<script src="user/0.js/popup.js" type="text/javascript"></script>
+
 </head>
 <body>
 	<div class="slogan-tbl">
