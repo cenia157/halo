@@ -1,9 +1,13 @@
 
-document.addEventListener('DOMContentLoaded', function(){
+document.addEventListener('DOMContentLoaded', function() {
+	openPopup();
 
-	function openPopup(){
-//		alert(22);
-		window.open("user/popup/popup.jsp", "popName", "with=100, height=150, top=150, left=200");
-	}
 });
+
+function openPopup() {
+	let url = "user/popup/popup.jsp";
+	let name = "";
+	window.open(url, name, "width=590, height=780, top=100, left=1000");
+}
+
 
