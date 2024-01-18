@@ -45,15 +45,43 @@
 </body>
 
     <script>
-        // 평소에는 숨겨진 상태로 설정
-        document.getElementById("FAQModal").style.display = "none";
+    document.getElementById("FAQModal").style.display = "none";
 
-        // 모든 FAQ 버튼에 대한 이벤트 처리
-        var faqButtons = document.querySelectorAll(".faq-content-box-td1-2-content");
-        faqButtons.forEach(function(button) {
-            button.addEventListener("click", function() {
-                document.getElementById("FAQModal").style.display = "flex";
-            });
-        });
+    var faqButtons = document.querySelectorAll(".faq-content-box-td1-2-content");
+    faqButtons.forEach(function(button) {
+      button.addEventListener("click", function() {
+        document.getElementById("FAQModal").style.display = "flex";
+
+        let modal = document.getElementById("FAQModal");
+
+        function scrollToModal() {
+          let start = window.pageYOffset;
+          let end = modal.offsetTop;
+          let duration = 1000; // 1초
+
+          let startTime;
+          function scrollStep(timestamp) {
+            if (!startTime) startTime = timestamp;
+            let progress = timestamp - startTime;
+            let percentage = Math.min(progress / duration, 1);
+
+            window.scrollTo(0, start + percentage * (end - start));
+
+            if (progress < duration) {
+              window.requestAnimationFrame(scrollStep);
+            }
+          }
+
+          window.requestAnimationFrame(scrollStep);
+        }
+
+        setTimeout(scrollToModal, 500);
+      });
+    });
+
+
+
+        
     </script>
+    
 </html>

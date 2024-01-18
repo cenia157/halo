@@ -18,15 +18,10 @@
 <script src="${pageContext.request.contextPath}/admin/0.js/test.js"></script>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/admin/0.css/test copy.css" />
 <body>
-
-
-
 <!--
 본 파일은 임시로 만든 파일이며 /admin/index.jsp 의 인클루드를 테스트하기 위해 임시로 만든 페이지다
 따라서 나중에 본 파일은 삭제해도 무방하며 인클루드를 통해 해당폴더의 /admin/XXXXX/XXXXXContent.jsp를 연결하면 된다
  -->
-
-
 	<!-- 최상위 콘테이너 -->
 	<div class="container">
 		<!-- 왼쪽 테이블 -->
@@ -180,10 +175,10 @@
 				<div class="content-main-td">
 					<div class="content-m-td-1">
 						<!-- *************** 수정 *************** -->
-						<div class="content-m-td-title">로고변경</div>
+						<div class="content-m-td-title">팝업설정</div>
 					</div>
 					<div class="content-m-td-2">
-						<jsp:include page="/admin/homepageSetting/mainpage/mainpageContent.jsp"></jsp:include>
+						<jsp:include page="/admin/homepageSetting/banner/bannerContent.jsp"></jsp:include>
 					</div>
 				</div>
 				<!-- *************** 수정 *************** -->
