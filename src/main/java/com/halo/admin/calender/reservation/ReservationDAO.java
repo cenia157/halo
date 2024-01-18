@@ -122,7 +122,7 @@ public class ReservationDAO {
 						registrationDate, staff, joinNo);
 				reservationAccpectSchedule.add(schedule.toJson());
 			}
-
+			
 			System.out.println("예약 확인 조회 성공");
 			response.getWriter().print(reservationAccpectSchedule);
 
@@ -151,7 +151,6 @@ public class ReservationDAO {
 			
 			if(pstmt.executeUpdate() == 1) {
 				System.out.println("예약 삭제 성공");
-				response.getWriter().print("true");
 			}
 
 		} catch (Exception e) {
@@ -229,8 +228,6 @@ public class ReservationDAO {
 			ObjectMapper objectMapper = new ObjectMapper();
 			Map<String, String> dataMap = objectMapper.readValue(request.getParameter("array"), Map.class);
 
-			System.out.println(dataMap);
-
 			// 데이터 입력
 			pstmt.setString(1, dataMap.get("applicant"));
 			pstmt.setString(2, dataMap.get("service"));
@@ -248,7 +245,7 @@ public class ReservationDAO {
 			pstmt.setString(14, dataMap.get("carNum"));
 			pstmt.setString(15, dataMap.get("feedBack"));
 			pstmt.setString(16, dataMap.get("registrationDate"));
-			pstmt.setString(17, dataMap.get("feedBack"));
+			pstmt.setString(17, dataMap.get("staff"));
 			pstmt.setInt(18, Integer.parseInt(dataMap.get("no")));
 
 			if (pstmt.executeUpdate() == 1) {

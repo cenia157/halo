@@ -62,15 +62,22 @@
 								<div class="default-manager">직원 선택</div>
 								<div class="manager-select-arrow"></div>
 							</div>
-							<div class="manager-select-option">
-							</div>
+							<div class="manager-select-option"></div>
 						</div>
 					</div>
-					<div class="reservation-modal-btn">
+					
+					<div class="reservation-modal-agree-btn">
 						<div class="reservation-modal-agree"
 							onclick="reservationAccept(this)">승인</div>
 						<div class="reservation-modal-disagree"
 							onclick="reservationAccept(this)">거절</div>
+					</div>
+					
+					<div class="reservation-modal-update-btn">
+						<div class="reservation-modal-update"
+							onclick="reservationUpdate(this)">수정</div>
+						<div class="reservation-modal-delete"
+							onclick="reservationDelete(this)">삭제</div>
 					</div>
 				</div>
 
