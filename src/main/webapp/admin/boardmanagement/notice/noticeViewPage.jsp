@@ -10,7 +10,7 @@
 
 <style type="text/css">
 .modal-title-td-1 {
-	outline: 1px solid red;
+/* 	outline: 1px solid red; */
 }
 
 .real-title-V, #Display-Category {
@@ -35,17 +35,36 @@
 }
 
 .real-title-V {
-	border-top: 1px solid #D1D1D1;
+ 	border-top: 1px solid #D1D1D1;
 }
 
 .viewModal-content-txt {
-	outline: 1px solid red;
+/* 	outline: 1px solid red; */
+	overflow-y: auto;
+	border: 1px solid black;
+	border-color: var(--ck-color-base-border);
+	border-bottom: 1px solid #616161;
 }
 
+.viewModal-content-txt figure {
+	margin: 0.3em auto;
+    text-align: center;
+}
 
+.viewModal-content-txt img {
+    display: block;
+    height: auto;
+    margin: 0 auto;
+    max-width: 100%;
+}
 
+.viewModal-content-txt-in {
+	padding-top: 1%;
+}
 
 </style>
+
+
 </head>
 <body>
 	<div onclick="closeModalV()" id="myModalV" class="modal-background"></div>
@@ -62,7 +81,7 @@
 			</div>
 			<div class="modal-content">
 				<div class="modal-content-txt viewModal-content-txt">
-					<div class="modal-content-txt-in" id="modal-content-txt-in"></div>
+					<div class="modal-content-txt-in viewModal-content-txt-in ck ck-content" id="modal-content-txt-in"></div>
 				</div>
 				<div class="modal-content-button">
 					<button class="SubmitButton" id="aaaaaaaaaaaaaaaaaaaaaaaaaa">수정</button>

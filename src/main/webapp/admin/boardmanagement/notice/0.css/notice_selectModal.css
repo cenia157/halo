@@ -526,6 +526,7 @@
 .qd-content-box-td2-1-content figure.image {
 	margin: .9em auto;
 	text-align: center;
+	max-width: 100%;
 }
 
 .qd-content-box-td2-1-content .image.image_resized {
