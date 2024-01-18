@@ -63,6 +63,7 @@ public class LoginDAO {
 					hs.setAttribute("sessionTimeout", timer);
 //					hs.setAttribute("sessionTimeout", hs.getMaxInactiveInterval());
 					hs.setAttribute("login_session", adminDTO);
+				
 
 				} else {
 					result = "パスワードエラー！";

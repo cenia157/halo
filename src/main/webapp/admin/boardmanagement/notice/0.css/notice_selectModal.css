@@ -523,6 +523,10 @@
 	margin-left: var(- -ck-image-style-spacing);
 }
 
+.qd-content-box-td2-1-content figure {
+	max-width: 100%;
+}
+
 .qd-content-box-td2-1-content figure.image {
 	margin: .9em auto;
 	text-align: center;

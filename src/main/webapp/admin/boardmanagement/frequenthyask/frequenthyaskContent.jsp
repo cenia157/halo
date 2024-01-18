@@ -13,9 +13,6 @@
 <title>Frequenthyask</title>
 
 
-
-
-
 <link rel="stylesheet" href="/admin/0.css/test copy.css" />
 <link rel="stylesheet"
 	href="/admin/boardmanagement/frequenthyask/_css/frequenthyask.css"/>
