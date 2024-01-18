@@ -65,20 +65,28 @@
 							<div class="manager-select-option"></div>
 						</div>
 					</div>
-					
+
 					<div class="reservation-modal-agree-btn">
 						<div class="reservation-modal-agree"
 							onclick="reservationAccept(this)">승인</div>
 						<div class="reservation-modal-disagree"
 							onclick="reservationAccept(this)">거절</div>
 					</div>
-					
+
 					<div class="reservation-modal-update-btn">
-						<div class="reservation-modal-update"
-							onclick="reservationUpdate(this)">수정</div>
+						<div class="reservation-modal-update">수정</div>
 						<div class="reservation-modal-delete"
 							onclick="reservationDelete(this)">삭제</div>
 					</div>
+
+					<div class="reservation-modal-detail-btn">
+						<div class="reservation-modal-update"
+							onclick="reservationConfirm(this)">확인</div>
+						<div class="reservation-modal-delete"
+							onclick="reservationCancel(this)">취소</div>
+					</div>
+					
+					
 				</div>
 
 				<div class="date-modal">
