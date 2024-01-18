@@ -85,7 +85,7 @@
 					<div class="modal-content-txt-in viewModal-content-txt-in ck ck-content" id="modal-content-txt-in"></div>
 				</div>
 				<div class="modal-content-button">
-					<button class="SubmitButton" id="aaaaaaaaaaaaaaaaaaaaaaaaaa">수정</button>
+					<button class="SubmitButton" id="aaaaaaaaaaaaaaaaaaaaaaaaaa">修正</button>
 				</div>
 			</div>
 		</div>

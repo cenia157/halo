@@ -21,7 +21,7 @@
 								id="real-title-editorN" placeholder="이곳에 제목을 입력하세요">
 							<!-- 아래의 input은 ajax로 올라갔던 이미지의 실제 이름을 받기 위한 역할을 한다.
 							type="hidden"을 삭제하고 이미지를 올려놓으면 올린 이미지의 경로+이름이 나온다. -->
-							<div id="img-temporaryR" type="hidden" style="background-color: aqua;"></div>
+							<div id="img-temporaryR" type="" style="background-color: aqua;"></div>
 							<div class="real-title-select">
 								<div class="toggle" id="toggleR" onclick="toggleR()">
 									<div class="kategorie" id="kategorieR">카테고리</div>
