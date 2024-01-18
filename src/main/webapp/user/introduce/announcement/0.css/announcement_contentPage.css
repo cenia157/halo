@@ -428,22 +428,22 @@
 	width: 100%;
 	display: flex;
 	height: 65%;
-	padding-left: 5%;
-	padding-right: 5%;
+	padding-left: 2%;
+	padding-right: 2%;
 	border-bottom: 3px solid #9f9f78;
 	overflow-y: auto;
 }
 
 .qd-content-box-td2-1-content {
 	width: 100%;
-	padding: 1% 5%;
-	color: #000;
-	font-family: Inter;
-	font-size: 1.8rem;
-	font-style: normal;
-	font-weight: 700;
-	line-height: normal;
-	letter-spacing: 0.81px;
+	padding: 1% 1%;
+/* 	color: #000; */
+/* 	font-family: Inter; */
+/* 	font-size: 1.8rem; */
+/* 	font-style: normal; */
+/* 	font-weight: 700; */
+/* 	line-height: normal; */
+/* 	letter-spacing: 0.81px; */
 /* 	outline: 2px solid pink; */
 	height: 50vh; 
 }
@@ -514,8 +514,14 @@
 
 .image {
 	display: flex;
-	justify-content: center;
+	justify-content: center;	
+
 }
+
+.image > img {
+    max-width: 100%;
+}
+
 
 /* 여기에 이미지 리사이즈 속성을 준다. 문제시 연락주세요 -김진욱- */
 .qd-content-box-td2-1-content .image-style-side {
@@ -536,3 +542,4 @@
 .qd-content-box-td2-1-content .image.image_resized img {
 	width: 100%;
 }
+

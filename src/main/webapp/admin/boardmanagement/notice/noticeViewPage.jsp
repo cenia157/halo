@@ -32,6 +32,7 @@
 
 .Display-Category-wrap {
 	width: 94.5%;
+	margin-bottom: 0.2%;
 }
 
 .real-title-V {
