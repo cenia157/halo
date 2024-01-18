@@ -725,8 +725,8 @@ function getNOTICEDataV(an_seq) {
 
 document.getElementById('aaaaaaaaaaaaaaaaaaaaaaaaaa').addEventListener("click",function() {
 
-	//alert(document.getElementById('real-title-editor').innerHTML(an_title))
-	//document.getElementById('real-title-editor').value = an_title;
+//	document.getElementById(myModal-tblV).style.display = 'none';
+	
 	let an_seq = viewData[0].an_seq;
 	let an_title = viewData[0].an_title;
 	let an_content = viewData[0].an_content;
@@ -736,7 +736,6 @@ document.getElementById('aaaaaaaaaaaaaaaaaaaaaaaaaa').addEventListener("click",f
 	
 	$('#real-title-editorN').val(an_title);
 	$('#CCCCCCCCCCCC').html(an_category);
-	// 여기에 CK-editor에 값을 표시하고싶어
 	$('#classicR').html(an_content);
 	window.editorR.setData(an_content);
 	$('#kategorieR').html(an_category);
@@ -765,9 +764,55 @@ document.getElementById('aaaaaaaaaaaaaaaaaaaaaaaaaa').addEventListener("click",f
 
 	window.editor.setData(an_content);
 	openModalR();
+	
+//	24.01.18수정시작
+let $ckFormRDiv = $('#ck-formR');
+
+            // "ck-content" 클래스를 가진 div 요소들을 선택합니다.
+            let $ckContentDivs = $ckFormRDiv.find('.ck-content');
+
+            // 각각의 "ck-content" 클래스를 가진 div 요소에 대해 반복합니다.
+            for (let i = 0; i < $ckContentDivs.length; i++) {
+                // 현재 div 요소 내에서 figure 요소를 선택합니다.
+                let $figures = $ckContentDivs.eq(i).find('figure');
+
+                // figure 요소에 대해 반복합니다.
+                for (let j = 0; j < $figures.length; j++) {
+                    // figure 요소 내에서 img 요소를 선택합니다.
+                    let $img = $figures.eq(j).find('img');
+
+                    // img 요소의 src 속성 값을 가져옵니다.
+                    let srcValue = $img.attr('src');
+
+                    // data-check 속성을 생성하고 src 값을 할당합니다.
+                    $img.attr('data-check', srcValue);
+
+                    // img-temporaryR div 요소를 선택합니다.
+                    let $imgTemporaryRDiv = $('#img-temporaryR');
+
+                    // input 요소를 생성합니다.
+                    let $inputElement = $('<input>');
+
+                    // input 요소의 type, name, id, data-check 속성, value 값을 설정합니다.
+                    $inputElement.attr({
+                        type: 'text',
+                        name: 'saveFname',
+                        id: 'img-url',
+                        'data-check': srcValue,
+                        value: srcValue
+                    });
+
+                    // input 요소를 img-temporaryR div에 추가합니다.
+                    $imgTemporaryRDiv.append($inputElement);
+                }
+            }
+
+//	24.01.18수정끝 
+	
+	
 
 
-});
+}); // addEventListener
 
 
 
