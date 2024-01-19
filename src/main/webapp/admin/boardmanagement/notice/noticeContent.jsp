@@ -9,6 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>noticeMain</title>
 <link rel="stylesheet" href="admin/boardmanagement/notice/0.css/noticeContent.css" />
+
 <link href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular" rel="stylesheet" />
 
 </head>

@@ -583,3 +583,8 @@
 .viewModal-content-txt-in {
 	padding-top: 1%;
 }
+
+#img-temporary, #img-temporaryR {
+	visibility: hidden;
+    position: absolute;	
+}
