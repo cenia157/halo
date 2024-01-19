@@ -1,4 +1,4 @@
-package com.halo.test.norice;
+package com.halo.admin.boardmanagement.notice;
 
 import java.io.IOException;
 

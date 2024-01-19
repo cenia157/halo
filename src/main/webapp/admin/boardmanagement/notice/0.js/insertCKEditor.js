@@ -8,10 +8,6 @@ class MyUploadAdapter {
 	
 	    this.loader.file.then(file => {
 	        fileOrder.push({id: this.loader.id, file: file});
-	
-//	        console.log('파일 업로드 중:', file.name);
-//	        console.log(`파일 업로드 중: ${file.name}, 파일 크기: ${file.size}`);
-//	        console.log('현재 파일 순서:', fileOrder.map(item => item.file.name));
 	    });
 	}
 
@@ -196,6 +192,7 @@ function MyCustomUploadAdapterPlugin(editor) {
 	};
 }
 
+		console.log('이거됨? nr');
 ClassicEditor.create(document.querySelector("#classicNR"), {
 	extraPlugins: [MyCustomUploadAdapterPlugin],
 })

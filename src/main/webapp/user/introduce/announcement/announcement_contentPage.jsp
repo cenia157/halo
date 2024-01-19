@@ -7,9 +7,10 @@ prefix="c" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>お知らせ</title>
-    <link rel="stylesheet" href="user/introduce/announcement/0.css/announcement_contentPage.css"/>
+    <script src="admin/_js/ckeditor/ckeditor.js"></script>
     <script src="user/introduce/announcement/0.js/announcement_contentPage_modal.js"></script>
     <script src="user/introduce/announcement/0.js/announcement_contentPage_ajax.js"></script>
+    <link rel="stylesheet" href="user/introduce/announcement/0.css/announcement_contentPage.css"/>
   </head>
   <body>
     <!--     <div class="a_container"> -->
@@ -228,7 +229,7 @@ prefix="c" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
         <!-- 본문 예시 -->
         <div class="qd-content-box-td2-1">
-          <div class="qd-content-box-td2-1-content" id="modalContent">
+          <div class="qd-content-box-td2-1-content ck ck-content" id="modalContent">
             안녕하세요, 운영자입니다. <br />
             일정관리를 다음과 같이 알려드립니다. 시세확장때문에 하는데요. <br />
             평일 중 2일과 주말 1일을 정기적으로 한 달 동안 이용하는 것이

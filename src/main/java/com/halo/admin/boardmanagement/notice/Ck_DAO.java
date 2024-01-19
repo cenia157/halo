@@ -1,4 +1,4 @@
-package com.halo.test.norice;
+package com.halo.admin.boardmanagement.notice;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -7,7 +7,6 @@ import java.sql.PreparedStatement;
 
 import javax.servlet.http.HttpServletRequest;
 
-import com.halo.admin.boardmanagement.notice.CommonUtility;
 import com.halo.test.DBManagerhalo_JW;
 
 public class Ck_DAO {
@@ -15,6 +14,7 @@ public class Ck_DAO {
 	public static void regNotice(HttpServletRequest request) throws IOException {
 
 		request.setCharacterEncoding("utf-8");
+		
 		try {
 			String writer;
 			String title = CommonUtility.escapeHtml(request.getParameter("title"));
@@ -29,44 +29,25 @@ public class Ck_DAO {
 			
 			if (title != "" && txt != "" && select != null) {
 
-				System.out.println("txt 구간(1) :::" + txt);
 				String[] saveFnameValues = request.getParameterValues("saveFname");
 
 				if (saveFnameValues != null) {
 
-					int startPos = 0; // 현재 위치를 추적하기 위한 변수
+					int startPos = 0;
 					for (int i = 0; i < saveFnameValues.length; i++) {
-						// 다음 <img 태그의 시작 위치를 찾습니다.
 						int imgPos = txt.indexOf("<img", startPos);
 						if (imgPos == -1)
-							break; // 더 이상 <img 태그가 없으면 반복을 중단합니다.
+							break; 
 
-						// <img 태그를 대체할 새로운 문자열을 생성합니다.
 						String toReplace = "<img src=\'" + saveFnameValues[i] + "'>";
-
-						// 기존의 <img 태그를 새로운 문자열로 대체합니다.
 						txt = txt.substring(0, imgPos) + toReplace + txt.substring(txt.indexOf(">", imgPos) + 1);
 
-						// 현재 위치를 업데이트합니다.
 						startPos = imgPos + toReplace.length();
-						System.out.println();
-						System.out.println("txt 구간(2) :::" + txt);
-						System.out.println("saveFName: " + saveFnameValues[i]);
 					}
 				}
 
-				System.out.println(title);
-				System.out.println(select);
-//			System.out.println(saveFName);
-//			txt = txt.replace("img", "img src=\'" + saveFName + "\'");
-
-				System.out.println("//////////////////////");
 				int titleLength = title.length();
-//			int selectLength = select.length();
 				int txtLength = txt.length();
-				System.out.println("제목 글자 수 : " + titleLength);
-//			System.out.println("카테고리 글자 수 : "+ selectLength);
-				System.out.println("내용 글자 수 : " + txtLength);
 
 				Connection con = null;
 				PreparedStatement pstmt = null;
