@@ -43,7 +43,6 @@ regBtnR.addEventListener("click", function(event) {
 			var iskategorieValid = true;
 		}
 	}
-	// 여기서 제목, 카테고리, 내용입력 둘다 만족할 경우 모달창이 닫히도록 함
 	if (isTitleValid && isTxtValid && iskategorieValid) {
 		closeModalNR();
 	}

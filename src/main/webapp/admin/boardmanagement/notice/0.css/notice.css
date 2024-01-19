@@ -217,7 +217,7 @@
 }
 
 /* 
-¿©±â¼­ºÎÅÍ´Â  noticeEditPage.jsp ¿µ¿ª!
+ï¿½ï¿½ï¿½â¼­ï¿½ï¿½ï¿½Í´ï¿½  noticeEditPage.jsp ï¿½ï¿½ï¿½ï¿½!
  */
 .modal-background {
 	display: none;
@@ -393,8 +393,8 @@
 
 .modal-content-txt-in {
 	padding-top: 2%;
-	font-size: 2.5rem;
-	font-weight: 700;
+/* 	font-size: 2.5rem; */ 
+/* 	font-weight: 700; */
 }
 
 .modal-content-button {
@@ -433,7 +433,7 @@
 }
 
 .ck-editor__editable_inline:not(.ck-comment__input *) {
-	/* ¿©±â¼­ ¾î¶»°Ô CKEditorÀÇ Å©±â¸¦ 100%·Î ¸ÂÃâ ¼ö ÀÖÀ»±î? */
+	/* ï¿½ï¿½ï¿½â¼­ ï¿½î¶»ï¿½ï¿½ CKEditorï¿½ï¿½ Å©ï¿½â¸¦ 100%ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½? */
 	overflow-y: auto;
 	height: 100%;
 }
@@ -475,7 +475,7 @@
 }
 
 /*
-¿©±â¼­ºÎÅÍ´Â noticeViewPage ÀÇ ¿µ¿ª
+ï¿½ï¿½ï¿½â¼­ï¿½ï¿½ï¿½Í´ï¿½ noticeViewPage ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 */
 .noticeViewPageTextarea {
 	width: 100%;
@@ -513,7 +513,7 @@
 	border: solid 1px black;
 }
 
-/* img-url ÀÌ¹ÌÁö input ¾Èº¸ÀÌ°ÔÇÏ´Â css */
+/* img-url ï¿½Ì¹ï¿½ï¿½ï¿½ input ï¿½Èºï¿½ï¿½Ì°ï¿½ï¿½Ï´ï¿½ css */
 #img-url {
 	/* 
 	display: none;
@@ -521,7 +521,7 @@
 	
 }
 
-/* ÆäÀÌÂ¡ ºÎºÐ */
+/* ï¿½ï¿½ï¿½ï¿½Â¡ ï¿½Îºï¿½ */
 .paging-div {
 	display: flex;
 	justify-content: center;
