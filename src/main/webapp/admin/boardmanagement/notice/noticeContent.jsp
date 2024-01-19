@@ -333,7 +333,6 @@
 	<!-- 조회 모달 페이지 js 끝 -->
 	<!--noticeRegPage js 시작 -->
 	<script src="admin/boardmanagement/notice/0.js/updateCKEditor.js" type="module"></script>
-	<script src="admin/boardmanagement/notice/0.js/ValidationItems.js"></script>
 	<script src="admin/boardmanagement/notice/0.js/SendCkeditorC2.js"></script>
 	<script src="admin/boardmanagement/notice/0.js/noticeCommon.js"></script>
 	<script src="admin/_js/ckeditor/ckeditor.js"></script>
