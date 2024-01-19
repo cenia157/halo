@@ -66,16 +66,16 @@
                   <c:choose>
                     <c:when test="${curPageNo > 5}">
                       <a href="CheckboxPagingC?p=${curPageNo - 5}">
-                        <button><<</button>
+                        <button id="MostPrevious"><<</button>
                       </a>
                     </c:when>
                     <c:when test="${curPageNo <= 5 && curPageNo > 1}">
                       <a href="CheckboxPagingC?p=1">
-                        <button><<</button>
+                        <button id="MostPrevious"><<</button>
                       </a>
                     </c:when>
                     <c:otherwise>
-                      <button disabled><<</button>
+                      <button disabled id="MostPrevious"><<</button>
                     </c:otherwise>
                   </c:choose>
 
@@ -83,11 +83,11 @@
                   <c:choose>
                     <c:when test="${curPageNo > 1}">
                       <a href="CheckboxPagingC?p=${curPageNo - 1}">
-                        <button>이전</button>
+                        <button id="Previous">前の</button>
                       </a>
                     </c:when>
                     <c:otherwise>
-                      <button disabled>이전</button>
+                      <button disabled id="Previous">前の</button>
                     </c:otherwise>
                   </c:choose>
 
@@ -142,11 +142,11 @@
                   <c:choose>
                     <c:when test="${curPageNo < pageCount}">
                       <a href="CheckboxPagingC?p=${curPageNo + 1}">
-                        <button>다음</button>
+                        <button id="Next">次の</button>
                       </a>
                     </c:when>
                     <c:otherwise>
-                      <button disabled>다음</button>
+                      <button disabled id="Next">次の</button>
                     </c:otherwise>
                   </c:choose>
 
@@ -154,18 +154,18 @@
                   <c:choose>
                     <c:when test="${curPageNo + 5 <= pageCount}">
                       <a href="CheckboxPagingC?p=${curPageNo + 5}">
-                        <button>>></button>
+                        <button id="MostNext">>></button>
                       </a>
                     </c:when>
                     <c:when
                       test="${curPageNo + 5 > pageCount && curPageNo < pageCount}"
                     >
                       <a href="CheckboxPagingC?p=${pageCount}">
-                        <button>>></button>
+                        <button id="MostNext">>></button>
                       </a>
                     </c:when>
                     <c:otherwise>
-                      <button disabled>>></button>
+                      <button disabled id="MostNext">>></button>
                     </c:otherwise>
                   </c:choose>
                 </div>
