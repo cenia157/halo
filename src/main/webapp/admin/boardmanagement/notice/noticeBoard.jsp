@@ -8,12 +8,9 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<link rel="stylesheet"
-	href="admin/boardmanagement/notice/0.css/notice.css" />
 <title>notice</title>
 </head>
 <body>
-<!-- <button onclick="searchCheckBoxVal()">test용 버튼임다</button> -->
 	<div class="ontent-m-td-2-content-container">
 		<div class="ontent-m-td-2-content-txt">
 			<div class="ontent-m-td-2-content-txt-no">No</div>

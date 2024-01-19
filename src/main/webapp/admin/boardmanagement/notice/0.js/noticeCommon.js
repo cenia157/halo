@@ -1,6 +1,5 @@
-// 공통 함수: 모달 열기
-// view 조회후 뽑은 값
 let viewData = null;
+
 function openModal(modalId, tblId) {
 	document.getElementById(modalId).style.display = 'flex';
 	document.getElementById(tblId).style.display = 'flex';
@@ -42,9 +41,7 @@ function closeModal(modalId, tblId) {
 	}
 	// CKEditor 초기화
 	window.editor.setData(""); // CKEditor의 내용을 빈 문자열로 설정합니다.
-
 }
-
 
 function closeModalR2(modalId, tblId) {
 	document.getElementById(modalId).style.display = 'none';
@@ -53,8 +50,6 @@ function closeModalR2(modalId, tblId) {
 	// 아래 2줄은 모달창 닫을 때 스크롤 보여주기 & 터치, 휠 가능
 	$('html, body').css({ 'overflow': 'auto', 'height': '100%' }); //scroll hidden 해제
 	$('#element').off('scroll touchmove mousewheel'); // 터치무브 및 마우스휠 스크롤 가능
-
-
 
 	// input 초기화
 	var titleInputR = document.getElementById("real-title-editorN");
@@ -74,19 +69,6 @@ function closeModalR2(modalId, tblId) {
 	}
 	// CKEditor 초기화
 	window.editor.setData(""); // CKEditor의 내용을 빈 문자열로 설정합니다.
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
 
 // 공통 함수: 모달 외부 클릭 시 닫기
@@ -168,10 +150,6 @@ function closeModalNR() {
 	closeModal('myModalNR', 'myModal-tblNR');
 }
 
-//function closeRegModal() {
-//	closeModal('myModalR', 'myModal-tblR');
-//}
-
 function getNOTICEDataV(an_seq) {
 	console.log("an_seq: ", an_seq);
 
@@ -186,7 +164,6 @@ function getNOTICEDataV(an_seq) {
 
 			console.log("data: ", data);
 			console.log("NOTICE 데이터 가져오기 성공");
-
 
 			if (Array.isArray(data) && data.length > 0) {
 				viewData = data;
@@ -207,15 +184,12 @@ function getNOTICEDataV(an_seq) {
 			} else {
 				console.log("NOTICE 데이터 가져오기 성공");
 			}
-
-
 		},
 		error: function(xhr, status, error) {
 			console.log("NOTICE 데이터 가져오기 실패");
 			console.log("error:", xhr, status, error);
 		}
 	})
-
 }
 
 document.getElementById('aaaaaaaaaaaaaaaaaaaaaaaaaa').addEventListener("click",function() {
@@ -257,7 +231,6 @@ document.getElementById('aaaaaaaaaaaaaaaaaaaaaaaaaa').addEventListener("click",f
 	openModalR();
 	document.querySelector('.view-modal-tbl').style.display = 'none';
 	
-	
 //	24.01.18 수정시작 업데이트 모달창 이미지 순차정렬 안되는 문제 해결 
 	let $ckFormRDiv = $('#ck-formR');
     let $ckContentDivs = $ckFormRDiv.find('.ck-content');
@@ -289,25 +262,7 @@ document.getElementById('aaaaaaaaaaaaaaaaaaaaaaaaaa').addEventListener("click",f
         }
     }
 
-	let ckContentElement = document.querySelector(".ck-content");
-	if (ckContentElement) {
-	  document.querySelector(".ck-content").click();
-	  console.log("js단에서 .ck-content 클릭 이벤트가 실행되었습니다.");
-	} else {
-	  console.log(".ck-content 요소를 찾을 수 없습니다.");
-	}
-//	24.01.18 수정끝 
-
-	
-    // 해당 ID를 가진 요소가 존재하는지 먼저 확인
-    if ($('#myModal-tblNR').length === 0) {
-        console.log('삭제 전: #myModal-tblNR 요소가 존재하지 않습니다.');
-    } else {
-        console.log('삭제 전: #myModal-tblNR 요소가 존재합니다.');
-    }
-
-    // 해당 ID를 가진 요소를 선택하고 삭제
-    $('#myModal-tblNR').find('figure').remove();
+	//	24.01.18 수정끝 
 
 }); // addEventListener
 
@@ -338,9 +293,6 @@ function getNOTICEDataR(an_seq, an_title, an_content, an_writer, an_reg_date, an
 				let an_title = data[0].an_title;
 				let an_content = data[0].an_content;
 				let an_writer = data[0].an_content;
-				console.log('111111111111111111111111111111111111111111');
-				console.log("qa_content: ", an_content);
-				console.log('111111111111111111111111111111111111111111');
 				let an_reg_date = data[0].an_reg_date;
 				let an_category = data[0].an_category;
 
@@ -358,7 +310,6 @@ function getNOTICEDataR(an_seq, an_title, an_content, an_writer, an_reg_date, an
 			console.log("error:", xhr, status, error);
 		}
 	})
-
 }
 
 function getNOTICEDataUpdateView(an_seq) {
@@ -382,9 +333,6 @@ function getNOTICEDataUpdateView(an_seq) {
 				let an_title = data[0].an_title;
 				let an_content = data[0].an_content;
 				let an_writer = data[0].an_content;
-				console.log('111111111111111111111111111111111111111111');
-				console.log("qa_content: ", an_content);
-				console.log('111111111111111111111111111111111111111111');
 				let an_reg_date = data[0].an_reg_date;
 				let an_category = data[0].an_category;
 
@@ -402,7 +350,6 @@ function getNOTICEDataUpdateView(an_seq) {
 }
 
 let updateSEQ = document.querySelector('#updateSEQ');
-console.log('수정 안하면 이건 뭐가되냐?' + updateSEQ.value);
 if (updateSEQ.value != '') {
 	getNOTICEDataUpdateView(updateSEQ.value);
 }
@@ -428,7 +375,6 @@ function searchCheckBoxVal() {
 			checkVal += checkBoxArr[i].value;
 		}
 	}
-	console.log("써치체크박스벨류");
 	return checkVal;
 }
 
@@ -461,8 +407,7 @@ function noticeSearchCheckBoxCheck() {
 		document.querySelectorAll('.noticeCheck')[check].checked = true;
 
 	}
-	console.log("노티스써치체크박스체크시키는기능");
-
 }
+
 noticeSearchCheckBoxCheck();
 

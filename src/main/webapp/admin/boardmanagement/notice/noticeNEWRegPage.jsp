@@ -75,9 +75,7 @@
 		</div>
 	</form>
 
-	<script src="admin/boardmanagement/notice/0.js/insertCKEditor.js" type="module"></script>
-	<script src="admin/boardmanagement/notice/0.js/ValidationItems.js"></script>
-	<script src="admin/boardmanagement/notice/0.js/SendCkeditorC.js"></script>
+
 
 </body>
 </html>
