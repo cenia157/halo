@@ -8,7 +8,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>noticeMain</title>
-<link rel="stylesheet" href="admin/boardmanagement/notice/0.css/notice.css" />
+<link rel="stylesheet" href="admin/boardmanagement/notice/0.css/noticeContent.css" />
 <link href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular" rel="stylesheet" />
 
 </head>
@@ -42,7 +42,6 @@
 	</div>
 	<div class="ontent-m-td-2-content">
 		<!-- noticeBoard.jsp 시작 -->
-		<!-- noticeBoard.jsp 시작 -->
 		<div class="ontent-m-td-2-content-container">
 			<div class="ontent-m-td-2-content-txt">
 				<div class="ontent-m-td-2-content-txt-no">No</div>
@@ -69,11 +68,9 @@
 			</c:forEach>
 		</div>
 		<!-- noticeBoard.jsp 끝 -->
-		<!-- noticeBoard.jsp 끝 -->
 		<div class="ontent-m-td-2-bottom">
 			<div class="ontent-m-td-2-page-side"></div>
 			<div class="ontent-m-td-2-page-center">
-				<!--페이징시작 --><!--페이징시작 --><!--페이징시작 -->
 				<!--페이징시작 --><!--페이징시작 --><!--페이징시작 -->
 				<div class="paging-div">
 					<!-- 처음으로 가는 버튼 -->
@@ -163,13 +160,11 @@
 					</c:choose>
 				</div>
 				<!-- 페이징끝 --><!-- 페이징끝 --><!-- 페이징끝 -->
-				<!-- 페이징끝 --><!-- 페이징끝 --><!-- 페이징끝 -->
 			</div>
 			<div class="ontent-m-td-2-page-side">
 				<button class="SubmitButton-content" onclick="openModalNR()">등록하기</button>
 			</div>
 		</div>
-		<!-- noticeNEWRegPage.jsp 시작 -->
 		<!-- noticeNEWRegPage.jsp 시작 -->
 		<div id="myModalNR" class="modal-background"></div>
 		<form action="AdminNOTICEC" id="ck-form" method="get"> 
@@ -213,7 +208,6 @@
 											</div>
 										</div>
 									</div>
-									<script src="admin/boardmanagement/notice/0.js/noticeToggle.js"></script>
 								</div>
 							</div>
 						</div>
@@ -234,8 +228,6 @@
 			</div>
 		</form>
 		<!-- noticeNEWRegPage.jsp 끝 -->
-		<!-- noticeNEWRegPage.jsp 끝 -->
-		<!-- 조회 모달 페이지 jsp 시작 -->
 		<!-- 조회 모달 페이지 jsp 시작 -->
 		<div onclick="closeModalV()" id="myModalV" class="modal-background view-modal-background"></div>
 				<div id="myModal-tblV" class="modal-tbl view-modal-tbl">
@@ -260,8 +252,6 @@
 			</div>
 		</div>
 		<!-- 조회 모달 페이지 jsp 끝 -->
-		<!-- 조회 모달 페이지 jsp 끝 -->
-		<!--noticeRegPage.jsp 시작 -->
 		<!--noticeRegPage.jsp 시작 -->
 		<div onclick="closeModalR()" id="myModalR"></div>
 		<form id="ck-formR" method="post">
@@ -273,8 +263,6 @@
 							<div class="real-title">
 								<input class="real-title-editor" name="title"
 									id="real-title-editorN" placeholder="이곳에 제목을 입력하세요">
-								<!-- 아래의 input은 ajax로 올라갔던 이미지의 실제 이름을 받기 위한 역할을 한다.
-								type="hidden"을 삭제하고 이미지를 올려놓으면 올린 이미지의 경로+이름이 나온다. -->
 								<div id="img-temporaryR" type="" style="background-color: aqua;"></div>
 								<div class="real-title-select">
 									<div class="toggle" id="toggleR" onclick="toggleR()">
@@ -304,8 +292,6 @@
 											</div>
 										</div>
 									</div>
-									<script src="admin/boardmanagement/notice/0.js/noticeToggleR.js"></script>
-									<!--  -->
 								</div>
 							</div>
 						</div>
@@ -325,18 +311,12 @@
 			</div>
 		</form>
 		<!--noticeRegPage.jsp 끝 -->
-		<!--noticeRegPage.jsp 끝 -->
 	</div>
-	<!-- 조회 모달 페이지 js 시작 -->
 	<script src="admin/_js/ckeditor/ckeditor.js"></script>
 	<script src="admin/boardmanagement/notice/0.js/noticeCommon.js"></script>
 	<script src="admin/boardmanagement/notice/0.js/insertCKEditor.js"></script>
 	<script src="admin/boardmanagement/notice/0.js/insertSendCkeditorC.js"></script>
-	<!-- 조회 모달 페이지 js 끝 -->
-	<!--noticeRegPage js 시작 -->
 	<script src="admin/boardmanagement/notice/0.js/updateCKEditor.js"></script>
 	<script src="admin/boardmanagement/notice/0.js/updateSendCKeditorC.js"></script>
-
-	<!--noticeRegPage js 끝 -->
 </body>
 </html>
