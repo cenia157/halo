@@ -161,6 +161,9 @@ function closeModalR() {
 function openModalNR() {
 	openModal('myModalNR', 'myModal-tblNR');
 	closeModalOnOutsideClick('myModalNR');
+	// 24-01-19 추가 등록버튼 여러번 반복시, 이미지아이콘 구분선 disabled되는 오류 추가 수정 
+	$(".ck-button[data-cke-tooltip-text='パソコンから画像をアップロード']").removeClass("ck-disabled").prop("disabled", false);
+	$(".ck-button[data-cke-tooltip-text='区切り']").removeClass("ck-disabled").prop("disabled", false);
 }
 
 function closeModalNR() {

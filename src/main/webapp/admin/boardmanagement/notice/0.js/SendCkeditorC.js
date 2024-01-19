@@ -81,28 +81,9 @@ regBtn.addEventListener("click", function(event) {
                      
 	// 표기능, 외부 주소 첨부기능 비활성화
     $(".ck-button[data-cke-tooltip-text='画像挿入']").remove();
-	
-    // 다른 js파일에서 모달창에서 파일업로드 후 미리 클릭이벤트를 줬음(인덱스번호값을 위해서)  
-//    $(".ck-content").on("click", function (e) {
-//    	
-//    	let figures = $(".ck-content figure img");
-//    	let saveFnames = $("input[name='saveFname']");
-//
-//		console.log("figures의 갯수:", figures.length);
-//  		console.log("saveFnames의 갯수:", saveFnames.length);
-//
-//   	    figures.each(function (index) {
-//          $(this).data("index", index);
-//     	});
-//
-//       saveFnames.each(function (index) {
-//       $(this).data("index", index);
-//       });
-//    });
-
-
-			
-			
+	$(".ck-button[data-cke-tooltip-text='メディアの挿入']").remove();
+	$(".ck-button[data-cke-tooltip-text='表の挿入']").remove();
+		
 	 $(".ck-content").on("click", function (e) {
 		console.log('클릭 이벤트 발생')
 	    let figures = $(".ck-content figure img");
@@ -193,9 +174,7 @@ regBtn.addEventListener("click", function(event) {
 
         let buttonsToDisable = [
             "区切り",
-            "表の挿入",
             "リンク (Ctrl+K)",
-            "画像挿入",
             "パソコンから画像を置換",
             "パソコンから画像をアップロード"
         ];
