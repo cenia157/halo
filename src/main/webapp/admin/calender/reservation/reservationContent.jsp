@@ -85,8 +85,6 @@
 						<div class="reservation-modal-delete"
 							onclick="reservationCancel(this)">취소</div>
 					</div>
-					
-					
 				</div>
 
 				<div class="date-modal">
@@ -149,7 +147,14 @@
 					</div>
 
 					<div class="ins-tr-2">
-						<div>예약리스트</div>
+						<div class="reservation-title">예약리스트</div>
+						<input class="reservation-insert-input reservation-insert-service"
+							style="width: 50%;" value="서비스유형">
+						<div class="reservation-insert-input reservation-insert-time">
+							오전  <input type="checkbox" name="insert-time" value="AM">
+							오후  <input type="checkbox" name="insert-time" value="PM">
+						</div>
+
 					</div>
 					<div class="ins-tr-3">
 						<div class="ins-tr-3-reservation-header">
@@ -159,10 +164,47 @@
 							<div></div>
 						</div>
 						<div class="ins-tr-3-reservation-content"></div>
-						<div class="ins-tr-3-btn">
-							<button type="button" class="company-button"
-								onclick="insertCompanyC()">등록하기</button>
+
+						<div class="reservation-insert">
+							<div class="reservation-insert-name">
+								이름 <input class="reservation-insert-input" style="width: 80%;">
+							</div>
+							<div class="reservation-insert-addr">
+								주소 <input class="reservation-insert-input" style="width: 80%;">
+							</div>
+							<div class="reservation-insert-book">
+								날짜 <input class="reservation-insert-input input-date"
+									style="width: 80%;" readonly="readonly">
+							</div>
+							<div class="reservation-insert-start">출발지</div>
+							<div class="reservation-insert-startpoint">
+								<input class="reservation-insert-input" style="width: 100%;">
+							</div>
+							<div class="reservation-insert-end">목적지</div>
+							<div class="reservation-insert-endpoint">
+								<input class="reservation-insert-input" style="width: 100%;">
+							</div>
+							<div class="reservation-insert-notice">
+								<textarea class="reservation-insert-input">예약내용</textarea>
+							</div>
+							<div class="reservation-modal-content-manager">
+								<div
+									class="reservation-modal-content-manager-select select-insert">
+									<div class="default-manager">직원 선택</div>
+									<div class="manager-select-arrow"></div>
+								</div>
+								<div class="insert-manager-select-option"></div>
+							</div>
 						</div>
+						<div class="ins-tr-3-btn">
+							<button type="button" class="reservation-button">신규등록</button>
+						</div>
+
+						<div class="ins-tr-3-btn-insert">
+							<div class="ins-tr-3-btn-insert-accept">등록</div>
+							<div class="ins-tr-3-btn-insert-cancel" >취소</div>
+						</div>
+
 					</div>
 				</div>
 			</form>

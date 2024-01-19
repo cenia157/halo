@@ -20,10 +20,17 @@ public class ReservationAgree extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		ReservationDAO.reservationAgree(request, response);
-		ReservationDAO.deleteReservationSchedule(request, response);
+		System.out.println(request.getParameter("array"));
 		
-		response.sendRedirect("ReservationC");
+		// Jackson ObjectMapper를 사용하여 JSON 문자열을 Map으로 변환
+		ObjectMapper objectMapper = new ObjectMapper();
+		Map<String, String> dataMap = objectMapper.readValue(request.getParameter("array"), Map.class);
+		
+		System.out.println(dataMap);
+//		ReservationDAO.reservationAgree(request, response);
+//		ReservationDAO.deleteReservationSchedule(request, response);
+		
+//		response.sendRedirect("ReservationC");
 	}
 
 }
