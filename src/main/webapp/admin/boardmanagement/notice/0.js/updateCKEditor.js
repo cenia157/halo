@@ -1,6 +1,6 @@
 let updateFileOrder = [];
 
-class MyUploadAdapter {
+class MyUploadAdapter_update {
 	
 	constructor(loader) {
 	    this.loader = loader;
@@ -192,14 +192,14 @@ class MyUploadAdapter {
 	}
 } // end class
 
-function MyCustomUploadAdapterPlugin(editor) {
+function MyCustomUploadAdapterPlugin_update(editor) {
 	editor.plugins.get("FileRepository").createUploadAdapter = (loader) => {
 		return new MyUploadAdapter(loader);
 	};
 }
 
 ClassicEditor.create(document.querySelector("#classicR"), {
-	extraPlugins: [MyCustomUploadAdapterPlugin],
+	extraPlugins: [MyCustomUploadAdapterPlugin_update],
 })
 	.then((editor) => {
 		window.editorR = editor;

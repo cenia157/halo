@@ -196,6 +196,7 @@ function MyCustomUploadAdapterPlugin(editor) {
 	};
 }
 
+		console.log('이거됨? nr');
 ClassicEditor.create(document.querySelector("#classicNR"), {
 	extraPlugins: [MyCustomUploadAdapterPlugin],
 })
