@@ -231,7 +231,7 @@ document.getElementById('aaaaaaaaaaaaaaaaaaaaaaaaaa').addEventListener("click",f
 	openModalR();
 	document.querySelector('.view-modal-tbl').style.display = 'none';
 	
-//	24.01.18 수정시작 업데이트 모달창 이미지 순차정렬 안되는 문제 해결 
+	//	24.01.18 업데이트 모달창 이미지 순차정렬 안되는 문제 해결 
 	let $ckFormRDiv = $('#ck-formR');
     let $ckContentDivs = $ckFormRDiv.find('.ck-content');
 
@@ -261,7 +261,6 @@ document.getElementById('aaaaaaaaaaaaaaaaaaaaaaaaaa').addEventListener("click",f
             $imgTemporaryRDiv.append($inputElement);
         }
     }
-
 	//	24.01.18 수정끝 
 
 }); // addEventListener

@@ -8,10 +8,6 @@ class MyUploadAdapter_update {
 	
 	    this.loader.file.then(file => {
 	        updateFileOrder.push({id: this.loader.id, file: file});
-	
-//	        console.log('파일 업로드 중:', file.name);
-//	        console.log(`파일 업로드 중: ${file.name}, 파일 크기: ${file.size}`);
-//	        console.log('현재 파일 순서:', updateFileOrder.map(item => item.file.name));
 	    });
 	}
 
@@ -153,6 +149,7 @@ class MyUploadAdapter_update {
 	}
 
 	_updateInputField(fName) {
+		console.log('진입확인1!!!');
 		const newInput = document.createElement("input");
 		newInput.name = "saveFname";
 		newInput.id = "img-url";
@@ -160,7 +157,6 @@ class MyUploadAdapter_update {
 		newInput.dataset.check = fName;
 
 		const targetDiv = document.getElementById("img-temporaryR")
-		//#ck-formR추가함 
 		const figures = document.querySelectorAll("#ck-formR .ck-content figure");
 
 
@@ -194,7 +190,7 @@ class MyUploadAdapter_update {
 
 function MyCustomUploadAdapterPlugin_update(editor) {
 	editor.plugins.get("FileRepository").createUploadAdapter = (loader) => {
-		return new MyUploadAdapter(loader);
+		return new MyUploadAdapter_update(loader);
 	};
 }
 
