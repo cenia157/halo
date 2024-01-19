@@ -56,7 +56,7 @@
 						</div>
 					</div>
 					<div class="modal-title-td-2">
-						<span class="close" id="closeModalBtn" onclick="closeModalNR()">&times;</span>
+						<span class="close" id="closeModalBtn" onclick="closeModalV()">&times;</span>
 					</div>
 				</div>
 				<div class="modal-content">

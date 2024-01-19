@@ -125,6 +125,7 @@ class MyUploadAdapter {
 	            } else {
 	                this._updateInputField(response.fName);
 	                document.querySelector(".ck-content").click();
+//					document.querySelectorAll(".ck-content")[1]?.click();
 	                resolve({ default: response.url });
 	            }
 	        });

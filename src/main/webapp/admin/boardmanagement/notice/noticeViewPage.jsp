@@ -68,8 +68,8 @@
 
 </head>
 <body>
-	<div onclick="closeModalV()" id="myModalV" class="modal-background"></div>
-	<div id="myModal-tblV" class="modal-tbl">
+	<div onclick="closeModalV()" id="myModalV" class="modal-background view-modal-background"></div>
+	<div id="myModal-tblV" class="modal-tbl view-modal-tbl">
 		<div class="modal-title-set">
 			<div class="modal-title-tr">
 				<div class="modal-title-td-1 viewModalHeader">
