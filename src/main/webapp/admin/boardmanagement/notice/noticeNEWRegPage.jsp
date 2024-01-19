@@ -61,7 +61,9 @@
 				</div>
 				<div class="modal-content">
 					<div class="modal-content-txt">
-						<!-- 아래의 코드는 CK Editor를 넣는 부분이다-->
+						<!--noticeNEWRegPage.jsp 64번째줄-->
+						<!--noticeNEWRegPage.jsp 64번째줄-->
+						<!--noticeNEWRegPage.jsp 64번째줄-->
 						<textarea name="txt" id="classicNR" class="classicNR"></textarea>
 					</div>
 					<div class="modal-content-button">
