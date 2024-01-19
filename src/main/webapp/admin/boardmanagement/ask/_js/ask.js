@@ -362,25 +362,36 @@ function updateComments() {
 
 }
 
+//작성자명 넘기기
+$(document).ready(function (){
+	let c_writer = $('#regBtnHiddeninput').val();
+	console.log("작성자명 넘기기");
+	console.log(c_writer);
+});
+
+
 //CRUD: insert
 function submitComments() {
 	
 	let c_comment_content = $('#c_comment_content').val();
 	let q_seq = $('#q_seq').val();
+	let c_writer = document.querySelector('#regBtnHiddeninput').value;
+//	작성자 이름
+	console.log("작성자명: ", c_writer);
 
 	$.ajax({
 		url: 'CommentSubmitC',
 		method: 'post',
 		data: {
 			q_seq: q_seq,
-			c_comment_content: c_comment_content
+			c_comment_content: c_comment_content,
+			c_writer : c_writer
+			
 		},
 
 		success: function() {
 			console.log("Submit 성공");
 			updateCategory.innerText = "完";
-			//			checkboxSubmit();
-			//			location.reload();
 		},
 		error: function(xhr, status, error) {
 			console.log("Submit 에러: ", xhr, status, error);

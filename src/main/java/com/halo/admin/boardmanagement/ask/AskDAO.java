@@ -31,8 +31,8 @@ public class AskDAO {
 			con = DBManagerhalo_YJ.connect();
 			pstmt = con.prepareStatement(sql);
 
-			
-			pstmt.setString(1, "ハロー");
+			System.out.println("작성자: "+ request.getParameter("c_writer"));
+			pstmt.setString(1, request.getParameter("c_writer"));
 			pstmt.setString(2, Utility.escapeHtml(request.getParameter("c_comment_content")));
 			pstmt.setString(3, "1");
 			pstmt.setString(4, request.getParameter("q_seq"));

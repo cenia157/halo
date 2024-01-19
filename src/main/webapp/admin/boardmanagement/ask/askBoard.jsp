@@ -24,6 +24,7 @@
 				<div class="ontent-m-td-2-content-txt-writer">작성자</div>
 				<div class="ontent-m-td-2-content-txt-date">작성일자</div>
 				<div class="ontent-m-td-2-content-txt-delete"></div>
+				<input id="regBtnHiddeninput" type="hidden" value="${sessionScope.login_session.a_name }"/>
 			</div>
 		</div>
 		<div class="ontent-m-td-2-mid" id="FOREACH_ASK">

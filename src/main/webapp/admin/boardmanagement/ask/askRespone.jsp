@@ -63,7 +63,7 @@
 				
 					<!-- 					q_seq값 넘기기 -->
 					<input hidden="1" id="q_seq" name="q_seq"/>
-					
+					<input id="regBtnHiddeninput" type="hidden" value="${sessionScope.login_session.a_name }"/>
 					<button class="SubmitButton" onclick="submitComments(); closeModalN();">답변하기</button>
 				</div>
 				
