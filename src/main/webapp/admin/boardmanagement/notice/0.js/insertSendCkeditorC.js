@@ -1,4 +1,5 @@
 let regBtn = document.querySelector("#reg-btn");
+
 regBtn.addEventListener("click", function(event) {
 	if(!noValue()){
 		return false;
@@ -45,7 +46,7 @@ regBtn.addEventListener("click", function(event) {
 			var iskategorieValid = true;
 		}
 	}
-	// 여기서 제목, 카테고리, 내용입력 둘다 만족할 경우 모달창이 닫히도록 함
+	
 	if (isTitleValid && isTxtValid && iskategorieValid) {
 		closeModalNR();
 	}
@@ -81,86 +82,80 @@ regBtn.addEventListener("click", function(event) {
                      
 	// 표기능, 외부 주소 첨부기능 비활성화
     $(".ck-button[data-cke-tooltip-text='画像挿入']").remove();
+	$(".ck-button[data-cke-tooltip-text='メディアの挿入']").remove();
+	$(".ck-button[data-cke-tooltip-text='表の挿入']").remove();
+		
+	 $(".ck-content").on("click", function (e) {
+		console.log('클릭 이벤트 발생')
+	    let figures = $(".ck-content figure img");
+	    let saveFnames = $("input[name='saveFname']");
+
+		if ($("#myModal-tblR").css("display") !== "none") {
+			console.log('신규 등록 모달창 -> none ***');
+			console.log('업데이트  모달창 -> flex***');
+			figures = $("#ck-formR .ck-content figure img")		
+				
+						
+		} else {
+			console.log('신규 등록 모달창 -> flex');
+			console.log('업데이트  모달창 -> none');
+	  		figures = $("#ck-form .ck-content figure img")
+	 	}
 	
-    // 다른 js파일에서 모달창에서 파일업로드 후 미리 클릭이벤트를 줬음(인덱스번호값을 위해서)  
-    $(".ck-content").on("click", function (e) {
-    	
-    	let figures = $(".ck-content figure img");
-    	let saveFnames = $("input[name='saveFname']");
+	     console.log("figures의 갯수:", figures.length);
+	     console.log("saveFnames의 갯수:", saveFnames.length);
+	
+	     figures.each(function (index) {
+	         $(this).attr("index", index); 
+	     });
+	
+	     saveFnames.each(function (index) {
+	         $(this).attr("index", index); 
+	     });
+	 });
 
-   	    figures.each(function (index) {
-          $(this).data("index", index);
-     	});
-
-       saveFnames.each(function (index) {
-       $(this).data("index", index);
-       });
-    });
-
-   // 이미지 다중 업로드 후 인덱스값 맞게 삭제(백스테이스 delte키) 
-    $(".ck-content").on("keyup", function (e) {
-      if (e.key === "Backspace" || e.key === "Delete") {
-
-        // saveFname 입력 필드를 순회
-        $("input[name='saveFname']").each(function () {
-          let inputIndex = $(this).data("index");
-
-          // 해당 인덱스를 가진 figure 이미지가 존재 확인.
-          let correspondingFigure = $(".ck-content figure img").filter(
-            function () {
-              return $(this).data("index") === inputIndex;
-            }
-          );
-
-          // 대응하는 figure 이미지가 없으면, 해당 입력 필드를 제거합니다.
-          if (!correspondingFigure.length) {
-            $(this).remove();
-            alert("삭제된 이미지 인덱스값: " + inputIndex);
-          }
-        });
-        // **삭제후 인덱스 다시 구하는코드 **
-        let figures = $(".ck-content figure img");
-    	let saveFnames = $("input[name='saveFname']");
-
-   	    figures.each(function (index) {
-          $(this).data("index", index);
-     	});
-
-       saveFnames.each(function (index) {
-       $(this).data("index", index);
-       });
-      } // if
-    }); // $('.ck-content').on('keyup', function(e){
-
+     // 이미지 다중 업로드 후 인덱스값 맞게 삭제
+	 $(".ck-content").on("keyup", function (e) {
+	  if (e.key === "Backspace" || e.key === "Delete") {
+	    $("input[name='saveFname']").each(function () {
+	      let inputIndex = $(this).attr("index"); // 클릭 이벤트로 할당된 인덱스 사용
+	      let correspondingFigure = $(".ck-content figure img").filter(function () {
+	        return $(this).attr("index") === inputIndex;
+	      });
+	
+	      if (!correspondingFigure.length) {
+	        $(this).remove();
+	        alert("삭제된 이미지 인덱스값: " + inputIndex);
+	      } // inner if
+	    });
+	    
+	    // 인덱스를 재할당
+	    $(".ck-content").click();
+	  } // outer if
+	});
+	
     // 이미지 추가후 seleted 즉 자동으로 선택될때 방어하는 코드	
     $(".ck-content").on("keydown", function (e) {
       console.log("누른키 :::test", e.key, e.code);
 
-      let whiteList = [
-        "Enter", "Delete", "Backspace", "ArrowUp", "ArrowDown"];
+      let whiteList = ["Enter", "Delete", "Backspace", "ArrowUp", "ArrowDown"];
+      let allowedKey = whiteList.includes(e.code); 
 
-      let allowedKey = whiteList.includes(e.code); // 허용된 키인지 확인
+      let isSelectedFigureExists = $(".ck-content figure.ck-widget_selected").length > 0;
+      let isBeforeCaretExists = $(".ck-content figure.ck-widget_type-around_show-fake-caret_before").length > 0;
+      let isAfterCaretExists = $(".ck-content figure.ck-widget_type-around_show-fake-caret_after").length > 0;
 
-      let isSelectedFigureExists =
-        $(".ck-content figure.ck-widget_selected").length > 0;
-      let isBeforeCaretExists =
-        $(".ck-content figure.ck-widget_type-around_show-fake-caret_before")
-          .length > 0;
-      let isAfterCaretExists =
-        $(".ck-content figure.ck-widget_type-around_show-fake-caret_after")
-          .length > 0;
-
-      if (
-        !whiteList.includes(e.code) &&
-        isSelectedFigureExists &&
-        !isBeforeCaretExists &&
-        !isAfterCaretExists
-      ) {
-        // 허용되지 않은 키이면
-        console.log("not allowed");
+	  console.log('진입확인1')
+      if ( !whiteList.includes(e.code) && isSelectedFigureExists && !isBeforeCaretExists && !isAfterCaretExists) {
+        console.log("허용되지 않는 키 입니다");
+		console.log('진입확인2')
         e.preventDefault(); // 입력 방지
         this.blur(); // 입력 필드에서 포커스 제거
       } // if
+
+	let count = $(".ck-content figure.ck-widget_selected").length;
+	console.log("ck-widget_selected 클래스를 가진 figure 요소의 개수: " + count);
+	
     }); // $('.ck-content').on("keydown", function(e) {
 
     // 이미지 드래그스타트 방지 
@@ -173,14 +168,7 @@ regBtn.addEventListener("click", function(event) {
         let isSelectedFigureExists =
             $(".ck-content figure.ck-widget_selected").length > 0;
 
-        let buttonsToDisable = [
-            "区切り",
-            "表の挿入",
-            "リンク (Ctrl+K)",
-            "画像挿入",
-            "パソコンから画像を置換",
-            "パソコンから画像をアップロード"
-        ];
+        let buttonsToDisable = ["区切り", "リンク (Ctrl+K)", "パソコンから画像を置換", "パソコンから画像をアップロード"];
 
         buttonsToDisable.forEach(buttonText => {
             let $button = $(".ck-button[data-cke-tooltip-text='" + buttonText + "']");

@@ -33,6 +33,7 @@
   width: 95%;
   height: 100%; /* 92%에서 100%로 변경 */
   margin: 0 auto;
+  opacity: 0.94;
 }
 
 .a_content-box-tr1 a:link,
