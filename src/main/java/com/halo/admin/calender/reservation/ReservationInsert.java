@@ -11,17 +11,16 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-
-@WebServlet("/ReservationAgree")
-public class ReservationAgree extends HttpServlet {
+@WebServlet("/ReservationInsert")
+public class ReservationInsert extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		ReservationDAO.reservationAgree(request, response);
-		ReservationDAO.deleteReservationSchedule(request, response);
+		
+		ReservationDAO.insertReservation(request, response);
 		
 		response.sendRedirect("ReservationC");
 	}

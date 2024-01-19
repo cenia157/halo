@@ -667,12 +667,21 @@ function reservationDetailModal() {
 	document.querySelector('.reservation-modal-update-btn').style.display = "none";
 	document.querySelector('.reservation-modal-detail-btn').style.display = "none";
 
+	document.querySelectorAll('.update-time-checkBox').forEach(function(e) {
+		e.checked = false;
+	})
+
 	if (reservationModalValue == "list") {
 		document.querySelector('.reservation-modal-agree-btn').style.display = "flex";
 
 		document.querySelector('.manager-select-option').innerHTML = '<div class="manager-list" onclick="managerSelect(this)">선택안함</div>';
 		document.querySelector('.reservation-modal-content-manager-select').children[0].innerText = '직원 선택';
 		document.querySelector('.manager-select-arrow').style.display = "flex";
+
+		document.querySelectorAll('.update-time-checkBox').forEach(function(e) {
+			e.disabled = true;
+		})
+
 
 		arrayName = reservationScheduleList[reservationSelectArray];
 
@@ -702,6 +711,9 @@ function reservationDetailModal() {
 		document.querySelector('.reservation-modal-content-manager-select').children[0].innerText = reservationAcceptList[reservationSelectArray].staff;
 		document.querySelector('.manager-select-arrow').style.display = "none";
 
+		document.querySelectorAll('.update-time-checkBox').forEach(function(e) {
+			e.disabled = true;
+		})
 
 		arrayName = reservationAcceptList[reservationSelectArray];
 
@@ -725,10 +737,22 @@ function reservationDetailModal() {
 
 	}
 
+	if (arrayName.time == 'AM,PM') {
+		document.querySelectorAll('.update-time-checkBox').forEach(function(e) {
+			e.checked = true;
+		})
+	} else if (arrayName.time == 'AM') {
+		document.querySelectorAll('.update-time-checkBox')[0].checked = true;
+	} else {
+		document.querySelectorAll('.update-time-checkBox')[1].checked = true;
+	}
+
+
 	document.querySelector('.reservation-modal-title').innerHTML = arrayName.userName + ' - ' + arrayName.service;
 
 
 	document.querySelector('.reservation-modal-content-name').innerHTML = arrayName.userName;
+	document.querySelector('.reservation-modal-content-phone').innerHTML = arrayName.phoneNumber;
 	document.querySelector('.reservation-modal-content-addr').innerHTML = arrayName.addr;
 
 	document.querySelector('.reservation-modal-content-startpoint').innerHTML = arrayName.startPoint;
@@ -736,9 +760,13 @@ function reservationDetailModal() {
 
 
 	if (reservationModalValue == "update") {
+		document.querySelectorAll('.update-time-checkBox').forEach(function(e) {
+			e.disabled = false;
+		})
+
 		arrayName = reservationAcceptList[reservationSelectArray];
 
-		document.querySelector('.reservation-modal-title').innerHTML = arrayName.userName + ' - ' + '<input style="font-size:2rem; width:50%;"  value="' + arrayName.service + '">';
+		document.querySelector('.reservation-modal-title').innerHTML = '<input style="font-size:2rem; width:100%;"  value="' + arrayName.service + '">';
 		document.querySelector('.reservation-modal-detail-btn').style.display = "flex";
 
 		document.querySelector('.manager-select-option').innerHTML = '<div class="manager-list" onclick="managerSelect(this)">선택안함</div>';
@@ -749,6 +777,7 @@ function reservationDetailModal() {
 		insertManagerSelectValue = '';
 
 		document.querySelector('.reservation-modal-content-name').innerHTML = '<input style="font-size:1.5rem; width:100%;" value="' + arrayName.userName + '">';
+		document.querySelector('.reservation-modal-content-phone').innerHTML = '<input style="font-size:1.5rem; width:100%;" value="' + arrayName.phoneNumber + '">';
 		document.querySelector('.reservation-modal-content-addr').innerHTML = '<input style="font-size:1.5rem; width:100%;" value="' + arrayName.addr + '">';
 
 		let datesFolding = '';
@@ -810,6 +839,8 @@ function reservationConfirm(e) {
 			});
 
 			renderReservationSchedule();
+
+			reservationModalValue = "direct"
 
 			reservationDetailModal();
 		})
@@ -1137,38 +1168,26 @@ function reservationInsertPageClose() {
 	document.querySelector('.reservation-insert-time').style.display = 'none';
 }
 
+// 예약 신규 등록
 function reservationInsert() {
-	console.log(document.querySelector('.reservation-insert-service').value);
-	if (document.querySelector('.reservation-insert-time input[value="AM"]').checked) {
-		console.log(document.querySelector('.reservation-insert-time input[value="AM"]').value);
-	}
-	if (document.querySelector('.reservation-insert-time input[value="PM"]').checked) {
-		console.log(document.querySelector('.reservation-insert-time input[value="PM"]').value);
-	}
-	console.log(document.querySelector('.reservation-insert-name').children[0].value);
-	console.log(document.querySelector('.reservation-insert-addr').children[0].value);
-	console.log(document.querySelector('.reservation-insert-book').children[0].value);
-	console.log(document.querySelector('.reservation-insert-startpoint').children[0].value);
-	console.log(document.querySelector('.reservation-insert-endpoint').children[0].value);
-	console.log(document.querySelector('.reservation-insert-notice').children[0].value);
-	console.log(document.querySelector('.select-insert').children[0].innerText);
 	let time = '';
 
 	if (document.querySelector('.reservation-insert-time input[value="AM"]').checked && document.querySelector('.reservation-insert-time input[value="PM"]').checked) {
-		time = document.querySelector('.reservation-insert-time input[value="AM"]') + ',' + document.querySelector('.reservation-insert-time input[value="PM"]');
+		time = document.querySelector('.reservation-insert-time input[value="AM"]').value + ',' + document.querySelector('.reservation-insert-time input[value="PM"]').value;
 	} else if (document.querySelector('.reservation-insert-time input[value="AM"]').checked) {
-		time = document.querySelector('.reservation-insert-time input[value="AM"]');
+		time = document.querySelector('.reservation-insert-time input[value="AM"]').value;
 	} else if (document.querySelector('.reservation-insert-time input[value="PM"]').checked) {
-		time = document.querySelector('.reservation-insert-time input[value="PM"]');
+		time = document.querySelector('.reservation-insert-time input[value="PM"]').value;
 	}
 
 	let newReservation = {
 		service: document.querySelector('.reservation-insert-service').value,
 		time: time,
 		userName: document.querySelector('.reservation-insert-name').children[0].value,
+		phoneNum: document.querySelector('.reservation-insert-phone').children[0].value,
 		addr: document.querySelector('.reservation-insert-addr').children[0].value,
-		year: currentYear,
-		month: currentMonth + 1,
+		year: currentYear + '',
+		month: currentMonth + 1 + '',
 		dates: document.querySelector('.reservation-insert-book').children[0].value.split('月 ')[1],
 		startPoint: document.querySelector('.reservation-insert-startpoint').children[0].value,
 		endPoint: document.querySelector('.reservation-insert-endpoint').children[0].value,
@@ -1180,20 +1199,15 @@ function reservationInsert() {
 
 	var form = document.createElement('form');
 	form.method = 'post'; // POST 방식 설정
-	form.action = 'ReservationAgree'; // 서블릿의 URL로 설정
+	form.action = 'ReservationInsert'; // 서블릿의 URL로 설정
 
 	// 입력 필드 생성 및 설정
 	var input1 = document.createElement('input');
 	input1.name = 'array'; // 서블릿에서 읽을 파라미터 이름
 	input1.value = JSON.stringify(newReservation); // 전송할 값
 
-	var input2 = document.createElement('input');
-	input2.name = 'status';
-	input2.value = "insert";
-
 	// 폼에 입력 필드 추가
 	form.appendChild(input1);
-	form.appendChild(input2);
 
 	// 폼을 body에 추가하고 자동으로 제출
 	document.body.appendChild(form);
