@@ -595,6 +595,43 @@ EDIT ON */
 	margin-left: 3%;
 }
 
+.reservation-modal-detail-btn {
+	display: none;
+	justify-content: center;
+	height: 10%;
+	width: 100%;
+	align-items: center;
+}
+
+.reservation-modal-detail-btn>div {
+	height: 50%;
+	width: 30%;
+}
+
+.reservation-modal-detail-btn div:first-child {
+	border-radius: 2%/15%;
+	border: none;
+	background-color: #3B82F6;
+	color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 1.5rem;
+	margin-right: 3%;
+}
+
+.reservation-modal-detail-btn div:last-child {
+	border-radius: 2%/15%;
+	border: none;
+	background-color: #ed2a61;
+	color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 1.5rem;
+	margin-left: 3%;
+}
+
 .detail-schedule {
 	position: absolute;
 	width: 20%;
