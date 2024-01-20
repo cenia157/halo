@@ -148,7 +148,7 @@ function openModalNR() {
 
 function closeModalNR() {
 	closeModal('myModalNR', 'myModal-tblNR');
-}
+}	
 
 function getNOTICEDataV(an_seq) {
 	console.log("an_seq: ", an_seq);
@@ -227,6 +227,7 @@ document.getElementById('aaaaaaaaaaaaaaaaaaaaaaaaaa').addEventListener("click",f
     newInput.attr("name", "select");
     newInput.attr("id", "myInputR");
     mmmmmmmm.append(newInput);
+
 
 	openModalR();
 	document.querySelector('.view-modal-tbl').style.display = 'none';
@@ -324,8 +325,6 @@ function getNOTICEDataUpdateView(an_seq) {
 		success: function(data) {
 			viewData = data;
 			console.log("data: ", data);
-			console.log('수정후 이게 실행되야됨');
-			console.log("NOTICE 데이터 가져오기 성공");
 
 			if (Array.isArray(data) && data.length > 0) {
 				let an_seq = data[0].an_seq;
@@ -465,4 +464,23 @@ function toggleR() {
 
 	});
 });
+
+// 관리자 공지사항 수정완료후 뷰 페이지가 나오는데, 모달창 닫고 새로고침해도 seq url때문에 
+// 여러번 새로고침해도 뷰 페이지 나오는 현상 수정
+document.addEventListener('DOMContentLoaded', function() {
+    let performanceEntries = performance.getEntriesByType("navigation");
+    if (performanceEntries.length > 0 && performanceEntries[0].type === "reload") {
+        let url = new URL(window.location.href);
+        let params = new URLSearchParams(url.search);
+
+        if (params.has('seq')) {
+            params.delete('seq');
+            window.history.replaceState(null, null, url.pathname + '?' + params.toString());
+			closeModalV();
+        }
+    }
+});
+
+
+
 
