@@ -151,7 +151,7 @@ function closeModalNR() {
 }	
 
 function getNoticeViewData(an_seq) {
-//	console.log("getNoticeViewDataのan_seq確認　: ", an_seq);
+	console.log("getNoticeViewDataのan_seq確認　: ", an_seq);
 
 	$.ajax({
 		url: "getNOTICEDetailC",
@@ -189,7 +189,7 @@ function getNoticeViewData(an_seq) {
 	})
 }
 
-document.getElementById('aaaaaaaaaaaaaaaaaaaaaaaaaa').addEventListener("click",function() {
+document.getElementById('updataModalBtn').addEventListener("click",function() {
 
 	let an_seq = viewData[0].an_seq;
 	let an_title = viewData[0].an_title;
@@ -198,32 +198,31 @@ document.getElementById('aaaaaaaaaaaaaaaaaaaaaaaaaa').addEventListener("click",f
 	let an_reg_date = viewData[0].an_reg_date;
 	let an_category = viewData[0].an_category;
 	$('#real-title-editorN').val(an_title);
-	$('#CCCCCCCCCCCC').html(an_category);
 	$('#classicR').html(an_content);
 	window.editorR.setData(an_content);
 	$('#kategorieR').html(an_category);
 	$('#seq').val(an_seq);
 
 	if (an_category == 'announcement') {
-		$('#kategorieR').html('안내');
+		$('#kategorieR').html('announcement');
 	} else if (an_category == 'schedule') {
-		$('#kategorieR').html('스케줄');
+		$('#kategorieR').html('schedule');
 	} else if (an_category == 'general') {
-		$('#kategorieR').html('일반');
+		$('#kategorieR').html('general');
 	} else if (an_category == 'service') {
-		$('#kategorieR').html('서비스');
+		$('#kategorieR').html('service');
 	} else if (an_category == 'product') {
-		$('#kategorieR').html('상품');
+		$('#kategorieR').html('product');
 	}
 
-	let mmmmmmmm = $("#kategorieR");
+	let kategorieRInput = $("#kategorieR");
     let newInput = $("<input>");
 
 	newInput.attr("type", "hidden");
     newInput.attr("value", an_category);
     newInput.attr("name", "select");
     newInput.attr("id", "myInputR");
-    mmmmmmmm.append(newInput);
+    kategorieRInput.append(newInput);
 
 
 	openModalR();
@@ -248,8 +247,13 @@ document.getElementById('aaaaaaaaaaaaaaaaaaaaaaaaaa').addEventListener("click",f
             $inputElement.attr({ type: 'text', name: 'saveFname', id: 'img-url', 'data-check': srcValue, value: srcValue});
 
             $imgTemporaryRDiv.append($inputElement);
-        }
-    }
+        } // inner for
+    } // outer for
+	
+	$(".ck-content").click();
+	
+
+//	$(".ck-button[data-cke-tooltip-text='パソコンから画像をアップロード']").addClass("ck-disabled").prop("disabled", true);
 	//	24.01.18 수정끝 
 
 }); // addEventListener
@@ -272,8 +276,6 @@ function getNOTICEDataUpdateView(an_seq) {
 				let an_seq = data[0].an_seq;
 				let an_title = data[0].an_title;
 				let an_content = data[0].an_content;
-//				let an_writer = data[0].an_content;
-//				let an_reg_date = data[0].an_reg_date;
 				let an_category = data[0].an_category;
 
 				$('#modal-seq').val(an_seq);
@@ -298,7 +300,7 @@ function deleteNotice(seq) {
 
 	let pageVal = document.querySelector('#pageNum').value;
 
-	if (confirm('정말 삭제 합니까?')) {
+	if (confirm('この投稿を削除しますか?')) {
 		location.href = "deleteNoticeC?an_seq=" + seq + "&p=" + pageVal +"&checkVal="+searchCheckBoxVal();
 	} else {
 		return;
@@ -325,11 +327,10 @@ function noticeSearch() {
 		pageVal = 1;
 	}
 
-	console.log("노티스써치");
 	if (searchCheckBoxVal()) {
 		location.href = 'NoticePagingC?p=' + pageVal + '&checkVal=' + searchCheckBoxVal();
 	} else {
-		alert('하나이상의 체크박스에 체크를 해야합니다.');
+		alert('一つ以上のチェックボックスにチェックを入れる必要があります。');
 		history.go(0);
 	}
 
@@ -360,19 +361,16 @@ function noValue() {
     let contentLengthCheck = contentCheck.length;
 
     if (!titleCheck) {
-        alert("제목의 값을 입력하세요");
+        alert("タイトルを入力してください。");
         return false;
     } else if (kategorieCheck == null) {
-        alert("카테고리의 값을 입력하세요");
+        alert("カテゴリーを選択してください.");
         return false;
     } else if (contentCheck == "") {
-        alert("내용을 입력하세요");
+        alert("コンテンツの内容を入力してください。");
         return false;
-    } else if (titleLengthCheck > 50) {
-        // alert('제목의 길이는 50자를 넘을 수 없습니다.\n현재 글자 수 : ' + titleLengthCheck);
-        return false;
-    } else if (contentLengthCheck > 10000) {
-        alert('내용의 길이는 10,000 넘을 수 없습니다.\n현재 내용의 길이 : ' + contentLengthCheck);
+    } else if (titleLengthCheck > 100) {
+        alert("タイトルの長さは100文字を超えることはできません.");
         return false;
     } else {
         return true;
@@ -407,21 +405,20 @@ function toggleR() {
 	});
 });
 
-// 관리자 공지사항 수정완료후 뷰 페이지가 나오는데, 모달창 닫고 새로고침해도 seq url때문에 
-// 여러번 새로고침해도 뷰 페이지 나오는 현상 수정
-//document.addEventListener('DOMContentLoaded', function() {
-//    let performanceEntries = performance.getEntriesByType("navigation");
-//    if (performanceEntries.length > 0 && performanceEntries[0].type === "reload") {
-//        let url = new URL(window.location.href);
-//        let params = new URLSearchParams(url.search);
-//
-//        if (params.has('seq')) {
-//            params.delete('seq');
-//            window.history.replaceState(null, null, url.pathname + '?' + params.toString());
-//			closeModalV();
-//        }
-//    }
-//});
+// 관리자 공지사항 수정완료후 뷰 페이지가 나오는데, 모달창 닫고 새로고침해도 seq url때문에 여러번 새로고침해도 뷰 페이지 나오는 현상 수정
+document.addEventListener('DOMContentLoaded', function() {
+    let performanceEntries = performance.getEntriesByType("navigation");
+    if (performanceEntries.length > 0 && performanceEntries[0].type === "reload") {
+        let url = new URL(window.location.href);
+        let params = new URLSearchParams(url.search);
+
+        if (params.has('seq')) {
+            params.delete('seq');
+            window.history.replaceState(null, null, url.pathname + '?' + params.toString());
+			closeModalV();
+        }
+    }
+});
 
   $(document).ready(function () {
                      
@@ -431,24 +428,24 @@ function toggleR() {
 	$(".ck-button[data-cke-tooltip-text='表の挿入']").remove();
 		
 	 $(".ck-content").on("click", function (e) {
-		console.log('클릭 이벤트 발생')
+//		console.log('클릭 이벤트 발생')
 	    let figures = $(".ck-content figure img");
 	    let saveFnames = $("input[name='saveFname']");
 
 		if ($("#myModal-tblR").css("display") !== "none") {
-			console.log('신규 등록 모달창 -> none ***');
-			console.log('업데이트  모달창 -> flex***');
+//			console.log('신규 등록 모달창 -> none ***');
+//			console.log('업데이트  모달창 -> flex***');
 			figures = $("#ck-formR .ck-content figure img")		
 				
 						
 		} else {
-			console.log('신규 등록 모달창 -> flex');
-			console.log('업데이트  모달창 -> none');
+//			console.log('신규 등록 모달창 -> flex');
+//			console.log('업데이트  모달창 -> none');
 	  		figures = $("#ck-form .ck-content figure img")
 	 	}
 	
-	     console.log("figures의 갯수:", figures.length);
-	     console.log("saveFnames의 갯수:", saveFnames.length);
+//	     console.log("figures의 갯수:", figures.length);
+//	     console.log("saveFnames의 갯수:", saveFnames.length);
 	
 	     figures.each(function (index) {
 	         $(this).attr("index", index); 
@@ -470,7 +467,7 @@ function toggleR() {
 	
 	      if (!correspondingFigure.length) {
 	        $(this).remove();
-	        alert("삭제된 이미지 인덱스값: " + inputIndex);
+			alert(`${Number(inputIndex) + 1}番目の画像が削除されました。`);
 	      } // inner if
 	    });
 	    
@@ -481,10 +478,10 @@ function toggleR() {
 	
     // 이미지 추가후 seleted 즉 자동으로 선택될때 방어하는 코드	
     $(".ck-content").on("keydown", function (e) {
-      console.log("누른키 :::test", e.key, e.code);
+//      console.log("누른키 :::test", e.key, e.code);
 
       let whiteList = ["Enter", "Delete", "Backspace", "ArrowUp", "ArrowDown"];
-      let allowedKey = whiteList.includes(e.code); 
+//      let allowedKey = whiteList.includes(e.code); 
 
       let isSelectedFigureExists = $(".ck-content figure.ck-widget_selected").length > 0;
       let isBeforeCaretExists = $(".ck-content figure.ck-widget_type-around_show-fake-caret_before").length > 0;
@@ -497,7 +494,7 @@ function toggleR() {
       } // if
 
 	let count = $(".ck-content figure.ck-widget_selected").length;
-	console.log("ck-widget_selected 클래스를 가진 figure 요소의 개수: " + count);
+//	console.log("ck-widget_selected 클래스를 가진 figure 요소의 개수: " + count);
 	
     }); // $('.ck-content').on("keydown", function(e) {
 
@@ -524,5 +521,8 @@ function toggleR() {
             }
         });
     }); //(".ck-content").on("click keydown", function (e) {
+
+	// 게시판 이름 바꾸기 	
+	$(".content-m-td-title").text("お知らせ").css('visibility', 'visible');
 
   }); // $(document).ready(function(){

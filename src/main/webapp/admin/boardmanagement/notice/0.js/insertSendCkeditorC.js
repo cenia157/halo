@@ -63,7 +63,6 @@ regBtn.addEventListener("click", function() {
 		})
 		.then((data) => {
 			console.log("POST 요청 성공: 이거맞음?????", data);
-			console.log('ㅋㅋㅋ');
 			ckForm.submit();
 			window.editor.setData("");
 			window.editorR.setData("");

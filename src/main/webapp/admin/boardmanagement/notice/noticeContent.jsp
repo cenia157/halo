@@ -22,23 +22,23 @@
 			<div class="ontent-m-td-2-chackbox-contain-input">
 				<input type="checkbox" name="noticeCheck" class="noticeCheck" value="0" onclick="noticeSearch()">
 			</div>
-			<div class="ontent-m-td-2-chackbox-contain-txt">안내</div>
+			<div class="ontent-m-td-2-chackbox-contain-txt">案内</div>
 			<div class="ontent-m-td-2-chackbox-contain-input">
 				<input type="checkbox" name="noticeCheck" class="noticeCheck" value="1" onclick="noticeSearch()">
 			</div>
-			<div class="ontent-m-td-2-chackbox-contain-txt">일정</div>
+			<div class="ontent-m-td-2-chackbox-contain-txt contain-txt-schedule">スケジュール</div>
 			<div class="ontent-m-td-2-chackbox-contain-input">
 				<input type="checkbox" name="noticeCheck" class="noticeCheck" value="2" onclick="noticeSearch()">
 			</div>
-			<div class="ontent-m-td-2-chackbox-contain-txt">일반</div>
+			<div class="ontent-m-td-2-chackbox-contain-txt">一般</div>
 			<div class="ontent-m-td-2-chackbox-contain-input">
 				<input type="checkbox" name="noticeCheck" class="noticeCheck" value="3" onclick="noticeSearch()">
 			</div>
-			<div class="ontent-m-td-2-chackbox-contain-txt">서비스</div>
+			<div class="ontent-m-td-2-chackbox-contain-txt  contain-txt-service">サービス</div>
 			<div class="ontent-m-td-2-chackbox-contain-input">
 				<input type="checkbox" name="noticeCheck" class="noticeCheck" value="4" onclick="noticeSearch()">
 			</div>
-			<div class="ontent-m-td-2-chackbox-contain-txt">상품</div>
+			<div class="ontent-m-td-2-chackbox-contain-txt">商品</div>
 		</div>
 	</div>
 	<div class="ontent-m-td-2-content">
@@ -46,10 +46,10 @@
 		<div class="ontent-m-td-2-content-container">
 			<div class="ontent-m-td-2-content-txt">
 				<div class="ontent-m-td-2-content-txt-no">No</div>
-				<div class="ontent-m-td-2-content-txt-kategorie">카테고리</div>
-				<div class="ontent-m-td-2-content-txt-title">제목</div>
-				<div class="ontent-m-td-2-content-txt-writer">작성자</div>
-				<div class="ontent-m-td-2-content-txt-date">작성일자</div>
+				<div class="ontent-m-td-2-content-txt-kategorie">カテゴリー</div>
+				<div class="ontent-m-td-2-content-txt-title">タイトル</div>
+				<div class="ontent-m-td-2-content-txt-writer">投稿者</div>
+				<div class="ontent-m-td-2-content-txt-date">投稿日</div>
 				<div class="ontent-m-td-2-content-txt-delete"></div>
 			</div>
 		</div>
@@ -63,7 +63,7 @@
 					<div class="ontent-m-td-2-content-txt-writer-in">${an.an_writer }</div>
 					<div class="ontent-m-td-2-content-txt-date-in">${an.an_reg_date}</div>
 					<div class="ontent-m-td-2-content-txt-delete-in">
-					<button onclick="deleteNotice('${an.an_seq}')">削除</button>
+					<button class="deleteNoticeBtn" onclick="deleteNotice('${an.an_seq}')" >削除</button>
 					</div>
 				</div>
 			</c:forEach>
@@ -78,12 +78,12 @@
 					<c:choose>
 						<c:when test="${curPageNo > 5}">
 							<a href="NoticePagingC?p=${curPageNo - 5}&checkVal=${param.checkVal}">
-								<button>&lt;&lt;</button>
+								<button style="cursor: pointer;">&lt;&lt;</button>
 							</a>
 						</c:when>
 						<c:when test="${curPageNo <= 5 && curPageNo > 1}">
 							<a href="NoticePagingC?p=1&checkVal=${param.checkVal}">
-								<button>&lt;&lt;</button>
+								<button style="cursor: pointer;">&lt;&lt;</button>
 							</a>
 						</c:when>
 						<c:otherwise>
@@ -94,11 +94,11 @@
 					<c:choose>
 						<c:when test="${curPageNo > 1}">
 							<a href="NoticePagingC?p=${curPageNo - 1}&checkVal=${param.checkVal}">
-								<button>이전</button>
+								<button style="cursor: pointer;">前の</button>
 							</a>
 						</c:when>
 						<c:otherwise>
-							<button disabled>이전</button>
+							<button disabled>前の</button>
 						</c:otherwise>
 					</c:choose>
 					<!-- 페이지 번호 생성 시작 -->
@@ -135,24 +135,24 @@
 					<c:choose>
 						<c:when test="${curPageNo < pageCount}">
 							<a href="NoticePagingC?p=${curPageNo + 1}&checkVal=${param.checkVal}">
-								<button>다음</button>
+								<button style="cursor: pointer;">次の</button>
 							</a>
 						</c:when>
 						<c:otherwise>
-							<button disabled>다음</button>
+							<button disabled>次の</button>
 						</c:otherwise>
 					</c:choose>
 					<!-- 마지막으로 가는 버튼 -->
 					<c:choose>
 						<c:when test="${curPageNo + 5 <= pageCount}">
 							<a href="NoticePagingC?p=${curPageNo + 5}&checkVal=${param.checkVal}">
-								<button>&gt;&gt;</button>
+								<button style="cursor: pointer;">&gt;&gt;</button>
 							</a>
 						</c:when>
 						<c:when
 							test="${curPageNo + 5 > pageCount && curPageNo < pageCount}">
 							<a href="NoticePagingC?p=${pageCount}&checkVal=${param.checkVal}">
-								<button>&gt;&gt;</button>
+								<button style="cursor: pointer;">&gt;&gt;</button>
 							</a>
 						</c:when>
 						<c:otherwise>
@@ -163,7 +163,7 @@
 				<!-- 페이징끝 --><!-- 페이징끝 --><!-- 페이징끝 -->
 			</div>
 			<div class="ontent-m-td-2-page-side">
-				<button class="SubmitButton-content" onclick="openModalNR()">등록하기</button>
+				<button class="SubmitButton-content" onclick="openModalNR()">登録</button>
 			</div>
 		</div>
 		<!-- noticeNEWRegPage.jsp 시작 -->
@@ -177,34 +177,32 @@
 						<div class="modal-title-td-1">
 							<div class="real-title">
 								<input class="real-title-editor" name="title"
-									id="real-title-editor" placeholder="이곳에 제목을 입력하세요">
-								<!-- 아래의 input은 ajax로 올라갔던 이미지의 실제 이름을 받기 위한 역할을 한다.
-								type="hidden"을 삭제하고 이미지를 올려놓으면 올린 이미지의 경로+이름이 나온다. -->
+									id="real-title-editor" placeholder="ここにタイトルを入力してください">
 								<div id="img-temporary"></div>
 								<div class="real-title-select">
 									<div class="toggle" id="toggle" onclick="toggle()">
-										<div class="kategorie" id="kategorie">카테고리</div>
+										<div class="kategorie" id="kategorie">category</div>
 										<div class="toggle-down" id="toggle-down">
 											<div class="toggle-down-block">
 												<div class="toggle-item" id="announcement">
 													<input name="announcement" type="hidden" id="myInput"
-														value="announcement"> 안내
+														value="announcement"> announcement
 												</div>
 												<div class="toggle-item" id="schedule">
 													<input name="schedule" type="hidden" id="myInput"
-														value="schedule"> 일정
+														value="schedule"> schedule
 												</div>
 												<div class="toggle-item" id="general">
 													<input name="general" type="hidden" id="myInput"
-														value="general"> 일반
+														value="general"> general
 												</div>
 												<div class="toggle-item" id="service">
 													<input name="service" type="hidden" id="myInput"
-														value="service"> 서비스
+														value="service"> service
 												</div>
 												<div class="toggle-item" id="product">
 													<input name="product" type="hidden" id="myInput"
-														value="product"> 상품
+														value="product"> product
 												</div>
 											</div>
 										</div>
@@ -222,7 +220,7 @@
 						</div>
 						<div class="modal-content-button">
 							<input type="hidden" id="regBtnHiddenInput" value="">
-							<button class="SubmitButton" type="button" id="reg-btn">등록완료</button>
+							<button class="SubmitButton" type="button" id="reg-btn" style="cursor: pointer;">登録完了</button>
 						</div>
 					</div>
 				</div>
@@ -247,7 +245,7 @@
 						<div class="modal-content-txt-in viewModal-content-txt-in ck ck-content" id="modal-content-txt-in"></div>
 					</div>
 					<div class="modal-content-button">
-						<button class="SubmitButton" id="aaaaaaaaaaaaaaaaaaaaaaaaaa">修正</button>
+						<button class="SubmitButton" id="updataModalBtn">修正</button>
 					</div>
 				</div>
 			</div>
@@ -263,7 +261,7 @@
 							<input type="hidden" id="seq">
 							<div class="real-title">
 								<input class="real-title-editor" name="title"
-									id="real-title-editorN" placeholder="이곳에 제목을 입력하세요">
+									id="real-title-editorN" placeholder="ここにタイトルを入力してください">
 								<div id="img-temporaryR" type="" style="background-color: aqua;"></div>
 								<div class="real-title-select">
 									<div class="toggle" id="toggleR" onclick="toggleR()">
@@ -272,23 +270,23 @@
 											<div class="toggle-down-block">
 												<div class="toggle-item" id="announcement">
 													<input name="announcement" type="hidden" id="myInputR"
-														value="announcement"> 안내
+														value="announcement"> announcement
 												</div>
 												<div class="toggle-item" id="schedule">
 													<input name="schedule" type="hidden" id="myInputR"
-														value="schedule"> 일정
+														value="schedule"> schedule
 												</div>
 												<div class="toggle-item" id="general">
 													<input name="general" type="hidden" id="myInputR"
-														value="general"> 일반
+														value="general"> general
 												</div>
 												<div class="toggle-item" id="service">
 													<input name="service" type="hidden" id="myInputR"
-														value="service"> 서비스
+														value="service"> service
 												</div>
 												<div class="toggle-item" id="product">
 													<input name="product" type="hidden" id="myInputR"
-														value="product"> 상품
+														value="product"> product
 												</div>
 											</div>
 										</div>
@@ -305,7 +303,7 @@
 							<textarea name="txt" id="classicR" class="classicR"></textarea>
 						</div>
 						<div class="modal-content-button">
-							<button class="SubmitButton" type="button" id="reg-btnR">修正完了</button>
+							<button  class="SubmitButton" type="button" id="reg-btnR" style="cursor: pointer;">修正完了</button>
 						</div>
 					</div>
 				</div>

@@ -68,11 +68,9 @@ public class NOTICEDAO {
 //		// 기존코드 끝
 		
 		// 수정코드 시작 
-		
 	    // 체크박스 값 파싱
 	    String checkBoxVal[] = {"announcement", "schedule", "general", "service", "product"};
 	    String checkVal = request.getParameter("checkVal");
-	    System.out.println("step2.1");
 	    Connection con = null;
 	    PreparedStatement pstmt = null;
 	    ResultSet rs = null;
@@ -119,6 +117,7 @@ public class NOTICEDAO {
 	    } finally {
 	        DBManagerhalo.close(con, pstmt, rs);
 	    }
+	   // 수정코드 끝 
 	}
 
 	public static String NOTICEList(HttpServletRequest request, HttpServletResponse response) {
@@ -169,8 +168,6 @@ public class NOTICEDAO {
 	}
 
 	public static void NOTICEpagingAdmin(int page, HttpServletRequest request) {
-		System.out.println("step3 AdminNOTICEC get -> NOTICEpagingAdmin 진입확인");
-
 
 		int cnt = 8;
 		int total = NOTICEs.size();
@@ -183,7 +180,6 @@ public class NOTICEDAO {
 		
 		
 		int start = total - (cnt * (page - 1));
-
 		int end = (page == pageCount) ? -1 : start - (cnt + 1);
 
 		ArrayList<Notice> items = new ArrayList<Notice>();
