@@ -457,3 +457,62 @@
 	font-size: 2.5rem;
 	resize: none
 }
+
+
+/* 버튼 css */
+/* 옅은 녹색: #99B361 */
+/* 짙은 녹색: #738749 */
+/* 옅은 회색: #ccc */
+/* 짙은 회색: #666 */
+/* 중간 회색: #999999 */
+
+.paging-div > a{
+	font-size: 1.2rem;
+	color: #C0C0C0;
+	font-weight: bolder;
+}
+
+button {
+	background-color: #99B361;
+	border: none;
+	border-radius: 20%;
+	color: white;
+	font-size: 1.2rem;
+	font-weight: bold;
+	padding: 0.2rem;
+}
+button[disabled] {
+	background-color: #999999;
+	border: none;
+	color: #ccc;
+}
+
+/* 이전, 다음 버튼 */
+button#Previous{
+	padding-left: 0.5rem;
+	padding-right: 0.5rem;
+}
+button#Next{
+	padding-left: 0.5rem;
+	padding-right: 0.5rem;
+}
+
+
+/* 맨앞,맨뒤 버튼 */
+#MostPrevious{
+	background-color: #738749;
+}
+button#MostPrevious:disabled {
+	background-color: #999999;
+	border: none;
+	color: #ccc;
+}
+
+#MostNext{
+	background-color: #738749;
+}
+button#MostNext:disabled {
+	background-color: #999999;
+	border: none;
+	color: #ccc;
+}

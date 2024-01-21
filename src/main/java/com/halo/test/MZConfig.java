@@ -27,11 +27,9 @@ public class MZConfig {
 				String fileName = fileNames.nextElement();
 				File file = mr.getFile(fileName);
 				
-				System.out.println("--------------------------------");
 				System.out.println("MZConfig.java진입");
 				System.out.println("파일경로 ::: " + file.getAbsolutePath());
 				System.out.println("파일이름 :::: " + file.getName());
-				System.out.println("--------------------------------");
 				JSONObject jo = new JSONObject();
 				jo.put("fName", "admin/_js/ckeditor/file/" + file.getName());
 				response.setCharacterEncoding("UTF-8");
@@ -40,8 +38,6 @@ public class MZConfig {
 
 			}
 
-			
-			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

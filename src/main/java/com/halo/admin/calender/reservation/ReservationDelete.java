@@ -15,7 +15,7 @@ public class ReservationDelete extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println(request.getParameter("no"));
+		ReservationDAO.passToReservationScheduleDecline(request, response);
 		ReservationDAO.deleteReservationSchedule(request, response);
 		response.sendRedirect("ReservationC");
 	}

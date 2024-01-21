@@ -90,7 +90,7 @@
 
 			<!-- 본문 예시 -->
 			<div class="qd-content-box-td2-1">
-				<div class="qd-content-box-td2-1-content" id="modalContent">
+				<div class="qd-content-box-td2-1-content ck ck-content" id="modalContent">
 					안녕하세요, 운영자입니다. <br /> 일정관리를 다음과 같이 알려드립니다. 시세확장때문에 하는데요. <br />
 					평일 중 2일과 주말 1일을 정기적으로 한 달 동안 이용하는 것이 가능한지 궁금합니다. <br /> 안녕하세요,
 					운영자입니다. <br /> 일정관리를 다음과 같이 알려드립니다. 시세확장때문에 하는데요. <br /> 평일 중 2일과

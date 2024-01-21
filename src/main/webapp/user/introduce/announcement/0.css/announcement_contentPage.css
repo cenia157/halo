@@ -25,12 +25,12 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	background: rgba(255, 255, 255, 0.8);
 }
 
 .a_content-box-tr1 {
 	border-radius: 35px;
 	background-color: #fffcf0; 
+	opacity: 0.90;
 	width: 95%;
 	height: 100%;
 }
