@@ -6,7 +6,6 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="admin/dashboard/0.css/dashboard.css">
-<script src="admin/dashboard/0.js/dashboard.js"></script>
 </head>
 <body>
 
@@ -23,13 +22,7 @@
 				<div class="deshboard-todo-box-2">
 					<div class="deshboard-todo-title-2">예약현황</div>
 					<div class="deshboard-todo-list-2 reservationList">
-						<!-- 안에 넣을 예시 -->
-						<div class="deshboard-todo reservation" id="0">
-							<div class="deshboard-todo-cell service">Texi</div>
-							<div class="deshboard-todo-cell name">민기시치</div>
-							<div class="deshboard-todo-cell phonNum">01052525252</div>
-							<div class="deshboard-todo-cell time">종일</div>
-						</div>
+						<!-- List 목록-->
 					</div>
 				</div>
 				<div class="deshboard-todo-box-2">
@@ -63,5 +56,6 @@
 		</div>
 
 	</div>
+<script src="admin/dashboard/0.js/dashboard.js"></script>
 </body>
 </html>
