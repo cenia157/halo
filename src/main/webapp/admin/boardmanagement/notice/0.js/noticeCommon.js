@@ -139,6 +139,7 @@ function closeModalR() {
 
 // NEWRegPage를 띄우기 위한 모달
 function openModalNR() {
+	window.editorR.setData("");
 	openModal('myModalNR', 'myModal-tblNR');
 	closeModalOnOutsideClick('myModalNR');
 	// 24-01-19 추가 등록버튼 여러번 반복시, 이미지아이콘 구분선 disabled되는 오류 추가 수정 
@@ -163,15 +164,12 @@ function getNoticeViewData(an_seq) {
 		success: function(data) {
 
 //			console.log("data: ", data);
-//			console.log("getNOTICEDataV function 실행");
 
 			if (Array.isArray(data) && data.length > 0) {
 				viewData = data;
 				let an_seq = data[0].an_seq;
 				let an_title = data[0].an_title;
 				let an_content = data[0].an_content;
-//				let an_writer = data[0].an_content;
-//				let an_reg_date = data[0].an_reg_date;
 				let an_category = data[0].an_category;
 
 				$('#modal-seq').val(an_seq);
@@ -522,7 +520,86 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }); //(".ck-content").on("click keydown", function (e) {
 
-	// 게시판 이름 바꾸기 	
-	$(".content-m-td-title").text("お知らせ").css('visibility', 'visible');
+//	// 게시판 이름 바꾸기 	
+//	$(".content-m-td-title").text("お知らせ").css('visibility', 'visible');
+//	
+//    // 'view-modal-tbl' 클래스를 가진 요소에 tabindex 설정
+//    $('.view-modal-tbl').attr('tabindex', '0')
+//    .on('focus', function() {
+//        console.log('포커스 받음:', this);
+//    })
+//    .on('blur', function() {
+//        console.log('포커스 잃음:', this);
+//    })
+//    .keydown(function(event) {
+//        if (event.key === "Escape") {
+//            console.log('ESC 키 감지 - view-modal-tbl');
+//            closeModalV();
+//        }
+//    });
+
+	// 뷰 페이지 esc로 끄기
+//    $(document).keydown(function(event) {
+//        // ESC 키가 눌렸는지 확인
+//        if (event.key === "Escape") {
+//            console.log('뷰 페이지에서 ESC 키 감지');
+//
+//            if ($('.view-modal-tbl').css('display') === 'flex') {
+//                console.log('view-modal-tbl이 flex 상태입니다. closeModalV() 실행');
+//                closeModalV();
+//            } 
+//        }
+//    });
+//
+//	
+//	// 수정 페이지 esc로 끄기
+//    $(document).keydown(function(event) {
+//        // ESC 키가 눌렸는지 확인
+//        if (event.key === "Escape") {
+//            // 'closeRegModal' 클래스가 flex 상태인지 확인
+//            if ($('.closeRegModal').css('display') === 'flex') {
+//                closeModalV();
+//            }
+//        }
+//    });
+//
+//    $(document).keydown(function(event) {
+//        // ESC 키가 눌렸는지 확인
+//        if (event.key === "Escape") {
+//            // 'myModal-tblNR' 아이디를 가진 요소의 display 상태 확인
+//            if ($('#myModal-tblNR').css('display') === 'flex') {
+//                closeModalNR();
+//            }
+//        }
+//    });
+
+   // 뷰, 등록, 수정 페이지에서 esc누르면 모달창 끄도록
+   $(document).keydown(function(event) {
+        // ESC 키가 눌렸는지 확인
+        if (event.key === "Escape") {
+            console.log('ESC 키 감지');
+
+            // 'view-modal-tbl' 클래스가 flex 상태인지 확인
+            if ($('.view-modal-tbl').css('display') === 'flex') {
+                console.log('view-modal-tbl이 flex 상태입니다. closeModalV() 실행');
+                closeModalV();
+                return; // 함수 실행 후 추가적인 검사를 방지
+            } 
+
+            // 'closeRegModal' 클래스가 flex 상태인지 확인
+            if ($('.closeRegModal').css('display') === 'flex') {
+                console.log('closeRegModal이 flex 상태입니다. closeModalV() 실행');
+                closeModalV();
+                return; // 함수 실행 후 추가적인 검사를 방지
+            }
+
+            // 'myModal-tblNR' 아이디를 가진 요소의 display 상태 확인
+            if ($('#myModal-tblNR').css('display') === 'flex') {
+                console.log('myModal-tblNR이 flex 상태입니다. closeModalNR() 실행');
+                closeModalNR();
+                return; // 함수 실행 후 추가적인 검사를 방지
+            }
+        }
+    });
 
   }); // $(document).ready(function(){
