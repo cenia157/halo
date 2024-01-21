@@ -573,7 +573,7 @@ document.addEventListener('DOMContentLoaded', function() {
 //        }
 //    });
 
-   // 뷰, 등록, 수정 페이지에서 esc누르면 모달창 끄도록
+   // 관리자 공지사항 게시판 -> 조회, 등록, 수정 페이지에서 esc누르면 모달창 끄도록 수정
    $(document).keydown(function(event) {
         // ESC 키가 눌렸는지 확인
         if (event.key === "Escape") {
@@ -601,5 +601,64 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     });
+
+//    $(document).on('keydown click', function(event) {
+//        if (event.key === "Escape" || event.type === "click") {
+//            if ($('.closeRegModal').css('display') === 'flex' && $('#toggle-downR').css('display') === 'flex') {
+//                $('#toggle-downR').css('display', 'none');
+//            }
+//        }
+//    });
+
+//    $(document).on('keydown click', function(event) {
+//        // ESC 키 누름 또는 문서의 어떤 부분 클릭
+//        if (event.key === "Escape" || event.type === "click") {
+//            // 클릭된 요소가 toggleR 또는 그 하위 요소인지 확인
+//            if ($(event.target).closest('#toggleR').length) {
+//                return; // toggleR 또는 그 하위 요소에서의 클릭은 무시
+//            }
+//
+//            // closeRegModal과 toggle-downR이 flex 상태인지 확인
+//            if ($('.closeRegModal').css('display') === 'flex' && $('#toggle-downR').css('display') === 'flex') {
+//                $('#toggle-downR').css('display', 'none');
+//            }
+//        }
+//    });
+
+//    $(document).on('keydown click', function(event) {
+//        // ESC 키 누름 또는 문서의 어떤 부분 클릭
+//        if (event.key === "Escape" || event.type === "click") {
+//            // 클릭된 요소가 'toggle-down' 또는 그 하위 요소인지 확인
+//            if ($(event.target).closest('#toggle').length) {
+//                return; // 'toggle-down' 또는 그 하위 요소에서의 클릭은 무시
+//            }
+//
+//            // 'myModal-tblNR' id가 flex 상태이고 'toggle-down' 아이디가 flex 상태인지 확인
+//            if ($('#myModal-tblNR').css('display') === 'flex' && $('#toggle-down').css('display') === 'flex') {
+//                $('#toggle-down').css('display', 'none');
+//            }
+//        }
+//    });
+
+	// 모달창에서 카테고리 input박스 닫히도록 잔처리 
+	$(document).on('keydown click', function(event) {
+	    // ESC 키 누름 또는 문서의 어떤 부분 클릭
+	    if (event.key === "Escape" || event.type === "click") {
+	        // 클릭된 요소가 'toggleR' 또는 'toggle' 또는 그 하위 요소인지 확인
+	        if ($(event.target).closest('#toggleR').length || $(event.target).closest('#toggle').length) {
+	            return; // 'toggleR' 또는 'toggle' 또는 그 하위 요소에서의 클릭은 무시
+	        }
+	
+	        // closeRegModal과 toggle-downR이 flex 상태인지 확인
+	        if ($('.closeRegModal').css('display') === 'flex' && $('#toggle-downR').css('display') === 'flex') {
+	            $('#toggle-downR').css('display', 'none');
+	        }
+	
+	        // myModal-tblNR와 toggle-down이 flex 상태인지 확인
+	        if ($('#myModal-tblNR').css('display') === 'flex' && $('#toggle-down').css('display') === 'flex') {
+	            $('#toggle-down').css('display', 'none');
+	        }
+	    }
+	});
 
   }); // $(document).ready(function(){
