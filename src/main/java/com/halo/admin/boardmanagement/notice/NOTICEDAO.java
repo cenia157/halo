@@ -5,12 +5,13 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.halo.main.DBManagerhalo;
 import com.halo.test.DBManagerhalo_JW;
 
 public class NOTICEDAO {
@@ -18,50 +19,106 @@ public class NOTICEDAO {
 	private static ArrayList<Notice> NOTICEs;
 
 	public static void getAllNOTICE(HttpServletRequest request, HttpServletResponse response) {
-		// 체크박스 벨류
-		String checkBoxVal[] = {"announcement","schedule","general","service","product"};
-		String checkVal = request.getParameter("checkVal");
 		
-		Connection con = null;
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		String sql = "select * from ANNOUNCED_TBL where ";
-		for (int i = 0; i < checkVal.length(); i++) {
-			int checkValIndex = Integer.parseInt(Character.toString(checkVal.charAt(i)));
-			sql += "an_category = '" + checkBoxVal[checkValIndex]+"' ";
-			if(i != checkVal.length()-1) {
-				sql += " or ";
-			}
-		}
-		sql += " order by an_seq ASC";
-		System.out.println(sql);
-		try {
-			con = DBManagerhalo_JW.connect();
-			pstmt = con.prepareStatement(sql);
-			rs = pstmt.executeQuery();
+//		// 기존코드 시작
+//		// 체크박스 벨류
+//		System.out.println("여기 들어왔나 확인 ");
+//		String checkBoxVal[] = {"announcement","schedule","general","service","product"};
+//		String checkVal = request.getParameter("checkVal");
+//		
+//		Connection con = null;
+//		PreparedStatement pstmt = null;
+//		ResultSet rs = null;
+//		String sql = "select * from ANNOUNCED_TBL where ";
+//		for (int i = 0; i < checkVal.length(); i++) {
+//			int checkValIndex = Integer.parseInt(Character.toString(checkVal.charAt(i)));
+//			sql += "an_category = '" + checkBoxVal[checkValIndex]+"' ";
+//			if(i != checkVal.length()-1) {
+//				sql += " or ";
+//			}
+//		}
+//		sql += " order by an_seq ASC";
+//		System.out.println(sql);
+//		try {
+//			con = DBManagerhalo_JW.connect();
+//			pstmt = con.prepareStatement(sql);
+//			rs = pstmt.executeQuery();
+//
+//			NOTICEs = new ArrayList<Notice>();
+//			Notice notice = null;
+//
+//			while (rs.next()) {
+//				int an_seq = rs.getInt("an_seq");
+//				String an_title = rs.getString("an_title");
+//				String an_content = rs.getString("an_content");
+//				String an_writer = rs.getString("an_writer");
+//				Date an_reg_date = rs.getDate("an_reg_date");
+//				String an_category = rs.getString("an_category");
+//				
+//				notice = new Notice(an_seq, an_title, an_content, an_writer, an_reg_date, an_category);
+//				NOTICEs.add(notice);
+//			}
+//
+//			request.setAttribute("NOTICEs", NOTICEs);
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		} finally {
+//			DBManagerhalo_JW.close(con, pstmt, rs);
+//		}
+//		// 기존코드 끝
+		
+		// 수정코드 시작 
+		
+	    // 체크박스 값 파싱
+	    String checkBoxVal[] = {"announcement", "schedule", "general", "service", "product"};
+	    String checkVal = request.getParameter("checkVal");
+	    System.out.println("step2.1");
+	    Connection con = null;
+	    PreparedStatement pstmt = null;
+	    ResultSet rs = null;
+	    StringBuilder sqlBuilder = new StringBuilder("SELECT * FROM ANNOUNCED_TBL WHERE ");
+	    List<Integer> params = new ArrayList<>();
 
-			NOTICEs = new ArrayList<Notice>();
-			Notice notice = null;
+	    for (int i = 0; i < checkVal.length(); i++) {
+	        int checkValIndex = Character.getNumericValue(checkVal.charAt(i));
+	        if (i > 0) {
+	            sqlBuilder.append(" OR ");
+	        }
 
-			while (rs.next()) {
-				int an_seq = rs.getInt("an_seq");
-				String an_title = rs.getString("an_title");
-				String an_content = rs.getString("an_content");
-				String an_writer = rs.getString("an_writer");
-				Date an_reg_date = rs.getDate("an_reg_date");
-				String an_category = rs.getString("an_category");
-				
-				notice = new Notice(an_seq, an_title, an_content, an_writer, an_reg_date, an_category);
-				NOTICEs.add(notice);
-			}
+	        sqlBuilder.append("an_category = ?");
+	        params.add(checkValIndex);
+	    }
 
-			request.setAttribute("NOTICEs", NOTICEs);
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			DBManagerhalo_JW.close(con, pstmt, rs);
-		}
+	    sqlBuilder.append(" ORDER BY an_seq ASC");
+	    String sql = sqlBuilder.toString();
 
+	    try {
+	        con = DBManagerhalo.connect();
+	        pstmt = con.prepareStatement(sql);
+
+	        for (int i = 0; i < params.size(); i++) {
+	            pstmt.setString(i + 1, checkBoxVal[params.get(i)]);
+	        }
+	        rs = pstmt.executeQuery();
+	        
+	        NOTICEs = new ArrayList<>();
+	        while (rs.next()) {
+	            Notice notice = new Notice(
+	                rs.getInt("an_seq"),
+	                rs.getString("an_title"),
+	                rs.getString("an_content"),
+	                rs.getString("an_writer"),
+	                rs.getDate("an_reg_date"),
+	                rs.getString("an_category")
+	            );
+	            NOTICEs.add(notice);
+	        }
+	        request.setAttribute("NOTICEs", NOTICEs);
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    } finally {
+	        DBManagerhalo.close(con, pstmt, rs);
+	    }
 	}
 
 	public static String NOTICEList(HttpServletRequest request, HttpServletResponse response) {
@@ -112,6 +169,7 @@ public class NOTICEDAO {
 	}
 
 	public static void NOTICEpagingAdmin(int page, HttpServletRequest request) {
+		System.out.println("step3 AdminNOTICEC get -> NOTICEpagingAdmin 진입확인");
 
 
 		int cnt = 8;
@@ -151,7 +209,7 @@ public class NOTICEDAO {
 			pstmt.setString(1, request.getParameter("an_seq"));
 			
 			if(pstmt.executeUpdate() == 1) {
-				System.out.println("realDeleteNotice() 삭제 성공!!!");
+				System.out.println("realDeleteNotice() 삭제 성공");
 			}
 
 		} catch (Exception e) {
@@ -159,8 +217,6 @@ public class NOTICEDAO {
 			e.printStackTrace();
 		} finally {
 			DBManagerhalo_JW.close(con, pstmt, null);
-	    } // finally
-		
-		
+	    }	
 	}
 }

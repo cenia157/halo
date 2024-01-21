@@ -150,8 +150,8 @@ function closeModalNR() {
 	closeModal('myModalNR', 'myModal-tblNR');
 }	
 
-function getNOTICEDataV(an_seq) {
-	console.log("an_seq: ", an_seq);
+function getNoticeViewData(an_seq) {
+//	console.log("getNoticeViewDataのan_seq確認　: ", an_seq);
 
 	$.ajax({
 		url: "getNOTICEDetailC",
@@ -162,31 +162,28 @@ function getNOTICEDataV(an_seq) {
 
 		success: function(data) {
 
-			console.log("data: ", data);
-			console.log("NOTICE 데이터 가져오기 성공");
+//			console.log("data: ", data);
+//			console.log("getNOTICEDataV function 실행");
 
 			if (Array.isArray(data) && data.length > 0) {
 				viewData = data;
 				let an_seq = data[0].an_seq;
 				let an_title = data[0].an_title;
 				let an_content = data[0].an_content;
-				let an_writer = data[0].an_content;
-				let an_reg_date = data[0].an_reg_date;
+//				let an_writer = data[0].an_content;
+//				let an_reg_date = data[0].an_reg_date;
 				let an_category = data[0].an_category;
 
 				$('#modal-seq').val(an_seq);
 				$('#real-title-V').html(an_title);
 				$('#Display-Category').html(an_category);
 				$('#modal-content-txt-in').html(an_content);
-				$('#real-title-editor').val(an_title);
 
-				openModalV();
-			} else {
-				console.log("NOTICE 데이터 가져오기 성공");
-			}
+				openModalV();	
+			} 
 		},
 		error: function(xhr, status, error) {
-			console.log("NOTICE 데이터 가져오기 실패");
+			console.log("getNOTICEDataV function 에러");
 			console.log("error:", xhr, status, error);
 		}
 	})
@@ -243,74 +240,19 @@ document.getElementById('aaaaaaaaaaaaaaaaaaaaaaaaaa').addEventListener("click",f
             let $img = $figures.eq(j).find('img');
             let srcValue = $img.attr('src');
 
-            // data-check 속성을 생성하고 src 값을 할당합니다.
             $img.attr('data-check', srcValue);
-            // img-temporaryR div 요소를 선택합니다.
-            let $imgTemporaryRDiv = $('#img-temporaryR');
-            // input 요소를 생성합니다.
-            let $inputElement = $('<input>');
-            // input 요소의 type, name, id, data-check 속성, value 값을 설정합니다.
-            $inputElement.attr({
-                type: 'text',
-                name: 'saveFname',
-                id: 'img-url',
-                'data-check': srcValue,
-                value: srcValue
-            });
 
-            // input 요소를 img-temporaryR div에 추가합니다.
+            let $imgTemporaryRDiv = $('#img-temporaryR');
+            let $inputElement = $('<input>');
+
+            $inputElement.attr({ type: 'text', name: 'saveFname', id: 'img-url', 'data-check': srcValue, value: srcValue});
+
             $imgTemporaryRDiv.append($inputElement);
         }
     }
 	//	24.01.18 수정끝 
 
 }); // addEventListener
-
-
-function getNOTICEDataR(an_seq, an_title, an_content, an_writer, an_reg_date, an_category) {
-	console.log("an_seq: ", an_seq);
-
-	$.ajax({
-		url: "getNOTICEDetailC",
-		method: "post",
-		data: {
-			an_seq: an_seq,
-			an_title: an_title,
-			an_content: an_content,
-			an_writer: an_writer,
-			an_reg_date: an_reg_date,
-			an_categor: an_category
-		},
-
-		success: function(data) {
-
-			console.log("data: ", data);
-			console.log("NOTICE 데이터 가져오기 성공");
-
-
-			if (Array.isArray(data) && data.length > 0) {
-				let an_seq = data[0].an_seq;
-				let an_title = data[0].an_title;
-				let an_content = data[0].an_content;
-				let an_writer = data[0].an_content;
-				let an_reg_date = data[0].an_reg_date;
-				let an_category = data[0].an_category;
-
-
-				$('#modal-seq').val(an_seq);
-
-				openModalR();
-			} else {
-				console.log("NOTICE 데이터 가져오기 성공");
-			}
-
-		},
-		error: function(xhr, status, error) {
-			console.log("NOTICE 데이터 가져오기 실패");
-			console.log("error:", xhr, status, error);
-		}
-	})
-}
 
 function getNOTICEDataUpdateView(an_seq) {
 	console.log("an_seq: ", an_seq);
@@ -330,8 +272,8 @@ function getNOTICEDataUpdateView(an_seq) {
 				let an_seq = data[0].an_seq;
 				let an_title = data[0].an_title;
 				let an_content = data[0].an_content;
-				let an_writer = data[0].an_content;
-				let an_reg_date = data[0].an_reg_date;
+//				let an_writer = data[0].an_content;
+//				let an_reg_date = data[0].an_reg_date;
 				let an_category = data[0].an_category;
 
 				$('#modal-seq').val(an_seq);
@@ -467,20 +409,120 @@ function toggleR() {
 
 // 관리자 공지사항 수정완료후 뷰 페이지가 나오는데, 모달창 닫고 새로고침해도 seq url때문에 
 // 여러번 새로고침해도 뷰 페이지 나오는 현상 수정
-document.addEventListener('DOMContentLoaded', function() {
-    let performanceEntries = performance.getEntriesByType("navigation");
-    if (performanceEntries.length > 0 && performanceEntries[0].type === "reload") {
-        let url = new URL(window.location.href);
-        let params = new URLSearchParams(url.search);
+//document.addEventListener('DOMContentLoaded', function() {
+//    let performanceEntries = performance.getEntriesByType("navigation");
+//    if (performanceEntries.length > 0 && performanceEntries[0].type === "reload") {
+//        let url = new URL(window.location.href);
+//        let params = new URLSearchParams(url.search);
+//
+//        if (params.has('seq')) {
+//            params.delete('seq');
+//            window.history.replaceState(null, null, url.pathname + '?' + params.toString());
+//			closeModalV();
+//        }
+//    }
+//});
 
-        if (params.has('seq')) {
-            params.delete('seq');
-            window.history.replaceState(null, null, url.pathname + '?' + params.toString());
-			closeModalV();
-        }
-    }
-});
+  $(document).ready(function () {
+                     
+	// 표기능, 외부 주소 첨부기능 비활성화
+    $(".ck-button[data-cke-tooltip-text='画像挿入']").remove();
+	$(".ck-button[data-cke-tooltip-text='メディアの挿入']").remove();
+	$(".ck-button[data-cke-tooltip-text='表の挿入']").remove();
+		
+	 $(".ck-content").on("click", function (e) {
+		console.log('클릭 이벤트 발생')
+	    let figures = $(".ck-content figure img");
+	    let saveFnames = $("input[name='saveFname']");
 
+		if ($("#myModal-tblR").css("display") !== "none") {
+			console.log('신규 등록 모달창 -> none ***');
+			console.log('업데이트  모달창 -> flex***');
+			figures = $("#ck-formR .ck-content figure img")		
+				
+						
+		} else {
+			console.log('신규 등록 모달창 -> flex');
+			console.log('업데이트  모달창 -> none');
+	  		figures = $("#ck-form .ck-content figure img")
+	 	}
+	
+	     console.log("figures의 갯수:", figures.length);
+	     console.log("saveFnames의 갯수:", saveFnames.length);
+	
+	     figures.each(function (index) {
+	         $(this).attr("index", index); 
+	     });
+	
+	     saveFnames.each(function (index) {
+	         $(this).attr("index", index); 
+	     });
+	 });
 
+     // 이미지 다중 업로드 후 인덱스값 맞게 삭제
+	 $(".ck-content").on("keyup", function (e) {
+	  if (e.key === "Backspace" || e.key === "Delete") {
+	    $("input[name='saveFname']").each(function () {
+	      let inputIndex = $(this).attr("index"); // 클릭 이벤트로 할당된 인덱스 사용
+	      let correspondingFigure = $(".ck-content figure img").filter(function () {
+	        return $(this).attr("index") === inputIndex;
+	      });
+	
+	      if (!correspondingFigure.length) {
+	        $(this).remove();
+	        alert("삭제된 이미지 인덱스값: " + inputIndex);
+	      } // inner if
+	    });
+	    
+	    // 인덱스를 재할당
+	    $(".ck-content").click();
+	  } // outer if
+	});
+	
+    // 이미지 추가후 seleted 즉 자동으로 선택될때 방어하는 코드	
+    $(".ck-content").on("keydown", function (e) {
+      console.log("누른키 :::test", e.key, e.code);
 
+      let whiteList = ["Enter", "Delete", "Backspace", "ArrowUp", "ArrowDown"];
+      let allowedKey = whiteList.includes(e.code); 
 
+      let isSelectedFigureExists = $(".ck-content figure.ck-widget_selected").length > 0;
+      let isBeforeCaretExists = $(".ck-content figure.ck-widget_type-around_show-fake-caret_before").length > 0;
+      let isAfterCaretExists = $(".ck-content figure.ck-widget_type-around_show-fake-caret_after").length > 0;
+
+      if ( !whiteList.includes(e.code) && isSelectedFigureExists && !isBeforeCaretExists && !isAfterCaretExists) {
+        console.log("허용되지 않는 키 입니다");
+        e.preventDefault(); // 입력 방지
+        this.blur(); // 입력 필드에서 포커스 제거
+      } // if
+
+	let count = $(".ck-content figure.ck-widget_selected").length;
+	console.log("ck-widget_selected 클래스를 가진 figure 요소의 개수: " + count);
+	
+    }); // $('.ck-content').on("keydown", function(e) {
+
+    // 이미지 드래그스타트 방지 
+    $(".ck-content").on("dragstart", "img", function (e) {
+      e.preventDefault(); 
+    }); // $('.ck-content').on('dragstart', 'img', function(e) {
+
+    // UI메뉴 셀렉티드 될때 방어 코드 
+    $(".ck-content").on("click keydown", function (e) {
+        let isSelectedFigureExists =
+            $(".ck-content figure.ck-widget_selected").length > 0;
+
+        let buttonsToDisable = ["区切り", "リンク (Ctrl+K)", "パソコンから画像を置換", "パソコンから画像をアップロード"];
+
+        buttonsToDisable.forEach(buttonText => {
+            let $button = $(".ck-button[data-cke-tooltip-text='" + buttonText + "']");
+            if (isSelectedFigureExists && !(e.type === "keydown" && e.key === "Enter")) {
+                $button.addClass("ck-disabled");
+                $button.prop("disabled", true);
+            } else {
+                $button.removeClass("ck-disabled");
+                $button.prop("disabled", false);
+            }
+        });
+    }); //(".ck-content").on("click keydown", function (e) {
+
+  }); // $(document).ready(function(){
