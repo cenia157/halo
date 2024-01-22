@@ -5,8 +5,8 @@ function openModal(modalId, tblId) {
 	document.getElementById(tblId).style.display = 'flex';
 
 	// 아래 6줄은 모달창 열 때 스크롤 감추기 & 터치, 휠 불가
-	$('html, body').css({ 'overflow': 'hidden', 'height': '100%' }); // 모달팝업 중 html,body의 scroll을 hidden시킴
-	$('#element').on('scroll touchmove mousewheel', function(event) { // 터치무브와 마우스휠 스크롤 방지
+	$('html, body').css({ 'overflow': 'hidden', 'height': '100%' });
+	$('#element').on('scroll touchmove mousewheel', function(event) { 
 		event.preventDefault();
 		event.stopPropagation();
 		return false;
@@ -29,9 +29,7 @@ function closeModal(modalId, tblId) {
 
 	// 사진 input 삭제
 	var imageInputs = document.querySelectorAll("#img-url");
-	imageInputs.forEach(function(input) {
-		input.parentNode.removeChild(input);
-	});
+	imageInputs.forEach(function(input) { input.parentNode.removeChild(input); });
 
 	// #kategorie 안의 input(#select)과 그 안의 텍스트 둘 다 삭제 및 '카테고리' 재설정
 	var kategorieInput = document.querySelector('#kategorie input');
