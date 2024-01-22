@@ -150,7 +150,6 @@ public class CKEditorDAO {
 				String fileName = fileNames.nextElement();
 				File file = mr.getFile(fileName);
 				
-				System.out.println("CK_DAO.java -> uploadFile() 메소드 진입");
 				System.out.println("파일경로 ::: " + file.getAbsolutePath());
 				System.out.println("파일이름 :::: " + file.getName());
 				JSONObject jo = new JSONObject();

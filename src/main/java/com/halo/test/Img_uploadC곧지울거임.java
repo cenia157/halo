@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
 @WebServlet("/Img_upload")
-public class Img_uploadC extends HttpServlet {
+public class Img_uploadCê³§ì§€ìš¸ê±°ìž„ extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 	}
@@ -24,27 +24,27 @@ public class Img_uploadC extends HttpServlet {
 
 		for (Part part : parts) {
 			if ("upload".equals(part.getName())) {
-				// ¾÷·ÎµåµÈ ÆÄÀÏ¿¡ Á¢±Ù
+				// ï¿½ï¿½ï¿½Îµï¿½ï¿½ ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½
 				InputStream fileContent = part.getInputStream();
 
-				// ÆÄÀÏ Ã³¸® ·ÎÁ÷ ±¸Çö
-				// ¿¹: ÆÄÀÏÀ» ¾îµò°¡¿¡ ÀúÀåÇÏ°Å³ª ´Ù¸¥ Ã³¸® ¼öÇà
+				// ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+				// ï¿½ï¿½: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ò°¡¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°Å³ï¿½ ï¿½Ù¸ï¿½ Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-				// ÆÄÀÏÀÇ ÀÌ¸§
+				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½
 				String fileName = getFileName(part);
 
-				// ¿©±â¼­ ÇÊ¿äÇÑ ·ÎÁ÷ ¼öÇà
-				// ¿¹: µ¥ÀÌÅÍº£ÀÌ½º¿¡ ÆÄÀÏ Á¤º¸ ÀúÀå µî
+				// ï¿½ï¿½ï¿½â¼­ ï¿½Ê¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+				// ï¿½ï¿½: ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½Ì½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 
 				System.out.println("Received file: " + fileName);
 			}
 		}
 
-		// Å¬¶óÀÌ¾ðÆ®¿¡°Ô ÀÀ´ä
+		// Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		response.getWriter().write("File Upload Successful");
 	}
 
-	// Part¿¡¼­ ÆÄÀÏ ÀÌ¸§À» ÃßÃâÇÏ´Â ¸Þ¼­µå
+	// Partï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½
 	private String getFileName(final Part part) {
 		final String partHeader = part.getHeader("content-disposition");
 		for (String content : partHeader.split(";")) {

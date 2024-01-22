@@ -11,13 +11,13 @@ import javax.servlet.http.HttpServletResponse;
 public class NoticePagingC extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Notice.getAllNOTICE(request, response);
+		Notice.getAllNotice(request, response);
 		int p = 1;
 		if(!request.getParameter("p").equals("")) {
 			p = Integer.parseInt(request.getParameter("p"));
 		}
 
-		Notice.NOTICEpagingAdmin(p, request);
+		Notice.noticePaging(p, request);
 		 
 		request.setAttribute("seq", request.getParameter("seq"));
 		request.setAttribute("pageNum", p);
@@ -26,12 +26,12 @@ public class NoticePagingC extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Notice.getAllNOTICE(request, response);
+		Notice.getAllNotice(request, response);
 
 		int p = Integer.parseInt(request.getParameter("p"));
 		System.out.println(p);
 
-		Notice.NOTICEpagingAdmin(p, request);
+		Notice.noticePaging(p, request);
 		
 		request.setAttribute("menu", "/admin/boardmanagement/notice/noticeContent.jsp");
 		request.getRequestDispatcher("admin/index.jsp").forward(request, response);

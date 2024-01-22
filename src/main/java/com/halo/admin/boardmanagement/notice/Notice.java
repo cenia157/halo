@@ -16,9 +16,9 @@ import com.halo.test.DBManagerhalo_JW;
 
 public class Notice {
 
-	private static ArrayList<NoticeDTO> NOTICEs;
+	private static ArrayList<NoticeDTO> notices;
 
-	public static void getAllNOTICE(HttpServletRequest request, HttpServletResponse response) {
+	public static void getAllNotice(HttpServletRequest request, HttpServletResponse response) {
 		
 //		// 기존코드 시작
 //		// 체크박스 벨류
@@ -44,7 +44,7 @@ public class Notice {
 //			pstmt = con.prepareStatement(sql);
 //			rs = pstmt.executeQuery();
 //
-//			NOTICEs = new ArrayList<Notice>();
+//			notices = new ArrayList<Notice>();
 //			Notice notice = null;
 //
 //			while (rs.next()) {
@@ -56,10 +56,10 @@ public class Notice {
 //				String an_category = rs.getString("an_category");
 //				
 //				notice = new Notice(an_seq, an_title, an_content, an_writer, an_reg_date, an_category);
-//				NOTICEs.add(notice);
+//				notices.add(notice);
 //			}
 //
-//			request.setAttribute("NOTICEs", NOTICEs);
+//			request.setAttribute("notices", notices);
 //		} catch (Exception e) {
 //			e.printStackTrace();
 //		} finally {
@@ -99,7 +99,7 @@ public class Notice {
 	        }
 	        rs = pstmt.executeQuery();
 	        
-	        NOTICEs = new ArrayList<>();
+	        notices = new ArrayList<>();
 	        while (rs.next()) {
 	            NoticeDTO notice = new NoticeDTO(
 	                rs.getInt("an_seq"),
@@ -109,9 +109,9 @@ public class Notice {
 	                rs.getDate("an_reg_date"),
 	                rs.getString("an_category")
 	            );
-	            NOTICEs.add(notice);
+	            notices.add(notice);
 	        }
-	        request.setAttribute("NOTICEs", NOTICEs);
+	        request.setAttribute("notices", notices);
 	    } catch (Exception e) {
 	        e.printStackTrace();
 	    } finally {
@@ -167,10 +167,10 @@ public class Notice {
 
 	}
 
-	public static void NOTICEpagingAdmin(int page, HttpServletRequest request) {
+	public static void noticePaging(int page, HttpServletRequest request) {
 
 		int cnt = 8;
-		int total = NOTICEs.size();
+		int total = notices.size();
 		int pageCount = (int) Math.ceil((double) total / cnt);
 		if(pageCount < page ) {
 			page = pageCount;
@@ -183,13 +183,13 @@ public class Notice {
 		int end = (page == pageCount) ? -1 : start - (cnt + 1);
 
 		ArrayList<NoticeDTO> items = new ArrayList<NoticeDTO>();
-		if(NOTICEs.size() != 0) {
+		if(notices.size() != 0) {
 			for (int i = start - 1; i > end; i--) {
-				items.add(NOTICEs.get(i));
+				items.add(notices.get(i));
 			}
 		}
 		request.setAttribute("curPageNo", page);
-		request.setAttribute("NOTICEs", items);
+		request.setAttribute("notices", items);
 
 	}
 

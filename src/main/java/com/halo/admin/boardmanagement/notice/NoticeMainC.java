@@ -12,8 +12,8 @@ public class NoticeMainC extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		Notice.getAllNOTICE(request, response);
-		Notice.NOTICEpagingAdmin(1, request);
+		Notice.getAllNotice(request, response);
+		Notice.noticePaging(1, request);
 		
 		request.setAttribute("menu", "/admin/boardmanagement/notice/noticeContent.jsp");
 		request.getRequestDispatcher("admin/index.jsp").forward(request, response);
@@ -21,7 +21,7 @@ public class NoticeMainC extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		Notice.getAllNOTICE(request, response);
+		Notice.getAllNotice(request, response);
 
 		request.setAttribute("menu", "/admin/boardmanagement/notice/noticeContent.jsp");
 		request.getRequestDispatcher("admin/index.jsp").forward(request, response);
