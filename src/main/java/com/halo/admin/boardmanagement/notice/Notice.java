@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.halo.main.DBManagerhalo;
-import com.halo.test.DBManagerhalo_JW;
 
 public class Notice {
 
@@ -40,7 +39,7 @@ public class Notice {
 //		sql += " order by an_seq ASC";
 //		System.out.println(sql);
 //		try {
-//			con = DBManagerhalo_JW.connect();
+//			con = DBManagerhalo.connect();
 //			pstmt = con.prepareStatement(sql);
 //			rs = pstmt.executeQuery();
 //
@@ -63,7 +62,7 @@ public class Notice {
 //		} catch (Exception e) {
 //			e.printStackTrace();
 //		} finally {
-//			DBManagerhalo_JW.close(con, pstmt, rs);
+//			DBManagerhalo.close(con, pstmt, rs);
 //		}
 //		// 기존코드 끝
 		
@@ -138,7 +137,7 @@ public class Notice {
 		response.setContentType("application/json");
 
 		try {
-			con = DBManagerhalo_JW.connect();
+			con = DBManagerhalo.connect();
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, request.getParameter("an_seq"));
 			rs = pstmt.executeQuery();
@@ -161,7 +160,7 @@ public class Notice {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			DBManagerhalo_JW.close(con, pstmt, rs);
+			DBManagerhalo.close(con, pstmt, rs);
 		}
 		return jsonresult;
 
@@ -200,7 +199,7 @@ public class Notice {
 		String sql = "delete announced_tbl where an_seq = ?"; 
 		
 		try {
-			con = DBManagerhalo_JW.connect();
+			con = DBManagerhalo.connect();
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, request.getParameter("an_seq"));
 			
@@ -212,7 +211,7 @@ public class Notice {
 			System.out.println("deleteNotice() 삭제 실패");
 			e.printStackTrace();
 		} finally {
-			DBManagerhalo_JW.close(con, pstmt, null);
+			DBManagerhalo.close(con, pstmt, null);
 	    }	
 	}
 }
