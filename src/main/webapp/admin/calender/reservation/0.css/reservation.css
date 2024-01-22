@@ -290,6 +290,114 @@ EDIT ON */
 	text-decoration: underline;
 }
 
+.reservation-insert {
+	width: 100%;
+	height: 100%;
+	border-top: 1px solid rgba(165, 165, 165, 0.35);
+	padding: 2%;
+	display: none;
+	flex-direction: column;
+	font-size: 1.5rem;
+}
+
+.reservation-insert-input {
+	width: 100%;
+	font-size: 2rem;
+	border-radius: 8px;
+	border: 2px solid #dddddd;
+	background: #FFF;
+	box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+}
+
+.reservation-insert>div {
+	margin-top: 1%;
+	margin-bottom: 1%;
+}
+
+.reservation-insert-name {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	height: 10%;
+}
+
+.reservation-insert-phone {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	height: 10%;
+}
+
+.reservation-insert-addr {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	height: 10%;
+}
+
+.reservation-insert-book {
+	width: 100%;
+	height: 10%;
+	display: flex;
+	justify-content: space-between;
+}
+
+.reservation-insert-start {
+	width: 100%;
+	height: 5%;
+}
+
+.reservation-insert-startpoint {
+	width: 100%;
+	height: 10%;
+}
+
+.reservation-insert-end {
+	width: 100%;
+	height: 5%;
+}
+
+.reservation-insert-endpoint {
+	width: 100%;
+	height: 10%;
+}
+
+.reservation-insert-notice {
+	width: 100%;
+	height: 25%;
+	border-radius: 4px;
+	background: #e5e5e5;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.reservation-insert-notice>textarea {
+	width: 100%;
+	height: 100%;
+	font-size: 1.5rem;
+	border-radius: 8px;
+	border: 2px solid #dddddd;
+	background: #FFF;
+	box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+}
+
+.insert-manager-select-option {
+	height: auto;
+	width: 40%;
+	border-radius: 8px;
+	border: 2px solid #bababa;
+	font-size: 1.5rem;
+	position: absolute;
+	/* 	bottom: 0; */
+	/* 	top : 10%; */
+	background-color: #FFF;
+	overflow-y: scroll;
+	bottom: 0;
+	flex-direction: column;
+	display: none;
+}
+
 .backrop {
 	position: absolute;
 	top: 0;
@@ -323,10 +431,25 @@ EDIT ON */
 
 .reservation-modal-title {
 	font-size: 2rem;
-	width: 90%;
+	width: 60%;
 	height: 100%;
 	display: flex;
 	align-items: center;
+}
+
+.reservation-modal-content-time {
+	font-size: 1.5rem;
+	width: 30%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.update-time-checkBox {
+	/* 	display: flex; */
+	height: 100%;
+	width: 20%;
 }
 
 .reservation-modal-close {
@@ -378,6 +501,11 @@ EDIT ON */
 	height: 5%;
 }
 
+.reservation-modal-content-phone {
+	width: 100%;
+	height: 5%;
+}
+
 .reservation-modal-content-addr {
 	width: 100%;
 	height: 15%;
@@ -396,7 +524,7 @@ EDIT ON */
 
 .reservation-modal-content-startpoint {
 	width: 100%;
-	height: 12.5%;
+	height: 10%;
 }
 
 .reservation-modal-content-end {
@@ -406,7 +534,7 @@ EDIT ON */
 
 .reservation-modal-content-endpoint {
 	width: 100%;
-	height: 12.5%;
+	height: 10%;
 }
 
 .reservation-modal-content-notice {
@@ -872,6 +1000,27 @@ EDIT ON */
 	align-items: center;
 	padding-left: 2%;
 	padding-right: 2%;
+	justify-content: space-between;
+}
+
+.reservation-insert-service {
+	display: none;
+}
+
+.reservation-insert-time {
+	display: none;
+	border: none;
+	width: 50%;
+	justify-content: space-between;
+}
+
+.reservation-insert-time input[type="checkbox"] {
+	width: 15%;
+	cursor: pointer;
+}
+
+.reservation-insert-time input[type="checkbox"]:checked {
+	accent-color: #3B82F6;
 }
 
 .ins-tr-3 {
@@ -983,13 +1132,46 @@ EDIT ON */
 	align-items: center;
 }
 
-.company-button {
+.reservation-button {
 	border-radius: 2%/15%;
 	border: none;
 	background-color: #3B82F6;
 	color: white;
 	width: 40%;
 	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 1.5rem;
+}
+
+.ins-tr-3-btn-insert {
+	display: none;
+	justify-content: space-evenly;
+	font-size: 1.5rem;
+}
+
+.ins-tr-3-btn-insert div {
+	height: 100%;
+	width: 30%;
+}
+
+.ins-tr-3-btn-insert div:first-child {
+	border-radius: 2%/15%;
+	border: none;
+	background-color: #3B82F6;
+	color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 1.5rem;
+}
+
+.ins-tr-3-btn-insert div:last-child {
+	border-radius: 2%/15%;
+	border: none;
+	background-color: #ed2a61;
+	color: white;
 	display: flex;
 	justify-content: center;
 	align-items: center;

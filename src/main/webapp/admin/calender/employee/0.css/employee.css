@@ -546,67 +546,81 @@ EDIT ON */
 	padding-right: 2%;
 }
 
-.ins-tr-3-title {
-	/* 	border: 1px solid black; */
+.ins-tr-3-employee-header {
+	display: flex;
 	width: 100%;
-	height: 20%;
-	padding-top: 2%;
-	padding-bottom: 2%;
-	font-size: 1.5rem;
 }
 
-.ins-tr-3-date {
-	/* 	border: 1px solid black; */
-	width: 100%;
-	height: 20%;
-	padding-top: 2%;
-	padding-bottom: 2%;
-	font-size: 1.5rem;
-}
-
-.ins-tr-3-td-input {
-	width: 100%;
-	font-size: 2rem;
-	border-radius: 8px;
-	border: 1px solid #E5E7EB;
+.ins-tr-3-employee-header div {
+	font-size: 1.25rem;
+	display: flex;
+	justify-content: center;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.00);
 	background: #FFF;
-	/* tremor-input */
-	box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+	box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.10);
+	display: flex;
 }
 
-.ins-tr-3-txt {
-	/* 	border: 1px solid black; */
-	width: 100%;
-	height: 55%;
-	padding-top: 2%;
-	padding-bottom: 2%;
-	width: 100%;
-	font-size: 1.5rem;
+.ins-tr-3-employee-header div:first-child {
+	width: 10%;
 }
 
-.ins-tr-3-txt-tr {
-	/* 	border: 1px solid black; */
+.ins-tr-3-employee-header div:nth-child(2) {
+	width: 30%;
+}
+
+.ins-tr-3-employee-header div:nth-child(3) {
+	width: 20%;
+}
+
+.ins-tr-3-employee-header div:nth-child(4) {
+	width: 40%;
+}
+
+.ins-tr-3-employee-content {
 	width: 100%;
 	height: 100%;
-	font-size: 2rem;
+	overflow-y: scroll;
 }
 
-.ins-tr-txt-tr-title {
+.employee-data {
+	display: flex;
 	width: 100%;
-	height: 10%;
-	font-size: 1.5rem;
+	margin: 2% 0 2% 0;
+	background-color: #FFF;
 }
 
-.ins-tr-3-td-txt {
-	width: 100%;
-	font-size: 2rem;
-	height: 90%;
-	width: 100%;
-	border-radius: 8px;
-	border: 1px solid #E5E7EB;
-	background: #FFF;
-	/* tremor-input */
-	box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+.employee-data div {
+	font-size: 1.25rem;
+	display: flex;
+	justify-content: center;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.00);
+	/* 	background: #FFF; */
+	box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.10);
+}
+
+.employee-data div:first-child {
+	width: 10%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.employee-color div:first-child {
+	width: 45%;
+	height: 60%;
+}
+
+.employee-data div:nth-child(2) {
+	width: 30%;
+}
+
+.employee-data div:nth-child(3) {
+	width: 20%;
+}
+
+.employee-data div:nth-child(4) {
+	width: 40%;
 }
 
 .ins-tr-3-btn {

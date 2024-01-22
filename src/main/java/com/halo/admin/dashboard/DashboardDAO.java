@@ -1,4 +1,4 @@
-package com.halo.admin.customerCare.customerInfoMgmt;
+package com.halo.admin.dashboard;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,14 +9,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.halo.admin.calender.reservation.ReservationScheduleAcceptDTO;
-import com.halo.admin.calender.reservation.ReservationScheduleDTO;
-import com.halo.admin.manager.staff.StaffDTO;
 import com.halo.main.DBManagerhalo;
-import com.halo.main.DBManagerhalo2;
 
-public class CustomerInfoMgmtDAO {
+public class DashboardDAO {
 	private static Connection con = null;
-	public static void getAllCustomerInfo(HttpServletRequest request, HttpServletResponse response) {
+	
+	public static void getReservationAcceptSchedule(HttpServletRequest request, HttpServletResponse response) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 
@@ -26,13 +24,13 @@ public class CustomerInfoMgmtDAO {
 			response.setContentType("application/json; charset=utf-8");
 
 			// 데이터베이스 연동
-			String sql = "select * from reservation_information_accept order by sa_seq desc ";
+			String sql = "select * from reservation_information_accept";
 			con = DBManagerhalo.connect();
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 
 			// 일정 배열 생성
-			ArrayList<String> reservationSchedule = new ArrayList<String>();
+			ArrayList<String> reservationAccpectSchedule = new ArrayList<String>();
 
 			// 일정 객체 생성
 			ReservationScheduleAcceptDTO schedule = null;
@@ -58,22 +56,26 @@ public class CustomerInfoMgmtDAO {
 				String registrationDate = rs.getString("sa_registration_date");
 				String staff = rs.getString("sa_staff");
 				String joinNo = rs.getString("sa_no");
-				
+
 				schedule = new ReservationScheduleAcceptDTO(pkNo, applicant, service, phoneNumber, userName, gender,
 						birthDates, year, month, dates, time, addr, startPoint, endPoint, carNum, feedBack,
 						registrationDate, staff, joinNo);
-				reservationSchedule.add(schedule.toJson());
+				reservationAccpectSchedule.add(schedule.toJson());
 			}
 
-			System.out.println("예약 달력 조회 성공");
-			response.getWriter().print(reservationSchedule);
+			System.out.println("예약 확인 조회 성공");
+			response.getWriter().print(reservationAccpectSchedule);
 
 		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("예약 달력 조회 실패");
+			System.out.println("예약 확인 조회 실패");
 		} finally {
 			DBManagerhalo.close(con, pstmt, rs);
 		}
 	}
 
-}
+		
+		
+	}
+
+
