@@ -343,6 +343,7 @@
 	line-height: normal;
 	padding-top: 0.3%;
 	padding-bottom: 0.3%;
+	font-family: "SF Pro JP Regular";
 }
 
 .qd-content-box-td1-2-2 {
@@ -356,6 +357,7 @@
 	color: #546137;
 	padding-top: 0.3%;
 	padding-bottom: 0.3%;
+	font-family: "SF Pro JP Regular";
 }
 
 .qd-content-box-td1-3 {
@@ -377,6 +379,7 @@
 	line-height: normal;
 	padding-top: 0.3%;
 	padding-bottom: 0.3%;
+	font-family: "SF Pro JP Regular";
 }
 
 .qd-content-box-td1-3-2 {
@@ -389,6 +392,7 @@
 	line-height: normal;
 	padding-top: 0.3%;
 	padding-bottom: 0.3%;
+	font-family: "SF Pro JP Regular";
 }
 
 .qd-content-box-td1-4 {
@@ -412,6 +416,7 @@
 	font-style: normal;
 	font-weight: 700;
 	line-height: normal;
+	font-family: "SF Pro JP Regular";
 }
 
 .qd-content-box-td1-4-2 {
@@ -471,6 +476,7 @@
 	font-weight: 1000;
 	line-height: normal;
 	letter-spacing: 0.81px;
+	font-family: "SF Pro JP Regular";
 }
 
 /* 소스 활용 끝 */

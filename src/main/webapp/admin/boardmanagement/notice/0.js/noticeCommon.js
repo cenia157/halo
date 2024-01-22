@@ -5,8 +5,8 @@ function openModal(modalId, tblId) {
 	document.getElementById(tblId).style.display = 'flex';
 
 	// 아래 6줄은 모달창 열 때 스크롤 감추기 & 터치, 휠 불가
-	$('html, body').css({ 'overflow': 'hidden', 'height': '100%' }); // 모달팝업 중 html,body의 scroll을 hidden시킴
-	$('#element').on('scroll touchmove mousewheel', function(event) { // 터치무브와 마우스휠 스크롤 방지
+	$('html, body').css({ 'overflow': 'hidden', 'height': '100%' });
+	$('#element').on('scroll touchmove mousewheel', function(event) { 
 		event.preventDefault();
 		event.stopPropagation();
 		return false;
@@ -29,9 +29,7 @@ function closeModal(modalId, tblId) {
 
 	// 사진 input 삭제
 	var imageInputs = document.querySelectorAll("#img-url");
-	imageInputs.forEach(function(input) {
-		input.parentNode.removeChild(input);
-	});
+	imageInputs.forEach(function(input) { input.parentNode.removeChild(input); });
 
 	// #kategorie 안의 input(#select)과 그 안의 텍스트 둘 다 삭제 및 '카테고리' 재설정
 	var kategorieInput = document.querySelector('#kategorie input');
@@ -139,6 +137,7 @@ function closeModalR() {
 
 // NEWRegPage를 띄우기 위한 모달
 function openModalNR() {
+	window.editorR.setData("");
 	openModal('myModalNR', 'myModal-tblNR');
 	closeModalOnOutsideClick('myModalNR');
 	// 24-01-19 추가 등록버튼 여러번 반복시, 이미지아이콘 구분선 disabled되는 오류 추가 수정 
@@ -148,10 +147,10 @@ function openModalNR() {
 
 function closeModalNR() {
 	closeModal('myModalNR', 'myModal-tblNR');
-}
+}	
 
-function getNOTICEDataV(an_seq) {
-	console.log("an_seq: ", an_seq);
+function getNoticeViewData(an_seq) {
+	console.log("getNoticeViewDataのan_seq確認　: ", an_seq);
 
 	$.ajax({
 		url: "getNOTICEDetailC",
@@ -162,37 +161,31 @@ function getNOTICEDataV(an_seq) {
 
 		success: function(data) {
 
-			console.log("data: ", data);
-			console.log("NOTICE 데이터 가져오기 성공");
+//			console.log("data: ", data);
 
 			if (Array.isArray(data) && data.length > 0) {
 				viewData = data;
 				let an_seq = data[0].an_seq;
 				let an_title = data[0].an_title;
 				let an_content = data[0].an_content;
-				let an_writer = data[0].an_content;
-				let an_reg_date = data[0].an_reg_date;
 				let an_category = data[0].an_category;
 
 				$('#modal-seq').val(an_seq);
 				$('#real-title-V').html(an_title);
 				$('#Display-Category').html(an_category);
 				$('#modal-content-txt-in').html(an_content);
-				$('#real-title-editor').val(an_title);
 
-				openModalV();
-			} else {
-				console.log("NOTICE 데이터 가져오기 성공");
-			}
+				openModalV();	
+			} 
 		},
 		error: function(xhr, status, error) {
-			console.log("NOTICE 데이터 가져오기 실패");
+			console.log("getNOTICEDataV function 에러");
 			console.log("error:", xhr, status, error);
 		}
 	})
 }
 
-document.getElementById('aaaaaaaaaaaaaaaaaaaaaaaaaa').addEventListener("click",function() {
+document.getElementById('updataModalBtn').addEventListener("click",function() {
 
 	let an_seq = viewData[0].an_seq;
 	let an_title = viewData[0].an_title;
@@ -201,32 +194,32 @@ document.getElementById('aaaaaaaaaaaaaaaaaaaaaaaaaa').addEventListener("click",f
 	let an_reg_date = viewData[0].an_reg_date;
 	let an_category = viewData[0].an_category;
 	$('#real-title-editorN').val(an_title);
-	$('#CCCCCCCCCCCC').html(an_category);
 	$('#classicR').html(an_content);
 	window.editorR.setData(an_content);
 	$('#kategorieR').html(an_category);
 	$('#seq').val(an_seq);
 
 	if (an_category == 'announcement') {
-		$('#kategorieR').html('안내');
+		$('#kategorieR').html('announcement');
 	} else if (an_category == 'schedule') {
-		$('#kategorieR').html('스케줄');
+		$('#kategorieR').html('schedule');
 	} else if (an_category == 'general') {
-		$('#kategorieR').html('일반');
+		$('#kategorieR').html('general');
 	} else if (an_category == 'service') {
-		$('#kategorieR').html('서비스');
+		$('#kategorieR').html('service');
 	} else if (an_category == 'product') {
-		$('#kategorieR').html('상품');
+		$('#kategorieR').html('product');
 	}
 
-	let mmmmmmmm = $("#kategorieR");
+	let kategorieRInput = $("#kategorieR");
     let newInput = $("<input>");
 
 	newInput.attr("type", "hidden");
     newInput.attr("value", an_category);
     newInput.attr("name", "select");
     newInput.attr("id", "myInputR");
-    mmmmmmmm.append(newInput);
+    kategorieRInput.append(newInput);
+
 
 	openModalR();
 	document.querySelector('.view-modal-tbl').style.display = 'none';
@@ -242,74 +235,24 @@ document.getElementById('aaaaaaaaaaaaaaaaaaaaaaaaaa').addEventListener("click",f
             let $img = $figures.eq(j).find('img');
             let srcValue = $img.attr('src');
 
-            // data-check 속성을 생성하고 src 값을 할당합니다.
             $img.attr('data-check', srcValue);
-            // img-temporaryR div 요소를 선택합니다.
-            let $imgTemporaryRDiv = $('#img-temporaryR');
-            // input 요소를 생성합니다.
-            let $inputElement = $('<input>');
-            // input 요소의 type, name, id, data-check 속성, value 값을 설정합니다.
-            $inputElement.attr({
-                type: 'text',
-                name: 'saveFname',
-                id: 'img-url',
-                'data-check': srcValue,
-                value: srcValue
-            });
 
-            // input 요소를 img-temporaryR div에 추가합니다.
+            let $imgTemporaryRDiv = $('#img-temporaryR');
+            let $inputElement = $('<input>');
+
+            $inputElement.attr({ type: 'text', name: 'saveFname', id: 'img-url', 'data-check': srcValue, value: srcValue});
+
             $imgTemporaryRDiv.append($inputElement);
-        }
-    }
+        } // inner for
+    } // outer for
+	
+	$(".ck-content").click();
+	
+
+//	$(".ck-button[data-cke-tooltip-text='パソコンから画像をアップロード']").addClass("ck-disabled").prop("disabled", true);
 	//	24.01.18 수정끝 
 
 }); // addEventListener
-
-
-function getNOTICEDataR(an_seq, an_title, an_content, an_writer, an_reg_date, an_category) {
-	console.log("an_seq: ", an_seq);
-
-	$.ajax({
-		url: "getNOTICEDetailC",
-		method: "post",
-		data: {
-			an_seq: an_seq,
-			an_title: an_title,
-			an_content: an_content,
-			an_writer: an_writer,
-			an_reg_date: an_reg_date,
-			an_categor: an_category
-		},
-
-		success: function(data) {
-
-			console.log("data: ", data);
-			console.log("NOTICE 데이터 가져오기 성공");
-
-
-			if (Array.isArray(data) && data.length > 0) {
-				let an_seq = data[0].an_seq;
-				let an_title = data[0].an_title;
-				let an_content = data[0].an_content;
-				let an_writer = data[0].an_content;
-				let an_reg_date = data[0].an_reg_date;
-				let an_category = data[0].an_category;
-
-
-				$('#modal-seq').val(an_seq);
-
-				openModalR();
-			} else {
-				console.log("NOTICE 데이터 가져오기 성공");
-			}
-
-		},
-		error: function(xhr, status, error) {
-			console.log("NOTICE 데이터 가져오기 실패");
-			console.log("error:", xhr, status, error);
-		}
-	})
-}
 
 function getNOTICEDataUpdateView(an_seq) {
 	console.log("an_seq: ", an_seq);
@@ -324,15 +267,11 @@ function getNOTICEDataUpdateView(an_seq) {
 		success: function(data) {
 			viewData = data;
 			console.log("data: ", data);
-			console.log('수정후 이게 실행되야됨');
-			console.log("NOTICE 데이터 가져오기 성공");
 
 			if (Array.isArray(data) && data.length > 0) {
 				let an_seq = data[0].an_seq;
 				let an_title = data[0].an_title;
 				let an_content = data[0].an_content;
-				let an_writer = data[0].an_content;
-				let an_reg_date = data[0].an_reg_date;
 				let an_category = data[0].an_category;
 
 				$('#modal-seq').val(an_seq);
@@ -357,7 +296,7 @@ function deleteNotice(seq) {
 
 	let pageVal = document.querySelector('#pageNum').value;
 
-	if (confirm('정말 삭제 합니까?')) {
+	if (confirm('この投稿を削除しますか?')) {
 		location.href = "deleteNoticeC?an_seq=" + seq + "&p=" + pageVal +"&checkVal="+searchCheckBoxVal();
 	} else {
 		return;
@@ -384,11 +323,10 @@ function noticeSearch() {
 		pageVal = 1;
 	}
 
-	console.log("노티스써치");
 	if (searchCheckBoxVal()) {
 		location.href = 'NoticePagingC?p=' + pageVal + '&checkVal=' + searchCheckBoxVal();
 	} else {
-		alert('하나이상의 체크박스에 체크를 해야합니다.');
+		alert('一つ以上のチェックボックスにチェックを入れる必要があります。');
 		history.go(0);
 	}
 
@@ -419,19 +357,16 @@ function noValue() {
     let contentLengthCheck = contentCheck.length;
 
     if (!titleCheck) {
-        alert("제목의 값을 입력하세요");
+        alert("タイトルを入力してください。");
         return false;
     } else if (kategorieCheck == null) {
-        alert("카테고리의 값을 입력하세요");
+        alert("カテゴリーを選択してください.");
         return false;
     } else if (contentCheck == "") {
-        alert("내용을 입력하세요");
+        alert("コンテンツの内容を入力してください。");
         return false;
-    } else if (titleLengthCheck > 50) {
-        // alert('제목의 길이는 50자를 넘을 수 없습니다.\n현재 글자 수 : ' + titleLengthCheck);
-        return false;
-    } else if (contentLengthCheck > 10000) {
-        alert('내용의 길이는 10,000 넘을 수 없습니다.\n현재 내용의 길이 : ' + contentLengthCheck);
+    } else if (titleLengthCheck > 100) {
+        alert("タイトルの長さは100文字を超えることはできません.");
         return false;
     } else {
         return true;
@@ -466,3 +401,262 @@ function toggleR() {
 	});
 });
 
+// 관리자 공지사항 수정완료후 뷰 페이지가 나오는데, 모달창 닫고 새로고침해도 seq url때문에 여러번 새로고침해도 뷰 페이지 나오는 현상 수정
+document.addEventListener('DOMContentLoaded', function() {
+    let performanceEntries = performance.getEntriesByType("navigation");
+    if (performanceEntries.length > 0 && performanceEntries[0].type === "reload") {
+        let url = new URL(window.location.href);
+        let params = new URLSearchParams(url.search);
+
+        if (params.has('seq')) {
+            params.delete('seq');
+            window.history.replaceState(null, null, url.pathname + '?' + params.toString());
+			closeModalV();
+        }
+    }
+});
+
+  $(document).ready(function () {
+                     
+	// 표기능, 외부 주소 첨부기능 비활성화
+    $(".ck-button[data-cke-tooltip-text='画像挿入']").remove();
+	$(".ck-button[data-cke-tooltip-text='メディアの挿入']").remove();
+	$(".ck-button[data-cke-tooltip-text='表の挿入']").remove();
+		
+	 $(".ck-content").on("click", function (e) {
+//		console.log('클릭 이벤트 발생')
+	    let figures = $(".ck-content figure img");
+	    let saveFnames = $("input[name='saveFname']");
+
+		if ($("#myModal-tblR").css("display") !== "none") {
+//			console.log('신규 등록 모달창 -> none ***');
+//			console.log('업데이트  모달창 -> flex***');
+			figures = $("#ck-formR .ck-content figure img")		
+				
+						
+		} else {
+//			console.log('신규 등록 모달창 -> flex');
+//			console.log('업데이트  모달창 -> none');
+	  		figures = $("#ck-form .ck-content figure img")
+	 	}
+	
+//	     console.log("figures의 갯수:", figures.length);
+//	     console.log("saveFnames의 갯수:", saveFnames.length);
+	
+	     figures.each(function (index) {
+	         $(this).attr("index", index); 
+	     });
+	
+	     saveFnames.each(function (index) {
+	         $(this).attr("index", index); 
+	     });
+	 });
+
+     // 이미지 다중 업로드 후 인덱스값 맞게 삭제
+	 $(".ck-content").on("keyup", function (e) {
+	  if (e.key === "Backspace" || e.key === "Delete") {
+	    $("input[name='saveFname']").each(function () {
+	      let inputIndex = $(this).attr("index"); // 클릭 이벤트로 할당된 인덱스 사용
+	      let correspondingFigure = $(".ck-content figure img").filter(function () {
+	        return $(this).attr("index") === inputIndex;
+	      });
+	
+	      if (!correspondingFigure.length) {
+	        $(this).remove();
+			alert(`${Number(inputIndex) + 1}番目の画像が削除されました。`);
+	      } // inner if
+	    });
+	    
+	    // 인덱스를 재할당
+	    $(".ck-content").click();
+	  } // outer if
+	});
+	
+    // 이미지 추가후 seleted 즉 자동으로 선택될때 방어하는 코드	
+    $(".ck-content").on("keydown", function (e) {
+//      console.log("누른키 :::test", e.key, e.code);
+
+      let whiteList = ["Enter", "Delete", "Backspace", "ArrowUp", "ArrowDown"];
+//      let allowedKey = whiteList.includes(e.code); 
+
+      let isSelectedFigureExists = $(".ck-content figure.ck-widget_selected").length > 0;
+      let isBeforeCaretExists = $(".ck-content figure.ck-widget_type-around_show-fake-caret_before").length > 0;
+      let isAfterCaretExists = $(".ck-content figure.ck-widget_type-around_show-fake-caret_after").length > 0;
+
+      if ( !whiteList.includes(e.code) && isSelectedFigureExists && !isBeforeCaretExists && !isAfterCaretExists) {
+        console.log("허용되지 않는 키 입니다");
+        e.preventDefault(); // 입력 방지
+        this.blur(); // 입력 필드에서 포커스 제거
+      } // if
+
+	let count = $(".ck-content figure.ck-widget_selected").length;
+//	console.log("ck-widget_selected 클래스를 가진 figure 요소의 개수: " + count);
+	
+    }); // $('.ck-content').on("keydown", function(e) {
+
+    // 이미지 드래그스타트 방지 
+    $(".ck-content").on("dragstart", "img", function (e) {
+      e.preventDefault(); 
+    }); // $('.ck-content').on('dragstart', 'img', function(e) {
+
+    // UI메뉴 셀렉티드 될때 방어 코드 
+    $(".ck-content").on("click keydown", function (e) {
+        let isSelectedFigureExists =
+            $(".ck-content figure.ck-widget_selected").length > 0;
+
+        let buttonsToDisable = ["区切り", "リンク (Ctrl+K)", "パソコンから画像を置換", "パソコンから画像をアップロード"];
+
+        buttonsToDisable.forEach(buttonText => {
+            let $button = $(".ck-button[data-cke-tooltip-text='" + buttonText + "']");
+            if (isSelectedFigureExists && !(e.type === "keydown" && e.key === "Enter")) {
+                $button.addClass("ck-disabled");
+                $button.prop("disabled", true);
+            } else {
+                $button.removeClass("ck-disabled");
+                $button.prop("disabled", false);
+            }
+        });
+    }); //(".ck-content").on("click keydown", function (e) {
+
+	// 게시판 이름 바꾸기 	
+	$(".content-m-td-title").text("お知らせ").css('visibility', 'visible');
+//	
+//    // 'view-modal-tbl' 클래스를 가진 요소에 tabindex 설정
+//    $('.view-modal-tbl').attr('tabindex', '0')
+//    .on('focus', function() {
+//        console.log('포커스 받음:', this);
+//    })
+//    .on('blur', function() {
+//        console.log('포커스 잃음:', this);
+//    })
+//    .keydown(function(event) {
+//        if (event.key === "Escape") {
+//            console.log('ESC 키 감지 - view-modal-tbl');
+//            closeModalV();
+//        }
+//    });
+
+	// 뷰 페이지 esc로 끄기
+//    $(document).keydown(function(event) {
+//        // ESC 키가 눌렸는지 확인
+//        if (event.key === "Escape") {
+//            console.log('뷰 페이지에서 ESC 키 감지');
+//
+//            if ($('.view-modal-tbl').css('display') === 'flex') {
+//                console.log('view-modal-tbl이 flex 상태입니다. closeModalV() 실행');
+//                closeModalV();
+//            } 
+//        }
+//    });
+//
+//	
+//	// 수정 페이지 esc로 끄기
+//    $(document).keydown(function(event) {
+//        // ESC 키가 눌렸는지 확인
+//        if (event.key === "Escape") {
+//            // 'closeRegModal' 클래스가 flex 상태인지 확인
+//            if ($('.closeRegModal').css('display') === 'flex') {
+//                closeModalV();
+//            }
+//        }
+//    });
+//
+//    $(document).keydown(function(event) {
+//        // ESC 키가 눌렸는지 확인
+//        if (event.key === "Escape") {
+//            // 'myModal-tblNR' 아이디를 가진 요소의 display 상태 확인
+//            if ($('#myModal-tblNR').css('display') === 'flex') {
+//                closeModalNR();
+//            }
+//        }
+//    });
+
+   // 관리자 공지사항 게시판 -> 조회, 등록, 수정 페이지에서 esc누르면 모달창 끄도록 수정
+   $(document).keydown(function(event) {
+        // ESC 키가 눌렸는지 확인
+        if (event.key === "Escape") {
+            console.log('ESC 키 감지');
+
+            // 'view-modal-tbl' 클래스가 flex 상태인지 확인
+            if ($('.view-modal-tbl').css('display') === 'flex') {
+                console.log('view-modal-tbl이 flex 상태입니다. closeModalV() 실행');
+                closeModalV();
+                return; // 함수 실행 후 추가적인 검사를 방지
+            } 
+
+            // 'closeRegModal' 클래스가 flex 상태인지 확인
+            if ($('.closeRegModal').css('display') === 'flex') {
+                console.log('closeRegModal이 flex 상태입니다. closeModalV() 실행');
+                closeModalV();
+                return; // 함수 실행 후 추가적인 검사를 방지
+            }
+
+            // 'myModal-tblNR' 아이디를 가진 요소의 display 상태 확인
+            if ($('#myModal-tblNR').css('display') === 'flex') {
+                console.log('myModal-tblNR이 flex 상태입니다. closeModalNR() 실행');
+                closeModalNR();
+                return; // 함수 실행 후 추가적인 검사를 방지
+            }
+        }
+    });
+
+//    $(document).on('keydown click', function(event) {
+//        if (event.key === "Escape" || event.type === "click") {
+//            if ($('.closeRegModal').css('display') === 'flex' && $('#toggle-downR').css('display') === 'flex') {
+//                $('#toggle-downR').css('display', 'none');
+//            }
+//        }
+//    });
+
+//    $(document).on('keydown click', function(event) {
+//        // ESC 키 누름 또는 문서의 어떤 부분 클릭
+//        if (event.key === "Escape" || event.type === "click") {
+//            // 클릭된 요소가 toggleR 또는 그 하위 요소인지 확인
+//            if ($(event.target).closest('#toggleR').length) {
+//                return; // toggleR 또는 그 하위 요소에서의 클릭은 무시
+//            }
+//
+//            // closeRegModal과 toggle-downR이 flex 상태인지 확인
+//            if ($('.closeRegModal').css('display') === 'flex' && $('#toggle-downR').css('display') === 'flex') {
+//                $('#toggle-downR').css('display', 'none');
+//            }
+//        }
+//    });
+
+//    $(document).on('keydown click', function(event) {
+//        // ESC 키 누름 또는 문서의 어떤 부분 클릭
+//        if (event.key === "Escape" || event.type === "click") {
+//            // 클릭된 요소가 'toggle-down' 또는 그 하위 요소인지 확인
+//            if ($(event.target).closest('#toggle').length) {
+//                return; // 'toggle-down' 또는 그 하위 요소에서의 클릭은 무시
+//            }
+//
+//            // 'myModal-tblNR' id가 flex 상태이고 'toggle-down' 아이디가 flex 상태인지 확인
+//            if ($('#myModal-tblNR').css('display') === 'flex' && $('#toggle-down').css('display') === 'flex') {
+//                $('#toggle-down').css('display', 'none');
+//            }
+//        }
+//    });
+
+	// 모달창에서 카테고리 input박스 닫히도록 잔처리 
+	$(document).on('keydown click', function(event) {
+	    // ESC 키 누름 또는 문서의 어떤 부분 클릭
+	    if (event.key === "Escape" || event.type === "click") {
+	        // 클릭된 요소가 'toggleR' 또는 'toggle' 또는 그 하위 요소인지 확인
+	        if ($(event.target).closest('#toggleR').length || $(event.target).closest('#toggle').length) {
+	            return; // 'toggleR' 또는 'toggle' 또는 그 하위 요소에서의 클릭은 무시
+	        }
+	
+	        // closeRegModal과 toggle-downR이 flex 상태인지 확인
+	        if ($('.closeRegModal').css('display') === 'flex' && $('#toggle-downR').css('display') === 'flex') {
+	            $('#toggle-downR').css('display', 'none');
+	        }
+	
+	        // myModal-tblNR와 toggle-down이 flex 상태인지 확인
+	        if ($('#myModal-tblNR').css('display') === 'flex' && $('#toggle-down').css('display') === 'flex') {
+	            $('#toggle-down').css('display', 'none');
+	        }
+	    }
+	});
+
+  }); // $(document).ready(function(){
