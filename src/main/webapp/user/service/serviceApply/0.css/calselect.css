@@ -1,4 +1,3 @@
-
 .content-calbox-td {
 	position: relative;
 	display: flex;
@@ -15,25 +14,27 @@
 	height: 20%;
 	flex-shrink: 0;
 	display: flex;
-    justify-content: center;
-    align-items: center;
+	justify-content: center;
+	align-items: center;
 	font-size: 2.5rem;
 	color: #546137;
 	font-family: Inter;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-}
-.date-sel-start-box-td{
-	width: 40%
-}
-.date-sel-end-box-td{
-	width: 40%
-}
-.date-sel-txt-box-td{
-	width: 10%
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
 }
 
+.date-sel-start-box-td {
+	width: 40%
+}
+
+.date-sel-end-box-td {
+	width: 40%
+}
+
+.date-sel-txt-box-td {
+	width: 10%
+}
 
 .date-sel {
 	height: 9vh;
@@ -42,19 +43,18 @@
 }
 
 input[type="date"] {
-  width: 80%; /* 너비를 크게 조정 */
-  height: 9vh; /* 높이를 조절 */
-  padding: 5px; /* 안쪽 여백 설정 */
-  font-size: 2rem; /* 글꼴 크기 조절 */
-  border-radius: 3%; /* 테두리 모서리를 둥글게 설정 */
-  border: 1px solid #ccc; /* 테두리 추가 */
-  outline: none; /* 포커스 시 기본 아웃라인 제거 */
-  text-align: center;
+	width: 80%; /* 너비를 크게 조정 */
+	height: 9vh; /* 높이를 조절 */
+	padding: 5px; /* 안쪽 여백 설정 */
+	font-size: 2rem; /* 글꼴 크기 조절 */
+	border-radius: 3%; /* 테두리 모서리를 둥글게 설정 */
+	border: 1px solid #ccc; /* 테두리 추가 */
+	outline: none; /* 포커스 시 기본 아웃라인 제거 */
+	text-align: center;
 }
 
 /* 캘린더 */
 .calendar {
-	
 	display: block;
 	width: 90%;
 	height: auto;
@@ -63,7 +63,7 @@ input[type="date"] {
 	font-family: Arial, sans-serif;
 	border: 1px solid #ccc;
 	width: 90%;
-/* 	padding: 1%; */
+	/* 	padding: 1%; */
 }
 
 .header {
@@ -145,7 +145,7 @@ input[type="date"] {
 .day {
 	width: calc(100%/ 7);
 	text-align: center;
-		font-size: 2rem;
+	font-size: 2rem;
 }
 
 .dates {
@@ -167,11 +167,11 @@ input[type="date"] {
 }
 
 .date .this {
-  display: block;
-  position: absolute;
-  bottom: 5px; /* 적절한 위치 조정 */
-  right: 5px; /* 적절한 위치 조정 */
-  /* 다른 스타일링 속성들 */
+	display: block;
+	position: absolute;
+	bottom: 5px; /* 적절한 위치 조정 */
+	right: 5px; /* 적절한 위치 조정 */
+	/* 다른 스타일링 속성들 */
 }
 
 .day:nth-child(7n+1), .date:nth-child(7n+1) {
@@ -183,10 +183,11 @@ input[type="date"] {
 }
 
 .this {
-	  font-size: 2rem
+	font-size: 2rem
 }
+
 .other {
-	  pointer-events: none;
+	pointer-events: none;
 }
 
 .today {
@@ -229,6 +230,7 @@ input[type="date"] {
 	height: 100%;
 	align-items: center;
 	justify-content: center;
+	cursor: pointer;
 }
 
 .content-cal-btn-box-td {
@@ -242,26 +244,27 @@ input[type="date"] {
 	flex-shrink: 0;
 	text-align: center;
 	margin-left: 40%;
-    margin-right: 40%;
-    margin-bottom: 5%;
+	margin-right: 40%;
+	margin-bottom: 5%;
 }
+
 .between {
-  background-color: lightgrey;
+	background-color: lightgrey;
 }
 /* 선택된 시작 날짜의 스타일 */
 .start-date {
-    background-color: red;
-    color: white;
+	background-color: red;
+	color: white;
 }
 
 /* 선택된 끝 날짜의 스타일 */
 .end-date {
-    background-color: blue;
-    color: white;
+	background-color: blue;
+	color: white;
 }
 
 /* 시작과 끝 사이의 날짜의 스타일 */
 .between-dates {
-    background-color: lightgray;
-    cursor: not-allowed;
+	background-color: lightgray;
+	cursor: not-allowed;
 }
