@@ -19,15 +19,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/Localstorage")
-public class Localstorage extends HttpServlet {
+public class Localstorageê³§ì§€ìš¸ê±°ìž„ extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		// ÇöÀç ½Ã°£À» °¡Á®¿È
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		String currentTime = new Date().toString();
 
-		// »ç¿ëÀÚÀÇ IP ÁÖ¼Ò¸¦ °¡Á®¿È
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ IP ï¿½Ö¼Ò¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		String userIpAddress = request.getHeader("X-Forwarded-For");
 
-		// °¡Á®¿Â ½Ã°£°ú »ç¿ëÀÚÀÇ IP ÁÖ¼Ò¸¦ ÄÜ¼Ö¿¡ Ãâ·Â
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ IP ï¿½Ö¼Ò¸ï¿½ ï¿½Ü¼Ö¿ï¿½ ï¿½ï¿½ï¿½
 		System.out.println("Page loaded at: " + currentTime);
 		System.out.println("User IP Address: " + userIpAddress);
 
@@ -44,7 +44,7 @@ public class Localstorage extends HttpServlet {
 			pstmt.setString(1, userIpAddress);
 			pstmt.setString(2, currentTime);
 			if (pstmt.executeUpdate() == 1) {
-				System.out.println("µî·Ï¼º°ø");
+				System.out.println("ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½");
 
 			}
 
@@ -52,7 +52,7 @@ public class Localstorage extends HttpServlet {
 			e.printStackTrace();
 		}
 
-		// Å¬¶óÀÌ¾ðÆ®¿¡ ÀÀ´ä
+		// Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		response.setContentType("text/plain");
 		PrintWriter out = response.getWriter();
 		out.println("Page loaded at: " + currentTime);

@@ -153,7 +153,7 @@ function getNoticeViewData(an_seq) {
 	console.log("getNoticeViewDataのan_seq確認　: ", an_seq);
 
 	$.ajax({
-		url: "getNOTICEDetailC",
+		url: "GetNoticeDetailC",
 		method: "post",
 		data: {
 			an_seq: an_seq
@@ -258,7 +258,7 @@ function getNOTICEDataUpdateView(an_seq) {
 	console.log("an_seq: ", an_seq);
 
 	$.ajax({
-		url: "getNOTICEDetailC",
+		url: "GetNoticeDetailC",
 		method: "post",
 		data: {
 			an_seq: an_seq
@@ -297,7 +297,7 @@ function deleteNotice(seq) {
 	let pageVal = document.querySelector('#pageNum').value;
 
 	if (confirm('この投稿を削除しますか?')) {
-		location.href = "deleteNoticeC?an_seq=" + seq + "&p=" + pageVal +"&checkVal="+searchCheckBoxVal();
+		location.href = "DeleteNoticeC?an_seq=" + seq + "&p=" + pageVal +"&checkVal="+searchCheckBoxVal();
 	} else {
 		return;
 	}

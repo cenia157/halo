@@ -16,6 +16,8 @@
 	src="user/introduce/announcement/0.js/announcement_contentPage_modal.js"></script>
 <script
 	src="user/introduce/announcement/0.js/announcement_contentPage_ajax.js"></script>
+<script
+	src="admin/_js/ckeditor/ckeditor.js"></script>
 <!-- 팝업창 js -->
 <!-- <script src="user/0.js/popup.js" type="text/javascript"></script> -->
 
@@ -44,7 +46,7 @@
 				<div class="main-notice-td-title">
 					<span>&nbsp;●${announcement.an_title} </span>
 				</div>
-				<div class="main-notice-td-txt textOverflow">${announcement.an_content}</div>
+				<div class="main-notice-td-txt textOverflow ck-content">${announcement.an_content}</div>
 			</div>
 			</c:forEach>
 		</div>
@@ -97,7 +99,7 @@
 
 			<!-- 본문 예시 -->
 			<div class="qd-content-box-td2-1">
-				<div class="qd-content-box-td2-1-content ck ck-content" id="modalContent">
+				<div class="qd-content-box-td2-1-content ck-content" id="modalContent">
 					안녕하세요, 운영자입니다. <br /> 일정관리를 다음과 같이 알려드립니다. 시세확장때문에 하는데요. <br />
 					평일 중 2일과 주말 1일을 정기적으로 한 달 동안 이용하는 것이 가능한지 궁금합니다. <br /> 안녕하세요,
 					운영자입니다. <br /> 일정관리를 다음과 같이 알려드립니다. 시세확장때문에 하는데요. <br /> 평일 중 2일과
