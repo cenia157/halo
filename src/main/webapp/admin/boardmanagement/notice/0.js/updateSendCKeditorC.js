@@ -47,7 +47,6 @@ regBtnR.addEventListener("click", function(event) {
 		closeModalNR();
 	}
 
-	console.log("--------------------");
 	let CkeditorC123 = fetch("NoticeDeleteC", {
 		method: "POST",
 		body: payload,
@@ -62,9 +61,11 @@ regBtnR.addEventListener("click", function(event) {
 			return response.text();
 		})
 		.then((data) => {
-			console.log("POST 요청 성공:", data);
-			console.log(CkeditorC123);
+//			console.log("POST 요청 성공:", data);
+//			console.log(CkeditorC123);
 			location.href ='NoticePagingC?p='+pageNum.value+'&seq='+seq+"&checkVal="+checkVal.value;
+			window.editor.setData("");
+			window.editorR.setData("");
 		})
 		.catch((error) => {
 			console.error("POST 요청 실패:", error);

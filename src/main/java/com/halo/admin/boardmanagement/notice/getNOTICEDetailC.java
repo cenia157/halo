@@ -18,6 +18,6 @@ public class getNOTICEDetailC extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("application/json");
 		response.getWriter().write(jsonData);
-		System.out.println(jsonData + " ::: jsonData"  );	
+//		System.out.println(jsonData + " ::: jsonData"  );	
 	}
 }

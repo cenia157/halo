@@ -8,12 +8,9 @@
 <link
 	href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular"
 	rel="stylesheet" />
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/user/service/serviceApply/0.css/agree.css" />
-<script
-	src="${pageContext.request.contextPath}/user/service/serviceApply/0.js/agreeCheck.js">
+<link rel="stylesheet" href="user/service/serviceApply/0.css/agree.css" />
 	
-</script>
+
 </head>
 <body>
 
@@ -89,12 +86,16 @@
 
 			<!-- 추가사항 2: 신청 버튼 -->
 			<div class="button-container">
-				<button onclick="submitForm()" type="button" id="apply" name="apply">申し込み</button>
+				<!-- 				<button onclick="submitForm3()" type="button" id="apply" name="apply">申し込み</button> -->
+				<button onclick="submitForm3()" type="button" id="apply">신청하기</button>
+
 			</div>
 
 			<!-- step별 페이지  끝-->
 		</div>
 	</form>
+
 </body>
+<script src="user/service/serviceApply/0.js/agreeCheck.js"></script>
 
 </html>
