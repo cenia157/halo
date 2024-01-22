@@ -6,13 +6,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/user/qa/faq/0.css/faq.css">
-	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/user/qa/faq/0.css/faqDetail.css">
-	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/user/qa/faq/0.css/index-banner.css">
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/user/qa/faq/_css/faq.css">
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/user/qa/faq/_css/faqDetail.css">
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/user/qa/faq/_css/index-banner.css">
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/user/0.css/index-menu.css">
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/user/0.css/index-footer.css">
 	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-	<script src="user/qa/faq/0.js/user_faq.js"></script>
+	<script src="user/qa/faq/_js/user_faq.js"></script>
 	
 </head>
 <body>
