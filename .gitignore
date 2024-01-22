@@ -47,7 +47,7 @@ release.properties
 dependency-reduced-pom.xml
 
 bin/src/main/webapp/META-INF/MANIFEST.MF
-
+src/main/java/com/halo/main/DBManagerhalo.java
 src/main/webapp/WEB-INF/web.xml
 bin/
 
