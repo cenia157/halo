@@ -27,6 +27,8 @@
 <script src="user/0.js/index-menu.js"></script>
 <!-- 배경이미지 js -->
 <script src="user/0.js/background-img.js"></script>
+<!-- 리모컨 js -->
+<script src="user/0.js/remote-control.js"></script>
 </head>
 
 <body>
@@ -121,22 +123,18 @@
 
 		<!-- 리모컨 ~~ -->
 		<div class="remote-control-tbl">
-			<a href="">
 				<div class="remote-control-tr">
-					<div class="remote-control-td2">
+					<div class="remote-control-td2 btn-pointer" id="goTop">
 						<img src="user/0.img/re-up.png" width="55%" alt="" />
 					</div>
 					<div class="remote-control-td">상단으로</div>
 				</div>
-			</a> 
-			<a href="">
 				<div class="remote-control-tr">
-					<div class="remote-control-td2">
+					<div class="remote-control-td2 btn-pointer">
 						<img src="user/0.img/line-icon22.png" width="60%" alt="" />
 					</div>
 					<div class="remote-control-td">1:1문의</div>
 				</div>
-			</a>
 		</div>
 		<!-- 리모컨 끝 -->
 		

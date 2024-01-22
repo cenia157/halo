@@ -17,7 +17,7 @@
 <script
 	src="user/introduce/announcement/0.js/announcement_contentPage_ajax.js"></script>
 <!-- 팝업창 js -->
-<script src="user/0.js/popup.js" type="text/javascript"></script>
+<!-- <script src="user/0.js/popup.js" type="text/javascript"></script> -->
 
 </head>
 <body>
