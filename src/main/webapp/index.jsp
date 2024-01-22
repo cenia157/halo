@@ -46,7 +46,7 @@
 				<div class="header-td">
 					<div class="header-td-menu">
 						<div class="header-td-menu-title">
-							<a href="" class="">소개 <span class="header-td-menu-under"></span>
+							<a href="InfoCompanyC" class="">소개 <span class="header-td-menu-under"></span>
 							</a>
 						</div>
 						<div class="header-opmenu-td">
@@ -56,7 +56,7 @@
 					</div>
 					<div class="header-td-menu">
 						<div class="header-td-menu-title">
-							<a href="" class="">소식 <span class="header-td-menu-under"></span>
+							<a href="Announced_C" class="">소식 <span class="header-td-menu-under"></span>
 							</a>
 						</div>
 						<div class="header-opmenu-td">
@@ -67,7 +67,7 @@
 					</div>
 					<div class="header-td-menu">
 						<div class="header-td-menu-title">
-							<a href="" class="">서비스 <span class="header-td-menu-under"></span>
+							<a href="ServiceInformationC" class="">서비스 <span class="header-td-menu-under"></span>
 							</a>
 						</div>
 						<div class="header-opmenu-td">
@@ -77,19 +77,12 @@
 					</div>
 					<div class="header-td-menu">
 						<div class="header-td-menu-title">
-							<a href="" class="">QnA <span class="header-td-menu-under"></span>
+							<a href="FaqC" class="">QnA <span class="header-td-menu-under"></span>
 							</a>
 						</div>
 						<div class="header-opmenu-td">
 							<a class="header-opmenu-a" href="FaqC">자주묻는질문</a> <a
 								class="header-opmenu-a" href="QuestionC">문의게시판</a>
-						</div>
-					</div>
-					<div class="header-td-menu">
-						<div class="header-td-menu-img">
-							<!-- 복붙할때 이미지 경로 확인~~~~ -->
-							<img
-								src="${pageContext.request.contextPath}/user/0.img/icon _menu_.png" />
 						</div>
 					</div>
 				</div>
