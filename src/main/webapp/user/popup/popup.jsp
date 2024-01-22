@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<!-- window.open의 팝업창에 접근하는 경로 문제로 css, js-> jsp에 바로 넣었습니다. -->
 <!-- 팝업 css -->
 <style type="text/css">
 * {
