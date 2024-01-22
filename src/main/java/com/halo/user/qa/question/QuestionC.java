@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.halo.admin.boardmanagement.ask.AskDAO;
 import com.halo.admin.boardmanagement.ask.QuestionNComment;
+import com.halo.main.MainpageDAO;
 
 @WebServlet("/QuestionC")
 public class QuestionC extends HttpServlet {
@@ -23,7 +24,9 @@ public class QuestionC extends HttpServlet {
 		}
 		// UTF-8로 설정
 		response.setCharacterEncoding("utf-8");
-
+		
+		MainpageDAO.getMdao().getAllHompage_common(request);
+		
 		AskDAO.getAllQnC(request, response);
 		AskDAO.Qpaging(1, request);
 		
@@ -42,6 +45,8 @@ public class QuestionC extends HttpServlet {
 		// UTF-8로 설정
 		response.setCharacterEncoding("utf-8");
 
+		MainpageDAO.getMdao().getAllHompage_common(request);
+		
 		QuestionDAO.questionSubmit(request);
 		AskDAO.getAllQnC(request, response);
 		AskDAO.Qpaging(1, request);
