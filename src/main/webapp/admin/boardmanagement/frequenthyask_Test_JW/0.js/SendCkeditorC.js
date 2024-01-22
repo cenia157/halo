@@ -8,14 +8,7 @@ regBtn.addEventListener("click", function(event) {
 	formData.set('seq', seq);
 
 
-	console.log('0000000000000')
-	console.log(formData)
-	console.log('0000000000000')
-	console.log('ckForm : ' + ckForm.value)
-	console.log('content : ' + content)
-	console.log('formData : ' + formData);
 	const payload = new URLSearchParams(formData);
-	console.log('payload : ' + payload)
 
 	console.log('--------------------')
 	for (var pair of formData.entries()) {
@@ -64,8 +57,6 @@ regBtn.addEventListener("click", function(event) {
 			return response.text();
 		})
 		.then(data => {
-			console.log('POST 요청 성공:', data);
-			console.log(CkeditorC123);
 			//리로드 추가
 			location.reload();
 

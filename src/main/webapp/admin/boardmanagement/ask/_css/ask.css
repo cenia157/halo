@@ -460,11 +460,19 @@
 
 
 /* 버튼 css */
-/* 옅은 녹색: #99B361 */
-/* 짙은 녹색: #738749 */
 /* 옅은 회색: #ccc */
 /* 짙은 회색: #666 */
 /* 중간 회색: #999999 */
+
+/* 초록 계열 */
+/* 안쪽버튼: #61733C*/
+/* 바깥쪽버튼: #61733C*/
+
+/* 푸른 계열 */
+/* 안쪽 버튼: */
+/* 바깥쪽 버튼: #46536B (짙은 색) */
+/* 안쪽 버튼: #576D8F (옅은 색) */
+
 
 .paging-div > a{
 	font-size: 1.2rem;
@@ -473,7 +481,7 @@
 }
 
 button {
-	background-color: #99B361;
+	background-color: #7D944D;
 	border: none;
 	border-radius: 20%;
 	color: white;
@@ -484,7 +492,7 @@ button {
 button[disabled] {
 	background-color: #999999;
 	border: none;
-	color: #ccc;
+	color: #E6E6E6;
 }
 
 /* 이전, 다음 버튼 */
@@ -500,19 +508,32 @@ button#Next{
 
 /* 맨앞,맨뒤 버튼 */
 #MostPrevious{
-	background-color: #738749;
+	background-color: #61733C;
 }
 button#MostPrevious:disabled {
 	background-color: #999999;
 	border: none;
-	color: #ccc;
+	color: #E6E6E6;
 }
 
 #MostNext{
-	background-color: #738749;
+	background-color: #61733C;
 }
 button#MostNext:disabled {
 	background-color: #999999;
 	border: none;
-	color: #ccc;
+	color: #E6E6E6;
+}
+
+/* 삭제버튼 */
+
+#deleteBtn{
+	padding: 5% 15%;
+    font-size: 1rem;
+    background-color: #576D8F;
+    color: antiquewhite;
+    border-radius: 2% 15%;
+    border: none;
+    cursor: pointer;
+    font-weight: normal;
 }

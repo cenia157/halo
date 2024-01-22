@@ -10,7 +10,6 @@
 
 
 var aaa = document.getElementById('#reg-btn')
-console.log(aaa);
 
 var fd = new FormData($("#reviewForm")[0]);
 
@@ -23,7 +22,6 @@ $.ajax({
 	contentType: false,
 	processData: false,
 }).success(function(data) {
-	console.log(data);
 	if (data == "SUCCESS") {
 		alert("리뷰가 등록되었습니다.");
 		location.reload();

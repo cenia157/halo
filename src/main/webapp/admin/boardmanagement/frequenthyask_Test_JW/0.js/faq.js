@@ -161,7 +161,6 @@ function closeModalNR() {
 //FAQ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 function getFAQData(qa_seq, qa_title, qa_content, qa_reg_date) {
-	console.log("qa_seq: ", qa_seq);
 
 	$.ajax({
 		url: "getFAQDetailC",
@@ -175,15 +174,10 @@ function getFAQData(qa_seq, qa_title, qa_content, qa_reg_date) {
 
 		success: function(data) {
 
-			console.log("data: ", data);
-			console.log("FAQ 데이터 가져오기 성공");
-
-
 			if (Array.isArray(data) && data.length > 0) {
 				let qa_seq = data[0].qa_seq;
 				let qa_title = data[0].qa_title;
 				let qa_content = data[0].qa_content;
-				console.log("qa_content: ", qa_content);
 				let qa_reg_date = data[0].qa_reg_date;
 
 				$('#modal-seq').val(qa_seq);
@@ -217,7 +211,6 @@ function getFAQData(qa_seq, qa_title, qa_content, qa_reg_date) {
 function deleteFAQ(qa_seq) {
 	let ok = confirm("削除しますか?");
 	if (ok) {
-		console.log(qa_seq);
 		$.ajax({
 			url: 'DeleteFAQC',
 			method: 'POST',
