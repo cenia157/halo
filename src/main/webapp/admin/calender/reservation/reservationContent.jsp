@@ -81,7 +81,7 @@
 					<div class="reservation-modal-update-btn">
 						<div class="reservation-modal-update">수정</div>
 						<div class="reservation-modal-delete"
-							onclick="reservationDelete(this)">삭제</div>
+							onclick="reservationDeleteConfirm()">삭제</div>
 					</div>
 
 					<div class="reservation-modal-detail-btn">
@@ -89,6 +89,18 @@
 							onclick="reservationConfirm(this)">확인</div>
 						<div class="reservation-modal-delete"
 							onclick="reservationCancel(this)">취소</div>
+					</div>
+				</div>
+				
+				<div class="confirm-delete">
+					<div class="confirm-delete-content">
+						<div class="confirm-delete-content-announce">해당일정을 삭제하시겠습니까?</div>
+						<div class="confirm-delete-content-accept">
+							<div class="confirm-delete-agree"
+								onclick="reservationDelete()">확인</div>
+							<div class="confirm-delete-disagree"
+								onclick="reservationDeleteCancle()">취소</div>
+						</div>
 					</div>
 				</div>
 
@@ -107,18 +119,6 @@
 						<div class="detail-schedule-close modal-close"></div>
 					</div>
 					<div class="detail-schedule-content"></div>
-				</div>
-
-				<div class="confirm-delete">
-					<div class="confirm-delete-content">
-						<div class="confirm-delete-content-announce">해당일정을 삭제하시겠습니까?</div>
-						<div class="confirm-delete-content-accept">
-							<div class="confirm-delete-agree"
-								onclick="rowScheduleDelete('agree')">확인</div>
-							<div class="confirm-delete-disagree"
-								onclick="rowScheduleDelete('disagree')">취소</div>
-						</div>
-					</div>
 				</div>
 
 			</div>

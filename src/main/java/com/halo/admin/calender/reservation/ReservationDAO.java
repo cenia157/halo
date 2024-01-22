@@ -284,7 +284,7 @@ public class ReservationDAO {
 			response.setContentType("application/json; charset=utf-8");
 
 			// 데이터베이스 연동
-			String sql = "update reservation_information_accept set sa_service = ?, sa_user_name = ?, sa_days = ?, sa_addr = ?, sa_start_place = ?, sa_end_place = ?, sa_feedback = ?, sa_staff = ?, sa_phone_number = ? where sa_seq = ?";
+			String sql = "update reservation_information_accept set sa_service = ?, sa_user_name = ?, sa_days = ?, sa_addr = ?, sa_start_place = ?, sa_end_place = ?, sa_feedback = ?, sa_staff = ?, sa_phone_number = ?, sa_time = ?  where sa_seq = ?";
 
 			con = DBManagerhalo2.connect();
 			pstmt = con.prepareStatement(sql);
@@ -303,7 +303,8 @@ public class ReservationDAO {
 			pstmt.setString(7, dataMap.get("feedBack"));
 			pstmt.setString(8, dataMap.get("staff"));
 			pstmt.setString(9, dataMap.get("phoneNumber"));
-			pstmt.setString(10, dataMap.get("pkNo"));
+			pstmt.setString(10, dataMap.get("time"));
+			pstmt.setString(11, dataMap.get("pkNo"));
 
 			if (pstmt.executeUpdate() == 1) {
 				System.out.println("수정완료");
