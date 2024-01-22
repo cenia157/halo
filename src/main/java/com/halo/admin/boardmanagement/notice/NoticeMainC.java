@@ -7,13 +7,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/AdminNOTICEC")
-public class AdminNOTICEC extends HttpServlet {
+@WebServlet("/NoticeMainC")
+public class NoticeMainC extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		NOTICEDAO.getAllNOTICE(request, response);
-		NOTICEDAO.NOTICEpagingAdmin(1, request);
+		Notice.getAllNOTICE(request, response);
+		Notice.NOTICEpagingAdmin(1, request);
 		
 		request.setAttribute("menu", "/admin/boardmanagement/notice/noticeContent.jsp");
 		request.getRequestDispatcher("admin/index.jsp").forward(request, response);
@@ -21,7 +21,7 @@ public class AdminNOTICEC extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		NOTICEDAO.getAllNOTICE(request, response);
+		Notice.getAllNOTICE(request, response);
 
 		request.setAttribute("menu", "/admin/boardmanagement/notice/noticeContent.jsp");
 		request.getRequestDispatcher("admin/index.jsp").forward(request, response);

@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/NoticeDeleteC")
-public class NoticeDeleteC extends HttpServlet {
+@WebServlet("/UpdateNoticeC")
+public class UpdateNoticeC extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -18,7 +18,7 @@ public class NoticeDeleteC extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		Ck_DAO.deleteNotice(request);
+		CKEditorDAO.updateNotice(request);
 	}
 
 }

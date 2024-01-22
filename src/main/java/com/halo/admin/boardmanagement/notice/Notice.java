@@ -14,9 +14,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.halo.main.DBManagerhalo;
 import com.halo.test.DBManagerhalo_JW;
 
-public class NOTICEDAO {
+public class Notice {
 
-	private static ArrayList<Notice> NOTICEs;
+	private static ArrayList<NoticeDTO> NOTICEs;
 
 	public static void getAllNOTICE(HttpServletRequest request, HttpServletResponse response) {
 		
@@ -101,7 +101,7 @@ public class NOTICEDAO {
 	        
 	        NOTICEs = new ArrayList<>();
 	        while (rs.next()) {
-	            Notice notice = new Notice(
+	            NoticeDTO notice = new NoticeDTO(
 	                rs.getInt("an_seq"),
 	                rs.getString("an_title"),
 	                rs.getString("an_content"),
@@ -124,7 +124,7 @@ public class NOTICEDAO {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		ArrayList<Notice> NOTICEList = new ArrayList<Notice>();
+		ArrayList<NoticeDTO> NOTICEList = new ArrayList<NoticeDTO>();
 		String jsonresult = null;
 
 		int an_seq = 0;
@@ -151,7 +151,7 @@ public class NOTICEDAO {
 				an_reg_date = rs.getDate(5);
 				an_category = rs.getString(6);
 
-				Notice notice = new Notice(an_seq, an_title, an_content, an_writer, an_reg_date, an_category);
+				NoticeDTO notice = new NoticeDTO(an_seq, an_title, an_content, an_writer, an_reg_date, an_category);
 
 				NOTICEList.add(notice);
 			}
@@ -182,7 +182,7 @@ public class NOTICEDAO {
 		int start = total - (cnt * (page - 1));
 		int end = (page == pageCount) ? -1 : start - (cnt + 1);
 
-		ArrayList<Notice> items = new ArrayList<Notice>();
+		ArrayList<NoticeDTO> items = new ArrayList<NoticeDTO>();
 		if(NOTICEs.size() != 0) {
 			for (int i = start - 1; i > end; i--) {
 				items.add(NOTICEs.get(i));
@@ -193,7 +193,7 @@ public class NOTICEDAO {
 
 	}
 
-	public static void realDeleteNotice(HttpServletRequest request) {
+	public static void deleteNotice(HttpServletRequest request) {
 		
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -205,11 +205,11 @@ public class NOTICEDAO {
 			pstmt.setString(1, request.getParameter("an_seq"));
 			
 			if(pstmt.executeUpdate() == 1) {
-				System.out.println("realDeleteNotice() 삭제 성공");
+				System.out.println("deleteNotice() 삭제 성공");
 			}
 
 		} catch (Exception e) {
-			System.out.println("realDeleteNotice() 삭제 실패");
+			System.out.println("deleteNotice() 삭제 실패");
 			e.printStackTrace();
 		} finally {
 			DBManagerhalo_JW.close(con, pstmt, null);

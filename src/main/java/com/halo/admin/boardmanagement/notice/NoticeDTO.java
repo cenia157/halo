@@ -2,7 +2,7 @@ package com.halo.admin.boardmanagement.notice;
 
 import java.sql.Date;
 
-public class Notice {
+public class NoticeDTO {
 
 	private int an_seq;
 	private String an_title;
@@ -11,8 +11,7 @@ public class Notice {
 	private Date an_reg_date;
 	private String an_category;
 
-	public Notice(int an_seq, String an_title, String an_content, String an_writer, Date an_reg_date,
-			String an_category) {
+	public NoticeDTO(int an_seq, String an_title, String an_content, String an_writer, Date an_reg_date, String an_category) {
 		super();
 		this.an_seq = an_seq;
 		this.an_title = an_title;

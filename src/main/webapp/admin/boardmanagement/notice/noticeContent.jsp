@@ -168,7 +168,7 @@
 		</div>
 		<!-- noticeNEWRegPage.jsp 시작 -->
 		<div id="myModalNR" class="modal-background"></div>
-		<form action="AdminNOTICEC" id="ck-form" method="get"> 
+		<form action="NoticeMainC" id="ck-form" method="get"> 
 			<input  type="hidden" name="checkVal" value="${param.checkVal}">
 			<input id="regBtnHiddenInput" type="hidden" value="${sessionScope.login_session.a_name}">
 			<div id="myModal-tblNR" class="modal-tbl">
@@ -312,10 +312,10 @@
 		<!--noticeRegPage.jsp 끝 -->
 	</div>
 	<script src="admin/_js/ckeditor/ckeditor.js"></script>
-	<script src="admin/boardmanagement/notice/0.js/noticeCommon.js"></script>
+	<script src="admin/boardmanagement/notice/0.js/notice.js"></script>
 	<script src="admin/boardmanagement/notice/0.js/insertCKEditor.js"></script>
-	<script src="admin/boardmanagement/notice/0.js/insertSendCkeditorC.js"></script>
+	<script src="admin/boardmanagement/notice/0.js/insertSendCkeditor.js"></script>
 	<script src="admin/boardmanagement/notice/0.js/updateCKEditor.js"></script>
-	<script src="admin/boardmanagement/notice/0.js/updateSendCKeditorC.js"></script>
+	<script src="admin/boardmanagement/notice/0.js/updateSendCKeditor.js"></script>
 </body>
 </html>

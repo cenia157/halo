@@ -7,18 +7,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/deleteNoticeC")
-public class deleteNoticeC extends HttpServlet {
+@WebServlet("/DeleteNoticeC")
+public class DeleteNoticeC extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			
-			NOTICEDAO.realDeleteNotice(request);
+			Notice.deleteNotice(request);
 			response.sendRedirect("NoticePagingC?p="+request.getParameter("p")+"&checkVal="+request.getParameter("checkVal"));
 	}
 
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-	}
-
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {}
 }

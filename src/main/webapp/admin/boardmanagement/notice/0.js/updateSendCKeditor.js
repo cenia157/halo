@@ -47,7 +47,7 @@ regBtnR.addEventListener("click", function(event) {
 		closeModalNR();
 	}
 
-	let CkeditorC123 = fetch("NoticeDeleteC", {
+	let CkeditorC123 = fetch("UpdateNoticeC", {
 		method: "POST",
 		body: payload,
 		headers: {
