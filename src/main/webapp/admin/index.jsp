@@ -52,7 +52,7 @@
 					<div class="menu-td-3-td-2">
 						<div class="menu-td-3-td-open-td-1">
 							<img src="admin/0.img/admintble3-1.png" alt=""><a
-								href="adminC">대시보드</a>
+								href="AdminC">대시보드</a>
 						</div>
 						<div class="menu-td-3-td-open-td-2">
 							<div class="menu-td-3-td-open-td-2-td-1">

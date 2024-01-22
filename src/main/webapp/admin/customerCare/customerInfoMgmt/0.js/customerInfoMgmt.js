@@ -29,25 +29,25 @@ function getAllCustomerInfo() {
 }
 
 
-window.onload = function() {
-	
-	date = new Date();
-	const selectDate = document.querySelector('#monthSelect');
-	selectDate.value= new Date().toISOString().slice(0, 7);
+document.addEventListener('DOMContentLoaded', function() {
+    // 여기에 코드 작성
+    const selectDate = document.querySelector('#monthSelect');
+    console.log("selectDate.value: " + selectDate.value);
+    selectDate.value = new Date().toISOString().slice(0, 7);
 
-	//	getAllCustomerInfo()
+    // getAllCustomerInfo()
 
-	// 날짜 선택
-	selectDate.addEventListener('change', function(event) {
-		// List 초기화
-		const list = document.querySelector(".content-dataWrapDiv");
-		list.innerHTML = '';
-		getAllCustomerInfo()
-	})
-	
-	getAllCustomerInfo()
-	
-}
+    // 날짜 선택
+    selectDate.addEventListener('change', function(event) {
+        // List 초기화
+        const list = document.querySelector(".content-dataWrapDiv");
+        list.innerHTML = '';
+        getAllCustomerInfo();
+    })
+
+    getAllCustomerInfo();
+});
+
 
 
 
