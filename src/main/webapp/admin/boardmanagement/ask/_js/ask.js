@@ -177,7 +177,6 @@ document.querySelector('.ontent-m-td-2-mid').addEventListener("click", function(
 	if (e.target.parentNode.className == 'ontent-m-td-2-content-txt-title-in') {
 		updateCategory = e.target.parentNode.previousSibling.previousSibling;
 	}
-	console.log(updateCategory);
 });
 
 //문의사항@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -201,7 +200,6 @@ function getData(q_seq, e, q_title, q_content, q_reg_date, q_contact_number, q_e
 		},
 		success: function(data) {
 			try {
-				console.log("Data:", data);
 
 				if (Array.isArray(data) && data.length > 0) {
 					let qSeq = data[0].q_seq;
@@ -365,8 +363,6 @@ function updateComments() {
 //작성자명 넘기기
 $(document).ready(function (){
 	let c_writer = $('#regBtnHiddeninput').val();
-	console.log("작성자명 넘기기");
-	console.log(c_writer);
 });
 
 
@@ -376,8 +372,6 @@ function submitComments() {
 	let c_comment_content = $('#c_comment_content').val();
 	let q_seq = $('#q_seq').val();
 	let c_writer = document.querySelector('#regBtnHiddeninput').value;
-//	작성자 이름
-	console.log("작성자명: ", c_writer);
 
 	$.ajax({
 		url: 'CommentSubmitC',
@@ -499,7 +493,6 @@ $(document).ready(function() {
 			if (checkbox.length > 0) {
 				checkbox.prop('checked', storedData[key]);
 
-				console.log("체크박스 상태 불러오기 확인용: ", storedData);
 				//				fetchData(storedData);
 			}
 		}

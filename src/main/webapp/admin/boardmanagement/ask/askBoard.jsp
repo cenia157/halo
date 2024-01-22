@@ -52,7 +52,7 @@
 			        <div class="ontent-m-td-2-content-txt-writer-in">${item.q_name}</div>
 			        <div class="ontent-m-td-2-content-txt-date-in">${item.q_reg_date}</div>
 			        <div class="ontent-m-td-2-content-txt-delete-in">
-			            <a onclick="deleteQuestion(${item.q_seq}, this)">削除</a>
+			            <button id="deleteBtn" onclick="deleteQuestion(${item.q_seq}, this)">削除</button>
 			        </div>
 			    </div>
 			</c:forEach>
