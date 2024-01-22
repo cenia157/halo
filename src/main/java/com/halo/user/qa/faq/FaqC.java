@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.halo.admin.boardmanagement.frequenthyask.FAQDAO;
+import com.halo.main.MainpageDAO;
 
 @WebServlet("/FaqC")
 public class FaqC extends HttpServlet {
@@ -17,7 +18,7 @@ public class FaqC extends HttpServlet {
 		FAQDAO.getFAQDetail(request, response);
 		
 		
-		
+		MainpageDAO.getMdao().getAllHompage_common(request);
 		String subMenu = "qa/faq/faq";
 		request.setAttribute("menu", "user/menu-index.jsp");
 		request.setAttribute("subMenu", subMenu + ".jsp");
