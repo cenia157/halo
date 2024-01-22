@@ -41,6 +41,7 @@
   background-color: #fffcf0; /* 추후 투명도 조절 필요 */
   width: 95%;
   height: 100%;
+  opacity: 0.9;
 }
 
 .e_content-box-tr1 a:link {

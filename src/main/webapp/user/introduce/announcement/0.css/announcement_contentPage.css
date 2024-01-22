@@ -25,12 +25,12 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	background: rgba(255, 255, 255, 0.8);
 }
 
 .a_content-box-tr1 {
 	border-radius: 35px;
 	background-color: #fffcf0; 
+	opacity: 0.90;
 	width: 95%;
 	height: 100%;
 }
@@ -343,6 +343,7 @@
 	line-height: normal;
 	padding-top: 0.3%;
 	padding-bottom: 0.3%;
+	font-family: "SF Pro JP Regular";
 }
 
 .qd-content-box-td1-2-2 {
@@ -356,6 +357,7 @@
 	color: #546137;
 	padding-top: 0.3%;
 	padding-bottom: 0.3%;
+	font-family: "SF Pro JP Regular";
 }
 
 .qd-content-box-td1-3 {
@@ -377,6 +379,7 @@
 	line-height: normal;
 	padding-top: 0.3%;
 	padding-bottom: 0.3%;
+	font-family: "SF Pro JP Regular";
 }
 
 .qd-content-box-td1-3-2 {
@@ -389,6 +392,7 @@
 	line-height: normal;
 	padding-top: 0.3%;
 	padding-bottom: 0.3%;
+	font-family: "SF Pro JP Regular";
 }
 
 .qd-content-box-td1-4 {
@@ -412,6 +416,7 @@
 	font-style: normal;
 	font-weight: 700;
 	line-height: normal;
+	font-family: "SF Pro JP Regular";
 }
 
 .qd-content-box-td1-4-2 {
@@ -428,22 +433,22 @@
 	width: 100%;
 	display: flex;
 	height: 65%;
-	padding-left: 5%;
-	padding-right: 5%;
+	padding-left: 2%;
+	padding-right: 2%;
 	border-bottom: 3px solid #9f9f78;
 	overflow-y: auto;
 }
 
 .qd-content-box-td2-1-content {
 	width: 100%;
-	padding: 1% 5%;
-	color: #000;
-	font-family: Inter;
-	font-size: 1.8rem;
-	font-style: normal;
-	font-weight: 700;
-	line-height: normal;
-	letter-spacing: 0.81px;
+	padding: 1% 1%;
+/* 	color: #000; */
+/* 	font-family: Inter; */
+/* 	font-size: 1.8rem; */
+/* 	font-style: normal; */
+/* 	font-weight: 700; */
+/* 	line-height: normal; */
+/* 	letter-spacing: 0.81px; */
 /* 	outline: 2px solid pink; */
 	height: 50vh; 
 }
@@ -471,6 +476,7 @@
 	font-weight: 1000;
 	line-height: normal;
 	letter-spacing: 0.81px;
+	font-family: "SF Pro JP Regular";
 }
 
 /* 소스 활용 끝 */
@@ -514,8 +520,14 @@
 
 .image {
 	display: flex;
-	justify-content: center;
+	justify-content: center;	
+
 }
+
+.image > img {
+    max-width: 100%;
+}
+
 
 /* 여기에 이미지 리사이즈 속성을 준다. 문제시 연락주세요 -김진욱- */
 .qd-content-box-td2-1-content .image-style-side {
@@ -536,3 +548,4 @@
 .qd-content-box-td2-1-content .image.image_resized img {
 	width: 100%;
 }
+

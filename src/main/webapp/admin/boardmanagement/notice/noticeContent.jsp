@@ -7,16 +7,13 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>notice</title>
+<title>noticeMain</title>
+<link rel="stylesheet" href="admin/boardmanagement/notice/0.css/noticeContent.css" />
 
-
-<link rel="stylesheet"
-	href="admin/boardmanagement/notice/0.css/notice.css" />
-<link
-	href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular"
-	rel="stylesheet" />
+<link href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular" rel="stylesheet" />
 
 </head>
+
 <body>
 	<input type="hidden" id="pageNum" value="${pageNum }">
 	<input type="hidden" id="updateSEQ" value="${seq }">
@@ -25,77 +22,95 @@
 			<div class="ontent-m-td-2-chackbox-contain-input">
 				<input type="checkbox" name="noticeCheck" class="noticeCheck" value="0" onclick="noticeSearch()">
 			</div>
-			<div class="ontent-m-td-2-chackbox-contain-txt">안내</div>
+			<div class="ontent-m-td-2-chackbox-contain-txt">案内</div>
 			<div class="ontent-m-td-2-chackbox-contain-input">
 				<input type="checkbox" name="noticeCheck" class="noticeCheck" value="1" onclick="noticeSearch()">
 			</div>
-			<div class="ontent-m-td-2-chackbox-contain-txt">일정</div>
+			<div class="ontent-m-td-2-chackbox-contain-txt contain-txt-schedule">スケジュール</div>
 			<div class="ontent-m-td-2-chackbox-contain-input">
 				<input type="checkbox" name="noticeCheck" class="noticeCheck" value="2" onclick="noticeSearch()">
 			</div>
-			<div class="ontent-m-td-2-chackbox-contain-txt">일반</div>
+			<div class="ontent-m-td-2-chackbox-contain-txt">一般</div>
 			<div class="ontent-m-td-2-chackbox-contain-input">
 				<input type="checkbox" name="noticeCheck" class="noticeCheck" value="3" onclick="noticeSearch()">
 			</div>
-			<div class="ontent-m-td-2-chackbox-contain-txt">서비스</div>
+			<div class="ontent-m-td-2-chackbox-contain-txt  contain-txt-service">サービス</div>
 			<div class="ontent-m-td-2-chackbox-contain-input">
 				<input type="checkbox" name="noticeCheck" class="noticeCheck" value="4" onclick="noticeSearch()">
 			</div>
-			<div class="ontent-m-td-2-chackbox-contain-txt">상품</div>
+			<div class="ontent-m-td-2-chackbox-contain-txt">商品</div>
 		</div>
 	</div>
 	<div class="ontent-m-td-2-content">
-		<!-- 아래의 include는 게시판 보드가 담겨있다 -->
-		<jsp:include page="noticeBoard.jsp"></jsp:include>
+		<!-- noticeBoard.jsp 시작 -->
+		<div class="ontent-m-td-2-content-container">
+			<div class="ontent-m-td-2-content-txt">
+				<div class="ontent-m-td-2-content-txt-no">No</div>
+				<div class="ontent-m-td-2-content-txt-kategorie">カテゴリー</div>
+				<div class="ontent-m-td-2-content-txt-title">タイトル</div>
+				<div class="ontent-m-td-2-content-txt-writer">投稿者</div>
+				<div class="ontent-m-td-2-content-txt-date">投稿日</div>
+				<div class="ontent-m-td-2-content-txt-delete"></div>
+			</div>
+		</div>
+		<div class="ontent-m-td-2-mid">
+			<c:forEach items="${NOTICEs}" var="an" varStatus="loop">
+				<div class="ontent-m-td-2-content-txt-in">
+					<input hidden="1" name="aq_seq" value="${an.an_seq }">
+					<div class="ontent-m-td-2-content-txt-no-in">${(loop.index + 1) + (curPageNo - 1) * 8}</div>
+					<div class="ontent-m-td-2-content-txt-kategorie-in">${an.an_category }</div>
+					<div class="ontent-m-td-2-content-txt-title-in"><a onclick="getNoticeViewData('${an.an_seq}')">${an.an_title }</a></div>
+					<div class="ontent-m-td-2-content-txt-writer-in">${an.an_writer }</div>
+					<div class="ontent-m-td-2-content-txt-date-in">${an.an_reg_date}</div>
+					<div class="ontent-m-td-2-content-txt-delete-in">
+					<button class="deleteNoticeBtn" onclick="deleteNotice('${an.an_seq}')" >削除</button>
+					</div>
+				</div>
+			</c:forEach>
+		</div>
+		<!-- noticeBoard.jsp 끝 -->
 		<div class="ontent-m-td-2-bottom">
 			<div class="ontent-m-td-2-page-side"></div>
 			<div class="ontent-m-td-2-page-center">
-
-				<!-- 					페이징처리 해야할 부분 -->
-				<!--페이징시작 -->
+				<!--페이징시작 --><!--페이징시작 --><!--페이징시작 -->
 				<div class="paging-div">
 					<!-- 처음으로 가는 버튼 -->
 					<c:choose>
 						<c:when test="${curPageNo > 5}">
 							<a href="NoticePagingC?p=${curPageNo - 5}&checkVal=${param.checkVal}">
-								<button>&lt;&lt;</button>
+								<button style="cursor: pointer;">&lt;&lt;</button>
 							</a>
 						</c:when>
 						<c:when test="${curPageNo <= 5 && curPageNo > 1}">
 							<a href="NoticePagingC?p=1&checkVal=${param.checkVal}">
-								<button>&lt;&lt;</button>
+								<button style="cursor: pointer;">&lt;&lt;</button>
 							</a>
 						</c:when>
 						<c:otherwise>
 							<button disabled>&lt;&lt;</button>
 						</c:otherwise>
 					</c:choose>
-
 					<!-- 이전 페이지로 가는 버튼 -->
 					<c:choose>
 						<c:when test="${curPageNo > 1}">
 							<a href="NoticePagingC?p=${curPageNo - 1}&checkVal=${param.checkVal}">
-								<button>이전</button>
+								<button style="cursor: pointer;">前の</button>
 							</a>
 						</c:when>
 						<c:otherwise>
-							<button disabled>이전</button>
+							<button disabled>前の</button>
 						</c:otherwise>
 					</c:choose>
-
 					<!-- 페이지 번호 생성 시작 -->
 					<c:set var="pageSize" value="5" />
 					<c:set var="startPage" value="${curPageNo - 2}" />
 					<c:set var="endPage" value="${curPageNo + 2}" />
 					<!-- 시작 페이지와 끝 페이지 계산 -->
-
 					<c:if test="${startPage < 1}">
 						<c:set var="startPage" value="1" />
 						<c:set var="endPage" value="${startPage + 4}" />
 						<!-- 시작 페이지가 1보다 작으면 1로 설정하고 끝 페이지를 조정 -->
 					</c:if>
-
-					<!-- 이부분 문제 -->
 					<c:if test="${endPage > pageCount}">
 						<c:set var="endPage" value="${pageCount}" />
 						<c:choose>
@@ -106,12 +121,8 @@
 								<c:set var="startPage" value="1" />
 							</c:when>
 						</c:choose>
-						<!-- 끝 페이지가 페이지 수를 넘으면 끝 페이지를 페이지 수로 설정하고 시작 페이지를 조정 -->
 					</c:if>
-					<!-- 경고 -->
-
 					<c:forEach var="pageNumber" begin="${startPage}" end="${endPage}">
-
 						<c:set var="currentPageClass"
 							value="${pageNumber == curPageNo ? 'current-page' : ''}" />
 						<!-- 버튼 모양 결정 -->
@@ -120,30 +131,28 @@
 							[ ${pageNumber} ] </a>
 					</c:forEach>
 					<!-- 페이지 번호 생성 끝 -->
-
 					<!-- 다음 페이지로 가는 버튼 -->
 					<c:choose>
 						<c:when test="${curPageNo < pageCount}">
 							<a href="NoticePagingC?p=${curPageNo + 1}&checkVal=${param.checkVal}">
-								<button>다음</button>
+								<button style="cursor: pointer;">次の</button>
 							</a>
 						</c:when>
 						<c:otherwise>
-							<button disabled>다음</button>
+							<button disabled>次の</button>
 						</c:otherwise>
 					</c:choose>
-
 					<!-- 마지막으로 가는 버튼 -->
 					<c:choose>
 						<c:when test="${curPageNo + 5 <= pageCount}">
 							<a href="NoticePagingC?p=${curPageNo + 5}&checkVal=${param.checkVal}">
-								<button>&gt;&gt;</button>
+								<button style="cursor: pointer;">&gt;&gt;</button>
 							</a>
 						</c:when>
 						<c:when
 							test="${curPageNo + 5 > pageCount && curPageNo < pageCount}">
 							<a href="NoticePagingC?p=${pageCount}&checkVal=${param.checkVal}">
-								<button>&gt;&gt;</button>
+								<button style="cursor: pointer;">&gt;&gt;</button>
 							</a>
 						</c:when>
 						<c:otherwise>
@@ -151,26 +160,162 @@
 						</c:otherwise>
 					</c:choose>
 				</div>
-				<!-- 페이징끝 -->
-
-
-
-
-
+				<!-- 페이징끝 --><!-- 페이징끝 --><!-- 페이징끝 -->
 			</div>
 			<div class="ontent-m-td-2-page-side">
-				<button class="SubmitButton-content" onclick="openModalNR()">등록하기</button>
+				<button class="SubmitButton-content" onclick="openModalNR()">登録</button>
 			</div>
 		</div>
-		<!-- 
-			여기는 모달을 띄워주는 곳, 
-			새로운 공지사항을 등록하기 위한 모달(noticeNEWRegPage.jsp)			
-			기존의 공지사항을 보기 위한 모달(noticeViewPage.jsp)
-			기존의 공지사항을 수정 위한 모달(이 모달은 noticeViewPage에서 include됨)(noticeRegPage.jsp)
-		-->
-		<jsp:include page="noticeNEWRegPage.jsp"></jsp:include>
-		<jsp:include page="noticeViewPage.jsp"></jsp:include>
-		<jsp:include page="noticeRegPage.jsp"></jsp:include>
+		<!-- noticeNEWRegPage.jsp 시작 -->
+		<div id="myModalNR" class="modal-background"></div>
+		<form action="AdminNOTICEC" id="ck-form" method="get"> 
+			<input  type="hidden" name="checkVal" value="${param.checkVal}">
+			<input id="regBtnHiddenInput" type="hidden" value="${sessionScope.login_session.a_name}">
+			<div id="myModal-tblNR" class="modal-tbl">
+				<div class="modal-title-set">
+					<div class="modal-title-tr">
+						<div class="modal-title-td-1">
+							<div class="real-title">
+								<input class="real-title-editor" name="title"
+									id="real-title-editor" placeholder="ここにタイトルを入力してください">
+								<div id="img-temporary"></div>
+								<div class="real-title-select">
+									<div class="toggle" id="toggle" onclick="toggle()">
+										<div class="kategorie" id="kategorie">category</div>
+										<div class="toggle-down" id="toggle-down">
+											<div class="toggle-down-block">
+												<div class="toggle-item" id="announcement">
+													<input name="announcement" type="hidden" id="myInput"
+														value="announcement"> announcement
+												</div>
+												<div class="toggle-item" id="schedule">
+													<input name="schedule" type="hidden" id="myInput"
+														value="schedule"> schedule
+												</div>
+												<div class="toggle-item" id="general">
+													<input name="general" type="hidden" id="myInput"
+														value="general"> general
+												</div>
+												<div class="toggle-item" id="service">
+													<input name="service" type="hidden" id="myInput"
+														value="service"> service
+												</div>
+												<div class="toggle-item" id="product">
+													<input name="product" type="hidden" id="myInput"
+														value="product"> product
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="modal-title-td-2">
+							<span class="close" id="closeModalBtn" onclick="closeModalNR()">&times;</span>
+						</div>
+					</div>
+					<div class="modal-content">
+						<div class="modal-content-txt">
+							<textarea name="txt" id="classicNR" class="classicNR"></textarea>
+						</div>
+						<div class="modal-content-button">
+							<input type="hidden" id="regBtnHiddenInput" value="">
+							<button class="SubmitButton" type="button" id="reg-btn" style="cursor: pointer;">登録完了</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+		<!-- noticeNEWRegPage.jsp 끝 -->
+		<!-- 조회 모달 페이지 jsp 시작 -->
+		<div onclick="closeModalV()" id="myModalV" class="modal-background view-modal-background"></div>
+				<div id="myModal-tblV" class="modal-tbl view-modal-tbl">
+				<div class="modal-title-set">
+				<div class="modal-title-tr">
+					<div class="modal-title-td-1 viewModalHeader">
+						<div class="real-title-V" id="real-title-V"></div>
+						<div class="Display-Category-wrap"><div id="Display-Category"></div></div>
+					</div>
+					<div class="modal-title-td-2">
+						<span class="close" id="closeModalBtn" onclick="closeModalV()">&times;</span>
+					</div>
+				</div>
+				<div class="modal-content">
+					<div class="modal-content-txt viewModal-content-txt">
+						<div class="modal-content-txt-in viewModal-content-txt-in ck ck-content" id="modal-content-txt-in"></div>
+					</div>
+					<div class="modal-content-button">
+						<button class="SubmitButton" id="updataModalBtn">修正</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 조회 모달 페이지 jsp 끝 -->
+		<!--noticeRegPage.jsp 시작 -->
+		<div onclick="closeModalR()" id="myModalR"></div>
+		<form id="ck-formR" method="post">
+			<div id="myModal-tblR" class="modal-tbl closeRegModal">
+				<div class="modal-title-set">
+					<div class="modal-title-tr">
+						<div class="modal-title-td-1 viewModalHeader">
+							<input type="hidden" id="seq">
+							<div class="real-title">
+								<input class="real-title-editor" name="title"
+									id="real-title-editorN" placeholder="ここにタイトルを入力してください">
+								<div id="img-temporaryR" type="" style="background-color: aqua;"></div>
+								<div class="real-title-select">
+									<div class="toggle" id="toggleR" onclick="toggleR()">
+										<div class="kategorie" id="kategorieR">카테고리</div>
+										<div class="toggle-down" id="toggle-downR">
+											<div class="toggle-down-block">
+												<div class="toggle-item" id="announcement">
+													<input name="announcement" type="hidden" id="myInputR"
+														value="announcement"> announcement
+												</div>
+												<div class="toggle-item" id="schedule">
+													<input name="schedule" type="hidden" id="myInputR"
+														value="schedule"> schedule
+												</div>
+												<div class="toggle-item" id="general">
+													<input name="general" type="hidden" id="myInputR"
+														value="general"> general
+												</div>
+												<div class="toggle-item" id="service">
+													<input name="service" type="hidden" id="myInputR"
+														value="service"> service
+												</div>
+												<div class="toggle-item" id="product">
+													<input name="product" type="hidden" id="myInputR"
+														value="product"> product
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="modal-title-td-2">
+							<span class="close" id="closeModalBtn" onclick="closeModalV()">&times;</span>
+						</div>
+					</div>
+					<div class="modal-content">
+						<div class="modal-content-txt">
+							<textarea name="txt" id="classicR" class="classicR"></textarea>
+						</div>
+						<div class="modal-content-button">
+							<button  class="SubmitButton" type="button" id="reg-btnR" style="cursor: pointer;">修正完了</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+		<!--noticeRegPage.jsp 끝 -->
 	</div>
+	<script src="admin/_js/ckeditor/ckeditor.js"></script>
+	<script src="admin/boardmanagement/notice/0.js/noticeCommon.js"></script>
+	<script src="admin/boardmanagement/notice/0.js/insertCKEditor.js"></script>
+	<script src="admin/boardmanagement/notice/0.js/insertSendCkeditorC.js"></script>
+	<script src="admin/boardmanagement/notice/0.js/updateCKEditor.js"></script>
+	<script src="admin/boardmanagement/notice/0.js/updateSendCKeditorC.js"></script>
 </body>
 </html>

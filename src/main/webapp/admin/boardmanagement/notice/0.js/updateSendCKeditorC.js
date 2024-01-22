@@ -43,12 +43,10 @@ regBtnR.addEventListener("click", function(event) {
 			var iskategorieValid = true;
 		}
 	}
-	// 여기서 제목, 카테고리, 내용입력 둘다 만족할 경우 모달창이 닫히도록 함
 	if (isTitleValid && isTxtValid && iskategorieValid) {
 		closeModalNR();
 	}
 
-	console.log("--------------------");
 	let CkeditorC123 = fetch("NoticeDeleteC", {
 		method: "POST",
 		body: payload,
@@ -63,9 +61,11 @@ regBtnR.addEventListener("click", function(event) {
 			return response.text();
 		})
 		.then((data) => {
-			console.log("POST 요청 성공:", data);
-			console.log(CkeditorC123);
+//			console.log("POST 요청 성공:", data);
+//			console.log(CkeditorC123);
 			location.href ='NoticePagingC?p='+pageNum.value+'&seq='+seq+"&checkVal="+checkVal.value;
+			window.editor.setData("");
+			window.editorR.setData("");
 		})
 		.catch((error) => {
 			console.error("POST 요청 실패:", error);

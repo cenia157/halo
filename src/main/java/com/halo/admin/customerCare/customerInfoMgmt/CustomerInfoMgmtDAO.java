@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.halo.admin.calender.reservation.ReservationScheduleAcceptDTO;
 import com.halo.admin.calender.reservation.ReservationScheduleDTO;
 import com.halo.admin.manager.staff.StaffDTO;
 import com.halo.main.DBManagerhalo;
@@ -25,7 +26,7 @@ public class CustomerInfoMgmtDAO {
 			response.setContentType("application/json; charset=utf-8");
 
 			// 데이터베이스 연동
-			String sql = "select * from reservation_information order by sa_seq desc ";
+			String sql = "select * from reservation_information_accept order by sa_seq desc ";
 			con = DBManagerhalo.connect();
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
@@ -34,27 +35,33 @@ public class CustomerInfoMgmtDAO {
 			ArrayList<String> reservationSchedule = new ArrayList<String>();
 
 			// 일정 객체 생성
-			ReservationScheduleDTO schedule = null;
+			ReservationScheduleAcceptDTO schedule = null;
 
 			// 객체에 데이터 추가
 			while (rs.next()) {
-				String no = rs.getString("sa_seq");
-				String service = rs.getString("sa_service");
+				String pkNo = rs.getString("sa_seq");
 				String applicant = rs.getString("sa_applicant");
+				String service = rs.getString("sa_service");
 				String phoneNumber = rs.getString("sa_phone_number");
 				String userName = rs.getString("sa_user_name");
 				String gender = rs.getString("sa_gender");
-				String birthDate = rs.getString("sa_birth_date");
+				String birthDates = rs.getString("sa_birth_date");
 				String year = rs.getString("sa_year");
 				String month = rs.getString("sa_month");
 				String dates = rs.getString("sa_days");
 				String time = rs.getString("sa_time");
 				String addr = rs.getString("sa_addr");
-				String startPlace = rs.getString("sa_start_place");
-				String endPlace = rs.getString("sa_end_place");
+				String startPoint = rs.getString("sa_start_place");
+				String endPoint = rs.getString("sa_end_place");
+				String carNum = rs.getString("sa_car_no");
+				String feedBack = rs.getString("sa_feedback");
 				String registrationDate = rs.getString("sa_registration_date");
-
-				schedule = new ReservationScheduleDTO(no, service, applicant, phoneNumber, userName, gender, birthDate, year, month, dates, time, addr, startPlace, endPlace, registrationDate);
+				String staff = rs.getString("sa_staff");
+				String joinNo = rs.getString("sa_no");
+				
+				schedule = new ReservationScheduleAcceptDTO(pkNo, applicant, service, phoneNumber, userName, gender,
+						birthDates, year, month, dates, time, addr, startPoint, endPoint, carNum, feedBack,
+						registrationDate, staff, joinNo);
 				reservationSchedule.add(schedule.toJson());
 			}
 

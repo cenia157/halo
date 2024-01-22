@@ -35,6 +35,15 @@
 	font-size: 1rem;
 }
 
+.contain-txt-schedule{
+	width: 25%;
+	font-size: 0.9rem;
+}
+
+.contain-txt-service {
+	width: 20%;
+}
+
 .ontent-m-td-2-content {
 	height: 92%;
 	width: 100%;
@@ -170,6 +179,14 @@
 	padding: 0% 4%;
 }
 
+.ontent-m-td-2-content-txt-title-in > a {
+	cursor: pointer;
+	white-space: nowrap; /* 텍스트를 한 줄로 유지 */
+    overflow: hidden; /* 요소의 너비를 벗어나는 텍스트 숨기기 */
+    text-overflow: ellipsis; /* 긴 텍스트에 말줄임표 추가 */
+    max-width: 45ch; /* 텍스트의 최대 너비를 35자로 설정 */
+}
+
 .ontent-m-td-2-content-txt-writer-in {
 	border-bottom: solid 1px #E5E7EB;
 	display: flex;
@@ -217,7 +234,7 @@
 }
 
 /* 
-���⼭���ʹ�  noticeEditPage.jsp ����!
+���⼭���ʹ�  noticeEditPage.jsp ����!
  */
 .modal-background {
 	display: none;
@@ -266,6 +283,7 @@
 	align-items: center;
 }
 
+/* 관리자 공지사항 게시판 뷰 모달창 제목 타이블 div */
 .real-title-V {
 	padding: 1%;
 	width: 94.5%;
@@ -274,6 +292,10 @@
 	align-items: center;
 	font-size: 2.5rem;
 	font-weight: 700;
+	white-space: nowrap; /* 텍스트를 한 줄로 유지 */
+    overflow: hidden; /* 요소의 너비를 벗어나는 텍스트 숨기기 */
+    text-overflow: ellipsis; /* 긴 텍스트에 말줄임표 추가 */
+/*     max-width: 35ch; 텍스트의 최대 너비를 35자로 설정 */
 }
 
 .real-title-up {
@@ -393,8 +415,8 @@
 
 .modal-content-txt-in {
 	padding-top: 2%;
-	font-size: 2.5rem;
-	font-weight: 700;
+/* 	font-size: 2.5rem; */ 
+/* 	font-weight: 700; */
 }
 
 .modal-content-button {
@@ -407,7 +429,7 @@
 }
 
 .SubmitButton {
-	border-radius: 2%/15%;
+/* 	border-radius: 2%/15%; */
 	border: none;
 	background-color: #3B82F6;
 	color: white;
@@ -420,7 +442,7 @@
 }
 
 .SubmitButton-content {
-	border-radius: 2%/15%;
+/* 	border-radius: 2%/15%; */
 	border: none;
 	background-color: #3B82F6;
 	color: white;
@@ -430,10 +452,10 @@
 	justify-content: center;
 	align-items: center;
 	font-size: 1rem;
+	cursor: pointer;
 }
 
 .ck-editor__editable_inline:not(.ck-comment__input *) {
-	/* ���⼭ ��� CKEditor�� ũ�⸦ 100%�� ���� �� ������? */
 	overflow-y: auto;
 	height: 100%;
 }
@@ -474,9 +496,7 @@
 	width: 100%;
 }
 
-/*
-���⼭���ʹ� noticeViewPage �� ����
-*/
+/* 뷰 모달창  */
 .noticeViewPageTextarea {
 	width: 100%;
 	height: 100%;
@@ -513,15 +533,6 @@
 	border: solid 1px black;
 }
 
-/* img-url �̹��� input �Ⱥ��̰��ϴ� css */
-#img-url {
-	/* 
-	display: none;
-*/
-	
-}
-
-/* ����¡ �κ� */
 .paging-div {
 	display: flex;
 	justify-content: center;
@@ -537,4 +548,84 @@
 .current-page {
 	color: #4A572E !important;
 	font-weight: 700;
+}
+
+/* 뷰 모달창 css */
+
+.modal-title-td-1 {
+/* 	outline: 1px solid red; */
+}
+
+.real-title-V, #Display-Category {
+/* 	outline: 1px solid brown; */
+}
+
+#Display-Category {
+	margin-right: 90.55%;
+	border: 1px solid #d1d1d1;
+}
+
+.viewModalHeader {
+	width: 90%;
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    flex-direction: column;
+}
+
+.Display-Category-wrap {
+	width: 94.5%;
+	margin-bottom: 0.2%;
+}
+
+.real-title-V {
+ 	border-top: 1px solid #D1D1D1;
+}
+
+.viewModal-content-txt {
+/* 	outline: 1px solid red; */
+	overflow-y: auto;
+	border: 1px solid black;
+	border-color: var(--ck-color-base-border);
+	border-bottom: 1px solid #616161;
+}
+
+.viewModal-content-txt figure {
+	margin: 0.3em auto;
+    text-align: center;
+}
+
+.viewModal-content-txt img {
+    display: block;
+    height: auto;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+.viewModal-content-txt-in {
+	padding-top: 1%;
+}
+
+#img-temporary, #img-temporaryR {
+	visibility: hidden;
+    position: absolute;	
+}
+
+.noticeCheck, .kategorie, .toggle {
+	cursor: pointer;
+}
+
+/* css사용하여 제목 초기 숨김 */
+.content-m-td-title {
+    visibility: hidden;
+}
+
+.deleteNoticeBtn {
+	padding: 5% 15%;
+    font-size: 1rem;
+    background-color: #576D8F;
+    color: antiquewhite;
+    border-radius: 2% 15%;
+    border: none;
+    cursor: pointer;	
 }

@@ -14,12 +14,10 @@ import com.halo.main.DBManagerhalo;
 public class LoginDAO {
 	private static Connection con = null;
 
-	public static void loginCheck(HttpServletRequest request, HttpServletResponse response) throws IOException {
+	public static void loginCheck(HttpServletRequest request) throws IOException {
 		LoginDAO account = (LoginDAO) request.getSession().getAttribute("login_session");
 
-		if (account == null) {
-			response.sendRedirect("AdminC");
-		} // if-else
+		
 	} // loginCheck()
 
 	public static void login(HttpServletRequest request) {
@@ -63,6 +61,7 @@ public class LoginDAO {
 					hs.setAttribute("sessionTimeout", timer);
 //					hs.setAttribute("sessionTimeout", hs.getMaxInactiveInterval());
 					hs.setAttribute("login_session", adminDTO);
+				
 
 				} else {
 					result = "パスワードエラー！";

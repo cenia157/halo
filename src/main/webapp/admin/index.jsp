@@ -52,7 +52,7 @@
 					<div class="menu-td-3-td-2">
 						<div class="menu-td-3-td-open-td-1">
 							<img src="admin/0.img/admintble3-1.png" alt=""><a
-								href="adminC">대시보드</a>
+								href="DashboardC">대시보드</a>
 						</div>
 						<div class="menu-td-3-td-open-td-2">
 							<div class="menu-td-3-td-open-td-2-td-1">
@@ -113,11 +113,11 @@
 									</div>
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
 										<img src="admin/0.img/admintble-select.png" alt=""><a
-											href="AdminC?link=9">고객의예약</a>
+											href="ReservationC">고객의예약</a>
 									</div>
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
 										<img src="admin/0.img/admintble-select.png" alt=""><a
-											href="AdminC?link=10">직원근무일정</a>
+											href="EmployeeC">직원근무일정</a>
 									</div>
 								</div>
 							</div>
@@ -147,7 +147,7 @@
 								<div class="menu-td-3-td-open-td-2-con-td-2">
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
 										<img src="admin/0.img/admintble-select.png" alt=""><a
-											href="AdminC?link=13">직원등록</a>
+											href="StaffC">직원등록</a>
 									</div>
 								</div>
 							</div>

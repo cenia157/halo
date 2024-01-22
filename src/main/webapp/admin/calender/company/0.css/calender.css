@@ -295,14 +295,16 @@ EDIT ON */
 	width: 20%;
 	height: auto;
 	visibility: hidden;
+	border-radius: 8px;
+	background: #fff;
+	box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.2), 0px 32px 64px 0px
+		rgba(0, 0, 0, 0.24);
 }
 
 .detail-schedule-header {
 	display: flex;
 	width: 100%;
 	height: auto;
-	box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.50);
-	background: rgb(115, 135, 73, 0.95);
 }
 
 .detail-schedule-title {
@@ -316,11 +318,9 @@ EDIT ON */
 }
 
 .detail-schedule-content {
+	border-top: 1px solid rgba(165, 165, 165, 0.35);
 	font-size: 1.5rem;
 	font-weight: 600;
-	line-height: normal;
-	background: rgb(115, 135, 73, 0.95);
-	box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.50);
 	width: 100%;
 	height: auto;
 	padding: 2%

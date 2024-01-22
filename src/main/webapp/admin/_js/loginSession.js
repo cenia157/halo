@@ -1,4 +1,4 @@
-window.onload = function() {
+document.addEventListener('DOMContentLoaded', function() {
     // 세션 유효 시간 (초)
     let sessionTimeout = parseInt(document.getElementById('sessionTimeoutVal').value);
     // 초기 설정
@@ -51,4 +51,4 @@ window.onload = function() {
                 console.error('Error:', error);
             });
     });
-};
+});

@@ -8,7 +8,7 @@
 <link rel="stylesheet"
 	href="admin/customerCare/customerInfoMgmt/0.css/customerInfoMgmt.css" />
 <script type="text/javascript"
-	src="${pageContext.request.contextPath}/admin/customerCare/customerInfoMgmt/0.js/customerInfoMgmt.js"></script>
+	src="admin/customerCare/customerInfoMgmt/0.js/customerInfoMgmt.js"></script>
 </head>
 <body>
 	<div class="content-checkBoxDiv">

@@ -12,7 +12,6 @@ public class ReservationScheduleAccept extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		System.out.println(request.getParameter("no"));
 		ReservationDAO.getReservationAcceptSchedule(request, response);
 	}
 

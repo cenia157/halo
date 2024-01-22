@@ -1,17 +1,13 @@
-let fileOrder = [];
+let updateFileOrder = [];
 
-class MyUploadAdapter {
+class MyUploadAdapter_update {
 	
 	constructor(loader) {
 	    this.loader = loader;
 	    this.uploadPromise = null;
 	
 	    this.loader.file.then(file => {
-	        fileOrder.push({id: this.loader.id, file: file});
-	
-//	        console.log('파일 업로드 중:', file.name);
-//	        console.log(`파일 업로드 중: ${file.name}, 파일 크기: ${file.size}`);
-//	        console.log('현재 파일 순서:', fileOrder.map(item => item.file.name));
+	        updateFileOrder.push({id: this.loader.id, file: file});
 	    });
 	}
 
@@ -19,27 +15,27 @@ class MyUploadAdapter {
 	    return this.loader.file.then(
 	        (file) => new Promise((resolve, reject) => {
 	            const uploadSequentially = () => {
-	                // fileOrder 배열이 비어있으면 함수 실행을 중단합니다.
-	                if (fileOrder.length === 0) {
+	                // updateFileOrder 배열이 비어있으면 함수 실행을 중단합니다.
+	                if (updateFileOrder.length === 0) {
 	                    console.log('업로드할 파일이 더 이상 없습니다.');
 	                    return;
 	                }
 	
-	                // fileOrder 배열에서 현재 파일의 위치를 찾습니다.
-	                const index = fileOrder.findIndex(item => item.file === file);
+	                // updateFileOrder 배열에서 현재 파일의 위치를 찾습니다.
+	                const index = updateFileOrder.findIndex(item => item.file === file);
 	
 	                if (index === 0) { // 이 파일이 첫 번째로 업로드 해야 할 파일이면
 	                    console.log('파일 업로드 중:', file.name);
 	                    this._initRequest();
 	                    this._initListeners(resolve, reject, file);
 	                    this._sendRequest(file).then(() => {
-	                        // 업로드를 시작한 후, fileOrder에서 해당 파일을 제거합니다.
-	                        fileOrder.shift();
+	                        // 업로드를 시작한 후, updateFileOrder에서 해당 파일을 제거합니다.
+	                        updateFileOrder.shift();
 	                        console.log('대기열에서 제거된 파일:', file.name); 
-	                        console.log('현재 파일 순서:', fileOrder.map(item => item.file.name)); 
+	                        console.log('현재 파일 순서:', updateFileOrder.map(item => item.file.name)); 
 	
 	                        // 다음 파일이 있으면 그 파일도 업로드합니다.
-	                        if (fileOrder.length > 0) {
+	                        if (updateFileOrder.length > 0) {
 	                            uploadSequentially();
 	                        }
 	                    });
@@ -125,6 +121,7 @@ class MyUploadAdapter {
 	            } else {
 	                this._updateInputField(response.fName);
 	                document.querySelector(".ck-content").click();
+//					document.querySelectorAll(".ck-content")[1]?.click();
 	                resolve({ default: response.url });
 	            }
 	        });
@@ -152,14 +149,15 @@ class MyUploadAdapter {
 	}
 
 	_updateInputField(fName) {
+		console.log('진입확인1!!!');
 		const newInput = document.createElement("input");
 		newInput.name = "saveFname";
 		newInput.id = "img-url";
 		newInput.value = fName;
 		newInput.dataset.check = fName;
 
-		const targetDiv = document.getElementById("img-temporary");
-		const figures = document.querySelectorAll(".ck-content figure");
+		const targetDiv = document.getElementById("img-temporaryR")
+		const figures = document.querySelectorAll("#ck-formR .ck-content figure");
 
 
 		let matchedFigureIndex = -1; // 삽입할 figure의 인덱스를 저장할 변수
@@ -190,35 +188,18 @@ class MyUploadAdapter {
 	}
 } // end class
 
-function MyCustomUploadAdapterPlugin(editor) {
+function MyCustomUploadAdapterPlugin_update(editor) {
 	editor.plugins.get("FileRepository").createUploadAdapter = (loader) => {
-		return new MyUploadAdapter(loader);
+		return new MyUploadAdapter_update(loader);
 	};
 }
 
-ClassicEditor.create(document.querySelector("#classicNR"), {
-	extraPlugins: [MyCustomUploadAdapterPlugin],
+ClassicEditor.create(document.querySelector("#classicR"), {
+	extraPlugins: [MyCustomUploadAdapterPlugin_update],
 })
 	.then((editor) => {
-		window.editor = editor;
+		window.editorR = editor;
 	})
 	.catch((error) => {
 		console.log(error);
 	});
-
-	
-
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	

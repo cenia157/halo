@@ -64,6 +64,11 @@ let selectDetailSchedule = new Array();
 let prevDate = '';
 let prevDay = '';
 
+// 모달 드로그앤 드롭
+let isDragging = false;
+let modalOffsetX;
+let modalOffsetY;
+
 // 토글스위치
 let toggle = '';
 
@@ -142,6 +147,9 @@ function getAllSchedule() {
 					getScheduleDetailModal(e, directDetail)
 				}
 			})
+
+			// 디테일창 드로그앤드롭
+			scheduleDetailDroDrop();
 		})
 
 
@@ -379,7 +387,7 @@ function expandSchedule(e) {
 function getScheduleDetailModal(e, directDetail) {
 	let addLeft = '';
 	let zIndex = 0;
-	
+
 	if (directDetail) {
 		addLeft = (e.target.getBoundingClientRect().width / 2);
 		dateDivValue = e.target.children[0].value
@@ -390,17 +398,10 @@ function getScheduleDetailModal(e, directDetail) {
 		arrayNumber = e.target.closest('.date-modal').className.match(/array(\d+)/)[1];
 	}
 
-
 	document.querySelector('.detail-schedule').style.left = e.target.getBoundingClientRect().left + addLeft + 'px';
-	
-	if (document.querySelector('.detail-schedule').getBoundingClientRect().x > window.innerWidth * 0.65 && zIndex == 0) {
-		document.querySelector('.detail-schedule').style.zIndex = 2;
-		zIndex = 1;
-	} else {
-		document.querySelector('.detail-schedule').style.zIndex = 0;
-		zIndex = 0;
-	}
-	
+
+	document.querySelector('.detail-schedule').style.zIndex = 2;
+
 	// 모달 title 해당 일정 표시 설계의 문제가 나타남.
 	for (let i = 0; i < CompanyScheduleList.length; i++) {
 		if (CompanyScheduleList[i].no == dateDivValue) {
@@ -425,6 +426,10 @@ function getScheduleDetailModal(e, directDetail) {
 		if (i == selectDetailSchedule.date.split(',').length - 1) {
 			document.querySelector('.detail-schedule-content').innerHTML += '<div class="delete-all-detail-data" style="padding-top : 10%"><a onclick="rowScheduleDeleteClick(this)">전체삭제</a></div>'
 		}
+
+		document.querySelector('.current.date' + selectDetailSchedule.date.split(',')[i]).children[0].style.backgroundColor = '#ACF6B3';
+		document.querySelector('.current.date' + selectDetailSchedule.date.split(',')[i]).children[0].children[1].checked = true;
+
 	}
 
 
@@ -443,6 +448,12 @@ function getScheduleDetailModal(e, directDetail) {
 	if (dateDetailModal == 1) {
 		document.querySelector('.detail-schedule-close').addEventListener("click", function() {
 			document.querySelector('.detail-schedule').style.visibility = 'hidden';
+
+			for (i = 0; i < selectDetailSchedule.date.split(',').length; i++) {
+				document.querySelector('.current.date' + selectDetailSchedule.date.split(',')[i]).children[0].style.backgroundColor = '#FFF';
+				document.querySelector('.current.date' + selectDetailSchedule.date.split(',')[i]).children[0].children[1].checked = false;
+			}
+
 			dateDetailModal = 0;
 		})
 	}
@@ -574,6 +585,11 @@ function deleteScheduleDate(atag) {
 
 				let remainDates = '';
 
+				for (i = 0; i < selectDetailSchedule.date.split(',').length; i++) {
+					document.querySelector('.current.date' + selectDetailSchedule.date.split(',')[i]).children[0].style.backgroundColor = '#FFF';
+					document.querySelector('.current.date' + selectDetailSchedule.date.split(',')[i]).children[0].children[1].checked = false;
+				}
+
 				for (let i = 0; i < arrayDate.length; i++) {
 					if (arrayDate[i].date == atag.parentNode.children[0].innerText) {
 						remainDates = arrayDate[i].title.split(',');
@@ -595,6 +611,11 @@ function deleteScheduleDate(atag) {
 				});
 
 				writeSchedule();
+
+				for (i = 0; i < selectDetailSchedule.date.split(',').length; i++) {
+					document.querySelector('.current.date' + selectDetailSchedule.date.split(',')[i]).children[0].style.backgroundColor = '#ACF6B3';
+					document.querySelector('.current.date' + selectDetailSchedule.date.split(',')[i]).children[0].children[1].checked = true;
+				}
 			} else {
 			}
 		})
@@ -651,6 +672,11 @@ function rowScheduleDelete(a) {
 
 					writeSchedule();
 
+					for (i = 0; i < selectDetailSchedule.date.split(',').length; i++) {
+						document.querySelector('.current.date' + selectDetailSchedule.date.split(',')[i]).children[0].style.backgroundColor = '#FFF';
+						document.querySelector('.current.date' + selectDetailSchedule.date.split(',')[i]).children[0].children[1].checked = false;
+					}
+
 					document.querySelector('.confirm-delete').style.display = "none";
 					confirmDeleteModal = 0;
 
@@ -663,7 +689,38 @@ function rowScheduleDelete(a) {
 				}
 			})
 	}
+}
 
+// 디테일창 드래그앤 드롭
+function scheduleDetailDroDrop() {
+	document.querySelector('.detail-schedule-title').addEventListener("mousedown", function(e) {
+		isDragging = true;
+		modalOffsetX = e.offsetX;
+		modalOffsetY = e.offsetY;
+	})
+
+	// 모달창 드래그 중
+	document.querySelector('.detail-schedule-title').addEventListener("mousemove", function(e) {
+		if (isDragging) {
+			const x = e.clientX - modalOffsetX;
+			const y = e.clientY - modalOffsetY;
+			document.querySelector('.detail-schedule').style.left = x + 'px';
+			document.querySelector('.detail-schedule').style.top = y + 'px';
+		}
+
+	})
+
+	// 모달창 드래그 중
+	document.querySelector('.detail-schedule-title').addEventListener("mousereave", function() {
+		if (isDragging) {
+			isDragging = false;
+		}
+	})
+
+	// 모달창 드래그 종료
+	document.querySelector('.detail-schedule-title').addEventListener("mouseup", function() {
+		isDragging = false;
+	});
 }
 
 window.onload = function() {
