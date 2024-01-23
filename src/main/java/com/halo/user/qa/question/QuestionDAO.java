@@ -1,28 +1,19 @@
 package com.halo.user.qa.question;
 
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.halo.admin.boardmanagement.ask.QuestionNComment;
 import com.halo.main.DBManagerhalo;
-import com.halo.test.DBManagerhalo;
 
 public class QuestionDAO {
 	
@@ -51,7 +42,7 @@ public class QuestionDAO {
 			}
 			
 			
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("제출실패");
 		}finally {	
@@ -90,7 +81,7 @@ public class QuestionDAO {
 				}
 				
 				request.setAttribute("questions", questions);
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
 			DBManagerhalo.close(con, pstmt, rs);
@@ -141,7 +132,7 @@ public class QuestionDAO {
 	            request.setAttribute("QnC", QnC);
 	        }
 
-	    } catch (SQLException e) {
+	    } catch (Exception e) {
 	        e.printStackTrace();
 	    } finally {
 	        DBManagerhalo.close(con, pstmt, rs);
@@ -197,7 +188,7 @@ public class QuestionDAO {
 				
 			}
 			
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			DBManagerhalo.close(con, pstmt, rs);
@@ -234,7 +225,7 @@ public class QuestionDAO {
 	            questionsArray.add(question);
 			}
 			
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			DBManagerhalo.close(con, pstmt, rs);
@@ -274,7 +265,7 @@ public class QuestionDAO {
 				System.out.println("C삭제성공");
 			}
 			
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("삭제실패");
 		} finally {
