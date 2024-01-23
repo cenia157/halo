@@ -112,7 +112,7 @@ a:visited  {
 	height: 30%;
 }
 
-.content-tab1-td {
+.content-tab2-td {
 	color: #62733d;
 	text-align: center;
 	text-shadow: 6px 6px 6px #ffdf6c;
@@ -122,14 +122,14 @@ a:visited  {
 	font-weight: 700;
 	line-height: normal;
 	background: white;
-	border-radius: 30px 0px 0px 0px;
+	border-radius: 0px 30px 0px 0px;
 }
 
-.content-tab1-td>a {
+.content-tab2-td>a {
 	color: #62733d;
 }
 
-.content-tab2-td {
+.content-tab1-td {
 	color: #fff;
 	text-align: center;
 	font-family: Inter;
@@ -138,10 +138,10 @@ a:visited  {
 	font-weight: 700;
 	line-height: normal;
 	background: #849461;
-	border-radius: 00px 30px 0px 0px;
+	border-radius: 30px 0px 0px 0px;
 }
 
-.content-tab2-td>a {
+.content-tab1-td>a {
 	color: #fff;
 }
 
