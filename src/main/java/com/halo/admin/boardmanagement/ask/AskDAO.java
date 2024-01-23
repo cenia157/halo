@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,8 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.halo.test.DBManagerhalo_YJ;
-import com.halo.user.introduce.announcement.Announced_tbl_DTO;
+import com.halo.main.DBManagerhalo;
 import com.halo.user.qa.question.Utility;
 
 public class AskDAO {
@@ -28,7 +26,7 @@ public class AskDAO {
 				+ " values (comment_tbl_seq.nextval, ?, ?, sysdate, ?,?)";
 		
 		try {
-			con = DBManagerhalo_YJ.connect();
+			con = DBManagerhalo.connect();
 			pstmt = con.prepareStatement(sql);
 
 			System.out.println("작성자: "+ request.getParameter("c_writer"));
@@ -44,10 +42,10 @@ public class AskDAO {
 				System.err.println("코멘트 실패");
 			}
 			
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
-			DBManagerhalo_YJ.close(con, pstmt, null);
+			DBManagerhalo.close(con, pstmt, null);
 		}
 	}
 	
@@ -57,7 +55,7 @@ public class AskDAO {
 		String sql = "update comment_tbl set c_comment_content = ? where c_seq=?";
 		
 		try {
-			con = DBManagerhalo_YJ.connect();
+			con = DBManagerhalo.connect();
 			pstmt = con.prepareStatement(sql);
 			
 			pstmt.setString(1, request.getParameter("c_comment_content"));
@@ -70,10 +68,10 @@ public class AskDAO {
 				System.out.println("업데이트 실패");
 			}
 			
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			DBManagerhalo_YJ.close(con, pstmt, null);
+			DBManagerhalo.close(con, pstmt, null);
 		}
 		
 		
@@ -89,7 +87,7 @@ public class AskDAO {
 		String sql = "select c_answer from comment_tbl where q_seq = ?";
 		
 		try {
-			con = DBManagerhalo_YJ.connect();
+			con = DBManagerhalo.connect();
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, request.getParameter("q_seq"));
 			rs = pstmt.executeQuery();
@@ -103,10 +101,10 @@ public class AskDAO {
 				System.out.println("answer 값 변환 실패");
 			}
 			
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
-			DBManagerhalo_YJ.close(con, pstmt, rs);
+			DBManagerhalo.close(con, pstmt, rs);
 		}
 	}
 	
@@ -120,7 +118,7 @@ public class AskDAO {
 
 
 	        try {
-	            con = DBManagerhalo_YJ.connect();
+	            con = DBManagerhalo.connect();
 	            System.out.println("댓글조회 시도");
 	            // 댓글 조회 SQL
 	            String sql = "SELECT * FROM comment_tbl WHERE q_seq = ?";
@@ -145,10 +143,10 @@ public class AskDAO {
 	            ObjectMapper objectMapper = new ObjectMapper();
 	            jsonResult = objectMapper.writeValueAsString(commentList);
 
-	        } catch (SQLException | JsonProcessingException e) {
+	        } catch (Exception e) {
 	            e.printStackTrace();
 	        }finally {
-				DBManagerhalo_YJ.close(con, pstmt, rs);
+				DBManagerhalo.close(con, pstmt, rs);
 			}
 
 	        return jsonResult;
@@ -168,7 +166,7 @@ public class AskDAO {
 		List<QuestionNComment> resultList = new ArrayList<QuestionNComment>();
 		
 		try {
-			con = DBManagerhalo_YJ.connect();
+			con = DBManagerhalo.connect();
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			
@@ -196,10 +194,10 @@ public class AskDAO {
 				resultList.add(questionNComment);
 			}
 			
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
-			DBManagerhalo_YJ.close(con, pstmt, rs);
+			DBManagerhalo.close(con, pstmt, rs);
 		}
 		
 		return resultList;
@@ -219,7 +217,7 @@ public class AskDAO {
 				+ " ORDER BY q.q_reg_date";
 		
 		try {
-			con = DBManagerhalo_YJ.connect();
+			con = DBManagerhalo.connect();
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			
@@ -249,10 +247,10 @@ public class AskDAO {
 			
 			request.setAttribute("QnCs", QnCs);
 			
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
-			DBManagerhalo_YJ.close(con, pstmt, rs);
+			DBManagerhalo.close(con, pstmt, rs);
 		}
 		
 	}
@@ -281,7 +279,7 @@ public class AskDAO {
 		String sql = sqlBuilder.toString();
 		
 		try {
-			con = DBManagerhalo_YJ.connect();
+			con = DBManagerhalo.connect();
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			
@@ -312,10 +310,10 @@ public class AskDAO {
 			request.setAttribute("QnCs", QnCs);
 			System.out.println("QnCs: "+ QnCs);
 			
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
-			DBManagerhalo_YJ.close(con, pstmt, rs);
+			DBManagerhalo.close(con, pstmt, rs);
 		}
 		
 	}
@@ -399,7 +397,7 @@ public class AskDAO {
 	    sqlBuilder.append(" ORDER BY q.q_reg_date");
 
 	    try {
-	        con = DBManagerhalo_YJ.connect();
+	        con = DBManagerhalo.connect();
 	        pstmt = con.prepareStatement(sqlBuilder.toString());
 	        rs = pstmt.executeQuery();  // executeQuery로 변경
 
@@ -430,10 +428,10 @@ public class AskDAO {
 	        request.setAttribute("QnCs", QnCs);
 	        System.out.println("체크박스 결과 확인:" + QnCs);
 
-	    } catch (SQLException e) {
+	    } catch (Exception e) {
 	        e.printStackTrace();
 	    } finally {
-	        DBManagerhalo_YJ.close(con, pstmt, rs);
+	        DBManagerhalo.close(con, pstmt, rs);
 	    }
 	}
 	

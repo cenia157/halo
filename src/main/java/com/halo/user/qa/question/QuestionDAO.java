@@ -22,7 +22,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.halo.admin.boardmanagement.ask.QuestionNComment;
 import com.halo.main.DBManagerhalo;
-import com.halo.test.DBManagerhalo_YJ;
+import com.halo.test.DBManagerhalo;
 
 public class QuestionDAO {
 	
@@ -33,7 +33,7 @@ public class QuestionDAO {
 		
 		try {
 
-			con = DBManagerhalo_YJ.connect();
+			con = DBManagerhalo.connect();
 			pstmt = con.prepareStatement(sql);
 			
 			pstmt.setString(1, Utility.escapeHtml(request.getParameter("q_title")));
@@ -68,7 +68,7 @@ public class QuestionDAO {
 		
 		
 		try {
-				con = DBManagerhalo_YJ.connect();
+				con = DBManagerhalo.connect();
 				pstmt = con.prepareStatement(sql);
 				rs = pstmt.executeQuery();
 				
@@ -93,7 +93,7 @@ public class QuestionDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {
-			DBManagerhalo_YJ.close(con, pstmt, rs);
+			DBManagerhalo.close(con, pstmt, rs);
 		}
 		
 		
@@ -113,7 +113,7 @@ public class QuestionDAO {
 	    String q_seq = request.getParameter("q_seq");
 
 	    try {
-	        con = DBManagerhalo_YJ.connect();
+	        con = DBManagerhalo.connect();
 	        pstmt = con.prepareStatement(sql);
 	        pstmt.setInt(1, Integer.parseInt(q_seq));
 	        
@@ -144,7 +144,7 @@ public class QuestionDAO {
 	    } catch (SQLException e) {
 	        e.printStackTrace();
 	    } finally {
-	        DBManagerhalo_YJ.close(con, pstmt, rs);
+	        DBManagerhalo.close(con, pstmt, rs);
 	    }
 	}
 
@@ -169,7 +169,7 @@ public class QuestionDAO {
 		response.setContentType("application/json");
 
 		try {
-			con = DBManagerhalo_YJ.connect();
+			con = DBManagerhalo.connect();
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, request.getParameter("q_seq"));
 			rs = pstmt.executeQuery();
@@ -200,7 +200,7 @@ public class QuestionDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			DBManagerhalo_YJ.close(con, pstmt, rs);
+			DBManagerhalo.close(con, pstmt, rs);
 		}
 		return jsonResult;
 	}
@@ -215,7 +215,7 @@ public class QuestionDAO {
 		ResultSet rs = null;
 		try {
 			
-			con = DBManagerhalo_YJ.connect();
+			con = DBManagerhalo.connect();
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			
@@ -237,7 +237,7 @@ public class QuestionDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
-			DBManagerhalo_YJ.close(con, pstmt, rs);
+			DBManagerhalo.close(con, pstmt, rs);
 		}
 		return questionsArray;
 		
@@ -253,7 +253,7 @@ public class QuestionDAO {
 		PreparedStatement pstmtC = null;
 		
 		try {
-			con = DBManagerhalo_YJ.connect();
+			con = DBManagerhalo.connect();
 
 			// 먼저 comment_tbl에서 해당 q_seq 값을 가진 레코드 삭제
 			String sqlC = "DELETE FROM comment_tbl WHERE q_seq=?";
@@ -278,7 +278,7 @@ public class QuestionDAO {
 			e.printStackTrace();
 			System.out.println("삭제실패");
 		} finally {
-			DBManagerhalo_YJ.close(con, pstmtC, null);
+			DBManagerhalo.close(con, pstmtC, null);
 		}
 		
 	}
