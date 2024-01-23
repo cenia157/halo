@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.halo.admin.manager.staff.StaffDTO;
 import com.halo.main.DBManagerhalo;
-import com.halo.main.DBManagerhalo2;
 
 public class EmployeeDAO {
 	private static Connection con = null;
@@ -26,7 +25,7 @@ public class EmployeeDAO {
 
 			// 데이터베이스 연동
 			String sql = "SELECT s_no, s_position, s_name, s_phone_num, TO_CHAR(s_entry_date, 'YYYY-MM-DD') as s_entry_date, s_color, s_addr FROM staff_info order by s_entry_date desc";
-			con = DBManagerhalo2.connect();
+			con = DBManagerhalo.connect();
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 
@@ -56,7 +55,7 @@ public class EmployeeDAO {
 			e.printStackTrace();
 			System.out.println("직원 정보 조회 실패");
 		} finally {
-			DBManagerhalo2.close(con, pstmt, rs);
+			DBManagerhalo.close(con, pstmt, rs);
 		}
 
 	}
@@ -72,7 +71,7 @@ public class EmployeeDAO {
 
 			// 데이터베이스 연동
 			String sql = "SELECT * from staff_sift";
-			con = DBManagerhalo2.connect();
+			con = DBManagerhalo.connect();
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 
@@ -100,7 +99,7 @@ public class EmployeeDAO {
 			e.printStackTrace();
 			System.out.println("시프트 정보 조회 실패");
 		} finally {
-			DBManagerhalo2.close(con, pstmt, rs);
+			DBManagerhalo.close(con, pstmt, rs);
 		}
 
 	}
@@ -121,7 +120,7 @@ public class EmployeeDAO {
 
 			// 데이터베이스 연동
 			String sql = "INSERT INTO staff_sift VALUES (staff_sift_seq.nextval, ?, ?, ?, ?)";
-			con = DBManagerhalo2.connect();
+			con = DBManagerhalo.connect();
 			pstmt = con.prepareStatement(sql);
 
 			pstmt.setString(1, request.getParameter("f_year"));
@@ -137,7 +136,7 @@ public class EmployeeDAO {
 			e.printStackTrace();
 			System.out.println("시프트 입력 실패");
 		} finally {
-			DBManagerhalo2.close(con, pstmt, rs);
+			DBManagerhalo.close(con, pstmt, rs);
 		}
 
 	}
@@ -156,7 +155,7 @@ public class EmployeeDAO {
 
 			// 데이터베이스 연동
 			String sql = "Update staff_sift set f_dates = ? where f_no = ?";
-			con = DBManagerhalo2.connect();
+			con = DBManagerhalo.connect();
 			pstmt = con.prepareStatement(sql);
 
 			pstmt.setString(1, request.getParameter("f_dates"));
@@ -170,7 +169,7 @@ public class EmployeeDAO {
 			e.printStackTrace();
 			System.out.println("시프트 업데이트 실패");
 		} finally {
-			DBManagerhalo2.close(con, pstmt, rs);
+			DBManagerhalo.close(con, pstmt, rs);
 		}
 
 	}
@@ -186,7 +185,7 @@ public class EmployeeDAO {
 			// 데이터베이스 연동
 			String sql = "delete staff_sift where f_no = ?";
 
-			con = DBManagerhalo2.connect();
+			con = DBManagerhalo.connect();
 			pstmt = con.prepareStatement(sql);
 
 			pstmt.setInt(1, Integer.parseInt(request.getParameter("f_no")));

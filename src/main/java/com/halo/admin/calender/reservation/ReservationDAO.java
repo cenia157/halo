@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.halo.main.DBManagerhalo;
-import com.halo.main.DBManagerhalo2;
 
 public class ReservationDAO {
 	private static Connection con = null;
@@ -27,7 +26,7 @@ public class ReservationDAO {
 
 			// 데이터베이스 연동
 			String sql = "select * from reservation_information";
-			con = DBManagerhalo2.connect();
+			con = DBManagerhalo.connect();
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 
@@ -85,7 +84,7 @@ public class ReservationDAO {
 
 			// 데이터베이스 연동
 			String sql = "select * from reservation_information_accept";
-			con = DBManagerhalo2.connect();
+			con = DBManagerhalo.connect();
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 
@@ -153,7 +152,7 @@ public class ReservationDAO {
 
 			System.out.println(request.getParameter("no"));
 
-			con = DBManagerhalo2.connect();
+			con = DBManagerhalo.connect();
 			pstmt = con.prepareStatement(sql);
 
 			pstmt.setString(1, request.getParameter("no"));
@@ -181,7 +180,7 @@ public class ReservationDAO {
 
 			// 데이터베이스 연동
 			String sql = "select * from staff_info";
-			con = DBManagerhalo2.connect();
+			con = DBManagerhalo.connect();
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 
@@ -229,7 +228,7 @@ public class ReservationDAO {
 				sql = "insert into reservation_information_decline values(reservation_information_decline_seq.nextval, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 			}
 
-			con = DBManagerhalo2.connect();
+			con = DBManagerhalo.connect();
 			pstmt = con.prepareStatement(sql);
 
 			// Jackson ObjectMapper를 사용하여 JSON 문자열을 Map으로 변환
@@ -286,7 +285,7 @@ public class ReservationDAO {
 			// 데이터베이스 연동
 			String sql = "update reservation_information_accept set sa_service = ?, sa_user_name = ?, sa_days = ?, sa_addr = ?, sa_start_place = ?, sa_end_place = ?, sa_feedback = ?, sa_staff = ?, sa_phone_number = ?, sa_time = ?  where sa_seq = ?";
 
-			con = DBManagerhalo2.connect();
+			con = DBManagerhalo.connect();
 			pstmt = con.prepareStatement(sql);
 
 			// Jackson ObjectMapper를 사용하여 JSON 문자열을 Map으로 변환
@@ -334,7 +333,7 @@ public class ReservationDAO {
 			// 데이터베이스 연동
 			String sql = "insert into reservation_information_decline values(reservation_information_decline_seq.nextval, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-			con = DBManagerhalo2.connect();
+			con = DBManagerhalo.connect();
 			pstmt = con.prepareStatement(sql);
 
 			// Jackson ObjectMapper를 사용하여 JSON 문자열을 Map으로 변환
@@ -392,7 +391,7 @@ public class ReservationDAO {
 			// 데이터베이스 연동
 			String sql = "insert into reservation_information_accept values(reservation_information_accept_seq.nextval, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
-			con = DBManagerhalo2.connect();
+			con = DBManagerhalo.connect();
 			pstmt = con.prepareStatement(sql);
 
 			// Jackson ObjectMapper를 사용하여 JSON 문자열을 Map으로 변환

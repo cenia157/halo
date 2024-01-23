@@ -7,7 +7,7 @@ $(function () {
             $(".header-br-logo > a").css("color", "#ffffff");
             $(".header-td-menu-title > a").css("font-size", "350%").css("color", "#ffffff");
             $(".header-opmenu-back").css("top", "0");
-            $(".header-opmenu-td").css("visibility", "visible");
+            $(".header-opmenu-td").css("display", "flex");
             $(".header-td-menu-img > img").css("filter", "brightness(0) invert(1)")
             $(this).css("color", "#FFDF6C");
             $(this).find(".header-td-menu-under").css("visibility", "visible").css("transform", "scaleX(1)");
@@ -16,9 +16,8 @@ $(function () {
                 $(".header-br-logo > a").css("color", "#546137");
                 $(".header-td-menu-title > a").css("font-size", "250%").css("color", "rgb(83, 97, 56)");
                 $(".header-opmenu-back").css("top", "-50vh");
-                $(".header-opmenu-td").css("visibility", "hidden");
+                $(".header-opmenu-td").css("display", "none");
                 $(".header-td-menu-img > img").css("filter", "brightness(1) invert(0)")
-                $(this).css("color", "#white");
                 
             });
         } else {
