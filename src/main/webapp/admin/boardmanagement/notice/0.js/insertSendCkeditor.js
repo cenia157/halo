@@ -49,7 +49,7 @@ regBtn.addEventListener("click", function() {
 	}
 
 	console.log("--------------------");
-	    fetch("CkeditorC", {
+	    fetch("CkEditorC", {
 			method: "POST",
 			body: payload,
 			headers: {"Content-Type": "application/x-www-form-urlencoded", // 헤더 설정

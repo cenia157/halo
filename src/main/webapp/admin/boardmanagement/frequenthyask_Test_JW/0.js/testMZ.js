@@ -49,9 +49,7 @@ class MyUploadAdapter {
 
 
 
-		console.log("AAAAAAAQAAAAAA");
 		console.log(xhr);
-		console.log("AAAAAAAAAAAAA");
 
 
 
@@ -96,10 +94,6 @@ class MyUploadAdapter {
 
 
 
-			console.log("BBBBBBBBBBBBBBB");
-			console.log(response.fName);
-			console.log(response);
-			console.log("BBBBBBBBBBBBBBB");
 
 
 
@@ -118,9 +112,6 @@ class MyUploadAdapter {
 
 
 			/*			document.querySelector(".image-inline").lastChild.src = response.fName;*/
-			console.log('+++++++++++++++++++');
-			console.log(response.fName);
-			console.log('+++++++++++++++++++');
 			document.querySelector("figure").lastChild.src = response.fName;
 
 
