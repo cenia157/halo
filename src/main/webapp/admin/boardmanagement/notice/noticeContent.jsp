@@ -244,7 +244,7 @@
 						<div class="modal-content-txt-in viewModal-content-txt-in ck ck-content" id="modal-content-txt-in"></div>
 					</div>
 					<div class="modal-content-button">
-						<button class="SubmitButton" id="updataModalBtn">修正</button>
+						<button class="SubmitButton" id="updataModalBtn" style="cursor: pointer;">修正</button>
 					</div>
 				</div>
 			</div>

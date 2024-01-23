@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 import com.halo.main.DBManagerhalo;
-import com.halo.main.DBManagerhalo2;
 
 public class CompanyDAO {
 	private static Connection con = null;
@@ -29,7 +28,7 @@ public class CompanyDAO {
 
 			// 데이터베이스 연동
 			String sql = "select * from company_schedule";
-			con = DBManagerhalo2.connect();
+			con = DBManagerhalo.connect();
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 
@@ -78,7 +77,7 @@ public class CompanyDAO {
 
 			// 데이터베이스 연동
 			String sql = "insert into company_schedule values(company_schedule_seq.nextval, ?, ?, ?, ?, ?, ?)";
-			con = DBManagerhalo2.connect();
+			con = DBManagerhalo.connect();
 			pstmt = con.prepareStatement(sql);
 
 			// 날짜 파라미터 요청
@@ -119,7 +118,7 @@ public class CompanyDAO {
 
 			// 데이터베이스 연동
 			String sql = "Update company_schedule set cs_txt = ? where cs_no = ?";
-			con = DBManagerhalo2.connect();
+			con = DBManagerhalo.connect();
 			pstmt = con.prepareStatement(sql);
 
 			pstmt.setString(1, request.getParameter("txt"));
@@ -155,7 +154,7 @@ public class CompanyDAO {
 
 			// 데이터베이스 연동
 			String sql = "Update company_schedule set cs_date = ? where cs_no = ?";
-			con = DBManagerhalo2.connect();
+			con = DBManagerhalo.connect();
 			pstmt = con.prepareStatement(sql);
 
 			System.out.println(request.getParameter("remainDate"));
@@ -192,7 +191,7 @@ public class CompanyDAO {
 
 			// 데이터베이스 연동
 			String sql = "delete from company_schedule where cs_no = ?";
-			con = DBManagerhalo2.connect();
+			con = DBManagerhalo.connect();
 			pstmt = con.prepareStatement(sql);
 
 			System.out.println(request.getParameter("no"));
