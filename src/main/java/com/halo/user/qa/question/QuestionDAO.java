@@ -1,28 +1,19 @@
 package com.halo.user.qa.question;
 
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.halo.admin.boardmanagement.ask.QuestionNComment;
 import com.halo.main.DBManagerhalo;
-import com.halo.test.DBManagerhalo_YJ;
 
 public class QuestionDAO {
 	
@@ -33,7 +24,7 @@ public class QuestionDAO {
 		
 		try {
 
-			con = DBManagerhalo_YJ.connect();
+			con = DBManagerhalo.connect();
 			pstmt = con.prepareStatement(sql);
 			
 			pstmt.setString(1, Utility.escapeHtml(request.getParameter("q_title")));
@@ -51,7 +42,7 @@ public class QuestionDAO {
 			}
 			
 			
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("제출실패");
 		}finally {	
@@ -68,7 +59,7 @@ public class QuestionDAO {
 		
 		
 		try {
-				con = DBManagerhalo_YJ.connect();
+				con = DBManagerhalo.connect();
 				pstmt = con.prepareStatement(sql);
 				rs = pstmt.executeQuery();
 				
@@ -90,10 +81,10 @@ public class QuestionDAO {
 				}
 				
 				request.setAttribute("questions", questions);
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
-			DBManagerhalo_YJ.close(con, pstmt, rs);
+			DBManagerhalo.close(con, pstmt, rs);
 		}
 		
 		
@@ -113,7 +104,7 @@ public class QuestionDAO {
 	    String q_seq = request.getParameter("q_seq");
 
 	    try {
-	        con = DBManagerhalo_YJ.connect();
+	        con = DBManagerhalo.connect();
 	        pstmt = con.prepareStatement(sql);
 	        pstmt.setInt(1, Integer.parseInt(q_seq));
 	        
@@ -141,10 +132,10 @@ public class QuestionDAO {
 	            request.setAttribute("QnC", QnC);
 	        }
 
-	    } catch (SQLException e) {
+	    } catch (Exception e) {
 	        e.printStackTrace();
 	    } finally {
-	        DBManagerhalo_YJ.close(con, pstmt, rs);
+	        DBManagerhalo.close(con, pstmt, rs);
 	    }
 	}
 
@@ -169,7 +160,7 @@ public class QuestionDAO {
 		response.setContentType("application/json");
 
 		try {
-			con = DBManagerhalo_YJ.connect();
+			con = DBManagerhalo.connect();
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, request.getParameter("q_seq"));
 			rs = pstmt.executeQuery();
@@ -197,10 +188,10 @@ public class QuestionDAO {
 				
 			}
 			
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			DBManagerhalo_YJ.close(con, pstmt, rs);
+			DBManagerhalo.close(con, pstmt, rs);
 		}
 		return jsonResult;
 	}
@@ -215,7 +206,7 @@ public class QuestionDAO {
 		ResultSet rs = null;
 		try {
 			
-			con = DBManagerhalo_YJ.connect();
+			con = DBManagerhalo.connect();
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			
@@ -234,10 +225,10 @@ public class QuestionDAO {
 	            questionsArray.add(question);
 			}
 			
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			DBManagerhalo_YJ.close(con, pstmt, rs);
+			DBManagerhalo.close(con, pstmt, rs);
 		}
 		return questionsArray;
 		
@@ -253,7 +244,7 @@ public class QuestionDAO {
 		PreparedStatement pstmtC = null;
 		
 		try {
-			con = DBManagerhalo_YJ.connect();
+			con = DBManagerhalo.connect();
 
 			// 먼저 comment_tbl에서 해당 q_seq 값을 가진 레코드 삭제
 			String sqlC = "DELETE FROM comment_tbl WHERE q_seq=?";
@@ -274,11 +265,11 @@ public class QuestionDAO {
 				System.out.println("C삭제성공");
 			}
 			
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 			System.out.println("삭제실패");
 		} finally {
-			DBManagerhalo_YJ.close(con, pstmtC, null);
+			DBManagerhalo.close(con, pstmtC, null);
 		}
 		
 	}

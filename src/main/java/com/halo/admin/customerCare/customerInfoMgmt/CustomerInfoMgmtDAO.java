@@ -12,7 +12,6 @@ import com.halo.admin.calender.reservation.ReservationScheduleAcceptDTO;
 import com.halo.admin.calender.reservation.ReservationScheduleDTO;
 import com.halo.admin.manager.staff.StaffDTO;
 import com.halo.main.DBManagerhalo;
-import com.halo.main.DBManagerhalo2;
 
 public class CustomerInfoMgmtDAO {
 	private static Connection con = null;
