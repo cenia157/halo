@@ -19,9 +19,9 @@
   height: auto;
 }
 
-.bottom-venner-tr {
-  background: #5b7953;
-}
+/* .bottom-venner-tr { */
+/*   background: #5b7953; */
+/* } */
 
 /* ------------------------------------------------------------------- */
 /* .a_content-box-tr1-td1-3안에 인스타 api 호출하여 div생성 및 페이징 처리 해야함 */

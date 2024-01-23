@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.json.simple.JSONObject;
 
-import com.halo.test.DBManagerhalo_JW;
+import com.halo.main.DBManagerhalo;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
@@ -61,7 +61,7 @@ public class CKEditorDAO {
 				String sql = "INSERT INTO announced_tbl (an_seq, an_title, an_content, an_writer, an_category) "
 						+ "VALUES (announced_tbl_seq.nextval, ?, ?, ?, ?)";
 
-				con = DBManagerhalo_JW.connect();
+				con = DBManagerhalo.connect();
 				pstmt = con.prepareStatement(sql);
 
 				pstmt.setString(1, title);
@@ -76,7 +76,7 @@ public class CKEditorDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-				DBManagerhalo_JW.close(con, pstmt, rs);    
+				DBManagerhalo.close(con, pstmt, rs);    
 		}
 
 	}
@@ -117,7 +117,7 @@ public class CKEditorDAO {
 
 				String sql = "UPDATE announced_tbl SET an_title = ?, an_content = ?, an_category = ? WHERE an_seq = ?";
 
-				con = DBManagerhalo_JW.connect();
+				con = DBManagerhalo.connect();
 				pstmt = con.prepareStatement(sql);
 
 				pstmt.setString(1, title);
@@ -132,7 +132,7 @@ public class CKEditorDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}  finally {
-			DBManagerhalo_JW.close(con, pstmt, rs);
+			DBManagerhalo.close(con, pstmt, rs);
 	    }
 	}
 	
