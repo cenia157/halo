@@ -6,17 +6,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 
-import javax.security.auth.message.callback.PrivateKeyCallback.Request;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.halo.admin.boardmanagement.ask.QuestionNComment;
 import com.halo.main.DBManagerhalo;
-import com.halo.test.DBManagerhalo_YJ;
 
 public class FAQDAO {
 
@@ -30,7 +25,7 @@ public class FAQDAO {
 		String sql = "select * from QA_tbl order by qa_seq ASC";
 		
 		try {
-			con = DBManagerhalo_YJ.connect();
+			con = DBManagerhalo.connect();
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			
@@ -53,7 +48,7 @@ public class FAQDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
-			DBManagerhalo_YJ.close(con, pstmt, rs);
+			DBManagerhalo.close(con, pstmt, rs);
 		}
 		
 		
@@ -95,7 +90,7 @@ public class FAQDAO {
 		String sql = "SELECT * FROM QA_tbl WHERE qa_seq = ?";
 		
 		try {
-			con = DBManagerhalo_YJ.connect();
+			con = DBManagerhalo.connect();
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, request.getParameter("qa_seq"));
 			System.out.println("QA seq: "+request.getParameter("qa_seq"));
@@ -113,10 +108,10 @@ public class FAQDAO {
 				System.out.println("FAQ값 확인: "+ FAQ);
 			}
 			
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			DBManagerhalo_YJ.close(con, pstmt, rs);
+			DBManagerhalo.close(con, pstmt, rs);
 		}
 	}
 	
@@ -137,7 +132,7 @@ public class FAQDAO {
 		response.setContentType("application/json");
 		
 		try {
-			con = DBManagerhalo_YJ.connect();
+			con = DBManagerhalo.connect();
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, request.getParameter("qa_seq"));
 			rs = pstmt.executeQuery();
@@ -158,7 +153,7 @@ public class FAQDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			DBManagerhalo_YJ.close(con, pstmt, rs);
+			DBManagerhalo.close(con, pstmt, rs);
 		}
 		
 		return jsonresult;
@@ -173,7 +168,7 @@ public class FAQDAO {
 		String sql = "DELETE FROM QA_tbl WHERE qa_seq = ?";
 		
 		try {
-			con = DBManagerhalo_YJ.connect();
+			con = DBManagerhalo.connect();
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, request.getParameter("qa_seq"));
 			System.out.println("삭제될 번호: " + request.getParameter("qa_seq"));
@@ -182,11 +177,11 @@ public class FAQDAO {
 				System.out.println("FAQ 삭제 완료");
 			}
 			
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			System.out.println("FAQ 삭제 실패");
 			e.printStackTrace();
 		} finally {
-			DBManagerhalo_YJ.close(con, pstmt, null);
+			DBManagerhalo.close(con, pstmt, null);
 		}
 		
 		
