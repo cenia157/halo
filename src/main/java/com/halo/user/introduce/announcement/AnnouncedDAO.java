@@ -9,7 +9,9 @@ import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 
-import com.halo.test.DBManagerhalo_ody;
+import com.halo.main.DBManagerhalo;
+
+
 
 
 
@@ -33,7 +35,7 @@ public class AnnouncedDAO {
         System.out.println("DB 연결 확인1");
 
         try {
-            con = DBManagerhalo_ody.connect();
+            con = DBManagerhalo.connect();
             pstmt = con.prepareStatement(sql);
             rs = pstmt.executeQuery();
             System.out.println("DB 연결 확인2");
@@ -58,7 +60,7 @@ public class AnnouncedDAO {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-        	DBManagerhalo_ody.close(con,pstmt, rs);
+        	DBManagerhalo.close(con,pstmt, rs);
         }
     }
     
@@ -72,7 +74,7 @@ public class AnnouncedDAO {
         System.out.println("DB 연결 확인1");
 
         try {
-            con = DBManagerhalo_ody.connect();
+            con = DBManagerhalo.connect();
             pstmt = con.prepareStatement(sql);
             rs = pstmt.executeQuery();
             System.out.println("DB 연결 확인2");
@@ -106,7 +108,7 @@ public class AnnouncedDAO {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-        	DBManagerhalo_ody.close(con,pstmt, rs);
+        	DBManagerhalo.close(con,pstmt, rs);
         }
     }
     
@@ -123,7 +125,7 @@ public class AnnouncedDAO {
         int anSeq = Integer.parseInt(request.getParameter("an_seq"));
         
         try {
-            con = DBManagerhalo_ody.connect();
+            con = DBManagerhalo.connect();
             pstmt = con.prepareStatement(sql);
             
             pstmt.setInt(1, anSeq);
@@ -145,7 +147,7 @@ public class AnnouncedDAO {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-        	DBManagerhalo_ody.close(con, pstmt, rs);
+        	DBManagerhalo.close(con, pstmt, rs);
         }
     }
 
