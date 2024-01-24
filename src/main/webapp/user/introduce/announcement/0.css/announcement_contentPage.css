@@ -529,7 +529,7 @@
 }
 
 
-/* 여기에 이미지 리사이즈 속성을 준다. 문제시 연락주세요 -김진욱- */
+/* 여기에 이미지 리사이즈 속성을 준다*/
 .qd-content-box-td2-1-content .image-style-side {
 	float: right;
 	margin-left: var(- -ck-image-style-spacing);
@@ -548,4 +548,46 @@
 .qd-content-box-td2-1-content .image.image_resized img {
 	width: 100%;
 }
+
+/* 미디어 쿼리 작업 시작*/
+@media only screen and (max-width: 450px) {
+	
+	.header-tr-2 {
+		display: none;
+	}
+	
+	.a_content-box-tr1-td1 {
+		height: 8vh;
+	}
+    
+    .a_content-box-tr1-td1-1>span, .a_content-box-tr1-td1-2>span, .a_content-box-tr1-td1-3>span {
+		font-size: 1.5rem;
+	}
+	
+	.a_content-box-tr1-td2 {
+		height: 5vh;
+	}
+	
+	.a_content-box-tr1-td2 { 
+		font-size: 1.0rem;
+	}
+	
+	.a_content-box-tr1-td2-1 > img{
+		width: 5.3%;
+		margin-right: 1.5%;
+	}
+	
+	.a_content-box-tr1-td3-1-1-1-1>div>span { 
+		font-size: 1.0rem;
+	}
+	
+	.a_content-box-tr1-td3-1-1-1-2>div>span {
+		font-size: 1.0rem;
+	}
+  
+  
+  
+  
+    
+} 
 

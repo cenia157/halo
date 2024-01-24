@@ -11,12 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 
 import com.halo.main.DBManagerhalo;
 
-
-
-
-
-
-
 public class AnnouncedDAO {
 	
 	private static ArrayList<Announced_tbl_DTO> announcements; // 추가
@@ -32,13 +26,10 @@ public class AnnouncedDAO {
 
         String sql = "SELECT * FROM announced_tbl ORDER BY an_seq ASC";
         
-        System.out.println("DB 연결 확인1");
-
         try {
             con = DBManagerhalo.connect();
             pstmt = con.prepareStatement(sql);
             rs = pstmt.executeQuery();
-            System.out.println("DB 연결 확인2");
 
             announcements = new ArrayList<>();
             Announced_tbl_DTO announcement;
@@ -55,7 +46,6 @@ public class AnnouncedDAO {
                 announcement = new Announced_tbl_DTO(an_seq, an_title, an_content, an_writer, an_reg_date, an_category, an_img);
                 announcements.add(announcement);
             }
-
             request.setAttribute("announcements", announcements);
         } catch (Exception e) {
             e.printStackTrace();
@@ -71,13 +61,10 @@ public class AnnouncedDAO {
 
         String sql = "select * from (SELECT * FROM announced_tbl ORDER BY an_seq desc) where rownum<4";
         
-        System.out.println("DB 연결 확인1");
-
         try {
             con = DBManagerhalo.connect();
             pstmt = con.prepareStatement(sql);
             rs = pstmt.executeQuery();
-            System.out.println("DB 연결 확인2");
 
             ArrayList<Announced_tbl_DTO> announceArr = new ArrayList<Announced_tbl_DTO>();
             Announced_tbl_DTO announcement;
@@ -157,14 +144,14 @@ public class AnnouncedDAO {
 		
 		int cnt = 5; 
 		int total = announcements.size(); 
-		System.out.println("total ::: " + total );
+//		System.out.println("total ::: " + total );
 		int pageCount = (int)Math.ceil((double)total / cnt);
-		System.out.println("pageCount ::: " + pageCount );
+//		System.out.println("pageCount ::: " + pageCount );
 		request.setAttribute("pageCount", pageCount);
 		
 		int start = total - (cnt * (page -1));
-		System.out.println("start ::: " + start );
-		System.out.println("AAAAAAAAAA");
+//		System.out.println("start ::: " + start );
+//		System.out.println("AAAAAAAAAA");
 		int end = (page == pageCount) ? -1 : start - (cnt + 1);
 		
 		ArrayList<Announced_tbl_DTO> items = new ArrayList<Announced_tbl_DTO>();
@@ -173,7 +160,5 @@ public class AnnouncedDAO {
 			items.add(announcements.get(i));
 		}
 		request.setAttribute("announcements", items);
-		
-	
 	}
 }
