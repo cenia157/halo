@@ -57,7 +57,7 @@
         function scrollToModal() {
           let start = window.pageYOffset;
           let end = modal.offsetTop;
-          let duration = 1000; // 1초
+          let duration = 700; // 1초
 
           let startTime;
           function scrollStep(timestamp) {
@@ -75,7 +75,7 @@
           window.requestAnimationFrame(scrollStep);
         }
 
-        setTimeout(scrollToModal, 500);
+        setTimeout(scrollToModal, 100);
       });
     });
 
