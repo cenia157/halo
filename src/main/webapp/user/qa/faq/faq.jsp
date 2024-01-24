@@ -57,7 +57,7 @@
         function scrollToModal() {
           let start = window.pageYOffset;
           let end = modal.offsetTop;
-          let duration = 700; // 1초
+          let duration = 500; // 1초
 
           let startTime;
           function scrollStep(timestamp) {
