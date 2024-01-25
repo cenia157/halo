@@ -15,8 +15,10 @@ public class StaffC extends HttpServlet {
 //		if (request.getSession().getAttribute("login_session") == null) {
 //			response.sendRedirect("LoginPageC");
 //		} else {
-			request.setAttribute("menu", "/admin/manager/staff/staffContent.jsp");
-			request.getRequestDispatcher("admin/index.jsp").forward(request, response);
+
+		request.setAttribute("menuname", "직원등록");
+		request.setAttribute("menu", "/admin/manager/staff/staffContent.jsp");
+		request.getRequestDispatcher("admin/index.jsp").forward(request, response);
 //		}
 	}
 
