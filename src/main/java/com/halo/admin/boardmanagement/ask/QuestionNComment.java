@@ -2,6 +2,8 @@ package com.halo.admin.boardmanagement.ask;
 
 import java.sql.Date;
 
+import com.google.gson.Gson;
+
 public class QuestionNComment {
 
     // Comment 속성
@@ -166,6 +168,9 @@ public class QuestionNComment {
 				+ ", q_password=" + q_password + ", q_category=" + q_category + "]";
 	}
     
-    
+	public String toJson() {
+		Gson gson = new Gson();
+		return gson.toJson(this);
+	}
     
 }
