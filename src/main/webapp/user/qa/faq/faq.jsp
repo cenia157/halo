@@ -5,12 +5,16 @@
 <!DOCTYPE html>
 <html>
 <head>
+<!-- @media 쓰려면 이거 넣어야함 -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- @media 쓰려면 이거 넣어야함 -->
 <meta charset="UTF-8">
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/user/qa/faq/_css/faq.css">
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/user/qa/faq/_css/faqDetail.css">
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/user/qa/faq/_css/index-banner.css">
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/user/0.css/index-menu.css">
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/user/0.css/index-footer.css">
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/user/qa/faq/_css/faqMobile.css">
 	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 	<script src="user/qa/faq/_js/user_faq.js"></script>
 	
@@ -57,7 +61,7 @@
         function scrollToModal() {
           let start = window.pageYOffset;
           let end = modal.offsetTop;
-          let duration = 500; // 1초
+          let duration = 500; // 0.5sec
 
           let startTime;
           function scrollStep(timestamp) {
