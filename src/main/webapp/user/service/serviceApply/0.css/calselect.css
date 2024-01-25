@@ -24,6 +24,12 @@
 	line-height: normal;
 }
 
+@media ( max-width : 450px ) {
+	.content-date-select-box-td {
+		font-size: 1.5rem;
+	}
+}
+
 .date-sel-start-box-td {
 	width: 40%
 }
@@ -46,7 +52,7 @@ input[type="date"] {
 	width: 80%; /* 너비를 크게 조정 */
 	height: 9vh; /* 높이를 조절 */
 	padding: 5px; /* 안쪽 여백 설정 */
-	font-size: 2rem; /* 글꼴 크기 조절 */
+	font-size: 1rem; /* 글꼴 크기 조절 */
 	border-radius: 3%; /* 테두리 모서리를 둥글게 설정 */
 	border: 1px solid #ccc; /* 테두리 추가 */
 	outline: none; /* 포커스 시 기본 아웃라인 제거 */
@@ -63,7 +69,13 @@ input[type="date"] {
 	font-family: Arial, sans-serif;
 	border: 1px solid #ccc;
 	width: 90%;
-	/* 	padding: 1%; */
+	padding: 1%;
+}
+
+@media ( max-width : 450px ) {
+	.calendar {
+		display: none;
+	}
 }
 
 .header {
@@ -232,6 +244,11 @@ input[type="date"] {
 	justify-content: center;
 	cursor: pointer;
 }
+@media ( max-width : 450px ) {
+.next-btn {
+	font-size: 1.5rem;
+	}
+}
 
 .content-cal-btn-box-td {
 	fill: #ffdf6c;
@@ -246,6 +263,13 @@ input[type="date"] {
 	margin-left: 40%;
 	margin-right: 40%;
 	margin-bottom: 5%;
+}
+
+@media ( max-width : 450px ) {
+	.content-cal-btn-box-td {
+			height: 8vh;
+		margin-top: 5%;
+	}
 }
 
 .between {

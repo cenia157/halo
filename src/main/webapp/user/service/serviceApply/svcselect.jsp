@@ -18,7 +18,7 @@
 			<div class="content-serviceoption-td">
 			<label >
 				<input type="radio" name="service" value="nursingTexi"
-					id="service" checked> <br> 介護 & 介護タクシーサービス</label><br>
+					id="service" checked> <br> 介護サービス & <br> 介護タクシーサービス</label><br>
 			</div>
 			<div class="content-serviceoption-td">
 				<label>

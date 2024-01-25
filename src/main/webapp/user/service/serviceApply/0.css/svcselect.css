@@ -13,22 +13,33 @@
 	margin-top: 3%;
 	height: 80vh;
 }
+@media ( max-width : 450px ) {
+.content-form-box {
+	height: 30vh;
+}
+	
+}
 
 .content-serviceselect-box-td {
 	width: 100%;
 	display: flex;
 	justify-content: space-evenly;
-	align-items: center;
-	height: 45%;
+	height: 32%;
+	margin-top: 5%
+}
+
+@media ( max-width : 450px ) {
+	.content-serviceselect-box-td {
+		height: 33%;
+	}
 }
 
 .content-serviceoption-td {
 	border: solid 1px rgb(122, 174, 63);
-	width: 25%;
-	height: 50%;
+	width: 28%;
+	height: 100%;
 	display: flex;
 	justify-content: center;
-	align-items: center;
 	border-radius: 30px;
 	border-radius: 20px;
 	background: #849461;
@@ -40,6 +51,13 @@
 	font-weight: 700;
 	line-height: normal;
 	box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.3);
+}
+
+@media ( max-width : 450px ) {
+	.content-serviceoption-td {
+		height: 100%;
+		font-size: 0.7rem;
+	}
 }
 
 #nursingTexi {
@@ -58,16 +76,21 @@
 }
 
 .content-servicebtn-box-td {
-	margin-top: 5%;
 	width: 100%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 15%;
+	height: 18%;
+}
+
+@media ( max-width : 450px ) {
+	.content-servicebtn-box-td {
+		height: 20%;
+	}
 }
 
 .content-servicebtn-td {
-	width: 25%;
+	width: 40%;
 	height: 100%;
 	display: flex;
 	justify-content: center;
@@ -84,21 +107,39 @@
 	letter-spacing: 2.25px;
 	box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.3);
 	cursor: pointer;
+	margin-top: 20%;
+}
+
+@media ( max-width : 450px ) {
+	.content-servicebtn-td {
+		width: 50%;
+		font-size: 1rem;
+	}
 }
 
 .content-reference-txt-td {
-/* 	text-align: right; */
+	text-align: right;
 	color: #81291d;
 	font-family: Inter;
 	font-size: 2rem;
 	font-style: normal;
 	font-weight: 700;
 	line-height: normal;
-	padding-right: 10%;
-	margin-top: 3%;
+	margin-top: 12%;
+}
+
+@media ( max-width : 450px ) {
+	.content-reference-txt-td {
+		font-size: 0.5rem;
+	}
 }
 
 input[type="radio"] {
 	width: 3vh;
 	height: 3vh;
+	cursor: pointer;
+}
+
+label {
+	cursor: pointer;
 }
