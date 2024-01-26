@@ -13,15 +13,12 @@ import com.halo.main.MainpageDAO;
 @WebServlet("/Employment_C")
 public class Employment_C extends HttpServlet {
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	MainpageDAO.getMdao().getAllHompage_common(request);
         request.setAttribute("menu", "user/menu-index.jsp");
         request.setAttribute("subMenu", "/user/introduce/employment/employment_contentPage.jsp");
         request.getRequestDispatcher("index.jsp").forward(request, response);
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-    }
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {}
 }
