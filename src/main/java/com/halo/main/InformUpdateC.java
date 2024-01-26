@@ -12,6 +12,7 @@ import com.halo.utils.HaloUtils;
 @WebServlet("/InformUpdateC")
 public class InformUpdateC extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setAttribute("menuname", "회사정보변경");
 		//getAll로 DTO깐거 가져옴
 		MainpageDAO.getMdao().getAllHompage_common(request);
 		//AdminC에 있던 menu 어트리뷰트(경로) 정의

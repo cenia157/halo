@@ -130,10 +130,6 @@
 								<div class="menu-td-3-td-open-td-2-con-td-2">
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
 										<img src="admin/0.img/admintble-select.png" alt=""><a
-											href="AdminC?link=11">통계</a>
-									</div>
-									<div class="menu-td-3-td-open-td-2-con-td-2-select">
-										<img src="admin/0.img/admintble-select.png" alt=""><a
 											href="CustomerInfoMgmtC">고객정보관리</a>
 									</div>
 								</div>
@@ -206,7 +202,7 @@
 			<div class="content-tr">
 				<div class="content-main-td">
 					<div class="content-m-td-1">
-						<div class="content-m-td-title">공지사항</div>
+						<div class="content-m-td-title">${menuname }</div>
 					</div>
 					<div class="content-m-td-2">
 						<jsp:include page="${menu }"></jsp:include>
