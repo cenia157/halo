@@ -201,20 +201,3 @@ ClassicEditor.create(document.querySelector("#classicNR"), {
 	.catch((error) => {
 		console.log(error);
 	});
-
-	
-
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	

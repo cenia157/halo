@@ -30,9 +30,9 @@ public class LoginDAO {
 
 			String id = request.getParameter("id");
 			String pw = request.getParameter("pw");
-			System.out.println("---------------------");
-			System.out.println("파라미터 Id ::: " + id);
-			System.out.println("파라미터 pw ::: " + pw);
+//			System.out.println("---------------------");
+//			System.out.println("파라미터 Id ::: " + id);
+//			System.out.println("파라미터 pw ::: " + pw);
 
 			String dbPW = "";
 			String result = "";
@@ -55,17 +55,16 @@ public class LoginDAO {
 					adminDTO.setA_name(rs.getString("a_name"));
 
 					HttpSession hs = request.getSession();
-					int timer = 10000;
+					int timer = 7200;
 					hs.setMaxInactiveInterval(timer);
 					System.out.println(hs.getMaxInactiveInterval());
 					hs.setAttribute("sessionTimeout", timer);
-//					hs.setAttribute("sessionTimeout", hs.getMaxInactiveInterval());
 					hs.setAttribute("login_session", adminDTO);
-				
-
+					hs.setAttribute("login_name", rs.getString("a_name"));
 				} else {
 					result = "パスワードエラー！";
 					System.out.println("result ::: " + result);
+					System.out.println();
 				} // inner if-else
 
 			} else {

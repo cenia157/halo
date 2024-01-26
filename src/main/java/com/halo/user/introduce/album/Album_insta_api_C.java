@@ -17,9 +17,8 @@ import com.halo.main.MainpageDAO;
 @WebServlet("/Album_insta_api_C")
 public class Album_insta_api_C extends HttpServlet {
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-    	// 토큰 보안을 위해서 프로퍼티 파일을 만들어서 사용
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	// 프로퍼티 파일을 만들어서 사용
         String configPath = "/user/introduce/album/token_config.properties";
         String apiToken = TokenConfigReader.loadApiToken(configPath, getServletContext());
         
@@ -27,12 +26,10 @@ public class Album_insta_api_C extends HttpServlet {
         MainpageDAO.getMdao().getAllHompage_common(request);
         request.setAttribute("menu", "user/menu-index.jsp");
         request.setAttribute("subMenu", "/user/introduce/album/album_contentPage.jsp");
-        request.getRequestDispatcher("index.jsp").forward(request, response);
-        
+        request.getRequestDispatcher("index.jsp").forward(request, response);    
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	requestInstagram(request, response);
     }
     
@@ -53,8 +50,8 @@ public class Album_insta_api_C extends HttpServlet {
 
             connection.setRequestMethod("GET");
 
-            int responseCode = connection.getResponseCode();
-//          System.out.println("응답 코드: " + responseCode);
+//            int responseCode = connection.getResponseCode();
+//            System.out.println("응답 코드: " + responseCode);
 
             // 응답 내용 읽기
             BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
@@ -70,7 +67,6 @@ public class Album_insta_api_C extends HttpServlet {
 //          System.out.println("응답 내용: " + responseBuilder.toString());
             
             response.getWriter().write(responseBuilder.toString());
-
             // 연결 종료
             connection.disconnect();
         } catch (Exception e) {
