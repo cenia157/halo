@@ -38,7 +38,7 @@
 				<div class="menu-td-2">
 					<div class="menu-td-2-td">
 						<div>
-							<img src="admin/0.img/admintble2-1.png" alt="">大出 昭子
+							<img src="admin/0.img/admintble2-1.png" alt="">${login_name }
 						</div>
 						<!-- 메인홈페이지 바로가기 -->
 						<div>
@@ -180,7 +180,7 @@
 			<div class="header-tr">
 				<div class="header-td">
 					<div class="header-td-user">
-						<div>大出 昭子</div>
+						<div>${login_name }</div>
 					</div>
 					<input type="hidden" id="sessionTimeoutVal"
 						value="${sessionTimeout }">

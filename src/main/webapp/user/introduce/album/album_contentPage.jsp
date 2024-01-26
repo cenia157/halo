@@ -23,7 +23,6 @@
                 <span><a href="Employment_C">スタッフ募集</a></span>
             </div>
         </div>
-
         <div class="a_content-box-tr1-td2">
             <div class="a_content-box-tr1-td2-1">
                 <img src="${pageContext.request.contextPath}/user/0.img/home.png" width="1.7%" alt="" />
@@ -36,7 +35,6 @@
                 <div class="a_content-box-tr1-td2-2-2">instagramで見る</div>
             </a>
         </div>
-
         <!-- content-box-tr1-td3 ::: display: flex wrap용 -->
         <div class="a_content-box-tr1-td3">
             <div class="a_content-box-tr1-td3-1">
