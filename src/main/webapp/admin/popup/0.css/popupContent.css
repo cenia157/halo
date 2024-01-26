@@ -1,4 +1,5 @@
 @charset "UTF-8";
+
 @import
 	url(https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular)
 	;
@@ -19,24 +20,28 @@
 		url("https://db.onlinewebfonts.com/t/18039781048bd528f6304c029f5d0f99.svg#SF Pro JP Regular")
 		format("svg");
 }
+
 .content-m-td-3 {
 	width: 100%;
 	height: 100%;
 	position: relative;
 	display: block;
 }
-.popup-content{
+
+.popup-content {
 	border: 1px solid blue;
 	width: 100%;
 	height: 100%;
 }
-.popup-tbl{
+
+.popup-tbl {
 	border: 1px solid green;
 	width: 100%;
 	height: 90%;
 	display: flex;
 	justify-content: center;
 }
+
 .popup-tr {
 	border: 1px solid orange;
 	width: 25%;
@@ -46,7 +51,6 @@
 	margin-left: 1%;
 	margin-right: 1%;
 }
-
 /* 미리보기 이미지 박스  */
 .popup-td-img-box {
 	border: solid 6px rgb(221, 226, 229);
@@ -57,4 +61,62 @@
 	background-size: contain; /* 이미지 div에 전체 */
 	background-position: center;
 	background-repeat: no-repeat;
+}
+
+.popup-select-box {
+	width: 100%;
+	height: 10%;
+	margin-bottom: 1.5%;
+	font-size: 1.2rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-weight: 700;
+}
+/* 박스 라인 */
+.popup-input-line {
+	border-radius: 5px;
+	border-top: solid 1px rgb(209, 209, 209);
+	border-left: solid 1px rgb(209, 209, 209);
+	border-right: solid 1px rgb(209, 209, 209);
+	border-bottom: solid 2px rgb(130, 130, 130);
+}
+
+.popup-select {
+	width: 64%;
+	height: 70%;
+	font-size: 1.2rem;
+	text-align: center;
+}
+
+.popup-select:hover {
+	background: rgb(77, 77, 77);
+	color: #fff;
+	border-radius: 5px;
+}
+/* 파일업로드 버튼 */
+.btn-upload {
+	width: 280px;
+	height: 40px;
+	background: #fff;
+	font-weight: 500;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.btn-upload:hover{
+	background: rgb(77, 77, 77);
+	color: #fff;
+}
+/* url 첨부 인풋  */
+.banner-td-2{
+	width: 100%;
+	height: 28%;
+	margin-bottom: 1.5%;
+	font-size: 1.2rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	font-weight: 700;
 }
