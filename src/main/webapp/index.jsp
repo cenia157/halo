@@ -120,7 +120,7 @@
 	</div>
 	<!--  콘텐츠 페이지끝 -->
 
-	<!-- 리모컨 ~~ -->
+	<!-- 리모컨 -->
 	<div class="remote-control-tbl">
 		<div class="remote-control-tr">
 			<div class="remote-control-td2 btn-pointer" id="goTop">
@@ -137,10 +137,10 @@
 	</div>
 	<!-- 리모컨 끝 -->
 
-	<!-- Footer풋터 시작 -->
+	<!-- Footer 시작 -->
 	<div class="footer-tbl">
 		<div class="footer-tr">
-			<!-- TODO 서효원 admin페이지에서 업뎃된 footer정보 getAll로 뿌림 -->
+			<!-- admin페이지에서 업뎃 -->
 			<div class="footer-item-td-1">
 				Tel. ${hdto.h_tel_no} <br /> FAX : ${hdto.h_fax_no} <br />
 				PhoneNumber : ${hdto.h_phone_no} <br /> email : ${hdto.h_email} <br />
@@ -148,12 +148,12 @@
 			</div>
 			<div class="footer-item-td-2">
 				<div>
-					合同会社 <img src="user/0.img/footerlogo.png" alt="" /><a
+					合同会社 <img src="user/0.img/footerlogo.png" id="footer-logo-img" alt="" /><a
 						href="LoginPageC">ハロー </a>
 				</div>
 				<div>
-					代表社員 ： 大出 昭子 <img src="user/0.img/footerinstaicon.png" alt="" /> <img
-						src="user/0.img/footerlineicon.png" alt="" />
+					代表社員 ： 大出 昭子 <img src="user/0.img/footerinstaicon.png" id="footer-logo-img-sns" alt="" /> <img
+						src="user/0.img/footerlineicon.png" id="footer-logo-img-sns" alt="" />
 				</div>
 				<div>Copyright 2023. MGKD.All rights reserved</div>
 			</div>
