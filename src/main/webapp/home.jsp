@@ -36,7 +36,7 @@
 		</c:forEach>
 	</div>
 	<div class="main-notice-tbl" id="page1">
-		<!--  TODO 서효원 메인페이지에 공지사항 최신순으로 3줄(공지사항 제목, 내용/클릭시 해당 공지 디테일페이지 연결) -->
+		<!-- 공지사항 최신순으로 3줄(공지사항 제목, 내용/클릭시 해당 공지 디테일페이지 연결) -->
 		<div class="main-notice-tr1 btn-pointer"
 			onclick="location.href='Announced_C'">공지사항</div>
 		<div class="main-notice-tr2">
@@ -53,7 +53,7 @@
 	</div>
 	<div class="main-map-tbl" id="page2">
 		<div class="main-map-tr1">
-			<!-- TODO 서효원 구글맵 API 연동된거 미리보기 & 누르면 해당 구글맵으로 이동 -->
+			<!-- 구글맵 API 미리보기 & 해당 구글맵으로 이동 -->
 			<div class="main-map-box">
 				<iframe 
 					src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d243.7276948376925!2d135.56083939750414!3d34.72545567378211!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e1803b163eff%3A0x63157d2c53eb5a5a!2z44Oh44K-44OzIOOCqOODn-ODvOODqw!5e0!3m2!1sko!2skr!4v1705184709627!5m2!1sko!2skr"
@@ -62,9 +62,8 @@
 			</div>
 		</div>
 		<div class="main-map-tr2">
-			<!-- TODO 서효원 오시는길 페이지로 이동 -->
 			<div class="main-map-td1 btn-pointer"
-				onclick="location.href='HC?link=2'">오시는길~</div>
+				onclick="location.href='InfoMapC'">오시는길</div>
 			<div class="main-map-td2">
 				<div>
 					●주소<br />大阪府守口市馬場町3-14-6メゾンエミール701号

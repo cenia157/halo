@@ -61,7 +61,6 @@ EDIT ON */
 	overflow: scroll;
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
 	height: 64vh;
 }
 

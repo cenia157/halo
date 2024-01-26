@@ -15,6 +15,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+<!-- @media 쓰려면 이거 넣어야함 -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- @media 쓰려면 이거 넣어야함 -->
 <meta charset="UTF-8">
 <title>Question</title>
 <link
@@ -22,6 +25,7 @@
       href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular"
     />
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/user/qa/question/0.css/question.css">
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/user/qa/question/0.css/questionMobile.css">
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/user/qa/faq/0.css/index-banner.css">
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/user/0.css/index-menu.css">
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/user/0.css/index-footer.css">
@@ -77,12 +81,12 @@
 			</div>
 <!-- pw -->
 			<div class="q-content-box-td2">
-				<span class="q-content-box-td-content7-1">　パスワード </span>
+				<span class="q-content-box-td-content7-1">パスワード </span>
 				<input class="q-content-box-td-content7-2" type="text" name="q_password"/>
 			</div>
 <!-- txt -->
 			<div class="q-content-box-td2 content-box-td-content8">
-				<span class="q-content-box-td-content8-1">お問い合わせ内容*</span>
+				<span class="q-content-box-td-content8-1">お問い<br>合わせ<br>内容*</span>
 				<textarea class="q-content-box-td-content8-2" type="text" name="q_content"></textarea>
 			</div>
 			<div class="q-content-box-td3">
