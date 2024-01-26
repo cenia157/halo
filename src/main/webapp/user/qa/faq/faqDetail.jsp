@@ -15,8 +15,10 @@
 		<div class="faq-content-box-tr2">
 			<div class="faq-content-box-td2-1">-ANSWER-</div>
 			<div class="faq-content-box-td2-2">
+			<div class="faq-content-box-td2-2-txt">
 					<span class="faq-content-box-td2-2-content-1" id="FAQ_QUESTION">Q. </span>
 					<span class="faq-content-box-td2-2-content-2" id="FAQ_ANSWER">A. </span>
+			</div>
 			</div>
 		</div>
 

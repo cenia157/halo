@@ -6,15 +6,15 @@
 <head>
 <meta charset="UTF-8" />
 <title>Document</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-
 <body>
 	<div class="content-tbl">
 		<div class="content-space"></div>
 		<div class="content-sec">
 			<jsp:include page="${subMenu  }"></jsp:include>
 		</div>
-		<!-- 테두리,컨셉컬러로 두껍게, 오버로드 히든으로 흰 배경부분 보이지 않게(이미지 꽉차게) -->
+		<!-- 하단베너 -->
 		<div class="bottom-venner-tr">
 			<c:forEach var="bannerInform" items="${bottomBanners}">
 				<c:if test="${bannerInform.b_type == 1 }">
@@ -31,6 +31,7 @@
 		</div>
 	</div>
 </body>
+<!-- 상품판매 클릭시, 해당url 새 창으로 이동js -->
 <script type="text/javascript">
 	function openNewWindow(url) {
 		window.open(url, '_blank');
