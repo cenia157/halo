@@ -3,31 +3,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8" />
+<meta charset="UTF-8">
 <title>Insert title here</title>
 <!-- 해당페이지 css -->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/user/information/map/0.css/map.css" />
 <!-- Google Map API-->
-<script async
-	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCoJHgg3IE796b40XaiM6M7cTjkbPWbYDo&callback=console.debug&libraries=maps,marker&v=beta"></script>
+<script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCoJHgg3IE796b40XaiM6M7cTjkbPWbYDo&callback=console.debug&libraries=maps,marker&v=beta">
+	
+</script>
+
 </head>
 <body>
+
 	<div class="map-content-sec">
+
 		<div class="content-box-tbl">
 			<div class="content-box-tr">
-				<div class="content-box-td1">
-					<a href="">회사소개</a>
+				<div class="content-box-td1 btn-pointer" onclick="location.href='InfoCompanyC'">
+					<a href="InfoCompanyC">회사소개</a>
 				</div>
-				<div class="content-box-td2">
-					<a href="">오시는길</a>
+				<div class="content-box-td2 btn-pointer" onclick="location.href='InfoMapC'">
+					<a href="InfoMapC">오시는길</a>
 				</div>
 			</div>
 
 			<div class="introduce-tr-box">
 				<div class="introduce-td1">
 					<img src="${pageContext.request.contextPath}/user/0.img//home.png"
-						width="1.7%" alt="" /> > 소개 > 회사소개
+						width="1.7%" alt="" /> > 소개 > 오시는길
 				</div>
 				<div class="introduce-td2">오시는길</div>
 			</div>
@@ -37,21 +41,10 @@
 					<div class="map-tbl">
 						<!-- (지도API) 들어올 자리  -->
 						<div id="map" class="map-tr">
-							<!-- <gmp-map
-                  center="34.725521087646484,135.56072998046875"
-                  zoom="18"
-                  map-id="DEMO_MAP_ID"
-                >
-                  <gmp-advanced-marker
-                    position="34.725521087646484,135.56072998046875"
-                    title="My location"
-                  >
-                  </gmp-advanced-marker>
-                </gmp-map> -->
-							<iframe
-								src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d243.7276948376925!2d135.56083939750414!3d34.72545567378211!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e1803b163eff%3A0x63157d2c53eb5a5a!2z44Oh44K-44OzIOOCqOODn-ODvOODqw!5e0!3m2!1sko!2skr!4v1705184709627!5m2!1sko!2skr"
-								width="100%" height="100%" style="border: 0;" allowfullscreen=""
-								loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+							<gmp-map center="34.725521087646484,135.56072998046875" zoom="14"
+								map-id="DEMO_MAP_ID"> <gmp-advanced-marker
+								position="34.725521087646484,135.56072998046875"
+								title="My location"> </gmp-advanced-marker> </gmp-map>
 						</div>
 						<div class="map-tr1">
 							<div class="map-tr2">
@@ -63,7 +56,10 @@
 					</div>
 				</div>
 			</div>
+
 		</div>
 	</div>
 </body>
 </html>
+
+

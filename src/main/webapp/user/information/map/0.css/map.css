@@ -162,3 +162,7 @@
 	text-align: center;
 	height: 5vh;
 }
+/* 마우스 커서 포인터css */
+.btn-pointer {
+	cursor: pointer;
+}
