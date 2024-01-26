@@ -19,7 +19,7 @@
 	height: 45vh;
 	display: flex;
 	justify-content: center;
-/* 	align-items: center; */
+	/* 	align-items: center; */
 }
 
 .slogan-tbl>div {
@@ -187,9 +187,55 @@
 	margin-top: 5%;
 }
 
+/* 리모컨 미디어쿼리 */
+@media only screen and (max-width: 450px) {
+	.remote-control-tbl {
+		position: fixed;
+		top: 80% !important;
+		left: 85% !important;
+		width: 15% !important;
+		height: 7% !important;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+	.remote-control-tr {
+		border: solid 1px rgb(255, 223, 108);
+		background-color: rgb(255, 244, 229);
+		box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.3);
+		border-radius: 18px !important;
+		width: 90%;
+		height: 90%;
+		margin-bottom: 10%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	/* 리모컨 텍스트 */
+	.remote-control-td {
+		color: #546137;
+		text-align: center;
+		width: fit-content;
+		height: fit-content;
+		font-size: 0.6rem !important;
+		font-weight: 700;
+	}
+	/* 리모콘 아이콘 이미지div */
+	.remote-control-td2 {
+		color: #546137;
+		text-align: center;
+		font-size: 0.9rem;
+		font-weight: 700;
+		width: fit-content;
+		height: fit-content;
+		margin-top: 5%;
+	}
+}
+/* 리모컨 미디어쿼리 끝 */
+
 /* 리모컨 */
 .remote-control-tbl {
-	/* border: solid 1px rgb(255, 0, 0); */
 	position: fixed;
 	top: 75%;
 	left: 93%;
@@ -215,7 +261,6 @@
 }
 /* 리모컨 텍스트 */
 .remote-control-td {
-	/* border: solid 1px rgb(0, 21, 255); */
 	color: #546137;
 	text-align: center;
 	width: fit-content;
@@ -225,7 +270,6 @@
 }
 /* 리모콘 아이콘 이미지div */
 .remote-control-td2 {
-	/* border: solid 1px rgb(0, 21, 255); */
 	color: #546137;
 	text-align: center;
 	font-size: 0.9rem;
