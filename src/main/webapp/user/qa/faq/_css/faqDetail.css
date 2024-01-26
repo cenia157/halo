@@ -126,8 +126,6 @@ a {
 
 .faq-content-box-td2-2-content-1 {
 	display: flex;
-	justify-content: center;
-	align-items: center;
 	flex-shrink: 0;
 	/* 	txt */
 	color: #546137;
