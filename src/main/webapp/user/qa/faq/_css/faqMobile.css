@@ -8,6 +8,7 @@
 	}
 	.faq-content-box-td2-2{
 	height: 15vh;
+	border-radius: 15px !important;
 	}
 	.faq-content-box-td2-2-content-1{
 	font-size: 1.8rem !important;
@@ -25,4 +26,15 @@
 	button{
 		font-size: 1.5rem !important;
 	}
+	
+	.faq-content-box-tr1{
+	border-radius: 15px !important;
+	}
+	.faq-content-box-tr2{
+	border-radius: 15px !important;
+	}
+	.faq-content-box-td1-2{
+	border-radius: 15px !important;
+	}
+	
 }
