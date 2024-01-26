@@ -25,7 +25,7 @@
 			<div class="introduce-tr-box">
 				<div class="introduce-td1">
 					<img src="${pageContext.request.contextPath}/user/0.img//home.png"
-						width="1.7%" alt="" /> > 소개 > 회사소개
+						 alt="" /> > 소개 > 회사소개
 				</div>
 				<div class="introduce-td2">인사말</div>
 			</div>
