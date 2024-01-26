@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%> <%@ taglib uri="http://java.sun.com/jsp/jstl/core"
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> <%@ taglib uri="http://java.sun.com/jsp/jstl/core"
 prefix="c" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -208,12 +207,12 @@ prefix="c" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
           <span> お知らせ</span>
         </div>
         <div class="qd-content-box-td1-2">
-          <div class="qd-content-box-td1-2-1">タイトル</div>
+          <div class="qd-content-box-td1-2-1"><span>タイトル</span></div>
           <div class="qd-content-box-td1-2-2" id="modalTitle">일정공지</div>
         </div>
 
         <div class="qd-content-box-td1-3">
-          <div class="qd-content-box-td1-3-1">投稿者</div>
+          <div class="qd-content-box-td1-3-1"><span>投稿者<span></div>
           <div class="qd-content-box-td1-3-2" id="modalWriter">
             오오데아키코
           </div>

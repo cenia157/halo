@@ -15,12 +15,13 @@ public class AnnouncedDAO {
 	
 	private static ArrayList<Announced_tbl_DTO> announcements; // 추가
     
-	private static Connection con = null;
+//	Connection con = null;
 	
 	/**
 	 * 목록을 가져온다.
 	 */
     public static void getAllAnnouncements(HttpServletRequest request) {
+    	Connection con = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
 
@@ -56,6 +57,7 @@ public class AnnouncedDAO {
     
     // Seo's method
     public static void getMainAnnouncements(HttpServletRequest request) {
+    	Connection con = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
 
