@@ -9,7 +9,6 @@ prefix="c" %> <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
     <script src="admin/_js/ckeditor/ckeditor.js"></script>
     <script src="user/introduce/announcement/0.js/announcement_contentPage_modal.js"></script>
     <script src="user/introduce/announcement/0.js/announcement_contentPage_ajax.js"></script>
-    <script src="user/introduce/announcement/0.js/announcement_contentPage_mediaQuery.js"></script>
     <link rel="stylesheet" href="user/introduce/announcement/0.css/announcement_contentPage.css"/>
   </head>
   <body>

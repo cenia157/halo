@@ -580,7 +580,7 @@
 }
 
 /* 미디어 쿼리 작업 시작 */
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 500px) {
 	
 	.header-tbl {
 		outline: 1px solid red;
