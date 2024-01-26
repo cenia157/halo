@@ -36,6 +36,7 @@
 /* 	content */
 	.qd-content-box-td2-1-content{
 		font-size: 1.2rem;
+		min-height: 30vh;
 	}
 /* 	list */
 	.qd-content-box-td2-2-button{
@@ -78,6 +79,9 @@
 		font-size: 1rem;
 		width: 30%;
 	}
+	#password_content{
+		font-size: 1rem;
+	}
 	
 /* 	page change */
 	.qd-content-box-td4-1-1{
@@ -85,5 +89,15 @@
 	}
 	.qd-content-box-td4-1-2{
 		font-size: 1rem;
+	}
+	.qd-content-box-td4-2-1{
+		font-size: 1rem;
+	}
+	.qd-content-box-td4-2-2{
+		font-size: 1rem;
+	}
+	.qd-content-box-td4-3-1{
+		font-size: 1rem;
+		margin-bottom: 5%;
 	}
 }
