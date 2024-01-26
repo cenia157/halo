@@ -14,18 +14,18 @@
 	
 		<div class="content-box-tbl">
 			<div class="content-box-tr">
-				<div class="content-box-td1">
-					<a href="">회사소개</a>
+				<div class="content-box-td1 btn-pointer" onclick="location.href='InfoCompanyC'">
+					<a href="InfoCompanyC">회사소개</a>
 				</div>
-				<div class="content-box-td2">
-					<a href="">오시는길</a>
+				<div class="content-box-td2 btn-pointer" onclick="location.href='InfoMapC'">
+					<a href="InfoMapC">오시는길</a>
 				</div>
 			</div>
 
 			<div class="introduce-tr-box">
 				<div class="introduce-td1">
 					<img src="${pageContext.request.contextPath}/user/0.img//home.png"
-						width="1.7%" alt="" /> > 소개 > 회사소개
+						 alt="" /> > 소개 > 회사소개
 				</div>
 				<div class="introduce-td2">인사말</div>
 			</div>
