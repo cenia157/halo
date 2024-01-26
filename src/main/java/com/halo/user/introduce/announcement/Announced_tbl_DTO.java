@@ -11,9 +11,7 @@ public class Announced_tbl_DTO {
     private String an_category;
     private String an_img;
     
-    public Announced_tbl_DTO() {
-		// TODO Auto-generated constructor stub
-	}
+    public Announced_tbl_DTO() {}
 
 	public Announced_tbl_DTO(int an_seq, String an_title, String an_content, String an_writer, Date an_reg_date,
 			String an_category, String an_img) {

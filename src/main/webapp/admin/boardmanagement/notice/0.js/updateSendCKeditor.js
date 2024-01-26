@@ -1,5 +1,5 @@
 let regBtnR = document.querySelector("#reg-btnR");
-regBtnR.addEventListener("click", function(event) {
+regBtnR.addEventListener("click", function() {
 	let ckFormR = document.querySelector("#ck-formR");
 	let seq = document.querySelector('#seq').value;
 	let pageNum = document.querySelector('#pageNum');

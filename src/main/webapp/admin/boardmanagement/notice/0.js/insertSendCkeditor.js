@@ -1,6 +1,7 @@
 let regBtn = document.querySelector("#reg-btn");
 
 regBtn.addEventListener("click", function() {
+	
 	if(!noValue()){
 		return false;
 	}
@@ -72,5 +73,3 @@ regBtn.addEventListener("click", function() {
 			console.error("POST 요청 실패:", error);
 		});
 }); // regBtn.addEventListener("click", function(event) {
-
-
