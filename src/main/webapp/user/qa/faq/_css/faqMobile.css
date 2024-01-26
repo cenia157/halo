@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 /* 미디어 */
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 500px) {
 	
 	.faq-content-box-td2-1{
 	font-size: 2rem !important;
@@ -35,6 +35,10 @@
 	}
 	.faq-content-box-td1-2{
 	border-radius: 15px !important;
+	}
+	.faq-content-box-td1-2-content{
+	border-radius: 15px !important;
+	word-break: break-all;
 	}
 	
 }
