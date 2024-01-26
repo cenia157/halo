@@ -7,7 +7,7 @@ import java.sql.PreparedStatement;
 
 import javax.servlet.http.HttpServletRequest;
 
-import com.halo.test.DBManagerhalo_JW;
+import com.halo.main.DBManagerhalo;
 
 public class Ck_DAO_frequenthyask {
 
@@ -68,7 +68,7 @@ public class Ck_DAO_frequenthyask {
 				PreparedStatement pstmt = null;
 				String sql = "UPDATE QA_TBL SET QA_title = ?, QA_content = ?, QA_REG_DATE = SYSTIMESTAMP AT TIME ZONE 'Asia/Seoul' WHERE QA_seq = ? ";
 
-				con = DBManagerhalo_JW.connect();
+				con = DBManagerhalo.connect();
 				pstmt = con.prepareStatement(sql);
 
 				pstmt.setString(1, title);
