@@ -13,6 +13,7 @@
 <link rel="stylesheet"
 	href="https://db.onlinewebfonts.com/c/18039781048bd528f6304c029f5d0f99?family=SF+Pro+JP+Regular" />
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/user/qa/question/0.css/questionDetail.css">	
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/user/qa/question/0.css/questionDetailMobile.css">	
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/user/0.css/index.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/user/0.css/index-menu.css">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/user/0.css/index-footer.css">
@@ -71,8 +72,8 @@ function checkPW(){
 
 				<div class="qd-content-box-td1-4">
 					<div class="qd-content-box-td1-4-content">
-						<span class="qd-content-box-td1-4-1">作成日時</span> <span
-							class="qd-content-box-td1-4-2"> ${QnC.q_reg_date} </span>
+						<span class="qd-content-box-td1-4-1">作成日時</span>
+						<span class="qd-content-box-td1-4-2"> ${QnC.q_reg_date} </span>
 					</div>
 					<div class="qd-content-box-td-button">
 						<button class="qd-content-box-td-button-2" onclick="deleteQuestion(${QnC.q_seq})">削除 X</button>
@@ -102,7 +103,7 @@ function checkPW(){
 				</div>
 				<div class="qd-content-box-td3-2">
 						<div class="qd-content-box-td3-2-1">
-							<img alt=""
+							<img id="lockImg" alt=""
 								src="${pageContext.request.contextPath}/user/qa/question/0.img/lock.png">
 						</div>
 						
