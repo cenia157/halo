@@ -41,10 +41,14 @@
 					<div class="map-tbl">
 						<!-- (지도API) 들어올 자리  -->
 						<div id="map" class="map-tr">
-							<gmp-map center="34.725521087646484,135.56072998046875" zoom="14"
-								map-id="DEMO_MAP_ID"> <gmp-advanced-marker
-								position="34.725521087646484,135.56072998046875"
-								title="My location"> </gmp-advanced-marker> </gmp-map>
+<!-- 							<gmp-map center="34.725521087646484,135.56072998046875" zoom="14" -->
+<!-- 								map-id="DEMO_MAP_ID"> <gmp-advanced-marker -->
+<!-- 								position="34.725521087646484,135.56072998046875" -->
+<!-- 								title="My location"> </gmp-advanced-marker> </gmp-map> -->
+								<iframe
+								src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d243.7276948376925!2d135.56083939750414!3d34.72545567378211!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e1803b163eff%3A0x63157d2c53eb5a5a!2z44Oh44K-44OzIOOCqOODn-ODvOODqw!5e0!3m2!1sko!2skr!4v1705184709627!5m2!1sko!2skr"
+								width="100%" height="100%" style="border: 0;" allowfullscreen=""
+								loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 						</div>
 						<div class="map-tr1">
 							<div class="map-tr2">

@@ -155,3 +155,8 @@
 .btn-pointer {
 	cursor: pointer;
 }
+
+/* 미디어쿼리 반응형 */
+@media only screen and (max-width: 450px) {
+	
+}
