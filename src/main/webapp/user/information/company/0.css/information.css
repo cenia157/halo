@@ -161,7 +161,7 @@
 	cursor: pointer;
 }
 
-/* 미디어쿼리 반응형 */
+/* 반응형 미디어쿼리 */
 @media only screen and (max-width: 450px) {
 	/* 컨텐트  */
 	.com-content-tbl {
@@ -241,8 +241,8 @@
 	/* 인사말 title */
 	.introduce-tr-box {
 		width: 100%;
-		height: 10vh !important;
-		padding-top: 4%;
+		height: 14vh !important;
+		padding-top: 6% !important;
 		color: #546137;
 		font-size: 1.5rem;
 		font-weight: 700;
@@ -262,6 +262,7 @@
 		font-weight: 700;
 		display: flex;
 		justify-content: center;
+		margin-top: 3%;
 	}
 
 	/* 인사말 밑 이미지 */
@@ -313,4 +314,4 @@
 		margin-top: 3% !important;
 	}
 }
-/* 미디어쿼리 반응형 끝 */
+/* 반응형 끝 */

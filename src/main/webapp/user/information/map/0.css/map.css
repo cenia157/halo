@@ -24,6 +24,11 @@
 	height: 15vh;
 }
 
+/* 메뉴로드 아이콘 */
+.introduce-td1>img {
+	width: 1.7%;
+}
+
 .content-box-td1 {
 	color: rgb(132, 148, 97);
 	height: 100%;
@@ -89,12 +94,12 @@
 
 /* 인사말 title */
 .introduce-tr-box {
-  width: 100%;
-  height: 15vh;
-  padding-top: 2%;
-  color: #546137;
-  font-size: 1.5rem;
-  font-weight: 700;
+	width: 100%;
+	height: 15vh;
+	padding-top: 2%;
+	color: #546137;
+	font-size: 1.5rem;
+	font-weight: 700;
 }
 
 .introduce-td1 {
@@ -116,7 +121,6 @@
 }
 
 /* 구글맵 컨텐트 박스 */
-/* 여기 높이 수정*/
 .map-tbl {
 	display: flex;
 	flex-direction: column;
@@ -127,19 +131,18 @@
 
 /* 구글맵 자리 */
 .map-tr {
-	border: solid 4px rgb(255,223,108);
+	border: solid 4px rgb(255, 223, 108);
 	width: 100%;
 	height: 70%;
 }
 
 /* 하단 텍스트박스 자리 */
-.map-tr1{
+.map-tr1 {
 	width: 100%;
 	height: 45%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	
 }
 /* 맵 텍스트 */
 .map-tr2 {
@@ -166,3 +169,111 @@
 .btn-pointer {
 	cursor: pointer;
 }
+
+/* 반응형 미디어쿼리 */
+@media only screen and (max-width: 450px) {
+	/* 컨텐트 박스 */
+	.content-box-tbl {
+		background-color: rgba(255, 255, 255, 0.8);
+		border-radius: 35px;
+		width: 95%;
+		height: 77vh !important;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	/* 메뉴로드 아이콘 */
+	.introduce-td1>img {
+		width: 4% !important;
+	}
+	/* 회사소개 오시는길 버튼*/
+	.content-box-tr {
+		width: 100%;
+		display: flex;
+		height: 8vh !important;
+	}
+	.content-box-td1 {
+		color: rgb(132, 148, 97);
+		height: 100%;
+		font-size: 1.5rem !important;
+		width: 50%;
+		font-style: normal;
+		font-weight: 700;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border-top-left-radius: 30px;
+		text-shadow: 4px 4px 4px #ffdf6c;
+	}
+	.content-box-td2 {
+		background-color: rgb(132, 148, 97);
+		height: 100%;
+		color: white;
+		font-size: 1.5rem !important;
+		font-style: normal;
+		font-weight: 700;
+		width: 50%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border-top-right-radius: 30px;
+	}
+
+	/* 오시는길 title */
+	.introduce-tr-box {
+		width: 100%;
+		height: 14vh !important;
+		padding-top: 6% !important;
+		color: #546137;
+		font-size: 1.5rem;
+		font-weight: 700;
+	}
+	.introduce-td1 {
+		color: #546137;
+		font-size: 1rem !important;
+		font-weight: 700;
+		width: 100%;
+		text-align: right;
+		padding-right: 5%;
+	}
+	.introduce-td2 {
+		color: #546137;
+		text-shadow: 4px 4px 4px #ffdf6c;
+		font-size: 1.7rem !important;
+		font-weight: 700;
+		display: flex;
+		justify-content: center;
+		margin-top: 3%;
+	}
+	
+	/* 구글맵 컨텐트 박스 */
+	.map-tbl {
+		display: flex;
+		flex-direction: column;
+		width: 100% !important;
+		height: 50vh !important;
+		align-items: center;
+	}
+	/* 맵 텍스트 */
+	.map-tr2 {
+		background-color: rgb(255, 255, 255);
+		box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.3);
+		border-radius: 30px;
+		width: 100% !important;
+		height: 87% !important;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		margin-top: 5%;
+	}
+	.map-td {
+		color: #546137;
+		text-shadow: 4px 4px 4px #ffdf6c;
+		font-size: 1rem !important;
+		font-weight: 700;
+		text-align: center;
+		height: 5vh;
+	}
+}
+/* 반응형 끝 */
