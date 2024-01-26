@@ -95,8 +95,8 @@ public class StaffDAO {
 			
 			
 			
-			pstmt.setString(1, request.getParameter("input-staff-name"));
-			pstmt.setString(2, request.getParameter("input-staff-pos"));
+			pstmt.setString(1, request.getParameter("input-staff-pos"));
+			pstmt.setString(2, request.getParameter("input-staff-name"));
 			pstmt.setString(3, request.getParameter("input-staff-callNum"));
 			pstmt.setString(4, request.getParameter("input-staff-entryDate"));
 			pstmt.setString(5, request.getParameter("input-staff-color"));

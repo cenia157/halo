@@ -13,70 +13,72 @@ function getAllStaffList() {
 
 	const staffUpdata = document.querySelector(".staff-table");
 	staffUpdata.addEventListener('click', function(event) {
-		const indexVal = event.target.parentNode.previousElementSibling.value;
-		let updateName = document.querySelector('#input-staff-name');
-		let updatePos = document.querySelector('#input-staff-pos');
-		let updatePhonnum = document.querySelector('#input-staff-callNum');
-		let updateEntryDate = document.querySelector('#input-staff-entryDate');
-		let updateColor = document.querySelector('#input-staff-color');
-		let updateAddr = document.querySelector('#input-steff-addr');
-		let updateSeq = document.querySelector('#staff-seq');
+		if (event.target.parentNode.previousElementSibling && event.target.parentNode.previousElementSibling.value != null) {
+				const indexVal = event.target.parentNode.previousElementSibling.value;
+				let updateName = document.querySelector('#input-staff-name');
+				let updatePos = document.querySelector('#input-staff-pos');
+				let updatePhonnum = document.querySelector('#input-staff-callNum');
+				let updateEntryDate = document.querySelector('#input-staff-entryDate');
+				let updateColor = document.querySelector('#input-staff-color');
+				let updateAddr = document.querySelector('#input-steff-addr');
+				let updateSeq = document.querySelector('#staff-seq');
 
-		updateName.value = empdata[indexVal].s_name;
-		updatePos.value = empdata[indexVal].s_position;
-		updatePhonnum.value = empdata[indexVal].s_phone_num;
-		updateEntryDate.value = empdata[indexVal].s_entry_date;
-		updateAddr.value = empdata[indexVal].s_addr;
-		updateColor.value = empdata[indexVal].s_color;
-		updateSeq.value = empdata[indexVal].s_no;
+				updateName.value = empdata[indexVal].s_name;
+				updatePos.value = empdata[indexVal].s_position;
+				updatePhonnum.value = empdata[indexVal].s_phone_num;
+				updateEntryDate.value = empdata[indexVal].s_entry_date;
+				updateAddr.value = empdata[indexVal].s_addr;
+				updateColor.value = empdata[indexVal].s_color;
+				updateSeq.value = empdata[indexVal].s_no;
 
-		let regBtn = document.querySelector('#staff-reg');
-		let updateBtn = document.querySelector('#staff-update');
-		let updateCBtn = document.querySelector('#staff-update-c');
-		let deleteBtn = document.querySelector('#staff-delete');
-		let regTitle = document.querySelector('#reg-title');
-		let updateTitle = document.querySelector('#update-title');
+				let regBtn = document.querySelector('#staff-reg');
+				let updateBtn = document.querySelector('#staff-update');
+				let updateCBtn = document.querySelector('#staff-update-c');
+				let deleteBtn = document.querySelector('#staff-delete');
+				let regTitle = document.querySelector('#reg-title');
+				let updateTitle = document.querySelector('#update-title');
 
-		regBtn.style.display = 'none';
-		updateBtn.style.display = 'block';
-		updateCBtn.style.display = 'block';
-		deleteBtn.style.display = 'block';
-		regTitle.style.display = 'none';
-		updateTitle.style.display = 'block';
-	});
+				regBtn.style.display = 'none';
+				updateBtn.style.display = 'block';
+				updateCBtn.style.display = 'block';
+				deleteBtn.style.display = 'block';
+				regTitle.style.display = 'none';
+				updateTitle.style.display = 'block';
+			}
+		});
 }
 
 
-function regPage(){
-		let regBtn = document.querySelector('#staff-reg');
-		let updateBtn = document.querySelector('#staff-update');
-		let deleteBtn = document.querySelector('#staff-delete');
-		let updateCBtn = document.querySelector('#staff-update-c');
-		let regTitle = document.querySelector('#reg-title');
-		let updateTitle = document.querySelector('#update-title');
-		regBtn.style.display = 'block';
-		updateBtn.style.display = 'none';
-		updateCBtn.style.display = 'none';
-		deleteBtn.style.display = 'none';
-		regTitle.style.display = 'block';
-		updateTitle.style.display = 'none';
+function regPage() {
+	let regBtn = document.querySelector('#staff-reg');
+	let updateBtn = document.querySelector('#staff-update');
+	let deleteBtn = document.querySelector('#staff-delete');
+	let updateCBtn = document.querySelector('#staff-update-c');
+	let regTitle = document.querySelector('#reg-title');
+	let updateTitle = document.querySelector('#update-title');
+	regBtn.style.display = 'block';
+	updateBtn.style.display = 'none';
+	updateCBtn.style.display = 'none';
+	deleteBtn.style.display = 'none';
+	regTitle.style.display = 'block';
+	updateTitle.style.display = 'none';
 
-		let updateName = document.querySelector('#input-staff-name');
-		let updatePos = document.querySelector('#input-staff-pos');
-		let updatePhonnum = document.querySelector('#input-staff-callNum');
-		let updateEntryDate = document.querySelector('#input-staff-entryDate');
-		let updateColor = document.querySelector('#input-staff-color');
-		let updateAddr = document.querySelector('#input-steff-addr');
-		let updateSeq = document.querySelector('#staff-seq');
+	let updateName = document.querySelector('#input-staff-name');
+	let updatePos = document.querySelector('#input-staff-pos');
+	let updatePhonnum = document.querySelector('#input-staff-callNum');
+	let updateEntryDate = document.querySelector('#input-staff-entryDate');
+	let updateColor = document.querySelector('#input-staff-color');
+	let updateAddr = document.querySelector('#input-steff-addr');
+	let updateSeq = document.querySelector('#staff-seq');
 
-		updateName.value = '';
-		updatePos.value = '';
-		updatePhonnum.value = '';
-		updateEntryDate.value = '';
-		updateAddr.value = '';
-		updateColor.value = '';
-		updateSeq.value = '';
-}	
+	updateName.value = '';
+	updatePos.value = '';
+	updatePhonnum.value = '';
+	updateEntryDate.value = '';
+	updateAddr.value = '';
+	updateColor.value = '#FFD700';
+	updateSeq.value = '';
+}
 
 
 
@@ -84,8 +86,8 @@ window.onload = function() {
 	let empdata = null;
 
 	getAllStaffList()
-	
-	
+
+
 
 
 	let updateBtn = document.querySelector('#staff-update');
@@ -124,44 +126,44 @@ window.onload = function() {
 		getAllStaffList()
 
 	});
-	
+
 	let updateCBtn = document.querySelector('#staff-update-c');
 	updateCBtn.addEventListener('click', regPage);
-	
+
 	let deleteBtn = document.querySelector('#staff-delete');
-	deleteBtn.addEventListener('click', function(event){
-    let updateSeq = document.querySelector('#staff-seq');
-    
-    // 삭제 전 확인 메시지 표시
-    let confirmDelete = confirm('정말로 삭제하시겠습니까?');
-    
-    // 사용자가 '확인'을 클릭했을 때만 삭제 실행
-    if (confirmDelete) {
-        fetch('StaffDelete', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                s_no: updateSeq.value
-            }),
-        }).then(() => {
-            // 삭제 완료 메시지 표시
-            alert('삭제 완료');
-            
-            // 삭제 후 필요한 작업 수행
-            const staffUpdate = document.querySelector(".staff-table");
-            staffUpdate.innerHTML = '';
-			regPage();
-            getAllStaffList();
-        }).catch(error => {
-            console.error('삭제 중 오류 발생:', error);
-        });
-    } else {
-        // '취소'를 클릭한 경우
-        alert('삭제가 취소되었습니다.');
-    }
-});
+	deleteBtn.addEventListener('click', function(event) {
+		let updateSeq = document.querySelector('#staff-seq');
+
+		// 삭제 전 확인 메시지 표시
+		let confirmDelete = confirm('정말로 삭제하시겠습니까?');
+
+		// 사용자가 '확인'을 클릭했을 때만 삭제 실행
+		if (confirmDelete) {
+			fetch('StaffDelete', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({
+					s_no: updateSeq.value
+				}),
+			}).then(() => {
+				// 삭제 완료 메시지 표시
+				alert('삭제 완료');
+
+				// 삭제 후 필요한 작업 수행
+				const staffUpdate = document.querySelector(".staff-table");
+				staffUpdate.innerHTML = '';
+				regPage();
+				getAllStaffList();
+			}).catch(error => {
+				console.error('삭제 중 오류 발생:', error);
+			});
+		} else {
+			// '취소'를 클릭한 경우
+			alert('삭제가 취소되었습니다.');
+		}
+	});
 
 
 }
