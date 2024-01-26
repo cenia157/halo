@@ -13,7 +13,7 @@
 	margin-top: 3%;
 	height: 80vh;
 }
-@media ( max-width : 450px ) {
+@media ( max-width : 500px ) {
 .content-form-box {
 	height: 30vh;
 }
@@ -28,7 +28,7 @@
 	margin-top: 5%
 }
 
-@media ( max-width : 450px ) {
+@media ( max-width : 500px ) {
 	.content-serviceselect-box-td {
 		height: 33%;
 	}
@@ -53,7 +53,7 @@
 	box-shadow: 10px 10px 10px 0px rgba(0, 0, 0, 0.3);
 }
 
-@media ( max-width : 450px ) {
+@media ( max-width : 500px ) {
 	.content-serviceoption-td {
 		height: 100%;
 		font-size: 0.7rem;
@@ -83,7 +83,7 @@
 	height: 18%;
 }
 
-@media ( max-width : 450px ) {
+@media ( max-width : 500px ) {
 	.content-servicebtn-box-td {
 		height: 20%;
 	}
@@ -110,7 +110,7 @@
 	margin-top: 20%;
 }
 
-@media ( max-width : 450px ) {
+@media ( max-width : 500px ) {
 	.content-servicebtn-td {
 		width: 50%;
 		font-size: 1rem;
@@ -128,7 +128,7 @@
 	margin-top: 12%;
 }
 
-@media ( max-width : 450px ) {
+@media ( max-width : 500px ) {
 	.content-reference-txt-td {
 		font-size: 0.5rem;
 	}

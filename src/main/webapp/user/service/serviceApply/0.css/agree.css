@@ -92,7 +92,7 @@
 	color: #546137;
 }
 
-@media ( max-width : 450px ) {
+@media ( max-width : 500px ) {
 	.checkbox-container label {
 		font-size: 1.5rem;
 	}

@@ -29,7 +29,7 @@
 	font-weight: 700;
 	line-height: normal;
 }
-@media ( max-width : 450px ) {
+@media ( max-width : 500px ) {
 .categotyselect {
 	/* 	txt */
 	font-size: 1rem;
@@ -55,7 +55,7 @@
 	width: 30%;
 	height: 50%;
 }
-@media ( max-width : 450px ) {
+@media ( max-width : 500px ) {
 .na-content-applyform-tr-2-1 {
 	width: 70%;
 	/* 	txt */
@@ -70,7 +70,7 @@
     font-size: 2.5rem;
     border: 1px solid black;
 }
-@media ( max-width : 450px ) {
+@media ( max-width : 500px ) {
 .na-content-applyform-tr-2-2 {
 	/* 	txt */
 	font-size: 1rem;
@@ -94,7 +94,7 @@
     color: #546137;
     height: 100%;
 }
-@media ( max-width : 450px ) {
+@media ( max-width : 500px ) {
 .na-content-applyform-tr-2-2 input[type="radio"]+ label {
 	/* 	txt */
 	font-size: 1rem;
@@ -118,7 +118,7 @@
     align-items:center;
     font-size: 2.5rem;
 }
-@media ( max-width : 450px ) {
+@media ( max-width : 500px ) {
 .na-content-applyform-tr-2-4 {
 	/* 	txt */
 	font-size: 1rem;
@@ -134,7 +134,7 @@
     text-align:center;
      width: 100%
 }
-@media ( max-width : 450px ) {
+@media ( max-width : 500px ) {
 .na-content-applyform-tr-2-4 select {
 	/* 	txt */
 	font-size: 1rem;
@@ -155,7 +155,7 @@
 .na-content-applyform-tr-2:nth-child(7) {
 	height: 40vh;
 }
-@media ( max-width : 450px ) {
+@media ( max-width : 500px ) {
 .na-content-applyform-tr-2:nth-child(7) {
 	height: 12vh;
 }
@@ -185,7 +185,7 @@
 	line-height: normal;
 	cursor: pointer;
 }
-@media ( max-width : 450px ) {
+@media ( max-width : 500px ) {
 .na-content-next-btn-td {
 	/* 	txt */
 	font-size: 1.5rem;

@@ -20,7 +20,7 @@
 	margin-top: 3%;
 }
 
-@media ( max-width : 450px ) {
+@media ( max-width : 500px ) {
 	.content-step-page-td>.content-step-page-td-tr1 {
 		font-size: 1.5rem;
 	}
@@ -37,7 +37,7 @@
 	padding-bottom: 5%;
 }
 
-@media ( max-width : 450px ) {
+@media ( max-width : 500px ) {
 	.content-step-page-td>.content-step-page-td-tr2 {
 		font-size: 1.3rem;
 	}
@@ -58,7 +58,7 @@
 	cursor: pointer;
 }
 
-@media ( max-width : 450px ) {
+@media ( max-width : 500px ) {
 	.content-step-page-td>.content-step-page-td-tr3>.content-step-page-td-tr3-1
 		{
 		font-size: 1.7rem;
