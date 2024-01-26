@@ -37,10 +37,10 @@ $(function () {
 
     $(".menu-td-3-td-open-td-2-con-td-2-select > a").hover(function () {
         if (menuhover) {
-            $(this).parent().css("padding-left", "10%");
+            $(this).parent().css("margin-left", "10%");
             $(this).parent().children(".menu-td-3-td-open-td-2-con-td-2-select > img").css("visibility", "visible");
         } else {
-            $(this).parent().css("padding-left", "0%");
+            $(this).parent().css("margin-left", "0%");
             $(this).parent().children(".menu-td-3-td-open-td-2-con-td-2-select > img").css("visibility", "hidden");
         }
         menuhover = !menuhover;
