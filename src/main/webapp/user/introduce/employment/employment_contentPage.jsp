@@ -50,12 +50,12 @@
                                 私たちの理念に共感し、共に歩む方は <br />
                                 以下の履歴書フォームにご記入の上、 <br />
                                 指定のメールアドレスまでお送りください。 <br />
-                                さらなるお問い合わせは、問い合わせフォームをご利用いただければ幸いです <br />
+                                さらなるお問い合わせは、問い合わせフォームをご利用いただければ幸いです。 <br />
                                 数多くのご応募を心よりお待ちしております。ありがとうございます。
                             </div>
                             <div class="e_content-box-tr1-td3-1-1-1-4">
                                 <div class="e_content-box-tr1-td3-1-1-4-1">
-                                    ●募集対象：募集時期及び勤務時間&nbsp&nbsp
+                                    ●募集対象：募集時期及び勤務時間&nbsp&nbsp&nbsp
                                     <ul>
                                         <li>
                                             •年中無休での勤務が可能な方&nbsp&nbsp&nbsp&nbsp
@@ -65,7 +65,7 @@
                                 </div>
                                 <!-- 구분 -->
                                 <div class="e_content-box-tr1-td3-1-1-4-2">
-                                    &nbsp●勤務内容&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                   	●勤務内容&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                                     <ul>
                                         <li>
                                         •訪問介護&nbsp•介護タクシー運営&nbsp&nbsp&nbsp&nbsp
