@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 public class BannerUploadC extends HttpServlet {
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setAttribute("menuname", "하단배너설정");
+		request.setAttribute("menuname", "下のバナー設定");
 		//지금컨트롤러, 결과 파라미터
 		MainpageDAO.getMdao().getAllHompage_common(request);
 		//Admin page 메뉴(index.jsp) 안고가기 
