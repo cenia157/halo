@@ -15,19 +15,19 @@
 		<div class="content-box-tbl">
 			<div class="content-box-tr">
 				<div class="content-box-td1 btn-pointer" onclick="location.href='InfoCompanyC'">
-					<a href="InfoCompanyC">회사소개</a>
+					<a href="InfoCompanyC">会社について</a>
 				</div>
 				<div class="content-box-td2 btn-pointer" onclick="location.href='InfoMapC'">
-					<a href="InfoMapC">오시는길</a>
+					<a href="InfoMapC">アクセス</a>
 				</div>
 			</div>
 
 			<div class="introduce-tr-box">
 				<div class="introduce-td1">
 					<img src="${pageContext.request.contextPath}/user/0.img//home.png"
-						 alt="" /> > 소개 > 회사소개
+						 alt="" /> > 紹介 > 会社について
 				</div>
-				<div class="introduce-td2">인사말</div>
+				<div class="introduce-td2">挨拶言葉</div>
 			</div>
 
 			<div class="introduce-tbl">
@@ -36,18 +36,18 @@
 						<img src="${pageContext.request.contextPath}/user/0.img/hands.jpg"
 							alt="" />
 						<div class="introduce-txt-tbl">
-							<div class="introduce-txt-tr">저희 'ハロー'는...</div>
+							<div class="introduce-txt-tr">私たち 'ハロー'は...</div>
 							<div class="introduce-txt-tr">
-								“ハロー의 구성원 모두 이용해주시는<br /> 모든 가족분들과 세상이 따뜻함으로 하나가<br /> 되는 그
-								날까지 최선을 다하겠습니다.”
+								“ハローの職員のみんなはハローをご利用くださる<br />すべての家族の皆様が幸せになりますように<br /> 
+								世の中が暖かさでひとつになる日まで最善を尽くします。”
 							</div>
 							<div class="introduce-txt-tr">- 代表社員 ： 大出 昭子 -</div>
 						</div>
 						<div class="introduce-txt-tr2">
 							<div class="introduce-txt-td">
-								저희 회사는 고객 맞춤 방문 요양 서비스와<br /> 개호 택시 서비스를 운영하고 있습니다.<br /> 전문적인
-								직원 교육을 통하여 어르신들께 가족과 같은 편안함과<br /> 퀄리티 높은 서비스를 제공하고 있습니다.<br />
-								여러분께 신뢰로 다가가겠습니다.<br /> 감사합니다.
+								弊社は、お客様に合わせた訪問介護サービスと<br /> 介護タクシーサービスを運営しています。<br />
+								より専門的な職員教育を通して、高齢者の方々に家族のような暖かさと<br /> クオリティの高いサービスを提供しています。<br />
+								皆さんに信頼一筋で力を尽くします。<br /> ありがとうございます。
 							</div>
 						</div>
 					</div>

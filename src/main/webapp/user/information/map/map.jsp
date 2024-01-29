@@ -21,19 +21,19 @@
 		<div class="content-box-tbl">
 			<div class="content-box-tr">
 				<div class="content-box-td1 btn-pointer" onclick="location.href='InfoCompanyC'">
-					<a href="InfoCompanyC">회사소개</a>
+					<a href="InfoCompanyC">会社について</a>
 				</div>
 				<div class="content-box-td2 btn-pointer" onclick="location.href='InfoMapC'">
-					<a href="InfoMapC">오시는길</a>
+					<a href="InfoMapC">アクセス</a>
 				</div>
 			</div>
 
 			<div class="introduce-tr-box">
 				<div class="introduce-td1">
 					<img src="${pageContext.request.contextPath}/user/0.img//home.png"
-					 alt="" /> > 소개 > 오시는길
+					 alt="" /> > 紹介 > アクセス
 				</div>
-				<div class="introduce-td2">오시는길</div>
+				<div class="introduce-td2">アクセス</div>
 			</div>
 			<div class="introduce-tbl">
 				<div class="introduce-tr">
@@ -52,9 +52,9 @@
 						</div>
 						<div class="map-tr1">
 							<div class="map-tr2">
-								<div class="map-td">우편번호 : 570-0062</div>
-								<div class="map-td">주소 : 大阪府守口市馬場町3-14-6メゾンエミール701号</div>
-								<div class="map-td">다른 문의사항은 문의 게시판을 이용해주시기 바랍니다.</div>
+								<div class="map-td">郵便番号 : 570-0062</div>
+								<div class="map-td">住所 : 大阪府守口市馬場町3-14-6メゾンエミール701号</div>
+								<div class="map-td">他のお問い合わせはお問い合わせ掲示板をご利用いただきます。</div>
 							</div>
 						</div>
 					</div>
