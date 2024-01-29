@@ -569,10 +569,25 @@ a {
 	line-height: normal;
 }
 
+.q_content-box-tr1-td3-1-1-1-2-2{
+	white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block !important;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
 .q_content-box-tr1-td3-1-1-1-2-3 {
 	display: flex;
 	align-items: center;
 	justify-content: flex-start !important;
+	white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block !important;
+    margin-top: auto;
+    margin-bottom: auto;
 }
 .q_content-box-tr1-td3-1-1-1-2-4{
 	font-size: 1.1rem;

@@ -109,6 +109,9 @@
 		display: inline-block;       /* 인라인 요소로 처리하여 너비에 맞게 말줄임표 적용 */
 		max-width: 60%;  
 	}
+	.qd-content-box-td4-2-2 > a{
+		color: #62733D;
+	}
 	.qd-content-box-td4-3-1{
 		font-size: 1rem;
 		margin-bottom: 5%;
