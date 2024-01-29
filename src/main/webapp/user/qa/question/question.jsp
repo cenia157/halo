@@ -96,7 +96,7 @@
 <!-- submit -->
 			
 				<div class="q-content-box-td4">
-					<button class="q-content-box-td-content10">확인</button>
+					<button class="q-content-box-td-content10">提出</button>
 				</div>
 			
 <!-- img -->
