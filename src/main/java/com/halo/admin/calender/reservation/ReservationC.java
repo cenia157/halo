@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 public class ReservationC extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		request.setAttribute("menuname", "고객의예약");
+		request.setAttribute("menuname", "顧客の予約");
 		request.setAttribute("menu", "/admin/calender/reservation/reservationContent.jsp");
 		request.getRequestDispatcher("admin/index.jsp").forward(request, response);
 

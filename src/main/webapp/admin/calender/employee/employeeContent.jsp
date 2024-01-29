@@ -66,7 +66,7 @@
 					<div class="ins-tr-1">
 						<div class="ins-tr-td">
 							<div class="ins-tr-td-btn">
-								회사 <input type="checkbox" class="toggle" hidden> <label
+								会社 <input type="checkbox" class="toggle" hidden> <label
 									for="toggle" class="toggleSwitch"> <span
 									class="toggleButton"></span>
 								</label>
@@ -74,7 +74,7 @@
 						</div>
 						<div class="ins-tr-td">
 							<div class="ins-tr-td-btn">
-								예약 <input type="checkbox" class="toggle" hidden> <label
+								予約 <input type="checkbox" class="toggle" hidden> <label
 									for="toggle" class="toggleSwitch"> <span
 									class="toggleButton"></span>
 								</label>
@@ -82,7 +82,7 @@
 						</div>
 						<div class="ins-tr-td">
 							<div class="ins-tr-td-btn">
-								직원 <input type="checkbox" class="toggle" hidden> <label
+								スタッフ <input type="checkbox" class="toggle" hidden> <label
 									for="toggle" class="toggleSwitch"> <span
 									class="toggleButton"></span>
 								</label>
@@ -91,20 +91,20 @@
 					</div>
 
 					<div class="ins-tr-2">
-						<div>직원리스트</div>
+						<div>スタッフリスト</div>
 					</div>
 					<div class="ins-tr-3">
 						<div class="ins-tr-3-employee-header">
-							<div></div>
-							<div>이름</div>
-							<div>근무일수</div>
-							<div>전화번호</div>
+							<div>No</div>
+							<div>名前</div>
+							<div>出勤日数</div>
+							<div>連絡先</div>
 						</div>
 						<div class="ins-tr-3-employee-content"></div>
 						<div class="ins-tr-3-btn">
 							<input class="input-date" type="hidden">
 							<button type="button" class="company-button"
-								onclick="insertSift()">배정하기</button>
+								onclick="insertSift()">割り当てる</button>
 						</div>
 					</div>
 				</div>

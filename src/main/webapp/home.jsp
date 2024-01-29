@@ -74,54 +74,75 @@
 		</div>
 	</div>
 
-	<div id="myModal" class="modal">
-		<div class="modal-content">
-			<!-- 여기서 소스 활용 시작 -->
-			<!-- 문의글 게시판 (디테일) -->
-			<div class="qd-content-box-td1-1">
-				<span> お知らせ</span>
-			</div>
-			<div class="qd-content-box-td1-2">
-				<div class="qd-content-box-td1-2-1">タイトル</div>
-				<div class="qd-content-box-td1-2-2" id="modalTitle">일정공지</div>
-			</div>
+<!-- 모달시작 -->
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <!-- 여기서 소스 활용 시작 -->
+        <!-- 문의글 게시판 (디테일) -->
+        <div class="qd-content-box-td1-1">
+          <span> お知らせ</span>
+        </div>
+        <div class="qd-content-box-td1-2">
+          <div class="qd-content-box-td1-2-1"><span>タイトル</span></div>
+          <div class="qd-content-box-td1-2-2" id="modalTitle">일정공지</div>
+        </div>
 
-			<div class="qd-content-box-td1-3">
-				<div class="qd-content-box-td1-3-1">投稿者</div>
-				<div class="qd-content-box-td1-3-2" id="modalWriter">오오데아키코</div>
-			</div>
+        <div class="qd-content-box-td1-3">
+          <div class="qd-content-box-td1-3-1"><span>投稿者<span></div>
+          <div class="qd-content-box-td1-3-2" id="modalWriter">
+            오오데아키코
+          </div>
+        </div>
+        <div class="qd-content-box-td1-4">
+          <div class="qd-content-box-td1-4-content">
+            <span class="qd-content-box-td1-4-1">投稿日&nbsp:&nbsp</span>
+            <span class="qd-content-box-td1-4-2" id="modalregDate"
+              >23-12-15</span
+            >
+          </div>
+        </div>
 
-			<div class="qd-content-box-td1-4">
-				<div class="qd-content-box-td1-4-content">
-					<span class="qd-content-box-td1-4-1">投稿日&nbsp:&nbsp</span> <span
-						class="qd-content-box-td1-4-2" id="modalregDate">23-12-15</span>
-				</div>
-			</div>
+        <!-- 본문 예시 -->
+        <div class="qd-content-box-td2-1">
+          <div class="qd-content-box-td2-1-content ck ck-content" id="modalContent">
+            안녕하세요, 운영자입니다. <br />
+            일정관리를 다음과 같이 알려드립니다. 시세확장때문에 하는데요. <br />
+            평일 중 2일과 주말 1일을 정기적으로 한 달 동안 이용하는 것이
+            가능한지 궁금합니다. <br />
+            안녕하세요, 운영자입니다. <br />
+            일정관리를 다음과 같이 알려드립니다. 시세확장때문에 하는데요. <br />
+            평일 중 2일과 주말 1일을 정기적으로 한 달 동안 이용하는 것이
+            가능한지 궁금합니다. <br />
+            안녕하세요, 운영자입니다. <br />
+            일정관리를 다음과 같이 알려드립니다. 시세확장때문에 하는데요. <br />
+            평일 중 2일과 주말 1일을 정기적으로 한 달 동안 이용하는 것이
+            가능한지 궁금합니다. <br />
+            안녕하세요, 운영자입니다. <br />
+            일정관리를 다음과 같이 알려드립니다. 시세확장때문에 하는데요. <br />
+            평일 중 2일과 주말 1일을 정기적으로 한 달 동안 이용하는 것이
+            가능한지 궁금합니다. <br />
+            안녕하세요, 운영자입니다. <br />
+            일정관리를 다음과 같이 알려드립니다. 시세확장때문에 하는데요. <br />
+            평일 중 2일과 주말 1일을 정기적으로 한 달 동안 이용하는 것이
+            가능한지 궁금합니다. <br />
+            부모님의 편의를 생각해서 가능한 빠른 답변 부탁드립니다. 다음 주에도
+            가능하다면 좋겠어요. <br />
+            <br />
+            부모님을 위한 편리한 이동이라는 목적으로 서비스를 검토 중이니,
+            <br />
+            어떤 혜택이나 특별한 안내사항이 있는지도 함께 알려주시면
+            감사하겠습니다 오버플로우 오토로 줬어요. <br />
+          </div>
+        </div>
 
-			<!-- 본문 예시 -->
-			<div class="qd-content-box-td2-1">
-				<div class="qd-content-box-td2-1-content ck-content" id="modalContent">
-					안녕하세요, 운영자입니다. <br /> 일정관리를 다음과 같이 알려드립니다. 시세확장때문에 하는데요. <br />
-					평일 중 2일과 주말 1일을 정기적으로 한 달 동안 이용하는 것이 가능한지 궁금합니다. <br /> 안녕하세요,
-					운영자입니다. <br /> 일정관리를 다음과 같이 알려드립니다. 시세확장때문에 하는데요. <br /> 평일 중 2일과
-					주말 1일을 정기적으로 한 달 동안 이용하는 것이 가능한지 궁금합니다. <br /> 안녕하세요, 운영자입니다. <br />
-					일정관리를 다음과 같이 알려드립니다. 시세확장때문에 하는데요. <br /> 평일 중 2일과 주말 1일을 정기적으로 한
-					달 동안 이용하는 것이 가능한지 궁금합니다. <br /> 안녕하세요, 운영자입니다. <br /> 일정관리를 다음과
-					같이 알려드립니다. 시세확장때문에 하는데요. <br /> 평일 중 2일과 주말 1일을 정기적으로 한 달 동안 이용하는
-					것이 가능한지 궁금합니다. <br /> 안녕하세요, 운영자입니다. <br /> 일정관리를 다음과 같이 알려드립니다.
-					시세확장때문에 하는데요. <br /> 평일 중 2일과 주말 1일을 정기적으로 한 달 동안 이용하는 것이 가능한지
-					궁금합니다. <br /> 부모님의 편의를 생각해서 가능한 빠른 답변 부탁드립니다. 다음 주에도 가능하다면 좋겠어요. <br />
-					<br /> 부모님을 위한 편리한 이동이라는 목적으로 서비스를 검토 중이니, <br /> 어떤 혜택이나 특별한
-					안내사항이 있는지도 함께 알려주시면 감사하겠습니다 오버플로우 오토로 줬어요. <br />
-				</div>
-			</div>
-
-			<div class="qd-content-box-td2-2">
-				<button class="qd-content-box-td2-2-button" id="closeModalBtn">
-					閉じる</button>
-			</div>
-		</div>
-	</div>
+        <div class="qd-content-box-td2-2">
+          <button class="qd-content-box-td2-2-button" id="closeModalBtn">
+            閉じる
+          </button>
+        </div>
+      </div>
+    </div>
+<!--모달끝-->
 
 </body>
 </html>

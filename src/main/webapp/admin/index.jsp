@@ -42,121 +42,120 @@
 						</div>
 						<!-- 메인홈페이지 바로가기 -->
 						<div>
-							<img src="admin/0.img/admintble2-2.png" alt=""><a href="HC">사이트
-								바로가기</a>
+							<img src="admin/0.img/admintble2-2.png" alt=""><a href="HC">サイトへの移動</a>
 						</div>
 					</div>
 				</div>
 				<div class="menu-td-3">
-					<div class="menu-td-3-td-1">사이트관리</div>
+					<div class="menu-td-3-td-1">サイト管理</div>
 					<div class="menu-td-3-td-2">
 						<div class="menu-td-3-td-open-td-1">
 							<img src="admin/0.img/admintble3-1.png" alt=""><a
-								href="DashboardC">대시보드</a>
+								href="DashboardC">ダッシュボード</a>
 						</div>
 						<div class="menu-td-3-td-open-td-2">
 							<div class="menu-td-3-td-open-td-2-td-1">
-								<img src="admin/0.img/admintble3-2.png" alt=""><span>홈페이지수정</span>
+								<img src="admin/0.img/admintble3-2.png" alt=""><span>ホームページ修正</span>
 							</div>
 							<div class="menu-td-3-td-open-td-2-con">
 								<div class="menu-td-3-td-open-td-2-con-td-2">
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
 										<!-- TODO 서효원 기능 서블렛 만들때마다 연결시키고 컨트롤러 if문 지우기! -->
 										<img src="admin/0.img/admintble-select.png" alt=""><a
-											href="LogoUploadC">로고변경</a>
+											href="LogoUploadC">ロゴ変更</a>
 									</div>
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
 										<img src="admin/0.img/admintble-select.png" alt=""><a
-											href="MainBannerUpdateC">주요메뉴설정</a>
+											href="MainBannerUpdateC">クイックメニュー設定</a>
 									</div>
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
 										<img src="admin/0.img/admintble-select.png" alt=""><a
-											href="BannerUploadC">하단배너설정</a>
+											href="BannerUploadC">下のバナー設定</a>
 									</div>
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
 										<img src="admin/0.img/admintble-select.png" alt=""><a
-											href="InformUpdateC">회사정보변경</a>
+											href="InformUpdateC">会社情報変更</a>
 									</div>
 								</div>
 							</div>
 						</div>
 						<div class="menu-td-3-td-open-td-2">
 							<div class="menu-td-3-td-open-td-2-td-1">
-								<img src="admin/0.img/admintble3-3.png" alt=""><span>게시판관리</span>
+								<img src="admin/0.img/admintble3-3.png" alt=""><span>掲示板の管理</span>
 							</div>
 							<div class="menu-td-3-td-open-td-2-con">
 								<div class="menu-td-3-td-open-td-2-con-td-2">
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
 										<img src="admin/0.img/admintble-select.png" alt=""><a
-											href="NoticeMainC?checkVal=01234">공지사항</a>
+											href="NoticeMainC?checkVal=01234">お知らせ</a>
 									</div>
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
 										<img src="admin/0.img/admintble-select.png" alt=""><a
-											href="AskContentC?p=1">문의사항</a>
+											href="AskContentC?p=1">お問い合わせ</a>
 									</div>
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
 										<img src="admin/0.img/admintble-select.png" alt=""><a
-											href="AdminFAQC">자주묻는질문</a>
+											href="AdminFAQC">よくある質問</a>
 									</div>
 								</div>
 							</div>
 						</div>
 						<div class="menu-td-3-td-open-td-2">
 							<div class="menu-td-3-td-open-td-2-td-1">
-								<img src="admin/0.img/admintble3-4.png" alt=""><span>일정</span>
+								<img src="admin/0.img/admintble3-4.png" alt=""><span>スケジュール</span>
 							</div>
 							<div class="menu-td-3-td-open-td-2-con">
 								<div class="menu-td-3-td-open-td-2-con-td-2">
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
 										<img src="admin/0.img/admintble-select.png" alt=""><a
-											href="CompanyC">회사의일정</a>
+											href="CompanyC">会社のスケジュール</a>
 									</div>
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
 										<img src="admin/0.img/admintble-select.png" alt=""><a
-											href="ReservationC">고객의예약</a>
+											href="ReservationC">顧客の予約</a>
 									</div>
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
 										<img src="admin/0.img/admintble-select.png" alt=""><a
-											href="EmployeeC">직원근무일정</a>
+											href="EmployeeC">スタッフのスケジュール</a>
 									</div>
 								</div>
 							</div>
 						</div>
 						<div class="menu-td-3-td-open-td-2">
 							<div class="menu-td-3-td-open-td-2-td-1">
-								<img src="admin/0.img/admintble3-5.png" alt=""><span>고객관리</span>
+								<img src="admin/0.img/admintble3-5.png" alt=""><span>顧客管理</span>
 							</div>
 							<div class="menu-td-3-td-open-td-2-con">
 								<div class="menu-td-3-td-open-td-2-con-td-2">
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
 										<img src="admin/0.img/admintble-select.png" alt=""><a
-											href="CustomerInfoMgmtC">고객정보관리</a>
+											href="CustomerInfoMgmtC">顧客情報の管理</a>
 									</div>
 								</div>
 							</div>
 						</div>
 						<div class="menu-td-3-td-open-td-2">
 							<div class="menu-td-3-td-open-td-2-td-1">
-								<img src="admin/0.img/admintble3-6.png" alt=""><span>관리자전용</span>
+								<img src="admin/0.img/admintble3-6.png" alt=""><span>管理者専用</span>
 							</div>
 							<div class="menu-td-3-td-open-td-2-con">
 								<div class="menu-td-3-td-open-td-2-con-td-2">
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
 										<img src="admin/0.img/admintble-select.png" alt=""><a
-											href="StaffC">직원등록</a>
+											href="StaffC">スタッフの管理</a>
 									</div>
 								</div>
 							</div>
 						</div>
 						<div class="menu-td-3-td-open-td-2">
 							<div class="menu-td-3-td-open-td-2-td-1">
-								<img src="admin/0.img/admintble3-7.png" alt=""><span>팝업관리</span>
+								<img src="admin/0.img/admintble3-7.png" alt=""><span>ポップアップ</span>
 							</div>
 							<div class="menu-td-3-td-open-td-2-con">
 								<div class="menu-td-3-td-open-td-2-con-td-2">
 									<div class="menu-td-3-td-open-td-2-con-td-2-select">
 										<img src="admin/0.img/admintble-select.png" alt="">
-										<a href="PopupC">팝업설정</a>
+										<a href="PopupC">ポップアップの設定</a>
 									</div>
 								</div>
 							</div>
@@ -189,10 +188,10 @@
 							<img alt="" src="admin/0.img/timer.png"> <span id="timer"></span>
 						</p>
 						<div>
-							<a href="#" id="extendTime">시간연장</a>
+							<a href="#" id="extendTime">時間の延長</a>
 						</div>
 						<div>
-							<a onclick="location.href='LogoutC'">나가기</a>
+							<a onclick="location.href='LogoutC'">ログアウト</a>
 						</div>
 					</div>
 				</div>

@@ -104,10 +104,11 @@ public class DashboardDAO {
 			ArrayList<QuestionNComment> unAnswered = new ArrayList<QuestionNComment>();
 
 			// 일정 객체 생성
-			QuestionNComment unAnsweredNotice = new QuestionNComment();
+			QuestionNComment unAnsweredNotice = null;
 
 			// 객체에 데이터 추가
 			while (rs.next()) {
+				unAnsweredNotice = new QuestionNComment();
 				unAnsweredNotice.setQ_seq(rs.getInt("q_seq"));
 				unAnsweredNotice.setQ_title(rs.getString("q_title"));
 				unAnsweredNotice.setQ_content(rs.getString("q_content"));
@@ -125,7 +126,9 @@ public class DashboardDAO {
 				unAnsweredNotice.setC_reg_date(rs.getDate("c_reg_date"));
 				unAnsweredNotice.setC_answer(rs.getString("c_answer"));
 
+				System.out.println(unAnsweredNotice);
 				unAnswered.add(unAnsweredNotice);
+				
 			}
 
 			dDTO.setUnAnswered(unAnswered);
