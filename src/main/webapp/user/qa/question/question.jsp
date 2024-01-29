@@ -195,7 +195,7 @@
                   <c:choose>
                     <c:when test="${curPageNo > 1}">
                       <a href="QuestionPagingC?p=${curPageNo - 1}">
-                        <button>이전</button>
+                        <button>前の</button>
                       </a>
                     </c:when>
                     <c:otherwise>
@@ -254,7 +254,7 @@
                   <c:choose>
                     <c:when test="${curPageNo < pageCount}">
                       <a href="QuestionPagingC?p=${curPageNo + 1}">
-                        <button>다음</button>
+                        <button>次の</button>
                       </a>
                     </c:when>
                     <c:otherwise>
