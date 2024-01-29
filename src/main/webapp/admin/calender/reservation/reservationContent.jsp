@@ -152,9 +152,9 @@
 					</div>
 
 					<div class="ins-tr-2">
-						<div class="reservation-title">예약리스트</div>
+						<div class="reservation-title">予約リスト</div>
 						<input class="reservation-insert-input reservation-insert-service"
-							style="width: 50%;" value="서비스유형">
+							style="width: 50%;" value="タイプ">
 						<div class="reservation-insert-input reservation-insert-time">
 							오전 <input type="checkbox" name="insert-time" value="AM">
 							오후 <input type="checkbox" name="insert-time" value="PM">
@@ -163,25 +163,25 @@
 					</div>
 					<div class="ins-tr-3">
 						<div class="ins-tr-3-reservation-header">
-							<div>이름</div>
-							<div>서비스유형</div>
-							<div>날짜</div>
+							<div>利用者</div>
+							<div>タイプ</div>
+							<div>日付</div>
 							<div></div>
 						</div>
 						<div class="ins-tr-3-reservation-content"></div>
 
 						<div class="reservation-insert">
 							<div class="reservation-insert-name">
-								이름 <input class="reservation-insert-input" style="width: 80%;">
+								利用者 <input class="reservation-insert-input" style="width: 80%;">
 							</div>
 							<div class="reservation-insert-phone">
-								휴대전화 <input class="reservation-insert-input" style="width: 80%;">
+								連絡先 <input class="reservation-insert-input" style="width: 80%;">
 							</div>
 							<div class="reservation-insert-addr">
-								주소 <input class="reservation-insert-input" style="width: 80%;">
+								住所 <input class="reservation-insert-input" style="width: 80%;">
 							</div>
 							<div class="reservation-insert-book">
-								날짜 <input class="reservation-insert-input input-date"
+								日付 <input class="reservation-insert-input input-date"
 									style="width: 80%;" readonly="readonly">
 							</div>
 							<div class="reservation-insert-start">출발지</div>
