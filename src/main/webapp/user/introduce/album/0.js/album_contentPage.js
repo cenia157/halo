@@ -140,7 +140,13 @@
 	
 	    under_icon_div.append(innerDiv);
 	    container.append(under_icon_div);
-	    
+
+		if ($(window).width() < 500) {
+        	$(".under_icon_div .innerDiv_word").remove(); 
+       	    $(".under_icon_div .innerDiv_icon").css("width", "60%"); 
+		    $(".innerDiv_icon").css({"display": "flex", "justify-content": "center"});    
+		}
+	
 	} // makeInstaIcon()
 	
   $(document).ready(function () {
@@ -184,3 +190,30 @@
       } // if (scrollPercentage >= scroll_per_val)
     }); // window.addEventListener('scroll', function()
   }); //  $(document).ready(function () {
+	
+	function checkAndAdjustLayout() {
+	
+	    let windowWidth = $(window).width();
+	
+	    if (windowWidth <= 1550) {
+	
+	        let innerDivWordExists = $(".under_icon_div .innerDiv_word").length > 0;
+	
+	        // innerDiv_word 클래스가 존재하는 경우
+	        if (innerDivWordExists) {
+	            $(".under_icon_div .innerDiv_word").remove();
+	            $(".under_icon_div .innerDiv_icon").css("width", "60%");
+	            $(".innerDiv_icon").css({"display": "flex", "justify-content": "center"});
+	        }
+	    }
+	}
+	
+	
+	$(document).ready(function() {
+	
+	    checkAndAdjustLayout();
+	
+	    $(window).resize(function() {
+	        checkAndAdjustLayout();
+	    });
+	});

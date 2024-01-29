@@ -518,8 +518,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }); //(".ck-content").on("click keydown", function (e) {
 
-	// 게시판 이름 바꾸기 	
-	$(".content-m-td-title").text("お知らせ").css('visibility', 'visible');
+//	// 게시판 이름 바꾸기 	
+//	$(".content-m-td-title").text("お知らせ").css('visibility', 'visible');
+	
+	
 //	
 //    // 'view-modal-tbl' 클래스를 가진 요소에 tabindex 설정
 //    $('.view-modal-tbl').attr('tabindex', '0')
