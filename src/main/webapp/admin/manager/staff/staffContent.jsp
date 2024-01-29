@@ -29,10 +29,10 @@
 			<div class="ins-tr-1">
 				<div id="staffList" class="staff-list">
 					<div class="table-header">
-						<div class="cell steff-num">No.</div>
-						<div class="cell steff-pos">役職</div>
-						<div class="cell steff-name">姓名</div>
-						<div class="cell steff-callnum">電話番号</div>
+						<div class="cell steff-num">No</div>
+						<div class="cell steff-pos">ポジション</div>
+						<div class="cell steff-name">名前</div>
+						<div class="cell steff-callnum">連絡先</div>
 						<div class="cell steff-addr">住所</div>
 						<div class="cell steff-entryDate">入社日</div>
 					</div>
@@ -50,18 +50,18 @@
 					</div>
 					<div class="ins-tr-3">
 						<div class="ins-tr-3-title">
-							<div class="ins-tr-title-title">姓名</div>
+							<div class="ins-tr-title-title">名前</div>
 							<input type="text" class="ins-tr-3-td-input input-title"
 								name="input-staff-name" id="input-staff-name"
 								required="required">
 						</div>
 						<div class="ins-tr-3-title">
-							<div class="ins-tr-title-title">役職</div>
+							<div class="ins-tr-title-title">ポジション</div>
 							<input type="text" class="ins-tr-3-td-input input-title"
 								name="input-staff-pos" id="input-staff-pos" required="required">
 						</div>
 						<div class="ins-tr-3-title">
-							<div class="ins-tr-title-title">電話番号</div>
+							<div class="ins-tr-title-title">連絡先</div>
 							<input type="text" class="ins-tr-3-td-input input-title"
 								name="input-staff-callNum" id="input-staff-callNum"
 								required="required">

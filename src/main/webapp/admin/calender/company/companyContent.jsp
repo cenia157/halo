@@ -74,7 +74,7 @@
 					<div class="ins-tr-1">
 						<div class="ins-tr-td">
 							<div class="ins-tr-td-btn">
-								회사 <input type="checkbox" class="toggle" hidden> <label
+								会社 <input type="checkbox" class="toggle" hidden> <label
 									for="toggle" class="toggleSwitch"> <span
 									class="toggleButton"></span>
 								</label>
@@ -82,7 +82,7 @@
 						</div>
 						<div class="ins-tr-td">
 							<div class="ins-tr-td-btn">
-								예약 <input type="checkbox" class="toggle" hidden> <label
+								予約 <input type="checkbox" class="toggle" hidden> <label
 									for="toggle" class="toggleSwitch"> <span
 									class="toggleButton"></span>
 								</label>
@@ -90,7 +90,7 @@
 						</div>
 						<div class="ins-tr-td">
 							<div class="ins-tr-td-btn">
-								직원 <input type="checkbox" class="toggle" hidden> <label
+								スタッフ <input type="checkbox" class="toggle" hidden> <label
 									for="toggle" class="toggleSwitch"> <span
 									class="toggleButton"></span>
 								</label>
@@ -99,12 +99,12 @@
 					</div>
 
 					<div class="ins-tr-2">
-						<div>일정추가</div>
+						<div>スケジュールの追加</div>
 					</div>
 					<div class="ins-tr-3">
 						<div class="ins-tr-3-title">
 							<div class="ins-tr-title-tr">
-								<div class="ins-tr-title-title">타이틀</div>
+								<div class="ins-tr-title-title">タイトル</div>
 								<input type="text" class="ins-tr-3-td-input input-title"
 									name="input-title">
 							</div>
@@ -112,7 +112,7 @@
 
 						<div class="ins-tr-3-date">
 							<div class="ins-tr-3-date-tr">
-								<div class="ins-tr-title-title">날짜</div>
+								<div class="ins-tr-title-title">日付</div>
 								<input type="text" class="ins-tr-3-td-input input-date"
 									name="input-date" readonly="readonly">
 							</div>
@@ -120,14 +120,14 @@
 						</div>
 						<div class="ins-tr-3-txt">
 							<div class="ins-tr-3-txt-tr">
-								<div class="ins-tr-txt-tr-title">내용</div>
+								<div class="ins-tr-txt-tr-title">内容</div>
 								<textarea class="ins-tr-3-td-txt" name="input-txt"></textarea>
 							</div>
 							<div></div>
 						</div>
 						<div class="ins-tr-3-btn">
 							<button type="button" class="company-button"
-								onclick="insertCompanyC()">등록하기</button>
+								onclick="insertCompanyC()">新規登録</button>
 						</div>
 					</div>
 				</div>
