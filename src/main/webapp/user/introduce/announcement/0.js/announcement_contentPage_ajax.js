@@ -32,7 +32,7 @@
 		  $(".remote-control-tbl").hide();
 		  $('body').css('overflow', 'hidden');
 		  // 모바일 버전에서 모달창 뜰시, 제목 타이블 부분 스크롤 초기화처리 
-		  if ($(window).width() <= 450 && $("#myModal .qd-content-box-td1-2-2").length) {
+		  if ($(window).width() <= 500 && $("#myModal .qd-content-box-td1-2-2").length) {
     	  	 $("#myModal .qd-content-box-td1-2-2").scrollLeft(0);
 		  }
 		  
