@@ -617,7 +617,7 @@
 
 /* css사용하여 제목 초기 숨김 */
 .content-m-td-title {
-    visibility: hidden;
+/*     visibility: hidden; */
 }
 
 .deleteNoticeBtn {

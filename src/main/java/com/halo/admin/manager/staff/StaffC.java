@@ -16,7 +16,7 @@ public class StaffC extends HttpServlet {
 //			response.sendRedirect("LoginPageC");
 //		} else {
 
-		request.setAttribute("menuname", "직원등록");
+		request.setAttribute("menuname", "スタッフの管理");
 		request.setAttribute("menu", "/admin/manager/staff/staffContent.jsp");
 		request.getRequestDispatcher("admin/index.jsp").forward(request, response);
 //		}

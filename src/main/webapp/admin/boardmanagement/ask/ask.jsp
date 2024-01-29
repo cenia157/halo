@@ -36,8 +36,7 @@
 							<img src="${pageContext.request.contextPath}/admin/0.img/admintble2-1.png" alt="">大出 昭子
 						</div>
 						<div>
-							<img src="${pageContext.request.contextPath}/admin/0.img/admintble2-2.png" alt=""><a href="">사이트
-								바로가기</a>
+							<img src="${pageContext.request.contextPath}/admin/0.img/admintble2-2.png" alt=""><a href="">사이트 바로가기</a>
 						</div>
 					</div>
 				</div>
