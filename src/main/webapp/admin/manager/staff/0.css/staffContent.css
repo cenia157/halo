@@ -63,6 +63,10 @@ EDIT ON */
 	flex-direction: column;
 	height: 64vh;
 }
+/*스크롤바 숨김용*/
+.staff-table::-webkit-scrollbar {
+	display: none;
+}
 
 .cell {
 	padding: 8px;
@@ -260,7 +264,7 @@ EDIT ON */
 }
 
 .ins-tr-3-td-input {
-	font-size: 2rem;
+	font-size: 1.5rem;
 	border-radius: 8px;
 	border: 1px solid #E5E7EB;
 	background: #FFF;
