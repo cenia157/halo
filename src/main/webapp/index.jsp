@@ -42,23 +42,23 @@
 					<%-- 					<img src="user/upload_imgs/${hdto.h_logo_img}"> --%>
 				</div>
 				<div class="header-br-space"></div>
-				<!-- 				전화번호 수정 가능하도록, 회사정보(footer 변경 어트리뷰트 재활용) -->
+				<!-- 전화번호 수정 가능하도록, 회사정보(footer 어트리뷰트) -->
 				<div class="header-br-call">Tel. ${hdto.h_tel_no}</div>
 			</div>
 			<div class="header-tr-2">
 				<div class="header-td-menu">
 					<div class="header-td-menu-title">
-						<a href="InfoCompanyC" class="">소개 <span
+						<a href="InfoCompanyC" class="">紹介 <span
 							class="header-td-menu-under"></span>
 						</a>
 					</div>
 					<div class="header-td-menu-title">
-						<a href="Announced_C" class="">소식 <span
+						<a href="Announced_C" class="">情報 <span
 							class="header-td-menu-under"></span>
 						</a>
 					</div>
 					<div class="header-td-menu-title">
-						<a href="ServiceInformationC" class="">서비스 <span
+						<a href="ServiceInformationC" class="">サービス <span
 							class="header-td-menu-under"></span>
 						</a>
 					</div>
@@ -70,21 +70,21 @@
 			</div>
 			<div class="header-opmenu">
 				<div class="header-opmenu-td">
-					<a class="header-opmenu-a" href="InfoCompanyC">회사소개</a> <a
-						class="header-opmenu-a" href="InfoMapC">오시는길</a>
+					<a class="header-opmenu-a" href="InfoCompanyC">会社について</a> <a
+						class="header-opmenu-a" href="InfoMapC">アクセス</a>
 				</div>
 				<div class="header-opmenu-td">
-					<a class="header-opmenu-a" href="Announced_C">공지사항</a> <a
-						class="header-opmenu-a" href="Album_insta_api_C">앨범</a> <a class="header-opmenu-a"
-						href="Employment_C">채용공고</a>
+					<a class="header-opmenu-a" href="Announced_C">お知らせ</a> <a
+						class="header-opmenu-a" href="Album_insta_api_C">アルバム</a> <a class="header-opmenu-a"
+						href="Employment_C">スタッフ募集</a>
 				</div>
 				<div class="header-opmenu-td">
-					<a class="header-opmenu-a" href="ServiceInformationC">서비스안내</a> <a
-						class="header-opmenu-a" href="ServiceApplyC">서비스신청</a>
+					<a class="header-opmenu-a" href="ServiceInformationC">サービスの案内</a> <a
+						class="header-opmenu-a" href="ServiceApplyC">サービスの申し込み</a>
 				</div>
 				<div class="header-opmenu-td">
-					<a class="header-opmenu-a" href="FaqC">자주묻는질문</a> <a
-						class="header-opmenu-a" href="QuestionC">문의게시판</a>
+					<a class="header-opmenu-a" href="FaqC">よくある質問</a> <a
+						class="header-opmenu-a" href="QuestionC">お問い合わせ</a>
 				</div>
 			</div>
 		</div>
@@ -126,13 +126,13 @@
 			<div class="remote-control-td2 btn-pointer" id="goTop">
 				<img src="user/0.img/re-up.png" width="55%" alt="" />
 			</div>
-			<div class="remote-control-td">상단으로</div>
+			<div class="remote-control-td">上段</div>
 		</div>
 		<div class="remote-control-tr">
 			<div class="remote-control-td2 btn-pointer">
 				<img src="user/0.img/line-icon22.png" width="60%" alt="" />
 			</div>
-			<div class="remote-control-td">1:1문의</div>
+			<div class="remote-control-td">1:1<br>お問い合わせ</div>
 		</div>
 	</div>
 	<!-- 리모컨 끝 -->
