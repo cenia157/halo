@@ -1,5 +1,6 @@
+@charset "UTF-8";
 /* footer 미디어쿼리 */
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 500px) {
 	.footer-tbl {
 		background-color: #6E6F4E;
 		font-size: 0.5rem !important;
