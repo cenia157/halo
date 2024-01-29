@@ -10,8 +10,8 @@ import javax.servlet.http.HttpSession;
 
 import com.halo.main.MainpageDAO;
 
-@WebServlet("/NursingTexiC")
-public class NursingTexiC extends HttpServlet {
+@WebServlet("/NursingTaxiC")
+public class NursingTaxiC extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	}
 
@@ -20,9 +20,9 @@ public class NursingTexiC extends HttpServlet {
 	request.setCharacterEncoding("UTF-8");
 	SeviceApplyDAO.calSelect(request);
 	SeviceApplyDAO.timeSelect(request);
-	SeviceApplyDAO.nursingTexi(request);
+	SeviceApplyDAO.nursingTaxi(request);
 
-	request.setAttribute("agree", "ApplyNursingTexiC");
+	request.setAttribute("agree", "ApplyNursingTaxiC");
 	request.setAttribute("serviceStep", "agree.jsp");
 	request.setAttribute("step5Pos", "#ffdf6c");
 	request.setAttribute("menu", "user/menu-index.jsp");

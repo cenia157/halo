@@ -15,7 +15,7 @@ CREATE TABLE reservation_information (
     sa_reservation_check char(1 char) NOT NULL,
     sa_car_no varchar2(10) NULL,
     sa_nurssing_info varchar2(200 char) NULL,
-    sa_texi_info varchar2(200 char) NULL,
+    sa_taxi_info varchar2(200 char) NULL,
     sa_service_completion_status char(1 char) NOT NULL,
     sa_feedback varchar2(200 char) NULL,
     sa_registration_date varchar2(30 char) NOT NULL
@@ -47,7 +47,7 @@ INSERT INTO reservation_information (
     sa_reservation_check,
     sa_car_no,
     sa_nurssing_info,
-    sa_texi_info,
+    sa_taxi_info,
     sa_service_completion_status,
     sa_feedback,
     sa_registration_date

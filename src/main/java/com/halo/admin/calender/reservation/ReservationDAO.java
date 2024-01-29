@@ -52,7 +52,7 @@ public class ReservationDAO {
 				String startPoint = rs.getString("sa_start_place");
 				String endPoint = rs.getString("sa_end_place");
 				String nurssingInfo = rs.getString("sa_nurssing_info");
-				String taxiInfo = rs.getString("sa_texi_info");
+				String taxiInfo = rs.getString("sa_taxi_info");
 				String registrationDate = rs.getString("sa_registration_date");
 				String service = rs.getString("sa_service");
 

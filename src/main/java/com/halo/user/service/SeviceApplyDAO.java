@@ -91,7 +91,7 @@ public class SeviceApplyDAO {
 
 	}
 
-	public static void texiApply(HttpServletRequest request) throws UnsupportedEncodingException {
+	public static void taxiApply(HttpServletRequest request) throws UnsupportedEncodingException {
 		// 문자인코딩형식
 		request.setCharacterEncoding("UTF-8");
 		String applicant = request.getParameter("applicant");
@@ -128,7 +128,7 @@ public class SeviceApplyDAO {
 		request.setAttribute("userDay", userDay);
 	}
 
-	public static void nursingTexi(HttpServletRequest request) throws UnsupportedEncodingException {
+	public static void nursingTaxi(HttpServletRequest request) throws UnsupportedEncodingException {
 		// 문자인코딩형식
 		request.setCharacterEncoding("UTF-8");
 		String applicant = request.getParameter("applicant");
