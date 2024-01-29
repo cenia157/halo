@@ -40,7 +40,7 @@
 					</div>
 					<div class="modal-content-button">
 						<button class="SubmitButton" type="button" id="reg-btn"
-							onclick="noValue()">수정완료</button>
+							onclick="noValue()">更新完了</button>
 					</div>
 				</div>
 			</div>

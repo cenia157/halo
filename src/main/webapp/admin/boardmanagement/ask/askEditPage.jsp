@@ -28,7 +28,7 @@
 						<div class="real-title-down">
 							<div class="real-title-down-L">
 								<div class="real-title-down-contain"> <span id="A_QUESTION_DATE"></span> </div>
-								<div class="real-title-down-contain">답변완료</div>
+								<div class="real-title-down-contain">回答完了</div>
 							</div>
 							<div class="real-title-down-R">
 								<div class="real-title-down-contain">
