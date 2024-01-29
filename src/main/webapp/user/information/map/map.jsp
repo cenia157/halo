@@ -10,9 +10,11 @@
 	href="${pageContext.request.contextPath}/user/information/map/0.css/map.css" />
 <!-- Google Map API-->
 <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCoJHgg3IE796b40XaiM6M7cTjkbPWbYDo&callback=console.debug&libraries=maps,marker&v=beta">
-	
+
 </script>
 
+<!-- 반응형 -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 

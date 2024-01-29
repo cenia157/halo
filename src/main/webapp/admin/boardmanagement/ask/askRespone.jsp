@@ -36,7 +36,7 @@
 							<div class="real-title-down-L">
 
 								<div class="real-title-down-contain" id="N_QUESTION_DATE"></div>
-								<div class="real-title-down-contain">미답변</div>
+								<div class="real-title-down-contain">未回答</div>
 							</div>
 							<div class="real-title-down-R"></div>
 						</div>
@@ -57,14 +57,14 @@
 <!-- 					확인용 -->
 					<span id="N_QUESTION_SEQ"></span>
 					<textarea id="c_comment_content" name="c_comment_content" class="modal-content-txt-response-textarea" rows=""
-						cols="" placeholder="여기는 고객의 질문에 대답하는 곳"></textarea>
+						cols="" placeholder="回答を入力してください"></textarea>
 				</div>
 				<div class="modal-content-button">
 				
 					<!-- 					q_seq값 넘기기 -->
 					<input hidden="1" id="q_seq" name="q_seq"/>
 					<input id="regBtnHiddeninput" type="hidden" value="${sessionScope.login_session.a_name }"/>
-					<button class="SubmitButton" onclick="submitComments(); closeModalN();">답변하기</button>
+					<button class="SubmitButton" onclick="submitComments(); closeModalN();">回答する</button>
 				</div>
 				
 			</div>
