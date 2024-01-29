@@ -86,8 +86,7 @@
 
 			<!-- 추가사항 2: 신청 버튼 -->
 			<div class="button-container">
-				<!-- 				<button onclick="submitForm3()" type="button" id="apply" name="apply">申し込み</button> -->
-				<button onclick="submitForm3()" type="button" id="apply">신청하기</button>
+				<button onclick="submitForm3()" type="button" id="apply">申し込み</button>
 
 			</div>
 
