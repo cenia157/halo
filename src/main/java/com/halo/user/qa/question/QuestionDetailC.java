@@ -11,11 +11,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.halo.admin.boardmanagement.ask.AskDAO;
 import com.halo.admin.boardmanagement.ask.QuestionNComment;
+import com.halo.main.MainpageDAO;
 
 @WebServlet("/QuestionDetailC")
 public class QuestionDetailC extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		MainpageDAO.getMdao().getAllHompage_common(request);
 		// request의 인코딩 확인
 		String encoding = request.getCharacterEncoding();
 		if (encoding != "UTF-8") {
@@ -44,6 +46,7 @@ public class QuestionDetailC extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		MainpageDAO.getMdao().getAllHompage_common(request);
 		// request의 인코딩 확인
 		String encoding = request.getCharacterEncoding();
 		if (encoding != "UTF-8") {

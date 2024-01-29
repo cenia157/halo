@@ -19,9 +19,6 @@ public class Ck_DAO_frequenthyask {
 			String txt = request.getParameter("txt");
 			String seq = request.getParameter("seq");
 			if (title != "" && txt != "") {
-				System.out.println("title 구간(1) :::" + title);
-				System.out.println("txt 구간(1) :::" + txt);
-				System.out.println("수정할 게시글의 번호 : " + seq);
 //			String saveFnameValues[] = request.getParameterValues("saveFname");
 //			System.out.println("saveFnameValues :::" + saveFnameValues[0]);
 //			System.out.println("saveFnameValues :::" + saveFnameValues[1]);
@@ -46,23 +43,15 @@ public class Ck_DAO_frequenthyask {
 
 						// 현재 위치를 업데이트합니다.
 						startPos = imgPos + toReplace.length();
-						System.out.println();
-						System.out.println("txt 구간(2) :::" + txt);
-						System.out.println("saveFName: " + saveFnameValues[i]);
 					}
 				}
 
-				System.out.println(title);
 //			System.out.println(saveFName);
 //			txt = txt.replace("img", "img src=\'" + saveFName + "\'");
 
-				System.out.println("//////////////////////");
 				int titleLength = title.length();
 //			int selectLength = select.length();
 				int txtLength = txt.length();
-				System.out.println("제목 글자 수 : " + titleLength);
-//			System.out.println("카테고리 글자 수 : "+ selectLength);
-				System.out.println("내용 글자 수 : " + txtLength);
 
 				Connection con = null;
 				PreparedStatement pstmt = null;
@@ -75,9 +64,6 @@ public class Ck_DAO_frequenthyask {
 				pstmt.setString(2, txt);
 				pstmt.setString(3, seq);
 
-				System.out.println(seq);
-				System.out.println(title);
-				System.out.println(txt);
 				if (pstmt.executeUpdate() == 1) {
 					System.out.println("수정성공 Ck_DAO FREQUENTHYASK");
 					System.out.println("---------------");

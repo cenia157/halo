@@ -19,10 +19,10 @@
 		<div class="ontent-m-td-2-content-container">
 			<div class="ontent-m-td-2-content-txt">
 				<div class="ontent-m-td-2-content-txt-no">No</div>
-				<div class="ontent-m-td-2-content-txt-kategorie">카테고리</div>
-				<div class="ontent-m-td-2-content-txt-title">제목</div>
-				<div class="ontent-m-td-2-content-txt-writer">작성자</div>
-				<div class="ontent-m-td-2-content-txt-date">작성일자</div>
+				<div class="ontent-m-td-2-content-txt-kategorie">カテゴリー</div>
+				<div class="ontent-m-td-2-content-txt-title">タイトル</div>
+				<div class="ontent-m-td-2-content-txt-writer">作成者</div>
+				<div class="ontent-m-td-2-content-txt-date">作成日</div>
 				<div class="ontent-m-td-2-content-txt-delete"></div>
 				<input id="regBtnHiddeninput" type="hidden" value="${sessionScope.login_session.a_name }"/>
 			</div>

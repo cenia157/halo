@@ -30,13 +30,12 @@
 </head>
 <body>
 	<div class="ontent-m-td-2-chackbox"></div>
-	<!-- 아래의 div는 No부터 버튼을 포함함 구조는 (No 카테고리 제목 ...) (8888... 7777.... ) (버튼) 이 세개가 블록으로 쌓여있다 -->
 	<div class="ontent-m-td-2-content">
 		<div class="ontent-m-td-2-content-container">
 			<div class="ontent-m-td-2-content-txt">
 				<div class="ontent-m-td-2-content-txt-no">No</div>
-				<div class="ontent-m-td-2-content-txt-title" id="Title_css">제목</div>
-				<div class="ontent-m-td-2-content-txt-date">수정일자</div>
+				<div class="ontent-m-td-2-content-txt-title" id="Title_css">タイトル</div>
+				<div class="ontent-m-td-2-content-txt-date">更新日</div>
 				<div class="ontent-m-td-2-content-txt-delete"></div>
 			</div>
 		</div>
