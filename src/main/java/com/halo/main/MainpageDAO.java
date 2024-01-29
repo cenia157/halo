@@ -163,7 +163,7 @@ public class MainpageDAO {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "select b_index, b_type, b_m_name, b_url, nvl(b_m_text, 'empty') as b_m_text, nvl(b_img_url, 'empty') as b_img_url from banner_ where b_index < 4 order by b_index";
+		String sql = "select b_index, b_type, b_m_name, b_url, nvl(b_m_text, 'empty') as b_m_text, nvl(b_img_url, 'empty') as b_img_url from banner_tbl where b_index < 4 order by b_index";
 		String paramName = "error";
 		String param = "조회 실패";
 		
@@ -205,7 +205,7 @@ public class MainpageDAO {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "select b_index, b_type, b_m_name, b_url, nvl(b_m_text, 'empty') as b_m_text, nvl(b_img_url, 'empty') as b_img_url from banner_ where b_index > 3 order by b_index";
+		String sql = "select b_index, b_type, b_m_name, b_url, nvl(b_m_text, 'empty') as b_m_text, nvl(b_img_url, 'empty') as b_img_url from banner_tbl where b_index > 3 order by b_index";
 		String paramName = "error";
 		String param = "조회 실패";
 		
@@ -284,7 +284,7 @@ public class MainpageDAO {
 			for(int i = 0; i < 3; i++) {
 				if( bannerValues[0][i] != null && bannerValues[0][i].equals("sales")) {
 					System.out.println("banner_menus[" + i + "] : " + bannerValues[0][i]);
-					sql = "update banner_ \r\n"
+					sql = "update banner_tbl \r\n"
 							+ "set b_type = 2, b_m_name = 'sales', b_url = ?, b_m_text = ?, b_img_url = ? \r\n"
 							+ "where b_index = " + (i+1);
 					pstmt = con.prepareStatement(sql);
@@ -301,8 +301,8 @@ public class MainpageDAO {
 //					System.out.println("업뎃파일 : "+ bannerValues[3][i]);
 										
 				} else {
-					sql = "update banner_ \r\n"
-							+ "set b_type = 1, b_m_name = ?, b_url = (select m_servlet from menu_ where m_name = ?), b_m_text = (select m_text from menu_ where m_name = ?) \r\n"
+					sql = "update banner_tbl \r\n"
+							+ "set b_type = 1, b_m_name = ?, b_url = (select m_servlet from menu_tbl where m_name = ?), b_m_text = (select m_text from menu_tbl where m_name = ?) \r\n"
 							+ "where b_index = " + (i+1);
 					
 					pstmt = con.prepareStatement(sql);
@@ -340,10 +340,10 @@ public class MainpageDAO {
 			String[] mainBannerValues = {request.getParameter("main_banner_box1"),request.getParameter("main_banner_box2"),request.getParameter("main_banner_box3")};
 			System.out.println("mainBannerValues:" + mainBannerValues);
 			for(int i = 0; i < 3; i++){
-				sql = "update banner_ \r\n"
+				sql = "update banner_tbl \r\n"
 						+ "set b_m_name=?, \r\n"
-						+ "b_url=(select m_servlet from menu_ where m_name =?), \r\n"
-						+ "b_m_text = (select m_text from menu_ where m_name=?)\r\n"
+						+ "b_url=(select m_servlet from menu_tbl where m_name =?), \r\n"
+						+ "b_m_text = (select m_text from menu_tbl where m_name=?)\r\n"
 						+ "where b_index=?";
 				System.out.println("mainBannerValues:["+i+"]" + mainBannerValues[i]);
 				pstmt = con.prepareStatement(sql);

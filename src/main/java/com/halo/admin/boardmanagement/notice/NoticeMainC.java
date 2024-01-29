@@ -15,6 +15,7 @@ public class NoticeMainC extends HttpServlet {
 		Notice.getAllNotice(request, response);
 		Notice.noticePaging(1, request);
 		
+		request.setAttribute("menuname", "お知らせ");
 		request.setAttribute("menu", "/admin/boardmanagement/notice/noticeContent.jsp");
 		request.getRequestDispatcher("admin/index.jsp").forward(request, response);
 	}
