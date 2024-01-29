@@ -36,18 +36,18 @@
 				<!-- 빠른메뉴 설정(셀렉) -->
 				<div class="banner-td-1">
 				<img src="${pageContext.request.contextPath}/admin/0.img/banner_icon.png">
-				<div>빠른메뉴 :&nbsp;</div>
+				<div>メニュー :&nbsp;</div>
 				<select class="banner-select" name="banner_menu1" id="banner_menu1" onchange="changeInformBox(1)">
-				<option value="info_com">회사소개</option>
-				<option value="info_map">오시는길</option>
-				<option value="intro_announce">공지사항</option>
-				<option value="intro_album">앨범</option>
-				<option value="intro_employ">채용공고</option>
-				<option value="service_info">서비스안내</option>
-				<option value="service_apply">서비스신청</option>
-				<option value="faq">자주묻는질문</option>
-				<option value="question">문의게시판</option>
-				<option value="sales">상품판매</option>
+				<option value="info_com">会社について</option>
+				<option value="info_map">施設アクセス</option>
+				<option value="intro_announce">お知らせ</option>
+				<option value="intro_album">アルバム</option>
+				<option value="intro_employ">スタッフ募集</option>
+				<option value="service_info">サービスの案内</option>
+				<option value="service_apply">サービスの申し込み</option>
+				<option value="faq">よくある質問</option>
+				<option value="question">お問い合わせ</option>
+				<option value="sales">商品販売</option>
 				</select> 
 				 </div>
 				<!-- url 링크 -->
@@ -59,13 +59,13 @@
 				</div>
 				<div class="banner-td-2">
 				<img src="${pageContext.request.contextPath}/admin/0.img/sales-icon.png" alt="이미지준비중">
-				<div>상품명 :</div>
+				<div>商品名 :</div>
 				<input class="banner-pdNameData" id="banner_text1" name="banner_text1" type="text">
 				</div>
 				<!-- 썸네일 이미지 설정 -->
 				<div class="banner-td-2">
 				<img src="${pageContext.request.contextPath}/admin/0.img/fileDown.png" alt="이미지준비중">
-				<div>썸네일 :&nbsp;</div>
+				<div>サムネイル :&nbsp;</div>
 	<form action="BannerUploadC" id="bannerUploadForm1" method="post" enctype="multipart/form-data">
 				<label for="thumbnail1">
 				<div class="btn-upload">파일업로드</div>
@@ -83,18 +83,18 @@
 				</div>
 				<div class="banner-td-1">
 				<img src="${pageContext.request.contextPath}/admin/0.img/banner_icon.png">
-				<div>빠른메뉴 :&nbsp;</div>
+				<div>メニュー :&nbsp;</div>
 					<select class="banner-select" name="banner_menu2" id="banner_menu2" onchange="changeInformBox(2)">
-				<option value="info_com">회사소개</option>
-				<option value="info_map">오시는길</option>
-				<option value="intro_announce">공지사항</option>
-				<option value="intro_album">앨범</option>
-				<option value="intro_employ">채용공고</option>
-				<option value="service_info">서비스안내</option>
-				<option value="service_apply">서비스신청</option>
-				<option value="faq">자주묻는질문</option>
-				<option value="question">문의게시판</option>
-				<option value="sales">상품판매</option>
+				<option value="info_com">会社について</option>
+				<option value="info_map">施設アクセス</option>
+				<option value="intro_announce">お知らせ</option>
+				<option value="intro_album">アルバム</option>
+				<option value="intro_employ">スタッフ募集</option>
+				<option value="service_info">サービスの案内</option>
+				<option value="service_apply">サービスの申し込み</option>
+				<option value="faq">よくある質問</option>
+				<option value="question">お問い合わせ</option>
+				<option value="sales">商品販売</option>
 				
 				</select>
 				</div>
@@ -107,13 +107,13 @@
 				</div>
 				<div class="banner-td-2">
 				<img src="${pageContext.request.contextPath}/admin/0.img/sales-icon.png" alt="이미지준비중">
-				상품명 :&nbsp;
+				商品名 :&nbsp;
 				<input class="banner-pdNameData" id="banner_text2" name="banner_text2" type="text">
 				</div>
 				<!-- 썸네일 이미지 설정 -->
 				<div class="banner-td-2">
 				<img src="${pageContext.request.contextPath}/admin/0.img/fileDown.png" alt="이미지준비중">
-				썸네일 :&nbsp;
+				サムネイル :&nbsp;
 			<form action="BannerUploadC" id="bannerUploadForm2" method="post" enctype="multipart/form-data">
 				<label for="thumbnail2">
 				<div class="btn-upload">파일업로드</div>
@@ -131,18 +131,18 @@
 				</div>
 				<div class="banner-td-1">
 				<img src="${pageContext.request.contextPath}/admin/0.img/banner_icon.png">
-				<div>빠른메뉴 :&nbsp;</div>
+				<div>メニュー :&nbsp;</div>
 					<select class="banner-select" name="banner_menu3" id="banner_menu3" onchange="changeInformBox(3)">
-				<option value="info_com">회사소개</option>
-				<option value="info_map">오시는길</option>
-				<option value="intro_announce">공지사항</option>
-				<option value="intro_album">앨범</option>
-				<option value="intro_employ">채용공고</option>
-				<option value="service_info">서비스안내</option>
-				<option value="service_apply">서비스신청</option>
-				<option value="faq">자주묻는질문</option>
-				<option value="question">문의게시판</option>
-				<option value="sales">상품판매</option>
+				<option value="info_com">会社について</option>
+				<option value="info_map">施設アクセス</option>
+				<option value="intro_announce">お知らせ</option>
+				<option value="intro_album">アルバム</option>
+				<option value="intro_employ">スタッフ募集</option>
+				<option value="service_info">サービスの案内</option>
+				<option value="service_apply">サービスの申し込み</option>
+				<option value="faq">よくある質問</option>
+				<option value="question">お問い合わせ</option>
+				<option value="sales">商品販売</option>
 				</select>
 				</div>
 				<!-- url 링크 -->
@@ -154,13 +154,13 @@
 				</div>
 				<div class="banner-td-2">
 				<img src="${pageContext.request.contextPath}/admin/0.img/sales-icon.png" alt="이미지준비중">
-				상품명 :&nbsp;
+				商品名 :&nbsp;
 				<input class="banner-pdNameData" id="banner_text3" name="banner_text3" type="text">
 				</div>
 				<!-- 썸네일 이미지 설정 -->
 				<div class="banner-td-2">
 				<img id="file-icon" src="${pageContext.request.contextPath}/admin/0.img/fileDown.png" alt="이미지준비중">
-				썸네일 :&nbsp;
+				サムネイル :&nbsp;
 			<form action="BannerUploadC" id="bannerUploadForm3" method="post" enctype="multipart/form-data">
 				<label for="thumbnail3">
 				<div class="btn-upload">파일업로드</div>
