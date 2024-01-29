@@ -48,41 +48,41 @@
 
 					<div class="content-m-td-3-mid-2-tr-underbar">
 						<select class="main-banner-select" name="main_banner_box1">
-							<option value="info_com">회사소개</option>
-							<option value="info_map">오시는길</option>
-							<option value="intro_announce">공지사항</option>
-							<option value="intro_album">앨범</option>
-							<option value="intro_employ">채용공고</option>
-							<option value="service_info">서비스안내</option>
-							<option value="service_apply">서비스신청</option>
-							<option value="faq">자주묻는질문</option>
-							<option value="question">문의게시판</option>
+							<option value="info_com">会社について</option>
+							<option value="info_map">施設アクセス</option>
+							<option value="intro_announce">お知らせ</option>
+							<option value="intro_album">アルバム</option>
+							<option value="intro_employ">スタッフ募集</option>
+							<option value="service_info">サービスの案内</option>
+							<option value="service_apply">サービスの申し込み</option>
+							<option value="faq">よくある質問</option>
+							<option value="question">お問い合わせ</option>
 						</select>
 					</div>
 					<div class="content-m-td-3-mid-2-tr-underbar">
 						<select class="main-banner-select" name="main_banner_box2">
-							<option value="info_com">회사소개</option>
-							<option value="info_map">오시는길</option>
-							<option value="intro_announce">공지사항</option>
-							<option value="intro_album">앨범</option>
-							<option value="intro_employ">채용공고</option>
-							<option value="service_info">서비스안내</option>
-							<option value="service_apply">서비스신청</option>
-							<option value="faq">자주묻는질문</option>
-							<option value="question">문의게시판</option>
+							<option value="info_com">会社について</option>
+							<option value="info_map">施設アクセス</option>
+							<option value="intro_announce">お知らせ</option>
+							<option value="intro_album">アルバム</option>
+							<option value="intro_employ">スタッフ募集</option>
+							<option value="service_info">サービスの案内</option>
+							<option value="service_apply">サービスの申し込み</option>
+							<option value="faq">よくある質問</option>
+							<option value="question">お問い合わせ</option>
 						</select>
 					</div>
 					<div class="content-m-td-3-mid-2-tr-underbar">
 						<select class="main-banner-select" name="main_banner_box3">
-							<option value="info_com">회사소개</option>
-							<option value="info_map">오시는길</option>
-							<option value="intro_announce">공지사항</option>
-							<option value="intro_album">앨범</option>
-							<option value="intro_employ">채용공고</option>
-							<option value="service_info">서비스안내</option>
-							<option value="service_apply">서비스신청</option>
-							<option value="faq">자주묻는질문</option>
-							<option value="question">문의게시판</option>
+							<option value="info_com">会社について</option>
+							<option value="info_map">施設アクセス</option>
+							<option value="intro_announce">お知らせ</option>
+							<option value="intro_album">アルバム</option>
+							<option value="intro_employ">スタッフ募集</option>
+							<option value="service_info">サービスの案内</option>
+							<option value="service_apply">サービスの申し込み</option>
+							<option value="faq">よくある質問</option>
+							<option value="question">お問い合わせ</option>
 						</select>
 					</div>
 				</div>
