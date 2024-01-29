@@ -25,8 +25,8 @@
 		<div class="ontent-m-td-2-content-container">
 			<div class="ontent-m-td-2-content-txt">
 				<div class="ontent-m-td-2-content-txt-no">No</div>
-				<div class="ontent-m-td-2-content-txt-title">제목</div>
-				<div class="ontent-m-td-2-content-txt-date">수정일자</div>
+				<div class="ontent-m-td-2-content-txt-title">タイトル</div>
+				<div class="ontent-m-td-2-content-txt-date">更新日</div>
 				<div class="ontent-m-td-2-content-txt-delete"></div>
 			</div>
 		</div>

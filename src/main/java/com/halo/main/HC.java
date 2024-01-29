@@ -14,6 +14,7 @@ public class HC extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		MainpageDAO.getMdao().getAllHompage_common(request);
+		
 		AnnouncedDAO.getMainAnnouncements(request);
 //			request.setAttribute("menu", "user/menu-index.jsp");
 //			request.setAttribute("subMenu", subMenu + ".jsp");

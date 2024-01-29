@@ -142,7 +142,7 @@ function checkPW(){
 								        <a href="QuestionDetailC?q_seq=${prevQuestion.q_seq}">${prevQuestion.q_title}</a>
 								    </c:when>
 								    <c:otherwise>
-								        <p>이전 글이 없습니다.</p>
+								        <p id="disabledPost">前の投稿はありません</p>
 								    </c:otherwise>
 								</c:choose>
 							</div>
@@ -158,7 +158,7 @@ function checkPW(){
 								        <a href="QuestionDetailC?q_seq=${nextQuestion.q_seq}">${nextQuestion.q_title}</a>
 								    </c:when>
 								    <c:otherwise>
-								        <p>다음 글이 없습니다.</p>
+								        <p id="disabledPost">次の投稿はありません</p>
 								    </c:otherwise>
 
 								</c:choose>

@@ -128,6 +128,7 @@ a {
 	color: #546137;
 	padding-top: 1%;
 	padding-bottom: 1%;
+	width: 80%;
 }
 
 .qd-content-box-td1-3 {
@@ -159,6 +160,7 @@ a {
 	line-height: normal;
 	padding-top: 1%;
 	padding-bottom: 1%;
+	width: 80%;
 }
 
 .qd-content-box-td1-4 {
@@ -357,6 +359,11 @@ a {
 	color: #546137;
 	padding-top: 1%;
 	padding-bottom: 1%;
+	width: 80%;
+}
+
+.qd-content-box-td4-1-2 > a{
+	color: 	#546137;
 }
 
 .qd-content-box-td4-2 {
@@ -388,6 +395,11 @@ a {
 	color: #546137;
 	padding-top: 1%;
 	padding-bottom: 1%;
+	width: 80%;
+}
+
+.qd-content-box-td4-2-2 > a{
+	color: #546137;
 }
 
 .qd-content-box-td4-3 {
@@ -427,4 +439,7 @@ a {
 }
 #wrong_password{
 	font-size: 1.5rem;
+}
+#disabledPost{
+	color: #333;
 }
