@@ -655,6 +655,7 @@ function expandSchedule(e) {
 
 function allSiftDelete(e) {
 	if (document.querySelector('.employee-data.' + employeerClickArray).children[4].value != '') {
+		document.querySelector('.confirm-delete-content-announce').innerText = employeeList[document.querySelector('.employee-data.' + employeerClickArray).previousSibling.value].s_name + 'のシフトを全部削除しますか';
 		document.querySelector('.confirm-delete').style.display = 'flex';
 		document.querySelector('.confirm-delete').style.left = document.querySelector('.sec-ins').getBoundingClientRect().x + document.querySelector('.sec-ins').getBoundingClientRect().width / 6 + 'px';
 		deleteSiftModal = 1;

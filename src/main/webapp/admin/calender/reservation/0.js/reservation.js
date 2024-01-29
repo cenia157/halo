@@ -391,11 +391,11 @@ function renderReservationScheduleList() {
 			let datesLength = reservationScheduleList[i].dates.split(',').length;
 			if (datesLength > 1) {
 				document.querySelector('.ins-tr-3-reservation-content').innerHTML += '<input type="hidden" value="' + i + '"><div class="reservation-data array' + arrayCnt + '"><div>' + reservationScheduleList[i].userName + '</div><div>' + reservationScheduleList[i].service
-					+ '</div><div><input type="hidden" value="' + reservationScheduleList[i].dates + '">' + reservationScheduleList[i].year.slice(2) + '-' + reservationScheduleList[i].month + '-' + reservationScheduleList[i].dates.split(',')[0] + '...' + '</div><div><a class="reservation-select">선택</a></div></div>'
+					+ '</div><div><input type="hidden" value="' + reservationScheduleList[i].dates + '">' + reservationScheduleList[i].year.slice(2) + '-' + reservationScheduleList[i].month + '-' + reservationScheduleList[i].dates.split(',')[0] + '...' + '</div><div><a class="reservation-select">選択</a></div></div>'
 				arrayCnt++;
 			} else {
 				document.querySelector('.ins-tr-3-reservation-content').innerHTML += '<input type="hidden" value="' + i + '"><div class="reservation-data array' + arrayCnt + '"><div>' + reservationScheduleList[i].userName + '</div><div>' + reservationScheduleList[i].service
-					+ '</div><div><input type="hidden" value="' + reservationScheduleList[i].dates + '">' + reservationScheduleList[i].year.slice(2) + '-' + reservationScheduleList[i].month + '-' + reservationScheduleList[i].dates + '</div><div><a class="reservation-select">선택</a></div></div>'
+					+ '</div><div><input type="hidden" value="' + reservationScheduleList[i].dates + '">' + reservationScheduleList[i].year.slice(2) + '-' + reservationScheduleList[i].month + '-' + reservationScheduleList[i].dates + '</div><div><a class="reservation-select">選択</a></div></div>'
 				arrayCnt++;
 			}
 		}
@@ -482,7 +482,7 @@ function managerSelect(e) {
 // 예약 디테일 승인
 function reservationAccept(e) {
 
-	if (e.innerText == '승인') {
+	if (e.innerText == '承認') {
 		reservationScheduleList[reservationSelectArray].feedBack = document.querySelector('.reservation-modal-content-notice').children[0].value;
 		reservationScheduleList[reservationSelectArray].staff = document.querySelector('.default-manager').innerText;
 
@@ -660,7 +660,7 @@ function expandReservationSchedule(e) {
 		for (i = 2; i < modalTitleData.length; i++) {
 			if (modalTitleData[0] != '') {
 				document.querySelector('.date-modal-content').innerHTML += '<div class="modalTitleData"><input class="detailValue" value="' + (modalTitleData[i].split('.'))[0]
-					+ '" type="hidden"><div>' + (modalTitleData[i].split('.'))[1] + '</div><a class="getScheduleDetail">상세보기</a></div>';
+					+ '" type="hidden"><div>' + (modalTitleData[i].split('.'))[1] + '</div><a class="getScheduleDetail">詳細ページ</a></div>';
 			}
 		}
 
@@ -703,8 +703,8 @@ function reservationDetailModal() {
 	if (reservationModalValue == "list") {
 		document.querySelector('.reservation-modal-agree-btn').style.display = "flex";
 
-		document.querySelector('.manager-select-option').innerHTML = '<div class="manager-list" onclick="managerSelect(this)">선택안함</div>';
-		document.querySelector('.reservation-modal-content-manager-select').children[0].innerText = '직원 선택';
+		document.querySelector('.manager-select-option').innerHTML = '<div class="manager-list" onclick="managerSelect(this)">選択なし</div>';
+		document.querySelector('.reservation-modal-content-manager-select').children[0].innerText = 'スタッフ選び';
 		document.querySelector('.manager-select-arrow').style.display = "flex";
 
 		document.querySelectorAll('.update-time-checkBox').forEach(function(e) {
@@ -727,7 +727,7 @@ function reservationDetailModal() {
 			document.querySelector('.reservation-modal-content-book').innerHTML = arrayName.year + '-' + arrayName.month + '-' + arrayName.dates;
 		}
 
-		document.querySelector('.reservation-modal-content-notice').innerHTML = '<textarea>' + '간호 요청사항 : ' + arrayName.nurssingInfo + '\n택시 요청사항 : ' + arrayName.texiInfo + '</textarea>';
+		document.querySelector('.reservation-modal-content-notice').innerHTML = '<textarea>' + '介護問い合わせ内容: ' + arrayName.nurssingInfo + '\nタクシー問い合わせ内容 : ' + arrayName.taxiInfo + '</textarea>';
 
 		console.log(reservationScheduleList[reservationSelectArray]);
 
@@ -815,7 +815,7 @@ function reservationDetailModal() {
 		document.querySelector('.reservation-modal-title').innerHTML = '<input style="font-size:2rem; width:100%;"  value="' + arrayName.service + '">';
 		document.querySelector('.reservation-modal-detail-btn').style.display = "flex";
 
-		document.querySelector('.manager-select-option').innerHTML = '<div class="manager-list" onclick="managerSelect(this)">선택안함</div>';
+		document.querySelector('.manager-select-option').innerHTML = '<div class="manager-list" onclick="managerSelect(this)">選択なし</div>';
 		document.querySelector('.reservation-modal-content-manager-select').children[0].innerText = arrayName.staff;
 		document.querySelector('.manager-select-arrow').style.display = "flex";
 
@@ -1013,7 +1013,7 @@ function reservationInsertPageOn() {
 		e.disabled = false;
 	})
 
-	document.querySelector('.insert-manager-select-option').innerHTML = '<div class="manager-list" onclick="managerSelect(this)">선택안함</div>';
+	document.querySelector('.insert-manager-select-option').innerHTML = '<div class="manager-list" onclick="managerSelect(this)">選択なし</div>';
 	// 직원 리스트 생성
 	for (let i = 0; i < reservationStaffList.length; i++) {
 		document.querySelector('.insert-manager-select-option').innerHTML += '<input type="hidden" value="' + i + '"><div class="manager-list insert-select-list" onclick="managerSelect(this)">' + reservationStaffList[i].name + '</div>';
