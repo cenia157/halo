@@ -128,7 +128,7 @@
 			<div class="remote-control-td2 btn-pointer" id="goTop">
 				<img src="user/0.img/re-up.png" width="55%" alt="" />
 			</div>
-			<div class="remote-control-td">上段</div>
+			<div class="remote-control-td">アップ</div>
 		</div>
 		<div class="remote-control-tr">
 			<div class="remote-control-td2 btn-pointer">
