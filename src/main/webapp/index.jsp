@@ -29,6 +29,8 @@
 <script src="user/0.js/background-img.js"></script>
 <!-- 리모컨 js -->
 <script src="user/0.js/remote-control.js"></script>
+<!-- 반응형 -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
@@ -71,7 +73,7 @@
 			<div class="header-opmenu">
 				<div class="header-opmenu-td">
 					<a class="header-opmenu-a" href="InfoCompanyC">会社について</a> <a
-						class="header-opmenu-a" href="InfoMapC">アクセス</a>
+						class="header-opmenu-a" href="InfoMapC">施設アクセス</a>
 				</div>
 				<div class="header-opmenu-td">
 					<a class="header-opmenu-a" href="Announced_C">お知らせ</a> <a

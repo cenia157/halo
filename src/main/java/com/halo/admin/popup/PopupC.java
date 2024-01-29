@@ -12,7 +12,7 @@ import com.halo.main.MainpageDAO;
 @WebServlet("/PopupC")
 public class PopupC extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setAttribute("menuname", "팝업등록");
+		request.setAttribute("menuname", "ポップアップ設定");
 		//지금컨트롤러, 결과 파라미터
 		MainpageDAO.getMdao().getAllHompage_common(request);
 		//Admin page 메뉴(index.jsp) 안고가기 => 디스페쳐
