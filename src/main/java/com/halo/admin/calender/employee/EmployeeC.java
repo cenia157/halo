@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 public class EmployeeC extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		request.setAttribute("menuname", "직원근무일정");
+		request.setAttribute("menuname", "スタッフのスケジュール");
 		request.setAttribute("menu", "/admin/calender/employee/employeeContent.jsp");
 		request.getRequestDispatcher("admin/index.jsp").forward(request, response);
 	}

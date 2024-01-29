@@ -16,7 +16,7 @@ public class CustomerInfoMgmtC extends HttpServlet {
 //		if (request.getSession().getAttribute("login_session") == null) {
 //			response.sendRedirect("LoginPageC");
 //		} else {
-		request.setAttribute("menuname", "고객정보관리");
+		request.setAttribute("menuname", "顧客情報の管理");
 		request.setAttribute("menu", "/admin/customerCare/customerInfoMgmt/customerInfoMgmt.jsp");
 		request.getRequestDispatcher("admin/index.jsp").forward(request, response);
 //	}
