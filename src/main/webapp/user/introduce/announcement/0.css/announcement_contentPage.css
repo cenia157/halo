@@ -343,7 +343,7 @@
 	border-bottom: 3px solid #6e6f4e;
 	color: #62733d;
 	text-align: center;
-	font-family: Inter;
+/* 	font-family: Inter; */
 	font-size: 2.5rem;
 	font-style: normal;
 	font-weight: 700;
@@ -361,7 +361,7 @@
 	color: #546137;
 	background: rgba(210, 210, 162, 0.5);
 	text-align: center;
-	font-family: Inter;
+/* 	font-family: Inter; */
 	font-size: 1.5rem;
 	font-style: normal;
 	font-weight: 700;
