@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.halo.admin.boardmanagement.frequenthyask.FAQDAO;
+import com.halo.main.MainpageDAO;
 
 @WebServlet("/LoadFAQDetailContentC")
 public class LoadFAQDetailContentC extends HttpServlet {

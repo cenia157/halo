@@ -50,7 +50,7 @@
 			</div>
 			
 			<div class="q-content-box-td2">
-				<span class="q-content-box-td-content2-1">作成者* </span>
+				<span class="q-content-box-td-content2-1">投稿者* </span>
 				<input class="q-content-box-td-content2-2" type="text" name="q_name"/>
 			</div>
 
@@ -127,7 +127,7 @@
                       <span>No</span>
                     </div>
                     <div class="q_content-box-tr1-td3-1-1-1-1-2 writer-width">
-                      <span>作成者</span>
+                      <span>投稿者</span>
                     </div>
                     <div class="q_content-box-tr1-td3-1-1-1-1-3 title-width">
                       <span>タイトル</span>
@@ -136,7 +136,7 @@
                       <span>応答</span>
                     </div>
                     <div class="q_content-box-tr1-td3-1-1-1-1-5 reg-width">
-                      <span>作成日時</span>
+                      <span>投稿日</span>
                     </div>
                   </div>
                   
