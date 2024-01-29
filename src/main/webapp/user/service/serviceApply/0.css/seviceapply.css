@@ -49,7 +49,6 @@ a:visited  {
 	color: #62733d;
 	text-align: center;
 	text-shadow: 6px 6px 6px #ffdf6c;
-	font-family: Inter;
 	font-style: normal;
 	font-weight: 700;
 	line-height: normal;
@@ -60,7 +59,6 @@ a:visited  {
 	color: #62733d;
 	text-align: center;
 	text-shadow: 6px 6px 6px #ffdf6c;
-	font-family: Inter;
 	font-size: 2.5rem;
 	font-style: normal;
 	font-weight: 700;
@@ -82,7 +80,6 @@ a:visited  {
 .content-tab1-td {
 	color: #fff;
 	/* 	text-align: center; */
-	font-family: Inter;
 	font-size: 2.5rem;
 	font-style: normal;
 	font-weight: 700;
@@ -120,7 +117,6 @@ a:visited  {
 .content-subtab-td {
 	color: #546137;
 	text-align: right;
-	font-family: Inter;
 	font-style: normal;
 	font-weight: 700;
 	line-height: normal;
@@ -180,7 +176,6 @@ a:visited  {
 	font-size: 2.0rem;
 	color: #546137;
 	text-align: center;
-	font-family: Inter;
 	font-style: normal;
 	font-weight: 700;
 	line-height: normal;
@@ -251,7 +246,6 @@ a:visited  {
 	font-size: 1.8rem;
 	color: #546137;
 	text-align: center;
-	font-family: Inter;
 	font-style: normal;
 	font-weight: 700;
 	line-height: normal;
@@ -274,7 +268,6 @@ a:visited  {
 	font-size: 2rem;
 	color: #546137;
 	text-align: center;
-	font-family: Inter;
 	font-style: normal;
 	font-weight: 700;
 	line-height: normal;
@@ -304,7 +297,6 @@ a:visited  {
 		font-size: 0.8rem;
 		color: #546137;
 		text-align: center;
-		font-family: Inter;
 		font-style: normal;
 		font-weight: 700;
 		line-height: normal;

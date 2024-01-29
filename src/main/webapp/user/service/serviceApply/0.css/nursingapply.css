@@ -23,7 +23,6 @@
 	filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.3));
 	/* 	txt */
 	color: #546137;
-	font-family: Inter;
 	font-size: 2.5rem;
 	font-style: normal;
 	font-weight: 700;
@@ -47,7 +46,6 @@
 .na-content-applyform-tr-2-1 {
 	color: #546137;
 	text-align: center;
-	font-family: Inter;
 	font-size: 2.5rem;
 	font-style: normal;
 	font-weight: 700;
@@ -178,7 +176,6 @@
 	border-radius: 10px;
 	color: #546137;
 	text-align: center;
-	font-family: Inter;
 	font-size: 2.5rem;
 	font-style: normal;
 	font-weight: 700;
