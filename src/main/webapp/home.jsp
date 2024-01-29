@@ -25,7 +25,7 @@
 <body>
 	<div class="slogan-tbl">
 		<div>
-			"더 행복한 내일을 함께하는 요양서비스 ハロー<br />가족처럼 모시겠습니다."
+			"より幸せな明日を共にする介護サービス ハロー<br />家族のようにもてなしいたします."
 		</div>
 	</div>
 	<!-- TODO 서효원 메인페이지 - 주요메뉴 3칸 변경 가능하도록 연결 -->
@@ -38,7 +38,7 @@
 	<div class="main-notice-tbl" id="page1">
 		<!-- 공지사항 최신순으로 3줄(공지사항 제목, 내용/클릭시 해당 공지 디테일페이지 연결) -->
 		<div class="main-notice-tr1 btn-pointer"
-			onclick="location.href='Announced_C'">공지사항</div>
+			onclick="location.href='Announced_C'">お知らせ</div>
 		<div class="main-notice-tr2">
 		
 			<c:forEach var="announcement" items="${announcements}">
@@ -63,10 +63,10 @@
 		</div>
 		<div class="main-map-tr2">
 			<div class="main-map-td1 btn-pointer"
-				onclick="location.href='InfoMapC'">오시는길</div>
+				onclick="location.href='InfoMapC'">アクセス</div>
 			<div class="main-map-td2">
 				<div>
-					●주소<br />大阪府守口市馬場町3-14-6メゾンエミール701号
+					●住所<br />大阪府守口市馬場町3-14-6メゾンエミール701号
 				</div>
 			</div>
 		</div>
