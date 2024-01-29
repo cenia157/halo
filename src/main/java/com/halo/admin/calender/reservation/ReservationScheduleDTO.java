@@ -17,7 +17,7 @@ public class ReservationScheduleDTO {
 	private String startPoint;
 	private String endPoint;
 	private String nurssingInfo;
-	private String texiInfo;
+	private String taxiInfo;
 	private String registrationDate;
 	private String service;
 
@@ -27,7 +27,7 @@ public class ReservationScheduleDTO {
 
 	public ReservationScheduleDTO(String no, String applicant, String phoneNumber, String userName, String gender,
 			String birthDates, String year, String month, String dates, String time, String addr, String startPoint,
-			String endPoint, String nurssingInfo, String texiInfo, String registrationDate, String service) {
+			String endPoint, String nurssingInfo, String taxiInfo, String registrationDate, String service) {
 		super();
 		this.no = no;
 		this.applicant = applicant;
@@ -43,7 +43,7 @@ public class ReservationScheduleDTO {
 		this.startPoint = startPoint;
 		this.endPoint = endPoint;
 		this.nurssingInfo = nurssingInfo;
-		this.texiInfo = texiInfo;
+		this.taxiInfo = taxiInfo;
 		this.registrationDate = registrationDate;
 		this.service = service;
 	}
@@ -160,12 +160,12 @@ public class ReservationScheduleDTO {
 		this.nurssingInfo = nurssingInfo;
 	}
 
-	public String getTexiInfo() {
-		return texiInfo;
+	public String gettaxiInfo() {
+		return taxiInfo;
 	}
 
-	public void setTexiInfo(String texiInfo) {
-		this.texiInfo = texiInfo;
+	public void settaxiInfo(String taxiInfo) {
+		this.taxiInfo = taxiInfo;
 	}
 
 	public String getRegistrationDate() {
