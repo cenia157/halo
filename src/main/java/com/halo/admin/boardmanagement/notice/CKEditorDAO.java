@@ -29,15 +29,17 @@ public class CKEditorDAO {
 		
 		try {
 			String writer;
-			String title = CommonUtility.escapeHtml(request.getParameter("title"));
-			String select = CommonUtility.escapeHtml(request.getParameter("select"));
+			String title = request.getParameter("title");
+			String select = request.getParameter("select");
 			String txt = request.getParameter("txt");
 			
-			if(request.getParameter("writer").equals("")) {
-				writer = "세션없음";
-			} else {
-				writer = request.getParameter("writer");
-			}
+//			if(request.getParameter("writer").equals("")) {
+//				writer = "세션없음";
+//			} else {
+//				writer = request.getParameter("writer");
+//			}
+			
+			writer = request.getParameter("writer");
 			
 			if (title != "" && txt != "" && select != null) {
 
