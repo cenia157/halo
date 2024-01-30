@@ -20,7 +20,7 @@ drop sequence question_tbl_seq;
 ALTER TABLE question_tbl MODIFY q_password VARCHAR2(50 char);
   
 
-insert into question_tbl values (question_tbl_seq.nextval, 'q_title', 'q_content', sysdate, '00000000000', 'q_email', 'q_name', 'q_password', 'Q1'); 
+insert into question_tbl values (question_tbl_seq.nextval, '«Ï«í?ªÏªÉªÎªèª¦ªÊ«±«¢ªòð«Íêª·ªÆª¤ªÞª¹ª«£¿', '«Ï«í?ªÏªÉªÎªèª¦ªÊ«±«¢ªòð«Íêª·ªÆª¤ªÞª¹ª«£¿', sysdate, '00000000000', 'q_email', 'ß£ï£', '1111', 'Q1'); 
 
 
 

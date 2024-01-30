@@ -45,6 +45,9 @@
 	<div class="q-content-tbl">
 		<form action="QuestionC" method="post">
 		<div class="q-content-box-tr1">
+			<div class="q-content-box-td0">
+				<a href="FaqC">＜＜よくある質問に</a>
+			</div>
 			<div class="q-content-box-td1">
 				<span class="q-content-box-td-content1">お問い合わせフォーム</span>
 			</div>
