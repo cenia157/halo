@@ -45,12 +45,15 @@
 	<div class="q-content-tbl">
 		<form action="QuestionC" method="post">
 		<div class="q-content-box-tr1">
+			<div class="q-content-box-td0">
+				<a href="FaqC">＜＜よくある質問に</a>
+			</div>
 			<div class="q-content-box-td1">
 				<span class="q-content-box-td-content1">お問い合わせフォーム</span>
 			</div>
 			
 			<div class="q-content-box-td2">
-				<span class="q-content-box-td-content2-1">作成者* </span>
+				<span class="q-content-box-td-content2-1">投稿者* </span>
 				<input class="q-content-box-td-content2-2" type="text" name="q_name"/>
 			</div>
 
@@ -127,7 +130,7 @@
                       <span>No</span>
                     </div>
                     <div class="q_content-box-tr1-td3-1-1-1-1-2 writer-width">
-                      <span>作成者</span>
+                      <span>投稿者</span>
                     </div>
                     <div class="q_content-box-tr1-td3-1-1-1-1-3 title-width">
                       <span>タイトル</span>
@@ -136,7 +139,7 @@
                       <span>応答</span>
                     </div>
                     <div class="q_content-box-tr1-td3-1-1-1-1-5 reg-width">
-                      <span>作成日時</span>
+                      <span>投稿日</span>
                     </div>
                   </div>
                   
@@ -195,7 +198,7 @@
                   <c:choose>
                     <c:when test="${curPageNo > 1}">
                       <a href="QuestionPagingC?p=${curPageNo - 1}">
-                        <button>이전</button>
+                        <button>前の</button>
                       </a>
                     </c:when>
                     <c:otherwise>
@@ -254,7 +257,7 @@
                   <c:choose>
                     <c:when test="${curPageNo < pageCount}">
                       <a href="QuestionPagingC?p=${curPageNo + 1}">
-                        <button>다음</button>
+                        <button>次の</button>
                       </a>
                     </c:when>
                     <c:otherwise>

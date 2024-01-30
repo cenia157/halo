@@ -21,8 +21,8 @@
 				<div class="ontent-m-td-2-content-txt-no">No</div>
 				<div class="ontent-m-td-2-content-txt-kategorie">カテゴリー</div>
 				<div class="ontent-m-td-2-content-txt-title">タイトル</div>
-				<div class="ontent-m-td-2-content-txt-writer">作成者</div>
-				<div class="ontent-m-td-2-content-txt-date">作成日</div>
+				<div class="ontent-m-td-2-content-txt-writer">投稿者</div>
+				<div class="ontent-m-td-2-content-txt-date">投稿日</div>
 				<div class="ontent-m-td-2-content-txt-delete"></div>
 				<input id="regBtnHiddeninput" type="hidden" value="${sessionScope.login_session.a_name }"/>
 			</div>

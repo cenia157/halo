@@ -89,6 +89,19 @@ a {
 	bottom: 5%;
 }
 
+.q-content-box-td0{
+	padding-top: 2rem;
+	padding-left: 2rem;
+	font-size: 1.5rem;
+	font-weight: 700;
+	color: #62733D;
+	text-align: left;
+}
+
+.q-content-box-td0 > a{
+	color: inherit;
+}
+
 .q-content-box-td1 {
 	display: flex;
 	justify-content: center;

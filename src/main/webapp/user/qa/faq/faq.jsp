@@ -28,6 +28,7 @@
 	
 		<!-- 자주묻는 질문 -->
 		<div class="faq-content-box-tr1">
+			<div class="faq-content-box-td1-0"><a href="QuestionC">お問い合わせに＞＞</a></div>
 		    <div class="faq-content-box-td1-1">よくある質問</div>
 		    <div class="faq-content-box-td1-2">
 		    	<c:forEach items="${FAQs}" var="qa">
