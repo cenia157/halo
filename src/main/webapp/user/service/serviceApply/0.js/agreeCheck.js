@@ -9,14 +9,12 @@ document.addEventListener('DOMContentLoaded', function() {
 	let applyCheck = document.querySelector("#apply")
 	applyCheck.addEventListener('click', function(event) {
 
-		console.log('22222');
-		console.log(checkBox.checked)
 		if (!checkBox.checked) {
-			alert("동의 체크박스를 선택해주세요.");
+			alert("同意チェックボックスを選択お願いします。");
 			return false; // 폼 제출을 막습니다.
 		}
 		// 실제로 서버로 데이터를 전송하도록 폼 제출 로직을 추가할 수 있습니다.
-		alert("신청 완료 되었습니다.");
+		alert("申し込みが完了しました。");
 		myForm.submit();
 	})
 

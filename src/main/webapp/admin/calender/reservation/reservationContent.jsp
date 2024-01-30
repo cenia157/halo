@@ -53,18 +53,18 @@
 						<div class="reservation-modal-close"></div>
 					</div>
 					<div class="reservation-modal-content">
-						<div class="reservation-modal-content-name">이름</div>
-						<div class="reservation-modal-content-phone">핸드폰</div>
-						<div class="reservation-modal-content-addr">주소</div>
-						<div class="reservation-modal-content-book">날짜</div>
-						<div class="reservation-modal-content-start">출발지</div>
-						<div class="reservation-modal-content-startpoint">출발주소</div>
-						<div class="reservation-modal-content-end">목적지</div>
-						<div class="reservation-modal-content-endpoint">목적주소</div>
-						<div class="reservation-modal-content-notice">예약내용</div>
+						<div class="reservation-modal-content-name">名前</div>
+						<div class="reservation-modal-content-phone">連作先</div>
+						<div class="reservation-modal-content-addr">住所</div>
+						<div class="reservation-modal-content-book">日付</div>
+						<div class="reservation-modal-content-start">出発先</div>
+						<div class="reservation-modal-content-startpoint">出発住所</div>
+						<div class="reservation-modal-content-end">目的先</div>
+						<div class="reservation-modal-content-endpoint">目的住所</div>
+						<div class="reservation-modal-content-notice">予約内容</div>
 						<div class="reservation-modal-content-manager">
 							<div class="reservation-modal-content-manager-select">
-								<div class="default-manager">직원 선택</div>
+								<div class="default-manager">スタッフ選び</div>
 								<div class="manager-select-arrow"></div>
 							</div>
 							<div class="manager-select-option"></div>
@@ -73,33 +73,33 @@
 
 					<div class="reservation-modal-agree-btn">
 						<div class="reservation-modal-agree"
-							onclick="reservationAccept(this)">승인</div>
+							onclick="reservationAccept(this)">承認</div>
 						<div class="reservation-modal-disagree"
-							onclick="reservationAccept(this)">거절</div>
+							onclick="reservationAccept(this)">拒否</div>
 					</div>
 
 					<div class="reservation-modal-update-btn">
-						<div class="reservation-modal-update">수정</div>
+						<div class="reservation-modal-update">修正</div>
 						<div class="reservation-modal-delete"
-							onclick="reservationDeleteConfirm()">삭제</div>
+							onclick="reservationDeleteConfirm()">削除</div>
 					</div>
 
 					<div class="reservation-modal-detail-btn">
 						<div class="reservation-modal-update"
-							onclick="reservationConfirm(this)">확인</div>
+							onclick="reservationConfirm(this)">確認</div>
 						<div class="reservation-modal-delete"
-							onclick="reservationCancel(this)">취소</div>
+							onclick="reservationCancel(this)">取り消し</div>
 					</div>
 				</div>
 				
 				<div class="confirm-delete">
 					<div class="confirm-delete-content">
-						<div class="confirm-delete-content-announce">해당일정을 삭제하시겠습니까?</div>
+						<div class="confirm-delete-content-announce">この予約を削除しますか</div>
 						<div class="confirm-delete-content-accept">
 							<div class="confirm-delete-agree"
-								onclick="reservationDelete()">확인</div>
+								onclick="reservationDelete()">確認</div>
 							<div class="confirm-delete-disagree"
-								onclick="reservationDeleteCancle()">취소</div>
+								onclick="reservationDeleteCancle()">取り消し</div>
 						</div>
 					</div>
 				</div>
@@ -127,7 +127,7 @@
 					<div class="ins-tr-1">
 						<div class="ins-tr-td">
 							<div class="ins-tr-td-btn">
-								회사 <input type="checkbox" class="toggle" hidden> <label
+								会社 <input type="checkbox" class="toggle" hidden> <label
 									for="toggle" class="toggleSwitch"> <span
 									class="toggleButton"></span>
 								</label>
@@ -135,7 +135,7 @@
 						</div>
 						<div class="ins-tr-td">
 							<div class="ins-tr-td-btn">
-								예약 <input type="checkbox" class="toggle" hidden> <label
+								予約 <input type="checkbox" class="toggle" hidden> <label
 									for="toggle" class="toggleSwitch"> <span
 									class="toggleButton"></span>
 								</label>
@@ -143,7 +143,7 @@
 						</div>
 						<div class="ins-tr-td">
 							<div class="ins-tr-td-btn">
-								직원 <input type="checkbox" class="toggle" hidden> <label
+								スタッフ <input type="checkbox" class="toggle" hidden> <label
 									for="toggle" class="toggleSwitch"> <span
 									class="toggleButton"></span>
 								</label>
@@ -156,8 +156,8 @@
 						<input class="reservation-insert-input reservation-insert-service"
 							style="width: 50%;" value="タイプ">
 						<div class="reservation-insert-input reservation-insert-time">
-							오전 <input type="checkbox" name="insert-time" value="AM">
-							오후 <input type="checkbox" name="insert-time" value="PM">
+							午前 <input type="checkbox" name="insert-time" value="AM">
+							午後 <input type="checkbox" name="insert-time" value="PM">
 						</div>
 
 					</div>
@@ -184,33 +184,33 @@
 								日付 <input class="reservation-insert-input input-date"
 									style="width: 80%;" readonly="readonly">
 							</div>
-							<div class="reservation-insert-start">출발지</div>
+							<div class="reservation-insert-start">出発先</div>
 							<div class="reservation-insert-startpoint">
 								<input class="reservation-insert-input" style="width: 100%;">
 							</div>
-							<div class="reservation-insert-end">목적지</div>
+							<div class="reservation-insert-end">目的先</div>
 							<div class="reservation-insert-endpoint">
 								<input class="reservation-insert-input" style="width: 100%;">
 							</div>
 							<div class="reservation-insert-notice">
-								<textarea class="reservation-insert-input">예약내용</textarea>
+								<textarea class="reservation-insert-input">予約内容</textarea>
 							</div>
 							<div class="reservation-modal-content-manager">
 								<div
 									class="reservation-modal-content-manager-select select-insert">
-									<div class="default-manager">직원 선택</div>
+									<div class="default-manager">スタッフ選び</div>
 									<div class="manager-select-arrow"></div>
 								</div>
 								<div class="insert-manager-select-option"></div>
 							</div>
 						</div>
 						<div class="ins-tr-3-btn">
-							<button type="button" class="reservation-button">신규등록</button>
+							<button type="button" class="reservation-button">新規</button>
 						</div>
 
 						<div class="ins-tr-3-btn-insert">
-							<div class="ins-tr-3-btn-insert-accept">등록</div>
-							<div class="ins-tr-3-btn-insert-cancel">취소</div>
+							<div class="ins-tr-3-btn-insert-accept">登録</div>
+							<div class="ins-tr-3-btn-insert-cancel">取り消し</div>
 						</div>
 
 					</div>

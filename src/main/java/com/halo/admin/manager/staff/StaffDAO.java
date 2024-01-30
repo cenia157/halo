@@ -28,7 +28,7 @@ public class StaffDAO {
 			response.setContentType("application/json; charset=utf-8");
 
 			// 데이터베이스 연동
-			String sql = "SELECT s_no, s_position, s_name, s_phone_num, TO_CHAR(s_entry_date, 'YYYY-MM-DD') as s_entry_date, s_color, s_addr FROM staff_info order by s_entry_date desc";
+			String sql = "SELECT s_no, s_position, s_name, s_phone_num, TO_CHAR(s_entry_date, 'YYYY-MM-DD') as s_entry_date, s_color, s_addr FROM staff_info order by s_entry_date desc, s_no desc";
 			con = DBManagerhalo.connect();
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();

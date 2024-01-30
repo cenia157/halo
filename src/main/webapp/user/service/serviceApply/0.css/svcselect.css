@@ -45,7 +45,6 @@
 	background: #849461;
 	color: #fff;
 	text-align: center;
-	font-family: Inter;
 	font-size: 2.5rem;
 	font-style: normal;
 	font-weight: 700;
@@ -60,13 +59,12 @@
 	}
 }
 
-#nursingTexi {
+#nursingTaxi {
 	font-size: 2.0rem;
 }
 
 .content-serviceoption-td button {
 	color: #fff;
-	font-family: Inter;
 	font-size: 2.5rem;
 	font-style: normal;
 	font-weight: 700;
@@ -100,7 +98,6 @@
 	font-size: 2rem;
 	color: #546137;
 	text-align: center;
-	font-family: Inter;
 	font-style: normal;
 	font-weight: 700;
 	line-height: normal;
@@ -120,7 +117,6 @@
 .content-reference-txt-td {
 	text-align: right;
 	color: #81291d;
-	font-family: Inter;
 	font-size: 2rem;
 	font-style: normal;
 	font-weight: 700;

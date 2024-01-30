@@ -28,13 +28,13 @@ public class TimeselectC extends HttpServlet {
 	String service = null;
 	// 불러온 데이터 사용 예시
 	if (selectedService != null) {
-		if (selectedService.equals("texi")) {
+		if (selectedService.equals("taxi")) {
 			service = "taxiapply";
-			request.setAttribute("sevice", "TexiapplyC");
+			request.setAttribute("sevice", "TaxiapplyC");
 			request.setAttribute("manChecked", "checked");
 		}else {
-			if (selectedService.equals("nursingTexi")) {
-				request.setAttribute("service", "NursingTexiC");
+			if (selectedService.equals("nursingTaxi")) {
+				request.setAttribute("service", "NursingTaxiC");
 			}
 			service = "nursingapply";
 			request.setAttribute("service", "NursingapplyC");

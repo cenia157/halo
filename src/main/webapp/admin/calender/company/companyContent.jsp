@@ -60,10 +60,10 @@
 
 				<div class="confirm-delete">
 					<div class="confirm-delete-content">
-						<div class="confirm-delete-content-announce">해당일정을 삭제하시겠습니까?</div>
+						<div class="confirm-delete-content-announce">選択したスケジュールを削除しますか</div>
 						<div class="confirm-delete-content-accept">
-						<div class="confirm-delete-agree" onclick="rowScheduleDelete('agree')">확인</div>
-						<div class="confirm-delete-disagree" onclick="rowScheduleDelete('disagree')">취소</div>
+						<div class="confirm-delete-agree" onclick="rowScheduleDelete('agree')">確認</div>
+						<div class="confirm-delete-disagree" onclick="rowScheduleDelete('disagree')">取り消し</div>
 						</div>
 					</div>
 				</div>

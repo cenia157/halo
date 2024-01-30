@@ -17,7 +17,7 @@
 		<div class="content-serviceselect-box-td">
 			<div class="content-serviceoption-td">
 			<label >
-				<input type="radio" name="service" value="nursingTexi"
+				<input type="radio" name="service" value="nursingTaxi"
 					id="service" checked> <br> 介護サービス & <br> 介護タクシーサービス</label><br>
 			</div>
 			<div class="content-serviceoption-td">
@@ -28,7 +28,7 @@
 
 			<div class="content-serviceoption-td">
 			<label>
-				<input type="radio" name="service" value="texi" id="service"> <br> 介護タクシーサービス</label>
+				<input type="radio" name="service" value="taxi" id="service"> <br> 介護タクシーサービス</label>
 			</div>
 		</div>
 		<div class="content-servicebtn-box-td">

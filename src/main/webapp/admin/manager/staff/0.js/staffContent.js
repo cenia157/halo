@@ -101,7 +101,7 @@ window.onload = function() {
 		let updateSeq = document.querySelector('#staff-seq');
 
 		if (!updateName.value || !updatePos.value || !updatePhonnum.value || !updateEntryDate.value || !updateColor.value || !updateAddr.value || !updateSeq.value) {
-			alert('모든 값을 입력해주세요.');
+			alert('すべての値を入力します。');
 			return; // 함수 종료
 		}
 
@@ -135,7 +135,7 @@ window.onload = function() {
 		let updateSeq = document.querySelector('#staff-seq');
 
 		// 삭제 전 확인 메시지 표시
-		let confirmDelete = confirm('정말로 삭제하시겠습니까?');
+		let confirmDelete = confirm('本当に削除しますか？');
 
 		// 사용자가 '확인'을 클릭했을 때만 삭제 실행
 		if (confirmDelete) {
@@ -149,7 +149,7 @@ window.onload = function() {
 				}),
 			}).then(() => {
 				// 삭제 완료 메시지 표시
-				alert('삭제 완료');
+				alert('削除完了です。');
 
 				// 삭제 후 필요한 작업 수행
 				const staffUpdate = document.querySelector(".staff-table");
@@ -161,7 +161,7 @@ window.onload = function() {
 			});
 		} else {
 			// '취소'를 클릭한 경우
-			alert('삭제가 취소되었습니다.');
+			alert('削除が取り消されました。');
 		}
 	});
 

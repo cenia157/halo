@@ -19,8 +19,9 @@ public class StaffRegC extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		StaffDAO.staffReg(request);
-		request.setAttribute("menu", "/admin/manager/staff/staffContent.jsp");
-		request.getRequestDispatcher("admin/index.jsp").forward(request, response);
+		response.sendRedirect("StaffC");
+//		request.setAttribute("menu", "/admin/manager/staff/staffContent.jsp");
+//		request.getRequestDispatcher("admin/index.jsp").forward(request, response);
 	
 	}
 

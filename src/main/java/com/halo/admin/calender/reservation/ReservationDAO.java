@@ -52,12 +52,12 @@ public class ReservationDAO {
 				String startPoint = rs.getString("sa_start_place");
 				String endPoint = rs.getString("sa_end_place");
 				String nurssingInfo = rs.getString("sa_nurssing_info");
-				String texiInfo = rs.getString("sa_texi_info");
+				String taxiInfo = rs.getString("sa_taxi_info");
 				String registrationDate = rs.getString("sa_registration_date");
 				String service = rs.getString("sa_service");
 
 				schedule = new ReservationScheduleDTO(no, applicant, phoneNumber, userName, gender, birthDates, year,
-						month, dates, time, addr, startPoint, endPoint, nurssingInfo, texiInfo, registrationDate,
+						month, dates, time, addr, startPoint, endPoint, nurssingInfo, taxiInfo, registrationDate,
 						service);
 				reservationSchedule.add(schedule.toJson());
 			}

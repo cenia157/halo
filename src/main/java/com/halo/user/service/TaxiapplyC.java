@@ -10,8 +10,8 @@ import javax.servlet.http.HttpSession;
 
 import com.halo.main.MainpageDAO;
 
-@WebServlet("/TexiapplyC")
-public class TexiapplyC extends HttpServlet {
+@WebServlet("/TaxiapplyC")
+public class TaxiapplyC extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	}
 
@@ -20,8 +20,8 @@ public class TexiapplyC extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 	SeviceApplyDAO.calSelect(request);
 	SeviceApplyDAO.timeSelect(request);
-	SeviceApplyDAO.nursingTexi(request);
-	SeviceApplyDAO.texiApply(request);
+	SeviceApplyDAO.nursingTaxi(request);
+	SeviceApplyDAO.taxiApply(request);
 //	
 //	// 세션 객체 가져오기
 //		HttpSession session = request.getSession();
@@ -31,7 +31,7 @@ public class TexiapplyC extends HttpServlet {
 //		String service = null;
 //		// 불러온 데이터 사용 예시
 //		if (selectedService != null) {
-//			if (selectedService.equals("nursingTexi")) {
+//			if (selectedService.equals("nursingTaxi")) {
 //			}else {
 //			}
 //		    System.out.println("Selected Service: " + selectedService);

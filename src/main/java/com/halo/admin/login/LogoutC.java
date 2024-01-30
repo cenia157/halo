@@ -13,8 +13,8 @@ public class LogoutC extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		LoginDAO.logout(request);
-		response.sendRedirect("HC");
+//		LoginDAO.logout(request);
+		response.sendRedirect("LoginPageC");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
