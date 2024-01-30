@@ -43,7 +43,9 @@
 					style="background-image: url('user/upload_imgs/${hdto.h_logo_img}');">
 					<%-- 					<img src="user/upload_imgs/${hdto.h_logo_img}"> --%>
 				</div>
-				<div class="header-br-space"></div>
+				<div class="header-br-space">
+					<div class="mobileHamburg"> <img alt="" src="user/0.img/icon _menu_.png"> </div>
+				</div>
 				<!-- 전화번호 수정 가능하도록, 회사정보(footer 어트리뷰트) -->
 				<div class="header-br-call">Tel. ${hdto.h_tel_no}</div>
 			</div>
