@@ -45,10 +45,10 @@
 
 				<div class="reservation-modal">
 					<div class="reservation-modal-header">
-						<div class="reservation-modal-title">서비스유형</div>
+						<div class="reservation-modal-title">タイプ</div>
 						<div class="reservation-modal-content-time">
-							오전 <input type="checkbox" class="update-time-checkBox" name="update-time" value="AM">
-							오후 <input type="checkbox" class="update-time-checkBox" name="update-time" value="PM">
+							午前 <input type="checkbox" class="update-time-checkBox" name="update-time" value="AM">
+							午後 <input type="checkbox" class="update-time-checkBox" name="update-time" value="PM">
 						</div>
 						<div class="reservation-modal-close"></div>
 					</div>

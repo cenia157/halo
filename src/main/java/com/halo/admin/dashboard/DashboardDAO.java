@@ -126,9 +126,7 @@ public class DashboardDAO {
 				unAnsweredNotice.setC_reg_date(rs.getDate("c_reg_date"));
 				unAnsweredNotice.setC_answer(rs.getString("c_answer"));
 
-				System.out.println(unAnsweredNotice);
 				unAnswered.add(unAnsweredNotice);
-				
 			}
 
 			dDTO.setUnAnswered(unAnswered);
@@ -204,9 +202,12 @@ public class DashboardDAO {
 			response.setContentType("application/json; charset=utf-8");
 
 			// 데이터베이스 연동
-			String sql = "select * from staff_sift left outer join staff_info on s_no = f_staffno";
+			String sql = "select * from staff_sift left outer join staff_info on s_no = f_staffno where f_month = ?";
 			con = DBManagerhalo.connect();
 			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, request.getParameter("month"));
+			
 			rs = pstmt.executeQuery();
 
 			// 일정 배열 생성
