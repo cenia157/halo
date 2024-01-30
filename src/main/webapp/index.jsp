@@ -43,7 +43,9 @@
 					style="background-image: url('user/upload_imgs/${hdto.h_logo_img}');">
 					<%-- 					<img src="user/upload_imgs/${hdto.h_logo_img}"> --%>
 				</div>
-				<div class="header-br-space"></div>
+				<div class="header-br-space">
+					<div class="mobileHamburg"> <img alt="" src="user/0.img/icon _menu_.png"> </div>
+				</div>
 				<!-- 전화번호 수정 가능하도록, 회사정보(footer 어트리뷰트) -->
 				<div class="header-br-call">Tel. ${hdto.h_tel_no}</div>
 			</div>
@@ -128,13 +130,13 @@
 			<div class="remote-control-td2 btn-pointer" id="goTop">
 				<img src="user/0.img/re-up.png" width="55%" alt="" />
 			</div>
-			<div class="remote-control-td">上段</div>
+			<div class="remote-control-td">アップ</div>
 		</div>
 		<div class="remote-control-tr">
 			<div class="remote-control-td2 btn-pointer">
 				<img src="user/0.img/line-icon22.png" width="60%" alt="" />
 			</div>
-			<div class="remote-control-td">1:1<br>お問い合わせ</div>
+			<div class="remote-control-td">1:1チャット</div>
 		</div>
 	</div>
 	<!-- 리모컨 끝 -->

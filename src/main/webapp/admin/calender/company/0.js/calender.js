@@ -417,14 +417,14 @@ function getScheduleDetailModal(e, directDetail) {
 	// 일정
 	for (i = 0; i < selectDetailSchedule.date.split(',').length; i++) {
 		if (i == 0) {
-			document.querySelector('.detail-schedule-content').innerHTML += '<div class="datail-schedule-txt show" style="padding-bottom : 10%"><span>' + selectDetailSchedule.txt + '</span><a onclick="updateAtagClick(this)">수정</a></div>'
-			document.querySelector('.detail-schedule-content').innerHTML += '<div class="datail-schedule-txt" style="padding-bottom : 10%"><input value="' + selectDetailSchedule.txt + '"><a onclick="updateTxt(this)" >저장</a><a onclick="updateAtagClick(this)" class="update-txt-cancel">취소</a></div>'
+			document.querySelector('.detail-schedule-content').innerHTML += '<div class="datail-schedule-txt show" style="padding-bottom : 10%"><span>' + selectDetailSchedule.txt + '</span><a onclick="updateAtagClick(this)">修正</a></div>'
+			document.querySelector('.detail-schedule-content').innerHTML += '<div class="datail-schedule-txt" style="padding-bottom : 10%"><input value="' + selectDetailSchedule.txt + '"><a onclick="updateTxt(this)" >保存</a><a onclick="updateAtagClick(this)" class="update-txt-cancel">取り消し</a></div>'
 		}
 
-		document.querySelector('.detail-schedule-content').innerHTML += '<div class="datail-schedule-data ' + (selectDetailSchedule.date.split(','))[i] + '"><div>' + selectDetailSchedule.year + '.' + selectDetailSchedule.month + '.' + (selectDetailSchedule.date.split(','))[i] + '</div><a onclick="deleteScheduleDateClick(this)" class="delete-detail-data">삭제</a><a onclick="deleteScheduleDate(this)" class="delete-detail-data">삭제 확인</a><a onclick="deleteScheduleDateClick(this)" class="delete-detail-data">취소</a></div>';
+		document.querySelector('.detail-schedule-content').innerHTML += '<div class="datail-schedule-data ' + (selectDetailSchedule.date.split(','))[i] + '"><div>' + selectDetailSchedule.year + '.' + selectDetailSchedule.month + '.' + (selectDetailSchedule.date.split(','))[i] + '</div><a onclick="deleteScheduleDateClick(this)" class="delete-detail-data">削除</a><a onclick="deleteScheduleDate(this)" class="delete-detail-data">削除確認</a><a onclick="deleteScheduleDateClick(this)" class="delete-detail-data">取り消し</a></div>';
 
 		if (i == selectDetailSchedule.date.split(',').length - 1) {
-			document.querySelector('.detail-schedule-content').innerHTML += '<div class="delete-all-detail-data" style="padding-top : 10%"><a onclick="rowScheduleDeleteClick(this)">전체삭제</a></div>'
+			document.querySelector('.detail-schedule-content').innerHTML += '<div class="delete-all-detail-data" style="padding-top : 10%"><a onclick="rowScheduleDeleteClick(this)">全部削除</a></div>'
 		}
 
 		document.querySelector('.current.date' + selectDetailSchedule.date.split(',')[i]).children[0].style.backgroundColor = '#ACF6B3';
@@ -493,7 +493,7 @@ function updateAtagClick(atag) {
 	atagParent.classList.remove('show');
 
 
-	if (atag.innerText == '수정') {
+	if (atag.innerText == '修正') {
 		atagParent.nextSibling.classList.add('show');
 	} else {
 		atagParent.previousSibling.classList.add('show');
@@ -534,7 +534,7 @@ function updateTxt(atag) {
 // 일정 데이터 한개삭제 전 클릭
 function deleteScheduleDateClick(atag) {
 
-	if (atag.innerText == '삭제') {
+	if (atag.innerText == '削除') {
 		if (document.querySelectorAll('.datail-schedule-data').length == 1) {
 
 			rowScheduleDeleteClick(atag);

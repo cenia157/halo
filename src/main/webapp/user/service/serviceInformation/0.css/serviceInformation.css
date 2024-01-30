@@ -47,7 +47,6 @@ a:visited  {
 	color: #62733d;
 	text-align: center;
 	text-shadow: 6px 6px 6px #ffdf6c;
-	font-family: Inter;
 	font-style: normal;
 	font-weight: 700;
 	line-height: normal;
@@ -58,7 +57,6 @@ a:visited  {
 	color: #62733d;
 	text-align: center;
 	text-shadow: 6px 6px 6px #ffdf6c;
-	font-family: Inter;
 	font-size: 2.5rem;
 	font-style: normal;
 	font-weight: 700;
@@ -78,7 +76,6 @@ a:visited  {
 .content-tab2-td {
 	color: #fff;
 	text-align: center;
-	font-family: Inter;
 	font-size: 2.5rem;
 	font-style: normal;
 	font-weight: 700;
@@ -114,7 +111,6 @@ a:visited  {
 .content-subtab-td {
 	color: #546137;
 	text-align: right;
-	font-family: Inter;
 	font-style: normal;
 	font-weight: 700;
 	line-height: normal;
@@ -160,7 +156,6 @@ a:visited  {
 .content-title-td {
 	color: #546137;
 	text-align: center;
-	font-family: Inter;
 	font-size: 1.8rem;
 	font-style: normal;
 	font-weight: 700;

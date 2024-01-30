@@ -53,9 +53,9 @@
 						<div class="confirm-delete-content-announce">해당직원의 일정을 삭제하시겠습니까?</div>
 						<div class="confirm-delete-content-accept">
 							<div class="confirm-delete-agree"
-								onclick="siftDelete()">확인</div>
+								onclick="siftDelete()">確認</div>
 							<div class="confirm-delete-disagree"
-								onclick="siftDeleteClose()">취소</div>
+								onclick="siftDeleteClose()">取り消し</div>
 						</div>
 					</div>
 				</div>

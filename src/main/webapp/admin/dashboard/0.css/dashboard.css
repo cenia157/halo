@@ -71,7 +71,7 @@
 
 .deshboard-todo-list-2 {
 	width: 100%;
-	height: 80%;
+	height: 70%;
 }
 
 .deshboard-todo {
@@ -92,16 +92,32 @@
 	overflow-y: scroll;
 }
 
+.reservationList::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
+}
+
 .qalist {
 	overflow-y: scroll;
+}
+
+.qalist::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
 }
 
 .eventlist {
 	overflow-y: scroll;
 }
 
+.eventlist::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
+}
+
 .staffList {
 	overflow-y: scroll;
+}
+
+.staffList::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
 }
 
 .service {

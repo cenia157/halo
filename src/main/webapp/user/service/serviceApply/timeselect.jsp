@@ -20,12 +20,12 @@
 		<div class="content-time-select-box-td">
 			<div class="content-time-option-td">
 			<label >
-				<input type="radio" name="selectedTime" value="allday"
+				<input type="radio" name="selectedTime" value="AM,PM"
 					id="selectedTime" checked> <br> 終日 <br> 08:00~18:00 </label><br>
 			</div>
 			<div class="content-time-option-td">
 				<label>
-				<input type="radio" name="selectedTime" value="nursing" id="selectedTime">
+				<input type="radio" name="selectedTime" value="AM" id="selectedTime">
 				<br> 午前 <br> 08:00~12:00</label>
 			</div>
 

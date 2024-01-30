@@ -10,12 +10,12 @@
 	rel="stylesheet" />
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/user/service/serviceApply/0.css/taxiapply.css" />
-	<script src="${pageContext.request.contextPath}/user/service/serviceApply/0.js/texiDateOption.js">
+	<script src="${pageContext.request.contextPath}/user/service/serviceApply/0.js/taxiDateOption.js">
     </script>
 </head>
 <body>
 
-		<form action="TexiapplyC" method="post">
+		<form action="TaxiapplyC" method="post">
 		<input type="hidden" name="selectedStart" value="${selectedStart }">
 		<input type="hidden" name="selectedEnd" value="${selectedEnd }">
 		<input type="hidden" name="selectedTime" value="${selectedTime }">
