@@ -17,7 +17,7 @@
 		<form action="InformUpdateC" method="post">
 			<div class="CompanyInformation">
 				<div class="CompanyInformation-large">
-					<div class="CompanyInformation-info">회사의주소</div>
+					<div class="CompanyInformation-info">会社住所</div>
 					<div class="CompanyInformation-txt">
 						<!-- 회사 주소 인풋 -->
 						<textarea name="h_address" class="CompanyInformation-textarea-big" rows="" cols=""
@@ -27,7 +27,7 @@
 				<div class="CompanyInformation-small">
 					<div class="CompanyInformation-small-tr">
 						<div class="CompanyInformation-small-td">
-							<div class="CompanyInformation-info">회사의 전화번호</div>
+							<div class="CompanyInformation-info">会社電話番号</div>
 							<div class="CompanyInformation-txt">
 							<!-- 회사 전화번호 인풋 -->
 								<textarea name="h_tel_no" class="CompanyInformation-textarea-mini" rows=""
@@ -35,7 +35,7 @@
 							</div>
 						</div>
 						<div class="CompanyInformation-small-td">
-							<div class="CompanyInformation-info">회사의 휴대전화</div>
+							<div class="CompanyInformation-info">会社携帯</div>
 							<div class="CompanyInformation-txt">
 							<!-- 회사 휴대전화 인풋 -->
 								<textarea name="h_phone_no" class="CompanyInformation-textarea-mini" rows=""
@@ -45,7 +45,7 @@
 					</div>
 					<div class="CompanyInformation-small-tr">
 						<div class="CompanyInformation-small-td">
-							<div class="CompanyInformation-info">회사의 이메일</div>
+							<div class="CompanyInformation-info">会社イーメール</div>
 							<div class="CompanyInformation-txt">
 							<!-- 회사 이메일 인풋 -->
 								<textarea name="h_email" class="CompanyInformation-textarea-mini" rows=""
@@ -53,7 +53,7 @@
 							</div>
 						</div>
 						<div class="CompanyInformation-small-td">
-							<div class="CompanyInformation-info">회사의 FAX</div>
+							<div class="CompanyInformation-info">会社FAX</div>
 							<div class="CompanyInformation-txt">
 							<!-- 회사 FAX 인풋 -->
 								<textarea name="h_fax_no" class="CompanyInformation-textarea-mini" rows=""
@@ -70,7 +70,7 @@
 				<h2 class="logo_result success">${param.success}</h2>
 			<h2 class="logo_result error">${param.error}</h2>
 			</div>
-					<button class="content-button">변경</button>
+					<button class="content-button">変更</button>
 				</div>
 			</div>
 			</form>

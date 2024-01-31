@@ -88,7 +88,7 @@
 				</div>
 			</div>
 			<div class="content-button">
-				<button>변경</button>
+				<button>変更</button>
 			</div>
 		</form>
 	</div>

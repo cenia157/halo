@@ -26,16 +26,16 @@
 					<a href="InfoCompanyC">会社について</a>
 				</div>
 				<div class="content-box-td2 btn-pointer" onclick="location.href='InfoMapC'">
-					<a href="InfoMapC">アクセス</a>
+					<a href="InfoMapC">施設アクセス</a>
 				</div>
 			</div>
 
 			<div class="introduce-tr-box">
 				<div class="introduce-td1">
 					<img src="${pageContext.request.contextPath}/user/0.img//home.png"
-					 alt="" /> > 紹介 > アクセス
+					 alt="" /> > 紹介 > 施設アクセス
 				</div>
-				<div class="introduce-td2">アクセス</div>
+				<div class="introduce-td2">施設アクセス</div>
 			</div>
 			<div class="introduce-tbl">
 				<div class="introduce-tr">

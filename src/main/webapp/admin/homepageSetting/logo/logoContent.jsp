@@ -25,7 +25,7 @@
 
 		<div class="content-m-td-2-side">
 			<div class="content-m-td-2-side-up">
-				<div class="content-m-td-2-side-up-title">현재로고</div>
+				<div class="content-m-td-2-side-up-title">現在ロゴ</div>
 			</div>
 			<div class="content-m-td-2-side-mid">
 
@@ -47,7 +47,7 @@
 		<!-- 		오른쪽(변경로고) 큰 div   form태그 감싸기, logoUpdateC, post로 img경로값 보내기 -->
 			<div class="content-m-td-2-side2">
 				<div class="content-m-td-2-side-up">
-					<div class="content-m-td-2-side-up-title">변경로고</div>
+					<div class="content-m-td-2-side-up-title">変更ロゴ</div>
 				</div>
 
 				<div class="content-m-td-2-side-mid2">
@@ -57,7 +57,7 @@
 							<!-- 바뀔 이미지 미리보기(Ajax) -->
 									<label for="logo_img">
 								<img id="logo_preview"
-									src="${pageContext.request.contextPath}/admin/0.img/logo_upload.png">
+									src="${pageContext.request.contextPath}/admin/0.img/fileUpload_pre.png">
 									</label>
 							<!-- 변경할 로고이미지 인풋 -->
 						<form action="LogoUploadC" id="fileUploadForm" method="post"
@@ -72,7 +72,7 @@
 					<div class="content-m-td-2-side-down-button">
 						<!-- 변경완료버튼, 실제DB에 업뎃되면서 대기이미지로 바뀜 -->
 						<button type="button" class="content-button" id="logo_btn_submit"
-							onclick="#">변경완료</button>
+							onclick="#">変更完了</button>
 					</div>
 				</div>
 			</div>
