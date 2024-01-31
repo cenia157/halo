@@ -15,13 +15,13 @@
 	transition: transform 2s ease-out;
 }
 /* 임시 배경이미지 */
-body {
-	background-image: url("../0.img/backgroundmg-demo.png");
-}
+/* body { */
+/* 	background-image: url("../0.img/backgroundmg-demo.png"); */
+/* } */
 
-.background {
-	display: none;
-}
+/* .background { */
+/* 	display: none; */
+/* } */
 
 /* 슬로건 */
 .slogan-tbl {
