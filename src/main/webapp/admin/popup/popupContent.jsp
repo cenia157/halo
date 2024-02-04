@@ -37,7 +37,7 @@
 				<div class="banner-td-2">
 <%-- 				<img src="${pageContext.request.contextPath}/admin/0.img/url_icon.png" alt="이미지준비중"> --%>
 				<div>url :&nbsp;</div>
-				<input class="banner-url popup-input-line" id="banner_url1" name="banner_url1" type="text">
+				<input class="popup-input-line" id="banner_url1" name="banner_url1" type="text">
 				</div>
 				<!-- 팝업(포스터) 이미지 설정 -->
 				<div class="banner-td-2">

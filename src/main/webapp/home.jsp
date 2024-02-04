@@ -65,7 +65,7 @@
 		</div>
 		<div class="main-map-tr2">
 			<div class="main-map-td1 btn-pointer"
-				onclick="location.href='InfoMapC'">アクセス</div>
+				onclick="location.href='InfoMapC'">施設アクセス</div>
 			<div class="main-map-td2">
 				<div>
 					●住所<br />大阪府守口市馬場町3-14-6メゾンエミール701号
