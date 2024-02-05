@@ -56,7 +56,7 @@
 	border: solid 6px rgb(221, 226, 229);
 	border-radius: 20px;
 	width: 100%;
-	height: 40%;
+	height: 65%;
 	margin-bottom: 1.5%;
 	background-size: contain; /* 이미지 div에 전체 */
 	background-position: center;
@@ -119,4 +119,7 @@
 	align-items: center;
 	justify-content: space-between;
 	font-weight: 700;
+}
+#urlBox{
+	display: none;
 }

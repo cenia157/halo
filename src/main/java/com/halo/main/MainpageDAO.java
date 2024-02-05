@@ -371,6 +371,8 @@ public class MainpageDAO {
 		
 	}
 	
+	//팝업 업뎃
+	
 	
 	
 }

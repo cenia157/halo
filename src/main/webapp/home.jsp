@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet"
 	href="user/introduce/announcement/0.css/announcement_contentPage.css" />
+	<link rel="stylesheet" href="user/0.css/popup.css">
 	<!-- 제이쿼리 -->
 <script src="https://code.jquery.com/jquery-3.7.1.js"
 	integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
@@ -143,6 +144,57 @@
       </div>
     </div>
 <!--모달끝-->
-
+<c:if test="${modalSetting == 1 }">
+        <div id="modalContainer" class="">
+            <div id="modalContent" >
+            	<div id="modal-img" style="background-image: url('${pageContext.request.contextPath}/user/upload_imgs/popupImg/popup_poster.png');" onclick="movePage()">
+            	</div>
+            	<div id="buttonArea"><span>&nbsp; 今日はもう見ない &nbsp; <input type="checkbox" id="pop-checkbox"></span><button id="modalCloseButton">閉じる</button></div>
+            </div>
+        </div>
+    </c:if>
+    
 </body>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+    // Your code here
+    console.log('Document is fully loaded and parsed');
+    // You can now safely manipulate the DOM or perform other actions.
+    const modalBackground = document.getElementById('modalContainer');
+    const modalCloseButton = document.getElementById('modalCloseButton');
+    const modal = document.getElementById('modalContainer');
+    const checked = document.getElementById('pop-checkbox');
+
+    var modalCookie = document.cookie.replace(/(?:(?:^|.*;\s*)modalClose\s*=\s*([^;]*).*$)|^.*$/, "$1");
+    if (modalCookie === "close") {
+     modal.classList.add('hidden');
+   }
+
+    modalCloseButton.addEventListener('click', () => {
+    	if(checked.checked){
+    		// 현재 날짜와 시간을 가져오기
+    	    var currentDate = new Date();
+
+    	    // 오늘의 날짜와 시간을 0시 0분 0초로 설정
+    	    currentDate.setHours(0, 0, 0, 0);
+
+    	    // 오늘의 12시(밤 12시)에 만료되도록 설정
+    	    var expirationDate = new Date(currentDate);
+    	    expirationDate.setHours(20, 0, 0, 0);
+
+    	    // 만료 일자를 문자열로 변환
+    	    var expires = "; expires=" + expirationDate.toLocaleString();
+
+    	    // 쿠키 생성
+    	    document.cookie = "modalClose" + "=" + "close" + expires + "; path=/";
+    		
+    	}
+    	
+        modal.classList.add('hidden');
+    	
+    });
+
+});
+
+</script>
 </html>

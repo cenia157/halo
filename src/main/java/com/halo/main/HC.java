@@ -19,6 +19,7 @@ public class HC extends HttpServlet {
 //			request.setAttribute("menu", "user/menu-index.jsp");
 //			request.setAttribute("subMenu", subMenu + ".jsp");
 		request.setAttribute("menu", "home.jsp");
+		request.setAttribute("modalSetting", 1);
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 
 	}
