@@ -371,8 +371,101 @@ public class MainpageDAO {
 		
 	}
 	
-	//팝업 업뎃
+	//팝업 미리보기
+	public void uploadPopup(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		String savepath = request.getServletContext().getRealPath("user/upload_imgs/popupImg/");
+		MultipartRequest mr = new MultipartRequest(request, savepath, 1024*1024*20, "utf-8", new DefaultFileRenamePolicy());
+		 
+		String fileName = mr.getFilesystemName("thumbnail");
+		 System.out.println("업로드할 파일 :" + fileName);
+		 Gson gson = new Gson();
+		 gson.toJson(fileName);
+		 response.getWriter().print(fileName);
+		 System.out.println(fileName);
+		 
+		
+	}
 	
+	//팝업 업뎃
+	public void updatePopup(HttpServletRequest request, HttpServletResponse response) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		String paramName = "error";
+		String param = "등록 실패";
+		String sql = "";
+		
+		try {
+			con = DBManagerhalo.connect();
+			String popupMenu = request.getParameter("popupMenu");
+			String popupImg = request.getParameter("popupImg");
+			
+			if(popupMenu.equals("url")) {
+				String popupUrl = request.getParameter("popupUrl");
+				sql = "update popup_tbl set p_img=?, p_url=?";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, popupImg);
+				pstmt.setString(2, popupUrl);
+			} else {
+				sql = "update popup_tbl set p_img=?, p_url=(select m_servlet from menu_tbl where m_name =?)";
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, popupImg);
+				pstmt.setString(2, popupMenu);
+			}
+		
+				if(pstmt.executeUpdate() > 0) {
+					System.out.println("업뎃 성공");
+				} else {
+					System.out.println("업뎃 실패");
+				}
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("db server error...");
+		}finally {
+			request.setAttribute("paramName", paramName);
+			request.setAttribute("param", param);
+			DBManagerhalo.close(con, pstmt, null);
+		}
+		
+	}
+	
+	public void getPopupInfoForAdmin(HttpServletRequest request) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "select p_img, p_url, p_flag, nvl(m_text,'URL') as m_text from popup_tbl left outer join menu_tbl on m_servlet = p_url";
+		try {
+			con = DBManagerhalo.connect();
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			PopupDTO pdto = null;
+			
+			if (rs.next()) {
+				pdto = new PopupDTO();
+				pdto.setP_img(rs.getString("p_img"));
+				pdto.setP_url(rs.getString("p_url"));
+				pdto.setP_flag(Integer.parseInt(rs.getString("p_flag")));
+				pdto.setM_text(rs.getString("m_text"));
+
+				
+				//뷰에 뿌릴 어트리뷰트
+				System.out.println(rs.getString("m_text"));
+				System.out.println(rs.getString("m_text"));
+				request.setAttribute("pdto", pdto);	
+				rs.getString("m_text");
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			DBManagerhalo.close(con, pstmt, rs);
+			//빠른메뉴 메인상단베너, 하단베너 출력
+			getTopBanner(request);
+			getBottomBanner(request);
+		}
+		
+	}
 	
 	
 }

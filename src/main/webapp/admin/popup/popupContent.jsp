@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,22 +8,44 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/admin/popup/0.css/popupContent.css" />
 <script type="text/javascript" src="${pageContext.request.contextPath}/admin/popup/0.js/popup.js"></script>
+<!-- 제이쿼리 -->
+<script src="https://code.jquery.com/jquery-3.7.1.js"
+	integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+	crossorigin="anonymous"></script>
 </head>
 <body>
 	<div class="content-m-td-3">
 		<div class="popup-content">
 			<div class="popup-tbl">
 			<div class="popup-tr">
-			<div class="popup-title"><h1>変更前</h1></div>
+			<div class="popup-title"><h1>現在popup</h1></div>
 				<!-- ajax미리보기 이미지 박스 -->
-				<div class="popup-td-img-box" id="banner_preview1" style="background-image: url('${pageContext.request.contextPath}/admin/0.img/banner_preview_img.png');">
+				<div class="popup-td-img-box" id="banner_preview1" style="background-image: url('${pageContext.request.contextPath}/admin/0.img/${pdto.p_img }');">
+				</div>
+				<div class="banner-td-3">
+					<div>メニュー :&nbsp;</div>
+					<input class="popup-input-line" placeholder="${pdto.m_text}" id="banner_url1" name="banner_url1" type="text" readonly="readonly">
+				</div>
+				<div class="banner-td-3">
+					<c:if test="${pdto.m_text=='URL' }">
+					<div>url :&nbsp;</div>
+					<input class="popup-input-line" placeholder="${pdto.p_url }" id="banner_url1" name="banner_url1" type="text" readonly="readonly">
+					</c:if>
+				</div>
+				<div class="banner-td-3">
+					<div>Popup有無 :&nbsp;</div>
+					<input type="radio" name="popup-radio" ${pdto.p_flag == '1' ? 'checked="checked"' : '' }  > on
+					<input type="radio" name="popup-radio" ${pdto.p_flag == '0' ? 'checked="checked"' : '' } > off 
 				</div>
 			</div>
-			
+			<!-- 화살표 -->
+			<div class="arrow">
+				<img alt="" src="${pageContext.request.contextPath}/admin/0.img/Vector.png">
+			</div>
 				<div class="popup-tr">
-				<div class="popup-title"><h1>変更予定</h1></div>
+				<div class="popup-title"><h1>プレビュー</h1></div>
 				<!-- ajax미리보기 이미지 박스 -->
-				<div class="popup-td-img-box" id="banner_preview1" style="background-image: url('${pageContext.request.contextPath}/admin/0.img/banner_preview_img.png');">
+				<div class="popup-td-img-box" id="banner_preview2" style="background-image: url('${pageContext.request.contextPath}/admin/0.img/banner_preview_img.png');">
 				</div>
 				<!-- 빠른메뉴 설정(셀렉) -->
 				<div class="popup-select-box">
@@ -46,23 +69,27 @@
 				<div class="banner-td-2" id="urlBox">
 <%-- 				<img src="${pageContext.request.contextPath}/admin/0.img/url_icon.png" alt="이미지준비중"> --%>
 				<div>url :&nbsp;</div>
-				<input class="popup-input-line" id="banner_url1" name="banner_url1" type="text">
+				<input class="popup-input-line url-input" id="banner_url1" name="banner_url1" type="text">
 				</div>
 				<!-- 팝업(포스터) 이미지 설정 -->
-				<div class="banner-td-2">
+				<div class="banner-td-2 upload-input-box">
 <%-- 				<img src="${pageContext.request.contextPath}/admin/0.img/fileDown.png" alt="이미지준비중"> --%>
-				<div>popupImg :&nbsp;</div>
-	<form action="BannerUploadC" id="bannerUploadForm1" method="post" enctype="multipart/form-data">
-				<label for="thumbnail1 popup-input-line">
-				<div class="btn-upload">アップロード</div>
+				<div>イメージ :&nbsp;</div>
+	<form action="BannerUploadC" id="fileUploadForm" method="post" enctype="multipart/form-data">
+				<label for="thumbnail1">
+				<div class="btn-upload popup-input-line">アップロード</div>
 				</label>
-				<input onchange="handleFileUpload()" hidden="" type="file" class="file_input" name="banner_thumbnail" id="thumbnail1">
-				<input class="serverFileName" type="text" hidden="" value="empty">
+				<input onchange="handleFileUpload()" hidden="" type="file" class="file_input" name="thumbnail" id="thumbnail1">
+				<input class="serverFileName" id="serverFileName" type="text" hidden="" value="empty">
 			</form>
 				</div>
 				</div>
 			</div>
 		</div>
+			<!-- 최종 변경 버튼 칸 -->
+			<div class="content-button">
+				<button onclick="submitBannerData()">変更</button>
+			</div>
 		</div>
 	</div>
 </body>
