@@ -466,6 +466,14 @@ public class MainpageDAO {
 		}
 		
 	}
+
+	public void popupSet(HttpServletRequest request, HttpServletResponse response) {
+		
+			String popupRadio = request.getParameter("popup-radio");
+			System.out.println("라디오 : "+ popupRadio);
+		
+		
+	}
 	
 	
 }

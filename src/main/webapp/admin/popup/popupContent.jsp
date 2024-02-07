@@ -7,11 +7,11 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/admin/popup/0.css/popupContent.css" />
-<script type="text/javascript" src="${pageContext.request.contextPath}/admin/popup/0.js/popup.js"></script>
 <!-- 제이쿼리 -->
 <script src="https://code.jquery.com/jquery-3.7.1.js"
 	integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
 	crossorigin="anonymous"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/admin/popup/0.js/popup.js"></script>
 </head>
 <body>
 	<div class="content-m-td-3">
@@ -20,7 +20,7 @@
 			<div class="popup-tr">
 			<div class="popup-title"><h1>現在popup</h1></div>
 				<!-- ajax미리보기 이미지 박스 -->
-				<div class="popup-td-img-box" id="banner_preview1" style="background-image: url('${pageContext.request.contextPath}/admin/0.img/${pdto.p_img }');">
+				<div class="popup-td-img-box" id="banner_preview1" style="background-image: url('${pageContext.request.contextPath}/user/upload_imgs/popupImg/${pdto.p_img }');">
 				</div>
 				<div class="banner-td-3">
 					<div>メニュー :&nbsp;</div>
@@ -32,11 +32,15 @@
 					<input class="popup-input-line" placeholder="${pdto.p_url }" id="banner_url1" name="banner_url1" type="text" readonly="readonly">
 					</c:if>
 				</div>
+				<form action="" id="onOffFrom">
 				<div class="banner-td-3">
 					<div>Popup有無 :&nbsp;</div>
-					<input type="radio" name="popup-radio" ${pdto.p_flag == '1' ? 'checked="checked"' : '' }  > on
-					<input type="radio" name="popup-radio" ${pdto.p_flag == '0' ? 'checked="checked"' : '' } > off 
+					<div class="radio">
+					<input type="radio" onchange="checkPopupOnOff(0)" value="off" name="popup-radio" ${pdto.p_flag == '0' ? 'checked="checked"' : '' } > off 
+					<input type="radio" onchange="checkPopupOnOff(1)" value="on" name="popup-radio" ${pdto.p_flag == '1' ? 'checked="checked"' : '' } > on
+					</div>
 				</div>
+				</form>
 			</div>
 			<!-- 화살표 -->
 			<div class="arrow">

@@ -23,7 +23,8 @@ public class PopupC extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		MainpageDAO.getMdao().popupSet(request,response);
+		System.out.println("popupSet지나감");
 	}
 
 }

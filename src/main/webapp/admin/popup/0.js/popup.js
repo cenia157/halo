@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
 //	changeInformBox();
 //	submitBannerData(1);
+//alert(11);
 	
 
 });
@@ -60,7 +61,28 @@ function submitBannerData(){
 //	console.log("popupImgData.value :"+popupImgData.value);
 	location.href=url;
 	
-	
+}
+
+function checkPopupOnOff(index){
+	let formData = new FormData(document.querySelector("#onOffFrom"));
+	console.log("폼 : "+formData);
+	$.ajax({
+			type: "POST", // post 방식 요청
+			/*enctype: 'multipart/form-data',	// 파일 업로드 위한 인코딩 방식*/
+			url: 'PopupC', //서버로 요청 보낼 url
+			data: formData,		// 서버로 보낼 데이터로 formData 객체 사용
+			processData: false,	// 데이터 문자열로 변환하지 않도록
+			contentType: false, 
+			cache: false, // 캐시사용X
+			success: function(fileName) { // 성공시 실행되는 콜백함수
+//				if(index){
+//					
+//				}
+			},
+			error: function(e) {
+				console.log('에러 : ' + e);
+			}
+		});
 	
 }
 

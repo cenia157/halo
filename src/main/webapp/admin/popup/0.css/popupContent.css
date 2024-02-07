@@ -188,3 +188,9 @@
 	font-size: 1.5rem;
 	cursor: pointer;
 }
+
+.radio{
+	width: 55%;
+	display: flex;
+	justify-content: space-evenly;
+}
