@@ -15,13 +15,16 @@ public class PopupC extends HttpServlet {
 		request.setAttribute("menuname", "ポップアップ設定");
 		//지금컨트롤러, 결과 파라미터
 		MainpageDAO.getMdao().getAllHompage_common(request);
+		MainpageDAO.getMdao().getPopupInfoForAdmin(request);
 		//Admin page 메뉴(index.jsp) 안고가기 => 디스페쳐
 		request.setAttribute("menu", "/admin/popup/popupContent.jsp");
 		request.getRequestDispatcher("admin/index.jsp").forward(request, response);
+		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
+		MainpageDAO.getMdao().popupSet(request,response);
+		System.out.println("popupSet지나감");
 	}
 
 }

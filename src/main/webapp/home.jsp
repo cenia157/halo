@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet"
 	href="user/introduce/announcement/0.css/announcement_contentPage.css" />
+	<link rel="stylesheet" href="user/0.css/popup.css">
 	<!-- 제이쿼리 -->
 <script src="https://code.jquery.com/jquery-3.7.1.js"
 	integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
@@ -65,7 +66,7 @@
 		</div>
 		<div class="main-map-tr2">
 			<div class="main-map-td1 btn-pointer"
-				onclick="location.href='InfoMapC'">アクセス</div>
+				onclick="location.href='InfoMapC'">施設アクセス</div>
 			<div class="main-map-td2">
 				<div>
 					●住所<br />大阪府守口市馬場町3-14-6メゾンエミール701号
@@ -143,6 +144,55 @@
       </div>
     </div>
 <!--모달끝-->
-
+<c:if test="${pdto.p_flag == 1 }">
+        <div id="modalContainer" class="">
+            <div id="modalContent" >
+            	<div class="btn-pointer" id="modal-img" onclick="location.href='${pdto.p_url}'" style="background-image: url('${pageContext.request.contextPath}/user/upload_imgs/popupImg/${pdto.p_img }');" onclick="movePage()">
+            	</div>
+            	<div id="buttonArea"><span>&nbsp; 今日はもう見ない &nbsp; <input type="checkbox" id="pop-checkbox"></span><button id="modalCloseButton">閉じる</button></div>
+            </div>
+        </div>
+    </c:if>
+    
 </body>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+    // Your code here
+    console.log('Document is fully loaded and parsed');
+    // You can now safely manipulate the DOM or perform other actions.
+    const modalBackground = document.getElementById('modalContainer');
+    const modalCloseButton = document.getElementById('modalCloseButton');
+    const modal = document.getElementById('modalContainer');
+    const checked = document.getElementById('pop-checkbox');
+
+    var modalCookie = document.cookie.replace(/(?:(?:^|.*;\s*)modalClose\s*=\s*([^;]*).*$)|^.*$/, "$1");
+    if (modalCookie === "close") {
+     modal.classList.add('hidden');
+   }
+
+    modalCloseButton.addEventListener('click', () => {
+    	if(checked.checked){
+    		today = new Date()
+    		var todayDate = new Date(today.toLocaleDateString());
+    		todayDate.setDate(todayDate.getDate() + 1);
+    		
+    	    // 쿠키 생성
+    	    document.cookie = "modalClose=close; path=/; expires="+ todayDate.toGMTString()+";";
+    		
+    	}
+    	
+        modal.classList.add('hidden');
+    	
+    });
+// 	today = new Date()
+// 	var todayDate = new Date(today.toLocaleDateString()); 
+// 	console.log("todayDate : "+todayDate);  : Wed Feb 07 2024 00:00:00 GMT+0900 (한국 표준시)
+// 	console.log(todayDate.toLocaleDateString());	yyyy.mm.dd
+// 	todayDate.setDate(todayDate.getDate() + 1);		+ 24h
+// 	console.log("+1 :" + todayDate);				+ 24h된 hu Feb 08 2024 00:00:00 GMT+0900 (한국 표준시)
+// 	console.log(todayDate.toLocaleDateString());	+ 24h된 yyyy.mm.dd
+
+});
+
+</script>
 </html>

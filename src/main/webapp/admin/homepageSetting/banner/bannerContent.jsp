@@ -68,7 +68,7 @@
 				<div>サムネイル :&nbsp;</div>
 	<form action="BannerUploadC" id="bannerUploadForm1" method="post" enctype="multipart/form-data">
 				<label for="thumbnail1">
-				<div class="btn-upload">파일업로드</div>
+				<div class="btn-upload">アップロード</div>
 				</label>
 				<input onchange="handleFileUpload(1)" type="file" class="banner_input" name="banner_thumbnail" id="thumbnail1">
 				<input class="serverFileName" type="text" hidden value="empty">
@@ -116,7 +116,7 @@
 				サムネイル :&nbsp;
 			<form action="BannerUploadC" id="bannerUploadForm2" method="post" enctype="multipart/form-data">
 				<label for="thumbnail2">
-				<div class="btn-upload">파일업로드</div>
+				<div class="btn-upload">アップロード</div>
 				</label>
 				<input onchange="handleFileUpload(2)" type="file" class="banner_input" name="banner_thumbnail" id="thumbnail2">
 				<input class="serverFileName" type="text" hidden value="empty">
@@ -163,7 +163,7 @@
 				サムネイル :&nbsp;
 			<form action="BannerUploadC" id="bannerUploadForm3" method="post" enctype="multipart/form-data">
 				<label for="thumbnail3">
-				<div class="btn-upload">파일업로드</div>
+				<div class="btn-upload">アップロード</div>
 				</label>
 				<input onchange="handleFileUpload(3)" type="file" class="banner_input" name="banner_thumbnail" id="thumbnail3">
 				<input class="serverFileName" type="text" hidden value="empty">
@@ -173,7 +173,7 @@
 			</div>
 		</div>
 		<div class="content-button">
-		<button id="banner_btn_submit" onclick="submitBannerData()">변경</button>
+		<button id="banner_btn_submit" onclick="submitBannerData()">変更</button>
 		</div>
 		</div>
 		

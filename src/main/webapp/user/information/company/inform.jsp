@@ -20,7 +20,7 @@
 					<a href="InfoCompanyC">会社について</a>
 				</div>
 				<div class="content-box-td2 btn-pointer" onclick="location.href='InfoMapC'">
-					<a href="InfoMapC">アクセス</a>
+					<a href="InfoMapC">施設アクセス</a>
 				</div>
 			</div>
 

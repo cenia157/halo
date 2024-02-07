@@ -48,9 +48,9 @@ function handleFileUpload(idx) {
 			success: function(fileName) { // 성공시 실행되는 콜백함수
 				//미리보기 이미지 띄우기
 				console.log(fileName + fileName[0]);
-				let bannetPreview = document.querySelector("#banner_preview" + idx);
+				let bannerPreview = document.querySelector("#banner_preview" + idx);
 				let url = "url(\'user/upload_imgs/banner/"+ fileName + "\')";
-				bannetPreview.style.backgroundImage = url;
+				bannerPreview.style.backgroundImage = url;
 				serverFileName[idx-1].value = fileName;
 			},
 			error: function(e) {

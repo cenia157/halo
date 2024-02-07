@@ -24,7 +24,7 @@
 				<c:if test="${bannerInform.b_type == 2 }">
 					<div class="bottom-venner-td sales-box"
 						style="background-image: url('${pageContext.request.contextPath}/user/upload_imgs/banner/${bannerInform.b_img_url}');"
-						onclick="openNewWindow('${bannerInform.b_url}');">상품명:
+						onclick="openNewWindow('${bannerInform.b_url}');">商品名:
 						${bannerInform.b_m_text}</div>
 				</c:if>
 			</c:forEach>
