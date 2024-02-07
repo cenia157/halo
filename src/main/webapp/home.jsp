@@ -147,7 +147,7 @@
 <c:if test="${pdto.p_flag == 1 }">
         <div id="modalContainer" class="">
             <div id="modalContent" >
-            	<div class="btn-pointer" id="modal-img" onclick="location.href='${pdto.p_url}'" style="background-image: url('${pageContext.request.contextPath}/user/upload_imgs/popupImg/${pdto.p_img }');" onclick="movePage()">
+            	<div class="btn-pointer" id="modal-img" onclick="window.open('${pdto.p_url}')" style="background-image: url('${pageContext.request.contextPath}/user/upload_imgs/popupImg/${pdto.p_img }');" onclick="movePage()">
             	</div>
             	<div id="buttonArea"><span>&nbsp; 今日はもう見ない &nbsp; <input type="checkbox" id="pop-checkbox"></span><button id="modalCloseButton">閉じる</button></div>
             </div>
@@ -184,6 +184,8 @@ document.addEventListener('DOMContentLoaded', function() {
         modal.classList.add('hidden');
     	
     });
+    
+    
 // 	today = new Date()
 // 	var todayDate = new Date(today.toLocaleDateString()); 
 // 	console.log("todayDate : "+todayDate);  : Wed Feb 07 2024 00:00:00 GMT+0900 (한국 표준시)
