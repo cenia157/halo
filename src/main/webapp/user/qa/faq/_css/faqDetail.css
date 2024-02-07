@@ -44,6 +44,18 @@ a {
 	align-items: center;
 }
 
+.faq-content-box-td1-0{
+	padding-top: 2rem;
+	padding-right: 2rem;
+	font-size: 1.5rem;
+	font-weight: 700;
+	color: #62733D;
+	text-align: right;
+}
+.faq-content-box-td1-0 > a{
+	color: inherit;
+}
+
 .faq-content-box-td1-1 {
 	height: 20vh;
 	display: flex;

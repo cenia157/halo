@@ -14,11 +14,11 @@ import com.halo.main.MainpageDAO;
 public class FaqC extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		MainpageDAO.getMdao().getAllHompage_common(request);
 		FAQDAO.getAllFAQ(request);
 		FAQDAO.getFAQDetail(request, response);
 		
 		
-		MainpageDAO.getMdao().getAllHompage_common(request);
 		String subMenu = "qa/faq/faq";
 		request.setAttribute("menu", "user/menu-index.jsp");
 		request.setAttribute("subMenu", subMenu + ".jsp");
