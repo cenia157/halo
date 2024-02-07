@@ -32,12 +32,12 @@
 					<input class="popup-input-line" placeholder="${pdto.p_url }" id="banner_url1" name="banner_url1" type="text" readonly="readonly">
 					</c:if>
 				</div>
-				<form action="" id="onOffFrom">
+				<form action="" id="onOffForm" method="post" enctype="multipart/form-data">
 				<div class="banner-td-3">
 					<div>Popup有無 :&nbsp;</div>
 					<div class="radio">
-					<input type="radio" onchange="checkPopupOnOff(0)" value="off" name="popup-radio" ${pdto.p_flag == '0' ? 'checked="checked"' : '' } > off 
-					<input type="radio" onchange="checkPopupOnOff(1)" value="on" name="popup-radio" ${pdto.p_flag == '1' ? 'checked="checked"' : '' } > on
+					<input type="radio" onchange="checkPopupOnOff(0)" value="0" name="popup-radio" ${pdto.p_flag == '0' ? 'checked="checked"' : '' } > off 
+					<input type="radio" onchange="checkPopupOnOff(1)" value="1" name="popup-radio" ${pdto.p_flag == '1' ? 'checked="checked"' : '' } > on
 					</div>
 				</div>
 				</form>
@@ -53,7 +53,6 @@
 				</div>
 				<!-- 빠른메뉴 설정(셀렉) -->
 				<div class="popup-select-box">
-<%-- 				<img src="${pageContext.request.contextPath}/admin/0.img/banner_icon.png"> --%>
 				<div>メニュー :&nbsp;</div>
 				<select class="popup-select popup-input-line" name="banner_menu1" id="banner_menu1" onchange="changeInformBox()">
 				<option value="info_com">会社について</option>

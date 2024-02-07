@@ -16,10 +16,9 @@ public class HC extends HttpServlet {
 		MainpageDAO.getMdao().getAllHompage_common(request);
 		
 		AnnouncedDAO.getMainAnnouncements(request);
-//			request.setAttribute("menu", "user/menu-index.jsp");
-//			request.setAttribute("subMenu", subMenu + ".jsp");
+		
+		MainpageDAO.getMdao().getPopupInfoForHC(request);
 		request.setAttribute("menu", "home.jsp");
-		request.setAttribute("modalSetting", 1);
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 
 	}

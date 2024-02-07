@@ -144,10 +144,10 @@
       </div>
     </div>
 <!--모달끝-->
-<c:if test="${modalSetting == 1 }">
+<c:if test="${pdto.p_flag == 1 }">
         <div id="modalContainer" class="">
             <div id="modalContent" >
-            	<div id="modal-img" style="background-image: url('${pageContext.request.contextPath}/user/upload_imgs/popupImg/popup_poster.png');" onclick="movePage()">
+            	<div class="btn-pointer" id="modal-img" onclick="location.href='${pdto.p_url}'" style="background-image: url('${pageContext.request.contextPath}/user/upload_imgs/popupImg/${pdto.p_img }');" onclick="movePage()">
             	</div>
             	<div id="buttonArea"><span>&nbsp; 今日はもう見ない &nbsp; <input type="checkbox" id="pop-checkbox"></span><button id="modalCloseButton">閉じる</button></div>
             </div>
@@ -172,27 +172,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
     modalCloseButton.addEventListener('click', () => {
     	if(checked.checked){
-    		// 현재 날짜와 시간을 가져오기
-    	    var currentDate = new Date();
-
-    	    // 오늘의 날짜와 시간을 0시 0분 0초로 설정
-    	    currentDate.setHours(0, 0, 0, 0);
-
-    	    // 오늘의 12시(밤 12시)에 만료되도록 설정
-    	    var expirationDate = new Date(currentDate);
-    	    expirationDate.setHours(20, 0, 0, 0);
-
-    	    // 만료 일자를 문자열로 변환
-    	    var expires = "; expires=" + expirationDate.toLocaleString();
-
+    		today = new Date()
+    		var todayDate = new Date(today.toLocaleDateString());
+    		todayDate.setDate(todayDate.getDate() + 1);
+    		
     	    // 쿠키 생성
-    	    document.cookie = "modalClose" + "=" + "close" + expires + "; path=/";
+    	    document.cookie = "modalClose=close; path=/; expires="+ todayDate.toGMTString()+";";
     		
     	}
     	
         modal.classList.add('hidden');
     	
     });
+// 	today = new Date()
+// 	var todayDate = new Date(today.toLocaleDateString()); 
+// 	console.log("todayDate : "+todayDate);  : Wed Feb 07 2024 00:00:00 GMT+0900 (한국 표준시)
+// 	console.log(todayDate.toLocaleDateString());	yyyy.mm.dd
+// 	todayDate.setDate(todayDate.getDate() + 1);		+ 24h
+// 	console.log("+1 :" + todayDate);				+ 24h된 hu Feb 08 2024 00:00:00 GMT+0900 (한국 표준시)
+// 	console.log(todayDate.toLocaleDateString());	+ 24h된 yyyy.mm.dd
 
 });
 
