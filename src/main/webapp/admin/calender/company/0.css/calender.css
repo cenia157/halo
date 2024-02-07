@@ -322,8 +322,9 @@ EDIT ON */
 	font-size: 1.5rem;
 	font-weight: 600;
 	width: 100%;
-	height: auto;
-	padding: 2%
+	height: 20vh;
+	padding: 2%;
+	overflow-y: scroll; 
 }
 
 .datail-schedule-data {

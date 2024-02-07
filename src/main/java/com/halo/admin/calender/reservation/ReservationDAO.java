@@ -291,9 +291,10 @@ public class ReservationDAO {
 			// Jackson ObjectMapper를 사용하여 JSON 문자열을 Map으로 변환
 			ObjectMapper objectMapper = new ObjectMapper();
 			Map<String, String> dataMap = objectMapper.readValue(request.getParameter("object"), Map.class);
-
+			System.out.println(dataMap.get("pkNo"));
+			
 			// 데이터 입력
-			pstmt.setString(1, dataMap.get("service"));
+			pstmt.setString(1, dataMap.get("title"));
 			pstmt.setString(2, dataMap.get("userName"));
 			pstmt.setString(3, dataMap.get("dates"));
 			pstmt.setString(4, dataMap.get("addr"));

@@ -626,7 +626,7 @@ function checkDate(e) {
 			document.querySelector('.input-date').value += i + ',';
 		}
 	}
-
+	
 	// 사용자가 보기위한 출력
 	document.querySelector('.input-date').value = document.querySelector('.input-date').value.slice(0, -1);
 }
@@ -881,6 +881,8 @@ function reservationConfirm(e) {
 	}
 
 	arrayName.title = document.querySelector('.reservation-modal-title').children[0].value;
+	arrayName.service = document.querySelector('.reservation-modal-title').children[0].value;
+	arrayName.phoneNumber = document.querySelector('.reservation-modal-content-phone').children[0].value;
 	arrayName.time = time;
 	arrayName.userName = document.querySelector('.reservation-modal-content-name').children[0].value;
 	arrayName.addr = document.querySelector('.reservation-modal-content-addr').children[0].value;
@@ -889,7 +891,7 @@ function reservationConfirm(e) {
 	arrayName.endPoint = document.querySelector('.reservation-modal-content-endpoint').children[0].value;
 	arrayName.feedBack = document.querySelector('.reservation-modal-content-notice').children[0].value;
 	arrayName.staff = document.querySelector('.default-manager').innerText;
-
+	
 	let params = {
 		object: JSON.stringify(arrayName)
 	}
@@ -911,7 +913,7 @@ function reservationConfirm(e) {
 
 			renderReservationSchedule();
 
-			reservationModalValue = "direct"
+			reservationModalValue = "direct";
 
 			reservationDetailModal();
 		})
@@ -1075,7 +1077,9 @@ function reservationInsertPageClose() {
 // 예약 신규 등록
 function reservationInsert() {
 	let time = '';
-
+	
+//	console.log(document.querySelector('.reservation-insert-book').children[0].value.split('月 ')[1]);
+	
 	if (document.querySelector('.reservation-insert-time input[value="AM"]').checked && document.querySelector('.reservation-insert-time input[value="PM"]').checked) {
 		time = document.querySelector('.reservation-insert-time input[value="AM"]').value + ',' + document.querySelector('.reservation-insert-time input[value="PM"]').value;
 	} else if (document.querySelector('.reservation-insert-time input[value="AM"]').checked) {

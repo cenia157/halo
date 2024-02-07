@@ -13,7 +13,6 @@ $(function() {
 	}
 
 	if (hardWear == 'pc') {
-		console.log(hardWear)
 		let menuhover = true;
 		let submenuhover = true;
 

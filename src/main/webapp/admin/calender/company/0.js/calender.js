@@ -329,7 +329,8 @@ function checkDate(e) {
 			document.querySelector('.input-date').value += i + ',';
 		}
 	}
-
+	
+	console.log(dateArr)
 	// 사용자가 보기위한 출력
 	document.querySelector('.input-date').value = document.querySelector('.input-date').value.slice(0, -1);
 }
@@ -363,7 +364,7 @@ function expandSchedule(e) {
 		for (i = 2; i < modalTitleData.length; i++) {
 			if (modalTitleData[0] != '') {
 				document.querySelector('.date-modal-content').innerHTML += '<div class="modalTitleData"><input class="detailValue" value="' + (modalTitleData[i].split('.'))[0]
-					+ '" type="hidden"><div>' + (modalTitleData[i].split('.'))[1] + '</div><a class="getScheduleDetail">상세보기</a></div>';
+					+ '" type="hidden"><div>' + (modalTitleData[i].split('.'))[1] + '</div><a class="getScheduleDetail">詳細ページ</a></div>';
 			}
 		}
 
@@ -442,7 +443,7 @@ function getScheduleDetailModal(e, directDetail) {
 		document.querySelectorAll('.datail-schedule-data')[i].children[1].style.display = 'flex';
 		document.querySelectorAll('.datail-schedule-data')[i].children[2].style.display = 'none';
 		document.querySelectorAll('.datail-schedule-data')[i].children[3].style.display = 'none';
-		document.querySelectorAll('.datail-schedule-data')[i].children[3].style.marginLeft = '-30%';
+		document.querySelectorAll('.datail-schedule-data')[i].children[3].style.marginLeft = '-20%';
 	}
 
 	if (dateDetailModal == 1) {
